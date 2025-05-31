@@ -205,7 +205,9 @@ Ideen für  **rebellische Ingenieure**, die:
 
 
 ## Lizenz
+Distributed under the MIT License. See [LICENSE.txt](LICENSE.txt) for full text.
 
-[MIT License](LICENSE) - Für diejenigen, die Wissen befreien wollen!
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+Für diejenigen, die Wissen befreien wollen!
 
 **Warnung:** Dieses System könnte etablierte Quantendogmen in Frage stellen. Nutzung auf eigenes Risiko!
