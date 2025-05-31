@@ -1,7 +1,5 @@
 # Quantenkommunikation
-Praktische Quantenkommunikation über synchronisierte Helfer-Systeme
-
-# Praktische Quantenkommunikation: Synchronisierte Helfer-Systeme
+# Praktische Quantenkommunikation über synchronisierte Helfer-Systeme
 
 [![Quantum Communication](https://img.shields.io/badge/Quantum-Communication-blueviolet)](https://en.wikipedia.org/wiki/Quantum_cryptography)
 
@@ -35,51 +33,76 @@ Wir brechen mit dogmatischen Quantenparadigmen und vereinen:
 
 ```python
 
+import fec_coding  # Hypothetisches FEC-Modul
+import quantum_core  # Hypothetisches Quantenmodul
+
 class QuantumHelperSystem:
+    """
+    Implementiert das synchrone Helfer-System für Quantenkommunikation
+    Nutzt FEC (Forward Error Correction) für robuste Datenübertragung
+    """
+    
+    def __init__(self, error_correction=fec_coding.LDPC_Coder()):
+        """
+        Initialisiert das Quantenkommunikationssystem
+        
+        :param error_correction: Fehlerkorrekturalgorithmus (Standard: LDPC)
+        """
+        self.fec = error_correction  # Fehlerkorrektur-Encoder/Decoder
+        self.alice = quantum_core.AliceModule()  # Quanten-Sender-Modul
+        self.bob = quantum_core.BobModule()  # Quanten-Empfänger-Modul
+        
+    def transmit(self, data: bytes) -> bytes:
+        """
+        Überträgt Daten über den Quantenkanal mit Helfer-Synchronisation
+        
+        :param data: Eingabedaten (Klartext oder verschlüsselt)
+        :return: Empfangene Daten (identisch bei erfolgreicher Übertragung)
+        """
+        # Schritt 1: Fehlerkorrigierendes Encoding
+        encoded = self.fec.encode(data)
+        
+        # Schritt 2: Mapping auf Quantenzustände
+        quantum_states = [self.alice.map_to_quantum(bit) for bit in encoded]
+        
+        # Schritt 3: Synchronisierte Messung mit Helfer-Systemen
+        with quantum_core.QuantumSynchronizer() as sync:
+            results = [self.bob.measure(state) for state in quantum_states]
+        
+        # Schritt 4: Fehlerkorrektur und Decoding
+        return self.fec.decode(results)
 
-def __init__(self, error_correction=LDPC_Coder()):
+# quantum_core.py (Beispielskizze)
+class AliceModule:
+    def map_to_quantum(self, bit: int) -> QuantumState:
+        """Mappt klassische Bits auf Quantenzustände"""
+        return QuantumState(bit)
 
-self.fec = error_correction
+class BobModule:
+    def measure(self, state: QuantumState) -> int:
+        """Misst Quantenzustände unter Nutzung der Helfer-Systeme"""
+        return measure_with_helpers(state)
 
-self.alice = AliceModule()
+class QuantumSynchronizer:
+    """Synchronisiert Helfer-Einheiten mit GPS/Atomuhr-Präzision"""
+    def __enter__(self):
+        init_helpers()
+    def __exit__(self, *args):
+        release_helpers()
 
-self.bob = BobModule()
-
-def transmit(self, data):
-
-# Schritt 1: Fehlerkorrigierendes Encoding
-
-encoded = self.fec.encode(data)
-
-# Schritt 2: Quantenmapping
-
-quantum_states = [self.alice.map_to_quantum(bit) for bit in encoded]
-
-# Schritt 3: Helfer-Aktivierung
-
-with QuantumSynchronizer():
-
-results = [self.bob.measure(state) for state in quantum_states]
-
-# Schritt 4: Fehlerkorrigierendes Decoding
-
-return self.fec.decode(results)
 
 ```
 
 ### 2. Fehlertoleranz durch Hybrid-Ansatz
 
-| Fehlerquelle | Herkömmliche QKD | Unser System |
+## Fehlertoleranz durch Hybrid-Ansatz
 
-|--------------|------------------|-------------|
-
-| Quantenrauschen | Katastrophal | Korrigierbar |
-
-| Detektorineffizienz | Datenverlust | Kompensiert |
-
-| Kanalstörungen | Begrenzte Korrektur | 30% Fehlertoleranz |
-
-| Basis-Mismatch | 50% Verlust | 0% Verlust |
+| Fehlerquelle         | Herkömmliche QKD         | Unser System               |
+|----------------------|--------------------------|----------------------------|
+| **Quantenrauschen**  | ❌ Katastrophal           | ✅ Korrigierbar             |
+| **Detektorineffizienz** | ⚠️ Datenverlust         | ✅ Kompensiert              |
+| **Kanalstörungen**   | ⚠️ Begrenzte Korrektur   | ✅ **30% Fehlertoleranz**   |
+| **Basis-Mismatch**   | ❌ 50% Verlust            | ✅ **0% Verlust**           |
 
 ### 3. Anti-Korrelation als Fundament
 
