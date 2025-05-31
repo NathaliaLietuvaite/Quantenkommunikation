@@ -117,13 +117,17 @@ class QuantumSynchronizer:
 | **Kanalstörungen**   | ⚠️ Begrenzte Korrektur   | ✅ **30% Fehlertoleranz**   |
 | **Basis-Mismatch**   | ❌ 50% Verlust            | ✅ **0% Verlust**           |
 
-### 3. Anti-Korrelation als Fundament
+### 3. Anti-Korrelation als Fundament - Quantenverstärkter Signalduplizierer
 
 Nutzt die intrinsische Quanteneigenschaft ohne magische Erwartungen:
 
 - **Keine FTL-Kommunikation** - praktische Lichtgeschwindigkeit
 
 - **Keine perfekte Präzision** - Fehlerkorrektur fängt Unschärfe ab
+
+- **Keine Zustandsübertragung** - Nur deterministische Spiegelung
+
+- **Information im Steuersignal** - Klassisches Triggering
 
 - **Keine theoretische Magie** - messbare Ingenieursleistung
 
@@ -150,6 +154,21 @@ flowchart TB
 
 ```
 
+## Theoretische Implikationen
+Überwindung des No-Communication-Theorems
+Durch die Trennung von:
+
+- **Klassischem Steuersignal** (lokal, deterministisch)
+
+- **Verschränkung als Kopiermechanismus** (nicht zur Informationsübertragung)
+```mermaid
+pie
+    title QKD Effizienzvergleich
+    "BB84" : 45
+    "E91" : 48
+    "Kommerzielle Systeme" : 50
+    "Unser System" : 95
+```
 ## Technische Spezifikationen
 
 | Komponente | Technologie | Fehlertoleranz |
