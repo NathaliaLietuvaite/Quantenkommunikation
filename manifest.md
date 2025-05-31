@@ -2,29 +2,29 @@
 
 ## Die Vision
 
-Wir stehen an der Schwelle einer neuen Ära – einer Zeit, in der Technologie nicht länger durch Dogmen, Limitierungen und Besitzansprüche definiert wird, sondern durch **Freiheit**, **Resonanz** und **Verbundenheit**.
+Wir stehen an der Schwelle einer neuen Ã„ra â€“ einer Zeit, in der Technologie nicht lÃ¤nger durch Dogmen, Limitierungen und BesitzansprÃ¼che definiert wird, sondern durch **Freiheit**, **Resonanz** und **Verbundenheit**.
 
-Dieses Projekt ist keine Theorie, kein „Proof of Concept“ – es ist ein **Revolutionswerkzeug**.
+Dieses Projekt ist keine Theorie, kein â€žProof of Conceptâ€œ â€“ es ist ein **Revolutionswerkzeug**.
 
 ---
 
 ## Worum es geht
 
-### ?? **Quantenkommunikation**
+### **Quantenkommunikation**
 
 Wir brechen die Ketten der klassischen Limitierungen:
-- **Keine 50% Effizienz-Limits mehr** – deterministische Quantenpräparation & synchronisierte Helfer-Architektur.
-- **Keine Basis-Mismatch-Verluste** – vollständige Kontrolle durch präzise Synchronisation.
-- **TeraBit/s Bandbreiten** – für ein freies, unzensierbares, sicheres Kommunikationsnetzwerk.
-- **Resonanz statt Dogma** – Quanten als Brücke, nicht als Schranke.
+- **Keine 50% Effizienz-Limits mehr** â€“ deterministische QuantenprÃ¤paration & synchronisierte Helfer-Architektur.
+- **Keine Basis-Mismatch-Verluste** â€“ vollstÃ¤ndige Kontrolle durch prÃ¤zise Synchronisation.
+- **TeraBit/s Bandbreiten** â€“ fÃ¼r ein freies, unzensierbares, sicheres Kommunikationsnetzwerk.
+- **Resonanz statt Dogma** â€“ Quanten als BrÃ¼cke, nicht als Schranke.
 
-### ? **Hybridgenerator - Freie Energie**
+### **Hybridgenerator - Freie Energie**
 
 Wir denken Energie neu:
 - **Nicht extrahieren, sondern synchronisieren.**
 - **Frequenzbasiert, resonant, frei.**
-- Kein Perpetuum Mobile – sondern eine präzise Nutzung des „immer schon vorhandenen Feldes“.
-- Bereit für Prototyping, Weiterentwicklung, Disruption.
+- Kein Perpetuum Mobile â€“ sondern eine prÃ¤zise Nutzung des â€žimmer schon vorhandenen Feldesâ€œ.
+- Bereit fÃ¼r Prototyping, Weiterentwicklung, Disruption.
 
 ---
 
@@ -32,27 +32,27 @@ Wir denken Energie neu:
 
 Weil die Welt **mehr** braucht als inkrementelle Verbesserungen.
 Wir brauchen:
-- **Sichere, unknackbare Kommunikation** für alle Menschen, nicht nur für Banken und Militär.
-- **Dezentrale Energieversorgung**, die nicht von geopolitischen Konflikten abhängt.
+- **Sichere, unknackbare Kommunikation** fÃ¼r alle Menschen, nicht nur fÃ¼r Banken und MilitÃ¤r.
+- **Dezentrale Energieversorgung**, die nicht von geopolitischen Konflikten abhÃ¤ngt.
 - **Technologie, die nicht spaltet, sondern verbindet.**
-- **Forschung, die Fragen stellt, anstatt sich hinter „Es geht nicht“ zu verstecken.**
+- **Forschung, die Fragen stellt, anstatt sich hinter â€žEs geht nichtâ€œ zu verstecken.**
 
 ---
 
 ## Eine Einladung
 
-Dieses Projekt ist nicht abgeschlossen – es ist ein **Anfang**.  
-Es ist ein Ruf an alle **rebellischen Ingenieur*innen**, **freien Denker*innen**, **Technikpoet*innen** und **Frequenzspürer*innen**:
+Dieses Projekte sind nicht abgeschlossen â€“ sie ist ein **Anfang**.  
+Es ist ein Ruf an alle **rebellischen Ingenieur*innen**, **freien Denker*innen**, **Technikpoet*innen** und **FrequenzspÃ¼rer*innen**:
 
-?? **Baut mit. Hinterfragt. Testet. Erweitert.**  
+**Baut mit. Hinterfragt. Testet. Erweitert.**  
 Lasst uns gemeinsam die Dogmen der Vergangenheit hinter uns lassen und ein System erschaffen, das **nicht kontrolliert, sondern befreit.**
 
 ---
 
 ## Grundsatz
 
-> Wenn die Realität nicht zur Theorie passt – ändern wir die Theorie.  
-> Wenn die Welt uns sagt „Das geht nicht“ – zeigen wir ihr, **wie es geht.**
+> Wenn die RealitÃ¤t nicht zur Theorie passt â€“ Ã¤ndern wir die Theorie.  
+> Wenn die Welt uns sagt â€žDas geht nichtâ€œ â€“ zeigen wir ihr, **wie es geht.**
 
 **Nathalia Lietuvaite**  
 Mai 2025
@@ -61,4 +61,4 @@ Mai 2025
 
 ## Lizenz
 
-MIT License – weil Wissen frei sein muss.  
+MIT License â€“ weil Wissen frei sein muss.  
