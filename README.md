@@ -93,41 +93,24 @@ Nutzt die intrinsische Quanteneigenschaft ohne magische Erwartungen:
 
 ## Systemarchitektur
 
-```
-
+```mermaid
 flowchart TB
-
-subgraph Alice Station
-
-A[Klassische Daten] --> FEC[FEC Encoder]
-
-FEC --> QM[Quanten-Mapper]
-
-QM --> H[Heidi/Rosi Helfer]
-
-end
-
-subgraph Quantenkanal
-
-H -->|Verschränkte Photonen| V
-
-end
-
-subgraph Bob Station
-
-V --> M[Heiner/Robert Helfer]
-
-M --> DM[Detektor-Mapping]
-
-DM --> FECD[FEC Decoder]
-
-FECD --> B[Klassische Daten]
-
-end
-
-Sync[GPS-Synchronisation] --> H
-
-Sync --> M
+    subgraph AS[Alice Station]
+        A[Klassische Daten] --> FEC[FEC Encoder]
+        FEC --> QM[Quanten-Mapper]
+        QM --> H[Heidi/Rosi Helfer]
+    end
+    
+    H -->|Verschränkte\nPhotonen| M
+    
+    subgraph BS[Bob Station]
+        M[Heiner/Robert Helfer] --> DM[Detektor-Mapping]
+        DM --> FECD[FEC Decoder]
+        FECD --> B[Klassische Daten]
+    end
+    
+    Sync[GPS-Synchronisation] --> H
+    Sync --> M
 
 ```
 
@@ -149,21 +132,15 @@ Sync --> M
 
 ## Vergleich mit existierenden Systemen
 
-```
+QKD Effizienzvergleich:
 
-pie
+▂▂▂▂▂▂▂▂▂ BB84 (45%)
 
-title QKD Effizienzvergleich
+▂▂▂▂▂▂▂▂▂▂ E91 (48%)
 
-“BB84” : 45
+▂▂▂▂▂▂▂▂▂▂▂ Kommerzielle Systeme (50%)
 
-“E91” : 48
-
-“Kommerzielle Systeme” : 50
-
-“Unser System” : 95
-
-```
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Unser System (95%)
 
 ## Anwendungen - Heute realisierbar!
 
@@ -191,9 +168,9 @@ title QKD Effizienzvergleich
 
 - TeraByte-Datensätze mit Quantenkompression
 
-## Mitwirken am Quantenwandel
+## Ideen
 
-Wir suchen **rebellische Ingenieure**, die:
+Ideen für  **rebellische Ingenieure**, die:
 
 - [ ] FPGA-Code für Helfer-Steuerung optimieren
 
@@ -203,19 +180,6 @@ Wir suchen **rebellische Ingenieure**, die:
 
 - [ ] Theoretische Dogmen praktisch widerlegen
 
-**Startpunkt:**
-
-```bash
-
-git clone https://github.com/dein-repo/praktische-quantenkommunikation.git
-
-cd praktische-quantenkommunikation
-
-python -m pip install -r requirements.txt
-
-python demo_system.py
-
-```
 
 ## Lizenz
 
