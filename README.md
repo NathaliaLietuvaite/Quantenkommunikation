@@ -32,18 +32,19 @@ Wir nutzen moderne Quantentechnologie, um Verschränkung gezielt zu erzeugen und
 - **Reproduzierbarkeit**: >99% Korrelationsgüte
 - **Deterministische Präparation**: Keine probabilistischen Messungen
 
-```python
 # Experimenteller Aufbau
+
+## Kerninnovationen
+
+### 1. Synchronisierte Helfer-Architektur
+```python
 from quantum_sources import SPDC_Crystal
 
 source = SPDC_Crystal(pump_laser=780nm)
 entangled_pair = source.generate_pair()
 assert correlation(entangled_pair) > 0.98  # Bell-Verletzung bestätigt
-
-## Kerninnovationen
-
-### 1. Synchronisierte Helfer-Architektur
-
+```
+****
 ```python
 
 import fec_coding  # Hypothetisches FEC-Modul
