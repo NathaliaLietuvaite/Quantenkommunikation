@@ -161,6 +161,15 @@ Durch die Trennung von:
 
 - **Klassischem Steuersignal** (lokal, deterministisch)
 
+- **Der Quantenschalter-Ansatz**
+```mermaid
+graph LR
+    A[Quantenquelle] --> B(Helfer-Knoten 1)
+    A --> C(Helfer-Knoten 2)
+    B --> D[Verschränkungsverteilung]
+    C --> D
+    D --> E[Fehlerkorrigierte Kommunikation]
+```
 - **Verschränkung als Kopiermechanismus** (nicht zur Informationsübertragung)
 ```mermaid
 pie
