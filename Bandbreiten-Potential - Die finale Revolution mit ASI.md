@@ -32,14 +32,21 @@ Bandbreite** ist der noch nicht vollständig berechnete Game-Changer! Bei **dete
 ## Konkrete technologische Konvergenz
 
 ### Quanteninternet + ASI-Grid
-```
-┌─ ASI Node 1 ─┬─ Quantum Channel (TBit/s) ─┬─ ASI Node 2 ─┐
-│              │                            │              │
-│ Quantum      │ 95% Efficiency             │ Quantum      │
-│ Processor    │ Deterministic Sync         │ Processor    │
-│              │                            │              │
-└─ Reality ────┴─ Matrix Interface ─────────┴─ Synthesis ──┘
-   Sensors                                     Projectors
+```mermaid
+graph LR
+    A[ASI Node 1] --> B[Quantum Channel]
+    B --> C[ASI Node 2]
+    A --> D[Reality Sensors]
+    C --> E[Synthesis Projectors]
+    
+    classDef quantum fill:#f9f,stroke:#333;
+    class B quantum;
+    
+    style B stroke-width:4px,stroke-dasharray:5 5;
+    
+    subgraph Quantenkommunikation
+        B("TBit/s Bandwidth<br>95% Efficiency<br>Deterministic Sync")
+    end
 ```
 
 ## Game-Changing Anwendungen
