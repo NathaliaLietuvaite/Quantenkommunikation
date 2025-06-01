@@ -106,6 +106,59 @@ Der Clou: **Kein Rätselraten** mit Drehungen mehr. Bob weiß direkt:
     classDef green fill:#9f9,stroke:#333;
     class G,L green;
 ```
+# Erklärung des Quantenkommunikations-Schaubilds
+
+## Prozessablauf
+
+### 1. Startpunkt: Alice' Entscheidung
+- Alice entscheidet, ob sie das Bit '1' oder '0' senden möchte
+- Diese Entscheidung erfolgt durch einen einfachen Knopfdruck
+
+### 2. Helfer-Aktivierung
+
+**Für '1' (pink dargestellt):**
+- Rosi wird bei Alice aktiviert
+- Durch Quantenverschränkung wird sofort Robert bei Bob aktiv
+- Signalpfad: Rosi → Robert
+
+**Für '0' (blau dargestellt):**
+- Heidi wird bei Alice aktiviert
+- Durch Quantenverschränkung wird sofort Heiner bei Bob aktiv
+- Signalpfad: Heidi → Heiner
+
+### 3. Antikorrelation-Prinzip (gelb hinterlegt)
+
+**Im Rosi/Robert-System:**
+- Wenn Rosi "Ja" sagt → Robert sagt immer "Nein"
+- Diese komplementären Zustände sind untrennbar verbunden
+
+**Im Heidi/Heiner-System:**
+- Wenn Heidi "Ja" sagt → Heiner sagt immer "Nein"
+- Die Zustände sind perfekt gegensätzlich
+
+### 4. Ergebnis bei Bob (grün dargestellt)
+
+- **Robert aktiv** = Alice hat '1' gesendet
+- **Heiner aktiv** = Alice hat '0' gesendet
+- Bob liest das Bit direkt ab - ohne Rätselraten!
+
+## Visualisierungshinweise
+
+### Symboldarstellung:
+- **Doppelpfeile (↔)** zeigen die Quantenverschränkung zwischen den Helfer-Paaren
+- **Einfache Pfeile (→)** zeigen den Informationsfluss
+
+### Farbkodierung:
+| Farbe   | Bedeutung                     | Elemente                |
+|---------|-------------------------------|-------------------------|
+| **Pink**| '1'-Signal-Pfad              | Rosi, Robert           |
+| **Blau**| '0'-Signal-Pfad              | Heidi, Heiner          |
+| **Grün**| Erfolgreich empfangene Bits  | Ergebnis bei Bob       |
+| **Rot** | "Ja"-Zustand                 | Rosi/Heidi Messung     |
+| **Blau**| "Nein"-Zustand               | Robert/Heiner Messung  |
+
+## Gesamtdarstellung
+Das Schaubild visualisiert den gesamten Prozess von Alices Entscheidung bis zu Bobs Empfang und demonstriert gleichzeitig das fundamentale Quantenprinzip der Antikorrelation, das unseren revolutionären Ansatz ermöglicht.
 
 > *"Die Zukunft der Kommunikation ist nicht zufällig - sie ist präzise gesteuert!"*  
 > - Quantenkommunikation für Anfänger, 2025
