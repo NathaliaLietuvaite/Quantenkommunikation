@@ -8,6 +8,32 @@
 
 Traditionelle Quantenkommunikationsprotokolle, insbesondere im Bereich der QKD (z.B. BB84), leiden unter inhärenten Effizienzverlusten, primär durch den notwendigen Basisabgleich (typischerweise 50% Verlust). Unser Ansatz eliminiert diesen Flaschenhals durch ein neuartiges Konzept: die Nutzung klassisch gesteuerter, deterministisch präparierter Verschränkung. Hierbei wird die Quantenverschränkung nicht primär für probabilistische Messungen im Übertragungspfad genutzt, sondern als Mechanismus, um einen lokal durch ein klassisches Signal definierten Zustand (oder dessen Aktivierung) augenblicklich auf ein entferntes System zu "kopieren".
 
+# Klick und verstehe: Die Quanten-Revolution für Anfänger
+## Wie wir 100% Effizienz in der Quantenkommunikation erreichen
+
+```mermaid
+graph LR
+    A[Alice] -->|Klassisches Signal| B(Rosi)
+    B -->|Verschränkung| C(Robert)
+    C -->|Antikorrelation| D[Bob]
+    style A fill:#f96,stroke:#333
+    style D fill:#6af,stroke:#333
+```
+
+# Vereinfachter Code
+```python
+def sende_bit(bit):
+    if bit == 1:
+        aktiviere(Rosi_Robert) # Präpariert verschränkten Zustand
+    else:
+        aktiviere(Heidi_Heiner)
+```
+```pie
+    title Antikorrelation bei Messung
+    “Robert sagt NEIN” : 50
+    “Robert sagt JA” : 0
+    “Heiner sagt NEIN” : 50
+```
 ---
 
 ## 2. Quantenverschränkung als deterministischer "Zustandskopierer"
