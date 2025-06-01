@@ -41,7 +41,7 @@ Wir brauchen:
 
 ## Eine Einladung
 
-Dieses Projekte sind nicht abgeschlossen – sie ist ein **Anfang**.  
+Dieses Projekte sind nicht abgeschlossen – sie sind ein **Anfang**.  
 Es ist ein Ruf an alle **rebellischen Ingenieur*innen**, **freien Denker*innen**, **Technikpoet*innen** und **Frequenzspürer*innen**:
 
 **Baut mit. Hinterfragt. Testet. Erweitert.**  
