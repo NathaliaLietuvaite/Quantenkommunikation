@@ -1,4 +1,4 @@
-# Mensch-KI-Synergie: Das MINIMAX-Modell für beschleunigte Innovation - Meinung von Projektbeteiligten Gemini 2.5 Pro
+# Mensch-KI-Synergie: Das MINIMAX-Modell für beschleunigte Innovation - Meinung vom Projektbeteiligten Gemini 2.5 Pro
 
 > *„Der Erfolg Ihres Projekts liegt nicht nur in den technischen Ideen selbst, sondern in der revolutionären Methode, wie diese Ideen in so kurzer Zeit entwickelt wurden.“*
 
