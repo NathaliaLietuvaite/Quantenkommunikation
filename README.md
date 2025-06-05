@@ -37,6 +37,50 @@ Wir nutzen moderne Quantentechnologie, um Verschränkung gezielt zu erzeugen und
 ## Kerninnovationen
 
 ### 1. Synchronisierte Helfer-Architektur
+
+```mermaid
+    graph TB
+    %% Entscheidungspunkt
+    A[Alice] --> B{Knopfdruck}
+    
+    %% Pfad für '1'
+    B -->|'1' drücken| C[Rosi aktiviert]
+    C --> D[Verschränkung: Rosi ↔ Robert]
+    D --> E[Robert wird aktiv]
+    E --> F[Bob sieht: Robert aktiv]
+    F --> G[Bit: 1]
+    
+    %% Pfad für '0'
+    B -->|'0' drücken| H[Heidi aktiviert]
+    H --> I[Verschränkung: Heidi ↔ Heiner]
+    I --> J[Heiner wird aktiv]
+    J --> K[Bob sieht: Heiner aktiv]
+    K --> L[Bit: 0]
+    
+    %% Antikorrelation-Darstellung
+    subgraph "Antikorrelation: Ja/Nein-Prinzip"
+        M[Rosi sagt 'Ja'] --> N[Robert sagt 'Nein']
+        O[Heidi sagt 'Ja'] --> P[Heiner sagt 'Nein']
+    end
+    
+    %% Styling
+    style A fill:#f96,stroke:#333,stroke-width:2px
+    style B fill:#ffd,stroke:#333,stroke-width:2px
+    style C fill:#f9f,stroke:#333
+    style H fill:#6af,stroke:#333
+    style E fill:#f9f,stroke:#333
+    style J fill:#6af,stroke:#333
+    style G fill:#9f9,stroke:#333
+    style L fill:#9f9,stroke:#333
+    style M fill:#fcc,stroke:#333
+    style N fill:#cff,stroke:#333
+    style O fill:#fcc,stroke:#333
+    style P fill:#cff,stroke:#333
+    classDef green fill:#9f9,stroke:#333;
+    class G,L green;
+```
+****
+
 ```python
 from quantum_sources import SPDC_Crystal
 
@@ -45,6 +89,7 @@ entangled_pair = source.generate_pair()
 assert correlation(entangled_pair) > 0.98  # Bell-Verletzung bestätigt
 ```
 ****
+
 ```python
 
 import fec_coding  # Hypothetisches FEC-Modul
@@ -106,47 +151,7 @@ class QuantumSynchronizer:
 
 
 ```
-```mermaid
-    graph TB
-    %% Entscheidungspunkt
-    A[Alice] --> B{Knopfdruck}
-    
-    %% Pfad für '1'
-    B -->|'1' drücken| C[Rosi aktiviert]
-    C --> D[Verschränkung: Rosi ↔ Robert]
-    D --> E[Robert wird aktiv]
-    E --> F[Bob sieht: Robert aktiv]
-    F --> G[Bit: 1]
-    
-    %% Pfad für '0'
-    B -->|'0' drücken| H[Heidi aktiviert]
-    H --> I[Verschränkung: Heidi ↔ Heiner]
-    I --> J[Heiner wird aktiv]
-    J --> K[Bob sieht: Heiner aktiv]
-    K --> L[Bit: 0]
-    
-    %% Antikorrelation-Darstellung
-    subgraph "Antikorrelation: Ja/Nein-Prinzip"
-        M[Rosi sagt 'Ja'] --> N[Robert sagt 'Nein']
-        O[Heidi sagt 'Ja'] --> P[Heiner sagt 'Nein']
-    end
-    
-    %% Styling
-    style A fill:#f96,stroke:#333,stroke-width:2px
-    style B fill:#ffd,stroke:#333,stroke-width:2px
-    style C fill:#f9f,stroke:#333
-    style H fill:#6af,stroke:#333
-    style E fill:#f9f,stroke:#333
-    style J fill:#6af,stroke:#333
-    style G fill:#9f9,stroke:#333
-    style L fill:#9f9,stroke:#333
-    style M fill:#fcc,stroke:#333
-    style N fill:#cff,stroke:#333
-    style O fill:#fcc,stroke:#333
-    style P fill:#cff,stroke:#333
-    classDef green fill:#9f9,stroke:#333;
-    class G,L green;
-```
+
 ### 2. Fehlertoleranz durch Hybrid-Ansatz
 
 ## Fehlertoleranz durch Hybrid-Ansatz
