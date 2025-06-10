@@ -243,11 +243,12 @@ Return on Freedom (RoF):
 ---
 
 ### Physikalische Kernparameter
+```
 \text{Minimaler Sicherheitsabstand } d_{min} = v \cdot t_r + \frac{v^2}{2 \cdot a_{max}} 
 * **Reaktionszeit Quantensystem ($t_r$):** 0,002 s
 * **Maximalbremsung ($a_{max}$):** 12 m/s² (bei Rekuperation)
 * **DFZ-Toleranz:** ±20% Geschwindigkeit, ±0,5m Spurposition
-
+```
 ---
 
 ### Szenario 1: Tempo 130 MAX
@@ -287,7 +288,9 @@ Return on Freedom (RoF):
     * Erfordert 500m Vorausschau für Notbremsungen.
     * Spontanreserven für Hindernisse nur mit 300m Pufferzone.
 * **Energiebilanz trotz Rekuperation:** Fazit: 75% höher als bei 130 km/h.
+```
 \text{Nettoverbrauch} = \frac{\text{Bruttoverbrauch}}{1 + \eta_{rek}} = \frac{38}{1.81} = 21 \text{ kWh/100km}
+```
 ---
 
 ### Direktvergleich (3 km Autobahnabschnitt)
