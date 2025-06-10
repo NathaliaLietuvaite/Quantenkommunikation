@@ -311,12 +311,12 @@ Statt festem Limit → adaptive 130/250-Segmente:
 `[130 km/h Zone ¦¦¦¦¦¦¦¦] → [250 km/h Korridor ¦¦¦¦] → [130 km/h Zone ¦¦¦¦¦¦¦¦]`
 
 **Technische Umsetzung:**
-
+```mermaid
 graph LR
 A[Verkehrsdichte < 15%] --> B(250 km/h Freigabe)
 A --> C{Autobahnabschnitt}
 C --> D[Verkehrsdichte > 40%] --> E(130 km/h Pflicht)
-
+```
 * **Quanten-Predictive-Control:**
     * City-Brain berechnet 5 min voraus, wo 250 km/h physikalisch sicher ist.
 * **DFZ-Autoadjust:**
