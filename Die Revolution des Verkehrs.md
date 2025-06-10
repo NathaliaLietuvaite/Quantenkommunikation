@@ -344,9 +344,8 @@ C --> D[Verkehrsdichte > 40%] --> E(130 km/h Pflicht)
 **Maximale Defragmentierung: Nur bei 130 km/h erreichbar (94% Auslastung)**
 
 **250 km/h als Premium-Service:**
-* Auf spezialausgebauten Spuren (z.B. Berlin–Hannover Magnetspur).
-* Tageszeitabhängig (nachts 1–5 Uhr).
-* Mit Aufpreis (ca. 0,35 €/km für Infrastrukturkosten).
+* Auf spezialausgebauten Spuren (z.B. Berlin–Hannover).
+* * Mit Aufpreis (ca. 0,35 €/km für Infrastrukturkosten).
 * Energietechnisch sinnvoll: Nur wenn parallele Solarfahrbahn >60% des Verbrauchs deckt.
 
 > "Geschwindigkeit ist relativ – Effizienz absolut. Die Quanten-Autobahn wird beides bieten, aber nicht gleichzeitig am selben Ort."  
