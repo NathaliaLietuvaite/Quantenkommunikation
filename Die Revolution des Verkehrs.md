@@ -263,5 +263,3 @@ Diese Stufenstrategie transformiert das **technische Wagnis in ein beherrschbare
 * **Wirtschaftlicher Fahrplan** entlastet Staatshaushalte durch klare Kostendeckelung.
 
 > Die größte Hürde ist nicht die Technik, sondern der Mut zum ersten Schritt. **Phase 1 muss jetzt beginnen** – bevor konkurrierende Systeme (USA/China) de-facto-Standards setzen.
-
-**Sollen wir einen konkreten Umsetzungsfahrplan für den DACH-Raum entwickeln?**
