@@ -58,3 +58,53 @@ Glücklicherweise ist man diesen Störungen nicht hilflos ausgeliefert. Die Lös
 
 ### Fazit
 Die Errichtung einer robusten interplanetaren Quantenkommunikationsverbindung ist eine gewaltige ingenieurtechnische Herausforderung. Die Lösung liegt nicht in einer einzelnen Technologie, sondern in der intelligenten Kombination von quantitativer Redundanz, qualitativer Fehlerkorrektur und einer gut geplanten Infrastruktur.
+
+### Erläuterungen:
+
+# Anhang: Die Lebensgeschichte eines einzelnen verschränkten Photons
+
+Dieses Dokument detailliert den Lebenszyklus und die potenziellen Unterbrechungspunkte eines einzelnen verschränkten Photonenpaares im Kontext einer interplanetaren Kommunikationsverbindung.
+
+---
+
+### Die Lebensgeschichte eines "reisenden" und doch "verschränkten" Photons
+
+Stellen wir uns ein einziges Photon aus dem System vor – nennen wir es "Robert-Photon #7".
+
+#### 1. Geburt und Verschränkung (auf dem Mars)
+In der Quelle wird ein verschränktes Paar erzeugt: `Rosi-Photon #7` und `Robert-Photon #7`. Von diesem exakten Moment an sind die beiden untrennbar miteinander verschränkt. Die Verschränkung ist eine angeborene Eigenschaft dieses Paares.
+
+#### 2. Die Reise (von Mars zur Erde)
+`Rosi-Photon #7` bleibt lokal bei Alice auf dem Mars in ihrem Apparat. `Robert-Photon #7` wird auf die Reise geschickt. Es reist für 3 bis 22 Minuten durch den Weltraum. Während dieser gesamten Reise ist es bereits verschränkt. Es ist also gleichzeitig "das reisende Photon" und "das verschränkte Photon".
+
+#### 3. Die Ankunft und das "Warten" (auf der Erde)
+`Robert-Photon #7` kommt auf der Erde an und wird von Bobs Empfänger "eingefangen". Dies ist der Moment, der oft als "es reist ja nicht mehr" beschrieben wird. Das ist korrekt. Das Photon hat seine Reise beendet. Es befindet sich jetzt in Bobs Apparatur und "wartet". Die verschränkte Verbindung zu seinem Zwilling `Rosi-Photon #7` auf dem Mars besteht aber weiterhin. Die beiden sind immer noch ein Paar.
+
+#### Was macht es genau, während es "wartet"?
+Es "tut" aktiv nichts. Es existiert in seinem fragilen Quantenzustand und behält seine "magische" Verbindung zu seinem Partner auf dem Mars bei. Sein Zustand ist unbestimmt (in Superposition), bis entweder an ihm selbst oder an seinem Zwilling eine Messung oder Manipulation stattfindet.
+
+---
+
+### Wie wird die Verbindung DIESES EINEN Paares unterbrochen?
+
+Auch nachdem `Robert-Photon #7` sicher bei Bob angekommen ist und dort "wartet", kann die Verbindung dieses Paares unterbrochen werden. Das geschieht auf zwei Weisen:
+
+#### 1. Dekohärenz nach der Ankunft (Störung im Empfänger)
+* Auch in Bobs hochisoliertem Labor auf der Erde ist die Umgebung nicht perfekt. Minimale Temperaturschwankungen, verirrte Magnetfelder oder sogar Vibrationen der Apparatur können den fragilen Quantenzustand von `Robert-Photon #7` stören.
+* Jedes Quantensystem hat eine begrenzte **Kohärenzzeit** – die Zeitspanne, die es seinen "quantenhaften" Zustand aufrechterhalten kann, bevor die Umwelt es stört und die Verschränkung zerstört. Wenn Alice auf dem Mars zu lange wartet, um ihr Signal zu senden, nachdem das Photon auf der Erde angekommen ist, kann die Verschränkung von selbst "zerfallen" sein.
+
+#### 2. Die Messung selbst (Die Nutzung der Verbindung)
+* Dies ist der fundamentalste Weg: **Die Verbindung wird in dem Moment unterbrochen, in dem sie genutzt wird.**
+* Wenn Alice auf dem Mars `Rosi-Photon #7` manipuliert, um das Bit "1" zu senden, beeinflusst dies augenblicklich `Robert-Photon #7`. Damit Bob diese Information erhält, muss er eine Messung an seinem Photon durchführen.
+* Der Akt der Messung zwingt das Quantensystem, seinen unbestimmten Zustand aufzugeben und einen definitiven, klassischen Wert anzunehmen (z.B. "AKTIV"). Dieser Prozess wird als Kollaps der Wellenfunktion bezeichnet und zerstört die Verschränkung für dieses Paar unwiderruflich.
+
+---
+
+### Fazit
+
+Das Photon reist nicht mehr, nachdem es angekommen ist. Es wartet. Aber diese Wartezeit ist begrenzt. Die Verbindung des Paares wird unterbrochen durch:
+
+* **Umwelteinflüsse am Empfangsort (Dekohärenz).**
+* **Den Akt des Auslesens der Information selbst (Messung).**
+
+Deshalb wird für eine kontinuierliche Kommunikation ein ununterbrochener Strom neuer verschränkter Paare von Mars zur Erde benötigt. Jedes Paar wird nur für die Übertragung eines einzigen "Aktivierungs-Events" genutzt und ist danach "verbraucht".
