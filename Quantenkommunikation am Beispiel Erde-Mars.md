@@ -281,6 +281,46 @@ Wenn ein Sender (Alice) eine Information übertragen will, geschieht Folgendes:
 
 **Wichtiger Hinweis:** Der klassische Trigger-Befehl muss keine Distanz zu einem Repeater überbrücken. Die Sendestation ist selbst der erste Knotenpunkt des Netzwerks.
 
+```mermaid
+graph TD
+    %% Definition der Hauptknoten (Endpunkte und Repeater)
+    subgraph "Weltraum (Interplanetares Mesh-Netzwerk)"
+        Mars["(Planet) Mars<br/><b>Alice's Station</b>"]
+        R1["(Satellit)<br/>Repeater 1"]
+        R2["(Satellit)<br/>Repeater 2"]
+        Erde["(Planet) Erde<br/><b>Bob's Station</b>"]
+    end
+
+    %% Beschreibung des proaktiven Prozesses als Legende
+    subgraph "Funktionsweise des Proaktiven Systems"
+        direction LR
+        A("<b>1. Hintergrundprozess:</b><br/>Das Netzwerk erzeugt und<br/>verteilt permanent Verschränkungen<br/>über die schnellsten Routen.") --> B("<b>2. Ergebnis:</b><br/>Ein 'Puffer' an fertigen,<br/>direkten Mars-Erde-Links<br/>steht auf Abruf bereit.")
+        B --> C("<b>3. Nutzung in Echtzeit:</b><br/>Alice's klassischer Trigger<br/>nutzt einen fertigen Link<br/>sofort und ohne Wartezeit.")
+    end
+
+    %% Darstellung der Verbindungen im Mesh
+    
+    %% Gestrichelte Linien: Das Mesh-Netzwerk, das im Hintergrund arbeitet, um die besten Routen zu finden
+    Mars -. "potenzieller Link" .-> R1
+    Mars -. "potenzieller Link" .-> R2
+    R1   -. "potenzieller Link" .-> R2
+    R1   -. "potenzieller Link" .-> Erde
+    R2   -. "potenzieller Link" .-> Erde
+
+    %% Dicke, grüne Linie: Ein fertiger "Hot-Standby"-Link aus dem Puffer, der sofort genutzt wird Mars ==> Sofort nutzbare "Hot-Standby"-Verbindung| Erde
+
+    %% Styling zur besseren Visualisierung
+    classDef endpoint fill:#e3f2fd,stroke:#333,stroke-width:2px,font-weight:bold;
+    classDef repeater fill:#fce4ec,stroke:#333,stroke-width:1px;
+    classDef process fill:#f1f8e9,stroke:#555;
+    
+    class Mars,Erde endpoint
+    class R1,R2 repeater
+    class A,B,C process
+
+    linkStyle 0,1,2,3,4 stroke-width:1px,fill:none,stroke:gray,stroke-dasharray: 5 5;
+    linkStyle 5 stroke-width:4px,fill:none,stroke:green;
+```
 ---
 
 ## 4. Fazit für IT-Experten
