@@ -80,6 +80,8 @@ graph TD
 ```
 ---
 
+https://quantum-hotline-mesh.lovable.app
+
 ## 4. Fazit für IT-Experten
 
 Das Proaktive Quanten-Mesh System stellt einen Paradigmenwechsel dar. Es verlagert die zeitintensive Arbeit des Routings und der Verschränkungserzeugung in einen kontinuierlichen Hintergrundprozess.
