@@ -108,3 +108,39 @@ Das Photon reist nicht mehr, nachdem es angekommen ist. Es wartet. Aber diese Wa
 * **Den Akt des Auslesens der Information selbst (Messung).**
 
 Deshalb wird für eine kontinuierliche Kommunikation ein ununterbrochener Strom neuer verschränkter Paare von Mars zur Erde benötigt. Jedes Paar wird nur für die Übertragung eines einzigen "Aktivierungs-Events" genutzt und ist danach "verbraucht".
+
+### Anhang: Technische Herausforderung - Die Kohärenzzeit bei interplanetaren Distanzen
+
+Eine der entscheidenden Fragen für die praktische Machbarkeit einer Quantenkommunikationsverbindung über große Distanzen, wie zwischen Erde und Mars, ist die **Kohärenzzeit** – also die Zeitspanne, in der ein fragiler Quantenzustand aufrechterhalten werden kann. Wenn die verschränkten "Helferteilchen" ihre Verbindung verlieren, bevor das Signal gesendet wird, bricht die gesamte Kommunikationskette zusammen.
+
+Um dies zu verstehen, muss man zwischen zwei Situationen für die Photonen eines verschränkten Paares unterscheiden:
+
+#### 1. Das "reisende" Photon (z.B. das Photon auf dem Weg von Mars zur Erde)
+
+Für das Photon, das mit Lichtgeschwindigkeit durch das Weltall reist, ist die Zeit selbst weniger das Problem. Die primäre Herausforderung besteht darin, den Verlust oder die Störung durch die feindliche Umgebung zu verhindern:
+* **Verlust:** Das Photon könnte von interplanetarem Staub absorbiert oder durch Gravitationsfelder abgelenkt werden und sein Ziel nie erreichen.
+* **Störung (Dekohärenz):** Kosmische Ereignisse wie ein Koronaler Massenauswurf (CME) können den Quantenzustand des Photons verändern und so die Verschränkung zerstören.
+
+Die Aufgabe ist es also, sicherzustellen, dass das Photon ungestört am Ziel ankommt.
+
+#### 2. Das "wartende" Photon (z.B. das Photon in der Mars-Station)
+
+Hier wird die Frage nach der Kohärenzzeit absolut kritisch. Dieses Photon muss seinen verschränkten Quantenzustand aufrechterhalten, während es darauf wartet, dass sein Zwilling die Erde erreicht und das Signal gesendet wird.
+
+Da man ein Photon nicht einfach "parken" kann, ohne dass es absorbiert wird, benötigt man einen sogenannten **"Quantenspeicher" (Quantum Memory)**. Der Quantenzustand des Photons wird dabei auf ein robusteres System (z.B. ein Atom oder ein Kristallgitter) übertragen, dort gespeichert und später wieder ausgelesen.
+
+Die Speicherzeit (Kohärenzzeit) dieses Quantenspeichers ist der entscheidende technologische Flaschenhals. Hier sind die realen Zeiträume, über die wir heute sprechen:
+
+* **Heutige Standard-Systeme:** In vielen Laboren werden Speicherzeiten von **Mikrosekunden (µs) bis wenigen Millisekunden (ms)** erreicht.
+* **Experimentelle Spitzenforschung:** Unter extremen Laborbedingungen (ultrakalte Temperaturen, Vakuum, magnetische Abschirmung) konnten Rekorde im Bereich von **mehreren Sekunden bis zu wenigen Minuten** erzielt werden.
+
+#### Was bedeutet das für eine Mars-Erde-Verbindung?
+
+* **Die Herausforderung:** Die Signallaufzeit eines Photons von der Erde zum Mars (oder umgekehrt) beträgt zwischen **3 und 22 Minuten**.
+* **Die Realität:** Die nachgewiesenen maximalen Speicherzeiten für Quantenzustände liegen derzeit noch deutlich unter dieser Anforderung.
+
+**Fazit:** Mit der **heute verfügbaren Technologie** ist es eine enorme Herausforderung, den Quantenzustand eines "wartenden" Helferteilchens für die volle interplanetare Reisezeit seines Zwillings zu erhalten. Die Verbindung würde wahrscheinlich "zerfallen", bevor sie genutzt werden kann.
+
+Das bedeutet jedoch nicht, dass die Vision unmöglich ist. Es zeigt vielmehr einen klaren technologischen Bedarf auf: Die Entwicklung von **Langzeit-Quantenspeichern** mit Kohärenzzeiten im Minuten- bis Stundenbereich ist eine der wichtigsten und aktivsten Forschungsrichtungen in der Quantentechnologie.
+
+Die Realisierbarkeit einer interplanetaren Quantenkommunikation hängt direkt von einem Durchbruch in genau diesem Bereich ab. Für kürzere Distanzen, wie zwischen Erde und Mond (ca. 1,3 Lichtsekunden), sind die technologischen Anforderungen an die Speicherzeit hingegen bereits heute erreichbar.
