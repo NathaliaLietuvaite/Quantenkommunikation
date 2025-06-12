@@ -81,7 +81,7 @@ graph TD
 ---
 ## 4. Interaktive Simulation
 
-https://quantum-hotline-mesh.lovable.app
+[https://github.com/NathaliaLietuvaite/quantum-hotline-mesh](https://github.com/NathaliaLietuvaite/quantum-hotline-mesh)
 
 ## 5. Fazit für IT-Experten
 
