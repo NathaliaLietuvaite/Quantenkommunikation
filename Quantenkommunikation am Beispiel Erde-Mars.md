@@ -322,8 +322,11 @@ graph TD
     linkStyle 5 stroke-width:4px,fill:none,stroke:green;
 ```
 ---
+## 4. Interaktive Simulation
 
-## 4. Fazit für IT-Experten
+[https://github.com/NathaliaLietuvaite/quantum-hotline-mesh](https://github.com/NathaliaLietuvaite/quantum-hotline-mesh)
+
+## 5. Fazit für IT-Experten
 
 Das Proaktive Quanten-Mesh System stellt einen Paradigmenwechsel dar. Es verlagert die zeitintensive Arbeit des Routings und der Verschränkungserzeugung in einen kontinuierlichen Hintergrundprozess.
 
