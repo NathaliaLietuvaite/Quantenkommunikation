@@ -371,8 +371,11 @@ Das Konzept verwandelt den **Kostenfaktor Mensch** in einen **Werttreiber**:
 
 
 ---
+## 6. Interalktive App
 
-## 6. Fazit: Keine Revolution – eine Evolution mit Augenmaß
+https://github.com/NathaliaLietuvaite/quantum-city-brain-nexus
+
+## 7. Fazit: Keine Revolution – eine Evolution mit Augenmaß
 
 Diese Stufenstrategie transformiert das **technische Wagnis in ein beherrschbares Projekt**:
 * **Rechtliche Absicherung** durch den Advocatus Diaboli macht Entscheidungen einklagbar.
