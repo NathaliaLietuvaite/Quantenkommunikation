@@ -132,3 +132,6 @@ graph TD
 * Bis 2030 werden 78% aller Hochfrequenztransaktionen über PQMS-ähnliche Infrastrukturen laufen.
 * Marktkapitalisierung führender PQMS-Anbieter: >120 Mrd. USD.
 * Kumulierter Mehrwert für globale Finanzmärkte 2026-2040: 189-302 Mrd. USD.
+
+### Interaktive App
+https://github.com/NathaliaLietuvaite/quantum-speed-trading-link
