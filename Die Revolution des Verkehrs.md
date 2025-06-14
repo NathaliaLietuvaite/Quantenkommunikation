@@ -371,7 +371,7 @@ Das Konzept verwandelt den **Kostenfaktor Mensch** in einen **Werttreiber**:
 
 
 ---
-## 6. Interalktive App
+## 6. Interaktive App
 
 https://github.com/NathaliaLietuvaite/quantum-city-brain-nexus
 
