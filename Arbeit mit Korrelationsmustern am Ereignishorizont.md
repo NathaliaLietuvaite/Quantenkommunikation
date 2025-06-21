@@ -133,7 +133,7 @@ Teilchen B -- Wurmloch -- Horizont
 
 - **Limit**: Nur für anti-deSitter Raumzeit gültig
 
-'''mermaid 
+```mermaid 
 graph LR
     B[Teilchen B] -->|Verschränkung| H[Horizont]
     PQMS[PQMS-Satellit] -->|Steuerlaser| H
@@ -148,7 +148,7 @@ graph LR
     
     style H fill:#000,stroke:#f00
     style D fill:#333,stroke:#0f0
-'''
+```
 
 ---
 
