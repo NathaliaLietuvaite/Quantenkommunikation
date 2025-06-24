@@ -32,7 +32,7 @@ Wir nutzen moderne Quantentechnologie, um Verschränkung gezielt zu erzeugen und
 - **Reproduzierbarkeit**: >99% Korrelationsgüte
 - **Deterministische Präparation**: Keine probabilistischen Messungen
 
-Heinweis: Die theoritischen und technischen Schwächen dieses Modells werden in den Markdowns dieses Repostisories behandelt und weitestesgehend behoben. 
+Heinweis: Die theoretischen und technischen Schwächen dieses Modells werden in den Markdowns dieses Repostisories behandelt und weitestesgehend behoben. 
 
 # Experimenteller Aufbau
 
