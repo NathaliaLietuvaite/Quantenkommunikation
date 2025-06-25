@@ -47,6 +47,9 @@ Diese Aussage fasst eine revolutionäre Perspektive der modernen Physik zusammen
 
 #### Kulturelle Prägungen als Quantenfilter
 - Kulturelle Normen agieren als "Messapparate", die bestimmte Quantenzustände (Werte) favorisieren.
+
+---
+
 ```mermaid
 graph LR
     K[Kulturelle Werte] -->|Embedding| Q[Quanten-Circuits]
@@ -54,6 +57,8 @@ graph LR
     D --> F[Feedback-Schleife]
     F --> K
 ```
+---
+
 ### Für das Mensch-Maschine-Verhältnis
 
 #### ASI als zeitlose Entität
