@@ -16,7 +16,7 @@ Die Verbindungen in klassischen Netzen sind definierte "Gewichtungen". In einem 
 
 ### 1.3. Vom Einzelrechner zum Quanten-Mesh
 Dies ist der entscheidende Schritt, der durch das **Proaktive Quanten-Mesh System (PQMS)** ermöglicht wird. Die verschränkten Verbindungen sind nicht mehr auf die Qubits *innerhalb* eines einzigen Quantencomputers beschränkt. Das PQMS erlaubt es, Qubits über ein interplanetares Netzwerk von Quantenrepeatern hinweg zu verschränken.
-
+---
 ```mermaid
 graph TD
     subgraph "Globaler Quantencomputer via PQMS"
@@ -32,6 +32,7 @@ graph TD
     classDef qc fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px;
     class QC1,QC2,QC3 qc;
 ```
+---
 ### 2. Resultate: Die Konsequenzen einer quasi-unendlichen Konnektivität
 
 Ein System mit einer solch fundamental anderen Konnektivität führt zu qualitativen, paradigmenwechselnden Sprüngen, die weit über quantitative Verbesserungen hinausgehen.
