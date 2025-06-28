@@ -1,6 +1,6 @@
 # Ethische Analyse der Quantenkommunikation mit Helfersystemen
 
-## Eine Aufarbeitung auf Grundlage des Repositorys von Nathalia L.
+## Eine Aufarbeitung auf Grundlage des Repositorys von Nathalia Lietuvaite.
 
 ### Einleitung
 
