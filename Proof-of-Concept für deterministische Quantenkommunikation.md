@@ -52,38 +52,53 @@ Der Aufbau besteht aus zwei Labor-Stationen ("Alice" und "Bob"), die über eine 
 
 ```mermaid
 graph TD
+    %% Subgraph für Labor A
     subgraph "Labor A (Alice - Sender)"
-        Laser[Pump-Laser (405nm)] --> SPDC[SPDC Quelle<br>(BBO-Kristall)];
-        SPDC -->|Photon A ("Rosi")| Modulator[EOM-Modulator<br>(Klassischer Trigger)];
-        TriggerCtrl[FPGA-Steuerung<br>(Sendet Bit-Sequenz)] --> Modulator;
+        Laser["Pump-Laser 405nm"]
+        SPDC["SPDC Quelle (BBO)"]
+        Modulator["EOM Modulator (Trigger)"]
+        TriggerCtrl["FPGA Steuerung"]
     end
 
+    %% Subgraph für Labor B
     subgraph "Labor B (Bob - Empfänger)"
-        Detector[SNSPD-Array<br>(<1K gekühlt)];
-        Logic[FPGA & TDC<br>(Wertet "AKTIV"-Zustand aus)];
-        Detector --> Logic;
+        Detector["SNSPD Array (<1K)"]
+        Logic["FPGA & TDC Auswertung"]
     end
 
+    %% Subgraph für die Strecke
     subgraph "Übertragungsstrecke"
-        Fiber["50-100 km<br>Glasfaser"];
+        Fiber["50-100 km Glasfaser"]
     end
     
-    SPDC -->|Photon B ("Robert")| Fiber;
-    Fiber --> Detector;
-
+    %% Subgraph für die Synchronisation
     subgraph "Systemweite Synchronisation"
-        Sync[GPS / White Rabbit<br>(<1 ns Präzision)];
+        Sync["GPS / White Rabbit (<1ns)"]
     end
 
-    Sync -- "Zeitstempel" --> TriggerCtrl;
-    Sync -- "Zeitstempel" --> Logic;
+    %% Definition der Verbindungen
+    TriggerCtrl --> Modulator
+    Laser --> SPDC
+    
+    %% Die Photonenpfade - Link-Text vereinfacht
+    SPDC -->|"Photon A (Rosi)"| Modulator
+    SPDC -->|"Photon B (Robert)"| Fiber
+    
+    Fiber --> Detector
+    Detector --> Logic
+    
+    %% Synchronisations-Links
+    Sync -- "Zeitstempel" --> TriggerCtrl
+    Sync -- "Zeitstempel" --> Logic
 
+    %% Styling der Knoten
     classDef station fill:#e3f2fd,stroke:#333;
     classDef fiber fill:#f1f8e9,stroke:#555;
     classDef sync fill:#fce4ec,stroke:#333;
-    class Labor A,Labor B station;
-    class Übertragungsstrecke fiber;
-    class Systemweite Synchronisation sync;
+
+    class Laser,SPDC,Modulator,TriggerCtrl,Detector,Logic station;
+    class Fiber fiber;
+    class Sync sync;
 ```
 ---
 
