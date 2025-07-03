@@ -154,6 +154,8 @@ class QuantumSynchronizer:
 
 ```
 
+[Zum Proof-of-Concept des "Eddington-Experiments"](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proof-of-Concept%20f%C3%BCr%20deterministische%20Quantenkommunikation.md)
+
 ### 2. Fehlertoleranz durch Hybrid-Ansatz
 
 ## Fehlertoleranz durch Hybrid-Ansatz
