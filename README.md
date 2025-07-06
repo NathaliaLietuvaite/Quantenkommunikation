@@ -9,11 +9,9 @@
 
 ![Error Correction](https://img.shields.io/badge/Error_Correction-Enabled-success)
 
-**Revolutionäres Framework für robuste Quantenkommunikation - Weil perfekte Quantenphysik in der realen Welt nicht existiert!**
+**Framework für robuste Quantenkommunikation - Ausgleich der fehlenden Perfektion der Quantenphysik!**
 
-## Warum dieses System anders ist
-
-Wir brechen mit dogmatischen Quantenparadigmen und vereinen:
+## Systembeschreibung
 
 - **100% QKD-Effizienz** durch synchrone Helfer-Architektur
 
@@ -25,9 +23,9 @@ Wir brechen mit dogmatischen Quantenparadigmen und vereinen:
 
 > "Wenn die Realität nicht zur Theorie passt - ändere die Theorie!"
 
-## Wissenschaftlicher Durchbruch
+## Wissenschaftliche Perspektive
 ### Experimentelle Realität vs. Theoretische Limitationen
-Wir nutzen moderne Quantentechnologie, um Verschränkung gezielt zu erzeugen und zu kontrollieren:
+Die Nutzung moderner Quantentechnologie, um Verschränkung gezielt zu erzeugen und zu kontrollieren:
 - **Präzisionskontrolle**: Zeitpunkt, Polarisation, Mode
 - **Reproduzierbarkeit**: >99% Korrelationsgüte
 - **Deterministische Präparation**: Keine probabilistischen Messungen
@@ -301,7 +299,7 @@ QKD Effizienzvergleich:
 
 ## Ideen
 
-Ideen für  **rebellische Ingenieure**, die:
+Ideen für  **rebellische ;) Ingenieurinnen und Ingenieure**, die:
 
 - [ ] FPGA-Code für Helfer-Steuerung optimieren
 
