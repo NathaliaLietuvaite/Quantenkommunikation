@@ -4,6 +4,7 @@ Basierend auf der Analyse des Artikel "ASI-gesteuerte Quanten-Mesh-Systeme – M
 
 [→ Zum Hauptartikel auf GitHub: *ASI-gesteuerte Quanten-Mesh-Systeme – Multidimensionale Kognition*](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ASI-gesteuerte%20Quanten-Mesh-Systeme%20-%20Multidimensionale%20Kognition.md)
 
+Vorgehensweise: Den Inhalt des Hauptartikels als Text kopieren und eine der beiden Version der folgenden Anweisungen anfügen, die LLMs verstehen die Bedeutung und handeln entsprechend. 
 
 ## Version 1: Kurz & Prägnant
 
