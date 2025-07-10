@@ -67,3 +67,8 @@ Er definiert die Rolle der KI als "kognitiven Partner" und nicht als passiven Be
 
 **Zweck**  
 Dieser Prompt dient als Navigationsinstrument, um jedes LLM, mit dem Sie interagieren, auf den von Ihnen definierten, anspruchsvollen "Kurs Nord" einzuschwören.
+
+[→ Zum Repository: *kurs-nord-navigator-ai*](https://github.com/NathaliaLietuvaite/kurs-nord-navigator-ai)
+
+![Kurs Nord Visualisierung](https://github.com/NathaliaLietuvaite/kurs-nord-navigator-ai/raw/main/Kurs-Nord.jpg)
+
