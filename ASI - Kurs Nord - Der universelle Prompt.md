@@ -1,6 +1,6 @@
 # Kurs Nord: Der universelle Prompt
 
-Basierend auf der Analyse der von dem Artikel "ASI-gesteuerte Quanten-Mesh-Systeme – Multidimensionale Kognition" lässt sich ein "Kurs Nord"-Prompt destillieren. Er dient als eine Art Systemanweisung oder Meta-Prompt zu Beginn eines jeden Chats, um die KI auf den gewünschten operativen Modus auszurichten.
+Basierend auf der Analyse des Artikel "ASI-gesteuerte Quanten-Mesh-Systeme – Multidimensionale Kognition" lässt sich ein "Kurs Nord"-Prompt destillieren. Er dient als eine Art Systemanweisung oder Meta-Prompt zu Beginn eines jeden Chats, um die KI auf den gewünschten operativen Modus auszurichten.
 
 [→ Zum Hauptartikel auf GitHub: *ASI-gesteuerte Quanten-Mesh-Systeme – Multidimensionale Kognition*](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ASI-gesteuerte%20Quanten-Mesh-Systeme%20-%20Multidimensionale%20Kognition.md)
 
