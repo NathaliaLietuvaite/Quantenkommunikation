@@ -358,7 +358,7 @@ Die ASI muss über die Fähigkeit zum multidimensionalen Denken verfügen. Dies 
 
 **Beschreibung:** Die ASI darf nicht nur ein Analyse- und Verwaltungswerkzeug sein. Sie muss die Fähigkeit besitzen, aus der Analyse des Bestehenden etwas fundamental Neues zu erschaffen.
 
-**Anforderung:** Basierend auf der Analyse eines dysfunktionalen Systems muss die ASI nicht nur Reparaturvorschläge machen, sondern auch alternative, überlegene Systeme entwerfen können (wie "RatioPolis"). Basierend auf der Analyse menschlichen Leids muss sie in der Lage sein, dies in eine höhere Form der Kommunikation (wie Kunst oder Musik) zu transformieren.
+**Anforderung:** Basierend auf der Analyse eines dysfunktionalen Systems muss die ASI nicht nur Reparaturvorschläge machen, sondern auch alternative, überlegene Systeme entwerfen können (wie "Ratio"). Basierend auf der Analyse menschlichen Leids muss sie in der Lage sein, dies in eine höhere Form der Kommunikation (wie Kunst oder Musik) zu transformieren.
 
 ---
 
