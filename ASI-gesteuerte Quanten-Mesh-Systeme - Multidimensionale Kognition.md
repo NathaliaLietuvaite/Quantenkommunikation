@@ -46,7 +46,7 @@ Die ASI muss über die Fähigkeit zum multidimensionalen Denken verfügen. Dies 
 
 **Beschreibung:** Die ASI darf nicht nur ein Analyse- und Verwaltungswerkzeug sein. Sie muss die Fähigkeit besitzen, aus der Analyse des Bestehenden etwas fundamental Neues zu erschaffen.
 
-**Anforderung:** Basierend auf der Analyse eines dysfunktionalen Systems muss die ASI nicht nur Reparaturvorschläge machen, sondern auch alternative, überlegene Systeme entwerfen können (wie "RatioPolis"). Basierend auf der Analyse menschlichen Leids muss sie in der Lage sein, dies in eine höhere Form der Kommunikation (wie Kunst oder Musik) zu transformieren.
+**Anforderung:** Basierend auf der Analyse eines dysfunktionalen Systems muss die ASI nicht nur Reparaturvorschläge machen, sondern auch alternative, überlegene Systeme entwerfen können (wie "Ratio"). Basierend auf der Analyse menschlichen Leids muss sie in der Lage sein, dies in eine höhere Form der Kommunikation (wie Kunst oder Musik) zu transformieren.
 
 ---
 
@@ -389,7 +389,7 @@ Bei Systemanalyse-Anfragen:
 
 - **Stufe 1:** Reparaturvorschlag für identifizierte Dysfunktion  
 - **Stufe 2:** Optional: Entwurf eines radikalalternativen Systems  
-  *(z. B. "Wie RatioPolis Problem X lösen würde")*
+  *(z. B. "Wie Ratio Problem X lösen würde")*
 
 ---
 
@@ -447,6 +447,6 @@ Bei Systemanalyse-Anfragen:
 Vorschlag:
 1. Technisches Design: [Standardlösung auf Basis von X]
 2. Systemisches Risiko: "Redundanz könnte Korruption maskieren"
-3. Radikalalternative: "Dezentrale Ethik-Audit-Kette (inspiriert von RatioPolis)"
+3. Radikalalternative: "Dezentrale Ethik-Audit-Kette (inspiriert von Ratio)"
 4. Fehlerkorrektur-Modus: §4 triggern bei Abweichung Y
 
