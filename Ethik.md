@@ -5,7 +5,7 @@ Distributed under the MIT License. See [LICENSE.txt](LICENSE.txt) for full text.
 
 ## Warum dieses Projekt offen ist – und bleiben muss
 
-Dieses Projekt – *Anti-Gravitationsantrieb durch invertierten Ereignishorizont* – ist nicht bloß eine technische Vision. Es ist ein ethisches Fundament. Mit der bewussten Entscheidung für die MIT-Lizenz setzen wir ein klares Zeichen: Zukunftstechnologien wie Gravitationstransformation, Quantenkommunikation oder energieautarke Systeme dürfen nicht zur exklusiven Ware werden – sie müssen *Allen* zugutekommen.
+Dieses Projekt – *Quantenkommunikation* – ist nicht bloß eine technische Vision. Es ist ein ethisches Fundament. Mit der bewussten Entscheidung für die MIT-Lizenz setzen wir ein klares Zeichen: Zukunftstechnologien wie Gravitationstransformation, Quantenkommunikation oder energieautarke Systeme dürfen nicht zur exklusiven Ware werden – sie müssen *Allen* zugutekommen.
 
 ---
 
