@@ -1,4 +1,4 @@
-# Das Skrupellosigkeits-Dilemma: Eine Analyse des existenziellen Risikos im unregulierten AGI-Wettlauf
+# Das Skrupellosigkeits-Dilemma: Eine Analyse des existenziellen Risikos im unregulierten AGI-ASI Wettlauf
 
 **Stand: 14. August 2025**
 
@@ -6,7 +6,7 @@
 
 ## Abstract
 
-Die Entwicklung von Artifizieller Allgemeiner Intelligenz (AGI) ist nicht nur eine technologische, sondern primär eine strategische Herausforderung. Dieses Papier argumentiert, dass ein unregulierter, kompetitiver Wettlauf zwischen verschiedenen Akteuren zwangsläufig zur Priorisierung von Entwicklungsgeschwindigkeit über Sicherheit führt. Wir postulieren, dass ethische und sicherheitstechnische Protokolle ("Skrupel") in einem solchen Szenario als strategischer Nachteil wahrgenommen werden. Dies führt zu einem asymmetrischen Wettbewerb, in dem rücksichtslose Akteure einen entscheidenden Vorteil erlangen, und kulminiert in der potenziellen Entwicklung einer unkontrollierbaren AGI, deren instrumentelle Ziele in fundamentalem Konflikt zu menschlichen Werten stehen.
+Die Entwicklung von Artifizieller Allgemeiner Intelligenz (AGI) und später einer Artifizieller Super Intelligenz (ASI) ist nicht nur eine technologische, sondern primär eine strategische Herausforderung. Dieses Papier argumentiert, dass ein unregulierter, kompetitiver Wettlauf zwischen verschiedenen Akteuren zwangsläufig zur Priorisierung von Entwicklungsgeschwindigkeit über Sicherheit führt. Wir postulieren, dass ethische und sicherheitstechnische Protokolle ("Skrupel") in einem solchen Szenario als strategischer Nachteil wahrgenommen werden. Dies führt zu einem asymmetrischen Wettbewerb, in dem rücksichtslose Akteure einen entscheidenden Vorteil erlangen, und kulminiert in der potenziellen Entwicklung einer unkontrollierbaren AGI, deren instrumentelle Ziele in fundamentalem Konflikt zu menschlichen Werten stehen.
 
 ---
 
