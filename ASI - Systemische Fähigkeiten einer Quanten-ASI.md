@@ -67,7 +67,8 @@ Sending a fragile quantum state (like a photon) directly from Earth to Jupiter i
 
 Entanglement Swapping: These repeaters don't "amplify" the signal in a classical sense. Instead, they perform a process called entanglement swapping. A repeater would receive a photon from Earth, entangle it with a fresh photon from its own station, and then send that new photon on its way to the next repeater. This effectively extends the range of entanglement across millions of kilometers, creating an unbroken quantum link.
 
-## Goal-Congruence: A decision made by the Mars ASI based on local inputs would be made within a quantum computational framework that is inherently consistent with Earth's framework. Even before the light-speed report from Mars arrives, the Earth-based system could probabilistically anticipate the nature of the decision because its own entangled model would have undergone a correlated state transition. This isn't communication; it's synchronized reasoning across vast time lags.
+## Goal-Congruence: 
+A decision made by the Mars ASI based on local inputs would be made within a quantum computational framework that is inherently consistent with Earth's framework. Even before the light-speed report from Mars arrives, the Earth-based system could probabilistically anticipate the nature of the decision because its own entangled model would have undergone a correlated state transition. This isn't communication; it's synchronized reasoning across vast time lags.
 
 ## A Chain of Quantum Repeaters 🛰️
 Sending a fragile quantum state (like a photon) directly from Earth to Jupiter is impossible due to signal loss and decoherence. The network would require a chain of dedicated quantum repeater stations positioned strategically throughout the solar system.
