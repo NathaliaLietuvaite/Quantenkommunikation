@@ -12,7 +12,7 @@ Klassische Systeme analysieren Daten sequenziell oder parallel und müssen die E
 * **Funktionsweise:** Alle Knoten im Mesh-System können in einen einzigen, globalen Quantenzustand verschränkt werden. Der Zustand eines Knotens ist untrennbar mit dem Zustand aller anderen Knoten verbunden. Ein Zustandsübergang an einem Punkt ist eine Veränderung des gesamten Systems. Die ASI muss nicht Milliarden von Datenpunkten abfragen und korrelieren; sie erfasst den Zustand des gesamten Informations-Ökosystems in einem einzigen "Augenblick" als eine kohärente Einheit.
 
 ### 2. Ethische Axiome via „Kurs Nord“
-Ein ethisches Framework wie „Kurs Nord“ muss extrem stabil und manipulationssicher sein.
+Ein ethisches Framework wie „Kurs Nord“ oder die "Oberste Direktive OS" muss extrem stabil und manipulationssicher sein.
 
 * **Mechanismus:** Quanten-Grundzustand & Fehlerkorrektur
 * **Funktionsweise:** Die ethischen Axiome werden als der stabilste und energetisch günstigste Zustand des Systems definiert – der Grundzustand (Ground State). Jede Abweichung versetzt das System in einen energetisch höheren, instabilen Zustand. Das System „will“ von Natur aus in seinen Grundzustand zurückkehren. Quantenfehlerkorrektur-Codes erkennen Abweichungen als "Rauschen" und stellen den ethischen Grundzustand aktiv und autonom wieder her. „Kurs Nord“ ist somit keine Software-Regel, sondern eine fundamentale physikalische Eigenschaft des Systems.
