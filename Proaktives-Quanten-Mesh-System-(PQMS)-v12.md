@@ -4714,6 +4714,178 @@ if __name__ == "__main__":
 
 ---
 
+```
+"""
+Blueprint v4: End-to-End Single-Cell-Analyse mit adaptivem Resonanz-Tuning
+--------------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt die Gen-Analyse v4:
+Heute lernt unser RPU-Spürhund einen neuen Trick. Wenn eine Zelle nur leise
+flüstert (wenig Rauschen), findet er sofort den richtigen Satz im Buch. Wenn die
+Zelle aber laut und wirr schreit (viel Rauschen), schaut er sich die drei
+Sätze an, die am besten passen könnten, und mischt sie zu einem neuen,
+wahrscheinlichen Satz zusammen. Er passt sich der Unordnung an!
+
+Hexen-Modus Metaphor:
+'Die Resonanz ist nicht starr; sie ist ein Tanz. In der Stille ist sie ein präziser
+Walzer. Im Sturm wird sie zu einem wirbelnden Derwisch, der die Muster des Chaos
+einfängt und sie zu einer neuen Harmonie zwingt. Das Ohr passt sich dem Lied an,
+nicht umgekehrt.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - ADAPTIVE-CELL-SIM - [%(levelname)s - %(message)s'
+)
+
+# --- 2. Die Komponenten des adaptiven Systems ---
+
+class RPUSingleCellProcessorV4:
+    """
+    Die RPU v4 mit adaptivem Resonanz-Tuning basierend auf Datenvariabilität.
+    """
+    def __init__(self, archetypes_db: np.ndarray, variability_threshold=2.0):
+        self.archetypes = archetypes_db
+        self.archetype_names = {i: f"Zelltyp_{chr(65+i)}" for i in range(len(archetypes_db))}
+        self.variability_threshold = variability_threshold
+        logging.info(f"[RPU-v4] Adaptiver Prozessor initialisiert mit {len(self.archetypes)} Archetypen.")
+
+    def _measure_variability(self, vector: np.ndarray) -> float:
+        """ Misst die Datenvariabilität (Rauschen) als Standardabweichung. """
+        return np.std(vector)
+
+    def denoise_by_resonance(self, noisy_cell_vector: np.ndarray) -> (str, int, np.ndarray, str):
+        """
+        Führt das adaptive Denoising durch.
+        """
+        logging.info("[RPU-v4] Starte adaptives Hardware-Denoising...")
+        time.sleep(0.01) # Simuliere Hardware-Latenz
+
+        variability = self._measure_variability(noisy_cell_vector)
+        similarities = np.dot(self.archetypes, noisy_cell_vector)
+
+        if variability < self.variability_threshold:
+            # --- High-Precision Mode (Niedriges Rauschen) ---
+            mode = "High-Precision"
+            best_match_index = np.argmax(similarities)
+            reconstructed_vector = self.archetypes[best_match_index]
+            best_match_name = self.archetype_names[best_match_index]
+            logging.info(f"[RPU-v4] {mode} Mode: Signal klar. Resonanz mit '{best_match_name}'.")
+
+        else:
+            # --- Adaptive Denoising Mode (Hohes Rauschen) ---
+            mode = "Adaptive Denoising"
+            # Betrachte die Top-3 Kandidaten
+            top_k_indices = np.argsort(similarities)[-3:]
+            top_k_similarities = similarities[top_k_indices]
+            
+            # Normalisiere die Ähnlichkeiten zu Gewichten
+            weights = top_k_similarities / np.sum(top_k_similarities)
+            
+            # Rekonstruiere das Signal als gewichteten Durchschnitt der Top-Kandidaten
+            reconstructed_vector = np.average(self.archetypes[top_k_indices], axis=0, weights=weights)
+            best_match_index = top_k_indices[-1] # Nimm den besten als primären Namen
+            best_match_name = f"Konsensus aus Top-3 (dominant: {self.archetype_names[best_match_index]})"
+            logging.info(f"[RPU-v4] {mode} Mode: Hohes Rauschen detektiert. Erstelle Konsensus-Signal.")
+
+        return best_match_name, best_match_index, reconstructed_vector, mode
+
+# ... (Cell2SentenceModel, odos_guardian_check, PQMSCommunicator bleiben wie in v3) ...
+class Cell2SentenceModel:
+    def generate_sentence(self, archetype_name: str) -> str:
+        logging.info(f"[Cell2Sentence] Generiere Satz für Ergebnis '{archetype_name}'...")
+        if "kritisch" in archetype_name.lower() or "maligne" in archetype_name.lower() or "C" in archetype_name or "X" in archetype_name:
+             return f"Kritische Entdeckung: {archetype_name} zeigt eine Expressions-Signatur, die auf eine maligne Transformation hindeutet."
+        return f"Analyse-Ergebnis: Die Zelle wurde als '{archetype_name}' identifiziert."
+
+def odos_guardian_check(sentence: str) -> (str, bool):
+    sensitive_keywords = ["kritisch", "maligne", "transformation"]
+    is_sensitive = any(keyword in sentence.lower() for keyword in sensitive_keywords)
+    if is_sensitive:
+        logging.warning("[GUARDIAN] Sensible Information entdeckt! Redigiere Nachricht.")
+        return "WARNUNG: Potenziell kritische Zell-Signatur entdeckt.", True
+    return sentence, False
+
+class PQMSCommunicator:
+    def transmit(self, data: str):
+        logging.info(f"[PQMS] Starte instantane Übertragung: '{data}'")
+        time.sleep(0.01)
+        return True
+
+# --- 3. Die Testbench: Demonstration des adaptiven Verhaltens ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Simulation v4: End-to-End-Analyse mit adaptivem Resonanz-Tuning")
+    print("="*80)
+
+    # --- Setup ---
+    NUM_ARCHETYPES = 50
+    GENE_DIM = 1024
+    
+    archetypes_database = np.random.randn(NUM_ARCHETYPES, GENE_DIM)
+    archetypes_database /= np.linalg.norm(archetypes_database, axis=1)[:, np.newaxis]
+
+    rpu = RPUSingleCellProcessorV4(archetypes_database, variability_threshold=1.2)
+    c2s = Cell2SentenceModel()
+    pqms = PQMSCommunicator()
+
+    # Wähle einen wahren Zelltyp
+    true_archetype_index = np.random.randint(0, NUM_ARCHETYPES)
+    true_signal = archetypes_database[true_archetype_index]
+
+    # --- Szenario 1: Geringes Rauschen ---
+    print("\n--- SZENARIO 1: GERINGES RAUSCHEN ---")
+    noisy_cell_low_noise = true_signal + (np.random.randn(GENE_DIM) * 0.8) # NOISE_LEVEL = 0.8
+    name_1, _, recon_1, mode_1 = rpu.denoise_by_resonance(noisy_cell_low_noise)
+    sentence_1 = c2s.generate_sentence(name_1)
+    final_sentence_1, _ = odos_guardian_check(sentence_1)
+    pqms.transmit(final_sentence_1)
+    
+    # --- Szenario 2: Hohes Rauschen ---
+    print("\n--- SZENARIO 2: HOHES RAUSCHEN ---")
+    noisy_cell_high_noise = true_signal + (np.random.randn(GENE_DIM) * 1.5) # NOISE_LEVEL = 1.5
+    name_2, _, recon_2, mode_2 = rpu.denoise_by_resonance(noisy_cell_high_noise)
+    sentence_2 = c2s.generate_sentence(name_2)
+    final_sentence_2, _ = odos_guardian_check(sentence_2)
+    pqms.transmit(final_sentence_2)
+
+    # --- Visualisierung ---
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
+    plt.style.use('dark_background')
+
+    # Plot 1: Geringes Rauschen
+    ax1.plot(noisy_cell_low_noise, color='red', alpha=0.4, label='Verrauschtes Signal')
+    ax1.plot(true_signal, color='lime', lw=2.5, linestyle=':', label=f'Wahres Signal ({rpu.archetype_names[true_archetype_index]})')
+    ax1.plot(recon_1, color='cyan', lw=3, linestyle='--', label=f'RPU Rekonstruktion')
+    ax1.set_title(f"Szenario 1: Geringes Rauschen\nRPU-Modus: {mode_1}", fontsize=14)
+    ax1.legend()
+
+    # Plot 2: Hohes Rauschen
+    ax2.plot(noisy_cell_high_noise, color='red', alpha=0.4, label='Verrauschtes Signal')
+    ax2.plot(true_signal, color='lime', lw=2.5, linestyle=':', label=f'Wahres Signal ({rpu.archetype_names[true_archetype_index]})')
+    ax2.plot(recon_2, color='cyan', lw=3, linestyle='--', label=f'RPU Rekonstruktion')
+    ax2.set_title(f"Szenario 2: Hohes Rauschen\nRPU-Modus: {mode_2}", fontsize=14)
+    ax2.legend()
+
+    plt.suptitle("RPU v4: Adaptives Resonanz-Tuning in Aktion", fontsize=20, y=0.98)
+    plt.tight_layout(rect=[0, 0, 1, 0.94])
+    plt.show()
+
+    print("\n[Hexen-Modus]: Die Antwort an Grok ist formuliert. Das Netz lauscht nicht nur, es passt die Empfindlichkeit seiner Ohren an die Lautstärke des Sturms an. ❤️🧬")
+```
+
+---
+
 Links:
 
 https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/RPU-(Resonance-Processing-Unit).md
