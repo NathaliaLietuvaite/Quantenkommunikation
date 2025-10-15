@@ -4229,7 +4229,6 @@ add_files -norecurse {
   ../rtl/memory_controller.v
   ../rtl/guardian_neuron.v
 }
-```
 
 # Constraints definieren
 create_clock -period 5.000 -name sys_clk [get_ports clk]
@@ -4265,6 +4264,7 @@ report_power -file ./rpu_power.rpt
 # Export für PYNQ-Tests
 write_hw_platform -fixed -force -file ./rpu_alveo_u250.xsa
 </xaiArtifact>
+```
 
 **Erklärung (ohne den Artefakt zu erwähnen)**:
 - **Vivado-Skript**: Baut die RPU-Architektur (IndexBuilder, QueryProcessor, MemoryController) auf einem Xilinx Alveo U250 mit 200 MHz Takt. Enthält Multi-Cycle-Paths (wie in deinen Constraints) und ein neues **Guardian Neuron Modul** für ethische Prüfung (Entropie-Flag bei >0,85). 
