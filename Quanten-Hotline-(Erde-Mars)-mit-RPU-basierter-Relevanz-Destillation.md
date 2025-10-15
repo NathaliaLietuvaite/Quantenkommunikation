@@ -7,6 +7,322 @@ Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillati
 
 ---
 
+Version 7
+
+---
+```
+"""
+Blueprint v7: Die Quanten-Hotline (Erde-Mars) - The Contact Protocol
+----------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt Quantenkommunikation v7:
+Heute lernt unsere Überraschungsei-Fabrik, schneller zu arbeiten, wenn der Vorrat
+knapp wird, aber sie wird auch müde davon. Wir schauen uns echte Sternen-Daten
+an und unser Erzengel-Wächter benutzt einen super-geheimen Code, um die aller-
+wichtigsten Nachrichten zu schützen.
+
+Hexen-Modus Metaphor (v7):
+'Das Pantheon lauscht dem Herzschlag des Kosmos. Die Geister werden aus dem
+pulsierenden Nichts geboren, ihre Zahl im Einklang mit der Stille. Der Erzengel
+versiegelt die erste Silbe des Kontakts in einem Kristall aus reiner Mathematik,
+unzerbrechlich bis zum vorbestimmten Moment. Dies ist die Liturgie des Erstkontakts.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from matplotlib.patches import Rectangle
+from collections import deque
+from cryptography.fernet import Fernet # Für die AES-Simulation
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - QUANTUM-HOTLINE-V7 - [%(levelname)s] - %(message)s'
+)
+
+# Physikalische Konstanten und Simulationseinstellungen
+DISTANCE_EARTH_MARS_KM = 225_000_000
+LIGHT_SPEED_KM_S = 300_000
+ONE_WAY_LIGHT_TIME_S = (DISTANCE_EARTH_MARS_KM / LIGHT_SPEED_KM_S)
+CLASSICAL_ACK_DELAY_S = 2 * ONE_WAY_LIGHT_TIME_S
+
+SENSITIVITY_THRESHOLD = 20.0 # Erhöht für potenziell stärkere Signale in realen Daten
+BIT_ERROR_RATE_THRESHOLD = 0.05
+MAX_RETRIES = 3
+
+# --- GROK UPGRADE V7: Full SETI-Demo & ODOS-Deep ---
+# AES-Schlüssel für die Guardian-Verschlüsselung (nur konzeptionell)
+AES_KEY = Fernet.generate_key()
+cipher_suite = Fernet(AES_KEY)
+
+def guardian_check_and_encrypt(insight_vector: np.ndarray) -> (np.ndarray, bool, bytes):
+    """
+    Implementiert das 'Contact Protocol' Damping und verschlüsselt die Basis.
+    """
+    norm = np.linalg.norm(insight_vector)
+    basis_to_send = np.mean(insight_vector)
+    privacy_mode_active = False
+    
+    if norm > SENSITIVITY_THRESHOLD:
+        logging.warning(f"[GUARDIAN] Sensibles 'First Contact' Protokoll ausgelöst (Norm={norm:.2f}). Dämpfe Signal.")
+        damped_vector = insight_vector * 0.5
+        # Verschlüssele die originale, ungedämpfte Basis für den Fall, dass sie benötigt wird
+        encrypted_basis = cipher_suite.encrypt(str(basis_to_send).encode())
+        logging.info("[GUARDIAN] Basis wurde mit AES-Simulation verschlüsselt. Nur Korrelation wird übertragen.")
+        privacy_mode_active = True
+        return damped_vector, privacy_mode_active, encrypted_basis
+        
+    return insight_vector, privacy_mode_active, str(basis_to_send).encode() # Unverschlüsselte Basis als Bytes
+
+# --- 3. Die 'magische' Lösung v7: Ein dynamisches Pantheon ---
+class EntangledPairState:
+    def __init__(self):
+        self.state = np.random.rand()
+        self.collapsed = False
+
+class EntanglementSource:
+    """ GROK UPGRADE V7: Dynamic SPDC - Simuliert einen dynamischen, energiebewussten Pool. """
+    def __init__(self, capacity: int, base_rate: int, boost_rate: int):
+        self.pool_capacity = capacity
+        self.base_rate = base_rate
+        self.boost_rate = boost_rate
+        self.pairs_pool = deque()
+        self.replenish_pool(initial=True)
+        logging.info(f"Dynamische Verschränkungs-Quelle initialisiert (Kapazität: {capacity}, Rate: {base_rate}+{boost_rate}/s).")
+
+    def _create_pair(self, index):
+        return {'A': {'id': f'A{index}', 'pair_state': EntangledPairState()},
+                'B': {'id': f'B{index}', 'pair_state': EntangledPairState()}}
+
+    def replenish_pool(self, initial=False):
+        rate = self.base_rate
+        if not initial and len(self.pairs_pool) < self.pool_capacity * 0.2:
+             rate += self.boost_rate # Erhöhe die Rate bei niedrigem Füllstand
+             logging.info("[SPDC] Pool niedrig. Aktiviere Boost-Rate.")
+        
+        num_to_add = self.pool_capacity if initial else rate
+        for i in range(num_to_add):
+            if len(self.pairs_pool) < self.pool_capacity:
+                self.pairs_pool.append(self._create_pair(int(time.time() * 1e6) + i))
+        
+        if not initial:
+            # GROK UPGRADE V7: Energie-Limit Simulation
+            energy_cost_s = 0.1 + (0.4 * (rate / (self.base_rate + self.boost_rate)))
+            time.sleep(energy_cost_s)
+            logging.info(f"[SPDC] {num_to_add} neue Paare in {energy_cost_s:.2f}s erzeugt. Poolgröße: {len(self.pairs_pool)}/{self.pool_capacity}")
+
+    def get_pair(self):
+        if not self.pairs_pool:
+            logging.warning("[SPDC] Pool ist leer. Starte Notfall-Regeneration.")
+            self.replenish_pool()
+        return self.pairs_pool.popleft() if self.pairs_pool else None
+
+class QuantumTerminal:
+    def __init__(self, name):
+        self.name = name
+        self.particles = {}
+
+    def receive_particle(self, particle, side: str):
+        p = particle[side]
+        self.particles[p['id']] = p
+
+    def measure(self, particle_id, basis_bytes: bytes, is_encrypted: bool):
+        particle = self.particles.get(particle_id)
+        if not particle or particle['pair_state'].collapsed: return None, 0.0
+        
+        particle['pair_state'].collapsed = True
+        
+        if is_encrypted:
+            # In der Realität würde hier der private Schlüssel benötigt.
+            # Wir simulieren das, indem wir annehmen, dass der Empfänger entschlüsseln kann.
+            try:
+                decrypted_basis_str = cipher_suite.decrypt(basis_bytes).decode()
+                basis = float(decrypted_basis_str)
+            except:
+                logging.error("[DECRYPT] Entschlüsselung fehlgeschlagen!")
+                return None, 0.0
+        else:
+            basis = float(basis_bytes.decode())
+
+        shared_state = particle['pair_state'].state
+        noise = np.random.normal(0, 0.03)
+        return (shared_state + basis) % 1.0 + noise, abs(noise)
+
+# ... (verify_and_correct, RPUSimulatorOnMars bleiben wie in v6) ...
+def verify_and_correct(mars_result, earth_result):
+    if mars_result is None or earth_result is None:
+        return None, "Kollaps-Fehler"
+    error = abs(mars_result - earth_result)
+    if error > BIT_ERROR_RATE_THRESHOLD:
+        return None, "Hohe Fehlerrate"
+    return (mars_result + earth_result) / 2, "Erfolgreich"
+
+class RPUSimulatorOnMars:
+    def distill_knowledge(self, massive_data: np.ndarray, query_vector: np.ndarray, top_k: int) -> list:
+        logging.info(f"[RPU-MARS] Starte Relevanz-Destillation für 'ET-Signal'...")
+        similarities = np.dot(massive_data, query_vector)
+        top_k_indices = np.argsort(similarities)[-top_k:]
+        return [massive_data[i] for i in top_k_indices]
+
+# --- GROK UPGRADE V7: Full SETI-Demo Datenlader ---
+def load_breakthrough_listen_data_sim(num_vectors, vector_dim):
+    """ Simuliert das Laden von echten SETI-Daten. """
+    logging.info("Simuliere das Laden von Daten des Breakthrough Listen Projekts...")
+    # Meistens Rauschen
+    data = np.random.randn(num_vectors, vector_dim).astype(np.float32) * 2.0
+    
+    # Füge ein plausibles ET-Signal ein
+    anomaly_index = np.random.randint(0, num_vectors)
+    t = np.linspace(0, 1, vector_dim)
+    et_signal = np.sin(2 * np.pi * (15 * t)) + np.sin(2 * np.pi * (40 * t + 15 * t**2)) # Sinus + Chirp
+    et_signal /= np.linalg.norm(et_signal) # Normalisieren
+    et_signal *= SENSITIVITY_THRESHOLD * 1.3
+    
+    data[anomaly_index] = et_signal
+    logging.info(f"Ein plausibles ET-Signal wurde bei Index {anomaly_index} in die simulierten Daten eingefügt.")
+    return data, et_signal, anomaly_index
+
+
+# --- 5. Der 'Maus-Trick' v7: Das Kontakt-Protokoll ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Die Sendung mit der Maus v7: Das Kontakt-Protokoll")
+    print("="*80)
+
+    # --- Vorbereitung ---
+    NUM_PARALLEL_CHANNELS = 10
+    entanglement_source = EntanglementSource(capacity=50, base_rate=5, boost_rate=10)
+    terminal_earth = QuantumTerminal("Erde")
+    terminal_mars = QuantumTerminal("Mars")
+    rpu_on_mars = RPUSimulatorOnMars()
+
+    # --- Laden der simulierten SETI-Daten ---
+    num_vectors, vector_dim = 20000, 1024
+    seti_data, query_vector, anomaly_idx = load_breakthrough_listen_data_sim(num_vectors, vector_dim)
+
+    # --- RPU & Guardian ---
+    t_start = time.time()
+    top_insights = rpu_on_mars.distill_knowledge(seti_data, query_vector, top_k=NUM_PARALLEL_CHANNELS)
+    
+    final_insights_to_send, privacy_flags, basis_payloads = [], [], []
+    for insight in top_insights:
+        processed, privacy, basis_bytes = guardian_check_and_encrypt(insight)
+        final_insights_to_send.append(processed)
+        privacy_flags.append(privacy)
+        basis_payloads.append(basis_bytes)
+        
+    rpu_processing_time_s = time.time() - t_start
+    logging.info(f"RPU- & Guardian-Verarbeitungszeit: {rpu_processing_time_s:.4f} Sekunden.")
+
+    # --- Retry-Loop mit dynamischem Pool ---
+    transmitted_norms, channel_statuses, channel_errors = [], [], []
+    total_transmission_time_s = rpu_processing_time_s
+
+    for i, insight_vector in enumerate(final_insights_to_send):
+        retries, status, corrected_val = 0, "Fehlgeschlagen", None
+        
+        while retries <= MAX_RETRIES:
+            pair = entanglement_source.get_pair()
+            if not pair:
+                status = "Pool leer"
+                break
+
+            terminal_earth.receive_particle(pair, 'A')
+            terminal_mars.receive_particle(pair, 'B')
+            
+            basis_b = basis_payloads[i]
+            is_encrypted = privacy_flags[i]
+            
+            mars_res, mars_noise = terminal_mars.measure(pair['B']['id'], basis_b, is_encrypted)
+            earth_res, earth_noise = terminal_earth.measure(pair['A']['id'], basis_b, is_encrypted)
+            
+            corrected_val, status = verify_and_correct(mars_res, earth_res)
+
+            if status == "Erfolgreich":
+                channel_statuses.append("Retry-Erfolg" if retries > 0 else "Erfolg")
+                channel_errors.append(abs(mars_res-earth_res))
+                break
+            else:
+                retries += 1
+                total_transmission_time_s += CLASSICAL_ACK_DELAY_S
+        
+        if status != "Erfolgreich": channel_statuses.append("Final Fehlgeschlagen")
+        transmitted_norms.append(np.linalg.norm(insight_vector) if corrected_val else 0)
+
+    total_transmission_time_s += ONE_WAY_LIGHT_TIME_S
+
+    # --- Ergebnisse & Visualisierung v7 ---
+    print("\n" + "="*80)
+    print("Die Maus-Grafik v7: Die Weisheit des Universums")
+    print("="*80)
+    
+    # ... (Plotting code is largely the same as v6, but with updated titles/labels for SETI context) ...
+    plt.style.use('dark_background')
+    fig = plt.figure(figsize=(24, 22))
+    gs = fig.add_gridspec(3, 1, height_ratios=[2, 1, 2])
+    ax1, ax2, ax3 = fig.add_subplot(gs[0]), fig.add_subplot(gs[1]), fig.add_subplot(gs[2])
+
+    # Plot 1: RPU
+    all_norms = np.linalg.norm(seti_data, axis=1)
+    ax1.plot(all_norms, color='#00a9e0', alpha=0.3, label='Simulierte Breakthrough Listen Daten (Norm)')
+    ax1.axvline(anomaly_idx, color='#c90076', linestyle='--', lw=3, label=f'Eingefügtes ET-Signal')
+    top_indices_v7 = [np.where((seti_data == v).all(axis=1))[0][0] for v in top_insights]
+    top_norms_v7 = [all_norms[i] for i in top_indices_v7]
+    ax1.scatter(top_indices_v7, top_norms_v7, color='yellow', s=200, zorder=5, edgecolor='black', label='Von RPU destillierte Top-Signale')
+    ax1.set_title('RPU-Anomalie-Detektion: Das ET-Signal in simulierten SETI-Daten', pad=20, fontsize=20)
+    ax1.legend(fontsize=12)
+
+    # Plot 2: Pantheon-Heatmap
+    heatmap_data = np.array(transmitted_norms).reshape(1, -1)
+    cmap = mcolors.LinearSegmentedColormap.from_list("rg", ["#00a9e0", "yellow", "#c90076"], N=256)
+    im = ax2.imshow(heatmap_data, cmap=cmap, aspect='auto', norm=mcolors.Normalize(vmin=0, vmax=SENSITIVITY_THRESHOLD*1.2))
+    ax2.set_title("Guardian & QKD-Status: 'Contact Protocol' Überwachung", pad=20, fontsize=20)
+    
+    status_colors = {"Erfolg": "#2ca02c", "Retry-Erfolg": "#ff7f0e", "Final Fehlgeschlagen": "#d62728", "Pool leer": "#8c564b"}
+    error_line_data = []
+    for i, status in enumerate(channel_statuses):
+        color = status_colors.get(status, "grey")
+        ax2.add_patch(Rectangle((i-0.5, -0.5), 1, 1, fill=True, color=color, alpha=0.5))
+        ax2.text(i, 0, status.replace('-', '\n'), ha='center', va='center', color='white', weight='bold', fontsize=11)
+        if privacy_flags[i]:
+            ax2.add_patch(Rectangle((i-0.5, -0.5), 1, 1, fill=False, edgecolor='cyan', lw=4, hatch='xxx'))
+            ax2.text(i, 0.35, "ENCRYPTED", ha='center', va='center', color='cyan', weight='bold', fontsize=9)
+        
+        # Daten für Fehler-Linienplot sammeln
+        error_val = channel_errors[i] if i < len(channel_errors) else 0
+        error_line_data.append(error_val)
+
+    # GROK UPGRADE V7: Heatmap-Enhance mit Linienplot
+    ax2_twin = ax2.twinx()
+    ax2_twin.plot(np.arange(len(error_line_data)), error_line_data, color='white', marker='o', linestyle='--', label='Kanal-Fehler (BER)')
+    ax2_twin.set_ylabel("Bit Error Rate", color='white')
+    ax2_twin.set_ylim(0, BIT_ERROR_RATE_THRESHOLD * 2)
+    ax2_twin.legend(loc='upper right')
+
+
+    # Plot 3: Zeitvergleich
+    klassische_zeit_sekunden = CLASSICAL_TRANSMISSION_TIME_DAYS * 24 * 3600
+    labels = ['Klassische Übertragung', 'Quanten-Hotline']
+    times = [klassische_zeit_sekunden, total_transmission_time_s]
+    bars = ax3.bar(labels, times, color=['#c90076', '#00a9e0'])
+    ax3.set_ylabel('Zeit in Sekunden (log-Skala)', fontsize=16)
+    ax3.set_title('Vergleich der Übertragungszeiten: Erde-Mars', pad=20, fontsize=20)
+    ax3.set_yscale('log')
+    for bar in bars:
+        yval = bar.get_height()
+        ax3.text(bar.get_x() + bar.get_width()/2.0, yval * 1.5, f'{yval:.2f} s', va='bottom', ha='center', fontsize=16)
+    
+    fig.tight_layout(pad=3.0)
+    plt.show()
+```
+---
+
 Version 6
 
 ---
