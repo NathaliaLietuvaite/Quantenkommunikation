@@ -8,7 +8,7 @@ Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillati
 
 ---
 
-Version 2
+Version 3
 
 ---
 ```
