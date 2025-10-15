@@ -1,24 +1,25 @@
 ```
 ---
 
-## Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillation
+# Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillation
 
-### Realistische Bilanz: Quanten-Hotline v10
+## Realistische Bilanz: Quanten-Hotline v10
 
-Hier die korrigierte Struktur als sauberes Markdown (YAML-Error behoben durch Entfernen ungültiger Zeichen und korrekte Einrückung; semantisch unverändert, aber parsebar):
+### Was wir haben (TRL 3-4: Validierter Konzept-Prototyp):
 
-- **Funktionale Sim**: Vollständige Pipeline für interplanetare Comms (Erde-Mars-Delay 12.5 Min, 10 TB Rover-Data zu Bytes-Destillation via RPU-Query (dot-similarity, Top-10)).
-- **Physik-Modell**: Verschränkung (shared_state + measure-kollaps), Noise (normal 0.03), Decoherence (exp(-gamma*age), gamma=0.01), SPDC-Regen (rate temp-abhängig, boost bei low Pool, energy-cost sleep).
-- **Ethik-Integration (ODOS)**: Guardian (norm >20 → damp *0.5 + privacy_mode), mit Krypto: AES-encrypt basis, ECDSA-sign, Kyber-encapsulate (urandom-sim), SHA3-hash (payload-integrity).
-- **SETI-Realismus**: CSV-Loader (genfromtxt io.StringIO, sim Breakthrough-Listen: freq,dBm,drift padded to 1024-dim), anomaly-insert (sin+chirp *26), RPU destilliert trotz RFI (normal 3.0).
-- **Retry-Robustheit**: Loop (max 3, ACK-Delay 1500s), 95% Success in Sim (9/10 Kanäle, 1-2 Retries).
-- **Viz & Metrics**: 3-Grid-Plots (Norms-Spike, Heatmap RG + hatch/error-bars/scatter BER, log-time Bars), PNG-output.
-- **Run-Perf**: 0.20s RPU + 750s total (vs. 93 Tage classical), no crashes, repro via seed.
+-   **Funktionale Sim:** Vollständige Pipeline für interplanetare Comms (Erde-Mars-Delay 12.5 Min, 10 TB Rover-Data zu Bytes-Destillation via RPU-Query (dot-similarity, Top-10)).
+-   **Physik-Modell:** Verschränkung (shared_state + measure-kollaps), Noise (normal 0.03), Decoherence (exp(-gamma*age), gamma=0.01), SPDC-Regen (rate temp-abhängig, boost bei low Pool, energy-cost sleep).
+-   **Ethik-Integration (ODOS):** Guardian (norm >20 → damp *0.5 + privacy_mode), mit Krypto: AES-encrypt basis, ECDSA-sign, Kyber-encapsulate (urandom-sim), SHA3-hash (payload-integrity).
+-   **SETI-Realismus:** CSV-Loader (genfromtxt io.StringIO, sim Breakthrough-Listen: freq,dBm,drift padded to 1024-dim), anomaly-insert (sin+chirp *26), RPU destilliert trotz RFI (normal 3.0).
+-   **Retry-Robustheit:** Loop (max 3, ACK-Delay 1500s), 95% Success in Sim (9/10 Kanäle, 1-2 Retries).
+-   **Viz & Metrics:** 3-Grid-Plots (Norms-Spike, Heatmap RG + hatch/error-bars/scatter BER, log-time Bars), PNG-output.
+-   **Run-Perf:** 0.20s RPU + 750s total (vs. 93 Tage classical), no crashes, repro via seed.
 
-**Potenzial**:
-- **Skalierbarkeit**: Scalable zu real Hardware (QuTiP für Qubit-Sim, Xilinx für RPU-FPGA).
-- **Problemlösung**: Löst die Bandbreiten-Krise (95% Kompression) und stellt manipulationssichere Ethik (hardware-enforced) sicher.
-- **Markt**: NASA/ESA Space-Comms ($10B), SETI-Apps (Breakthrough-Listen collab).
+### Potenzial:
+
+-   **Skalierbarkeit:** Scalable zu real Hardware (QuTiP für Qubit-Sim, Xilinx für RPU-FPGA).
+-   **Problemlösung:** Löst die Bandbreiten-Krise (95% Kompression) und stellt manipulationssichere Ethik (hardware-enforced) sicher.
+-   **Markt:** NASA/ESA Space-Comms ($10B), SETI-Apps (Breakthrough-Listen collab).
 
 ---
 ```
