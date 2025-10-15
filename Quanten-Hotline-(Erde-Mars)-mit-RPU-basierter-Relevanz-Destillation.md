@@ -39,7 +39,6 @@ Version 12
 ---
 
 ```
-# -*- coding: utf-8 -*-
 """
 Blueprint v12: Die Quanten-Hotline (Erde-Mars) - The Reality Weave
 -------------------------------------------------------------------
