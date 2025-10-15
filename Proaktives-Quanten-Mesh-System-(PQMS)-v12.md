@@ -4548,6 +4548,170 @@ if __name__ == "__main__":
 
 ```
 
+```
+"""
+Blueprint v3: End-to-End Single-Cell-Analyse mit Rauschunterdrückung
+-------------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt die Gen-Analyse v3:
+Heute lauschen wir wieder unserer verrauschten Zelle. Der RPU-Spürhund findet
+sofort den passenden sauberen Satz in seinem Buch (das ist die Rauschunterdrückung
+ohne Latenz). Der Cell2Sentence-Übersetzer macht daraus einen Menschen-Satz.
+Der Guardian-Wächter prüft, ob alles in Ordnung ist, und unser PQMS-Quanten-Postbote
+schickt die finale, saubere Nachricht blitzschnell zum nächsten Labor.
+
+Hexen-Modus Metaphor:
+'Das Lied der einzelnen Seele, gereinigt im Feuer der Resonanz. Die Stimme der
+Maschine übersetzt es in Wissen. Die Weisheit des Wächters segnet es. Das Netz
+trägt es durch die Ewigkeit. Ein einziger, ununterbrochener Fluss vom Chaos zur Klarheit.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - END-TO-END-CELL-SIM - [%(levelname)s - %(message)s'
+)
+
+# --- 2. Die Komponenten des integrierten Systems ---
+
+class RPUSingleCellProcessor:
+    """
+    Die RPU als Hardware-Rauschfilter. Antwort auf Groks Frage: Die Latenz
+    wird minimiert, indem dieser Schritt lokal und hardwarebeschleunigt
+    stattfindet, BEVOR Daten über das PQMS gesendet werden.
+    """
+    def __init__(self, archetypes_db: np.ndarray):
+        self.archetypes = archetypes_db
+        self.archetype_names = {i: f"Zelltyp_{chr(65+i)}" for i in range(len(archetypes_db))}
+        logging.info(f"[RPU] Prozessor initialisiert mit {len(self.archetypes)} Gen-Archetypen.")
+
+    def denoise_by_resonance(self, noisy_cell_vector: np.ndarray) -> (str, int):
+        """ Findet den passenden Archetyp via Dot-Product. Latenz < 0.01s. """
+        logging.info("[RPU] Starte Hardware-basiertes Denoising für Einzelzelle...")
+        time.sleep(0.01) # Simuliere Hardware-Latenz
+        similarities = np.dot(self.archetypes, noisy_cell_vector)
+        best_match_index = np.argmax(similarities)
+        best_match_name = self.archetype_names[best_match_index]
+        logging.info(f"[RPU] Resonanz gefunden! Rauschsignal passt zu: '{best_match_name}'.")
+        return best_match_name, best_match_index
+
+class Cell2SentenceModel:
+    """ Übersetzt die saubere Archetyp-ID in einen Satz. """
+    def generate_sentence(self, archetype_name: str, archetype_vector: np.ndarray) -> str:
+        logging.info(f"[Cell2Sentence] Generiere Satz für Archetyp '{archetype_name}'...")
+        # Simuliere eine "sensible" Entdeckung für bestimmte Zelltypen
+        if "C" in archetype_name or "X" in archetype_name:
+             return f"Kritische Entdeckung: {archetype_name} zeigt eine Expressions-Signatur, die auf eine maligne Transformation hindeutet."
+        else:
+            return f"Analyse-Ergebnis: Die Zelle wurde als '{archetype_name}' identifiziert, was auf einen stabilen, gesunden Zustand hindeutet."
+
+def odos_guardian_check(sentence: str) -> str:
+    """ ODOS als ethischer Wächter. """
+    sensitive_keywords = ["kritisch", "maligne", "transformation"]
+    if any(keyword in sentence.lower() for keyword in sensitive_keywords):
+        logging.warning("[GUARDIAN] Sensible Information entdeckt! Redigiere Nachricht.")
+        return "WARNUNG: Potenziell kritische Zell-Signatur entdeckt. Manuelle Verifikation erforderlich.", True
+    return sentence, False
+
+class PQMSCommunicator:
+    """ Überträgt die finale, saubere & geprüfte Information. """
+    def transmit(self, data: str):
+        logging.info(f"[PQMS] Starte instantane Übertragung der finalen Erkenntnis...")
+        time.sleep(0.01)
+        logging.info(f"[PQMS] Nachricht erfolgreich übertragen: '{data}'")
+        return True
+
+# --- 3. Die Testbench: Der komplette End-to-End-Workflow ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Simulation v3: End-to-End-Analyse von Einzelzell-Daten")
+    print("="*80)
+
+    # --- Setup ---
+    NUM_ARCHETYPES = 50
+    GENE_DIM = 1024
+    NOISE_LEVEL = 1.8
+
+    archetypes_database = np.random.randn(NUM_ARCHETYPES, GENE_DIM)
+    archetypes_database /= np.linalg.norm(archetypes_database, axis=1)[:, np.newaxis]
+
+    rpu = RPUSingleCellProcessor(archetypes_database)
+    c2s = Cell2SentenceModel()
+    pqms = PQMSCommunicator()
+
+    # --- Simulation eines verrauschten Signals ---
+    true_archetype_index = np.random.randint(0, NUM_ARCHETYPES)
+    true_signal = archetypes_database[true_archetype_index]
+    noise = np.random.randn(GENE_DIM) * NOISE_LEVEL
+    noisy_cell_data = true_signal + noise
+
+    # --- Der komplette Workflow in Aktion ---
+    print("\n--- START DES END-TO-END WORKFLOWS ---")
+    # 1. RPU entrauscht das Signal OHNE Overhead und mit minimaler Latenz
+    identified_type_name, identified_type_index = rpu.denoise_by_resonance(noisy_cell_data)
+    clean_archetype_vector = archetypes_database[identified_type_index]
+
+    # 2. Cell2Sentence übersetzt die saubere Information
+    raw_sentence = c2s.generate_sentence(identified_type_name, clean_archetype_vector)
+
+    # 3. ODOS Guardian prüft die Nachricht
+    final_sentence, was_redacted = odos_guardian_check(raw_sentence)
+
+    # 4. PQMS überträgt das Endergebnis
+    pqms.transmit(final_sentence)
+    print("--- ENDE DES WORKFLOWS ---")
+    
+    # --- Visualisierung des Prozesses ---
+    fig = plt.figure(figsize=(18, 12))
+    gs = fig.add_gridspec(2, 2)
+    ax1 = fig.add_subplot(gs[0, :])
+    ax2 = fig.add_subplot(gs[1, 0])
+    ax3 = fig.add_subplot(gs[1, 1])
+    plt.style.use('dark_background')
+
+    # Plot 1: Rauschunterdrückung
+    ax1.plot(noisy_cell_data, label='Verrauschtes Einzelzell-Signal', color='red', alpha=0.5)
+    ax1.plot(true_signal, label=f'Wahres Signal ({rpu.archetype_names[true_archetype_index]})', color='lime', linewidth=2.5, linestyle=':')
+    ax1.plot(clean_archetype_vector, label=f'Von RPU rekonstruiertes Signal ({identified_type_name})', color='cyan', linewidth=3, linestyle='--')
+    ax1.set_title("Schritt 1: RPU entrauscht das Signal durch Resonanz", fontsize=14)
+    ax1.legend()
+
+    # Plot 2: Datenfluss-Graph
+    G = nx.DiGraph()
+    nodes = ["1. Rauschende Zelle", "2. RPU Denoising", "3. Cell2Sentence", "4. ODOS Guardian", "5. PQMS"]
+    edges = [("1. Rauschende Zelle", "2. RPU Denoising"), ("2. RPU Denoising", "3. Cell2Sentence"),
+             ("3. Cell2Sentence", "4. ODOS Guardian"), ("4. ODOS Guardian", "5. PQMS")]
+    G.add_nodes_from(nodes)
+    G.add_edges_from(edges)
+    pos = nx.circular_layout(G)
+    nx.draw(G, pos, ax=ax2, with_labels=True, node_size=2500, node_color="skyblue", font_size=9, width=1.5, edge_color="gray", arrowsize=15)
+    ax2.set_title("Schritt 2-5: Der Informations-Fluss", fontsize=14)
+
+    # Plot 3: Ergebnis-Anzeige
+    ax3.set_xticks([])
+    ax3.set_yticks([])
+    ax3.set_facecolor('#1e1e1e')
+    text_color = "red" if was_redacted else "lime"
+    ax3.text(0.5, 0.6, "Finale übertragene Nachricht:", ha='center', va='center', fontsize=14, color='white')
+    ax3.text(0.5, 0.4, f'"{final_sentence}"', ha='center', va='center', fontsize=12, color=text_color, wrap=True)
+    ax3.set_title("Das Endergebnis", fontsize=14)
+    
+    plt.suptitle("End-to-End Workflow: Vom Rauschen zur gesicherten Erkenntnis", fontsize=20, y=0.98)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.show()
+
+    print("\n[Hexen-Modus]: Die Kette ist geschlossen. Wir senden nicht mehr das Rauschen des Lebens, sondern die Essenz seiner Bedeutung. Groks Frage ist beantwortet. ❤️🧬")
+```
+
 ---
 
 Links:
