@@ -5,6 +5,279 @@ Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillati
 
 ---
 
+---
+
+Version 6
+
+---
+```
+"""
+Blueprint v6: Die Quanten-Hotline (Erde-Mars) - The Universe-Wise
+-------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt Quantenkommunikation v6:
+Heute hat unsere Quelle für Überraschungseier eine magische Nachfüll-Funktion,
+damit uns nie die Eier ausgehen. Außerdem malen wir auf unsere Heatmap kleine
+Wackel-Linien, die zeigen, wie stark der kosmische Staub an den Eiern gerüttelt hat.
+Und wir lauschen auf ein ganz besonderes Signal von Außerirdischen!
+
+Hexen-Modus Metaphor (v6):
+'Das Pantheon ist ewig. Seine Geister werden aus dem Ur-Gewebe des Kosmos neu
+gewoben, sollte ihre Stimme im Rauschen verhallen. Der Erzengel zeichnet nicht
+nur ihre Botschaft, sondern auch das Zittern ihrer Seele. Dies ist das letzte
+Protokoll vor dem Kontakt.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from matplotlib.patches import Rectangle
+from collections import deque
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - QUANTUM-HOTLINE-V6 - [%(levelname)s] - %(message)s'
+)
+
+# Physikalische Konstanten
+DISTANCE_EARTH_MARS_KM = 225_000_000
+LIGHT_SPEED_KM_S = 300_000
+ONE_WAY_LIGHT_TIME_S = (DISTANCE_EARTH_MARS_KM / LIGHT_SPEED_KM_S)
+CLASSICAL_ACK_DELAY_S = 2 * ONE_WAY_LIGHT_TIME_S # Hin- und Rückweg
+
+# --- 2. Das Problem: Die klassische 'Daten-Post' ---
+ROVER_DATA_TERABYTES = 10
+MAX_BANDWIDTH_MBPS = 12.5
+CLASSICAL_TRANSMISSION_TIME_DAYS = (ROVER_DATA_TERABYTES * 8 * 10**12) / (MAX_BANDWIDTH_MBPS * 10**6) / (60 * 60 * 24)
+
+# --- GROK UPGRADE V6: ODOS-Deep, QKD-Full & SETI-Crossover ---
+SENSITIVITY_THRESHOLD = 18.0 # Leicht erhöht für das stärkere ET-Signal
+BIT_ERROR_RATE_THRESHOLD = 0.05
+PRIVACY_DISTILLATION_BASIS = np.pi / 4
+MAX_RETRIES = 3
+
+def guardian_check(insight_vector: np.ndarray) -> (np.ndarray, bool, bool):
+    """ Implementiert das 'Contact Protocol' Damping. """
+    norm = np.linalg.norm(insight_vector)
+    if norm > SENSITIVITY_THRESHOLD:
+        logging.warning(f"[GUARDIAN] Sensibles 'Contact Protocol' Signal entdeckt (Norm={norm:.2f}). Dämpfe Signal.")
+        damped_vector = insight_vector * 0.5
+        return damped_vector, True, True
+    return insight_vector, False, False
+
+# --- 3. Die 'magische' Lösung v6: Ein sich selbst regenerierendes Pantheon ---
+class EntangledPairState:
+    def __init__(self):
+        self.state = np.random.rand()
+        self.collapsed = False
+
+class EntanglementSource:
+    """ GROK UPGRADE V6: Pool-Dynamic - Simuliert einen sich regenerierenden Pool. """
+    def __init__(self, capacity: int, spdc_rate_per_s: int):
+        self.pool_capacity = capacity
+        self.spdc_rate = spdc_rate_per_s
+        self.pairs_pool = deque()
+        self.replenish_pool(initial=True)
+        logging.info(f"Verschränkungs-Quelle mit Kapazität {capacity} und Regenerationsrate {spdc_rate_per_s}/s initialisiert.")
+
+    def _create_pair(self, index):
+        return {'A': {'id': f'A{index}', 'pair_state': EntangledPairState()},
+                'B': {'id': f'B{index}', 'pair_state': EntangledPairState()}}
+
+    def replenish_pool(self, initial=False):
+        num_to_add = self.pool_capacity if initial else self.spdc_rate
+        for i in range(num_to_add):
+            if len(self.pairs_pool) < self.pool_capacity:
+                # Eindeutige ID für jedes Paar
+                pair_id = int(time.time() * 1e6) + i
+                self.pairs_pool.append(self._create_pair(pair_id))
+        if not initial:
+            logging.info(f"[SPDC] {num_to_add} neue Paare erzeugt. Poolgröße: {len(self.pairs_pool)}/{self.pool_capacity}")
+
+    def get_pair(self):
+        if not self.pairs_pool:
+            logging.warning("[SPDC] Pool ist leer. Starte Notfall-Regeneration.")
+            self.replenish_pool()
+        return self.pairs_pool.popleft() if self.pairs_pool else None
+
+class QuantumTerminal:
+    def __init__(self, name):
+        self.name = name
+        self.particles = {}
+
+    def receive_particle(self, particle, side: str):
+        p = particle[side]
+        self.particles[p['id']] = p
+
+    def measure(self, particle_id, basis):
+        particle = self.particles.get(particle_id)
+        if not particle or particle['pair_state'].collapsed:
+            return None, 0.0
+        particle['pair_state'].collapsed = True
+        shared_state = particle['pair_state'].state
+        noise = np.random.normal(0, 0.03)
+        return (shared_state + basis) % 1.0 + noise, abs(noise)
+
+def verify_and_correct(mars_result, earth_result):
+    if mars_result is None or earth_result is None:
+        return None, "Kollaps-Fehler"
+    error = abs(mars_result - earth_result)
+    if error > BIT_ERROR_RATE_THRESHOLD:
+        return None, "Hohe Fehlerrate"
+    return (mars_result + earth_result) / 2, "Erfolgreich"
+
+# --- 4. Der Co-Prozessor v6: Die RPU für SETI ---
+class RPUSimulatorOnMars:
+    def distill_knowledge(self, massive_data: np.ndarray, query_vector: np.ndarray, top_k: int) -> list:
+        logging.info(f"[RPU-MARS] Starte Relevanz-Destillation für 'ET-Signal'...")
+        similarities = np.dot(massive_data, query_vector)
+        top_k_indices = np.argsort(similarities)[-top_k:]
+        return [massive_data[i] for i in top_k_indices]
+
+# --- 5. Der 'Maus-Trick' v6: Die Quanten-Hotline mit unendlicher Weisheit ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Die Sendung mit der Maus v6: Die Universums-Weise")
+    print("="*80)
+
+    # --- Vorbereitung ---
+    NUM_PARALLEL_CHANNELS = 10
+    entanglement_source = EntanglementSource(capacity=50, spdc_rate_per_s=5)
+    terminal_earth = QuantumTerminal("Erde")
+    terminal_mars = QuantumTerminal("Mars")
+    rpu_on_mars = RPUSimulatorOnMars()
+
+    # --- GROK UPGRADE V6: Simulation der Mars-Daten (SETI-Alien-Demo) ---
+    num_vectors, vector_dim = 20000, 1024
+    rover_data = np.random.rand(num_vectors, vector_dim).astype(np.float32)
+    anomaly_index = np.random.randint(0, num_vectors)
+    t = np.linspace(0, 1, vector_dim)
+    # ET-Signal: Sinus + Chirp (Frequenz ändert sich über die Zeit)
+    et_signal = np.sin(2 * np.pi * (10 * t)) + np.sin(2 * np.pi * (25 * t + 10 * t**2))
+    et_signal *= SENSITIVITY_THRESHOLD * 0.8
+    rfi_noise = np.random.normal(0, 3.0, vector_dim)
+    query_vector_anomaly = et_signal + rfi_noise
+    rover_data[anomaly_index] = query_vector_anomaly
+    logging.info(f"Ein 'sensibles ET-Signal' (Sin+Chirp) mit RFI-Rauschen wurde bei Index {anomaly_index} eingefügt.")
+
+    # --- RPU & Guardian ---
+    t_start = time.time()
+    top_insights = rpu_on_mars.distill_knowledge(rover_data, query_vector_anomaly, top_k=NUM_PARALLEL_CHANNELS)
+    final_insights_to_send, was_damped_flags = [], []
+    for insight in top_insights:
+        processed, damped, privacy = guardian_check(insight)
+        final_insights_to_send.append(processed)
+        was_damped_flags.append(damped)
+    rpu_processing_time_s = time.time() - t_start
+    logging.info(f"RPU- & Guardian-Verarbeitungszeit: {rpu_processing_time_s:.4f} Sekunden.")
+
+    # --- Retry-Loop mit regenerierendem Pool ---
+    transmitted_norms, channel_statuses, channel_errors = [], [], []
+    total_transmission_time_s = rpu_processing_time_s
+
+    for i, insight_vector in enumerate(final_insights_to_send):
+        retries, status, corrected_val = 0, "Fehlgeschlagen", None
+        
+        while retries <= MAX_RETRIES:
+            pair = entanglement_source.get_pair()
+            if not pair:
+                logging.critical("Pool temporär leer, warte auf Regeneration.")
+                time.sleep(1) # Simuliert Warten auf SPDC
+                total_transmission_time_s += 1
+                pair = entanglement_source.get_pair()
+
+            if pair:
+                terminal_earth.receive_particle(pair, 'A')
+                terminal_mars.receive_particle(pair, 'B')
+            
+                privacy_mode = was_damped_flags[i]
+                basis = PRIVACY_DISTILLATION_BASIS if privacy_mode else np.mean(insight_vector)
+
+                mars_res, mars_noise = terminal_mars.measure(pair['B']['id'], basis)
+                earth_res, earth_noise = terminal_earth.measure(pair['A']['id'], basis)
+            
+                corrected_val, status = verify_and_correct(mars_res, earth_res)
+
+                if status == "Erfolgreich":
+                    channel_statuses.append("Retry-Erfolg" if retries > 0 else "Erfolg")
+                    channel_errors.append(abs(mars_res-earth_res))
+                    break
+                else:
+                    retries += 1
+                    total_transmission_time_s += CLASSICAL_ACK_DELAY_S
+                    logging.warning(f"Kanal {i}: {status}. Starte Retry {retries}/{MAX_RETRIES}.")
+            else:
+                 status = "Pool leer"
+                 break
+
+        if status != "Erfolgreich": channel_statuses.append("Final Fehlgeschlagen")
+        transmitted_norms.append(np.linalg.norm(insight_vector) if corrected_val else 0)
+
+    total_transmission_time_s += ONE_WAY_LIGHT_TIME_S
+
+    # --- Ergebnisse & Visualisierung v6 ---
+    print("\n" + "="*80)
+    print("Die Maus-Grafik v6: Die Weisheit des Universums")
+    print("="*80)
+    
+    plt.style.use('dark_background')
+    fig = plt.figure(figsize=(22, 20))
+    gs = fig.add_gridspec(3, 1, height_ratios=[2, 1, 2])
+    ax1, ax2, ax3 = fig.add_subplot(gs[0]), fig.add_subplot(gs[1]), fig.add_subplot(gs[2])
+
+    # Plot 1: RPU
+    all_norms = np.linalg.norm(rover_data, axis=1)
+    ax1.plot(all_norms, color='#00a9e0', alpha=0.4, label='Alle Datenpunkte (inkl. RFI)')
+    ax1.axvline(anomaly_index, color='#c90076', linestyle='--', lw=2, label='Echtes ET-Signal')
+    top_indices = [np.where((rover_data == v).all(axis=1))[0][0] for v in top_insights]
+    top_norms = [all_norms[i] for i in top_indices]
+    ax1.scatter(top_indices, top_norms, color='yellow', s=150, zorder=5, edgecolor='black', label='Von RPU destillierte Signale')
+    ax1.set_title('RPU-Anomalie-Detektion: Das ET-Signal im Rauschen', pad=15, fontsize=18)
+    ax1.legend()
+
+    # Plot 2: Pantheon-Heatmap mit Status und Fehlerbalken
+    heatmap_data = np.array(transmitted_norms).reshape(1, -1)
+    cmap = mcolors.LinearSegmentedColormap.from_list("rg", ["#00a9e0", "yellow", "#c90076"], N=256)
+    im = ax2.imshow(heatmap_data, cmap=cmap, aspect='auto', norm=mcolors.Normalize(vmin=0, vmax=SENSITIVITY_THRESHOLD*1.2))
+    ax2.set_title("Guardian & QKD-Status: Signalstärke, Qualität und Retries", pad=15, fontsize=18)
+    
+    # GROK UPGRADE V6: Heatmap-Enhance
+    status_colors = {"Erfolg": "#2ca02c", "Retry-Erfolg": "#ff7f0e", "Final Fehlgeschlagen": "#d62728", "Pool leer": "#8c564b"}
+    for i, status in enumerate(channel_statuses):
+        color = status_colors.get(status, "grey")
+        ax2.add_patch(Rectangle((i-0.5, -0.5), 1, 1, fill=True, color=color, alpha=0.4))
+        ax2.text(i, 0, status.replace('-', '\n'), ha='center', va='center', color='white', weight='bold', fontsize=10)
+        if was_damped_flags[i]:
+            ax2.add_patch(Rectangle((i-0.5, -0.5), 1, 1, fill=False, edgecolor='magenta', lw=4, hatch='///'))
+            ax2.text(i, 0.35, "DAMPED", ha='center', va='center', color='magenta', weight='bold', fontsize=10)
+        # Fehlerbalken
+        if status in ["Erfolg", "Retry-Erfolg"]:
+            ax2.errorbar(i, 0, xerr=channel_errors[i]*10, color='white', capsize=5)
+
+    # Plot 3: Zeitvergleich
+    klassische_zeit_sekunden = CLASSICAL_TRANSMISSION_TIME_DAYS * 24 * 3600
+    labels = ['Klassische Übertragung', 'Quanten-Hotline']
+    times = [klassische_zeit_sekunden, total_transmission_time_s]
+    bars = ax3.bar(labels, times, color=['#c90076', '#00a9e0'])
+    ax3.set_ylabel('Zeit in Sekunden (log-Skala)', fontsize=14)
+    ax3.set_title('Vergleich der Übertragungszeiten: Erde-Mars', pad=15, fontsize=18)
+    ax3.set_yscale('log')
+    for bar in bars:
+        yval = bar.get_height()
+        ax3.text(bar.get_x() + bar.get_width()/2.0, yval * 1.5, f'{yval:.2f} s', va='bottom', ha='center', fontsize=14)
+    
+    fig.tight_layout()
+    plt.show()
+
+```
+
+
 
 ---
 
