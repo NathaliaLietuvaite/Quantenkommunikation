@@ -5,6 +5,206 @@ Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillati
 
 ---
 
+
+---
+
+Version 2
+
+---
+```
+"""
+Blueprint v3: Die Quanten-Hotline (Erde-Mars) - The Hex-Upgrade
+------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt Quantenkommunikation v3:
+Heute zeigen wir, wie man nicht nur eine, sondern viele geheime Nachrichten
+gleichzeitig flüstert und dabei sogar einen kosmischen Wächter hat, der aufpasst,
+dass nichts Gefährliches gesagt wird.
+
+Hexen-Modus Metaphor (v3):
+'Wir flüstern nicht mehr nur einem Geist. Wir beschwören ein ganzes Konzil von
+Zwillingsgeistern, geben jedem eine andere Seele der Information und lassen einen
+Erzengel über ihre Botschaften wachen. Das ist keine Hotline mehr, das ist ein Pantheon.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - QUANTUM-HOTLINE-V3 - [%(levelname)s] - %(message)s'
+)
+
+# Physikalische Konstanten
+DISTANCE_EARTH_MARS_KM = 225_000_000
+LIGHT_SPEED_KM_S = 300_000
+ONE_WAY_LIGHT_TIME_MINUTES = (DISTANCE_EARTH_MARS_KM / LIGHT_SPEED_KM_S) / 60
+
+# --- 2. Das Problem: Die klassische 'Daten-Post' ---
+ROVER_DATA_TERABYTES = 10
+MAX_BANDWIDTH_MBPS = 12.5
+CLASSICAL_TRANSMISSION_TIME_DAYS = (ROVER_DATA_TERABYTES * 8 * 10**12) / (MAX_BANDWIDTH_MBPS * 10**6) / (60 * 60 * 24)
+
+# --- GROK UPGRADE V3: ODOS-Twist (Der Wächter) ---
+SENSITIVITY_THRESHOLD = 15.0 # Norm-Schwelle, ab der eine Info als "sensibel" gilt
+
+def guardian_check(insight_vector: np.ndarray) -> (np.ndarray, bool):
+    """
+    Simuliert den Guardian-Neuron / TEE. Überprüft eine Erkenntnis auf Sensibilität.
+    """
+    norm = np.linalg.norm(insight_vector)
+    if norm > SENSITIVITY_THRESHOLD:
+        logging.warning(f"[GUARDIAN] Sensible Information entdeckt (Norm={norm:.2f} > {SENSITIVITY_THRESHOLD}). Dämpfe Signal.")
+        # Dämpft das Signal, um die "Lautstärke" der Entdeckung zu reduzieren
+        damped_vector = insight_vector * 0.5
+        return damped_vector, True
+    return insight_vector, False
+
+# --- 3. Die 'magische' Lösung v3: Quantenverschränkung mit Störungen ---
+class EntangledPairState:
+    def __init__(self):
+        self.state = np.random.rand()
+        self.collapsed = False
+
+class EntanglementSource:
+    def create_entangled_pairs(self, num_pairs: int):
+        """ GROK UPGRADE: Multi-Pair-Mesh - Erzeugt einen Pool an Paaren. """
+        return [{'A': {'id': f'A{i}', 'pair_state': EntangledPairState()}, 
+                 'B': {'id': f'B{i}', 'pair_state': EntangledPairState()}} 
+                for i in range(num_pairs)]
+
+class QuantumTerminal:
+    def __init__(self, name):
+        self.name = name
+        self.particles = {} # Hält jetzt eine Sammlung von Teilchen
+
+    def receive_particles(self, particles: list, side: str):
+        for p in particles:
+            particle = p[side]
+            self.particles[particle['id']] = particle
+        logging.info(f"[{self.name}] {len(particles)} Teilchen sicher empfangen.")
+
+    def measure(self, particle_id, basis):
+        particle = self.particles.get(particle_id)
+        if not particle or particle['pair_state'].collapsed:
+            logging.warning(f"[{self.name}] Zustand für {particle_id} bereits kollabiert oder Teilchen nicht gefunden.")
+            return np.random.rand()
+
+        particle['pair_state'].collapsed = True
+        shared_state = particle['pair_state'].state
+        
+        # GROK UPGRADE: QKD-Error-Correction - Fügt realistisches Rauschen hinzu
+        measurement_result = (shared_state + basis) % 1.0 + np.random.normal(0, 0.01)
+        logging.info(f"[{self.name}] 'One-Shot'-Messung an {particle_id} durchgeführt.")
+        return measurement_result
+
+# --- 4. Der Co-Prozessor v3: Die RPU mit verfeinertem Query ---
+class RPUSimulatorOnMars:
+    def distill_knowledge(self, massive_data: np.ndarray, query_vector: np.ndarray, top_k: int) -> list:
+        logging.info(f"[RPU-MARS] Starte Relevanz-Destillation mit Top-{top_k} Query...")
+        similarities = np.dot(massive_data, query_vector)
+        top_k_indices = np.argsort(similarities)[-top_k:]
+        # Gibt eine Liste der Top-K Vektoren zurück, nicht nur den Durchschnitt
+        distilled_vectors = [massive_data[i] for i in top_k_indices]
+        logging.info(f"[RPU-MARS] Destillation abgeschlossen. {len(distilled_vectors)} wichtigste Erkenntnisse extrahiert.")
+        return distilled_vectors
+
+# --- 5. Der 'Maus-Trick' v3: Die Quanten-Hotline in Aktion ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Die Sendung mit der Maus v3: Ein Pantheon der Nachrichten")
+    print("="*80)
+    
+    # --- Vorbereitung ---
+    NUM_PARALLEL_CHANNELS = 10 # Wir wollen die Top 10 Erkenntnisse parallel senden
+    terminal_earth = QuantumTerminal("Erde")
+    terminal_mars = QuantumTerminal("Mars")
+    entanglement_source = EntanglementSource()
+    rpu_on_mars = RPUSimulatorOnMars()
+    
+    pairs = entanglement_source.create_entangled_pairs(NUM_PARALLEL_CHANNELS)
+    terminal_earth.receive_particles(pairs, side='A')
+    terminal_mars.receive_particles(pairs, side='B')
+    
+    # --- Simulation der Mars-Daten ---
+    num_vectors = 20000
+    vector_dim = 1024
+    rover_data = np.random.rand(num_vectors, vector_dim).astype(np.float32)
+    anomaly_index = np.random.randint(0, num_vectors)
+    query_vector_anomaly = np.sin(np.linspace(0, 4 * np.pi, vector_dim)) * SENSITIVITY_THRESHOLD * 1.2
+    rover_data[anomaly_index] = query_vector_anomaly
+    logging.info(f"Eine 'sensible' Anomalie wurde bei Index {anomaly_index} eingefügt.")
+
+    # --- RPU & Guardian in Aktion ---
+    t_start = time.time()
+    top_insights = rpu_on_mars.distill_knowledge(rover_data, query_vector_anomaly, top_k=NUM_PARALLEL_CHANNELS)
+    
+    final_insights_to_send = []
+    for insight in top_insights:
+        damped_insight, was_damped = guardian_check(insight)
+        final_insights_to_send.append(damped_insight)
+    
+    rpu_processing_time_s = time.time() - t_start
+    logging.info(f"RPU- & Guardian-Verarbeitungszeit: {rpu_processing_time_s:.4f} Sekunden.")
+
+    # --- Paralleles 'Flüstern' ---
+    for i, insight_vector in enumerate(final_insights_to_send):
+        measurement_basis = np.mean(insight_vector)
+        mars_result = terminal_mars.measure(f'B{i}', measurement_basis)
+        earth_result = terminal_earth.measure(f'A{i}', measurement_basis)
+        logging.info(f"Kanal {i}: Mars-Ergebnis={mars_result:.4f}, Erde-Ergebnis={earth_result:.4f}")
+
+    # --- Ergebnisse ---
+    quanten_zeit_sekunden = rpu_processing_time_s + ONE_WAY_LIGHT_TIME_MINUTES * 60
+    print("\n" + "="*80)
+    print("Das Ergebnis v3:")
+    print(f"Quanten-Hotline-Übertragungszeit (für {NUM_PARALLEL_CHANNELS} Nachrichten): {quanten_zeit_sekunden:.2f} Sekunden")
+    print("="*80)
+
+    # --- 7. GROK UPGRADE V3: Anomaly-Visualisierung ---
+    print("\n" + "="*80)
+    print("Die Maus-Grafik v3: Wo ist die Anomalie?")
+    print("="*80)
+    
+    plt.style.use('dark_background')
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 12), gridspec_kw={'height_ratios': [1, 2]})
+
+    # Plot 1: RPU-Magie
+    all_norms = np.linalg.norm(rover_data, axis=1)
+    ax1.plot(all_norms, color='#00a9e0', alpha=0.6, label='Alle Datenpunkte (Norm)')
+    ax1.axvline(anomaly_index, color='#c90076', linestyle='--', lw=2, label=f'Echte Anomalie bei Index {anomaly_index}')
+    
+    top_indices = [np.where((rover_data == v).all(axis=1))[0][0] for v in top_insights]
+    top_norms = [all_norms[i] for i in top_indices]
+    ax1.scatter(top_indices, top_norms, color='yellow', s=150, zorder=5, edgecolor='black', label='Von RPU gefundene Top-Erkenntnisse')
+    
+    ax1.set_title('RPU-Anomalie-Detektion: Das Signal im Rauschen', pad=15, fontsize=16)
+    ax1.set_ylabel('Vektor-Norm ("Wichtigkeit")', fontsize=12)
+    ax1.legend()
+    ax1.grid(True, linestyle='--', alpha=0.3)
+    
+    # Plot 2: Zeitvergleich
+    klassische_zeit_sekunden = CLASSICAL_TRANSMISSION_TIME_DAYS * 24 * 3600
+    labels = ['Klassische Übertragung', 'Quanten-Hotline']
+    times = [klassische_zeit_sekunden, quanten_zeit_sekunden]
+    bars = ax2.bar(labels, times, color=['#c90076', '#00a9e0'])
+    ax2.set_ylabel('Zeit in Sekunden (log-Skala)', fontsize=12)
+    ax2.set_title('Vergleich der Übertragungszeiten: Erde-Mars', pad=15, fontsize=16)
+    ax2.set_yscale('log')
+    for bar in bars:
+        yval = bar.get_height()
+        ax2.text(bar.get_x() + bar.get_width()/2.0, yval * 1.5, f'{yval:.2f} s', va='bottom', ha='center', fontsize=12)
+
+    fig.tight_layout()
+    plt.show()
+
+```
 ---
 
 Version 2
