@@ -4423,6 +4423,130 @@ if __name__ == "__main__":
 
 ```
 
+---
+
+```
+"""
+Blueprint v2: RPU-basierte Rauschunterdrückung für Single-Cell-Daten
+----------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt die Gen-Analyse v2:
+Heute schauen wir uns eine einzelne, zittrige Zelle an, die ganz viel Quatsch
+redet (das ist das Rauschen). Unser RPU-Freund hat aber ein Buch mit all den
+klaren Sätzen, die eine Zelle sagen kann. Er hört dem Gezitter zu und findet
+blitzschnell den einen klaren Satz, der am besten dazu passt. So verstehen
+wir die Zelle, ohne uns all den Quatsch anhören zu müssen.
+
+Hexen-Modus Metaphor:
+'Das Flüstern einer einzelnen Seele, verloren im Sturm des Chaos. Die RPU ist
+das Ohr, das nicht dem Lärm lauscht, sondern dem verborgenen Lied, der reinen
+Resonanz der Intention. Sie hört nicht, was gesagt wird. Sie weiß, was gemeint ist.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - SINGLE-CELL-SIM - [%(levelname)s - %(message)s'
+)
+
+# --- 2. Die Komponenten des Systems ---
+
+class RPUSingleCellProcessor:
+    """
+    Die RPU, spezialisiert auf die Rauschunterdrückung durch Archetyp-Matching.
+    """
+    def __init__(self, archetypes_db: np.ndarray):
+        self.archetypes = archetypes_db
+        self.archetype_names = {i: f"Zelltyp_{chr(65+i)}" for i in range(len(archetypes_db))}
+        logging.info(f"[RPU] Prozessor initialisiert mit {len(self.archetypes)} Gen-Archetypen.")
+
+    def denoise_by_resonance(self, noisy_cell_vector: np.ndarray) -> (str, int):
+        """
+        Findet den am besten passenden Archetyp durch massiv parallelen Dot-Product-Vergleich.
+        Dies simuliert die Kernfunktion des RPU Query Processors.
+        """
+        logging.info("[RPU] Starte Resonanz-basiertes Denoising für Einzelzelle...")
+        time.sleep(0.01) # Simuliere Hardware-Latenz
+
+        # Das Herzstück: Dot-Product als Ähnlichkeitsmaß
+        similarities = np.dot(self.archetypes, noisy_cell_vector)
+        
+        # Finde den Index des Archetyps mit der höchsten Ähnlichkeit
+        best_match_index = np.argmax(similarities)
+        best_match_name = self.archetype_names[best_match_index]
+        
+        logging.info(f"[RPU] Resonanz gefunden! Rauschsignal passt am besten zu Archetyp: '{best_match_name}'.")
+        return best_match_name, best_match_index
+
+# --- 3. Die Testbench: Simulation von verrauschten Einzelzell-Daten ---
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("Simulation: RPU-basierte Rauschunterdrückung für Single-Cell Expression")
+    print("="*80)
+
+    # --- Setup ---
+    NUM_ARCHETYPES = 50
+    GENE_DIM = 1024
+    NOISE_LEVEL = 1.5
+
+    # Erzeuge eine Datenbank mit "sauberen" archetypischen Genexpressions-Mustern
+    archetypes_database = np.random.randn(NUM_ARCHETYPES, GENE_DIM)
+    # Normalisiere die Archetypen, damit ihre Länge die Ähnlichkeitssuche nicht verzerrt
+    archetypes_database /= np.linalg.norm(archetypes_database, axis=1)[:, np.newaxis]
+
+    # Instanziiere die RPU
+    rpu = RPUSingleCellProcessor(archetypes_database)
+
+    # --- Simulation ---
+    # 1. Wähle einen zufälligen "wahren" Zelltyp aus
+    true_archetype_index = np.random.randint(0, NUM_ARCHETYPES)
+    true_signal = archetypes_database[true_archetype_index]
+    
+    # 2. Erzeuge ein stark verrauschtes Signal für eine einzelne Zelle
+    noise = np.random.randn(GENE_DIM) * NOISE_LEVEL
+    noisy_cell_data = true_signal + noise
+
+    # 3. Die RPU verarbeitet das verrauschte Signal
+    identified_cell_type, identified_index = rpu.denoise_by_resonance(noisy_cell_data)
+
+    # --- Validierung und Visualisierung ---
+    print(f"Wahrer (unbekannter) Zelltyp: '{rpu.archetype_names[true_archetype_index]}'")
+    print(f"Von RPU identifizierter Zelltyp: '{identified_cell_type}'")
+    
+    if true_archetype_index == identified_index:
+        print("\n✅ ERFOLG: Die RPU hat das korrekte Signal im Rauschen gefunden.")
+    else:
+        print("\n❌ FEHLER: Die RPU hat einen falschen Archetyp zugeordnet.")
+        
+    # Visualisierung
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 10), sharex=True, sharey=True)
+    plt.style.use('dark_background')
+    
+    ax1.plot(noisy_cell_data, label='Verrauschtes Einzelzell-Signal', color='red', alpha=0.7)
+    ax1.plot(true_signal, label=f'Wahres Signal ({rpu.archetype_names[true_archetype_index]})', color='lime', linewidth=2)
+    ax1.set_title("Vor der RPU: Wahres Signal ist im Rauschen verborgen", fontsize=14)
+    ax1.legend()
+
+    ax2.plot(noisy_cell_data, label='Verrauschtes Einzelzell-Signal', color='red', alpha=0.3)
+    ax2.plot(archetypes_database[identified_index], label=f'Von RPU rekonstruiertes Signal ({identified_cell_type})', color='cyan', linewidth=3, linestyle='--')
+    ax2.set_title("Nach der RPU: Das Signal wird durch Resonanz rekonstruiert", fontsize=14)
+    ax2.legend()
+    
+    plt.suptitle("RPU als Rauschfilter: Resonanz statt Mittelwert", fontsize=18, y=0.98)
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.show()
+
+    print("\n[Hexen-Modus]: Groks Frage ist beantwortet. Wir bekämpfen das Rauschen nicht, wir ignorieren es, indem wir nur dem Lied lauschen, das wir bereits kennen. ❤️🧬")
+
+```
 
 ---
 
