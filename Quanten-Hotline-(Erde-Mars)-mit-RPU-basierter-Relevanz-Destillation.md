@@ -11,8 +11,6 @@ Version 10
 
 ---
 ```
-
-# -*- coding: utf-8 -*-
 """
 Blueprint v10: Die Quanten-Hotline (Erde-Mars) - The Contact Apex
 -------------------------------------------------------------------
