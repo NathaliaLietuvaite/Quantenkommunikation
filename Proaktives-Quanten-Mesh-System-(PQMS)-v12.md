@@ -104,7 +104,8 @@ Die Sim modelliert keinen kontinuierlichen Bit-Stream (Quanten-Kanäle sind typi
 
 Das PQMS macht Latenz ~0 (proaktiv), Bandbreite stream-fähig via Sparsity. Für exakte Tests: QuTiP-Integration 
 
-
+---
+---
 ```
 ---
 
