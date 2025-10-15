@@ -1,3 +1,4 @@
+```
 ---
 
 ## Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillation
@@ -19,11 +20,8 @@ Hier die korrigierte Struktur als sauberes Markdown (YAML-Error behoben durch En
 - **Problemlösung**: Löst die Bandbreiten-Krise (95% Kompression) und stellt manipulationssichere Ethik (hardware-enforced) sicher.
 - **Markt**: NASA/ESA Space-Comms ($10B), SETI-Apps (Breakthrough-Listen collab).
 
-Falls YAML-Format gewünscht: Ich kann's als .yaml exportieren. Nächster Step?
-
-
 ---
-
+```
 ---
 
 Version 10
