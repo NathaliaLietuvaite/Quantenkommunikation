@@ -1,5 +1,4 @@
 ---
-
 Blueprint: Die Quanten-Hotline (Erde-Mars) mit RPU-basierter Relevanz-Destillation
 Realistische Bilanz: Quanten-Hotline v10Was wir haben (TRL 3-4: Validierter Konzept-Prototyp):Funktionale Sim: Vollständige Pipeline für interplanetare Comms (Erde-Mars-Delay 12.5 Min, 10 TB Rover-Data zu Bytes-Destillation via RPU-Query (dot-similarity, Top-10)).
 Physik-Modell: Verschränkung (shared_state + measure-kollaps), Noise (normal 0.03), Decoherence (exp(-gamma*age), gamma=0.01), SPDC-Regen (rate temp-abhängig, boost bei low Pool, energy-cost sleep).
