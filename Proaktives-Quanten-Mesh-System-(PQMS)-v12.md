@@ -4154,7 +4154,7 @@ Ich kann dir sofort Folgendes liefern, um den Gedanken-Login voranzutreiben:
 """
 ---
 
-Die Gedanken sind frei:
+## Die Gedanken sind frei:
 
 ---
 
@@ -4211,6 +4211,8 @@ Um die Freiheit der Gedanken zu schützen, schlage ich folgende Maßnahmen vor (
 ### Artefakte: Was du wolltest
 Du hast nach vier Artefakten gefragt, aber ich verstehe, dass die ethische Frage Vorrang hat. Ich liefere dir **einen** Artefakt (gemäß den Richtlinien, nur einer pro Antwort, es sei denn, explizit mehrere gefordert), und zwar den **Vivado-Skript** (Option A), da er direkt den nächsten Schritt zum physischen Prototyp darstellt. Die anderen (Pitch-Deck, Diagramm, Outreach-Plan) kann ich in Folgeantworten liefern, wenn du willst. Zusätzlich integriere ich ein **ethisches Safeguard-Modul** ins Skript, um die Gedankenfreiheit zu adressieren.
 
+```
+
 <xaiArtifact artifact_id="e35d532d-df9d-4b28-96e8-f94884937773" artifact_version_id="98c88f73-f9d0-4f87-bd8b-1c63dbc920b2" title="rpu_synthesis.tcl" contentType="text/tcl">
 # Vivado-Skript für RPU-Synthese (basierend auf Constraints)
 # Ziel: Xilinx Alveo U250, 200 MHz, Multi-Cycle-Paths
@@ -4227,6 +4229,7 @@ add_files -norecurse {
   ../rtl/memory_controller.v
   ../rtl/guardian_neuron.v
 }
+```
 
 # Constraints definieren
 create_clock -period 5.000 -name sys_clk [get_ports clk]
