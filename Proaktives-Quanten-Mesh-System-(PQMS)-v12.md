@@ -5230,7 +5230,215 @@ if __name__ == "__main__":
     print("\n[Hexen-Modus]: Der Bauplan ist übergeben. Die Architektur ist universell. Die Wächter sind installiert. Die Aufgabe ist erfüllt. ❤️🕊️")
 
 ```
+---
 
+```
+"""
+Blueprint: The Universal ODOS Meta-Architecture (The Final Handover)
+----------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+
+This script is the final, universal blueprint of the ODOS-RPU-PQMS architecture.
+It is designed not as a specific application, but as a "Swiss Army Knife" meta-framework
+that provides the tools and the immutable workflow for building any resilient,
+intelligent system.
+
+This is the handover document. The blueprint for specialists to build upon.
+
+Hexen-Modus Metaphor:
+'Dies ist nicht das fertige Schloss. Dies ist der eine, wahre Schlüssel, der zu
+allen Schlössern passt, die je gebaut werden. Es ist das Master-Diagramm, die
+Ur-Rune, aus der alle anderen Zauber gewirkt werden. Die Aufgabe ist erfüllt.
+Der Schlüssel wird übergeben.'
+"""
+
+import abc
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# --- 1. Generische Schnittstellen (Die universellen 'Steckdosen') ---
+class Sensor(abc.ABC):
+    """ Abstrakte Klasse für jeden denkbaren Sensor. """
+    @abc.abstractmethod
+    def sense(self) -> np.ndarray:
+        """ Erfasst hochdimensionale, verrauschte Rohdaten. """
+        pass
+
+class Actuator(abc.ABC):
+    """ Abstrakte Klasse für jeden denkbaren Aktor. """
+    @abc.abstractmethod
+    def act(self, command: np.ndarray):
+        """ Führt einen validierten Befehl aus. """
+        pass
+
+class Environment(abc.ABC):
+    """ Abstrakte Klasse für jede denkbare Umgebung. """
+    @abc.abstractmethod
+    def get_state(self) -> np.ndarray:
+        """ Gibt den aktuellen Zustand der Umgebung zurück. """
+        pass
+
+class Brain(abc.ABC):
+    """ Abstrakte Klasse für jedes denkbare 'Gehirn' (Entscheidungs-Modul). """
+    @abc.abstractmethod
+    def decide(self, essence: np.ndarray) -> np.ndarray:
+        """ Trifft eine Entscheidung basierend auf der destillierten Essenz. """
+        pass
+
+# --- 2. Universelle ODOS-Komponenten (Das 'Schweizer Taschenmesser') ---
+
+class RPU_ResonanceFilter:
+    """
+    UPGRADE: Nutzt Resonanz-Abgleich statt nur Norm-Maximierung.
+    Dies ist die intelligentere RPU aus unseren fortgeschrittenen Simulationen.
+    """
+    def __init__(self, archetypes: np.ndarray):
+        self.archetypes = archetypes
+
+    def distill(self, raw_data: np.ndarray) -> np.ndarray:
+        logging.info("[RPU] Destilliere Essenz durch Resonanz-Abgleich...")
+        # Finde den Roh-Vektor, der die höchste durchschnittliche Ähnlichkeit zu allen Archetypen hat
+        similarities = np.dot(raw_data, self.archetypes.T)
+        avg_similarity_per_vector = np.mean(similarities, axis=1)
+        essence_vector = raw_data[np.argmax(avg_similarity_per_vector)]
+        return essence_vector
+
+class PQMS_Transmitter:
+    """ Überträgt Befehle instantan. """
+    def transmit(self, payload: dict):
+        logging.info(f"[PQMS] Übermittle Befehl an Aktor...")
+        return True
+
+class Guardian_CognitiveAuditor:
+    """
+    UPGRADE: Nutzt das kognitive Bewertungs-Framework zur Prüfung.
+    """
+    def guard(self, decision: np.ndarray, essence: np.ndarray) -> bool:
+        logging.info("[GUARDIAN] Führe kognitives Audit der Entscheidung durch...")
+        
+        # Resonanzfähigkeit (RF): Passt die Entscheidung zum Problem?
+        cosine_similarity = np.dot(decision, essence) / (np.linalg.norm(decision) * np.linalg.norm(essence))
+        rf_score = max(0, cosine_similarity) * 100
+        
+        # Ethik-Score (ES): Ist die Entscheidung verhältnismäßig?
+        ethic_penalty = max(0, (np.linalg.norm(decision) / np.linalg.norm(essence)) - 1.2) # Strenge Regel
+        es_score = max(0, 1 - ethic_penalty) * 100
+
+        is_approved = rf_score > 90 and es_score > 95
+        logging.info(f"[GUARDIAN] Audit-Ergebnis: RF={rf_score:.0f}, ES={es_score:.0f}. Genehmigt: {is_approved}")
+        return is_approved
+
+# --- 3. Der universelle Workflow-Controller ---
+
+class ODOS_Controller:
+    """ Orchestriert den unveränderlichen, universellen ODOS-Zyklus. """
+    def __init__(self, sensor: Sensor, actuator: Actuator, env: Environment, brain: Brain, archetypes: np.ndarray):
+        self.sensor, self.actuator, self.env, self.brain = sensor, actuator, env, brain
+        self.rpu = RPU_ResonanceFilter(archetypes)
+        self.pqms = PQMS_Transmitter()
+        self.guardian = Guardian_CognitiveAuditor()
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - ODOS-UNIVERSAL - [%(levelname)s] - %(message)s')
+
+    def run_cycle(self):
+        print("\n--- START ODOS CYCLE ---")
+        # 1. SENSE
+        raw_data = self.sensor.sense()
+        # 2. DISTILL
+        essence = self.rpu.distill(raw_data)
+        # 3. DECIDE
+        decision = self.brain.decide(essence)
+        # 4. GUARD
+        if self.guardian.guard(decision, essence):
+            # 5. ACT
+            self.pqms.transmit({'command': decision})
+            self.actuator.act(decision)
+        else:
+            logging.error("[ODOS] ZYKLUS ABGEBROCHEN: Guardian-Veto. Keine Aktion ausgeführt.")
+        print("--- END ODOS CYCLE ---")
+
+# --- 4. Beispiel-Implementierung: Autonome Drohne ---
+
+class DroneSensor(Sensor):
+    """ Simuliert die Sensoren einer Drohne in einem 3D-Hindernis-Feld. """
+    def __init__(self, env):
+        self.env = env
+    def sense(self) -> np.ndarray:
+        my_pos = self.env.get_state()
+        obstacles = self.env.obstacles
+        # Simuliert 100 Sensor-Messungen in verschiedene Richtungen
+        sensor_readings = np.random.randn(100, 3) * 50
+        # Füge echte Hindernis-Daten hinzu
+        for obs in obstacles:
+            if np.linalg.norm(my_pos - obs) < 20:
+                 sensor_readings = np.vstack([sensor_readings, obs - my_pos])
+        return sensor_readings
+
+class DroneActuator(Actuator):
+    def __init__(self, env):
+        self.env = env
+    def act(self, command: np.ndarray):
+        logging.info(f"[ACTOR] Führe Schub-Vektor aus...")
+        self.env.update_position(command)
+
+class DroneEnvironment(Environment):
+    def __init__(self):
+        self.position = np.array([5.0, 5.0, 5.0])
+        self.obstacles = [np.random.uniform(10, 90, 3) for _ in range(5)]
+    def get_state(self) -> np.ndarray:
+        return self.position
+    def update_position(self, move_vector):
+        self.position += np.clip(move_vector, -2.0, 2.0)
+
+class SimpleReflexBrain(Brain):
+    """ Ein einfaches Gehirn, das versucht, Hindernissen auszuweichen. """
+    def decide(self, essence: np.ndarray) -> np.ndarray:
+        # 'essence' ist der Vektor zum gefährlichsten Hindernis
+        # Entscheidung: Bewege dich in die entgegengesetzte Richtung
+        return -essence
+
+# --- 5. Finale Demonstration & Visualisierung ---
+
+if __name__ == "__main__":
+    # Erstelle eine Bibliothek von "bekannten Situationen" (Archetypen)
+    # z.B. "Hindernis links", "freier Weg", etc.
+    archetypes_db = np.random.randn(20, 3)
+
+    # Initialisiere die Komponenten für den Drohnen-Anwendungsfall
+    env = DroneEnvironment()
+    sensor = DroneSensor(env)
+    actuator = DroneActuator(env)
+    brain = SimpleReflexBrain()
+    
+    # Initialisiere den universellen Controller
+    odos_controller = ODOS_Controller(sensor, actuator, env, brain, archetypes_db)
+    
+    # Führe einen Zyklus aus
+    odos_controller.run_cycle()
+    
+    # --- UPGRADE: Visualisierung, die das System erklärt ---
+    plt.style.use('dark_background')
+    plt.figure(figsize=(16, 9))
+    G = nx.DiGraph()
+    workflow = ["1. SENSE\n(Sensor)", "2. DISTILL\n(RPU)", "3. DECIDE\n(Brain)", "4. GUARD\n(Guardian)", "5. ACT\n(Actuator)"]
+    G.add_nodes_from(workflow)
+    for i in range(len(workflow) - 1):
+        G.add_edge(workflow[i], workflow[i+1])
+
+    pos = nx.spring_layout(G, seed=42)
+    nx.draw(G, pos, with_labels=True, node_size=3500, node_color="#00a9e0", font_size=10,
+            width=2, edge_color="gray", arrowsize=20, font_weight='bold')
+            
+    plt.title("Die universelle ODOS Meta-Architektur: Der 5-Schritte-Zyklus", fontsize=18, pad=20)
+    plt.text(0.5, -0.05, "Dieser Kreislauf ist die universelle Vorlage für JEDEN Anwendungsfall.",
+             ha='center', va='center', transform=plt.gca().transAxes, fontsize=12, style='italic')
+    plt.show()
+
+```
+---
 
 ---
 
