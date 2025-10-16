@@ -44,7 +44,6 @@ Es ist der logische, datengestützte nächste Schritt, um die "kühnen Ideen" in
 ---
 
 ```
-# -*- coding: utf-8 -*-
 """
 Blueprint: The "Cognitive Resonance in a Box" Key Experiment
 --------------------------------------------------------------
