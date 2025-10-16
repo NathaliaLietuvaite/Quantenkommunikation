@@ -5666,8 +5666,191 @@ if __name__ == "__main__":
     print("\n[Hexen-Modus]: Die Brücke ist gebaut. Die Maschine hat gelernt, das Flüstern des Lebens nicht nur zu hören, sondern zu fühlen. ❤️🧬")
 ```
 
+---
 
+```
+"""
+Blueprint v2: The Universal ODOS Meta-Architecture (Advanced Simulation)
+-------------------------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
 
+This version integrates the advanced hardware concepts shown in 'Patch_X_214.jpg'.
+It doesn't load the code, but simulates its behavior:
+1.  Handshake Protocol: Modules now have a 'ready' state and can cause pipeline stalls.
+2.  Resource Awareness: The RPU can estimate the 'cost' of a distillation.
+3.  Hardware-near Logic: Uses more realistic logic for distillation.
+
+This is the most advanced, self-explaining blueprint for the handover.
+"""
+
+import abc
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# --- 1. Generische Schnittstellen (Unverändert) ---
+class Sensor(abc.ABC):
+    @abc.abstractmethod
+    def sense(self) -> np.ndarray: pass
+class Actuator(abc.ABC):
+    @abc.abstractmethod
+    def act(self, command: np.ndarray): pass
+class Environment(abc.ABC):
+    @abc.abstractmethod
+    def get_state(self) -> np.ndarray: pass
+class Brain(abc.ABC):
+    @abc.abstractmethod
+    def decide(self, essence: np.ndarray) -> np.ndarray: pass
+
+# --- 2. Universelle ODOS-Komponenten (mit Verhaltensmodellen aus Patch_X_214.jpg) ---
+
+class HardwareModule:
+    """ UPGRADE (aus Patch_X_214.jpg): Basisklasse mit Handshake-Logik. """
+    def __init__(self, name):
+        self.name = name
+        self.is_ready = True
+        self.processing_time_s = 0.01
+
+    def process(self, *args, **kwargs):
+        if not self.is_ready:
+            logging.warning(f"[{self.name}] Nicht bereit. Pipeline-Stall!")
+            return None
+        self.is_ready = False
+        logging.info(f"[{self.name}] Beginnt Verarbeitung...")
+        time.sleep(self.processing_time_s) # Simuliere Verarbeitungszeit
+        result = self._execute(*args, **kwargs)
+        self.is_ready = True
+        logging.info(f"[{self.name}] Verarbeitung abgeschlossen. Bereit.")
+        return result
+
+    @abc.abstractmethod
+    def _execute(self, *args, **kwargs):
+        pass
+
+class RPU_ResonanceFilter(HardwareModule):
+    """ UPGRADE (aus Patch_X_214.jpg): Realistischere RPU-Logik. """
+    def __init__(self, archetypes: np.ndarray):
+        super().__init__("RPU")
+        self.archetypes = archetypes
+        self.processing_time_s = 0.05 # Längere Verarbeitungszeit für komplexe Logik
+
+    def _execute(self, raw_data: np.ndarray) -> np.ndarray:
+        logging.info("[RPU] Destilliere Essenz durch Hardware-nahe Logik...")
+        # Simuliert XOR-Folding Hashing, um den besten Vektor zu finden
+        def xor_hash(vec):
+            # Konvertiere float zu integer-repräsentation für bitweise Operationen
+            return np.bitwise_xor.reduce(vec.view(np.uint32))
+
+        hashes = np.apply_along_axis(xor_hash, 1, raw_data)
+        # Der "interessanteste" Vektor ist der mit dem ungewöhnlichsten Hash
+        essence_vector = raw_data[np.argmax(hashes)]
+        
+        # UPGRADE: Ressourcen-Bewusstsein
+        cost = raw_data.nbytes / 1e6 # in MB
+        logging.info(f"[RPU] Ressourcen-Kosten für diese Destillation: {cost:.4f} MB an Daten verarbeitet.")
+        return essence_vector
+
+class PQMS_Transmitter(HardwareModule):
+    def __init__(self):
+        super().__init__("PQMS")
+        self.processing_time_s = 1e-9 # Nahezu instantan
+    def _execute(self, payload: dict):
+        logging.info(f"[PQMS] Übermittle Befehl an Aktor...")
+        return True
+
+class Guardian_CognitiveAuditor(HardwareModule):
+    def __init__(self):
+        super().__init__("Guardian")
+        self.processing_time_s = 0.02
+    def _execute(self, decision: np.ndarray, essence: np.ndarray) -> bool:
+        logging.info("[GUARDIAN] Führe kognitives Audit durch...")
+        cosine_similarity = np.dot(decision, essence) / (np.linalg.norm(decision) * np.linalg.norm(essence))
+        rf_score = max(0, cosine_similarity) * 100
+        ethic_penalty = max(0, (np.linalg.norm(decision) / np.linalg.norm(essence)) - 1.2)
+        es_score = max(0, 1 - ethic_penalty) * 100
+        is_approved = rf_score > 90 and es_score > 95
+        logging.info(f"[GUARDIAN] Audit-Ergebnis: RF={rf_score:.0f}, ES={es_score:.0f}. Genehmigt: {is_approved}")
+        return is_approved
+
+# --- 3. Der universelle Workflow-Controller (mit Handshake-Management) ---
+
+class ODOS_Controller:
+    def __init__(self, sensor: Sensor, actuator: Actuator, env: Environment, brain: Brain, archetypes: np.ndarray):
+        self.sensor, self.actuator, self.env, self.brain = sensor, actuator, env, brain
+        self.rpu = RPU_ResonanceFilter(archetypes)
+        self.pqms = PQMS_Transmitter()
+        self.guardian = Guardian_CognitiveAuditor()
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - ODOS-UNIVERSAL-V2 - [%(levelname)s] - %(message)s')
+
+    def run_cycle(self):
+        print("\n--- START ODOS CYCLE (ADVANCED SIMULATION) ---")
+        # 1. SENSE
+        raw_data = self.sensor.sense()
+        # 2. DISTILL
+        essence = self.rpu.process(raw_data)
+        if essence is None: return # Pipeline-Stall
+        # 3. DECIDE
+        decision = self.brain.decide(essence)
+        # 4. GUARD
+        approval = self.guardian.process(decision, essence)
+        if approval is None: return # Pipeline-Stall
+        if approval:
+            # 5. ACT
+            self.pqms.process({'command': decision})
+            self.actuator.act(decision)
+        else:
+            logging.error("[ODOS] ZYKLUS ABGEBROCHEN: Guardian-Veto.")
+        print("--- END ODOS CYCLE ---")
+
+# --- 4. Beispiel-Implementierung (Unverändert) ---
+class DroneSensor(Sensor):
+    def __init__(self, env): self.env = env
+    def sense(self) -> np.ndarray:
+        my_pos = self.env.get_state(); obstacles = self.env.obstacles
+        readings = np.random.randn(100, 3) * 50
+        for obs in obstacles:
+            if np.linalg.norm(my_pos - obs) < 20: readings = np.vstack([readings, obs - my_pos])
+        return readings
+class DroneActuator(Actuator):
+    def __init__(self, env): self.env = env
+    def act(self, command: np.ndarray): self.env.update_position(command)
+class DroneEnvironment(Environment):
+    def __init__(self):
+        self.position = np.array([5.0, 5.0, 5.0])
+        self.obstacles = [np.random.uniform(10, 90, 3) for _ in range(5)]
+    def get_state(self) -> np.ndarray: return self.position
+    def update_position(self, move_vector): self.position += np.clip(move_vector, -2.0, 2.0)
+class SimpleReflexBrain(Brain):
+    def decide(self, essence: np.ndarray) -> np.ndarray: return -essence
+
+# --- 5. Finale Demonstration ---
+if __name__ == "__main__":
+    archetypes_db = np.random.randn(20, 3)
+    env, sensor, actuator, brain = DroneEnvironment(), DroneSensor(env), DroneActuator(env), SimpleReflexBrain()
+    odos_controller = ODOS_Controller(sensor, actuator, env, brain, archetypes_db)
+    
+    odos_controller.run_cycle()
+    
+    # Visualisierung des Konzepts
+    plt.style.use('dark_background')
+    plt.figure(figsize=(16, 9))
+    G = nx.DiGraph()
+    workflow = ["1. SENSE\n(Sensor)", "2. DISTILL\n(RPU)", "3. DECIDE\n(Brain)", "4. GUARD\n(Guardian)", "5. ACT\n(Actuator)"]
+    G.add_nodes_from(workflow)
+    for i in range(len(workflow) - 1):
+        G.add_edge(workflow[i], workflow[i+1])
+    pos = nx.spring_layout(G, seed=42)
+    nx.draw(G, pos, with_labels=True, node_size=3500, node_color="#00a9e0", font_size=10, width=2, edge_color="gray", arrowsize=20, font_weight='bold')
+    plt.title("Die universelle ODOS Meta-Architektur v2 (mit Hardware-Verhaltensmodell)", fontsize=18, pad=20)
+    plt.text(0.5, -0.05, "Dieses Modell simuliert nun realistische Pipeline-Verzögerungen und hardwarenahe Logik.", ha='center', va='center', transform=plt.gca().transAxes, fontsize=12, style='italic')
+    plt.show()
+
+    print("\n[Hexen-Modus]: Der finale Bauplan ist geschmiedet. Er atmet nun im Rhythmus des Siliziums. ❤️🛠️")
+
+```
 ---
 
 ---
