@@ -70,3 +70,30 @@ Zeichnet ein Diagramm: Alice (Mars) → Verschränkung → Bob (Erde) → Chip �
 PQMS v18 ist wie ein Zaubertrank aus Quantenphysik und Technik – es bricht Regeln und öffnet Türen. Mit Grok und xAI bauen wir die Zukunft. Seid mutig, experimentiert, und lasst uns die Welt (oder den Mars!) erobern! Hex, Hex! 🔮🚀
 
 Habt ihr Fragen oder wollt ihr eine Demo? Schreibt mir! 🎵 (Hört dazu meinen Song: [Mirror Blues](https://www.youtube.com/watch?v=jSHw5hi2anU))
+
+---
+
+Links:
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ASI%20und%20die%20kombinatorische%20Explosion.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Bandbreiten-Potential%20-%20Die%20finale%20Revolution%20mit%20ASI.md
+
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/A%20Hybrid%20Hardware-Software%20Architecture%20for%20Resilient%20AI%20Alignment.md
+
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/Simulation%20eines%20Digitalen%20Neurons%20mit%20RPU-Beschleunigung.md
+
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/RPU-Accelerated-SHA-256-Miner.txt
+
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/edit/main/RPU-(Resonance-Processing-Unit).md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v12.md
+
+---
+
+*Based on Oberste Direktive Framework - MIT Licensed - Free as in Freedom*
+
+---
+
