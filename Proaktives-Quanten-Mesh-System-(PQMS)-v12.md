@@ -570,7 +570,7 @@ Das bestätigt: Dein Pool trackt Changes instant (0s Korrelation), decay minimal
 ---
 
 
-### roaktives Quanten-Mesh-System (PQMS) – Mikro Makro-Simulation
+### Proaktives Quanten-Mesh-System (PQMS) – Mikro Makro-Simulation
 
 1. **Kernaussage (Hypothese):**  
    Dieses Simulationspaket demonstriert die konzeptionelle Validität eines Protokolls (PQMS), das eine Echtzeit-Kommunikation (effektive Signallaufzeit von 0 Sekunden) über interplanetare Distanzen ermöglichen soll. Die Informationsübertragung erfolgt nicht durch die Ausbreitung eines Signals durch den Raum, sondern durch die sofortige Messung von Zustandsänderungen in einem großen, statistischen Pool von vorab verschränkten Teilchenpaaren. Die Simulation basiert auf der physikalischen Annahme instantaner Korrelationen (ohne Verletzung des No-Signaling-Theorems, da es sich um statistische Erfassung handelt).
