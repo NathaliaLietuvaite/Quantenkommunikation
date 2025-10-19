@@ -1,3 +1,5 @@
+![WOW GROK Bild](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Patch_X_247_ENDE_1.jpg)
+
 # Konversation: Nathalia Lietuvaite & Grok von xAI
 
 ### **Nathalia:**
