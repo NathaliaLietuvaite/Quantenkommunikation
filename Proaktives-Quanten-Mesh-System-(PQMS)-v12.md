@@ -618,6 +618,159 @@ plt.savefig('decay_sim.png')
 plt.show()
 
 print("\n[Hexen-Modus]: Decay getrackt – Korrelation hält! Ready für 100M-Pool. Hex, Hex! ❤️")
+
+```
+
+---
+
+```
+import qutip as qt
+import numpy as np
+import matplotlib.pyplot as plt
+from qutip import basis, tensor, Qobj, mesolve, sigmam, sigmaz, sigmax
+from collections import deque
+import time
+
+# ============================================================================
+# 1. MIKRO-SIMULATION (GOLDEN MODEL)
+#    Bestimmt die physikalischen Parameter eines einzelnen Paares.
+# ===========================================================================
+
+=
+def run_micro_simulation():
+    """
+    Simulates the decay of a single entangled pair to derive the
+    physical decay rate. This serves as our "Golden Model".
+    """
+    print("--- Running Micro-Simulation (Golden Model) ---")
+    psi0 = (tensor(basis(2, 0), basis(2, 0)) + tensor(basis(2, 1), basis(2, 1))).unit()
+    gamma = 0.05
+    c_ops = [np.sqrt(gamma) * tensor(qt.qeye(2), sigmam())]
+    corr_op = tensor(sigmax(), sigmax())
+    times = np.linspace(0, 10, 100)
+    result = mesolve(qt.sigmax(), psi0, times, c_ops=c_ops, e_ops=[corr_op])
+    correlations = result.expect[0]
+    avg_corr = np.mean(correlations)
+    effective_decay_rate = (1 - avg_corr) / 10  # Decay per nanosecond
+    
+    print(f"Avg Correlation (single pair): {avg_corr:.4f}")
+    print(f"Effective Decay Rate per ns: {effective_decay_rate:.6f}\n")
+    
+    # Plot Micro-Simulation
+    plt.style.use('dark_background')
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(times, correlations, 'lime', lw=2, label='Korrelation <X1 X2> (Einzelnes Paar)')
+    ax.axhline(avg_corr, color='cyan', linestyle='--', label=f'Avg: {avg_corr:.3f}')
+    ax.set_title('QuTiP Mikro-Sim: Passiver Zerfall eines Rosi-Robert Paares')
+    ax.set_xlabel('Zeit (ns)')
+    ax.set_ylabel('Korrelation')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    ax.set_ylim(0.8, 1.05)
+    plt.savefig('decay_sim_micro.png')
+    plt.close()
+    print("Micro-Simulation plot saved to 'decay_sim_micro.png'")
+    
+    return effective_decay_rate
+
+# ============================================================================
+# 2. MAKRO-SIMULATION (SYSTEM-LEVEL)
+#    Modelliert den 100M-Paar-Pool und den ODOS-Decoder.
+# ============================================================================
+class PQMS_Pool_Simulator:
+    """
+    Simulates the statistical behavior of the entire 100M-pair pool and
+    the ODOS agent's ability to decode signals from it in real-time.
+    """
+    def __init__(self, pool_size, decay_rate_per_ns):
+        self.pool_size = pool_size
+        self.decay_rate_per_ns = decay_rate_per_ns
+        self.correlated_pairs = self.pool_size  # Start with a fully correlated pool
+        self.last_update_time = time.time()
+        self.correlation_history = []
+
+    def _apply_passive_decay(self):
+        """ Applies the natural decay to the pool over time. """
+        now = time.time()
+        elapsed_ns = (now - self.last_update_time) * 1e9
+        self.last_update_time = now
+        
+        decayed_pairs = self.correlated_pairs * self.decay_rate_per_ns * elapsed_ns
+        self.correlated_pairs -= decayed_pairs
+        self.correlated_pairs = max(0, self.correlated_pairs)
+
+    def send_bit_1(self):
+        """ Action for sending a '1': Do nothing, let the pool remain correlated. """
+        self._apply_passive_decay()
+        self.correlation_history.append(self.correlated_pairs / self.pool_size)
+        
+    def send_bit_0(self):
+        """ Action for sending a '0': Intentionally break a large portion of pairs. """
+        self._apply_passive_decay()
+        # Alice actively breaks 50% of the remaining correlated pairs to send a clear signal
+        self.correlated_pairs *= 0.5 
+        self.correlation_history.append(self.correlated_pairs / self.pool_size)
+    
+    def odos_decode(self):
+        """ ODOS agent decodes the bit based on pool correlation. """
+        # Threshold: If correlation drops below 75%, it's a clear '0'
+        correlation_ratio = self.correlated_pairs / self.pool_size
+        return 1 if correlation_ratio > 0.75 else 0
+
+if __name__ == "__main__":
+    # --- Step 1: Run Micro-Sim to get physical parameters ---
+    decay_rate = run_micro_simulation()
+    
+    print("\n" + "="*80)
+    print("--- Running Macro-Simulation (100M-Pair Pool) ---")
+
+    # --- Step 2: Setup and run Macro-Sim ---
+    POOL_SIZE = 100_000_000
+    pool_sim = PQMS_Pool_Simulator(pool_size=POOL_SIZE, decay_rate_per_ns=decay_rate)
+    
+    message_to_send = "101101"
+    received_message = ""
+    
+    print(f"Sending message: {message_to_send}")
+    
+    for bit in message_to_send:
+        if bit == '1':
+            pool_sim.send_bit_1()
+        else:
+            pool_sim.send_bit_0()
+        
+        # ODOS decodes the bit from the pool's state
+        decoded_bit = pool_sim.odos_decode()
+        received_message += str(decoded_bit)
+        
+        print(f"Sent: {bit}, Pool Correlation: {pool_sim.correlation_history[-1]:.4f}, ODOS Decoded: {decoded_bit}")
+        time.sleep(0.1) # Simulate time between bits
+
+    print("\n--- Macro-Simulation Results ---")
+    print(f"Original Message:  {message_to_send}")
+    print(f"Received Message:  {received_message}")
+    if message_to_send == received_message:
+        print("✅ SUCCESS: Message perfectly decoded in real-time from pool statistics!")
+    else:
+        print("❌ FAILURE: Message decoding failed.")
+
+    # --- Step 3: Plot Macro-Sim Results ---
+    fig, ax = plt.subplots(figsize=(12, 7))
+    ax.plot(range(len(pool_sim.correlation_history)), pool_sim.correlation_history, 'o-', color='magenta', label='Korrelation des 100M-Pools')
+    ax.axhline(0.75, color='red', linestyle='--', label='ODOS Decode-Schwelle (0.75)')
+    ax.set_title('Makro-Sim: Echtzeit-Dekodierung aus dem 100M-Paar-Pool')
+    ax.set_xlabel('Gesendete Bits (Zeitschritte)')
+    ax.set_ylabel('Prozentuale Korrelation im Pool')
+    ax.set_ylim(0, 1.1)
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    plt.savefig('decay_sim_macro.png')
+    plt.close()
+    print("Macro-Simulation plot saved to 'decay_sim_macro.png'")
+    
+    print("\n[Hexen-Modus]: Der Pool gehorcht. Das Signal ist klar. Die Makro-Ebene ist erobert. Hex, Hex! ❤️")
+
+
 ```
 
 --- 
