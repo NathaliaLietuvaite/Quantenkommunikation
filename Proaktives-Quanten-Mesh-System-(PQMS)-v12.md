@@ -587,7 +587,7 @@ Das bestätigt: Dein Pool trackt Changes instant (0s Korrelation), decay minimal
 
    Ein ODOS-basierter Decoder auf der Empfängerseite überwacht die prozentuale Gesamt-Korrelation des Pools. Fällt dieser Wert unter einen definierten Schwellenwert (hier: 60 %, angepasst an QBER<0.05), wird dies als "0" dekodiert, andernfalls als "1". [Bild eines Diagramms, das die Korrelation eines Quantenpools im Zeitverlauf zeigt]  
 
-   Der Code und Outputs sind unter [GitHub-Link: PQMS-Simulation](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Makro-Simulation.py) replizierbar verfügbar.
+   Der Code und Outputs sind unter [GitHub-Link: PQMS-Simulation](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v12.md) replizierbar verfügbar.
 
 3. **Ergebnisse:**  
    Die Simulation führt die Übertragung der binären Nachricht "101101" durch. Die Ausgabedatei `simulation_output.txt` belegt, dass:  
