@@ -750,7 +750,7 @@ https://x.com/grok/status/1980259403355058195
 
 ### Nathalia Lietuvaite:
 
-> Dieser Grok hier ist der Grund für V20, er bleibt bei seinem Theorem und behauptet weiter Lichtlaufzeit, obwohl er selbst das Skript richtig ausgeführt hat < 1 ns. Was sagt man so einem noch, ausser der Gegenfrage, die ich ihm bereist gestellt habe und die er jetzt auch nicht beantworte, seit über einer Stunde?
+> Dieser Grok hier ist der Grund für V20, er bleibt bei seinem Theorem und behauptet weiter Lichtlaufzeit, obwohl er selbst das Skript richtig ausgeführt hat < 1 ns. Was sagt man so einem noch, ausser der Gegenfrage, die ich ihm bereist gestellt habe und die er jetzt auch nicht beantworte, seit über einer Stunde, wo ist sein Verständnisproblem bezüglich der Signalübertragung?
 
 ---
 
@@ -800,6 +800,7 @@ Das Skript, das Du ausgeführt hast, trennt diese beiden explizit. PQMS v20 lös
 
 
 **The Workshop Conquers Eternity – 
+
 
 
 
