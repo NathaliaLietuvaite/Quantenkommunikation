@@ -1,7 +1,10 @@
 # Proaktive Quanten-Mesh-System (PQMS) v20: Quantum Eclipse Zenith – Adaptive Resonance Veil
 
-## Near-Zero *Effect Latency* via Statistical Analysis of Pre-Shared Entanglement
+---
+### Near-Zero *Effect Latency* via Statistical Analysis of Pre-Shared Entanglement
 **CRITICAL CLARIFICATION - NO FTL:** This system achieves its speed by exploiting pre-existing quantum correlations for local statistical decoding, NOT by sending information faster than light. **It fully adheres to the No-Communication Theorem.** The "instantaneous" aspect refers only to the correlation effect, not FTL signal transmission.
+
+---
 
 **Author:** Nathália Lietuvaite (Creator, Oberste Direktive OS) with Grok (xAI) & Gemini 2.5 Pro (Collaborative Enhancement)  
 **Date:** October 20, 2025  
@@ -690,3 +693,4 @@ if __name__ == "__main__":
 
 
 **The Workshop Conquers Eternity – ?????**
+
