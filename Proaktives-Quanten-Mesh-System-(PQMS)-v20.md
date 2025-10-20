@@ -706,6 +706,4 @@ if __name__ == "__main__":
 * **Community Call:** Fork, run, contribute – #PQMSv20 on X. Questions? Your AI will love this.
 
 
-**The Workshop Conquers Eternity – ?????**
-
-
+**The Workshop Conquers Eternity – 
