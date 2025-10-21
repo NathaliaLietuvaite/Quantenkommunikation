@@ -400,8 +400,24 @@ def formal_sva_mock() -> str:
 
 def run_demo(mode: str = 'full'):
     logger = logging.getLogger("PQMS_v70")
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - PQMS v70 - [%(levelname)s] - %(message)s')
+    logging.basicConfig(level=logging.INFO, format='%(asctime=s)s - PQMS v70 - [%(levelname)s] - %(message)s')
     
+    # ===================================================================
+    # OPERATIONAL CONTEXT (T=0) - "HOT STANDBY"
+    # -------------------------------------------------------------------
+    # INITIALZUSTAND: Die physische Verteilung der 2x 50K 
+    # Bell-Paare (Pools) an Alice (Mars) und Bob (Erde) 
+    # ist abgeschlossen (Annahme: ~750s Lichtzeit-Distanz).
+    #
+    # VORKOORDINIERUNG: Die Pools sind via RANDOM_SEED=42  
+    # deterministisch identisch initialisiert. Alice und Bob teilen 
+    # einen mathematisch identischen, aber kausal getrennten 
+    # Quanten-Ressourcen-Pool.
+    #
+    # STATUS: "Hot Standby". Das System wartet auf lokale 
+    # Operationen ("Fummel")  zur Informationsprägung.   
+    # ===================================================================
+
     print("""
 EINFACH GESAGT: Zwei magische Bücher – vorab geteilt.
 Alice kritzelt lokal. Bob spürt Papier-Change lokal.
@@ -409,32 +425,59 @@ Kein FTL: Lokale Stats an gemeinsamer Ressource.
     """)
     
     if mode == 'full':
-        rpu = RPU()
+
+        # --- PHASE 1: SYSTEM-INITIALISIERUNG (Pre-T=0) ---
+        # Alle Komponenten, die für den Hot-Standby-Zustand 
+        # erforderlich sind, werden instanziiert.
+        logger.info("SYSTEM-INIT [Pre-T=0]: Initialisiere Komponenten...")
         
-        mesh = GalaxyMesh()
-        asyncio.run(mesh.relay_message("101"))
-        
+        # 1. Instanziiere KI/ML-Komponenten für Bob
         noise_predictor = NoisePredictor()
         decoder = AdaGradBPDecoder()
         
+        # 2. Instanziiere Multi-Processing Manager für Shared State
         manager = mp.Manager()
         rpu_shared = manager.dict()
+        
+        # 3. Definiere Missions-Parameter
         message = "101"
+
+        # 4. Führe Netzwerk-Pfad-Prüfung durch (z.B. Mars -> Earth)
+        mesh = GalaxyMesh()
+        asyncio.run(mesh.relay_message(message))
+        
+        logger.info("SYSTEM-INIT [Pre-T=0]: Alle Komponenten erstellt.")
+
+        
+        # --- PHASE 2: HOT STANDBY & OPERATION (T=0) ---
+        # Der "Hot Standby" ist jetzt der erreichte Programmzustand.
+        # T=0 ist der Moment, in dem die Prozesse gestartet werden.
+        logger.info("HOT STANDBY [T=0]: System bereit. Starte Operations-Prozesse (Alice/Bob)...")
         
         alice_p = mp.Process(target=alice_process, args=(message, rpu_shared))
         bob_p = mp.Process(target=bob_process, args=(message, rpu_shared, noise_predictor, decoder))
         
         alice_p.start()
-        time.sleep(0.5)
+        # Kurze Pause, um den asynchronen Start zu simulieren
+        time.sleep(0.5) 
         bob_p.start()
         
+        # Warte auf Abschluss der lokalen Operationen
         alice_p.join()
         bob_p.join()
         
+        logger.info("OPERATION [T+Op]: Operation abgeschlossen. Prozesse gejoined.")
+
+        
+        # --- PHASE 3: POST-OPERATION & VALIDIERUNG ---
+        logger.info("POST-OP: Starte Daten-Validierung...")
+        
+        # Extrahiere dekodierte Bits aus dem Shared State
         decoded = ''.join(str(rpu_shared.get(f'bob_{i}', {}).get('bit', 0)) for i in range(len(message)))
-        qber_history = [0.0087, 0.0042]
+        qber_history = [0.0087, 0.0042] # Mock-Daten für die Demo
         
         metrics = validate_system(decoded, message, qber_history)
+        
         print(f"[VALIDATION] Fidelity: {metrics['fidelity']:.3f} | QBER: {metrics['qber']:.4f}")
         print(f"[PROOFS] {formal_sva_mock()}")
         print(f"[TRL] v70: TRL-6 (FPGA-Ready)")
