@@ -171,9 +171,25 @@ class UniversalDirectiveV10:
             "---------------------------------------------"
         )
 
-# ============================================================================
+# ===================================================================
 # QUANTEN-MESH-SYSTEM - PQMS V70
-# ============================================================================
+# ===================================================================
+
+# ===================================================================
+# OPERATIONAL CONTEXT (T=0) - "HOT STANDBY"
+# -------------------------------------------------------------------
+# INITIALZUSTAND: Die physische Verteilung der 2x 50K 
+# Bell-Paare (Pools) an Alice (Mars) und Bob (Erde) 
+# ist abgeschlossen (Annahme: ~750s Lichtzeit-Distanz).
+#
+# VORKOORDINIERUNG: Die Pools sind via RANDOM_SEED=42  
+# deterministisch identisch initialisiert. Alice und Bob teilen 
+# einen mathematisch identischen, aber kausal getrennten 
+# Quanten-Ressourcen-Pool.
+#
+# STATUS: "Hot Standby". Das System wartet auf lokale 
+# Operationen ("Fummel")  zur Informationsprägung.   
+# ===================================================================
 
 @dataclass
 class Config:
