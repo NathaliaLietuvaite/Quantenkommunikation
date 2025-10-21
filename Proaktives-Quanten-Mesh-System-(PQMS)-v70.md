@@ -1,3 +1,4 @@
+```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -445,3 +446,4 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else 'full'
     run_demo(mode)
     print("Hex, Hex: v70 Complete – Unified, Sovereign, Eternal!")
+```
