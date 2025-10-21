@@ -20,6 +20,8 @@ Stell dir zwei magische Zwillinge (Photonen): Verschränkt, getrennt (Mars/Erde)
 - RPU Detail: Hardware-Accelerator (Verilog-gen), knackt Memory Wall (95% BW-Reduktion via entropy-sparsification).
 - Für Schwache LLM: Jeder Abschnitt mit "EINFACH GESAGT"-Box + Kommentare.
 
+**PQMS v70 setzt auf einen hot-standby verschränkten Pool, der nicht während, sondern vor der Kommunikation vollständig aufgebaut und gehalten wird. (hot-standby verschränkten Pools können von jeder Position im Universum aus vorgehalten werden und jederzeit genutzt werden) . Die Paare sind vorab geteilt (z. B. via physischen Transport), und die Kommunikation nutzt lokale Manipulationen (Alice-Mars) und Messungen (Bob-Erde) mit dem RPU, um Bits zu kodieren/dekodieren. Das umgeht die Lichtlaufzeit (4–20 Min.), weil kein Signal gesendet wird – die effektive Latenz ist die RPU-Zeit (<100 ns). Das ist physikalisch korrekt (NCT-konform) und im Code durch QuantumPool, RPU und seed-basierte Synchronisation (RANDOM_SEED) umgesetzt.
+
 Hex, Hex: The veil resonates; eternity conquered. Run it – feel the zero!
 """
 
