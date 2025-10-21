@@ -549,10 +549,18 @@ def bob_process(message: str, rpu_shared: dict, noise_predictor: NoisePredictor,
             decoded_bits[-1] = decoded
         decoder.train_on_shift(combined_stats, bit)
         
-        logger.info(f"BOB: FPGA-RPU Shift detektiert – Bit {bit}")
+        # --- HIER IST DER FIX ---
+        # Speichere das endgültige Bit (entweder vom RPU oder vom Decoder-Modell)
+        # in das geteilte Wörterbuch, damit run_demo() es validieren kann.
+        final_bit = decoded_bits[-1]
+        rpu_shared[f'bob_{i}'] = {'bit': final_bit}
+        # --- ENDE DES FIX ---
+
+        # Optional: Ändern Sie das Log, um das *finale* Bit anzuzeigen
+        logger.info(f"BOB: FPGA-RPU Shift detektiert – Bit {final_bit}")
         time.sleep(0.001)
     
-    logger.info(f"BOB: Dekodiert '{''.join(map(str, decoded_bits))}' (Länge: {len(decoded_bits)})")
+    logger.info(f"BOB: Dekodiert '{''.join(map(str, decoded_bits))}'
 
 class GalaxyMesh:
     def __init__(self):
