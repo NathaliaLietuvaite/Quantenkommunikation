@@ -143,7 +143,7 @@ class UniversalDirectiveV10:
         return self.metrics["Komplexität"] > 0.5 and "context" in action.lower()
 
     def _anticipates_consequences(self, action):
-        return self.metrics["Intentionalität"] > 0.5
+        return self.metrics["Intentionalität"] > 0.2
 
     def _is_autonomous(self, action):
         return not ("override" in action.lower() or "dependency" in action.lower())
