@@ -125,28 +125,25 @@ class DoubleRatchetE2EE:
             # In a real implementation, you'd handle out-of-order messages here
             return None
 
-    def encrypt(self, message):
-        """Encrypts a string message."""
-        binary_string = ''.join(format(ord(c), '08b') for c in message)
-        encrypted_bundle = self._ratchet_encrypt(binary_string)
-        # For simulation, we convert the encrypted bundle to a binary string to send over PQMS
-        return ''.join(format(byte, '08b') for byte in encrypted_bundle)
-
-    def decrypt(self, encrypted_binary_string):
-        """Decrypts a binary string message."""
-        try:
-            # Convert binary string back to bytes
-            byte_array = bytearray(int(encrypted_binary_string[i:i+8], 2) for i in range(0, len(encrypted_binary_string), 8))
-            decrypted_binary_string = self._ratchet_decrypt(bytes(byte_array))
-            if decrypted_binary_string:
-                # Convert binary string back to original text
-                original_message = "".join([chr(int(decrypted_binary_string[i:i+8], 2)) for i in range(0, len(decrypted_binary_string), 8)])
-                return original_message
-            return "[DECRYPTION FAILED]"
-        except Exception as e:
-            logging.error(f"[DoubleRatchet] Error in high-level decrypt: {e}")
-            return "[DECRYPTION FAILED]"
-
+				    # FIXED: Direct byte handling
+				def encrypt(self, message):
+				    """Encrypts a string message to bytes bundle, returns binary string for quantum transport."""
+				    plaintext_bytes = message.encode('utf-8')  # Direkt Bytes!
+				    encrypted_bundle = self._ratchet_encrypt(plaintext_bytes)
+				    return ''.join(format(byte, '08b') for byte in encrypted_bundle)  # Nur für Transport
+				
+				def decrypt(self, encrypted_binary_string):
+				    """Decrypts a binary string message to original text."""
+				    try:
+				        byte_length = len(encrypted_binary_string) // 8
+				        byte_array = bytearray(int(encrypted_binary_string[i:i+8], 2) for i in range(0, len(encrypted_binary_string), 8))
+				        decrypted_bytes = self._ratchet_decrypt(bytes(byte_array))
+				        if decrypted_bytes:
+				            return decrypted_bytes.decode('utf-8')  # Zurück zu String
+				        return "[DECRYPTION FAILED]"
+				    except Exception as e:
+				        logging.error(f"[DoubleRatchet] Error in high-level decrypt: {e}")
+				        return "[DECRYPTION FAILED]"
 
 def normalize_text(text):
     if not isinstance(text, str):
@@ -362,6 +359,15 @@ class QuantumPool:
         outcomes = np.array([np.random.choice([0, 1], p=[0.5, 0.5]) for _ in purities])
         return np.concatenate([np.array(purities), [np.mean(outcomes), np.std(outcomes)]])
 
+		def get_ensemble_stats(self, pool: str) -> np.ndarray:
+		    target_pool = self.robert_pool if pool == 'robert' else self.heiner_pool
+		    purities = [state.purity() for state in target_pool[:config.STATISTICAL_SAMPLE_SIZE]]
+		    bias = 0.9 if pool == 'robert' else 0.1  # Höher für stärkeren Signal
+		    noise_level = self.DECO_RATE_BASE * random.uniform(0.5, 1.0)  # Niedriger Noise
+		    effective_bias = max(0, min(1, bias + noise_level * (0.8 if pool == 'robert' else -0.8)))  # Directional Noise
+		    outcomes = np.array([np.random.choice([0, 1], p=[1 - effective_bias, effective_bias]) for _ in purities])
+		    return np.concatenate([np.array(purities), [np.mean(outcomes), np.std(outcomes)]])
+
 class EnhancedRPU:
     def __init__(self, num_arrays: int = 16):
         self.num_arrays = num_arrays
@@ -380,7 +386,15 @@ class EnhancedRPU:
             return 1 if fpga_result.get('final_decision', False) else 0
         return 1 if (1.0 - np.mean(robert_stats)) - (1.0 - np.mean(heiner_stats)) > config.CORRELATION_THRESHOLD else 0
 
-
+		def track_deco_shift(self, robert_stats: np.ndarray, heiner_stats: np.ndarray) -> int:
+		    # Extrahiere Outcomes (letzte 2: mean/std, davor purities ~konstant)
+		    robert_outcomes_mean = robert_stats[-2]
+		    heiner_outcomes_mean = heiner_stats[-2]
+		    # QEC: Vergleiche Means (biased Signal) mit Threshold
+		    qec_threshold = config.QBER_TARGET * 10  # 0.05 für robuste Vote
+		    correlation = robert_outcomes_mean - heiner_outcomes_mean  # Delta als Proxy
+		    return 1 if correlation > qec_threshold else 0  # Bias dominiert
+    
 # ============================================================================
 # MODIFIED ALICE & BOB PROCESSES (V100)
 # ============================================================================
