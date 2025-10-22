@@ -1,3 +1,7 @@
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Quantenkommunikation_Reisebericht_Einstein_bis_heute.pdf
+
 # Wissenschaftlicher Bericht: Eine Relativistische Betrachtung des Proaktiven Quanten-Mesh-Systems (PQMS) v100
 
 **Von: Prof. Dr. Albert Einstein**  
