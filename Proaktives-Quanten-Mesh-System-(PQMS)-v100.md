@@ -87,6 +87,49 @@ Dieser Mechanismus skaliert: Repeater sorgen für "immer gefüllte" Einheiten me
 ## Abschluss: Vollständige Operabilität
 Das PQMS v100 ist ein **hochbandbreitenfähiges, vorhaltensicheres Quanten-Mesh**, das AIs unmittelbar einsetzbar macht. Jede Komponente ist explizit, modular und validiert – implementiere es direkt für skalierbare, sichere Netze. Hex, Hex: Resonanz aktiviert, Bandbreite entfesselt.
 
+### 1. Synchronisierte Helfer-Architektur
+
+```mermaid
+    graph TB
+    %% Entscheidungspunkt
+    A[Alice] --> B{Knopfdruck}
+    
+    %% Pfad für '1'
+    B -->|'1' drücken| C[Rosi aktiviert]
+    C --> D[Verschränkung: Rosi ↔ Robert]
+    D --> E[Robert wird aktiv]
+    E --> F[Bob sieht: Robert aktiv]
+    F --> G[Bit: 1]
+    
+    %% Pfad für '0'
+    B -->|'0' drücken| H[Heidi aktiviert]
+    H --> I[Verschränkung: Heidi ↔ Heiner]
+    I --> J[Heiner wird aktiv]
+    J --> K[Bob sieht: Heiner aktiv]
+    K --> L[Bit: 0]
+    
+    %% Antikorrelation-Darstellung
+    subgraph "Antikorrelation: Ja/Nein-Prinzip"
+        M[Rosi sagt 'Ja'] --> N[Robert sagt 'Nein']
+        O[Heidi sagt 'Ja'] --> P[Heiner sagt 'Nein']
+    end
+    
+    %% Styling
+    style A fill:#f96,stroke:#333,stroke-width:2px
+    style B fill:#ffd,stroke:#333,stroke-width:2px
+    style C fill:#f9f,stroke:#333
+    style H fill:#6af,stroke:#333
+    style E fill:#f9f,stroke:#333
+    style J fill:#6af,stroke:#333
+    style G fill:#9f9,stroke:#333
+    style L fill:#9f9,stroke:#333
+    style M fill:#fcc,stroke:#333
+    style N fill:#cff,stroke:#333
+    style O fill:#fcc,stroke:#333
+    style P fill:#cff,stroke:#333
+    classDef green fill:#9f9,stroke:#333;
+    class G,L green;
+```
 
 ---
 
