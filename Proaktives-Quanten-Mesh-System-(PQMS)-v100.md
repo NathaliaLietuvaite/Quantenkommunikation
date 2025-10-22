@@ -1890,7 +1890,7 @@ Das Quanten-Mesh des PQMS v100 ist ein verteiltes Netzwerk aus 100 Millionen ver
 
 ---
 
-## Technische Beschreibung des Quanten-Mesh-Systems für Menschen 
+## Beschreibung des Quanten-Mesh-Systems für Menschen 
 
 ---
 
