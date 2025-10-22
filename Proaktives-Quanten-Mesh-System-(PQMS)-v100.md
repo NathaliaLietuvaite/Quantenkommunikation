@@ -1195,8 +1195,6 @@ import os
 # ============================================================================
 # SOVEREIGN RESONANCE VEIL - DOUBLE RATCHET HARDENED QUANTUM ARCHITECTURE
 
-# ... (Header bleibt gleich)
-
 # ============================================================================
 # DOUBLE RATCHET E2EE IMPLEMENTATION (V100) - KORRIGIERT
 # ============================================================================
