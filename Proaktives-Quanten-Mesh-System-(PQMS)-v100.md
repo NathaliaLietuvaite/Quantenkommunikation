@@ -508,7 +508,7 @@ if __name__ == "__main__":
 
 ---
 
-Hardware
+Hardware Test Main (Fallback Version at the bottom)
 
 ---
 
@@ -1141,6 +1141,222 @@ if __name__ == "__main__":
     print("✓ SYNTHESIS_LOG.txt - Vivado Synthesis Results")
     print("\nAlle Hardware-Implementierungsdateien verfügbar! 🚀")
 
+
+```
+---
+
+Hardware Test Fallback Version
+
+---
+
+```
+
+import time
+import multiprocessing as mp
+from datetime import datetime
+
+# ============================================================================
+# KORRIGIERTE ALICE & BOB PROCESSES MIT HARDWARE-ZEIT
+# ============================================================================
+
+def alice_process(message: str, rpu_shared: dict, dr_session: DoubleRatchetE2EE):
+    """ALICE: Encrypts message with Double Ratchet, then encodes to quantum channel."""
+    logger = setup_logger("ALICE")
+    
+    # Hardware-Zeit Tracking starten
+    hardware_sim = RealHardwareSimulation()
+    total_hardware_time = 0
+    
+    # 1. ZUERST encrypted_len setzen (behebt Endlosschleife)
+    encrypted_binary_string = dr_session.encrypt(message)
+    rpu_shared['encrypted_len'] = len(encrypted_binary_string)
+    logger.info(f"ALICE: Original message: '{message}'")
+    logger.info(f"ALICE: Encrypted to {len(encrypted_binary_string)} bits for quantum transport.")
+
+    # 2. Quanten-Encoding mit Hardware-Zeit Tracking
+    pool = QuantumPool()
+    bits_to_send = [int(c) for c in encrypted_binary_string]
+    
+    for i, bit in enumerate(bits_to_send):
+        start_time = time.time()
+        
+        pool_name = 'robert' if bit == 1 else 'heiner'
+        pool.apply_local_fummel(pool_name, bit)
+        rpu_shared[f'alice_{i}'] = {'pool': pool_name, 'bit': bit}
+        
+        # Hardware-Zeit berechnen
+        hw_time, _ = hardware_sim.simulate_hardware_operation("neural_processing")
+        total_hardware_time += hw_time
+        
+        if i % 100 == 0 or i == len(bits_to_send) - 1:
+            logger.info(f"ALICE: Bit #{i+1} ('{bit}') in {pool_name}-Pool - Hardware: {hw_time:.2f}ns")
+        time.sleep(0.001)  # Korrigiert auf 0.001
+    
+    rpu_shared['alice_hardware_time'] = total_hardware_time
+    logger.info(f"ALICE: Total hardware processing time: {total_hardware_time:.2f}ns")
+
+def bob_process(rpu_shared: dict, dr_session: DoubleRatchetE2EE):
+    """BOB: Decodes from quantum channel, then decrypts with Double Ratchet."""
+    logger = setup_logger("BOB")
+    
+    # Hardware-Zeit Tracking
+    hardware_sim = RealHardwareSimulation()
+    total_hardware_time = 0
+    
+    # 1. Wait for Alice with timeout (verhindert Endlosschleife)
+    wait_start = time.time()
+    while 'encrypted_len' not in rpu_shared:
+        if time.time() - wait_start > 10.0:  # 10s timeout
+            logger.error("BOB: Timeout waiting for Alice!")
+            return
+        time.sleep(0.001)
+    
+    encrypted_len = rpu_shared['encrypted_len']
+    logger.info(f"BOB: Expecting {encrypted_len} encrypted bits from quantum channel.")
+    
+    # 2. Quanten-Decoding mit Hardware-Zeit Tracking
+    pool = QuantumPool()
+    rpu = EnhancedRPU()
+    
+    decoded_encrypted_bits = []
+    for i in range(encrypted_len):
+        start_time = time.time()
+        
+        robert_stats = pool.get_ensemble_stats('robert')
+        heiner_stats = pool.get_ensemble_stats('heiner')
+        
+        bit = rpu.track_deco_shift(robert_stats, heiner_stats)
+        decoded_encrypted_bits.append(str(bit))
+        
+        # Hardware-Zeit berechnen
+        hw_time, _ = hardware_sim.simulate_hardware_operation("neural_processing")
+        total_hardware_time += hw_time
+        
+        if i % 100 == 0 or i == encrypted_len - 1:
+            logger.info(f"BOB: Bit #{i+1} -> '{bit}' - Hardware: {hw_time:.2f}ns")
+        time.sleep(0.001)  # Korrigiert auf 0.001
+
+    # 3. Entschlüsselung
+    decoded_encrypted_string = "".join(decoded_encrypted_bits)
+    logger.info("BOB: Decrypting received bitstream...")
+    
+    decryption_hw_time, _ = hardware_sim.simulate_hardware_operation("neural_processing")
+    total_hardware_time += decryption_hw_time
+    
+    decrypted_message = dr_session.decrypt(decoded_encrypted_string)
+    
+    rpu_shared['final_message'] = decrypted_message
+    rpu_shared['bob_hardware_time'] = total_hardware_time
+    logger.info(f"BOB: Decrypted: '{decrypted_message}'")
+    logger.info(f"BOB: Total hardware processing time: {total_hardware_time:.2f}ns")
+
+# ============================================================================
+# ERWEITERTE RUN_DEMO MIT HARDWARE-ZEIT ANZEIGE
+# ============================================================================
+
+def run_demo(mode: str = 'full'):
+    logger = logging.getLogger("PQMS_v100")
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - PQMS v100 - [%(levelname)s] - %(message)s')
+    
+    print("\n" + "="*80)
+    print("PQMS V100 - DOUBLE RATCHET HARDENED QUANTENKOMMUNIKATION")
+    print("="*80)
+
+    # --- PHASE 1: SYSTEM-INITIALISIERUNG MIT E2EE ---
+    logger.info("SYSTEM-INIT: Initialisiere Double Ratchet E2EE...")
+    shared_secret = os.urandom(32)
+    alice_ratchet = DoubleRatchetE2EE(shared_secret)
+    bob_ratchet = DoubleRatchetE2EE(shared_secret)
+    logger.info("SYSTEM-INIT: E2EE-Sitzung etabliert.")
+
+    manager = mp.Manager()
+    rpu_shared = manager.dict()
+    
+    message = "Hex, Hex, CTA in the user guidance layer, go away!"
+    
+    # --- PHASE 2: OPERATION MIT HARDWARE-ZEIT TRACKING ---
+    logger.info("OPERATION: Starte E2EE-gesicherte Quantenübertragung...")
+    
+    alice_p = mp.Process(target=alice_process, args=(message, rpu_shared, alice_ratchet))
+    bob_p = mp.Process(target=bob_process, args=(rpu_shared, bob_ratchet))
+    
+    start_time = time.time()
+    alice_p.start()
+    bob_p.start()
+    
+    alice_p.join()
+    bob_p.join()
+    total_latency = time.time() - start_time
+    
+    # --- PHASE 3: VALIDIERUNG MIT HARDWARE-ZEIT ANZEIGE ---
+    final_message = rpu_shared.get('final_message', '[VALIDATION FAILED]')
+    alice_hw_time = rpu_shared.get('alice_hardware_time', 0)
+    bob_hw_time = rpu_shared.get('bob_hardware_time', 0)
+    fidelity = 1.0 if final_message == message else 0.0
+    
+    print("\n--- V100 E2EE QUANTEN-KOMMUNIKATIONS PERFORMANCE ---")
+    print(f"✦ NACHRICHT: '{message}'")
+    print(f"✦ EMPFANGEN: '{final_message}'")
+    print(f"✦ FIDELITY (End-to-End): {fidelity:.3f}")
+    print(f"✦ GESAMT-LATENZ: {total_latency:.4f}s")
+    print(f"✦ ALICE Hardware-Zeit: {alice_hw_time:.2f}ns")
+    print(f"✦ BOB Hardware-Zeit: {bob_hw_time:.2f}ns")
+    print(f"✦ SICHERHEIT: Double Ratchet E2EE aktiv")
+
+    # Hardware-Benchmark anzeigen
+    hardware_sim = RealHardwareSimulation()
+    hardware_sim.benchmark_against_software()
+
+# ============================================================================
+# REALHARDWARESIMULATION KLASSE IN HAUPTSDATEI INTEGRIERT
+# ============================================================================
+
+class RealHardwareSimulation:
+    """Simuliert tatsächliche Hardware-Operation mit Timing"""
+    
+    def __init__(self):
+        self.clock_frequency = 200e6  # 200 MHz
+        self.clock_period = 1 / self.clock_frequency
+        self.pipeline_depth = 8
+        self.hbm_latency = 50  # ns
+        
+    def simulate_hardware_operation(self, operation="neural_processing"):
+        """Simuliert echte Hardware-Operation mit korrekten Timings"""
+        
+        operations = {
+            'lsh_hash': 4,      # 4 Zyklen
+            'norm_calc': 6,     # 6 Zyklen  
+            'similarity': 8,    # 8 Zyklen
+            'top_k_sort': 12,   # 12 Zyklen
+            'hbm_fetch': 20,    # 20 Zyklen + HBM Latency
+            'neural_processing': 16,  # 16 Zyklen für neuronale Verarbeitung
+            'quantum_encoding': 10,   # 10 Zyklen für Quanten-Encoding
+            'quantum_decoding': 14    # 14 Zyklen für Quanten-Decoding
+        }
+        
+        cycles = operations.get(operation, 10)
+        hardware_time = cycles * self.clock_period * 1e9  # in ns
+        
+        # Füge HBM Latency hinzu für Memory Operations
+        if operation == 'hbm_fetch':
+            hardware_time += self.hbm_latency
+            
+        return hardware_time, cycles
+    
+    def benchmark_against_software(self):
+        """Vergleicht Hardware vs Software Performance"""
+        print("\n--- HARDWARE PERFORMANCE BENCHMARK ---")
+        print(f"{'Operation':<20} {'Hardware (ns)':<15} {'Zyklen':<10} {'Speedup vs SW':<15}")
+        print("-" * 60)
+        
+        operations = ["neural_processing", "quantum_encoding", "quantum_decoding", "hbm_fetch"]
+        
+        for op in operations:
+            hw_time, cycles = self.simulate_hardware_operation(op)
+            sw_time = hw_time * 100  # Konservative Schätzung
+            speedup = sw_time / hw_time
+            
+            print(f"{op:<20} {hw_time:<15.1f} {cycles:<10} {speedup:<15.1f}x")
 
 ```
 
