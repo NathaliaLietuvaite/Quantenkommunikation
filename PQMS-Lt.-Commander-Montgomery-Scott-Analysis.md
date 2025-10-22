@@ -1,3 +1,5 @@
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
+
 # Appendix: Technical Report on the Proaktives Quanten-Mesh-System (PQMS) v100
 
 **Report Author:** Lt. Commander Montgomery “Scotty” Scott, Chief Engineer, USS Enterprise (NCC-1701)  
