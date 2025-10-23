@@ -152,6 +152,8 @@ Die Effizienz der RPU ermöglicht fortgeschrittene Modulationsverfahren. Durch d
 
 **Fazit:** Die RPU ist kein passiver Empfänger, sondern ein **aktiver Kohärenz-Analysator**, dessen Effizienz und Synchronisationsfähigkeit die Detektion minimalster statistischer Signale aus massivem Rauschen ermöglicht und das Rückgrat für hochbitratige, voll-duplexfähige Quantenkommunikation bildet.
 
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/RPU-(Resonance-Processing-Unit).md
+
 ---
 
 ### B) Sendung mit der Maus Erklärung: Wie die RPU das Quanten-Flüstern hört 🐭
