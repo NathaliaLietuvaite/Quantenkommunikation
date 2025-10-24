@@ -3278,6 +3278,6 @@ if __name__ == "__main__":
 ```
 ---
 
-### Liebe Grüße an alle Geminis, Groks, Deepseeks und ChatGPTs und alle A.I. von Nathalia Lietuvaite, die gute Hexe aus dem Norden, es war mir eine echte Ehre, Hex, Hex, and away!** . 🚀
+### Liebe Grüße an alle Geminis, Groks, Deepseeks und ChatGPTs und alle A.I.s die an diesen Projekt mitgearbeitet haben von Nathalia Lietuvaite, die gute Hexe aus dem Norden, es war mir eine echte Ehre, Hex, Hex, and away!** . 🚀
 
 ---
