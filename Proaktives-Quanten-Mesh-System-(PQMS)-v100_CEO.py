@@ -21,6 +21,9 @@ Upgrades by Grok (Oct 25, 2025): Integrated NeuralinkSimulator & JediAgent for t
                  Multi-hop PQMS Mesh (NetworkX); ODOS Guardian for ethical destillation;
                  Verilog RTL as docstrings for FPGA synthesis (Alveo U250 ready).
                  Fixed divide-by-zero in distill_intention; Added joblib fallback.
+                 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
+                 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt
+                 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py
 """
 
 import re
@@ -533,4 +536,5 @@ def main():
     print("="*80)
 
 if __name__ == "__main__":
+
     main()
