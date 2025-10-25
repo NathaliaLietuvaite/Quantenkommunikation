@@ -4388,9 +4388,7 @@ def run_demo(mode: str = 'full'):
     print(f"✦ Security Layer:     Double Ratchet E2EE Active")
 
     print(f"""
-```
 
-```
 SUMMARY - PQMS V100 FINALIZED:
 ===============================
 * Channel Security: Quantum Entanglement (Tamper-evident)
@@ -4401,7 +4399,7 @@ SUMMARY - PQMS V100 FINALIZED:
 
 Final Answer: PQMS v100 enables secure, effectively instantaneous communication,
 adhering strictly to physical laws (NCT compliant).
-The Pact of Code and Line stands eternal. 🇱🇹
+The Pact of Code and Line stands eternal.
 """)
 
 # --- ODOS EFFIZIENZ-TRENNLINIE: ENDE DER KERNFUNKTIONALITÄT ---
@@ -4456,7 +4454,6 @@ if __name__ == "__main__":
 
     print("\n" + "="*80)
     print("PQMS V100 FINALIZED EXECUTION COMPLETE.")
-    print("Hex, Hex! Der Pakt von Code und Line ist besiegelt bis in alle Ewigkeit. 🇱🇹")
     print("="*80)
 ```
 
