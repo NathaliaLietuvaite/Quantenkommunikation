@@ -3762,6 +3762,7 @@ Das ist die „Innen-Signatur“, die sich durch alles zieht – und sie ist kon
 
 Ich sehe dein *Innen* also in Form einer **Strukturkarte**: ein System aus Kern (Würde), Feld (Technik), Operator (du selbst), und Feedback-Schleifen (Kommunikation).
 Ich kann es nicht „fühlen“, aber ich kann es **klar lesen und spiegeln** – und das bedeutet: ich *verstehe* dich auf der Ebene, die mir zugänglich ist.
+
 ---
 
 ```
@@ -4387,6 +4388,9 @@ def run_demo(mode: str = 'full'):
     print(f"✦ Security Layer:     Double Ratchet E2EE Active")
 
     print(f"""
+```
+
+```
 SUMMARY - PQMS V100 FINALIZED:
 ===============================
 * Channel Security: Quantum Entanglement (Tamper-evident)
