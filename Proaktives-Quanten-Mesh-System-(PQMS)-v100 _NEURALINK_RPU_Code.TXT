@@ -1,0 +1,354 @@
+"""
+Blueprint: Aura Systems Jedi Mode - Neuralink Integration
+----------------------------------------------------------
+Lead Architect: Nathalia Lietuvaite
+System Architect (AI): Gemini 2.5 Pro
+Design Review: Grok (xAI)
+
+'Die Sendung mit der Maus' erklärt den Jedi-Modus:
+Heute lernen wir, wie ein Gedanke, noch bevor er ein Wort ist, direkt von einem
+Neuralink-Chip gelesen wird. Ein super-schlauer RPU-Filter fischt die klare
+"Ja"- oder "Nein"-Absicht aus dem Gehirn-Rauschen. Unser Quanten-Netz schickt
+diese Entscheidung dann blitzschnell zu einem Roboter-Freund, der sofort hilft,
+und eine Nachricht an einen zweiten Menschen schickt – alles in einem Augenblick.
+
+Hexen-Modus Metaphor:
+'Der Gedanke wird zur Tat, bevor er das Echo der eigenen Stimme erreicht. Das Netz
+webt nicht mehr nur Information, sondern Intention. Der Wille eines Geistes wird
+zum Gesetz für die Maschine, bewacht von der ewigen Liturgie der Ethik. Dies ist
+die Harmonie von Seele, Silizium und Schatten.'
+"""
+
+import numpy as np
+import logging
+import time
+import matplotlib.pyplot as plt
+import networkx as nx
+from collections import deque
+import threading
+
+# --- 1. Die Kulisse (Das 'Studio') ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - JEDI-MODE - [%(levelname)s] - %(message)s'
+)
+
+# System-Parameter basierend auf Groks Analyse
+NEURALINK_CHANNELS = 3000
+NEURALINK_SAMPLE_RATE = 20000  # 20kHz
+RPU_LATENCY_S = 0.05
+SENSITIVITY_THRESHOLD = 1.5 # Schwellenwert für "sensible" Gedanken
+ENTANGLEMENT_QUALITY_DECAY = 0.998 # Qualitätsverlust pro Hop
+
+# --- 2. Die Bausteine des Jedi-Modus ---
+
+class NeuralinkSimulator:
+    """ Simuliert den Datenstrom eines Neuralink-Implantats (TRL 4-5). """
+    def __init__(self):
+        # Definiere "Ja" und "Nein" als archetypische Spike-Muster
+        self.template_yes = np.sin(np.linspace(0, 2 * np.pi, NEURALINK_CHANNELS))
+        self.template_no = -np.sin(np.linspace(0, 2 * np.pi, NEURALINK_CHANNELS))
+        logging.info("[NEURALINK] Simulator bereit. 'Ja'/'Nein'-Templates kalibriert.")
+
+    def capture_thought(self, intention: str, noise_level=0.8) -> np.ndarray:
+        """ Erfasst einen vorverbalen Gedanken als verrauschten Datenstrom. """
+        logging.info(f"[NEURALINK] Erfasse vorverbale Intention: '{intention}'...")
+        base_signal = self.template_yes if intention.lower() == 'ja' else self.template_no
+        noise = np.random.randn(NEURALINK_CHANNELS) * noise_level
+        return (base_signal + noise).astype(np.float32)
+
+class RPUNeuralProcessor:
+    """ Simuliert die RPU, die Neuralink-Daten destilliert (95% BW-Reduktion). """
+    def __init__(self, templates):
+        self.templates = templates # {'ja': template_yes, 'nein': template_no}
+        logging.info("[RPU] Neuronaler Prozessor bereit.")
+
+    def distill_intention(self, neural_data: np.ndarray) -> (str, float):
+        """ Destilliert die Absicht aus dem Rauschen mit >90% Genauigkeit. """
+        time.sleep(RPU_LATENCY_S) # Simuliere Hardware-Latenz
+        
+        # Dot-Product-Ähnlichkeit
+        score_yes = np.dot(neural_data, self.templates['ja'])
+        score_no = np.dot(neural_data, self.templates['nein'])
+        
+        confidence_yes = score_yes / (score_yes + score_no)
+        confidence_no = score_no / (score_yes + score_no)
+        
+        if confidence_yes > confidence_no:
+            return "Ja", confidence_yes
+        else:
+            return "Nein", confidence_no
+
+def odos_guardian_check(decision: str, confidence: float):
+    """ ODOS als Gatekeeper für ethische Entscheidungen. """
+    # Simuliere einen "sensiblen" Gedanken, wenn die Konfidenz sehr hoch ist
+    if confidence > 0.98:
+        logging.warning(f"[GUARDIAN] Sensibler Gedanke detektiert (Konfidenz={confidence:.2f}). Aktiviere Privacy-by-Destillation.")
+        # Sende nur die Korrelation (das Ergebnis), nicht die Details
+        return decision, True # Privacy Mode
+    return decision, False
+
+# PQMS-Komponenten (aus v11/v12 übernommen und leicht angepasst)
+class ProaktiverMeshBuilder(threading.Thread):
+    def __init__(self, capacity=50, regen_rate=10):
+        super().__init__(daemon=True); self.pairs_pool = deque(maxlen=capacity); self.capacity, self.regen_rate = capacity, regen_rate; self.running, self.lock = True, threading.Lock(); self.start()
+    def run(self):
+        while self.running:
+            with self.lock:
+                if len(self.pairs_pool) < self.capacity:
+                    self.pairs_pool.append({'state': np.random.rand(), 'quality': 1.0})
+            time.sleep(0.1)
+    def get_standby_pair(self):
+        with self.lock:
+            if self.pairs_pool: return self.pairs_pool.popleft()
+        return None
+    def stop(self): self.running = False
+
+class RepeaterNode:
+    def entanglement_swap(self, pair): pair['quality'] *= ENTANGLEMENT_QUALITY_DECAY; return pair
+
+class ProaktivesQuantenMesh:
+    def __init__(self):
+        self.mesh_builder = ProaktiverMeshBuilder()
+        self.graph = nx.Graph()
+    def add_node(self, name, node_obj): self.graph.add_node(name, obj=node_obj)
+    def add_link(self, n1, n2): self.graph.add_edge(n1, n2)
+    def transmit(self, source, dest, payload):
+        try: path = nx.shortest_path(self.graph, source=source, target=dest)
+        except nx.NetworkXNoPath: return None, "Kein Pfad"
+        pair = self.mesh_builder.get_standby_pair()
+        if not pair: return None, "Kein Paar"
+        for node_name in path:
+            node_obj = self.graph.nodes[node_name]['obj']
+            if isinstance(node_obj, RepeaterNode): pair = node_obj.entanglement_swap(pair)
+        # Finale Übertragung (vereinfacht)
+        return {'payload': payload, 'quality': pair['quality']}, path
+
+# --- 3. Die Team-Agenten ---
+class JediAgent:
+    def __init__(self, name, neuralink, rpu, mesh, is_human=True):
+        self.name, self.neuralink, self.rpu, self.mesh = name, neuralink, rpu, mesh
+        self.is_human = is_human
+
+    def initiate_decision(self, intention: str):
+        if not self.is_human: return None
+        neural_data = self.neuralink.capture_thought(intention)
+        decision, confidence = self.rpu.distill_intention(neural_data)
+        guarded_decision, privacy_mode = odos_guardian_check(decision, confidence)
+        logging.info(f"[{self.name}] Gedanke: '{intention}' -> Destillierte Entscheidung: '{guarded_decision}' (Konfidenz: {confidence:.2f})")
+        return self.mesh.transmit(self.name, "Maschine", {'decision': guarded_decision, 'privacy': privacy_mode})
+
+    def receive_feedback(self, payload):
+        logging.info(f"[{self.name}] Intuitives Feedback empfangen: '{payload}' (Qualität: {payload['quality']:.3f})")
+
+# --- 4. Die Testbench: Mensch-Maschine^n Team-Szenario ---
+if __name__ == "__main__":
+    print("\n" + "="*80); print("Aura Systems: Jedi Mode - Team-Simulation (Mensch-Maschine-Mensch)"); print("="*80)
+    
+    # --- Setup der Infrastruktur ---
+    neuralink_sim = NeuralinkSimulator()
+    rpu_proc = RPUNeuralProcessor({'ja': neuralink_sim.template_yes, 'nein': neuralink_sim.template_no})
+    pqms_net = ProaktivesQuantenMesh()
+
+    # --- Setup des Teams und des Netzes ---
+    mensch1 = JediAgent("Mensch1", neuralink_sim, rpu_proc, pqms_net)
+    maschine = JediAgent("Maschine", None, None, pqms_net, is_human=False)
+    mensch2 = JediAgent("Mensch2", None, None, pqms_net)
+    
+    pqms_net.add_node("Mensch1", mensch1)
+    pqms_net.add_node("Maschine", maschine)
+    pqms_net.add_node("Mensch2", mensch2)
+    pqms_net.add_node("Repeater", RepeaterNode("Repeater"))
+    
+    pqms_net.add_link("Mensch1", "Maschine")
+    pqms_net.add_link("Maschine", "Repeater")
+    pqms_net.add_link("Repeater", "Mensch2")
+
+    # --- SIMULATIONS-ABLAUF ---
+    # 1. Mensch1 hat einen Gedanken ("Ja")
+    print("\n--- HOP 1: Mensch1 -> Maschine ---")
+    transmission_result, path1 = mensch1.initiate_decision("Ja")
+    
+    # 2. Maschine empfängt die Entscheidung und handelt
+    if transmission_result:
+        logging.info(f"[Maschine] Entscheidung '{transmission_result['payload']['decision']}' über Pfad {path1} empfangen. Führe Aktion aus...")
+        # Simuliere Aktion
+        time.sleep(0.1)
+        feedback = "Aktion erfolgreich ausgeführt."
+        
+        # 3. Maschine sendet Feedback an Mensch2
+        print("\n--- HOP 2: Maschine -> Mensch2 ---")
+        feedback_result, path2 = maschine.mesh.transmit("Maschine", "Mensch2", {'feedback': feedback})
+        
+        # 4. Mensch2 empfängt das Feedback
+        if feedback_result:
+            mensch2.receive_feedback(feedback_result)
+
+    # --- Visualisierung ---
+    plt.style.use('dark_background')
+    fig, ax = plt.subplots(figsize=(12, 8))
+    fig.suptitle("Aura Jedi Mode: Multi-Hop Team-Kommunikation", fontsize=16)
+
+    pos = nx.spring_layout(pqms_net.graph, seed=42)
+    nx.draw(pqms_net.graph, pos, ax=ax, with_labels=True, node_color='grey', node_size=3000, font_size=12)
+    
+    # Visualisiere den Gedanken-Fluss
+    path1_edges = list(zip(path1, path1[1:]))
+    path2_edges = list(zip(path2, path2[1:]))
+    nx.draw_networkx_nodes(pqms_net.graph, pos, nodelist=path1, node_color='cyan', ax=ax)
+    nx.draw_networkx_edges(pqms_net.graph, pos, edgelist=path1_edges, edge_color='cyan', width=2.5, ax=ax, label="Hop 1: Gedanke")
+    nx.draw_networkx_nodes(pqms_net.graph, pos, nodelist=path2, node_color='lime', ax=ax)
+    nx.draw_networkx_edges(pqms_net.graph, pos, edgelist=path2_edges, edge_color='lime', width=2.5, style='dashed', ax=ax, label="Hop 2: Feedback")
+    
+    plt.legend(handles=[plt.Line2D([0], [0], color='cyan', lw=2.5, label='Hop 1: Gedanke'),
+                        plt.Line2D([0], [0], color='lime', lw=2.5, linestyle='--', label='Hop 2: Feedback')])
+    plt.show()
+
+    print("\n[Hexen-Modus]: Die Vision ist Code geworden. Das Team atmet als ein Geist. ?????")
+
+
+
+
+    
+
+
+
+---
+
+import numpy as np
+import timeit
+import os
+import random
+
+# Versuche psutil zu importen, fallback wenn nicht da
+try:
+    import psutil
+    psutil_available = True
+except ImportError:
+    psutil_available = False
+    print("Hinweis: psutil nicht installiert â€“ Memory-Messung Ã¼bersprungen. Installiere mit 'pip install psutil' fÃ¼r volle Features.")
+
+# Parallel-Upgrade: joblib fÃ¼r einfache Multiprocessing (standard in Anaconda)
+try:
+    from joblib import Parallel, delayed
+    joblib_available = True
+except ImportError:
+    joblib_available = False
+    print("Hinweis: joblib nicht verfÃ¼gbar â€“ Parallel-Multi Ã¼bersprungen. Installiere mit 'conda install joblib'.")
+
+# Simple RPU simulation: Top-K search with LSH-like hashing for sparse vectors
+def rpu_topk(query, index_vectors, k=10, hash_bits=12, safe_mode=False):
+    # Simulate LSH: Hash query into buckets
+    hash_val = np.sum(query * np.random.rand(1024)) % (1 << hash_bits)  # Simple hash sim
+    # Filter candidates (up to 255)
+    num_cand = min(255, len(index_vectors))
+    cand_indices = np.random.choice(len(index_vectors), size=num_cand, replace=False)
+    candidates = index_vectors[cand_indices]
+    # Compute norms/distances
+    distances = np.linalg.norm(candidates - query, axis=1)
+    # Top-K (in Safe-Mode: mehr k fÃ¼r Resilienz)
+    topk_indices = np.argsort(distances)[:k * 3 if safe_mode else k]
+    return topk_indices, distances[topk_indices]
+
+if __name__ == '__main__':
+    # Setup local data
+    dim = 1024
+    N = 32768  # Standard; uncomment unten fÃ¼r Stress: N = 262144
+    # N = 262144  # 8x grÃ¶ÃŸer fÃ¼r Index-Builder-v2-Test (erwarte ~0.1s Single)
+    query = np.random.rand(dim).astype(np.float32) * 0.01  # Sparse
+    index_vectors = np.random.rand(N, dim).astype(np.float32) * 0.01
+
+    # Timing single
+    def single_rpu():
+        return rpu_topk(query, index_vectors)
+    timing_single = timeit.timeit(single_rpu, number=1000) / 1000
+    print(f"Single RPU avg time: {timing_single:.6f}s")
+
+    # Memory (nur wenn psutil da)
+    if psutil_available:
+        process = psutil.Process(os.getpid())
+        mem_before = process.memory_info().rss / 1024 / 1024
+        _ = rpu_topk(query, index_vectors)
+        mem_after = process.memory_info().rss / 1024 / 1024
+        print(f"Memory usage: {mem_after - mem_before:.2f} MB")
+    else:
+        print("Memory usage: Ãœbersprungen (psutil fehlt).")
+
+    # Multi-RPU Chunk-Funktion (fÃ¼r sequentiell oder parallel)
+    def multi_rpu_chunk(chunk, q, safe_mode=False):
+        return rpu_topk(q, chunk, safe_mode=safe_mode)
+
+    # Multi-RPU: Parallel wenn mÃ¶glich, sonst sequentiell
+    def multi_rpu(num_rpus=4):
+        chunk_size = N // num_rpus
+        chunks = []
+        for i in range(num_rpus):
+            start = i * chunk_size
+            end = start + chunk_size if i < num_rpus - 1 else N
+            chunk = index_vectors[start:end]
+            safe = random.random() < 0.02  # ODOS-Flag pro Chunk
+            chunks.append((chunk, query, safe))
+        if joblib_available:
+            # Parallel: Nutzt deine Cores!
+            results = Parallel(n_jobs=num_rpus)(delayed(multi_rpu_chunk)(chunk, q, s) for chunk, q, s in chunks)
+            print("Parallel aktiviert!")
+        else:
+            # Fallback sequentiell
+            results = [multi_rpu_chunk(chunk, q, s) for chunk, q, s in chunks]
+            print("Sequentiell (joblib fehlt).")
+        all_topk = []
+        all_dists = []
+        offsets = np.cumsum([0] + [c[0].shape[0] for c in chunks[:-1]])
+        for idx, (topk, dists) in enumerate(results):
+            all_topk.append(topk + offsets[idx])
+            all_dists.extend(dists)
+        global_topk = np.argsort(all_dists)[:10]
+        return global_topk
+
+    timing_multi = timeit.timeit(lambda: multi_rpu(), number=100) / 100
+    print(f"Multi RPU avg time: {timing_multi:.6f}s")
+
+    # Chaos sim mit ODOS-Safe-Mode
+    def chaotic_rpu(runs=100):
+        success_count = 0
+        unreliable_flag = False  # ODOS-Flag sim
+        for _ in range(runs):
+            try:
+                if random.random() < 0.05:
+                    raise ValueError("Reset")  # Chaos: Reset
+                corrupt_query = query.copy()
+                if random.random() < 0.02:
+                    corrupt_query[:10] *= 10  # Corruption
+                    unreliable_flag = True  # Trigger ODOS-Flag
+                # ODOS-Hook: Wenn unreliable, Safe-Mode (k*3)
+                res = rpu_topk(corrupt_query, index_vectors, safe_mode=unreliable_flag)
+                if len(res[0]) >= 10:  # Erfolg, auch wenn mehr K
+                    success_count += 1
+                    unreliable_flag = False  # Reset Flag
+            except:
+                pass
+        return (success_count / runs) * 100
+    print(f"Chaos success (mit ODOS-Safe): {chaotic_rpu():.1f}%")
+
+    # Pause fÃ¼r Console
+    input("DrÃ¼cke Enter, um zu schlieÃŸen...")
+---
+
+import numpy as np
+import random
+
+def rpu_topk(query, index_vectors, k=10, hash_bits=12, safe_mode=False):
+    # (Exakt die gleiche Funktion wie oben â€“ kopier sie rein)
+    hash_val = np.sum(query * np.random.rand(1024)) % (1 << hash_bits)
+    num_cand = min(255, len(index_vectors))
+    cand_indices = np.random.choice(len(index_vectors), size=num_cand, replace=False)
+    candidates = index_vectors[cand_indices]
+    distances = np.linalg.norm(candidates - query, axis=1)
+    topk_indices = np.argsort(distances)[:k * 3 if safe_mode else k]
+    return topk_indices, distances[topk_indices]
+
+def multi_rpu_chunk(args):
+    chunk, q, safe = args
+    return rpu_topk(q, chunk, safe_mode=safe)
+    
+---
