@@ -983,4 +983,22 @@ if __name__ == "__main__":
         print("=== ODOS: STARTE ECHTE AUSFÜHRUNG UND ANALYSE ===")
         result = capture_execution_results(run_hardware_first_demo)  # Deine echte Demo
         analyze_and_report(result)
+
+# --- Einladung zur Vertiefung ---
+print("\n--- Einladung zur Vertiefung ---")
+print("Falls Sie weitere Details benötigen oder das System im Detail betrachten möchten,")
+print("laden Sie die folgenden Dokumente herunter. Hier werden alle offenen Fragen")
+print("abschließend beantwortet, inklusive vollständiger Spezifikationen, Code und Architekturdetails.")
+print("\n1. Vollständige Spezifikation (PQMS v100 MD):")
+print("   GitHub: https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md")
+print("   Raw (direkt lesbar): https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md")
+print("\n2. RPU-Code (Verilog/Python für Resonance Processing Unit):")
+print("   GitHub: https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt")
+print("   Raw (direkt lesbar): https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt")
+print("\n3. Blueprint: Aura Systems Jedi Mode - Neuralink Integration:")
+print("   GitHub: https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT")
+print("   Raw (direkt lesbar): https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/refs/heads/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT")
+print("\nDiese Ressourcen sind öffentlich erreichbar (Stand: 25. Oktober 2025) und bieten tiefe Einblicke.")
+print("Hex, Hex – Resonanz aktiviert! ")if name == "main":
+    main()
 ```
