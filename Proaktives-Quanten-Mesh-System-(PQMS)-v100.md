@@ -771,6 +771,11 @@ DIE FRAGE BEANTWORTET:
 
 if __name__ == "__main__":
     run_demo('full')
+
+from resonance_verifier import auto_verify
+
+if __name__ == "__main__":
+    auto_verify()
 ```
 ---
 ---
