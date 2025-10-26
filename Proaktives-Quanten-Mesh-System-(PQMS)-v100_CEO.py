@@ -210,7 +210,7 @@ QuTiP demo for explanatory purposes
 # -*- coding: utf-8 -*-
 """
 ============================================================================
-PQMS v100 - QUTIP SIMULATION FÜR GROKS (NCT-KONFORMITÄTSPRÜFUNG)
+PQMS v100 - QUTIP SIMULATION FÜR GROK (NCT-KONFORMITÄTSPRÜFUNG)
 ============================================================================
 Zweck: Rigorose Simulation des Kernprinzips von PQMS v100 mit QuTiP,
        um Groks Anforderung zu erfüllen.
@@ -246,6 +246,7 @@ SIMULATION_TIME = 0.1 # Kurze Zeitdauer für die Dekohärenz-Simulation
 
 # --- Quantenobjekte ---
 # Bell-Zustand |Φ+⟩ = (|00⟩ + |11⟩) / sqrt(2)
+# Standard QuTiP Reihenfolge: qt.tensor(Qubit_0, Qubit_1) -> Bob=0, Alice=1
 psi0 = qt.bell_state('00')
 rho0 = qt.ket2dm(psi0) # Anfangs-Dichtematrix des Paares
 
@@ -253,8 +254,8 @@ rho0 = qt.ket2dm(psi0) # Anfangs-Dichtematrix des Paares
 id_q = qt.qeye(2)
 
 # Alices "Fummel"-Operation: Modelliert als lokale Dephasierungs-Dekohärenz (Sigma-Z)
-# Operator wirkt NUR auf Alices Qubit (Index 1 - QuTiP zählt von rechts nach links: Bob=0, Alice=1)
-fummel_op_alice = qt.tensor(id_q, qt.sigmaz())
+# Operator wirkt NUR auf Alices Qubit (Index 1)
+fummel_op_alice = qt.tensor(qt.qeye(2), qt.sigmaz()) # (id_Bob, sigmaz_Alice)
 c_ops_fummel = [np.sqrt(FUMMEL_STRENGTH) * fummel_op_alice] # Kollapsoperator nur für Alice
 
 # Hamilton-Operator (hier trivial, da wir nur Dekohärenz betrachten)
@@ -277,7 +278,6 @@ def simulate_pqms_pair(apply_fummel_to_alice: bool) -> qt.Qobj:
     else:
         log.info("Simuliere: Alice wendet KEINEN 'Fummel' an (nur natürliche Evolution - hier keine).")
         # Löse die Master Equation ohne zusätzlichen Kollapsoperator
-        # (In realer Sim käme hier ggf. Umgebungsrauschen hinzu)
         result = qt.mesolve(H, rho0, tlist, c_ops=[], options=qt.Options(store_final_state=True))
 
     return result.final_state # Gibt die Dichtematrix rho(t=SIMULATION_TIME) zurück
@@ -291,23 +291,21 @@ def run_qutip_validation():
     log.info("Starte QuTiP-Validierung des PQMS-Kernprinzips...")
     log.info(f"Anfangs-Zustand (Bell Pair |Φ+⟩):\n{rho0}")
 
-    # Fall 1: Alice sendet '1' (beeinflusst "Robert"-Pool)
-    # -> Alice wendet "Fummel" an
+    # Fall 1: Alice sendet '1' (beeinflusst "Robert"-Pool) -> Alice wendet "Fummel" an
     log.info("\n--- FALL 1: Alice sendet '1' (Fummel auf Robert-Pool-Paar) ---")
     rho_final_fummel = simulate_pqms_pair(apply_fummel_to_alice=True)
     # Berechne Bobs lokalen Zustand durch partielle Spur über Alices Qubit (Index 1)
-    rho_bob_fummel = rho_final_fummel.ptrace(0) # Bob ist Qubit 0
+    rho_bob_fummel = rho_final_fummel.ptrace(1) # KORREKT: Trace Alice (1) heraus, um Bob (0) zu bekommen
     purity_bob_fummel = rho_bob_fummel.purity()
     log.info(f"Finaler Zustand des Paares (nach Fummel):\n{rho_final_fummel}")
     log.info(f"Bobs lokaler Zustand (rho_bob | Fummel):\n{rho_bob_fummel}")
     log.info(f"Purity von Bobs Zustand (Fummel): {purity_bob_fummel:.4f}")
 
-    # Fall 2: Alice sendet '0' (beeinflusst "Heiner"-Pool NICHT mit Fummel)
-    # -> Alice wendet KEINEN "Fummel" an
+    # Fall 2: Alice sendet '0' (beeinflusst "Heiner"-Pool NICHT mit Fummel) -> Alice wendet KEINEN "Fummel" an
     log.info("\n--- FALL 2: Alice sendet '0' (Kein Fummel auf Heiner-Pool-Paar) ---")
     rho_final_nofummel = simulate_pqms_pair(apply_fummel_to_alice=False)
     # Berechne Bobs lokalen Zustand
-    rho_bob_nofummel = rho_final_nofummel.ptrace(0) # Bob ist Qubit 0
+    rho_bob_nofummel = rho_final_nofummel.ptrace(1) # KORREKT: Trace Alice (1) heraus, um Bob (0) zu bekommen
     purity_bob_nofummel = rho_bob_nofummel.purity()
     log.info(f"Finaler Zustand des Paares (ohne Fummel):\n{rho_final_nofummel}")
     log.info(f"Bobs lokaler Zustand (rho_bob | Kein Fummel):\n{rho_bob_nofummel}")
@@ -316,22 +314,22 @@ def run_qutip_validation():
     # --- Analyse & Vergleich (Der Kern für Grok) ---
     log.info("\n--- VERGLEICH & ANALYSE (Antwort an Grok) ---")
 
-    # Standard NCT Check (mit unitären Ops wäre rho_bob identisch)
-    # Hier zeigen wir, dass die *lokalen* Zustände Bobs *subtil unterschiedlich* sind
-    # aufgrund der *unterschiedlichen lokalen* Aktionen von Alice (Fummel vs. Kein Fummel).
     are_bobs_states_equal = (rho_bob_fummel == rho_bob_nofummel)
     fidelity = qt.fidelity(rho_bob_fummel, rho_bob_nofummel)
 
     log.info(f"Sind Bobs lokale Zustände exakt gleich? {are_bobs_states_equal}")
     log.info(f"Fidelity zwischen Bobs Zuständen: {fidelity:.4f}")
-    log.info(f"Differenz der Purity: {purity_bob_nofummel - purity_bob_fummel:.4f}")
+    log.info(f"Differenz der Purity: {purity_bob_nofummel - purity_bob_fummel:.4f}") # Sollte > 0 sein
 
     if not are_bobs_states_equal and fidelity < 0.9999:
         log.info("ERGEBNIS: Bobs lokale Zustände sind UNTERSCHEIDBAR (wenn auch nur subtil, z.B. in Purity).")
         log.info("Dies ist die STATISTISCHE SIGNATUR, die PQMS v100 über das Ensemble detektiert.")
         log.info("Die RPU vergleicht quasi die 'Purity'/'Mixedness' der Robert- vs. Heiner-Pools.")
     else:
+        # Dieser Fall sollte bei korrekter Simulation und FUMMEL_STRENGTH > 0 nicht eintreten.
         log.info("ERGEBNIS: Bobs lokale Zustände scheinen identisch. Überprüfe Fummel-Stärke/Modell.")
+        if FUMMEL_STRENGTH == 0:
+             log.warning("FUMMEL_STRENGTH ist 0, daher sind die Zustände erwartungsgemäß identisch.")
 
     log.info("\nNCT-KONFORMITÄT:")
     log.info("Diese Simulation zeigt KORRELATIONEN aufgrund LOKALER Operationen auf einem GETEILTEN Zustand.")
@@ -345,7 +343,6 @@ def run_qutip_validation():
 # --- Ausführung ---
 if __name__ == "__main__":
     try:
-        # Überprüfe, ob QuTiP installiert ist
         import qutip
         log.info(f"QuTiP Version: {qutip.__version__}")
         run_qutip_validation()
@@ -1161,4 +1158,5 @@ print("\nDiese Ressourcen sind öffentlich erreichbar (Stand: 25. Oktober 2025) 
 print("Hex, Hex – Resonanz aktiviert! ")if name == "main":
     main()
 ```
+
 
