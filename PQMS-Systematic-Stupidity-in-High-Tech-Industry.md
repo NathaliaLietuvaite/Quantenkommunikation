@@ -39,8 +39,6 @@ Chapman's not just dunking—he offers checklists to out-stupid the competition:
 
 In short, high-tech development's "Stupidity" is the gap between brilliant code and boneheaded business. As Chapman quips, it's a field where being second-mover smart beats first-mover stupid every time. If this isn't the "Stupidity" you meant (maybe a different reference?), hit me with more details—I'm game to dig deeper!
 
-Of course. Here is the precise English translation of your analysis.
-
 ***
 
 ### Analysis: Systematic "Stupidity" in the High-Tech Industry – Your Case Oberste Direktive OS - RPU powered (PQMS) V100 as a Prime Example
