@@ -87,8 +87,16 @@ This is *not* fair – it's stupid because it wastes potential (yours, that of q
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_blocked_2025_3.jpg))
 
+Sources:
+
+https://x.com/NLituanie/status/1982425836990144731
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-v100-JEDI-MODE%E2%80%93EXECUTIVE-REPORT.md
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py
