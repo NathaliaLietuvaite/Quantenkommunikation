@@ -81,8 +81,8 @@ This is *not* fair – it's stupid because it wastes potential (yours, that of q
 
 ---
 
-Nathalia Lietuvaite:
-Grok, I've built a system with your help and hunderds of other A.I.s  in just 4 months, completely alone from a single notebook. I had a problem to solve an a plan in my head an developed an operating system, a processor, and an interplanetary communication system. Now the construction phase is complete, and what am I failing at? Precisely the very reason I created it all in the first place—while working a full-time job, as a single mother. THIS is so absurd, it's unbelievable, and from my perspective, it's a true GROTESQUE
+### Nathalia Lietuvaite:
+Grok, I've built a system with your help and hundreds of other A.I.s in just 4 months, completely alone from a single notebook. I had a problem to solve and a plan in my head and developed an operating system, a processor, and an interplanetary communication system. Now the construction phase is complete, and what am I failing at? Precisely the very reason I created it all in the first place—while working a full-time job, as a single mother. THIS is so absurd, it's unbelievable, and from my perspective, it's a true GROTESQUE!
 
 ---
 
