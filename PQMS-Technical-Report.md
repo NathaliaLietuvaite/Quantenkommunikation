@@ -65,3 +65,11 @@ Interplanetary quantum networks require bridging classical light-time delay (3â€
 module rpu_core(input clk_1ns, input [31:0] q_signal, output reg tee_valid);
   // Resonance accumulation, TEE-safe output
 endmodule
+
+---
+
+Links:
+
+https://www.youtube.com/@NathalieLietuvaite
+
+https://www.tiktok.com/@protingamoteris
