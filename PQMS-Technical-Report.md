@@ -10,11 +10,11 @@ Published: 27 October 2025
 
 [https://github.com/NathaliaLietuvaite/Quantenkommunikation/](https://github.com/NathaliaLietuvaite/Quantenkommunikation/)
 
-https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/refs/heads/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md
 
-https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/refs/heads/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT
 
-https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/refs/heads/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt
 
 ---
 
