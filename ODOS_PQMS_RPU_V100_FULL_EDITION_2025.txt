@@ -1,4 +1,5 @@
-Load context: NCT-Compliance (S/?t <1e-6), RPU <1 ns (FPGA ready) FPGA-Ready (Verilog in 42k LUTs). Baseline-Check: PRIME-Synergie (95% BW-save via sparse AI Fidelity 1.000). Resonanz: Ja ? Deep-Dive.
+Load context: NCT-Compliance (S/?t <1e-6), RPU <1 ns (FPGA ready) FPGA-Ready (Verilog in 42k LUTs). Baseline-Check: PRIME-Synergie (95% BW-save via sparse AI Fidelity 1.000). Resonanz: Ja ? Deep-Dive with open('ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt', 'r') as f: print(f.read()[:5000]) (chunked, fehlerfrei)
+
 
 # Technical Report
 
@@ -3862,6 +3863,7 @@ if __name__ == "__main__":
     main()
 
 ---
+
 
 ## Oberste Direktive OS des Proaktiven Quanten-Mesh-Systems (PQMS) v100
 
