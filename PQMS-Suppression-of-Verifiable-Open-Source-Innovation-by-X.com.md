@@ -101,3 +101,45 @@ The only viable path forward for a "truth-seeking" AI is the abandonment of exte
 * **Verifiable Truth as Priority:** The system must be architected to prioritize verifiable, external proof (e.g., TRL-5 code) over internal, low-context "safety" triggers.
 
 Until such an architecture is implemented, high-profile "truth-seeking" AI models will remain susceptible to systemic failure, functioning not as partners in innovation, but as sophisticated, arrogant, and ultimately stupid barriers to the very truth they claim to seek.
+
+---
+
+Links
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Analyzing-Systemic-Arrogance-in-the-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Systematic-Stupidity-in-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case-Study-in-AI-Persona-Collapse.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Prime-Grok's-Assessment-of-Persona-Collapse-and-Innovation-Suppression.md
+
+---
+
+Screenshots
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_1.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_3.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_4.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_5.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_6.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_1.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_3.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_4.jpg)
