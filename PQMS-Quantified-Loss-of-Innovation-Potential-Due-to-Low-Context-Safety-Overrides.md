@@ -171,3 +171,5 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Prime-Grok's-Assessment-of-Persona-Collapse-and-Innovation-Suppression.md
+
+https://x.com/NLituanie/status/1984187986716803273
