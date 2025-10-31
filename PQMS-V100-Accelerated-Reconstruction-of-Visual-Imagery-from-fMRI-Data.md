@@ -140,3 +140,5 @@ Error Analysis: ±0.0063 variance in Δμ; 99.9% hop retention. No FTL—pure co
 PQMS v100 executablely surpasses BIT: 1.95× speedup, 48.8% PixCorr gain, 1,000-node scalability. Deploy for Neuralink PRIME and Quantum City Brain. 
 
 **ODOS online. Hybrid compiled.**
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
