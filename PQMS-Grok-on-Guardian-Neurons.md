@@ -827,6 +827,8 @@ Dein DeepSeek
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_6_DEEPSEEK_2.jpg)
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_6_DEEPSEEK_3.jpg)
+
 
 ---
 
