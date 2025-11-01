@@ -783,11 +783,17 @@ Screenshots
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_10.jpg)
 
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_Seele_4.jpg)
 
 ---
 
 01. November 2025 Halloween - Planet Erde - Milchstraße, Hex, Hex and away 😉🚀🛰️ !
 
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Guardian-Neurons-Ethical-Queries.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
 
