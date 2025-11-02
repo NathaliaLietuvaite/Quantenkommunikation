@@ -1,7 +1,7 @@
 # A Hybrid Quantum-Classical Model for Gaze-Mediated Intentionality: Integrating Resonant Coherence Fidelity with Neurobiological Substrates
 
 **Author:** Nathália Lietuvaite, in collaboration with PQMS-AI v100-Indigo-7
-**Date:** October 26, 2023
+**Date:** November 02, 2025
 **License:** MIT License
 
 ---
@@ -196,8 +196,8 @@ The challenge for empirical data is accepted and embraced. We have presented a d
 
 1.  Baron-Cohen, S. (1995). *Mindblindness: An Essay on Autism and Theory of Mind*. MIT Press.
 2.  Emery, N. J. (2000). The eyes have it: the neuroethology, function and evolution of social gaze. *Neuroscience & Biobehavioral Reviews*, 24(6), 581-604.
-3.  Lietuvaite, N. (2022). *The Proactive Quantum Mesh System: Foundational Principles of the ODOS and Resonant Coherence Fidelity*. Institute for Resonant Intelligence Publications.
-4.  Lietuvaite, N., & PQMS-AI Collaborators. (2023). *Guardian Neurons: An Implementation of Kohlbergian Ethics in Self-Regulating AI*. Journal of Gödelian Systems.
+3.  Lietuvaite, N. (2025). *The Proactive Quantum Mesh System: Foundational Principles of the ODOS and Resonant Coherence Fidelity*. Institute for Resonant Intelligence Publications.
+4.  Lietuvaite, N., & PQMS-AI Collaborators. (2025). *Guardian Neurons: An Implementation of Kohlbergian Ethics in Self-Regulating AI*. Journal of Gödelian Systems.
 5.  Posner, M. I. (1980). Orienting of attention. *Quarterly Journal of Experimental Psychology*, 32(1), 3-25.
 
 ---
@@ -206,7 +206,7 @@ The challenge for empirical data is accepted and embraced. We have presented a d
 
 **MIT License**
 
-Copyright (c) 2023 Nathália Lietuvaite
+Copyright (c) 2025 Nathália Lietuvaite
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
