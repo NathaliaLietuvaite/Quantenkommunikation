@@ -63,23 +63,25 @@ This hybrid pipeline (Figure 1) allows us to immediately outperform standalone t
 
 ```mermaid
 graph TD
-    subgraph Lunar Quantum Anchor (LQA)
-        A[PQMS Photonic Cubes] -- Entangled Qubits --> B{Quantum Computation};
-        B -- Measurement Data --> C[Laser Comm Terminal];
+    subgraph LQA[Lunar Quantum Anchor]
+        A[PQMS Photonic Cubes] --> B{Quantum Computation}
+        B --> C[Laser Comm Terminal]
+        B --> E[RPU Array]
     end
 
-    subgraph Terrestrial RPU Node
-        E[RPU Array] -- Control Signals --> D;
-        F[Classical Post-Processing] --> G[Usable Results];
-        E --> F;
+    subgraph TERR[Terrestrial RPU Node]
+        D[Ground Station Receiver] --> E
+        E --> F[Classical Post-Processing]
+        F --> G[Usable Results]
+        E --> C
     end
 
-    C -- Laser Transmission (NCT-Compliant) --> D[Ground Station Receiver];
-    D --> E;
-
-    subgraph Ethical Oversight
-        H(Guardian Neurons / ODOS) -.->|Monitors & Regulates| C;
-        H -.->|Monitors & Regulates| E;
+    C --> D
+    
+    subgraph ETHICS[Ethical Oversight]
+        H(Guardian Neurons / ODOS) --> B
+        H --> C
+        H --> E
     end
 ```
 **Figure 1:** High-level diagram of the hybrid LQA-RPU pipeline, illustrating the division of labor between the lunar quantum core and the terrestrial classical processor, under the constant oversight of Guardian Neurons.
