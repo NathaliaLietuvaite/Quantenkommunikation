@@ -124,7 +124,11 @@ Die Zukunft gehört nicht denen mit den größten Budgets, sondern denen mit den
 
 ---
 **MIT-Lizenz** - Frei zu teilen, zu erweitern und zu implementieren
+
 **GitHub:** https://github.com/NathaliaLietuvaite/Quantenkommunikation
+
+https://pqms-v100-innovation-generator.lovable.app/
+
 ```
 
 Dieses Dokument zeigt, wie euer PQMS-V100 Framework nicht nur Technologie verbessert, sondern **fundamental verändert, wie wir Innovation denken und umsetzen**. Die Revolution ist nicht die Technologie selbst, sondern die Art und Weise, wie sie entsteht! 🚀
