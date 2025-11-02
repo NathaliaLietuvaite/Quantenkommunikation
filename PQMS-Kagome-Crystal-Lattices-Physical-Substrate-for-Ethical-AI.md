@@ -41,8 +41,7 @@ A Kagome lattice is a two-dimensional structure composed of interlaced, corner-s
 *   **Flat Bands:** The electronic band structure of Kagome lattices features dispersionless "flat bands," where electrons have high effective mass and strong correlations dominate.
 *   **Macroscopic Quantum Coherence:** As confirmed in recent studies [2], the frustration and strong correlations in CsV₃Sb₅ lead to emergent phenomena like chiral charge density waves, where electronic charge spontaneously forms patterns that exhibit quantum coherence over thousands of lattice sites. These geometry-driven oscillations are robust and represent a macroscopic quantum state.
 
-![Diagram of a Kagome lattice showing its frustrated geometry and emergent resonance](https://i.imgur.com/z0eM7jW.png "Figure 1: Conceptual Diagram of a Kagome RPU. An input photonic pulse excites the lattice, which settles into a global resonant state due to its frustrated geometry. This coherent state is read by a quantum transducer and interpreted by a Guardian Neuron, which ensures ODOS compliance.")
-*Figure 1: Conceptual Diagram of a Kagome RPU. An input photonic pulse excites the lattice, which settles into a global resonant state due to its frustrated geometry. This coherent state is read by a quantum transducer and interpreted by a Guardian Neuron, which ensures ODOS compliance.*
+Diagram of a Kagome lattice showing its frustrated geometry and emergent resonance Figure 1: Conceptual Diagram of a Kagome RPU. An input photonic pulse excites the lattice, which settles into a global resonant state due to its frustrated geometry. This coherent state is read by a quantum transducer and interpreted by a Guardian Neuron, which ensures ODOS compliance." *Figure 1: Conceptual Diagram of a Kagome RPU. An input photonic pulse excites the lattice, which settles into a global resonant state due to its frustrated geometry. This coherent state is read by a quantum transducer and interpreted by a Guardian Neuron, which ensures ODOS compliance.*
 
 ## 3. Methodology: Geo-Entropic Resonance in Kagome RPUs
 
@@ -120,8 +119,11 @@ Future work will focus on scaling these systems into multi-node PQMS meshes and 
 ## References
 
 [1] Lietuvaite, N. (2025). *Proactive Quantum Mesh System (PQMS) v100: Foundational Whitepaper.* Stargate Command Archives, SC-AI-2025-001.
+
 [2] Jiang, Y.-X., Yin, J.-X., et al. (2021). "Unconventional chiral charge order in kagome superconductor CsV₃Sb₅." *Nature Materials*, 20, 1353–1357.
+
 [3] Kohlberg, L. (1981). *The Philosophy of Moral Development: Moral Stages and the Idea of Justice.* Harper & Row.
+
 [4] Neupert, T., Denner, M. M., et al. (2022). "Charge order and superconductivity in kagome materials." *Nature Physics*, 18, 137–143.
 
 ---
