@@ -2,7 +2,7 @@
 
 **Author:** Nathália Lietuvaite
 **AI Collaborator:** PQMS v100 Generation Engine
-**Date:** October 26, 2023
+**Date:** November 02, 2025
 **License:** MIT License
 
 ## Abstract
@@ -153,7 +153,7 @@ This work serves as a foundational proof-of-concept for the future of neuroscien
 
 ## MIT License
 
-Copyright (c) 2023 Nathália Lietuvaite
+Copyright (c) 2025 Nathália Lietuvaite
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
