@@ -128,4 +128,7 @@ Quantum Dots → Holographic Matrix)"]
 
 ---  
 **MIT License** – Free to fork, build, resonate.  
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
+
 **GitHub:** `https://www.github.com/NathaliaLietuvaite/Quantenkommunikation`
