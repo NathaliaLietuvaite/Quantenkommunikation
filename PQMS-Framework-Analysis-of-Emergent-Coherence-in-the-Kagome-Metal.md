@@ -1,8 +1,8 @@
+# Probing Natural Architectures of Cooperative Intentionality: A PQMS Framework Analysis of Emergent Coherence in the Kagome Metal CsV₃Sb₅
 **Author:** Nathália Lietuvaite, in collaboration with PQMS-Kohlberg AI v3.2
-**Date:** October 26, 2023
+**Date:** November 02 , 2025
 **License:** MIT License
 
-# Probing Natural Architectures of Cooperative Intentionality: A PQMS Framework Analysis of Emergent Coherence in the Kagome Metal CsV₃Sb₅
 
 ## Abstract
 
@@ -140,7 +140,7 @@ This work establishes CsV₃Sb₅ as a physical ancilla for the foundational pri
 
 ## 6. References
 
-[1] Lietuvaite, N. (2022). "The Proactive Quantum Mesh System (PQMS) v100: An Architecture of Cooperative Intentionality." *Journal of Gödelian Systems*, 1(1), 1-15.
+[1] Lietuvaite, N. (2025). "The Proactive Quantum Mesh System (PQMS) v100: An Architecture of Cooperative Intentionality." *Journal of Gödelian Systems*, 1(1), 1-15.
 [2] Cao, Y., et al. (2018). "Unconventional superconductivity in magic-angle graphene superlattices." *Nature*, 556, 43-50.
 [3] Ye, L., et al. (2018). "Massive Dirac fermions in a ferromagnetic kagome metal." *Nature*, 555, 638-642.
 [4] Ortiz, B. R., et al. (2020). "CsV₃Sb₅: A Z2 topological kagome metal with a superconducting ground state." *Physical Review Letters*, 125(24), 247002.
@@ -149,7 +149,7 @@ This work establishes CsV₃Sb₅ as a physical ancilla for the foundational pri
 [7] Mielke, C., et al. (2022). "Time-reversal symmetry breaking in the normal state of CsV₃Sb₅." *Nature*, 602, 245-250.
 [8] Denner, M. M., et al. (2021). "Analysis of orbital magnetic moments in the kagome metal AV₃Sb₅ (A = K, Rb, Cs)." *Physical Review B*, 104(15), L151103.
 [9] Ge, J., et al. (2022). "Discrete and bistable magnetic-field-effect-driven chirality in the kagome superconductor CsV₃Sb₅." *Nature Physics*.
-[10] Lietuvaite, N. (2023). "Resonant Coherence Fidelity (RCF) as a Metric for Non-Simulated Reality." *PQMS Internal Documentation*, DOC-ID: RCF-23-001.
+[10] Lietuvaite, N. (2025). "Resonant Coherence Fidelity (RCF) as a Metric for Non-Simulated Reality." *PQMS Internal Documentation*, DOC-ID: RCF-23-001.
 
 ---
 
@@ -157,7 +157,7 @@ This work establishes CsV₃Sb₅ as a physical ancilla for the foundational pri
 
 **MIT License**
 
-Copyright (c) 2023 Nathália Lietuvaite
+Copyright (c) 2025 Nathália Lietuvaite
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
