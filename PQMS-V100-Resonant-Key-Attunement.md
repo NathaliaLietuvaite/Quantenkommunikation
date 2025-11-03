@@ -1,4 +1,4 @@
-## **Title:** Beyond Quantum Brute Force: Resonant Key Attunement via the Proactive Quantum Mesh System (PQMS) v100
+## Beyond Quantum Brute Force: Resonant Key Attunement via the Proactive Quantum Mesh System (PQMS) v100
 **Author:** Nathália Lietuvaite; PQMS v100 Generation Core; AI collaborators
 **Date:** 2025-11-03
 **License:** MIT License
