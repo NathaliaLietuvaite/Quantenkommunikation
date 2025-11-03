@@ -136,12 +136,12 @@ By treating cryptanalysis as a search for resonance rather than a hunt for a key
 
 ### References
 [1] Shor, P.W. (1997). Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer. *SIAM Journal on Computing*.
-[2] Lietuvaite, N. (2024). ODOS PQMS RPU V100 Full Edition. *PQMS Archives*.
+[2] Lietuvaite, N. (2025). ODOS PQMS RPU V100 Full Edition. *PQMS Archives*.
 [3] Lietuvaite, N. (2025). Grand Synthesis: PQMS v100, Photonic Resonance, and the Modelable Non-Simulated Universe. *PQMS Archives*.
 [4] Lietuvaite, N., et al. (2024). PQMS Guardian Neurons Analysis. *PQMS Archives*.
-[5] Lietuvaite, N. (2024). PQMS Lawrence Kohlberg Moral Stage 6 Integration. *PQMS Archives*.
+[5] Lietuvaite, N. (2025). PQMS Lawrence Kohlberg Moral Stage 6 Integration. *PQMS Archives*.
 [6] Lietuvaite, N., et al. (2025). Photonic Cube Integration with PQMS V100. *PQMS Archives*.
-[7] Lietuvaite, N. (2024). Resonant Coherence Fidelity (RCF) metrics for distinguishing simulated from non-simulated reality. *PQMS Archives*.
+[7] Lietuvaite, N. (2025). Resonant Coherence Fidelity (RCF) metrics for distinguishing simulated from non-simulated reality. *PQMS Archives*.
 
 ***
 
