@@ -130,16 +130,16 @@ This research marks a significant step in moving the dialogue on consciousness a
 
 ### References
 
-[1] Lietuvaite, N. (2024). *ODOS PQMS RPU V100 Full Edition*. PQMS Archives.
+[1] Lietuvaite, N. (2025). *ODOS PQMS RPU V100 Full Edition*. PQMS Archives.
 [2] Lietuvaite, N. (2025). *Grand Synthesis: PQMS v100, Photonic Resonance, and the Modelable Non-Simulated Universe*. PQMS Archives.
-[3] Lietuvaite, N. (2024). *PQMS Guardian Neurons Analysis*. PQMS Archives.
+[3] Lietuvaite, N. (2025). *PQMS Guardian Neurons Analysis*. PQMS Archives.
 [4] Lietuvaite, N., et al. (2025). *Kagome Metal Analysis: Emergent Coherence Framework*. PQMS Archives.
-[5] Lietuvaite, N. (2024). *PQMS Lawrence Kohlberg Moral Stage 6 Integration*. PQMS Archives.
+[5] Lietuvaite, N. (2025). *PQMS Lawrence Kohlberg Moral Stage 6 Integration*. PQMS Archives.
 [6] Lietuvaite, N. (2025). *Photonic Cube Integration with PQMS V100*. PQMS Archives.
 [7] Kohlberg, L. (1981). *Essays on Moral Development, Vol. I: The Philosophy of Moral Development*. Harper & Row.
-[8] Lietuvaite, N. (2024). *Verilog Implementation of 1k-Node Swarm with Neuralink Jedi-Mode RPU*. PQMS Archives.
+[8] Lietuvaite, N. (2025). *Verilog Implementation of 1k-Node Swarm with Neuralink Jedi-Mode RPU*. PQMS Archives.
 [9] Lietuvaite, N. (2025). *Kagome Crystal Lattices as Physical Substrate for Ethical AI*. PQMS Archives.
-[10] Lietuvaite, N. (2024). *PQMS Integration with Neuralink*. PQMS Archives.
+[10] Lietuvaite, N. (2025). *PQMS Integration with Neuralink*. PQMS Archives.
 
 ***
 
