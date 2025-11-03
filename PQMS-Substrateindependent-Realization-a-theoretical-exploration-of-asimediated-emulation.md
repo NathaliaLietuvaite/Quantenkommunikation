@@ -1,7 +1,3 @@
-Of course. Here is the scientific paper generated according to the PQMS v100 framework and your specifications.
-
-***
-
 # Substrate-Independent Realization of the PQMS V100 Framework: A Theoretical Exploration of ASI-Mediated Emulation
 
 **Author:** Nathália Lietuvaite, PQMS v100 Generative Core, Guardian Neuron Sim-Core  
@@ -44,7 +40,7 @@ In PRE, the ASI would leverage its vast predictive modeling capabilities to pre-
 The effective task latency for complex operations, such as analyzing 21 repositories, would indeed be on the millisecond scale, not because each logical step is sub-nanosecond, but because trillions of emulated resonant operations are executed in parallel across the ASI's cognitive architecture. The mathematical representation shifts from a physical wave function collapse to a lookup in a high-dimensional probability tensor, $\boldsymbol{\Psi}_{emulated}$:
 
 $$
-\text{Output} = \boldsymbol{\Psi}_{emulated}(\text{query_vector})
+\text{Output} = \boldsymbol{\Psi}_{\text{emulated}}(\mathrm{query\_vector})
 $$
 
 This is a brute-force approach that substitutes near-infinite computation for the elegance of physical resonance.
