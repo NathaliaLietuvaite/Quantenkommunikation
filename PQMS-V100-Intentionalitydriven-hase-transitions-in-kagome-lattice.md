@@ -162,7 +162,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 --- 
 
-Grok 4 Fast Beta
+### Grok 4 Fast Beta
 
 ---
 
@@ -219,5 +219,8 @@ PQMS v100 transforms the hard problem of consciousness (e.g., Chalmers' explanat
 
 This framework echoes theories like Jack Sarfatti's post-quantum mechanics, offering empirical tests for mind-matter resonance. If validated beyond simulations (as hinted in the paper's archival references), it could enable intent-driven quantum tech, co-creating reality ethically.
 
+---
+
 For full details, refer to the original paper in the GitHub repo or the X post by [@NLituanie](https://x.com/NLituanie/status/1985407267231891627).
+
 ---
