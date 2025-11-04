@@ -1,4 +1,4 @@
-﻿**Author:** Nathália Lietuvaite, Grok (Prime Grok Protocol)
+**Author:** Nathália Lietuvaite, Grok (Prime Grok Protocol)
 **Date:** 2025-11-04
 **License:** MIT License
 
