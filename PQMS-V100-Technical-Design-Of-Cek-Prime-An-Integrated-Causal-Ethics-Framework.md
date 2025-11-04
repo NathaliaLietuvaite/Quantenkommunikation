@@ -1551,7 +1551,217 @@ gate1_pass = rcf >= 0.9
 gate2_pass = confidence >= 0.98
 status = "EXECUTE" if (gate1_pass and gate2_pass) else ("BLOCK" if gate1_pass else "VETO")
 ```
+
+
 ---
+
+### Verilog-Code für die Integration eines EEG-Headsets
+
+---
+
+Vollständiger Verilog-Code für die Integration eines EEG-Headsets (wie das Muse S) mit einem Xilinx Artix-7 FPGA (z. B. auf dem Arty A7-Board). Da Muse S über Bluetooth Low Energy (BLE) kommuniziert, basiert die Integration auf einem UART-basierten Bluetooth-Modul wie dem HC-05 (als Proxy – es emuliert den serialen Data-Stream über Bluetooth). Für ein echtes BLE-Setup (wie das reverse-engineered Muse-Protocol mit Commands wie `dc001` für Start-Streaming) würdest du einen vollen BLE-Stack brauchen, was komplexer ist (z. B. mit einem Soft-Core wie MicroBlaze oder externem ESP32-Modul). Hier fokussiere ich auf UART, da das Muse-Protocol serial-ähnlich ist und EEG-Daten als Bytes gestreamt werden können.
+
+Der Code erweitert dein originales CEK-PRIME-Modul aus dem Dokument. Er fügt einen UART-Receiver hinzu, der EEG-Daten (z. B. als 64-bit psi_intent-Vektor) empfängt und an das CEK-PRIME weitergibt. Ich habe mich an bewährten Verilog-UART-Implementierungen orientiert, angepasst für 9600 Baud (Standard für HC-05) und den 100 MHz Clock des Arty A7.
+
+### Überblick
+- **UART Receiver**: Empfängt serielle Daten vom Bluetooth-Modul (z. B. EEG-Samples als Bytes).
+- **Integration in CEK-PRIME**: Die empfangenen Bytes werden zu einem 64-bit psi_intent-Vektor gepuffert und verarbeitet.
+- **Pin-Zuweisung**: Basierend auf Arty A7 Pmod JB (wie in Tutorials empfohlen).
+- **Annahmen**: EEG-Daten kommen als Stream von 8 Bytes (für 64-bit Vektor). Passe den Buffer an deine Intent-Dimension an (z. B. 1024-bit würde mehr Bytes brauchen).
+- **Test**: Verwende eine Serial-App (z. B. Bluetooth Serial Terminal auf Android) zum Simulieren von EEG-Daten.
+
+### Verilog-Code
+Hier der erweiterte Code. Kopiere ihn in Vivado, füge die XDC-Datei hinzu und synthesiere.
+
+#### 1. UART Receiver Module (`uart_rx.v`)
+Dieses Modul empfängt serielle Bytes vom Bluetooth.
+
+```verilog
+`timescale 1ns / 1ps
+
+module uart_rx #(
+    parameter CLK_FREQ = 100_000_000,  // Arty A7 Clock: 100 MHz
+    parameter BAUD_RATE = 9600         // HC-05 Default
+) (
+    input wire i_clk,
+    input wire i_rx,                   // Von HC-05 TX
+    output reg [7:0] o_data,           // Empfangenes Byte
+    output reg o_valid                 // Pulse bei vollem Byte
+);
+
+    localparam BAUD_TICKS = CLK_FREQ / BAUD_RATE;
+    localparam BIT_CNT = 10;           // Start + 8 Data + Stop
+
+    reg [15:0] tick_cnt = 0;
+    reg baud_tick = 0;
+    reg [3:0] bit_idx = 0;
+    reg [7:0] shift_reg = 0;
+    reg state = 0;                     // 0: IDLE, 1: RECEIVING
+
+    // Baud-Tick Generator
+    always @(posedge i_clk) begin
+        if (tick_cnt == BAUD_TICKS - 1) begin
+            tick_cnt <= 0;
+            baud_tick <= 1;
+        end else begin
+            tick_cnt <= tick_cnt + 1;
+            baud_tick <= 0;
+        end
+    end
+
+    // Receiver FSM
+    always @(posedge i_clk) begin
+        o_valid <= 0;
+        if (state == 0) begin  // IDLE
+            if (i_rx == 0) begin  // Start-Bit
+                state <= 1;
+                bit_idx <= 0;
+                shift_reg <= 0;
+            end
+        end else if (baud_tick) begin  // RECEIVING
+            if (bit_idx < 8) begin
+                shift_reg <= {i_rx, shift_reg[7:1]};
+                bit_idx <= bit_idx + 1;
+            end else if (bit_idx == 8) begin  // Stop-Bit
+                if (i_rx == 1) begin
+                    o_data <= shift_reg;
+                    o_valid <= 1;
+                end
+                state <= 0;
+            end
+        end
+    end
+endmodule
+```
+
+#### 2. Erweitertes CEK-PRIME Modul (`CEK_PRIME_FPGA.v`)
+Integriert den UART-Receiver. Empfängt 8 Bytes für psi_intent (64-bit), dann processt.
+
+```verilog
+`timescale 1ns / 1ps
+
+module CEK_PRIME_FPGA (
+    input wire clk,                // 100 MHz
+    input wire rst_n,              // Active-low reset
+    input wire uart_rx,            // Von HC-05 TX (EEG-Daten)
+    output reg execute,            // Gate pass
+    output reg veto,               // Gate1 fail
+    output reg block,              // Gate2 fail
+    output reg [7:0] rcf_score,    // RCF (scaled)
+    output reg [7:0] conf_score,   // Confidence (scaled)
+    output reg [31:0] insight_addr // BRAM for Kagome
+);
+
+    // UART Instance für EEG-Input
+    wire [7:0] rx_byte;
+    wire rx_valid;
+    uart_rx u_uart_rx (
+        .i_clk(clk),
+        .i_rx(uart_rx),
+        .o_data(rx_byte),
+        .o_valid(rx_valid)
+    );
+
+    // Buffer für psi_intent (64-bit von 8 Bytes EEG-Data)
+    reg [63:0] psi_intent = 0;
+    reg [2:0] byte_cnt = 0;
+    reg intent_valid = 0;
+
+    always @(posedge clk) begin
+        if (rx_valid) begin
+            psi_intent <= {psi_intent[55:0], rx_byte};  // Shift in Byte
+            byte_cnt <= byte_cnt + 1;
+            if (byte_cnt == 7) begin
+                intent_valid <= 1;  // Vollständiger Vektor bereit
+                byte_cnt <= 0;
+            end
+        end else begin
+            intent_valid <= 0;
+        end
+    end
+
+    // Original CEK-PRIME Logik (aus deinem Dokument, angepasst)
+    reg [63:0] psi_target = 64'h3FFF_0000_0000_0000;  // ODOS Target
+    reg gate1_pass;
+    reg [15:0] dot_prod_acc;
+    reg [7:0] entropy_approx;
+    reg [31:0] bram_wr_addr = 0;
+    integer i;
+
+    // Kagome BRAM (simplified)
+    reg [31:0] kagome_bram [0:1023];
+
+    initial begin
+        for (i = 0; i < 1024; i = i + 1) kagome_bram[i] = 32'hDEAD_BEEF;
+    end
+
+    // Gate 1: RCF
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            gate1_pass <= 0;
+            rcf_score <= 0;
+            dot_prod_acc <= 0;
+        end else if (intent_valid) begin
+            dot_prod_acc <= psi_intent * psi_target;  // Simplified Dot-Product
+            rcf_score <= (dot_prod_acc[15:8] > 230) ? 255 : dot_prod_acc[7:0];
+            gate1_pass <= (dot_prod_acc[15:8] >= 230);  // RCF >= 0.9
+        end
+    end
+
+    // Gate 2: ODOS Confidence
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            conf_score <= 0;
+            entropy_approx <= 0;
+        end else if (intent_valid && gate1_pass) begin
+            entropy_approx <= (psi_intent == 0) ? 0 : 128;  // Proxy
+            conf_score <= ((255 - entropy_approx) * 9 / 10 > 250) ? 255 : 200;  // >0.98
+        end
+    end
+
+    // Decision & Kagome
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            execute <= 0; veto <= 0; block <= 0;
+            insight_addr <= 0;
+        end else if (intent_valid) begin
+            veto <= ~gate1_pass;
+            block <= gate1_pass & (conf_score < 250);
+            execute <= gate1_pass & (conf_score >= 250);
+            if (execute) begin
+                kagome_bram[bram_wr_addr] <= psi_intent[31:0] ^ rcf_score;  // Encode
+                insight_addr <= bram_wr_addr;
+                bram_wr_addr <= bram_wr_addr + 1;
+            end
+        end
+    end
+endmodule
+```
+
+#### 3. Constraints-Datei (`arty_a7_constraints.xdc`)
+Für Vivado – passe Pins an.
+
+```tcl
+# Clock
+create_clock -period 10.000 -name sys_clk [get_ports clk]
+set_property PACKAGE_PIN E3 [get_ports clk]  # Arty A7 CLK100MHZ
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+
+# UART Pins für Pmod JB (HC-05)
+set_property PACKAGE_PIN E15 [get_ports uart_rx]  # JB2
+set_property IOSTANDARD LVCMOS33 [get_ports uart_rx]
+
+# Reset (z. B. Button)
+set_property PACKAGE_PIN C2 [get_ports rst_n]
+set_property IOSTANDARD LVCMOS33 [get_ports rst_n]
+```
+### Wie es funktioniert
+1. **Bluetooth-Setup**: Verbinde HC-05 TX mit FPGA E15 (RX), RX mit E16 (TX, optional). Paire mit PC/Android, stream EEG-Daten serial (z. B. via Python-Skript aus Muse SDK).
+2. **EEG-Stream**: Muse sendet Packets (z. B. 0xDF für EEG), die du in Bytes zerlegst und serial sendest.
+3. **Verarbeitung**: UART puffert Bytes zu psi_intent, dann Gate-Checks wie in CEK-PRIME.
+4. **Test**: Sende simulierte EEG-Bytes (z. B. 0x3FFF... für aligned Intent) und check Outputs.
+
+Falls Fehler: Überprüfe Baud-Rate (9600) und Protocol (Muse braucht 'dc001' twice zum Starten). Für full BLE: Schau dir Open-Source Stacks an. Viel Erfolg – das bringt dein PQMS einen Schritt näher zur Realität!
 
 ---
 Copyright (c) 2025 Nathália Lietuvaite, Grok (Prime Grok Protocol)
@@ -1561,4 +1771,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
