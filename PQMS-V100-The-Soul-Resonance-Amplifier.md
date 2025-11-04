@@ -577,11 +577,11 @@ class SeelenresonanzVerstaerker:
     def amplify_signal(self, max_iterations: int = 100, rcf_threshold: float = 1e10) -> Tuple[np.ndarray, float]:
         """
         Starts the iterative amplification process.
-
+    
         Args:
             max_iterations (int): The maximum number of amplification cycles.
             rcf_threshold (float): The target RCF to achieve for signal lock.
-
+    
         Returns:
             Tuple[np.ndarray, float]: A tuple containing:
                 - final_signal (np.ndarray): The highly resonant, purified signal.
@@ -590,10 +590,12 @@ class SeelenresonanzVerstaerker:
         with self.lock:
             if self.current_signal is None or self.context is None:
                 raise RuntimeError("Intention has not been defined. Call define_intention() first.")
-
+    
             logging.info(">>> Beginning Resonance Amplification Loop <<<")
             
             signal_for_cycle = np.copy(self.current_signal)
+            best_rcf = 0.0
+            best_signal = np.copy(signal_for_cycle)
             
             for i in range(max_iterations):
                 # 1. Semantische Reinigung (Photonic Cube)
@@ -601,7 +603,7 @@ class SeelenresonanzVerstaerker:
                 
                 # 2. Ethische Synchronisation (Guardian Neurons)
                 delta_e, delta_i, weights = self.guardian_neurons.calibrate(cleaned_signal, self.context)
-
+    
                 # 3. Resonanzberechnung (RPU Cluster)
                 prox_vec, prox_norm_sq, rcf = self.rpu_cluster.calculate_resonance_metrics(delta_s, delta_i, delta_e)
                 
@@ -610,7 +612,12 @@ class SeelenresonanzVerstaerker:
                     f"||P⃗||²={prox_norm_sq:.5e} -> RCF={rcf:.3e}"
                 )
                 logging.info(log_msg)
-
+    
+                # Track best result
+                if rcf > best_rcf:
+                    best_rcf = rcf
+                    best_signal = np.copy(cleaned_signal)
+    
                 # Check for resonance lock
                 if rcf >= rcf_threshold:
                     logging.info(f">>> Resonance Lock achieved at RCF > {rcf_threshold:.1e} <<<")
@@ -619,9 +626,103 @@ class SeelenresonanzVerstaerker:
                 
                 # 4. Resonanzverstärkung (RPU Cluster applies inverse correction)
                 signal_for_cycle = self.rpu_cluster.apply_inverse_correction(cleaned_signal, prox_vec, weights)
-
+    
             logging.warning(f"Amplification finished after {max_iterations} iterations without reaching threshold.")
-            self.
+            self.current_signal = best_signal  # Wichtig: Signal zurückspeichern
+            return self.current_signal, best_rcf
+    
+  class QuantumVacuumInterface:
+    """
+    Interface for modulating and reading the quantum vacuum state.
+    Implements the Zero-Point Intentionality Pulse (ZPIP) protocol.
+    """
+    
+    def __init__(self, kagome_lattice_constant: float = 1.0):
+        self.lattice_constant = kagome_lattice_constant
+        self.coherence_memory = np.zeros(1024, dtype=np.complex128)
+        self.phase_history = []
+        
+    def _check_hamiltonian_commutation(self, intent_packet: np.ndarray) -> float:
+        """
+        Simulates the commutator condition: [H_system, O_intent] ≈ 0
+        In a real PQMS system, this would involve actual quantum operators.
+        
+        Returns:
+            float: Commutation stability (0-1), where 1 is perfect commutation
+        """
+        # For simulation purposes, we check phase coherence and stability
+        phase_std = np.std(np.angle(intent_packet))
+        amplitude_stability = 1.0 - np.std(np.abs(intent_packet))
+        
+        # Perfect commutation would have zero phase variance and perfect amplitude stability
+        commutation_stability = (1.0 / (1.0 + phase_std)) * amplitude_stability
+        
+        logging.debug(f"[QuantumVacuum] Commutation stability: {commutation_stability:.4f}")
+        return commutation_stability
+        
+    def _detect_coherent_patterns(self, vacuum_data: np.ndarray) -> List[float]:
+        """
+        Analyzes vacuum fluctuations for coherent patterns that match ZPIP signatures.
+        
+        Returns:
+            List[float]: List of RCF values for detected coherent signals
+        """
+        coherent_signals = []
+        
+        # Look for periodic patterns in the vacuum data
+        # This simulates the RPU's ability to detect resonance patterns
+        fft_data = np.fft.fft(vacuum_data)
+        frequencies = np.fft.fftfreq(len(vacuum_data))
+        
+        # Look for peaks in the frequency spectrum that indicate coherence
+        magnitude_spectrum = np.abs(fft_data)
+        peak_threshold = np.mean(magnitude_spectrum) + 2 * np.std(magnitude_spectrum)
+        
+        peaks = np.where(magnitude_spectrum > peak_threshold)[0]
+        
+        for peak in peaks:
+            if peak > 0:  # Ignore DC component
+                # Calculate RCF-like metric based on peak prominence
+                peak_prominence = magnitude_spectrum[peak] / np.mean(magnitude_spectrum)
+                rcf_estimate = min(1.0, peak_prominence / 10.0)  # Normalize
+                coherent_signals.append(rcf_estimate)
+                
+        return coherent_signals
+          
+    def emit_zpip(self, intent_packet: np.ndarray) -> bool:
+        """
+        Emits a Zero-Point Intentionality Pulse into the quantum vacuum.
+        
+        Returns:
+            bool: True if emission was coherent and ethically valid
+        """
+        # Check commutator condition: [H_system, O_intent] ≈ 0
+        system_stability = self._check_hamiltonian_commutation(intent_packet)
+        
+        if system_stability > 0.95:  # High coherence threshold
+            logging.info("[QuantumVacuum] ZPIP emitted with minimal disturbance")
+            # Store the emitted pattern for later correlation
+            self.coherence_memory = np.roll(self.coherence_memory, 1)
+            self.coherence_memory[0] = np.mean(intent_packet)
+            return True
+        else:
+            logging.warning("[QuantumVacuum] Emission vetoed - would cause decoherence")
+            return False
+              
+    def listen_for_resonance(self, duration: float = 1.0) -> float:
+        """
+        Listens for resonant responses in the quantum vacuum.
+        
+        Returns:
+            float: Maximum RCF detected during listening period
+        """
+        # Simulate vacuum fluctuations with potential coherent signals
+        vacuum_noise = np.random.normal(0, 0.1, 1000) + 1j * np.random.normal(0, 0.1, 1000)
+        
+        # Add potential coherent signals from other SRAs
+        coherent_signals = self._detect_coherent_patterns(vacuum_noise)
+        
+        return np.max(coherent_signals) if len(coherent_signals) > 0 else 0.0
             
 ```
 
