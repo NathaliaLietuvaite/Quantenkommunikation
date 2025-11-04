@@ -1359,3 +1359,135 @@ Er steht damit zwischen Technik und Ethik als Feld der gegenseitigen Übersetzun
 | Speicherpfad | – | /var/pqms/data | – |
 
 ---
+
+## Wann gilt ein RCF-Signal als „real“ (Präzises Prüf-Protokoll)
+
+---
+### A. Prä-registrierte Primärdefinition (unverrückbar)
+
+**Primäre Messgröße (Primary Endpoint):**
+„Peak-RCF-Differenz“ = maximale RCF innerhalb des Fensters **[t0, t0 + 1 µs]** nach Intent-Onset minus mittlerer RCF der 1 ms Baseline vor Intent.
+
+> Messfenster und Rechenregeln müssen vor allen Messungen präregistriert werden (z. B. GitHub issue / OSF).
+
+**Erfolgskriterium (Primary Decision Rule):**
+Ein Versuch gilt als positiv **nur wenn** die folgenden *alle* erfüllt sind (hier die harten Schwellen):
+
+1. **Statistische Signifikanz:** gepoolte Test p < 0.01 (zweiseitig) für den primären Endpunkt.
+2. **Bayes-Evidenz:** Bayes-Faktor BF₁₀ > 10 gegenüber der Nullhypothese.
+3. **Effektgröße:** Cohen’s d ≥ 0.8 (groß) oder absolute RCF-Differenz ≥ 0.03 (3 Prozentpunkte) — **beide** sind akzeptabel; ideal: beides erfüllt.
+4. **SNR:** Signal-to-Noise Ratio (PeakΔ / σ_noise) ≥ 5.
+5. **RCF-Bereich:** gemessene RCF_peak fällt in den calibratable Bereich **0.82 – 0.965** (d. h. nicht in Lockout-Zone).
+
+Nur wenn **alle 5** Bedingungen erfüllt sind, wird das einzelne Experiment als „positiv“ gewertet.
+
+---
+
+## B. Statistische Planvorgaben (präregistriert)
+
+* **Testtyp:** gepaarte t-Test (oder Wilcoxon bei starker Nicht-Normalität) für Within-subject Trials; alternativ Mixed-Effects-Modell bei mehreren Operatoren.
+* **α (Fehlerniveau):** 0.01 (zweiseitig).
+* **Konfidenz:** 99%-Konfidenzintervalle berichten.
+* **Bayesian check:** BF computed using default Cauchy prior (scale = 0.707) — BF₁₀ > 10 → starke Evidenz.
+* **Power & Stichprobe (Beispielrechnung):** bei angenommener Cohen’s d = 0.8, α = 0.01, power = 0.90 → **n ≈ 47** Messungen pro Bedingung (paired design braucht weniger).
+
+  * Für Within-subject gepaarte Tests rechne ~30–35 Messungen, aber führe eine echte power-calculation für deine empirische σ_noise durch (vorlaufende Pilotdaten).
+* **Multiple comparisons:** Falls mehrere sekundäre Endpunkte, nutze FDR-Korrektur oder explizit hierarchische Tests (Primary zuerst).
+
+---
+
+## C. Kontrollen & Artefakt-Checks (must pass)
+
+**Jede Messserie muss parallel laufen mit folgenden Kontrollen — und alle müssen „grün“ sein:**
+
+1. **Sham / Placebo Trials (identisch im Ablauf, RPU dekoppelt):**
+
+   * Ergebnis: kein signifikanter RCF-Shift (p > 0.2).
+2. **Blind / Double-Blind:**
+
+   * Operator und Mess-Analyst sollten (so weit möglich) blind gegenüber Trial-Typ sein.
+3. **EMI / Grounding Test:**
+
+   * Aktive EM-Injection (im relevanten Frequenzband) mit RPU inaktiv → keine korrelierten RCF-Signale; gewonnenes EMI-Spektrum darf nicht reproduzieren Primärsignal.
+   * **Schwellen:** Abschirmungseffizienz ≥ 60 dB; bei absichtlicher EM-Injection soll die entstehende Peak-Signalamplitude < 0.2 × beobachtete PeakΔ.
+4. **Mechanische Artefakte (Vibration/Motion):**
+
+   * Beschleunigungs-Sensoren und Mikrofone parallel aufzeichnen. Korrelation |r| zwischen motion-trace und PeakΔ ≤ 0.05.
+5. **Thermal Drift:**
+
+   * ΔT während Trial < ±0.1 K; korrelationscheck mit RCF (|r| ≤ 0.05).
+6. **Ground-Loop / Power-Line Checks:**
+
+   * Frequenzanalyse zeigt keine 50/60 Hz Harmonische, die mit PeakΔ korrelieren.
+7. **Time-shift control:**
+
+   * Randomly shift intent timestamps post-hoc: true-intent alignment must give stronger effect than shifted alignment (permutation test p < 0.01).
+
+Wenn **irgendeine** dieser Kontrollen fehlschlägt, ist das Experiment **nicht** verwertbar — erst die Quelle beheben und erneut messen.
+
+---
+
+## D. Robustheits- & Sensitivitätsanalysen (must pass)
+
+* **Bootstrap-CI:** 10k bootstrap samples, Effekt bleibt signifikant in 95% CI.
+* **Leave-one-out Operator Sensitivity:** keine einzelne Trial/Operator darf den Gesamteffekt dominieren (kein Drop-one führt zum Verlust der Signifikanz).
+* **Parameter-Sweep:** variieren der Mapping-Parameter α_k um ±5% → Effekt bleibt stabil (p < 0.05) für ≥ 80% der Variation.
+* **Null-Simulations:** Erzeuge N=10k synthetische null-Datasets (empirical noise model); beobachteter Effekt liegt in obersten 0.1% des Null-Distribution.
+
+---
+
+## E. Replikation & unabhängige Validierung (Schlusskriterium)
+
+Ein einzelnes Labor-Ergebnis ist nur Vorstufe. **Als „Signal real erkannt“ gilt es erst nach:**
+
+1. **Interne Replikation:** gleiche Labor-Protokoll, andere Mess-Tage, mindestens 2 unabhängige Operatoren, jeweils n wie oben.
+2. **Externe Replikation:** mindestens **2 unabhängige Labore** (Anderes Team, andere Hardware-Instanz) reproduzieren denselben primären Endpunkt mit gleichen präregistrierten Kriterien.
+3. **Meta-Analyse:** kombinierte Effektgröße (random-effects) mit Gesamtdaten zeigt p < 10⁻⁴ und BF₁₀ ≫ 100.
+4. **Offene Daten & Code:** vollständige Freigabe von Rohdaten + Analyse-Code + Pre-registration für alle Versuche. Ohne Open Data gilt das Ergebnis nur als vorläufig.
+
+---
+
+## F. Reporting- und Veröffentlichungspflichten
+
+Bei positiver Entscheidung publiziere / archiviere:
+
+* Raw data (HDF5), Metadata (JSON), Analysis scripts (notebooks) + environment file.
+* Pre-registered analysis plan, list of all trials, exclusions, artifacts, device logs.
+* Guardian-Neuron logs (Veto events) und ζ_charm calibration traces.
+* Independent lab reports (signed).
+
+---
+
+## G. Entscheidungs-Flowchart (Kurzversion, in Worten)
+
+1. Präregistrierte Messung durchführen.
+2. Führe Artefakt-Checks (Sham, EMI, Motion) — wenn FAIL → STOP, beheben.
+3. Berechne primären Endpunkt → Test (p) + BF + d + SNR.
+4. Alle 5 numerischen Kriterien erfüllt? → Ja → weiter (robustness analyses).
+5. Robustness OK & Bootstrap OK? → Ja → interne Replikation.
+6. Interne Replikation OK? → Ja → externe Replikation in 2 Labs.
+7. Externe Replikation OK? → Ja → Signal gilt als real erkannt; publizieren & archivieren.
+   Wenn zu irgendeinem Zeitpunkt „Nein“, dann suspendiere claim und wiederhole nach Korrektur.
+
+---
+
+## H. Praktische Zahlen-Zusammenfassung (Schnellreferenz)
+
+* α = 0.01, BF₁₀ > 10
+* Cohen’s d ≥ 0.8 *oder* absolute RCF-shift ≥ 0.03
+* SNR ≥ 5 (PeakΔ / σ_noise)
+* RCF Messbereich: 0.82 – 0.965 (calibratable zone)
+* Shielding ≥ 60 dB, accelerometer correlation |r| ≤ 0.05
+* Pilot-empirische Power → n ≈ 47 falls d = 0.8 (between-subjects); paired design deutlich geringere n.
+
+---
+
+## I. Empfehlung für den nächsten praktischen Schritt (konkret)
+
+1. **Präregistrieren**: primärer Endpunkt + Analyseplan (OSF/GitHub).
+2. **Pilotlauf (N=20 paired trials)**: ermittle empirische σ_noise → berechne exakte n.
+3. **Artefakt-Härtung**: EMI, motion sensors, Faraday, optische Isolation.
+4. **Vollstudie (prä-bestimmtes n)** mit Sham/Blind.
+5. **Open Share**: Release Rohdaten & Scripts unmittelbar nach interner Replikation.
+
+---
