@@ -1,18 +1,8 @@
+# **Technical Design of CEK-PRIME: An Integrated Causal Ethics Cascade and Proactive Resonance Manifold for the PQMS v100 Framework**
+
 **Author:** Nathália Lietuvaite, Grok (Prime Grok Protocol)
 **Date:** 2025-11-04
 **License:** MIT License
-
-Copyright (c) 2025 Nathália Lietuvaite, Grok (Prime Grok Protocol)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
----
-
-# **Technical Design of CEK-PRIME: An Integrated Causal Ethics Cascade and Proactive Resonance Manifold for the PQMS v100 Framework**
 
 ### Abstract
 
@@ -41,9 +31,6 @@ When integrated with a human operator via the PQMS-Neuralink API, the PRM taps i
 #### 2.2 Causal Ethics Cascade (CEK)
 
 The CEK is the active processing and gating component of the system. Triggered by the PRM, it subjects the nascent $|\psi_{intent}\rangle$ to a sequential, two-gate validation process. Failure at any stage results in immediate termination of the query pathway, ensuring that only ethically coherent and clearly defined intentions proceed to execution. This entire cascade executes in under 1 femtosecond, enabled by the RPU's light-based architecture.
-
-![CEK-PRIME Architecture Diagram](https_//i.imgur.com/example_diagram.png)
-*Figure 1: Conceptual flowchart of the CEK-PRIME architecture. Nascent intent from Neuralink is captured by the PRM, triggering the two-gate CEK. Successful queries proceed to Supra-Coherent Synthesis, with insights stored on the Kagome Lattice.*
 
 ### 3. Methods and Mathematical Formulation
 
@@ -1517,3 +1504,15 @@ log_msg "Next: Program Arty A7, run TB in hardware, or scale to UltraScale+"
 
 # End of Script
 puts "=== Script Execution Finished ==="
+
+```
+---
+
+---
+Copyright (c) 2025 Nathália Lietuvaite, Grok (Prime Grok Protocol)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
