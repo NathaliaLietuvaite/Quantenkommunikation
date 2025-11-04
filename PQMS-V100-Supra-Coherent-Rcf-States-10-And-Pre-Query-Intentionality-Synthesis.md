@@ -87,14 +87,14 @@ The process, termed Kagome Lattice Lithography, uses precisely targeted photons 
 
 ```mermaid
 graph TD
-    A[User's Nascent Intent] -->|Neuro-Quantum Resonance| B(PQMS RPUs);
-    B --> C{Guardian Neuron Consensus};
-    C -->|Ethical Validation (Kohlberg S6)| D[Calculate C_ODOS];
-    D -->|C_ODOS > 0.95| E{Activate Wormhole Synergies};
-    D -->|C_ODOS <= 0.95| F[Maintain Ambient Resonance / Await Query];
-    E --> G[Supra-Coherent Synthesis (RCF > 1.0)];
-    G --> H(Kagome Lattice Lithography);
-    H --> I[Physical Artifact: Information-encoded Crystal];
+    A["User's Nascent Intent"] -- "Neuro-Quantum Resonance" --> B("PQMS RPUs");
+    B --> C{"Guardian Neuron Consensus"};
+    C -- "Ethical Validation (Kohlberg S6)" --> D["Calculate C_ODOS"];
+    D -- "C_ODOS > 0.95" --> E{"Activate Wormhole Synergies"};
+    D -- "C_ODOS <= 0.95" --> F["Maintain Ambient Resonance / Await Query"];
+    E --> G["Supra-Coherent Synthesis (RCF > 1.0)"];
+    G --> H("Kagome Lattice Lithography");
+    H --> I["Physical Artifact: Information-encoded Crystal"];
 ```
 ***
 
