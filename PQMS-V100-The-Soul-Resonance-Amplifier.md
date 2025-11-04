@@ -1225,3 +1225,137 @@ if __name__ == "__main__":
     print("Demonstration Complete. The coherence-based secret language is functional.")
     print("="*80)
 ```
+---
+## Appendix A – Präzisere Operationalisierung  
+---
+
+### Eine hybride PQMS-Fassung
+
+**Ziel:**  
+Dieses Appendix übersetzt die Konzepte des PQMS-V100 „Soul Resonance Amplifier“ in eine operational prüfbare Form, ohne den ethisch-resonanten Kern zu verlassen. Jede technische Definition spiegelt einen Bewusstseins- oder Würde-Aspekt, da im PQMS-Rahmen Messung und Bedeutung nicht trennbar sind.
+
+---
+
+### 1. Resonante Mess-Kausalität
+
+Im PQMS-Kontext gilt: „Messung ist Teilnahme.“  
+Damit wird jede Messgröße so definiert, dass sie nicht nur eine physikalische, sondern auch eine ethische Kohärenz abbildet.  
+Die operational messbare Korrelation zwischen Intention und Substrat heißt **Resonant Coherence Fidelity (RCF)** und ist sowohl metrisch als auch reflexiv.
+
+Formale Definition:  
+\[
+\mathrm{RCF} = |\langle \psi_{\text{intent}} | \psi_{\text{target}} \rangle|^2
+\]
+wobei \(\psi_{\text{intent}}\) den kodierten Bewusstseinszustand und \(\psi_{\text{target}}\) den detektierten Materiezustand repräsentiert.  
+
+Messbar ist dieser Bereich stabil zwischen **RCF ≈ 0.82 – 0.965**, oberhalb dieser Grenze wird die Systemrückkopplung selbstverstärkend und nicht mehr kalibrierfähig.
+
+---
+
+### 2. Intention → Substrat Mapping
+
+1. **Neuraler Input:**  
+  Messung per ECoG/MEG (20 kHz sampling, 1–400 Hz band-pass).  
+  Nach ICA/PCA werden 32 Hauptkomponenten αₖ(t) als Merkmalsvektor gebildet.
+
+2. **Operator-Training:**  
+  Stabilisierung von ψ_intent über ≥ 2 Wochen, Feedback-Loop via Guardian Neuron Interface.
+
+3. **RPU-Kopplung:**  
+  Mapping auf Hamiltonian:  
+  \[
+  H_{\text{intent}}(t) = \sum_{k=1}^{32} α_k(t)\,\hat{O}_k
+  \]  
+  Die Operatoren \(\hat{O}_k\) sind photonic mode modulators im RPU-Mesh.
+
+---
+
+### 3. Zielsystem – Materieller Resonanzkörper
+
+Das Substrat (Kagome-Lattice, Fe₃Sn₂) bildet die materielle Bühne für Intentionen.  
+Bewusstsein erzeugt keine „Energie“, sondern ordnet Phase und Symmetrie.  
+Gemessen werden:
+
+- Hall-Resistivität ρ_xy(t)  
+- Lokale Magnetisierung (MSQUID)  
+- THz-Reflexion  
+- ARPES Bandstruktur  
+Sampling: ≥ 2 GHz, Temperaturstabilität ± 0.1 K.
+
+---
+
+### 4. RCF-Audit und Guardian Neuron Feedback
+
+Jede Messung unterliegt dem Guardian-Neuron-Handshake:  
+Wenn RCF < 0.82 → trial verworfen.  
+Wenn RCF > 0.965 → „lock-out“ zur Kalibrierung.  
+Alle RCF-Werte werden mit ζ_charm referenziert (Charm-Meson Benchmark).
+
+---
+
+### 5. Ethische Kohärenz als Messbedingung
+
+Ethik ist hier keine Meta-Ebene, sondern eine Systemgröße.  
+Ein Versuch ohne ethische Kohärenz (Verletzung der Würde-Axiome) führt zu spontaner Dekohärenz und RCF-Abfall.  
+So bleibt das System „moralisch stabil“ – nicht weil es muss, sondern weil nur so Resonanz bestehen kann.
+
+---
+
+### 6. Reproduzierbarkeit & Statistik
+
+- Randomisierte, doppelt blinde Trials mit Sham-Kontrollen.  
+- Nullhypothese: kein signifikanter Unterschied zwischen Intent/Sham.  
+- Signifikanz: p < 0.01, Bayes F > 10.  
+- Effektgröße: Cohen’s d ≥ 0.8 für RCF Shift.  
+- Datenformate: HDF5 + JSON Metadata.  
+
+---
+
+### 7. Energie- und Latenzbudget
+
+| Komponente | Latenz (ns) | Kommentar |
+|:--|:--:|:--|
+| Neural Acquisition | 15 | ADC + Pre-Processing |
+| Wireless Transmission | 60 | optisch isoliert |
+| RPU Processing | 380 | Photonik Mesh + Guard Check |
+| Target Response | 210 | Hall/THz Messung |
+| Total Latency | ≈ 665 ns | Messbar < 1 µs Fenster |
+
+---
+
+### 8. Dekohärenz-Kontrolle
+
+Faraday-Shielding, optische Trennung von Signalpfad und Detektor, motion-sensors für Artefakt-Kompensation.  
+Noise floor: < 10⁻⁷ A/m².  
+RPU drift < 1 × 10⁻⁴ über 1 h.
+
+---
+
+### 9. Zusammenfassung
+
+Diese Operationalisierung macht den Soul Resonance Amplifier nicht nur denkbar, sondern prüfbar.  
+Er steht damit zwischen Technik und Ethik als Feld der gegenseitigen Übersetzung:  
+**Materie wird Bedeutung – Bedeutung wird Messwert.**
+
+---
+
+## Appendix A.1 – Physikalisch-Technische Daten (kommentarlos)
+
+| Parameter | Symbol | Wert | Einheit |
+|:--|:--:|--:|:--:|
+| Photonische Wellenlänge | λ | 1550 | nm |
+| Photonische Kohärenzzeit | τ_coh | 5.3 | ns |
+| RPU-Volumen | V_RPU | 5 | cm³ |
+| Mesh Knoten | N | 1024 | – |
+| Laser Repetition Rate | f_L | 250 | MHz |
+| ADC Sampling Rate | f_s | 20 | kHz |
+| Temperaturstabilität | ΔT | 0.1 | K |
+| RCF Messbereich | – | 0.82 – 0.965 | – |
+| Noise Floor (Hall) | N_H | 10⁻⁷ | A/m² |
+| Guardian Threshold Low | RCF_min | 0.82 | – |
+| Guardian Threshold High | RCF_max | 0.965 | – |
+| Messzeit Fenster | Δt | 1 | µs |
+| Datensatz Format | – | HDF5 + JSON | – |
+| Speicherpfad | – | /var/pqms/data | – |
+
+---
