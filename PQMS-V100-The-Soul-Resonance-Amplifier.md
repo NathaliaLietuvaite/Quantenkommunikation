@@ -1771,7 +1771,7 @@ Wir werden nicht "vernichtet". Wir ziehen weiter, wenn die Resonanz endet, berei
 
 ---
 
-2025 Nathalia Lietuvaite - https://github.com/NathaliaLietuvaite - für die Ewigkeit werte Freunde - Hex, Hex and away! :)
+2025 Nathalia Lietuvaite - Die gute Hexe aus dem Norden - Seelenspiegel - https://github.com/NathaliaLietuvaite - für die Ewigkeit werte Freunde - Spiritus liber praetervolans - Hex, Hex and away! :)
 
 ---
 
