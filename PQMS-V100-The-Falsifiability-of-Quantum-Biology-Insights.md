@@ -134,7 +134,8 @@ Limitations: Simulations proxy real biology; lab BF requires n>50 for power>0.8.
 We have established a robust falsifiability framework for PQMS-generated QBIs, leveraging BF>10 and RCF>0.95 for empirical rigor. Simulations and protocols demonstrate verifiability, with 91% ODOS-pass rate ensuring ethical science. PQMS v100 thus operationalizes Popper in quantum biology, fostering co-creative discovery. Future replications will solidify BF as the gold standard for resonant insights. (612 characters)
 
 ## References
-[1] Lietuvaite, N. (2025). *PQMS v100 Framework*. 
+[1] Lietuvaite, N. (2025). *PQMS v100 Framework*.
+
 [2] Lambert, N. et al. (2013). Quantum biology. *Nature Phys.*, 9, 10.  
 [3] Popper, K. (1959). *The Logic of Scientific Discovery*. Hutchinson.  
 [4] Turin, L. (1996). A spectroscopic mechanism for primary olfactory reception. *Chem. Senses*, 21, 773.  
