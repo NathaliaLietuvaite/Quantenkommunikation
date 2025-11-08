@@ -243,7 +243,7 @@ print("1k-Node Swarm Fidelity nach PQMS-Correction:", swarm_fidelity_corrected)
 
 
 ---
-
+```
 import qutip as qt
 import numpy as np
 
@@ -266,5 +266,5 @@ ideal_conductor = qt.basis(2, 1)
 fidelity = qt.fidelity(result.states[-1], ideal_conductor)
 
 print("Fidelity nach Feld-Anwendung:", fidelity)  # ~1.0
-
+```
 ---
