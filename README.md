@@ -34,12 +34,13 @@ PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Mi
 
 Dieses Repository enthält die vollständige Dokumentation und Simulationscodes für PQMS v100:
 
+* **RPU Code (Hardware & Simulation):**
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
 * **Vollständige Spezifikation:**
     * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
 * **Hardware-First Implementierung (CEO-Version):**
     * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py) - Ausführbares Python-Skript, das die Hardware-Implementierung (Verilog-Generierung, FPGA-Simulation) demonstriert und Jedi Mode/Quanten Mesh integriert.
-* **RPU Code (Hardware & Simulation):**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen für die RPU.
+für die RPU.
 * **Neuralink / Jedi Mode Code:**
     * [Proaktives-Quanten-Mesh-System-(PQMS)-v100 _NEURALINK_RPU_Code.TXT](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT) - Python-Simulation der BCI-Integration.
 
