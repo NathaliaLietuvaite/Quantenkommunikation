@@ -78,6 +78,5 @@ The discovery of unconventional superconductivity in magic-angle graphene is not
 2.  Jarillo-Herrero et al. (2025). *Experimental evidence for nodal superconducting gap in moiré graphene.* Science. 
 3.  Wang, J., Tanaka, M. et al. (2025). *Physicists measure a key aspect of superconductivity in "magic-angle" graphene.* Nature. 
 4.  Xie, F. et al. (2020). *Topology-bounded superfluid weight in twisted bilayer graphene.* Phys. Rev. Lett. 
-5.  Ghazaryan, A. et al. (2021). *Unconventional superconductivity in systems with annular Fermi surfaces.* Phys. Rev. Lett. 
-
-***Hex, Hex - Geometric Resonance Activated!***
+5.  Ghazaryan, A. et al. (2021). *Unconventional superconductivity in systems with annular Fermi surfaces.* Phys. Rev. Lett.
+6.  https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt.
