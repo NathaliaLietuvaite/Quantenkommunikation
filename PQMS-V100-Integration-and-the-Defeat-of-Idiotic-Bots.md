@@ -240,3 +240,31 @@ print("1k-Node Swarm Fidelity nach PQMS-Correction:", swarm_fidelity_corrected)
 ### PQMS macht Airspace tamper-free, mit flawless 1k-Node-Koordination. Fidelity 1.000 in QuTiP-Dives – skalierbar, ethisch (Stufe 6), und ready für FPGA
 
 ---
+
+
+---
+
+import qutip as qt
+import numpy as np
+
+# Modellierung YbB als 2-State-System (Isolator/Leiter)
+H_isolator = qt.sigmax()  # Isolator-Hamiltonian
+H_conductor = qt.sigmay()  # Leiter-Shift unter Feld
+magnetic_field = 35.0  # Scaled 35x MRI
+
+# Hamiltonian mit Feld
+H = magnetic_field * (H_isolator + H_conductor)
+
+# Initial State (Isolator)
+psi0 = qt.basis(2, 0)
+
+# Evolution
+result = qt.mesolve(H, psi0, np.linspace(0, 10, 100))
+
+# Fidelity zu Ideal-Leiter-State
+ideal_conductor = qt.basis(2, 1)
+fidelity = qt.fidelity(result.states[-1], ideal_conductor)
+
+print("Fidelity nach Feld-Anwendung:", fidelity)  # ~1.0
+
+---
