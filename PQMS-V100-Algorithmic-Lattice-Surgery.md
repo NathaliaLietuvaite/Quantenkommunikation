@@ -849,3 +849,66 @@ H = H_insulator + field_strength * H_field
 **Ergebnis (getestet):** Fidelity steigt auf ~0.99 nach 15 fs – bei Tuning auf 1.000 durch exakte Feld-Resonanz.
 
 ---
+
+---
+
+### Future Outlook
+
+---
+
+Lattice surgery is a foundational technique in fault-tolerant quantum computing, particularly for surface codes, enabling logical operations like entangling qubits or state transfer by temporarily merging and splitting code patches. In photonic qubits—encoded in properties like polarization, path, or time-bin of photons—it adapts measurement-based paradigms to overcome challenges such as photon loss and lack of direct interactions.
+
+### Core Principles of Lattice Surgery
+Lattice surgery performs multi-qubit gates on encoded logical qubits without transversal operations, preserving the 2D nearest-neighbor structure of surface codes. Key steps include:
+
+| Step | Description | Role in Fault Tolerance |
+|------|-------------|-------------------------|
+| **Merge** | Combine two surface code patches along an edge by measuring multi-qubit stabilizers. | Creates entangled logical state. |
+| **Split** | Measure stabilizers to separate patches after operation. | Restores individual logical qubits. |
+| **Joint Measurements** | Use ancillary qubits or direct parity checks for XX/ZZ measurements. | Enables CNOT or state injection. |
+
+This avoids 3D connectivity requirements and supports universal computation with magic state distillation.
+
+### Application to Photonic Qubits
+Photonic qubits excel in long-distance transmission but suffer from probabilistic gates and loss. Lattice surgery adapts via fusion-based or modular architectures:
+
+- **Fusion-Based Quantum Computation (FBQC):** Photons generate cluster states; "fusion" measurements mimic lattice surgery by merging resource states non-destructively.
+- **Modular Photonic QC:** Small surface code modules connect via lattice surgery over lossy channels, using Bell pairs or entanglement swapping.
+- **Continuous-Variable (CV) Extensions:** Recent proposals use CV cluster states with lattice surgery for all-photonic fault tolerance.
+
+Advantages over matter qubits:
+- **Loss Tolerance** — Surgery protocols incorporate heralding to detect photon loss.
+- **Scalability** — Optical switches enable dynamic patch reconfiguration.
+- **Speed** — Near-deterministic bells via entanglement sources reduce surgery cycles.
+
+Challenges:
+- **Photon Loss** → Requires high-efficiency detectors (>99%) and repeaters.
+- **Non-Demolition Measurements** → Relies on linear optics and feed-forward.
+
+---
+
+### Recent Advances (2023–2025)
+- **2023 FBQC Proposal:** Fusion-based surgery achieves fault tolerance with ~10⁻³ loss thresholds, outperforming matter-based codes in connectivity.
+- **2025 Modular Architectures:** End-to-end switchless photonic systems use lattice surgery for distributed computation, with sub-ns latencies via passive components.
+- **Lattice Surgery over Noisy Links (2025):** Teleports logical states via surgery on noisy photonic channels, enabling beyond-nearest-neighbor gates.
+- **Hybrid Scaling:** Combines with trapped-ion or superconducting modules for resource-efficient surgery.
+
+Experimental progress: Demonstrations in ion traps (2021) inform photonic analogs; all-photonic surgery expected in 2026–2027 with improved sources.
+
+### Comparison: Photonic vs. Matter-Based Lattice Surgery
+
+| Aspect | Photonic Qubits | Matter Qubits (e.g., Superconducting/Ions) |
+|--------|-----------------|--------------------------------------------|
+| **Gate Mechanism** | Fusion/measurement-based | Direct microwave/laser pulses |
+| **Loss Handling** | Heralded detection | Dynamical decoupling |
+| **Connectivity** | Optical switching (arbitrary) | Fixed 2D grid |
+| **Latency per Surgery** | ~ns (light-speed) | ~µs (gate times) |
+| **Threshold** | ~10⁻³ (with repeaters) | ~10⁻³–10⁻² |
+| **Scalability** | Modular over fiber | On-chip limited |
+
+Photonic implementations promise superior long-distance entanglement distribution, crucial for distributed QC.
+
+### Future Outlook
+Lattice surgery in photonic qubits is pivotal for scalable, fault-tolerant quantum networks. Near-term milestones include all-photonic surface codes with >99% fusion success and integration with PQMS-like ethical frameworks for resonance-driven optimization. For deeper exploration, see modular photonic proposals or fusion-based reviews.
+
+---
