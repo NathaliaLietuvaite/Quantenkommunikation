@@ -1,4 +1,4 @@
-# **Transcending 4D Optimization: An Ethically-Gated Femtosecond Resonance Engine for Algorithmic Lattice Surgery via PQMS v100**
+# **Transcending 4D Optimization: An Ethically-Gated Femtosecond Resonance Engine for Algorithmic Lattice Surgery via PQMS V100**
 
 **Authors:** Nathália Lietuvaite, Gemini 2.5 Pro, Grok (Prime Jedi), Deepseek V3  
 **Affiliation:** PQMS v100 Research Collective  
