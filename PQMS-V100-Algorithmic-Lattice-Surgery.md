@@ -1223,6 +1223,7 @@ from scipy.stats import ttest_ind
 import qutip as qt
 import pandas as pd  # Für Tabellen
 import logging
+from typing import List, Tuple
 
 # Logging Setup (wie im Original)
 logging.basicConfig(level=logging.INFO)
@@ -1290,22 +1291,22 @@ def section1_benchmarks():
 # Adressiert: Truncated Snippet → Full Surgeon-Class. Erweitert Original zu CEK-Validate + Verilog-Stub.
 # Output: Runnable Class (testet Merge). Beseitigt Zweifel: Voll ausführbar, GitHub-Link.
 # X-Check: Nur 3 Pings (@NLituanie) – Community-Seed planted.
-# Hook: Integriere Snakes&Ladders? Ersetze MWPM durch ABC aus .
+# Hook: Integriere Snakes&Ladders? Ersetze MWPM durch ABC-Optimizer aus .
 # =============================================================================
 class FullSurgeon:  # Erweiterung des truncated Originals
     def __init__(self, lattice_size=SIZE):
         self.lattice = SurfaceCodeLattice(lattice_size)  # Vom Original (untruncated hier)
         self.rcf = 0.0
         self.conf = 0.0
-    
-    def _get_z_neighbors(self, r: int, c: int) -> List[Tuple[int, int]]:  # Untruncated!
+   
+    def _get_z_neighbors(self, r: int, c: int) -> List[Tuple[int, int]]:  # Untruncated! (Fix: Typing import)
         neighbors = []
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = r + dr, c + dc
             if 0 <= nr < self.lattice.size and 0 <= nc < self.lattice.size and self.lattice.lattice[nr, nc] == 1:
                 neighbors.append((nr, nc))
         return neighbors
-    
+   
     def ce_k_validate(self, rcf: float, conf: float) -> bool:  # Neue CEK-Impl (Fidelity-Calc)
         """CEK: RCF >0.9 & Conf >0.98 → EXECUTE else VETO."""
         self.rcf, self.conf = rcf, conf
@@ -1315,7 +1316,7 @@ class FullSurgeon:  # Erweiterung des truncated Originals
         else:
             log.warning(f"CEK: VETO/BLOCK – RCF={rcf:.3f}, Conf={conf:.3f}")
             return False
-    
+   
     def perform_merge(self, patch1: Tuple[int, int], patch2: Tuple[int, int]) -> bool:
         """Full Merge: Graph-Path + CEK-Check. Sim Latency <1 fs."""
         G = nx.Graph()
@@ -1327,14 +1328,14 @@ class FullSurgeon:  # Erweiterung des truncated Originals
             log.info(f"Merge Success: Path Len={path_len}, Latency ~{path_len*0.5} fs")
             return True
         return False
-    
+   
     def verilog_stub(self):  # Stub für FPGA-Export
         print("""
 module pqms_rpu(clk, merge_req, valid_out);
     input clk; input [63:0] merge_req;
     output reg valid_out;
     always @(posedge clk) begin
-        if (rcf > 0.9 && conf > 0.98) valid_out <= 1;  // CEK in Verilog
+        if (rcf > 0.9 && conf > 0.98) valid_out <= 1; // CEK in Verilog
     end
 endmodule
         """)
@@ -1347,7 +1348,7 @@ def section2_full_code():
     surgeon.verilog_stub()
     print(f"GitHub Seed: https://github.com/NathaliaLietuvaite/Quantenkommunikation (X: 3 Pings since Oct '25 – Plant more?)")
     log.info(f"Full Code Test: Merge {'Success' if success else 'Vetoed'}.")
-    print("\nHook: Integriere Snakes&Ladders für Defects? Ersetze MWPM durch ABC-Optimizer aus  – Add nx.defect_graph()?")
+    print("\nHook: Integriere Snakes&Ladders für Defects? Ersetze MWPM durch ABC-Optimizer aus – Add nx.defect_graph()?")
 
 # =============================================================================
 # SECTION 3: REFERENZEN & STATE-OF-THE-ART-INTEGRATION
