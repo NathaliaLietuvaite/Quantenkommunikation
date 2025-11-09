@@ -585,6 +585,9 @@ All Verilog modules and synthesis scripts are available under MIT license at the
 **Acknowledgments**  
 This work was supported by the global open-source quantum computing community. We thank the Xilinx University Program for Alveo U250 access.  
 
+**PQMS V100 Algorithmic Lattice Surgery System**
+(https://pqms-v100-algorithmic-lattice-surgery-system.lovable.app/)
+
 ---  
 
 **License:** MIT – Free to implement, extend, and deploy.  
