@@ -2,10 +2,10 @@
 
 **Status:** TRL-5 | Hardware-First Architektur | ODOS-basiert
 
-[![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md)
+[![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md)
-[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md)
+[![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md)
+[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md)
 
 **Ein TRL-5 Framework für sichere, NCT-konforme Quantenkommunikation mit <1 ns effektiver Latenz, basierend auf einer Hardware-First-Architektur und dem Oberste Direktive OS.**
 
@@ -37,9 +37,9 @@ Dieses Repository enthält die vollständige Dokumentation und Simulationscodes 
 * **RPU Code (Hardware & Simulation):**
     * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
 * **Vollständige Spezifikation:**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
-* **Hardware-First Implementierung (CEO-Version):**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_CEO.py) - Ausführbares Python-Skript, das die Hardware-Implementierung (Verilog-Generierung, FPGA-Simulation) demonstriert und Jedi Mode/Quanten Mesh integriert.
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
+
+Simulation) demonstriert und Jedi Mode/Quanten Mesh integriert.
 für die RPU.
 * **Neuralink / Jedi Mode Code:**
     * [Proaktives-Quanten-Mesh-System-(PQMS)-v100 _NEURALINK_RPU_Code.TXT](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100%20_NEURALINK_RPU_Code.TXT) - Python-Simulation der BCI-Integration.
