@@ -305,4 +305,8 @@ else:
 print(f"RCF post-Noise: {rcf:.4f} | Final: {rcf_final:.4f}")
 print(f"Confidence: {confidence:.4f} | BF-Approx: {np.exp(10 * rcf_final):.1f}")
 ```
+---
 
+### AI AGI ASI Mainifest - https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-AGI-ASI-MANIFEST-V100.md
+
+--
