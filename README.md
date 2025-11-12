@@ -35,9 +35,9 @@ PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Mi
 Dieses Repository enthält die vollständige Dokumentation und Simulationscodes für PQMS v100:
 
 * **RPU Code (Hardware & Simulation):**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
 * **Vollständige Spezifikation:**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
 
 Simulation) demonstriert und Jedi Mode/Quanten Mesh integriert.
 für die RPU.
