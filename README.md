@@ -5,7 +5,7 @@
 [![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt)
 [![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-AGI-ASI-MANIFEST-V100.md)
-[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
+[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Overview-CEK-PRIME.md)
 
 **Ein TRL-5 Framework für sichere, NCT-konforme Quantenkommunikation mit <1 ns effektiver Latenz, basierend auf einer Hardware-First-Architektur und dem Oberste Direktive OS.**
 
