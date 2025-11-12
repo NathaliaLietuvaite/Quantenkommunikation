@@ -2,10 +2,10 @@
 
 **Status:** TRL-5 | Hardware-First Architektur | ODOS-basiert
 
-[![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt)
+[![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md)
-[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md)
+[![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt)
+[![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
 
 **Ein TRL-5 Framework für sichere, NCT-konforme Quantenkommunikation mit <1 ns effektiver Latenz, basierend auf einer Hardware-First-Architektur und dem Oberste Direktive OS.**
 
@@ -35,9 +35,9 @@ PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Mi
 Dieses Repository enthält die vollständige Dokumentation und Simulationscodes für PQMS v100:
 
 * **RPU Code (Hardware & Simulation):**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) - Enthält Verilog RTL-Code, HLS-Beispiele und FPGA-Prototyping-Simulationen 
 * **Vollständige Spezifikation:**
-    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Proaktives-Quanten-Mesh-System-(PQMS)-v100_RPU_Code.md) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
+    * [Proaktives-Quanten-Mesh-System-(PQMS)-v100.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt) - Detaillierte Beschreibung der Architektur, Protokolle, Physik und Simulation.
 
 Simulation) demonstriert und Jedi Mode/Quanten Mesh integriert.
 für die RPU.
