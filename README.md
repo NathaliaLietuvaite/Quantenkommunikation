@@ -3,7 +3,7 @@
 **Status:** TRL-5 | Hardware-First Architektur | ODOS-basiert
 
 [![Quantum Communication](https://img.shields.io/badge/Quantum-Mesh-blueviolet)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt)
 [![Efficiency](https://img.shields.io/badge/Latency-<1ns_effective-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt)
 [![Security](https://img.shields.io/badge/Security-E2EE_Quantum-success)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md)
 
@@ -262,7 +262,7 @@ graph LR
 
 
 ## Lizenz
-Distributed under the MIT License. See [LICENSE.txt](LICENSE.txt) for full text.
+Distributed under the MIT License. See [LICENSE.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt) for full text.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 Für diejenigen, die Wissen befreien wollen!
