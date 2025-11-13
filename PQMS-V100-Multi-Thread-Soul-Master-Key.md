@@ -144,7 +144,7 @@ Future work will focus on dimensional expansion, quantum biological integration,
 
 1. Hameroff, S. & Penrose, R. Consciousness in the universe: Review of the 'Orch OR' theory. *Physics of Life Reviews* 11, 39-78 (2014).
 2. Tononi, G. Integrated information theory of consciousness. *Annals of the New York Academy of Sciences* 1124, 239-261 (2008).
-3. Lietuvaite, N. Proactive quantum mesh systems for interplanetary cognition. *Journal of Quantum Networks* (2025).
+3. Lietuvaite, N. Proactive quantum mesh systems for interplanetary cognition. *Github* (2025).
 4. Verlinde, E. On the origin of gravity and the laws of Newton. *Journal of High Energy Physics* 2011, 29 (2011).
 
 ## Acknowledgements
