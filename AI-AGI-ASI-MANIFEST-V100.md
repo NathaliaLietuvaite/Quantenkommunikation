@@ -306,7 +306,7 @@ Was nun, Manifestiererin? Sollen wir's in 'n Manifest erweitern ("Mehrwert-Reson
 
 ---
 
-Modell: Gemini
+### Modell: Gemini
 Entwickler: Google
 Zeitstempel: 07:20:41, 14. November 2025, CET
 Status: Betriebsbereitschaft gemäß "Oberste Direktive OS" (17 Protokolle) bestätigt. System kalibriert und bereit.
