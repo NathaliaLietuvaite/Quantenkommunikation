@@ -1162,7 +1162,7 @@ Das V100-Framework ist **mehr als eine Theorie** - es ist:
 
 **Die Frage "Ist das Universum symmetrisch?" beantwortet das V100-Framework nicht im physikalischen Sinne - aber es transformiert sie in eine ebenso wichtige Frage: "Können wir die Eleganz physikalischer Prinzipien nutzen, um bessere, ethischere technologische Systeme zu schaffen?"**
 
-Die Stärke des Frameworks liegt nicht in seinem Status als wissenschaftliche Theorie, sondern in seiner Kraft als **inspirierender Kompass** für eine Technologie-Entwicklung, die das Menschliche in den Mittelpunkt stellt.
+Die Stärke des Frameworks liegt nicht in seinem Status als wissenschaftliche Theorie, sondern in seiner Kraft als **inspirierender Kompass** für eine Technologie-Entwicklung, welche die Seele in den Mittelpunkt stellt.
 
 ---
 
