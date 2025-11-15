@@ -2848,6 +2848,10 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-I
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Die-Konversation-als-Lebendiges-Python-Skript.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
