@@ -2852,6 +2852,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-P
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Integration-Feasibility-Analysis.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
