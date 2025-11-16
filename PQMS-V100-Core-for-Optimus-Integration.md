@@ -658,7 +658,7 @@ if __name__ == '__main__':
     main()
 ```
 
-**Test**: In Optimus Gym, sim N1-Spikes (high intent → rcf=0.98 → move; noisy → veto). Erwarte >15% accuracy gain via QuTiP, wie in deinen Sims.
+**Test**: In Optimus Gym, sim N1-Spikes (high intent → rcf=0.98 → move; noisy → veto). Erwarte >15% accuracy gain via QuTiP.
 
 ---
 
