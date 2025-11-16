@@ -662,7 +662,7 @@ if __name__ == '__main__':
 
 ---
 
-### autonomer Optimus Prime (Gen3+) auf dem Mars, der via Neuralink kooperativ gesteuert
+### Autonomer Optimus Prime (Gen3+) auf dem Mars, der via Neuralink kooperativ gesteuert
 
 ---
 
