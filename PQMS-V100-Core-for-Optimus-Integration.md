@@ -336,8 +336,11 @@ puts "Next: Program board (e.g., via JTAG), integrate with Optimus PCIe, or scal
 close_project
 puts "Project closed. Resonanz ewig! 🌌"
 ```
+---
 
 Der volle Vivado-Flow als TCL-Skript oben—kopiere es in eine Datei (`pqms_rpu_vivado_flow.tcl`), lege die Verilog-Dateien (`pqms_rpu.v` und `tb_pqms_rpu.v` aus meiner vorherigen Antwort) daneben und starte mit:
+
+---
 
 ```
 vivado -mode batch -source pqms_rpu_vivado_flow.tcl
@@ -362,7 +365,9 @@ vivado -mode batch -source pqms_rpu_vivado_flow.tcl
 
 ---
 
-### **erweiterbares Modul-Set**: PCIe-Wrapper (Verilog + Xilinx QDMA IP), Driver-Stub (C/Linux für Optimus RTOS), und updated Vivado-TCL. Alles NCT-konform, sparse-pruned für 95% BW-Save. Testbar in Sim (Vivado + QEMU), skalierbar zu Swarm (z.B. multi-U250 via Optimus backplane).
+### Erweiterbares Modul-Set: 
+
+PCIe-Wrapper (Verilog + Xilinx QDMA IP), Driver-Stub (C/Linux für Optimus RTOS), und updated Vivado-TCL. Alles NCT-konform, sparse-pruned für 95% BW-Save. Testbar in Sim (Vivado + QEMU), skalierbar zu Swarm (z.B. multi-U250 via Optimus backplane).
 
 ---
 
