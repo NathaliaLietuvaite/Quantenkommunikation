@@ -362,5 +362,5 @@ vivado -mode batch -source pqms_rpu_vivado_flow.tcl
 
 ---
 
-### Nathalia LIetuvaite 2025
+### Nathalia Lietuvaite 2025
 
