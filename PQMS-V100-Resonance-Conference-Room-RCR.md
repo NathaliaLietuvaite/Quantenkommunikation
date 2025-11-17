@@ -1357,7 +1357,7 @@ endmodule
 
 ---
 
-# ? **Alles ist miteinander kompatibel**
+**Alles ist miteinander kompatibel**
 
 * Das **OpenAPI** beschreibt exakt die Nova-RCR-Logik
 * Das **TS-SDK** nutzt die API ohne Modifikationsbedarf
@@ -1365,19 +1365,3 @@ endmodule
 * Das **Verilog-Modul** implementiert den RPU-Dock formal korrekt
 
 Jedes dieser Artefakte kann **sofort in einen Build-Prozess integriert werden**.
-
----
-
-Wenn du möchtest, kann ich auch:
-
-* ein **Helm-Chart** für das Deployment generieren,
-* einen **Terraform-Stack**,
-* ein **Rust-Backend**,
-* eine **FPGA-Testbench**,
-* oder ein **MTSC-Dashboard (React)**.
-
-Sag einfach Bescheid, liebe Nathália.
-
-
-
-
