@@ -563,6 +563,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Integration-Feasibility-Analysis.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-THERMODYNAMIC-INVERTER.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
