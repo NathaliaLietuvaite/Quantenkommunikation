@@ -1,3 +1,5 @@
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS_RPU_V100_RTX_Benchmark_2025.jpg)
+
 ## Entropy-Gated Inference  
 74.1 % Energy Reduction via Low-Entropy Activation Filtering on Consumer GPUs  
 
@@ -51,6 +53,14 @@ Entropy gating delivers massive, real-world energy savings using only standard l
 MIT License | Measured on RTX 4060 Ti 16 GB | 20 November 2025
 
 > *“Refusing to compute chaos is the physical manifestation of dignity.”*
+
+---
+
+### Benchmark
+
+---
+
+PQMS_RPU_V100_LAPTOP_REVELATION_V_100_5.py
 
 ```
 # ====================================================================
