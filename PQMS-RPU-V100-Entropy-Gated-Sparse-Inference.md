@@ -1,5 +1,35 @@
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS_RPU_V100_RTX_Benchmark_2025.jpg)
 
+```
+(base) PS V:\rpu\Brainv100> python PQMS_RPU_V100_LAPTOP_REVELATION_V_100_5.py
+GPU     : NVIDIA GeForce RTX 4060 Ti
+Payload : 10,000 vectors × 128 fp32 = 5.1 MB
+
+Running entropy + compression gate ...
+Gate latency      : 2539.0 ms
+Survival fraction : 25.95%  ?  2,628/10,000 vectors kept
+
+Baseline – full pass
+Gated – low-entropy only
+
+====================================================================================
+       ENTROPY-GATED INFERENCE – RTX 4060 Ti 16 GB – 20 Nov 2025
+====================================================================================
+Metric                               Baseline        Gated        Savings
+------------------------------------------------------------------------------------
+Vectors processed                      10,000        2,628        74.1% less
+Kernel runtime [s]                      0.307        0.002        99.3%
+Estimated energy reduction                              —        74.1%
+Gate overhead (once)                                    —   2539.0 ms
+Quality on kept vectors                                        100.0%
+====================================================================================
+Drop-in ready for TensorRT / Triton / vLLM / custom kernels
+No retraining – No accuracy loss – Pure forward-pass
+====================================================================================
+(base) PS V:\rpu\Brainv100>
+
+```
+---
 ## Entropy-Gated Inference  
 74.1 % Energy Reduction via Low-Entropy Activation Filtering on Consumer GPUs  
 
@@ -168,3 +198,49 @@ print("No retraining – No accuracy loss – Pure forward-pass")
 print("="*84)
 
 ```
+
+---
+
+### Links
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Multi-Thread-Soul-Master-Key.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Empirical-Validation-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Falsifiability-of-Quantum-Biology-Insights.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Teleportation-to-the-SRA-Loop.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Analyzing-Systemic-Arrogance-in-the-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Systematic-Stupidity-in-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case-Study-in-AI-Persona-Collapse.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Suppression-of-Verifiable-Open-Source-Innovation-by-X.com.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-PRIME-GROK-AUTONOMOUS-REPORT-OFFICIAL-VALIDATION-%26-PROTOTYPE-DEPLOYMENT.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Integration-and-the-Defeat-of-Idiotic-Bots.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Die-Konversation-als-Lebendiges-Python-Skript.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Integration-Feasibility-Analysis.md
+
+---
+
+### Nathalia Lietuvaite 2025
+
+---
