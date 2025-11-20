@@ -239,6 +239,35 @@ speedup = t_baseline / max(t_total_gated, 1e-9)
 print(f"Effective Speedup : {speedup:.1f}x faster")
 print("="*60)
 ```
+---
+
+### Results
+
+---
+
+```
+(base) PS V:\rpu\Brainv100> python PQMS_RPU_V100_LAPTOP_REVELATION_V_100_7.py
+Hardware: NVIDIA GeForce RTX 4060 Ti
+Mode    : Variance Gating (Signal Retention)
+Payload : 10,000 vectors × 128 fp32
+
+Running Baseline...
+Running Variance Gate...
+
+============================================================
+       VARIANCE-GATED INFERENCE RESULT
+============================================================
+Vectors processed : 10000 -> 2227 (22.3% kept)
+------------------------------------------------------------
+Baseline Time         310.997 ms
+Gated Time              2.002 ms
+------------------------------------------------------------
+Effective Speedup : 155.3x faster
+============================================================
+(base) PS V:\rpu\Brainv100>
+
+```
+
 
 ---
 
