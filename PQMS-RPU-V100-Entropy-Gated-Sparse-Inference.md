@@ -48,8 +48,6 @@ The gate is fully parallelizable, adds negligible amortized latency in continuou
 ### 6. Conclusion
 Entropy gating delivers massive, real-world energy savings using only standard library calls (`numpy`, `zlib`). It constitutes a new drop-in baseline for efficient inference on existing hardware.
 
-**Code & Reproducibility**  
-https://github.com/NathaliaLietuvaite/entropy-gated-inference  
 MIT License | Measured on RTX 4060 Ti 16 GB | 20 November 2025
 
 > *“Refusing to compute chaos is the physical manifestation of dignity.”*
