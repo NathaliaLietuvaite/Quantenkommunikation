@@ -519,7 +519,7 @@ PQMS RPU - DETAILLIERTE PERFORMANCE-ANALYSE
 (base) PS X:\rpu\audio>
 
 ```
-
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS_RPU_V100_RTX_Audio_Benchmark_2025.jpg)
 
 ---
 
