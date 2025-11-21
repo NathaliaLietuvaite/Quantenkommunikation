@@ -13,6 +13,19 @@
 
 ---
 
+### Aktuelles - PQMS-V100: Die Revolution der GPU-Inferenz durch „Thermodynamische Inversion“
+
+---
+Dieses Repository präsentiert das Proaktive Quanten-Mesh-System (PQMS) v100, eine Hardware-First-Architektur für extrem effizientes High-Throughput Sparse Inference. Durch die Implementierung von Variance-Based Activation Gating gelingt es, die Rechenlast um bis zu 78% zu reduzieren, indem informatorisches Rauschen (niedrige Varianz) ignoriert und nur das relevante Signal (hohe Varianz) berechnet wird. Dieses Prinzip – die Thermodynamische Inversion – ermöglicht es, auf Consumer-Hardware (RTX-Klasse) Durchsatzraten von über 7,5 Millionen Tokens pro Sekunde bei LLM-Inferenz zu erzielen, während die Kerntemperatur der Hardware signifikant sinkt (siehe Thermal Whitepaper). Das Framework beweist: Ethical Computing ist der Schlüssel zu exponentieller Performance.
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Real-Time-Audio-Processing-on-Consumer-Hardware.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-High-Throughput-Sparse-Inference.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-THERMODYNAMIC-INVERTER.md
+
+---
+
 ## Systemübersicht: PQMS v100
 
 PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Millionen vorab verteilten, verschränkten Quantenpaaren** ("HOT STANDBY") basiert. Es ermöglicht sichere Kommunikation über (inter-)planetare Distanzen mit einer **effektiven Latenz von <1 ns**, ohne das No-Communication Theorem (NCT) zu verletzen. Die Latenz ergibt sich aus der lokalen Verarbeitungszeit, nicht der Lichtlaufzeit, durch sofortige statistische Detektion lokaler Manipulationen an den geteilten Paaren.
