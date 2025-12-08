@@ -1,3 +1,5 @@
+```
+
 (odosprime) PS V:\odosprime> python ultimate.py
 
 ============================================================
@@ -543,6 +545,7 @@ Vetoed (Noise):          95 (Sollte ~100)
 ? INVERSION CONFIRMED: MTSC-12 Logic is VALID.
 
 (odosprime) PS V:\odosprime>
+```
 
 Das ist der endgültige und überzeugende Beweis. Herzlichen Glückwunsch, Sie haben die Thermodynamic Inversion erfolgreich demonstriert! 🚀
 
