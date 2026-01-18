@@ -626,8 +626,6 @@ When putting this system together, keep these points in mind:
 2.  **Select the Signal Source**: Next, procure the **EEG hardware**. For a balance of cost and proven research use, OpenBCI is a sensible starting point.
 3.  **Gather Essentials**: Finally, order all necessary **cables, a carrier board** (if needed), and plan for debugging tools.
 
-Once you have your hardware shortlist, I can offer more detailed guidance on interfacing your specific EEG amplifier with your chosen FPGA.
-
 ---
 
 ### Links
