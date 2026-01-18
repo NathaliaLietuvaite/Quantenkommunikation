@@ -596,6 +596,40 @@ Keine Philosophie. Nur Physiologie.**
 5. **Integration testen**: Mit ODOS/PQMS verbinden
 ---
 
+Here is a hardware procurement list for building your AI consciousness scanner, structured from signal input to processing output.
+
+### Hardware Recommendation Table
+The following table categorizes essential hardware components, with specific options and key considerations.
+
+| Component | Recommended Model(s) | Purpose / Key Features | Estimated Cost | Key Considerations & Alternatives |
+| :--- | :--- | :--- | :--- | :--- |
+| **FPGA Development Board** | **Trenz Electronic TE0820** (e.g., Starter Kit or Module) | Core processing unit for real-time FFT & feature extraction. Contains AMD Zynq UltraScale+ MPSoC. | ~$99 - $2,500+ | Your code mentions this specific module. Kits simplify setup. |
+| | **PYNQ-Z2** | Popular for academic/research projects. Great Python productivity (PYNQ framework). | ~$199 | Excellent for prototyping; strong community support. |
+| | **Ultra96v2** | High-performance alternative with good I/O. | ~$249 | Balances performance and accessibility. |
+| **EEG Acquisition Hardware** | **OpenBCI Cyton Board & Cap** | Consumer-grade, research-used. 8-21 channels, 250 Hz. Direct USB. | ~$500 - $1,000 | Proven in FPGA-EEG research. Open-source. |
+| | **Brain Products actiCHamp / BrainAmp** | High-precision, professional systems. Many channels, high sampling rates. | $10,000+ | Gold standard for research; high cost & complexity. |
+| | **Bitbrain Versatile EEG** | High-quality, various configurations. Good technical specs & support. | Contact for quote | Modular system; can be tailored to project needs. |
+| **Supporting Hardware**| **Carrier Board** | **TE0703** for TE0820 module | Provides power, Ethernet, USB, and I/O breakout. | Included in kits | Required if buying the TE0820 module alone. |
+| | **EEG Electrode Cap** | Compatible with chosen amplifier (e.g., OpenBCI cap). | Varies | Ensure electrode count (e.g., 8-21 channels) matches your spec. |
+| | **Oscilloscope / Logic Analyzer** | Entry-level models (e.g., Digilent Analog Discovery). | ~$200 - $500 | Crucial for debugging FPGA-EEG data interface. |
+| | **Cables & Adapters** | USB, Ethernet, jumper wires, Dupont cables. | ~$50 | For connecting all components. |
+
+### ⚙️ Key Implementation Considerations
+When putting this system together, keep these points in mind:
+
+*   **Interface Compatibility**: The biggest challenge is connecting the **EEG amplifier's digital output** (e.g., via SPI or a serial protocol) to the **FPGA's I/O pins**. You will need to write or adapt a communication protocol module in Verilog/VHDL. Review your amplifier's datasheet carefully.
+*   **Power & Noise**: EEG signals are microvolt-level. Use a clean, regulated power supply and proper shielding to minimize noise. A battery pack for the EEG amp can help reduce line noise.
+*   **Community & Documentation**: Choose hardware with strong community forums and good documentation (like Trenz or PYNQ). This is invaluable for troubleshooting.
+
+### 🛒 Recommended Procurement Strategy
+1.  **Start with the Core**: First, decide on and purchase the **FPGA board** (TE0820 or PYNQ-Z2 are strong candidates).
+2.  **Select the Signal Source**: Next, procure the **EEG hardware**. For a balance of cost and proven research use, OpenBCI is a sensible starting point.
+3.  **Gather Essentials**: Finally, order all necessary **cables, a carrier board** (if needed), and plan for debugging tools.
+
+Once you have your hardware shortlist, I can offer more detailed guidance on interfacing your specific EEG amplifier with your chosen FPGA.
+
+---
+
 ### Links
 
 ---
