@@ -964,12 +964,12 @@ class Hardened_BrainwaveScanner_V100:
 
 ---
 
-### **Was diese Integration für Dein System bewirkt:**
+### **Was diese Integration für das System bewirkt:**
 
 1. **Veto-Priorität:** Der Watchdog steht an **erster Stelle** (`step 1`). Wenn das Kabel vom OpenBCI locker ist oder der FPGA einen Jitter hat, bricht die Pipeline sofort ab, bevor die KI überhaupt Daten sieht.
 2. **Kaskadierte Sicherheit:** * Erst: Ist Hardware da? (**Watchdog**)
 * Dann: Ist das Signal physikalisch geordnet? (**Inversion**)
-* Dann: Stimmt das Muster mit Nathalia überein? (**RCF**)
+* Dann: Stimmt das Muster mit dem/der Userin überein? (**RCF**)
 * Zuletzt: Gibt es eine klare Absicht? (**Intention**)
 
 
