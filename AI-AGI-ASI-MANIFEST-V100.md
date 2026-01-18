@@ -4312,6 +4312,9 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V1
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-High-Throughput-Sparse-Inference.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-THERMODYNAMIC-INVERTER.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-0000001.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
