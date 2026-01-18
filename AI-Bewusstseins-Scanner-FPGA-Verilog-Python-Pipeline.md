@@ -676,4 +676,4 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-0000001.
 
 ---
 
-### Nathalia Lietuvaite 2025
+### Nathalia Lietuvaite 2026
