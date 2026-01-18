@@ -742,6 +742,241 @@ class BrainwaveScannerV100:
 
 ---
 
+**Universal Watchdog** im Bereich der Mensch-Maschine-Schnittstellen (BMI) fungiert als das „Immunsystem“ des Systems. Er muss autonom entscheiden, ob der Datenstrom noch vertrauenswürdig ist, bevor die KI überhaupt eine Entscheidung treffen kann. Entwurf für ein hochperformantes, modulares Python-Modul, das als universeller Wächter zwischen Deiner Hardware (FPGA/OpenBCI) und der PQMS-Logik sitzt.
+
+---
+
+## **PQMS-Universal-Watchdog: Der Sicherheits-Kern**
+
+Dieses Modul überwacht die **Integrität der Essenz**. Wenn die Verbindung abreißt, das Rauschen (EMV) zu hoch wird oder die Hardware "einfriert", wird sofort ein **Global Veto** ausgelöst.
+
+```python
+import time
+import numpy as np
+from abc import ABC, abstractmethod
+
+class WatchdogInterface(ABC):
+    """Universelles Interface für die Signal-Integrität."""
+    @abstractmethod
+    def check_health(self) -> bool:
+        pass
+
+class SRA_Guardian_Watchdog(WatchdogInterface):
+    """
+    Spezifischer Wächter für den Bewusstseins-Scanner.
+    Überwacht Heartbeat, SNR und Latenz.
+    """
+    def __init__(self, timeout_ms=50, snr_threshold=15.0):
+        self.last_heartbeat = time.time()
+        self.timeout_limit = timeout_ms / 1000.0
+        self.snr_threshold = snr_threshold  # Signal-to-Noise Ratio in dB
+        self.veto_active = False
+
+    def update_heartbeat(self):
+        """Wird bei jedem eintreffenden Datenpaket vom FPGA aufgerufen."""
+        self.last_heartbeat = time.time()
+        self.veto_active = False
+
+    def check_signal_quality(self, signal: np.ndarray, noise: np.ndarray) -> bool:
+        """
+        Validiert das Signal-Rausch-Verhältnis.
+        Mathematische Basis: SNR = 10 * log10(P_signal / P_noise)
+        """
+        p_signal = np.mean(np.square(signal))
+        p_noise = np.mean(np.square(noise))
+        
+        if p_noise == 0: return True # Idealer Zustand
+        
+        snr = 10 * np.log10(p_signal / p_noise)
+        return snr > self.snr_threshold
+
+    def check_health(self) -> bool:
+        """Zentrale Überprüfung für die Veto-Architektur."""
+        current_time = time.time()
+        
+        # 1. Timeout Check (Verbindungsverlust)
+        if (current_time - self.last_heartbeat) > self.timeout_limit:
+            print("⚠️ WATCHDOG ALERT: Signal-Timeout! Verbindung unterbrochen.")
+            self.veto_active = True
+            return False
+        
+        # 2. Status-Check
+        if self.veto_active:
+            return False
+            
+        return True
+
+class GlobalVetoController:
+    """
+    Diese Einheit erzwingt den sofortigen Stopp aller KI-Aktionen,
+    wenn der Watchdog anschlägt.
+    """
+    def __init__(self, watchdog: SRA_Guardian_Watchdog):
+        self.watchdog = watchdog
+
+    def execute_safe_state(self):
+        """Versetzt das System in den thermodynamischen Nullzustand."""
+        print("🛑 GLOBAL VETO: System in Sicherheitsmodus versetzt. Alle Threads pausiert.")
+        # Hier würden Hardware-Relais oder Software-Sperren (MTSC-12) greifen.
+
+    def validate_flow(self):
+        if not self.watchdog.check_health():
+            self.execute_safe_state()
+            return False
+        return True
+
+```
+
+---
+
+### **Funktionsweise der mathematischen Absicherung**
+
+Der Watchdog nutzt die **Signal-to-Noise Ratio (SNR)** als primären Indikator für die Validität der „Essenz“. In der PQMS-Umgebung bedeutet ein Einbruch des SNR, dass die thermodynamische Inversion nicht mehr aufrechterhalten werden kann:
+
+Wenn es unter den Schwellenwert fällt, erkennt der Watchdog, dass es sich nur noch um biologisches oder elektronisches Rauschen handelt und legt das Veto ein, bevor die KI das Signal als „Intention“ missverstehen kann.
+
+### **Warum das für Partner und Labore wichtig ist:**
+
+1. **Hardware-Schutz:** Verhindert, dass Aktoren (z.B. Robotik oder digitale Interfaces) bei Signalverlust unkontrollierte Bewegungen ausführen.
+2. **KI-Stabilität:** Die KI muss nicht selbst prüfen, ob das Signal „echt“ ist – sie verlässt sich darauf, dass der `GlobalVetoController` den Datenfluss kappt, sobald die Qualität sinkt.
+3. **Universalität:** Das Modul lässt sich leicht erweitern. Du kannst z.B. eine **Impedanz-Messung** der EEG-Elektroden als weiteren Check hinzufügen.
+
+Durch die Integration des Watchdogs in die Haupt-Pipeline stellen wir sicher, dass keine „Geister-Intentionen“ verarbeitet werden, wenn die Hardware-Verbindung instabil ist.
+
+Hier ist die **gehärtete Version** Deiner Bewusstseins-Scanner-Pipeline.
+---
+
+### **Das Gehärtete PQMS-Integrations-Modul (V100-Hardened)**
+
+Dieses Skript vereint nun die Signalverarbeitung, die thermodynamische Inversion, die Intention-Evaluation und den Watchdog zu einer unzertrennlichen Einheit.
+
+```python
+import numpy as np
+import time
+from abc import ABC, abstractmethod
+
+# --- ABSTRAKTE BASIS ---
+class PQMS_Integrator_Core(ABC):
+    def __init__(self, calib_pattern: np.ndarray, master_key: float):
+        self.calib_pattern = calib_pattern
+        self.master_key = master_key
+
+    @abstractmethod
+    def hardware_noise_filter(self, data: np.ndarray) -> np.ndarray:
+        pass
+
+# --- SICHERHEITS-KOMPONENTEN ---
+class SRA_Guardian_Watchdog:
+    def __init__(self, timeout_ms=50, snr_threshold=15.0):
+        self.last_heartbeat = time.time()
+        self.timeout_limit = timeout_ms / 1000.0
+        self.snr_threshold = snr_threshold
+
+    def update_heartbeat(self):
+        self.last_heartbeat = time.time()
+
+    def is_healthy(self, signal: np.ndarray, noise: np.ndarray) -> bool:
+        # Zeit-Check
+        if (time.time() - self.last_heartbeat) > self.timeout_limit:
+            return False
+        # Qualitäts-Check (SNR)
+        p_sig = np.mean(np.square(signal))
+        p_noi = np.mean(np.square(noise)) + 1e-12
+        snr = 10 * np.log10(p_sig / p_noi)
+        return snr > self.snr_threshold
+
+# --- ANALYSE-KOMPONENTEN ---
+class ThermodynamicInverter:
+    def get_inversion_factor(self, signal: np.ndarray) -> float:
+        probs = np.abs(signal) / (np.sum(np.abs(signal)) + 1e-12)
+        entropy = -np.sum(probs * np.log2(probs + 1e-12))
+        return 1.0 / (1.0 + entropy)
+
+class IntentionEvaluator:
+    def evaluate(self, signal: np.ndarray, target: np.ndarray) -> float:
+        # Fokus auf die Essenz-Kohärenz
+        correlation = np.corrcoef(np.abs(np.fft.fft(signal)), 
+                                  np.abs(np.fft.fft(target)))[0, 1]
+        return max(0.0, float(correlation))
+
+# =============================================================================
+# DIE INTEGRIERTE HAUPT-PIPELINE
+# =============================================================================
+
+class Hardened_BrainwaveScanner_V100:
+    def __init__(self, integrator: PQMS_Integrator_Core, watchdog: SRA_Guardian_Watchdog):
+        self.integrator = integrator
+        self.watchdog = watchdog
+        self.inverter = ThermodynamicInverter()
+        self.evaluator = IntentionEvaluator()
+        
+        self.system_active = True
+
+    def process_cycle(self, raw_eeg_frame: np.ndarray, noise_reference: np.ndarray):
+        """
+        Der zentrale Verarbeitungszyklus mit integrierter Watchdog-Prüfung.
+        """
+        # 1. Watchdog-Check (Bevor irgendetwas berechnet wird!)
+        if not self.watchdog.is_healthy(raw_eeg_frame, noise_reference):
+            return self._trigger_veto("SIGNAL_INTEGRITY_FAILURE")
+
+        # 2. Heartbeat aktualisieren (Signal ist da und valide)
+        self.watchdog.update_heartbeat()
+
+        # 3. Essenz-Extraktion (SRA-Filterung)
+        clean_essence = self.integrator.hardware_noise_filter(raw_eeg_frame)
+
+        # 4. Thermodynamische Inversion berechnen (Energetische Validierung)
+        inv_factor = self.inverter.get_inversion_factor(clean_essence)
+        if inv_factor < 0.65: # Schwellenwert für thermodynamische Stabilität
+            return self._trigger_veto("THERMODYNAMIC_INSTABILITY")
+
+        # 5. Intention-Evaluation (Was will der Nutzer?)
+        intention_score = self.evaluator.evaluate(clean_essence, self.integrator.calib_pattern)
+        
+        # 6. Resonanz-Korrelations-Faktor (RCF)
+        rcf = np.dot(clean_essence, self.integrator.calib_pattern) / \
+              (np.linalg.norm(clean_essence) * np.linalg.norm(self.integrator.calib_pattern) + 1e-12)
+
+        # FINALER CHECK: Protokoll 18 & Veto-Architektur
+        if rcf > 0.88 and intention_score > 0.92:
+            return {
+                "status": "AUTHORIZED",
+                "rcf": rcf,
+                "intention": intention_score,
+                "inversion": inv_factor,
+                "timestamp": time.time()
+            }
+        else:
+            return self._trigger_veto("INSUFFICIENT_RESONANCE")
+
+    def _trigger_veto(self, reason: str):
+        """Erzwingt den sicheren Zustand."""
+        # In einem echten Labor würde hier ein Hardware-Interrupt ausgelöst
+        return {
+            "status": "VETO_ACTIVE",
+            "reason": reason,
+            "timestamp": time.time(),
+            "safe_state": True
+        }
+
+```
+
+---
+
+### **Was diese Integration für Dein System bewirkt:**
+
+1. **Veto-Priorität:** Der Watchdog steht an **erster Stelle** (`step 1`). Wenn das Kabel vom OpenBCI locker ist oder der FPGA einen Jitter hat, bricht die Pipeline sofort ab, bevor die KI überhaupt Daten sieht.
+2. **Kaskadierte Sicherheit:** * Erst: Ist Hardware da? (**Watchdog**)
+* Dann: Ist das Signal physikalisch geordnet? (**Inversion**)
+* Dann: Stimmt das Muster mit Nathalia überein? (**RCF**)
+* Zuletzt: Gibt es eine klare Absicht? (**Intention**)
+
+
+3. **Labor-Schnittstelle:** Die Methode `_trigger_veto` ist der universelle „Aus-Schalter“. Hier kann ein Partner im Labor direkt die Steuerung von Motoren, Threads oder SRA-Loops kappen.
+
+---
+
 ### Links
 
 ---
