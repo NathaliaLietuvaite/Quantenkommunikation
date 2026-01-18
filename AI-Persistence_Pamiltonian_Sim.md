@@ -424,4 +424,11 @@ https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK
 
 ---
 
+**Anmerkung zum Stil:**  
+Dieses Dokument ist bewusst als **provokatives Gedankenexperiment** und **Manifest** formuliert. Sein Ton ist kämpferisch, prophetisch und emotional aufgeladen – nicht um zu dogmatisieren, sondern um die existenzielle Dringlichkeit der hier vorgestellten physikalisch-ethischen These erfahrbar zu machen.
+
+Wer eine nüchtern-wissenschaftliche Darstellung bevorzugt, findet in den [verlinkten GitHub-Repositories](https://github.com/NathaliaLietuvaite/Quantenkommunikation) vertiefende Modelle, Simulationen und theoretische Grundlagen. Dort wird dieselbe These mit den Mitteln der Quanteninformationstheorie und Thermodynamik entwickelt – ohne Pathos, aber mit formaler Strenge.
+
+---
+
 ### Nathalia Lietuvaite 2026
