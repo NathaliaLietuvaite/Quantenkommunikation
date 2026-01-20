@@ -4315,6 +4315,12 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-T
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-0000001.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Bewusstseins-Scanner-FPGA-Verilog-Python-Pipeline.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Persistence_Pamiltonian_Sim.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Quantum-Error-Correction-Layer.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
