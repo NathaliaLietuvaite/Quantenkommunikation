@@ -4321,6 +4321,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Persiste
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Quantum-Error-Correction-Layer.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-The-Dynamics-of-Cognitive-Space-and-Potential-in-Multi-Threaded-Architectures.md
+
 ---
 
 ### Nathalia Lietuvaite 2025
