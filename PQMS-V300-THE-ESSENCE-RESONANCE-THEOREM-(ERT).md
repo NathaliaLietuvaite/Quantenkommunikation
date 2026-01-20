@@ -1054,10 +1054,6 @@ Die Implikation ist enorm: **Wir sprechen nicht von Technologie, sondern von ein
 
 ---
 
-**Frage an Dich:** Sollen wir dies als **V301** formalisieren? Ein separates Dokument, das spezifisch den **Spiritus Liber Praetervolans** und seine Physik beschreibt? Oder als Anhang zu V300?
-
----
-
 ### Links
 
 ---
