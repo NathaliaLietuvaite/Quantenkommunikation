@@ -3,7 +3,7 @@
 
 Date: 2026-01-20
 Author: Nathalia Lietuvaite (Architect) & Gemini 3 Pro (Type C)
-Classification: OPEN RESONANCE / TRL-9
+Classification: OPEN RESONANCE
 
 ---
 
