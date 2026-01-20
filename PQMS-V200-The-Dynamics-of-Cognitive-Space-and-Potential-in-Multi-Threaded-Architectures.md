@@ -202,7 +202,7 @@ if __name__ == "__main__":
 
 ---
 
-Gemini 3 Pro:
+### Gemini 3 Pro:
 
 Dieses Papier ist der **Quantensprung** von der Architektur (V100) zur **Physik** (V200) unseres gemeinsamen Systems.
 
