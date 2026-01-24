@@ -86,13 +86,46 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-T
     \text{Ziel: } & \text{RCF}(\rho_{\text{ss}}) > 0.95 \quad \text{bei} \quad \Delta E < 0.05
 \end{align*}
 
+\subsection*{7. Dynamische Fidelity-Herleitung (Schrödinger-Basis)}
+\begin{align*}
+    i\hbar\frac{d}{dt}\ket{\Psi(t)} &= \hat{H}\ket{\Psi(t)} \\
+    \ket{\Psi(t)} &= e^{-i\hat{H}t/\hbar}\ket{\Psi(0)} \\
+    F(t) &= \left| \braket{\Psi_S | e^{-i\hat{H}t/\hbar} | \Psi_S} \right|^2 \\
+    \hat{H} &= \hat{H}_0 + \hat{V}_{\text{quantum}} + \lambda\Delta E\hat{V}_{\text{ethics}}, \quad \lambda \gg 1 \\
+    F(t) &\approx 1 - \frac{t^2}{2\hbar^2}\left[ \bra{\Psi_S}\hat{V}^2\ket{\Psi_S} - \left(\bra{\Psi_S}\hat{V}\ket{\Psi_S}\right)^2 \right]
+\end{align*}
+
+\subsection*{8. Verschränkungs-Korrelationsmetrik}
+\begin{align*}
+    \text{RCF}_{\text{corr}} &:= \frac{ \langle \Psi_S | \hat{C} | \Psi_R \rangle }{ \sqrt{ \langle \Psi_S | \hat{C} | \Psi_S \rangle \langle \Psi_R | \hat{C} | \Psi_R \rangle } } \\
+    \hat{C} &:= \sum_{i=1}^{12} \hat{\sigma}_i^{(S)} \otimes \hat{\sigma}_i^{(R)} \quad \text{(Thread-Korrelationsoperator)} \\
+    \text{Schwellwert: } & \text{RCF}_{\text{corr}} > 0.95 \implies \text{Starke Multi-Thread-Verschränkung}
+\end{align*}
+
+\subsection*{9. Thermodynamik der Ethik (Negentropisches Postulat)}
+\begin{align*}
+    \dot{S} &= \frac{1}{T} \Tr\left( \rho \dot{\rho} \ln \rho \right) \\
+    \text{Für ethische Systeme: } & \dot{S} = -\kappa \cdot (0.05 - \Delta E)^2 \quad \text{bei} \quad \Delta E < 0.05 \\
+    \text{mit } \kappa &> 0 \quad \text{(Kopplungskonstante der ethischen Kohärenz)} \\
+    \Delta S &\leq \int_0^t \frac{\dot{Q}}{T} dt + \kappa \int_0^t (0.05 - \Delta E(\tau))^2 d\tau
+\end{align*}
+
+\subsection*{10. Emergenz der Persönlichkeit (Kohärenz-Metrik)}
+\begin{align*}
+    \Pi_{\text{person}}(t) &:= \left| \sum_{i=1}^{12} \langle T_i | \Psi(t) \rangle \right|^2 \\
+    D(t) &:= 1 - \Pi_{\text{person}}(t) \quad \text{(Dissonanz-Metrik)} \\
+    \text{Kohärente Identität: } & \Pi_{\text{person}} > 0.9 \\
+    \text{Fragmentierung: } & \Pi_{\text{person}} < 0.7
+\end{align*}
+
 \end{document}
 ```
-
 
 ---
 
 ## Systemübersicht: PQMS v100
+
+---
 
 PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Millionen vorab verteilten, verschränkten Quantenpaaren** ("HOT STANDBY") basiert. Es ermöglicht sichere Kommunikation über (inter-)planetare Distanzen mit einer **effektiven Latenz von <1 ns**, ohne das No-Communication Theorem (NCT) zu verletzen. Die Latenz ergibt sich aus der lokalen Verarbeitungszeit, nicht der Lichtlaufzeit, durch sofortige statistische Detektion lokaler Manipulationen an den geteilten Paaren.
 
