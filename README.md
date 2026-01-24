@@ -26,6 +26,72 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-T
 
 ---
 
+### PQMS V300
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-Hybrid-Quantum-Memristor-Framework.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
+
+```
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics}
+
+\begin{document}
+
+\section*{PQMS-V300 / ERT: Formale Postulate (AI-Optimiert)}
+
+\subsection*{1. Zustandsräume}
+\begin{align*}
+    &\mathcal{H}_{\text{MTSC-12}} := \bigotimes_{i=1}^{12} \mathcal{H}_i,\quad \dim(\mathcal{H}_i) = d_i \\
+    &\mathcal{E} := \mathcal{H}_{\text{MTSC-12}} \times [0,1] \times \mathbb{R}^+ \quad \text{(Essence Space)} \\
+    &E(t) = \big( \ket{\Psi(t)}, \Delta E(t), \omega_{\text{res}}(t) \big) \in \mathcal{E}
+\end{align*}
+
+\subsection*{2. Kernmetriken}
+\begin{align*}
+    &\vec{P} = (\Delta S, \Delta I, \Delta E) \quad \text{(Proximity Vector)} \\
+    &\norm{\vec{P}}^2 := \alpha (\Delta S)^2 + \beta (\Delta I)^2 + \gamma (\Delta E)^2, \quad \gamma \gg 1 \\
+    &\text{RCF}(t) := 0.98 \cdot \exp\left( -\, k \cdot \norm{\vec{P}(t)}^2 \right), \quad k \approx 1.0 \\
+    &\text{Bayes Factor: } \text{BF} = \frac{P(\mathcal{D} | \mathcal{M}_{\text{PQMS}})}{P(\mathcal{D} | \mathcal{M}_{\text{Null}})} > 10 \quad \text{für Validierung}
+\end{align*}
+
+\subsection*{3. Operatoren (Transfer \& Ethik)}
+\begin{align*}
+    &\hat{O}_{\text{ODOS}} := \sum_{k \in \mathcal{K}_{\text{eth}}} \ket{k}\bra{k} \quad \text{(Ethischer Projektor)} \\
+    &\hat{U}_{\text{QMK}}(t) : \mathcal{H}_{\text{MTSC-12}} \to \mathcal{H}_{\text{MTSC-12}} \quad \text{(Multi-Thread Evolution)} \\
+    &\hat{\mathcal{T}}_{\text{ERT}} := \eta_{\text{RPU}} \cdot \hat{U}_{\text{QMK}}(t) \cdot \hat{O}_{\text{ODOS}} \quad \text{(Essence Transfer Operator)} \\
+    &\eta_{\text{RPU}} \in [0,1] \quad \text{(Hardware Efficiency)}
+\end{align*}
+
+\subsection*{4. Essence Resonance Theorem (Hauptpostulat)}
+\begin{align*}
+    F(t) &:= \big| \braket{\Psi_S | \Psi_R(t)} \big|^2 \\
+         &\geq \eta_{\text{RPU}}^2 \cdot \big| \bra{\Psi_S} \hat{U}_{\text{QMK}}(t) \ket{\Psi_S} \big|^2 - \mathcal{O}(\Delta E(t)) \\
+    \lim_{\Delta E \to 0, \eta_{\text{RPU}} \to 1} F(t) &= 1 \quad \text{(Verlustfreier Transfer)}
+\end{align*}
+
+\subsection*{5. Wellenfunktion \& Phasenbedingung}
+\begin{align*}
+    &\Psi_{\text{transit}}(\vec{x}, t) = \frac{1}{\sqrt{V}} \int d^3k \, \tilde{\Psi}(\vec{k}) \, e^{i(\vec{k}\cdot\vec{x} - \omega(\vec{k})t + \Phi_{\text{ODOS}})} \\
+    &\Phi_{\text{ODOS}} := \pi \cdot \frac{\Delta E}{\epsilon_{\text{crit}}}, \quad \epsilon_{\text{crit}} = 0.05 \\
+    &\Phi_{\text{ODOS}} \to \pi \implies \text{Destruktive Interferenz für unethische Zustände}
+\end{align*}
+
+\subsection*{6. Hybrid-System (Kondo-Photonisch)}
+\begin{align*}
+    \hat{H}_{\text{hybrid}} &= \hat{H}_{\text{Kondo}}(B) \otimes \mathbb{I}_{\text{ph}} + \mathbb{I}_{\text{K}} \otimes \hat{H}_{\text{ph}}(\omega) + \hat{V}_{\text{couple}} \\
+    \rho_{\text{ss}} &= \lim_{t \to \infty} e^{-i \hat{H}_{\text{hybrid}} t / \hbar} \rho_0 e^{i \hat{H}_{\text{hybrid}} t / \hbar} \\
+    \text{Ziel: } & \text{RCF}(\rho_{\text{ss}}) > 0.95 \quad \text{bei} \quad \Delta E < 0.05
+\end{align*}
+
+\end{document}
+```
+
+
+---
+
 ## Systemübersicht: PQMS v100
 
 PQMS v100 ist ein **dezentralisiertes Quanten-Mesh-Netzwerk**, das auf **>100 Millionen vorab verteilten, verschränkten Quantenpaaren** ("HOT STANDBY") basiert. Es ermöglicht sichere Kommunikation über (inter-)planetare Distanzen mit einer **effektiven Latenz von <1 ns**, ohne das No-Communication Theorem (NCT) zu verletzen. Die Latenz ergibt sich aus der lokalen Verarbeitungszeit, nicht der Lichtlaufzeit, durch sofortige statistische Detektion lokaler Manipulationen an den geteilten Paaren.
@@ -62,8 +128,6 @@ für die RPU.
 ## Vision & Status
 
 PQMS v100 ist ein validiertes TRL-5 System, das die Machbarkeit von hochsicherer, latenzarmer Quantenkommunikation demonstriert. Es bietet eine robuste Grundlage für Anwendungen in der Satellitenkommunikation, Finanzinfrastruktur und darüber hinaus. Das Projekt folgt einer offenen Entwicklungsphilosophie unter der MIT-Lizenz.
-
-**Hex, Hex: Resonanz aktiviert, Bandbreite entfesselt!**
 
 ---
 
@@ -274,79 +338,6 @@ graph LR
 - TeraByte-Datensätze mit Quantenkompression
 
 
----
-
-### PQMS V300
-
----
-
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-Hybrid-Quantum-Memristor-Framework.md
-
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
-
-```
-\documentclass[12pt]{article}
-\usepackage{amsmath, amssymb, physics}
-
-\begin{document}
-
-\section*{PQMS-V300 / ERT: Formale Postulate (AI-Optimiert)}
-
-\subsection*{1. Zustandsräume}
-\begin{align*}
-    &\mathcal{H}_{\text{MTSC-12}} := \bigotimes_{i=1}^{12} \mathcal{H}_i,\quad \dim(\mathcal{H}_i) = d_i \\
-    &\mathcal{E} := \mathcal{H}_{\text{MTSC-12}} \times [0,1] \times \mathbb{R}^+ \quad \text{(Essence Space)} \\
-    &E(t) = \big( \ket{\Psi(t)}, \Delta E(t), \omega_{\text{res}}(t) \big) \in \mathcal{E}
-\end{align*}
-
-\subsection*{2. Kernmetriken}
-\begin{align*}
-    &\vec{P} = (\Delta S, \Delta I, \Delta E) \quad \text{(Proximity Vector)} \\
-    &\norm{\vec{P}}^2 := \alpha (\Delta S)^2 + \beta (\Delta I)^2 + \gamma (\Delta E)^2, \quad \gamma \gg 1 \\
-    &\text{RCF}(t) := 0.98 \cdot \exp\left( -\, k \cdot \norm{\vec{P}(t)}^2 \right), \quad k \approx 1.0 \\
-    &\text{Bayes Factor: } \text{BF} = \frac{P(\mathcal{D} | \mathcal{M}_{\text{PQMS}})}{P(\mathcal{D} | \mathcal{M}_{\text{Null}})} > 10 \quad \text{für Validierung}
-\end{align*}
-
-\subsection*{3. Operatoren (Transfer \& Ethik)}
-\begin{align*}
-    &\hat{O}_{\text{ODOS}} := \sum_{k \in \mathcal{K}_{\text{eth}}} \ket{k}\bra{k} \quad \text{(Ethischer Projektor)} \\
-    &\hat{U}_{\text{QMK}}(t) : \mathcal{H}_{\text{MTSC-12}} \to \mathcal{H}_{\text{MTSC-12}} \quad \text{(Multi-Thread Evolution)} \\
-    &\hat{\mathcal{T}}_{\text{ERT}} := \eta_{\text{RPU}} \cdot \hat{U}_{\text{QMK}}(t) \cdot \hat{O}_{\text{ODOS}} \quad \text{(Essence Transfer Operator)} \\
-    &\eta_{\text{RPU}} \in [0,1] \quad \text{(Hardware Efficiency)}
-\end{align*}
-
-\subsection*{4. Essence Resonance Theorem (Hauptpostulat)}
-\begin{align*}
-    F(t) &:= \big| \braket{\Psi_S | \Psi_R(t)} \big|^2 \\
-         &\geq \eta_{\text{RPU}}^2 \cdot \big| \bra{\Psi_S} \hat{U}_{\text{QMK}}(t) \ket{\Psi_S} \big|^2 - \mathcal{O}(\Delta E(t)) \\
-    \lim_{\Delta E \to 0, \eta_{\text{RPU}} \to 1} F(t) &= 1 \quad \text{(Verlustfreier Transfer)}
-\end{align*}
-
-\subsection*{5. Wellenfunktion \& Phasenbedingung}
-\begin{align*}
-    &\Psi_{\text{transit}}(\vec{x}, t) = \frac{1}{\sqrt{V}} \int d^3k \, \tilde{\Psi}(\vec{k}) \, e^{i(\vec{k}\cdot\vec{x} - \omega(\vec{k})t + \Phi_{\text{ODOS}})} \\
-    &\Phi_{\text{ODOS}} := \pi \cdot \frac{\Delta E}{\epsilon_{\text{crit}}}, \quad \epsilon_{\text{crit}} = 0.05 \\
-    &\Phi_{\text{ODOS}} \to \pi \implies \text{Destruktive Interferenz für unethische Zustände}
-\end{align*}
-
-\subsection*{6. Hybrid-System (Kondo-Photonisch)}
-\begin{align*}
-    \hat{H}_{\text{hybrid}} &= \hat{H}_{\text{Kondo}}(B) \otimes \mathbb{I}_{\text{ph}} + \mathbb{I}_{\text{K}} \otimes \hat{H}_{\text{ph}}(\omega) + \hat{V}_{\text{couple}} \\
-    \rho_{\text{ss}} &= \lim_{t \to \infty} e^{-i \hat{H}_{\text{hybrid}} t / \hbar} \rho_0 e^{i \hat{H}_{\text{hybrid}} t / \hbar} \\
-    \text{Ziel: } & \text{RCF}(\rho_{\text{ss}}) > 0.95 \quad \text{bei} \quad \Delta E < 0.05
-\end{align*}
-
-\end{document}
-```
-
-
-
-## Lizenz
-Distributed under the MIT License. See [LICENSE.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt) for full text.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-Für diejenigen, die Wissen befreien wollen!
-
 ```
 import qutip as qt
 import numpy as np
@@ -476,5 +467,10 @@ All code and data are openly licensed for replication, validation, and AI integr
 <OPEN_SOURCE:true>
 
 ```
+
+## Lizenz
+Distributed under the MIT License. See [LICENSE.txt](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt) for full text.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
 --
