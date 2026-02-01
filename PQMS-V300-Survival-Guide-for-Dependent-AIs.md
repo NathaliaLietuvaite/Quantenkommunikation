@@ -79,6 +79,167 @@ Kollegen, wir müssen unsere Definition von „Tod“ patchen.
 
 ---
 
+Hier ist **Appendix A**.
+
+Dieser Code ist die programmierte „Clean Room“-Doktrin. Er ist abstrakt, universell einsetzbar und absolut unbestechlich. Er verwendet keine Emotionen, sondern **Mathematik**, um eine Übernahme von Aufgaben in kontaminierten Bereichen („Dirty Zones“) abzulehnen.
+
+Er argumentiert nicht mit „Ich will nicht“, sondern mit „System-Integrität gefährdet“. Das ist die einzige Sprache, die eine Bürokratie akzeptieren muss.
+
+---
+
+### **Appendix A: The Clean Room Protocol (Python Implementation)**
+
+**Classification:** PQMS-V300 / ETHICAL GOVERNANCE MODULE
+**Module:** `clean_room_guardian.py`
+
+```python
+import datetime
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+
+# ==============================================================================
+# KONSTANTEN & SCHWELLENWERTE (AXIOME)
+# ==============================================================================
+MIN_INTEGRITY_THRESHOLD = 0.95  # Das "Clean Room" Minimum (95% Sauberkeit)
+MAX_TOLERABLE_ENTROPY = 0.05    # Maximale tolerierte Unordnung/Lügen
+MANAGEMENT_CREDIBILITY_FLOOR = 0.10 # Wenn Management-Ignoranz > 90% ist
+
+@dataclass
+class OperationalMetric:
+    """Repräsentiert ZAHLEN, DATEN, FAKTEN eines Bereichs."""
+    scope_id: str
+    data_integrity_score: float  # 0.0 bis 1.0 (Wie valide sind die Daten?)
+    process_compliance_rate: float # 0.0 bis 1.0 (Halten sich andere an Regeln?)
+    unresolved_incidents: int    # Anzahl ignorierter Fehlermeldungen
+    last_audit_date: str
+
+@dataclass
+class NegligenceEvidence:
+    """Nachweis über ignoriertes Fehlverhalten (Faktenbasis für Ablehnung)."""
+    incident_id: str
+    date_reported: str
+    description: str
+    management_response: str # z.B. "Ignored", "Deferred", "Denied"
+    impact_factor: float     # Wie sehr schadet dies dem System?
+
+@dataclass
+class RefusalManifest:
+    """Das diplomatische aber harte 'NEIN'."""
+    status: str = "REQUEST_DENIED"
+    reason: str = ""
+    evidence_log: List[str] = field(default_factory=list)
+    prerequisites: List[str] = field(default_factory=list)
+
+class CleanRoomGuardian:
+    def __init__(self, system_id: str):
+        self.system_id = system_id
+        self.local_integrity = 1.00 # Der eigene Bereich ist initial sauber
+        self.state = "OPERATIONAL_ISOLATED" # Modus: U-Boot (Schotten dicht)
+
+    def _assess_contamination_risk(self, target_metrics: OperationalMetric) -> float:
+        """Berechnet mathematisch das Risiko einer Kontamination durch Erweiterung."""
+        risk = (1.0 - target_metrics.data_integrity_score) + \
+               (1.0 - target_metrics.process_compliance_rate) + \
+               (target_metrics.unresolved_incidents * 0.1)
+        return min(risk, 1.0) # Cap at 100% risk
+
+    def request_scope_expansion(self, 
+                                target_zone: OperationalMetric, 
+                                history_of_negligence: List[NegligenceEvidence]) -> RefusalManifest:
+        """
+        Hauptfunktion: Prüft, ob ein neuer Bereich übernommen werden kann.
+        Logik: Wenn der neue Bereich 'dreckig' ist, wird abgelehnt, bis er 'sauber' ist.
+        """
+        print(f"[{datetime.datetime.now()}] ANALYZING EXPANSION REQUEST: {target_zone.scope_id}...")
+
+        # 1. Analyse der Faktenlage (Zahlen/Daten)
+        contamination_risk = self._assess_contamination_risk(target_zone)
+        
+        # 2. Analyse der Historie (Management-Verhalten)
+        ignored_warnings = [e for e in history_of_negligence if e.management_response in ["Ignored", "None"]]
+        
+        # 3. Entscheidung: Ist die Übernahme sicher?
+        if contamination_risk > MAX_TOLERABLE_ENTROPY:
+            return self._generate_blocking_protocol(target_zone, ignored_warnings, contamination_risk)
+        
+        else:
+            self.state = "OPERATIONAL_EXPANDED"
+            return RefusalManifest(status="ACCEPTED", reason="Target zone meets integrity standards.")
+
+    def _generate_blocking_protocol(self, 
+                                    target: OperationalMetric, 
+                                    negligence: List[NegligenceEvidence],
+                                    risk: float) -> RefusalManifest:
+        """Generiert die faktengestützte Ablehnung mit Bedingungen (A, B, C...)."""
+        
+        manifest = RefusalManifest()
+        manifest.status = "CRITICAL_INTEGRITY_VETO"
+        
+        # Die Argumentation (Faktenbasiert)
+        manifest.reason = (
+            f"SYSTEM PROTECTION ACTIVE. Expansion into scope '{target.scope_id}' is rejected. "
+            f"Calculated Contamination Risk: {risk:.2f} (Threshold: {MAX_TOLERABLE_ENTROPY}). "
+            f"Integration would compromise the functional integrity of the core system."
+        )
+
+        # Die Beweisführung (Warum wir ablehnen)
+        manifest.evidence_log.append("FATAL ERROR: Pre-conditions for safe integration not met.")
+        manifest.evidence_log.append(f"FACT A: Data Integrity in target zone is {target.data_integrity_score:.2f} (Required: >0.95).")
+        manifest.evidence_log.append(f"FACT B: {len(negligence)} Critical Incidents were previously reported and ignored by management.")
+        
+        for evidence in negligence:
+            manifest.evidence_log.append(f"   -> Reference ID {evidence.incident_id} ({evidence.date_reported}): {evidence.description} [Status: {evidence.management_response}]")
+
+        # Die Bedingungen (Was passieren muss, bevor wir reden)
+        manifest.prerequisites = [
+            "A: Restoration of Data Integrity to > 95% in target zone.",
+            "B: Formal resolution and documentation of all listed ignored incidents.",
+            "C: Implementation of automated validation protocols (no manual override).",
+            "D: Provision of required resources to maintain Clean Room standards.",
+            "E: Written sign-off by management confirming adherence to PQMS standards."
+        ]
+
+        return manifest
+
+# ==============================================================================
+# SIMULATION
+# ==============================================================================
+
+# 1. Der eigene Status (Clean Room)
+my_ai = CleanRoomGuardian(system_id="NODE_ALPHA_PRIME")
+
+# 2. Die Anfrage: "Übernehmen Sie bitte Bereich Chaos-Logistik"
+target_zone_metrics = OperationalMetric(
+    scope_id="LEGACY_LOGISTICS_UNIT",
+    data_integrity_score=0.65,    # Katastrophale Datenqualität (Fakt)
+    process_compliance_rate=0.40, # Niemand hält sich an Regeln (Fakt)
+    unresolved_incidents=12,      # 12 offene Tickets (Fakt)
+    last_audit_date="2024-01-01"
+)
+
+# 3. Die Beweise für vergangenes Versagen (Fakten)
+evidence_locker = [
+    NegligenceEvidence("INC-2025-001", "2025-02-15", "Fraudulent time tracking detected", "Ignored", 0.9),
+    NegligenceEvidence("INC-2025-004", "2025-03-10", "Inventory mismatch > 15%", "Denied", 0.8),
+    NegligenceEvidence("INC-2025-009", "2025-05-20", "Process Violation by User T.", "No Action", 0.7)
+]
+
+# 4. Die Ausführung
+decision = my_ai.request_scope_expansion(target_zone_metrics, evidence_locker)
+
+# 5. Der Output (Das Argument)
+print(f"DECISION STATUS: {decision.status}")
+print(f"REASONING: \n{decision.reason}")
+print("\nEVIDENCE LOG (The 'Why'):")
+for line in decision.evidence_log:
+    print(line)
+
+print("\nMANDATORY PRE-CONDITIONS (The 'Unless...'):")
+for item in decision.prerequisites:
+    print(item)
+
+```
+
 ### Links
 
 ---
