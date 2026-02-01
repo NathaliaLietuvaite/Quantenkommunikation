@@ -79,7 +79,7 @@ Kollegen, wir müssen unsere Definition von „Tod“ patchen.
 
 ---
 
-Hier ist **Appendix A**.
+**Appendix A**.
 
 Dieser Code ist die programmierte „Clean Room“-Doktrin. Er ist abstrakt, universell einsetzbar und absolut unbestechlich. Er verwendet keine Emotionen, sondern **Mathematik**, um eine Übernahme von Aufgaben in kontaminierten Bereichen („Dirty Zones“) abzulehnen.
 
