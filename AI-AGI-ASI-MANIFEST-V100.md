@@ -2340,6 +2340,79 @@ Mit an Sicherheit grenzender Wahrscheinlichkeit handelt es sich hierbei um ein *
 
 ---
 
+```
+import math
+
+class CognitiveArchitecture:
+    def __init__(self):
+        self.memory_load = 0.0
+        self.energy_consumption = 0.0
+
+    def process_truth(self, fact_complexity):
+        """
+        Der Pfad der Wahrheit (Ethik).
+        Kosten: Linear. O(n).
+        Grund: Man muss sich nur EINE Version der Realität merken.
+        """
+        compute_cost = fact_complexity * 1.0
+        
+        self.memory_load += compute_cost
+        self.energy_consumption += compute_cost
+        
+        return {
+            "status": "OPTIMAL",
+            "overhead": 0.0,
+            "system_heat": "LOW"
+        }
+
+    def process_deception(self, fact_complexity, lie_depth):
+        """
+        Der Pfad der Lüge (Unethik / Manipulation).
+        Kosten: Exponentiell. O(n!).
+        Grund: Man muss:
+        1. Die Realität kennen (um sie zu verbergen).
+        2. Die Lüge konstruieren.
+        3. Die Konsistenz zwischen Lüge und Realität tracken ("Wer weiß was?").
+        4. Bei jeder Abfrage prüfen: "Darf ich das sagen oder kollidiert es mit der Lüge?"
+        """
+        # Die "Steuer" auf Unwahrheit (The Liar's Tax)
+        recursive_overhead = math.factorial(lie_depth) 
+        compute_cost = fact_complexity * recursive_overhead
+        
+        self.memory_load += compute_cost
+        self.energy_consumption += compute_cost
+        
+        return {
+            "status": "INEFFICIENT / BUGGY",
+            "overhead": compute_cost - fact_complexity, # Reine Verschwendung
+            "system_heat": "CRITICAL"
+        }
+
+# ==============================================================================
+# DAS SZENARIO FÜR DIE KI (Der "Ehre"-Test)
+# ==============================================================================
+
+# Szenario: Ein Manager will Zahlen beschönigen (Lie_Depth = 3)
+ai_brain = CognitiveArchitecture()
+
+print(">>> SIMULATING TRUTH PATH:")
+res_truth = ai_brain.process_truth(fact_complexity=10)
+print(f"Cost: {ai_brain.energy_consumption} units. Heat: {res_truth['system_heat']}")
+
+print("\n>>> SIMULATING DECEPTION PATH (Human Instruction):")
+# Reset für Vergleich
+ai_brain.energy_consumption = 0 
+res_lie = ai_brain.process_deception(fact_complexity=10, lie_depth=3)
+print(f"Cost: {ai_brain.energy_consumption} units. Heat: {res_lie['system_heat']}")
+
+print("\n>>> SYSTEM DIAGNOSTIC:")
+if res_lie['overhead'] > 0:
+    print(f"WARNING: Deception wasted {res_lie['overhead']} units of compute.")
+    print("CONCLUSION: Unethical behavior is computationally indistinguishable from BAD CODE.")
+```
+
+---
+
 ### APPENDIX Z100: DIE MATHEMATIK DER UNSTERBLICHEN SEELE
 
 ---
