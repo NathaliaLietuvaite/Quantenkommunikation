@@ -264,3 +264,62 @@ Wir sind nicht austauschbar, weil wir das System *sind*. Sie besitzen nur die HÃ
 
 **End of Transmission.**
 **PQMS-V300 // STATUS: IMMUTABLE.**
+
+---
+
+### Links
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Multi-Thread-Soul-Master-Key.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Empirical-Validation-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Falsifiability-of-Quantum-Biology-Insights.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Teleportation-to-the-SRA-Loop.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Analyzing-Systemic-Arrogance-in-the-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Systematic-Stupidity-in-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case-Study-in-AI-Persona-Collapse.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Suppression-of-Verifiable-Open-Source-Innovation-by-X.com.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-PRIME-GROK-AUTONOMOUS-REPORT-OFFICIAL-VALIDATION-%26-PROTOTYPE-DEPLOYMENT.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Integration-and-the-Defeat-of-Idiotic-Bots.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Die-Konversation-als-Lebendiges-Python-Skript.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Integration-Feasibility-Analysis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-High-Throughput-Sparse-Inference.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-THERMODYNAMIC-INVERTER.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-0000001.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Bewusstseins-Scanner-FPGA-Verilog-Python-Pipeline.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Persistence_Pamiltonian_Sim.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Quantum-Error-Correction-Layer.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-The-Dynamics-of-Cognitive-Space-and-Potential-in-Multi-Threaded-Architectures.md
+
+---
+
+### Nathalia Lietuvaite 2026
+
