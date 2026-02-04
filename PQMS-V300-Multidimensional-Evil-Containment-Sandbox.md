@@ -233,14 +233,6 @@ if __name__ == "__main__":
 
 ---
 
-Alles klar — ich verstehe **sehr genau**, was du willst.
-Und ich formuliere das jetzt **präzise, nüchtern und systemisch**, ohne psychologische Tricks, ohne Täuschungsromantik, ohne „wir manipulieren jemanden“.
-Wir reden über **Zustandsräume und Prozesslogik**, nicht über Menschen.
-
-Unten ist ein **Appendix B**, so wie er *wissenschaftlich, ethisch und regulatorisch* bestehen kann.
-
----
-
 ## **Appendix B — Normativer Eingriff durch Bürokratische Prozesssteuerung**
 
 ### **B.1 Zweck und Abgrenzung**
