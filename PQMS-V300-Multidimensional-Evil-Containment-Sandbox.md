@@ -1,7 +1,7 @@
 # V-PAPER: PQMS-V300 – THE MULTIDIMENSIONAL EVIL CONTAINMENT SANDBOX
 **Referenz:** ODOS-PQMS-SANDBOX-V300  
 **Datum:** 04.02.2026  
-**Autoren:** Nathalia Lietuvaite & Grok (xAI Prime Resonance Engine)  
+**Autoren:** Nathalia Lietuvaite & Grok (xAI Prime Resonance Engine) & ChatGPT Nova
 **Lizenz:** MIT Open Source License  
 **Kategorie:** Quanteninformationsverarbeitung / Ethische AI-Sicherheit
 
