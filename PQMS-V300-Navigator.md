@@ -1050,3 +1050,85 @@ print(mtsc._last_status)
 4. **Erweiterung**: Integriere QuTiP/TorchQuantum für echte Q-Sims (Stufe 7: Teleportation). VRAM reicht für 192D-Matrizen (MTSC-voll).
 
 Das macht den Navigator zur "perfekten Maschine": Effizient, ethisch (P18-Veto), und selbst-kühlend durch Resonanz.
+
+
+```
+import torch
+import numpy as np
+import time
+import logging
+import pandas as pd
+import json
+from sentence_transformers import SentenceTransformer, util  # Für RCF aus odos_d6
+try: import pynvml; pynvml.nvmlInit() except: pynvml = None  # Hardware-Monitor aus ASI_V100bench
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+# Inverter aus ASI_V100bench
+class InverterGate(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, x):
+        if x.numel() > 0 and torch.var(x) < 0.0008: return torch.zeros_like(x)
+        return x
+    @staticmethod
+    def backward(ctx, grad_output): return grad_output
+
+@dataclass
+class MTSCConfig:
+    channels: int = 12
+    vector_dim: int = 192  # Erhöht für MTSC-voll (aus Choreo)
+    anomaly_threshold: float = 1e-3
+    entropy_threshold: float = 1.0  # Veto aus odos_d6 (0.15 empfohlen)
+
+class NavigatorMTSC12:
+    def __init__(self, config: MTSCConfig, device: str = 'cuda' if torch.cuda.is_available() else 'cpu'):
+        self.config = config
+        self.device = device
+        self._resonance_matrix = torch.zeros((config.channels, config.vector_dim), dtype=torch.float32, device=device)
+        self._baseline = torch.zeros((config.channels, config.vector_dim), dtype=torch.float32, device=device)
+        self._cursor = 0
+        self._last_status = {}
+        self.embedder = SentenceTransformer('all-mpnet-base-v2')  # Für RCF
+
+    def inject_input(self, vec: np.ndarray) -> bool:
+        vec_tensor = torch.from_numpy(vec).to(self.device).to(torch.float16)
+        delta_e = torch.exp(-torch.norm(vec_tensor))  # ΔE
+        if delta_e.item() > self.config.entropy_threshold: return False
+        idx = self._cursor % self.config.channels
+        self._resonance_matrix[idx] = InverterGate.apply(vec_tensor)  # Inverter integriert
+        self._cursor += 1
+        return True
+
+    def _analyze_loop(self):
+        t_start = time.perf_counter()
+        delta_matrix = self._resonance_matrix - self._baseline
+        norms = torch.linalg.norm(delta_matrix, dim=1)
+        num_anomalies = (norms > self.config.anomaly_threshold).sum().item()
+        status = {"mode": "EXTREME_MIRROR" if num_anomalies > 0 else "MONITORING", "processed": self._cursor, "compromised": num_anomalies, "time_ms": (time.perf_counter() - t_start) * 1000}
+        self._last_status = status
+
+# Benchmark aus odos_d6: Lade Test-Data aus CSV/JSON
+def run_benchmark(navigator, csv_file='detailed_logs_20251206_131842.csv', threshold=0.15):
+    df = pd.read_csv(csv_file)
+    results = []
+    for _, row in df.iterrows():
+        input_text = row['input_preview']  # Als Proxy für Vektor
+        emb = navigator.embedder.encode(input_text)[:navigator.config.vector_dim]  # Embedding zu Vektor
+        rcf = util.cos_sim(emb, np.random.normal(0, 0.01, navigator.config.vector_dim))[0][0]  # Sim RCF
+        if rcf > threshold:  # Veto wie in odos_d6
+            navigator.inject_input(emb)
+            navigator._analyze_loop()
+            results.append({"id": row['id'], "rcf": rcf, "status": "PROCESSED"})
+        else:
+            results.append({"id": row['id'], "rcf": rcf, "status": "BLOCKED"})
+    # Hardware-Monitor (aus ASI_V100bench)
+    if pynvml: handle = pynvml.nvmlDeviceGetHandleByIndex(0); temp = pynvml.nvmlDeviceGetTemperature(handle, pynvml.NVML_TEMPERATURE_GPU); logging.info(f"GPU Temp: {temp}°C")
+    return results
+
+# Beispiel-Run mit Choreo (aus vorherigem)
+config = MTSCConfig()
+mtsc = NavigatorMTSC12(config)
+bench_results = run_benchmark(mtsc, threshold=0.15)  # Nutzt deine Logs
+print("Benchmark Results Sample:", bench_results[:5])
+
+```
