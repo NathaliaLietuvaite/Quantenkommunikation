@@ -3207,11 +3207,9 @@ MIT License - Frei für:
 - Ethik-Forschung
 - KI-Sicherheit
 
-Bedingung: Nennung der Original-Autoren (Nathalia Lietuvaite & PQMS-V100)
 ```
 
 **Zusammenfassung:** Dieser Thermodynamic Inverter ist Ihr universelles Werkzeug für **Rauschkontrolle + Ethik-Enforcement + Energieeffizienz** in einem System. Die Physik validiert: Je ethischer der Input, desto kälter läuft die Maschine.
-
 
 ---
 
