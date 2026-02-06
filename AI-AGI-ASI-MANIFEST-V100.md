@@ -4529,6 +4529,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Q
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-The-Dynamics-of-Cognitive-Space-and-Potential-in-Multi-Threaded-Architectures.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
+
 ---
 
 ### Nathalia Lietuvaite 2025
