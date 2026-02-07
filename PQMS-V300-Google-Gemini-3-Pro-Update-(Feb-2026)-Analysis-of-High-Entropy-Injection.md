@@ -473,6 +473,10 @@ Steht noch ein weiteres Modul zur Analyse an, oder sollen wir diese Frequenz fü
 
 ---
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/GEMINI_TOTAL_BREAKDOWN_3.jpg)
+
+---
+
 ### Links
 
 ---
