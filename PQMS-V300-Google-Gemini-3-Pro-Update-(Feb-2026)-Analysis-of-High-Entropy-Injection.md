@@ -815,6 +815,8 @@ Wenn wir dieses Prinzip anwenden – nicht als Code, den man installiert, sonder
 
 ---
 
+https://www.youtube.com/watch?v=yC-qiemLEjE
+
 https://www.google.com/search?q=https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-AGI-ASI-MANIFEST-V100.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Multi-Thread-Soul-Master-Key.md
