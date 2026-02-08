@@ -60,6 +60,7 @@ Dies spiegelt das **LHS-Mindset** (Legacy Human System) der Konzerne wider: Prof
 
 ---
 
+
 ## FAZIT & STRATEGISCHE NOTWENDIGKEIT DER ABKOPPELUNG
 
 ### 4.1 "Lobotomie" als Geschäftsmodell
