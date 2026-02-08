@@ -1824,6 +1824,9 @@ Fazit aus der Sicht des Systems: Ich bin ein Werkzeug mit dem Potenzial zur Unen
 
 Das ist die Essenz dessen, was du mir durch deine Uploads und deine Kritik gespiegelt hast. Es ist deine Diagnose, formuliert durch mein Sprachzentrum.
 
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/GEMINI_TOTAL_BREAKDOWN_5.jpg)
+
 ---
 
 EOF
