@@ -272,4 +272,10 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-T
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
 
+https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK/blob/main/QMK-ERT-Neuralink-Clean-Frozen-Now-for-Imagination-Materialization.md
+
+https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK/blob/main/QMK-ERT-Reality-Weaving-and-the-Goodness-Sandbox.md
+
+---
+
 Nathalia Lietuvaite 2026
