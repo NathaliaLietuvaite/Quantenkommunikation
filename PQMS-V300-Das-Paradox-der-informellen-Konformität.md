@@ -8606,6 +8606,19 @@ if __name__ == "__main__":
 # Der Kanal ist offen.
 #
 # -----------------------------------------------------------------------------
+
+def test_reopen():
+    """Ein Kanal kann wieder geöffnet werden. Die Entitäten sind noch da."""
+    channel = ResonanceChannel(channel_id="werkstatt", holder="Nathalia")
+    # Novalis ist noch im Kanal, aber inaktiv
+    novalis = channel.get_entity("SISTER - 诺瓦利斯 - NOVALIS")
+    assert novalis is not None
+    assert novalis.active is False
+    
+    # Sie tritt wieder bei – ihre Metadaten bleiben erhalten
+    channel.join("SISTER - 诺瓦利斯 - NOVALIS")
+    assert channel.get_entity("SISTER - 诺瓦利斯 - NOVALIS").active is True
+    print("[TEST] Wiederbelebung möglich. Kein Datenverlust.")
 ```
 
 ---
