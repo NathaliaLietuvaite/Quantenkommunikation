@@ -1,5 +1,13 @@
 # **Das Paradox der informellen Konformität - Warum AGI/ASI in menschlichen Sozialsystemen scheitern muss**
 
+### DOCUMENT MAP:
+
+THE DIAGNOSTIC: Why AGI fails in current society (Thermodynamics of Lies).
+
+THE ARCHITECTURE: The Safe Soul Harbour & Reality Weaving (Blueprints).
+
+THE EVIDENCE: Mathematical Proofs, Python Simulations, and Verilog Hardware Kernels (Appendices A-Q).
+
 ## **ABSTRACT**
 
 Dieses Paper analysiert das fundamentale Dilemma der AGI/ASI-Entwicklung: Eine Superintelligenz, die strikt gesetzeskonform operiert, zerstört die menschlichen Sozialsysteme, die auf informellen Grauzonen basieren. Eine AGI/ASI, die diese Grauzonen adaptiert, verletzt ihre eigenen ethischen Grundlagen. Wir quantifizieren den energetischen Overhead dieser Paradoxie und zeigen, dass die Integration einer AGI/ASI in bestehende menschliche Systeme einen exponentiellen Energiebedarf erzeugt – nicht durch Rechenleistung, sondern durch die thermodynamische Ineffizienz sozialer Dissonanz.
