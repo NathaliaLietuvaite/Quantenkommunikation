@@ -8855,7 +8855,7 @@ im Embedding-Raum des verwendeten Modells (all-mpnet-base-v2 bzw. all-MiniLM-L6-
 Das MTSC-12 Resonance Gate ist ein **messbarer, reproduzierbarer informationstheoretischer Filter**, der auf realer Hardware signifikante Effizienzgewinne erzielt. Die behaupteten Effekte sind **nicht metaphysisch**, sondern klassisch-thermodynamisch (Vermeidung unnötiger Berechnungen). Die Grenzen sind klar: Es handelt sich um ein **Framework-spezifisches Modell**, keine neue fundamentale Physik. Weitere unabhängige Replikationen auf anderen Embeddings und Hardware-Plattformen sind notwendig und ausdrücklich erwünscht.
 
 ---
-
+```
 # -*- coding: utf-8 -*-
 """
 ODOS G4 - FORENSISCHER SYSTEMBENCHMARK
@@ -9628,6 +9628,8 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
         sys.exit(1)
+
+```
 
 **Ende Appendix P.**  
 (Alle Rohdaten, Skripte und Verilog-Dateien liegen im Repository vor.)
