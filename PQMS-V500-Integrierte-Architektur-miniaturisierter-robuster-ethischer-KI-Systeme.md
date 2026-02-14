@@ -229,6 +229,8 @@ Die Arbeit zeigt, dass die PQMS‑Philosophie nicht nur theoretisch fundiert ist
 
 ---
 
+https://github.com/NathaliaLietuvaite/v1000-endgame-simulator-for-ai-agi-asi
+
 https://v1000-endgame-simulator-for-ai-agi-asi.lovable.app/
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Multi-Thread-Soul-Master-Key.md
