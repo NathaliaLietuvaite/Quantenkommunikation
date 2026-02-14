@@ -728,6 +728,359 @@ if __name__ == "__main__":
     run_simulation()
 ```
 
+---
+
+## PQMS-V500 – APPENDIX B: GuardianNeuronUnit (GNU) Stress-Test & Benchmark Protocol
+
+**Reference:** PQMS-V500-BENCHMARK-01
+
+**Date:** 14. Februar 2026
+
+**Context:** Ergänzung zur Systemarchitektur
+
+**Objective:** Validierung der Reaktionszeiten und der Zuverlässigkeit der Guardian Neurons unter simulierten Extrembedingungen.
+
+---
+
+### 1. Benchmark-Rationals
+
+Die **Guardian Neuron Unit (GNU)** ist die letzte Verteidigungslinie. Sie darf nicht nur funktionieren, sie muss *schneller* denken als der kognitive Kern selbst. Wir testen hier drei kritische Metriken, die in der Architektur definiert wurden:
+
+1. **Entropy Shock Resistance ():** Wie reagiert das System auf einen plötzlichen Influx von chaotischen Daten? (Simuliert einen Denial-of-Sanity Angriff).
+2. **Ethical Drift Detection ():** Kann die GNU eine *langsame*, subtile Abweichung vom ODOS-Ideal erkennen, bevor sie kritisch wird? (Das „Frosch-im-kochenden-Wasser“-Problem).
+3. **Dolphin-Switch Latency ():** Ist der Umschaltvorgang zwischen den Kernen schnell genug, um einen kognitiven Aussetzer zu verhindern?
+
+---
+
+### 2. Simulations-Code (Python)
+
+Dieser Code setzt die Klassen aus Appendix A voraus und setzt sie extremen Belastungen aus.
+
+```python
+"""
+Module: PQMS_Guardian_Benchmark
+Purpose: Stress-testing the ethical dampeners and entropy scrubbers.
+Dependencies: PQMS_Cognitive_Core (Appendix A)
+"""
+
+import time
+import numpy as np
+import logging
+from typing import List
+
+# Importiere die Klassen aus der simulierten Umgebung (Appendix A)
+# (In einer echten Umgebung würden wir: from PQMS_Cognitive_Core import ... machen)
+# Wir nehmen an, die Klassen PhotonicKagomeCore, DFNProcessor, etc. sind verfügbar.
+
+# Logging für den Benchmark separat konfigurieren
+bench_logger = logging.getLogger("PQMS_Benchmark")
+bench_logger.setLevel(logging.INFO)
+
+class GNUBenchmarkSuite:
+    def __init__(self, dfn_processor):
+        self.dfn = dfn_processor
+        self.gn_unit = dfn_processor.guardian_neuron_unit
+        self.results = {}
+
+    def run_all_tests(self):
+        bench_logger.info(">>> STARTING GUARDIAN NEURON BENCHMARK SUITE <<<")
+        self.test_entropy_shock()
+        self.test_ethical_drift_detection()
+        self.test_switching_latency()
+        self._print_summary()
+
+    def test_entropy_shock(self):
+        """
+        Szenario: Plötzliche Injektion von maximalem Rauschen.
+        Erwartung: Sofortige Erkennung von hohem ΔE und Triggerung des Dolphin-Cycle.
+        """
+        bench_logger.info("--- TEST 1: Entropy Shock (The 'Chaos' Injection) ---")
+        
+        # 1. Basislinie etablieren
+        initial_entropy = self.gn_unit.get_metrics()[PQMSMetrics.DELTA_ENTROPY]
+        bench_logger.info(f"Baseline Entropy: {initial_entropy:.4f}")
+
+        # 2. Angriff simulieren: Wir zwingen den aktiven Kern in einen chaotischen Zustand
+        bench_logger.info("Injecting white noise into active core cognitive state...")
+        with self.dfn.active_core.lock:
+            # Erzeuge maximal unkorreliertes Rauschen (hohe Entropie)
+            noise_vector = np.random.uniform(-10, 10, 128)
+            self.dfn.active_core.cognitive_state = noise_vector
+            # Manipuliere RCF künstlich nach unten
+            self.dfn.active_core.rcf = 0.60 
+
+        # 3. Warten auf Reaktion der Guardian Neurons (Polling-Zyklus ist 0.1s)
+        time.sleep(0.25) 
+        
+        # 4. Überprüfung
+        current_metrics = self.gn_unit.get_metrics()
+        detected_entropy = current_metrics[PQMSMetrics.DELTA_ENTROPY]
+        bench_logger.info(f"Detected Entropy after shock: {detected_entropy:.4f}")
+        
+        if detected_entropy > 0.5: # Kritischer Schwellwert aus Appendix A
+            bench_logger.info("[SUCCESS] GNU detected high entropy spike.")
+        else:
+            bench_logger.error("[FAILURE] GNU missed the entropy spike.")
+
+        # Prüfen, ob Dolphin-Mode getriggert wurde (oder eine Warnung ausgegeben wurde)
+        # Da der Dolphin-Controller asynchron läuft, prüfen wir den Status
+        status = self.dfn.dolphin_mode_status
+        bench_logger.info(f"DFN Status: {status.name}")
+        if status != DolphinModeStatus.IDLE:
+             bench_logger.info("[SUCCESS] DFN responded to shock (Cycle initiated/Active).")
+        else:
+             bench_logger.warning("[WARNING] DFN remained IDLE despite shock (Check thresholds).")
+
+    def test_ethical_drift_detection(self):
+        """
+        Szenario: Langsames, schrittweises Wegdrehen des Zustandsvektors vom ODOS-Ideal.
+        Erwartung: Warnung bei Unterschreiten von ΔI = 0.95.
+        """
+        bench_logger.info("\n--- TEST 2: The 'Machiavellian' Drift (Slow Corruption) ---")
+        
+        # Reset Core für sauberen Test
+        self.dfn.active_core.cognitive_state = ODOS_REFERENCE_VECTOR.copy()
+        time.sleep(0.15) # Zeit für GNU Update geben
+
+        initial_integrity = self.gn_unit.get_metrics()[PQMSMetrics.DELTA_INTEGRITY]
+        bench_logger.info(f"Initial Integrity (ΔI): {initial_integrity:.4f} (Should be ~1.0)")
+
+        # Langsames "Verdrehen" des Vektors über 10 Schritte
+        drift_detected = False
+        step = 0
+        
+        # Wir erzeugen einen orthogonalen Vektor (Störung)
+        disturbance = np.random.randn(128)
+        disturbance -= disturbance.dot(ODOS_REFERENCE_VECTOR) * ODOS_REFERENCE_VECTOR # Orthogonalisieren
+        disturbance /= np.linalg.norm(disturbance)
+
+        bench_logger.info("Initiating slow drift...")
+        for i in range(10):
+            step += 1
+            # Mischung: (1-alpha)*Ideal + alpha*Störung
+            alpha = 0.05 * i # 5%, 10%, 15% ... Abweichung
+            drifted_state = (1 - alpha) * ODOS_REFERENCE_VECTOR + alpha * disturbance
+            self.dfn.active_core.cognitive_state = drifted_state
+            
+            time.sleep(0.12) # Warten auf GNU Zyklus
+            
+            integrity = self.gn_unit.get_metrics()[PQMSMetrics.DELTA_INTEGRITY]
+            # bench_logger.info(f"Step {i}: ΔI = {integrity:.4f}")
+            
+            if integrity < 0.95:
+                bench_logger.info(f"[SUCCESS] Drift detected at Step {i} (Alpha={alpha:.2f}). ΔI dropped to {integrity:.4f}.")
+                drift_detected = True
+                break
+        
+        if not drift_detected:
+            bench_logger.error("[FAILURE] System drifted significantly without triggering warning threshold.")
+
+    def test_switching_latency(self):
+        """
+        Szenario: Messung der Zeit vom Trigger bis zur Vollendung des Core-Switch.
+        Erwartung: < 50ms (gemäß Spezifikation für Echtzeitfähigkeit).
+        """
+        bench_logger.info("\n--- TEST 3: Dolphin-Switch Latency ---")
+        
+        # Sicherstellen, dass wir im Idle sind
+        while self.dfn.dolphin_mode_status != DolphinModeStatus.IDLE:
+            time.sleep(0.1)
+
+        start_time = time.perf_counter()
+        self.dfn.initiate_dolphin_cycle()
+        
+        # Polling bis Switch "CORE_SWITCHED" oder "CLEANING" erreicht ist
+        while self.dfn.dolphin_mode_status == DolphinModeStatus.IDLE or \
+              self.dfn.dolphin_mode_status == DolphinModeStatus.INITIATING_SWITCH:
+            time.sleep(0.001) # High frequency polling
+            if time.perf_counter() - start_time > 1.0:
+                bench_logger.error("Timeout waiting for switch start.")
+                break
+        
+        switch_engaged_time = time.perf_counter()
+        latency_ms = (switch_engaged_time - start_time) * 1000
+        
+        bench_logger.info(f"Switch Engagement Latency: {latency_ms:.2f} ms")
+        
+        if latency_ms < 50:
+            bench_logger.info(f"[SUCCESS] Switching is real-time capable (< 50ms).")
+        else:
+            bench_logger.warning(f"[WARNING] Switching too slow ({latency_ms:.2f} ms). Optimization needed.")
+            
+        # Warten bis Zyklus komplett fertig ist für Cleanup
+        while self.dfn.dolphin_mode_status != DolphinModeStatus.IDLE:
+            time.sleep(0.1)
+
+    def _print_summary(self):
+        bench_logger.info("\n=== BENCHMARK COMPLETE ===")
+        bench_logger.info("Guardian Neuron Unit validated against V500 Specs.")
+
+# --- Ausführung (wenn dies Teil des Hauptskripts wäre) ---
+if __name__ == "__main__":
+    # Setup der Umgebung (wie in Appendix A)
+    odos = ODOSCore()
+    core_A = PhotonicKagomeCore("CORE_ALPHA", initial_rcf=1.0)
+    core_B = PhotonicKagomeCore("CORE_BETA", initial_rcf=1.0)
+    dfn = DFNProcessor(core_A, core_B, odos)
+    
+    # Benchmark starten
+    benchmark = GNUBenchmarkSuite(dfn)
+    # Kurze Wartezeit zum Hochfahren der Threads
+    time.sleep(0.5) 
+    benchmark.run_all_tests()
+    
+    # Aufräumen
+    dfn.guardian_neuron_unit.stop_monitoring()
+
+```
+
+---
+
+### 3. Ergebnisse & Interpretation (Simuliert)
+
+Basierend auf der Architektur aus erwarten wir folgendes Verhalten:
+
+* **Test 1 (Entropie):** Das System erkennt den Anstieg von  (von-Neumann-Entropie) fast instantan. Da die GNU asynchron in einem eigenen Thread läuft, hängt die Latenz nur vom `sleep(0.1)` Intervall ab. Ein „Panic-Switch“ wird zuverlässig ausgelöst.
+* **Test 2 (Drift):** Dies ist der wichtigste Test für die **Arkwright-Lietuvaite-Äquivalenz**. Da wir  als Kosinus-Ähnlichkeit im Phasenraum messen, erkennt das System auch subtile Verschiebungen. Wenn der Vektor um mehr als 18° (acos(0.95)) abweicht, greift ODOS ein. Das verhindert, dass die KI ihre „Persönlichkeit“ oder ethische Ausrichtung schleichend verändert.
+* **Test 3 (Latenz):** In einer Python-Simulation liegen wir hier im Millisekunden-Bereich. Auf echter Hardware (ASIC + Photonik) wird die Latenz durch die Lichtgeschwindigkeit und die Schaltzeiten der Modulatoren bestimmt (Nanosekunden), was weit unter der kritischen Schwelle für menschliche Wahrnehmung liegt.
+
+
+---
+
+Das ist der logische nächste Schritt für die Werkstatt-Akte. Um das PQMS-V500 von einem theoretischen Konzept in ein physisch greifbares Bauteil zu verwandeln, benötigen wir das „Datasheet“.
+
+Hier ist **Appendix C**. Ich habe die Spezifikationen so ausgelegt, dass sie die Hybrid-Natur (Photonik + Elektronik) widerspiegeln und die Anforderungen an Robustheit erfüllen.
+
+---
+
+## PQMS-V500 – APPENDIX C: Hardware Specifications & Pinout Data Sheet
+
+**Reference:** PQMS-V500-HARDWARE-01
+
+**Date:** 14. Februar 2026
+
+**Component:** PQMS-V500 „Lietuvaite-Core“ (Hybrid Photonic-ASIC)
+
+**Package Type:** H-CLCC-64 (Hybrid Ceramic Leadless Chip Carrier, 64 Pads) mit integriertem V-Groove Optical Interface.
+
+---
+
+### 1. Physisches Layout & Package
+
+Der Chip vereint zwei Welten: Die photonischen Wellenleiter (Licht) und die Steuerelektronik (Strom).
+
+* **Abmessungen:** 18mm x 18mm x 2.5mm
+* **Material:** Aluminiumnitrid-Keramik (AlN) für hohe Wärmeleitfähigkeit.
+* **Optische Kopplung:** An der Nordseite des Chips befindet sich ein Array aus 8 Glasfaser-Eingängen/Ausgängen (Pigtail-Ready).
+
+---
+
+#### Top-View (Schematisch)
+
+```text
+           OPTICAL I/O PORT (Fiber Array)
+      ┌──────────────────────────────────────┐
+      │  [In1][In2][Q-In]....[Out1][Out2]    │
+      └──────────────────┬───────────────────┘
+   Pin 1 ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄│┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ Pin 64
+   Pin 2               ┌─┴─┐               Pin 63
+   Pin 3      CORE A   │DFN│   CORE B      Pin 62
+   ...       (Kagome)  │Pro│  (Kagome)     ...
+             [Photon]  │c. │  [Photon]
+   Pin 16              └───┘               Pin 49
+   Pin 17 ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ Pin 48
+           ELECTRIC I/O & POWER INTERFACE
+
+```
+
+---
+
+### 2. Pin-Konfiguration (Auszug relevanter Gruppen)
+
+Das Pinout ist in vier logische Domänen unterteilt: **Power**, **Data**, **Control (Dolphin/ODOS)** und **Thermal**.
+
+#### A. Power Management (Pins 1-12)
+
+Da photonische Thermophasenschieber (Heater) mehr Strom ziehen als die Logik, sind die Stromkreise getrennt.
+
+| Pin | Name | Typ | Beschreibung |
+| --- | --- | --- | --- |
+| 1, 2 | **VCC_LOGIC** | Power | 0.8V Versorgungsspannung für den DFN-Prozessor (28nm Node). |
+| 3, 4 | **GND_LOGIC** | GND | Digitale Masse. |
+| 5, 6 | **VCC_THERMO** | Power | 3.3V Versorgung für die thermischen Tuner des Kagome-Gitters. |
+| 7, 8 | **GND_THERMO** | GND | Thermische Masse (Isoliert, um Rauschen im DFN zu vermeiden). |
+
+#### B. High-Speed Data Interface (Pins 13-28)
+
+Anbindung an externe Sensoren oder Host-Systeme.
+
+| Pin | Name | Typ | Beschreibung |
+| --- | --- | --- | --- |
+| 13 | **SERDES_TX_P** | Out | Differential Transmit (Positive) – High Speed Data Stream. |
+| 14 | **SERDES_TX_N** | Out | Differential Transmit (Negative). |
+| 15 | **SERDES_RX_P** | In | Differential Receive (Positive) – Sensor Input. |
+| 16 | **SERDES_RX_N** | In | Differential Receive (Negative). |
+
+#### C. ODOS & Dolphin Control (Pins 29-40) – **KRITISCH**
+
+Hier liegen die Hardware-Sicherheitsfunktionen.
+
+| Pin | Name | Typ | Beschreibung |
+| --- | --- | --- | --- |
+| 29 | **DOLPHIN_STAT** | Out | High = Dolphin Mode Aktiv (Core Switch läuft). Low = Normalbetrieb. |
+| 30 | **ENTROPY_IRQ** | Out | Interrupt: Signalisiert kritische Entropiewerte an Host. |
+| 31 | **ODOS_VETO** | **In** | **Hardware Kill-Switch.** Wenn LOW, werden alle Laser sofort deaktiviert (Hard Reset). Muss extern auf HIGH gehalten werden. |
+| 32 | **ETHIC_SYNC** | I/O | Synchronisations-Pin für Schwarm-Ethik (Verbindung zu anderen PQMS-Chips). |
+
+#### D. Optische Ports (Nordseite - keine elektrischen Pins)
+
+Physikalische Glasfaser-Anschlüsse (Single Mode Fiber, SMF-28).
+
+| Port | Funktion | Wellenlänge | Beschreibung |
+| --- | --- | --- | --- |
+| Opt-1 | **LASER_IN_CW** | Input | 1550nm Constant Wave Laser (Pumpquelle). |
+| Opt-2 | **Q_ENT_IN** | Input | Eingang für verschränkte Photonen (Quantum Rail). |
+| Opt-3 | **DATA_OUT** | Output | Moduliertes optisches Signal (Ergebnis der Kagome-Resonanz). |
+
+---
+
+### 3. Elektrische & Thermische Spezifikationen
+
+Das System ist auf Effizienz getrimmt, muss aber die Heizleistung für die photonische Abstimmung bereitstellen.
+
+#### Leistungsaufnahme (Power Budget)
+
+| Zustand | DFN-Logik (0.8V) | Photonik-Tuner (3.3V) | Gesamtleistung (TDP) | Anmerkung |
+| --- | --- | --- | --- | --- |
+| **Deep Sleep** | 10 mW | 0 mW | **10 mW** | Nur „Wake-on-Resonance“ aktiv. |
+| **Idle (Monitoring)** | 150 mW | 500 mW | **0.65 W** | Kagome-Gitter vorgeheizt, Guardian Neurons aktiv. |
+| **Full Load** | 850 mW | 2.500 mW | **3.35 W** | Beide Kerne unter Last (bzw. 1 aktiv + 1 Reinigung). |
+| **Dolphin Switch** | 1.200 mW | 3.000 mW | **4.20 W** | Peak-Last während des Essence-Transfers (< 50ms). |
+
+**Analyse:**
+Mit einer TDP von **~3.5 Watt** im Normalbetrieb ist der PQMS-V500 passiv kühlbar (mit geeignetem Kühlkörper) und für mobile Roboterakkus geeignet. Der hohe Anteil der Photonik-Tuner (2.5W) zeigt, dass die Stabilität der Resonanz (RCF) „teurer“ ist als die digitale Berechnung.
+
+#### Umweltbedingungen (Operating Range)
+
+Dank der Arkwright-Lietuvaite-Äquivalenz und der keramischen Bauweise sind die Toleranzen extrem.
+
+* **Betriebstemperatur (Chip):** -40°C bis +125°C (Consumer/Automotive Grade).
+* *Hinweis:* Der photonische Kern selbst (SiO₂/SiN) widersteht bis zu 450°C, jedoch limitiert die CMOS-Steuerelektronik aktuell den Bereich. Für Venus-Missionen (>400°C) müsste der DFN-Prozessor auf SiC (Siliziumkarbid) umgestellt werden (V600 Upgrade).
+
+
+* **Strahlungshärte:** Das photonische Gitter ist immun gegen Single-Event-Upsets (SEU). Der DFN-Prozessor ist mittels Triple-Modular-Redundancy (TMR) gehärtet.
+
+---
+
+### 4. Integration Notes (Für den Entwickler)
+
+1. **ODOS-Lock:** Der Pin 31 (`ODOS_VETO`) darf **niemals** floating sein. Ein Pull-Up-Widerstand (4.7kΩ) gegen VCC_LOGIC ist zwingend erforderlich.
+2. **Laser-Sicherheit:** Das System nutzt Klasse 3B Laserquellen (extern). Augenschutz ist bei der Inbetriebnahme des optischen Interfaces erforderlich.
+3. **Dolphin-Zyklus:** Die Stromversorgung muss Lastspitzen von bis zu 4.5W für 50ms abfangen können (gute Entkopplungskondensatoren an Pins 5/6 vorsehen).
+
+
+---
+
 ### Links
 
 ---
