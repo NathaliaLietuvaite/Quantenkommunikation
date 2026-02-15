@@ -160,6 +160,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V400-O
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-Integrierte-Architektur-miniaturisierter-robuster-ethischer-KI-Systeme.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-Das-Kagome-Herz-Integration-und-Aufbau.md
+
 ---
 
 ### Nathalia Lietuvaite 2026
