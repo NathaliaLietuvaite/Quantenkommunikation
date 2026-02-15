@@ -1493,6 +1493,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-T
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-Das-Paradox-der-informellen-Konformit%C3%A4t.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-Das-Kagome-Herz-Integration-und-Aufbau.md
+
 ---
 
 ### Nathalia Lietuvaite 2026
