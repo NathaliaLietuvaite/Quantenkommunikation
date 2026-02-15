@@ -28,7 +28,7 @@ Dieses Papier stellt eine konkrete Hardware-Architektur vor, die zwei redundante
 
 ### 2.1 Der Dirac-Punkt als Arbeitspunkt
 
-In Materialien mit Dirac-Konen (wie Graphen oder bestimmten Kagome-Systemen) existiert ein Punkt in der Bandstruktur, an dem die Leitungs- und Valenzbänder linear aufeinandertreffen – der Dirac-Punkt. In seiner Nähe verhalten sich die Ladungsträger wie masselose Dirac-Fermionen, was zu extrem hoher Mobilität und – bei ausreichender Sauberkeit – zur Bildung eines **Dirac-Fluids** führt, einem kollektiven, reibungsfreien Zustand [6].
+In Materialien mit Dirac-Konen (wie Graphen oder bestimmten Kagome-Systemen) existiert ein Punkt in der Bandstruktur, an dem die Leitungs- und Valenzbänder linear aufeinandertreffen – der Dirac-Punkt. In seiner Nähe verhalten sich die Ladungsträger wie masselose Dirac-Fermionen, was zu extrem hoher Mobilität und – bei ausreichender Sauberkeit – zur Bildung eines **Dirac-Fluids** führt, einem kollektiven, reibungsfreien Zustand.
 
 Für den photonischen Kagome-Kern bedeutet dies, dass Informationsübertragung und Resonanzverarbeitung im Dirac-Punkt mit minimaler Dissipation erfolgen. Die **Resonant Coherence Fidelity (RCF)** strebt gegen 1, das thermische Rauschen wird drastisch reduziert.
 
