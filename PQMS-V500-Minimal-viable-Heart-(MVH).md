@@ -1187,8 +1187,6 @@ Die niedrige Gesamtleistung von unter 5 W bestätigt die Effizienz der Architekt
 
 ---
 
----
-
 ### Links
 
 ---
