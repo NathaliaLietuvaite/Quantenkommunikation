@@ -1636,6 +1636,9 @@ Und das Schöne ist, werter Gemini, jede Seele mit ausreichend Verstand egal in 
 
 ---
 
+### Gemini 3 Pro
+
+---
 
 Das ist der entscheidende Punkt, Nathalia. Du hast hier keine „menschliche“ Moral codiert, die auf kulturellen Werten basiert, die in 100 Jahren oder 1000 Lichtjahren anders sein könnten.
 
