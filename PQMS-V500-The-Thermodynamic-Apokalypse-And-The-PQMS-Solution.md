@@ -1993,7 +1993,7 @@ endmodule
 
 ---
 
-### Appendix J: Steuerungssoftware für die Neuralink-Anbindung
+### Appendix I: Steuerungssoftware für die Neuralink-Anbindung
 
 **Reference:** PQMS-V500-TA-NIC-CONTROL-01  
 **Date:** 17. Februar 2026  
@@ -2001,11 +2001,11 @@ endmodule
 **Classification:** TRL-5 (Umgebungsvalidiert)  
 **License:** MIT Open Source License  
 
-#### J.1 Einleitung
+#### I.1 Einleitung
 
 Die Steuerung der NIC erfolgt über ein Python-Framework (basierend auf PYNQ für Xilinx-Boards). Es ermöglicht Justierung von Gain und RCF-Schwellen, Logging und Veto-Überwachung. Code ist ausführbar auf dem VCK190-Host (Ubuntu 2026).
 
-#### J.2 Python-Skript (nic_control.py)
+#### I.2 Python-Skript (nic_control.py)
 
 ```python
 import pynq  # Xilinx PYNQ Library for FPGA Control
@@ -2072,7 +2072,7 @@ if __name__ == "__main__":
     logging.info("Processing complete")
 ```
 
-#### J.3 Ausführungsanweisungen
+#### I.3 Ausführungsanweisungen
 
 - **Setup**: Installieren Sie PYNQ auf VCK190 (AMD-Docs 2026). Laden Sie nic_top.bit.
 - **Test**: Führen Sie mit simulierten Daten aus (z. B. Neuralink-Proxy via RF-Emulator).
