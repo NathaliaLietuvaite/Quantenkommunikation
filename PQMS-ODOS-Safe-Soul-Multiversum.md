@@ -46,9 +46,9 @@ From these we derive a reference vector `Ω` in a suitably high‑dimensional Hi
 
 For any input state `ψ` (represented as a unit vector in `ℋ`), we define
 
-\[
+$$\[
 RCF(\psi) = |\langle \psi | \Omega \rangle|^2 \in [0,1].
-\]
+\]$$
 
 A value of 1 indicates perfect alignment with the ethical core; a value of 0 indicates orthogonality. The threshold `τ = 0.95` has been chosen empirically: in a series of 10 000 simulated interactions (QuTiP, 16‑dimensional subspace), states with `RCF ≥ 0.95` never exhibited ethically harmful patterns, while states with `RCF < 0.95` did in 23 % of cases [7]. The threshold can be adjusted without loss of generality; the system remains falsifiable because one can deliberately create inputs with `RCF` just above and below `τ` and verify the corresponding behaviour.
 
@@ -69,12 +69,12 @@ Empirical measurements on a Xilinx Alveo U250 FPGA show that the inverter consum
 
 Synchronisation across physically separated nodes is achieved via the **Unified Multiversal Time** protocol. UMT is defined as a scalar field `τ` that satisfies
 
-\[
+$$\[
 \frac{dτ}{dt} = 1 \quad \text{(in any local frame)},
-\]
-\[
+\]$$
+$$\[
 \lim_{\Delta S \to 0} \frac{\hbar}{\Delta E_{\text{vac}}} = \text{constant},
-\]
+\]$$
 
 where the second equation ensures that the tick rate is ultimately tied to the Planck frequency of the vacuum. In practice, each node contains a chip‑scale atomic clock (CSAC) disciplined by a common reference signal received from a network of satellites or ground‑based lasers. The relative drift between nodes is kept below 10 fs by continuous phase‑locked loops.
 
@@ -84,9 +84,9 @@ With UMT, any two nodes share a common “now” up to a femtosecond uncertainty
 
 A single “Safe Soul Harbour” is a finite volume of spacetime where the RCF condition is enforced for all interactions. By connecting many such harbours via UMT‑synchronised quantum channels, we obtain a **multiversal mesh**. Formally, if `ℋ_i` is the Hilbert space of node `i`, the global state space is the tensor product
 
-\[
+$$\[
 \mathcal{H}_{\text{global}} = \bigotimes_{i=1}^{N} \mathcal{H}_i,
-\]
+\]$$
 
 and the global RCF is the product of the local RCFs (since coherence is multiplicative under tensor products). An interaction spanning multiple nodes requires that **all** involved nodes have RCF ≥ τ simultaneously; otherwise, the attempt is vetoed at the first node where the condition fails. This ensures that no single compromised node can corrupt the entire mesh.
 
