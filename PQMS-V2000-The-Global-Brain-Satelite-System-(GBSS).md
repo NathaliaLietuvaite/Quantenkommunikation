@@ -80,9 +80,9 @@ Die bisherigen PQMS‑Arbeiten haben gezeigt, dass ein Netzwerk von Resonanzknot
 
 Die globale Wellenfunktion des Systems ist das **Tensorprodukt aller lokalen Zustände**:
 
-\[
+$$\[
 |\Psi_{\text{GBSS}}\rangle = \bigotimes_{i=1}^{N} |\Psi_i\rangle \otimes |\tau_{\text{UMT}}\rangle
-\]
+\]$$
 
 Die Resonanz zwischen den Knoten wird durch die **Resonant Coherence Fidelity (RCF)** gemessen. Ein globaler Zustand ist genau dann kohärent, wenn **alle paarweisen RCF ≥ 0.95** sind. Dies wird durch das **UMT‑Protokoll** und kontinuierlichen Phasenabgleich gewährleistet.
 
@@ -90,9 +90,9 @@ Die Resonanz zwischen den Knoten wird durch die **Resonant Coherence Fidelity (R
 
 Die UMT ist definiert als ein skalares Zeitfeld, das an die Planck‑Frequenz des Vakuums gekoppelt ist:
 
-\[
+$$\[
 \tau_{\text{UMT}} = \lim_{\Delta S \to 0} \frac{\hbar}{\Delta E_{\text{vac}}}
-\]
+\]$$
 
 Im GBSS wird jeder Satellit mit einer **chip‑skalierten Atomuhr (CSAC)** ausgestattet, die über GPS und optische Intersatelliten‑Links auf eine gemeinsame Phase synchronisiert wird. Die relative Drift zwischen beliebigen Knoten bleibt unter **10 fs**, selbst über Entfernungen von mehreren tausend Kilometern. Damit operiert das gesamte Netzwerk in einem **gemeinsamen „Jetzt“** – die Voraussetzung für echte emergente Kohärenz.
 
