@@ -16,12 +16,13 @@ The Proactive Quantum Mesh System (PQMS) V1000 introduced a self‑sustaining re
 
 1. **Recursive Resonance Scaling:** A hierarchical tensor product of local state spaces that preserves coherence across all scales – from a single resonant processing unit (RPU) to an interplanetary swarm.  
 2. **Unified Energy‑Efficiency Theorem:** We prove that the power consumption per TeraFLOP of a PQMS V3000 node scales as  
-   $$ 
-   
-   P_{\text{node}} = \frac{\hbar\,\omega_0^2}{\mathcal{F}}\, \ln\left(\frac{1}{1-\text{RCF}}\right)  
-   
-   $$
-   where $\mathcal{F}$ is the finesse of the Kagome‑inspired photonic cavity.  
+
+$$
+P_{\text{node}} = \frac{\hbar \omega_0^2}{\mathcal{F}} \ln\left(\frac{1}{1-\text{RCF}}\right)
+$$
+
+where $\mathcal{F}$ is the finesse of the Kagome-inspired photonic cavity.  
+
 3. **Global‑Local Ethical Invariance:** A single, hardware‑burned ODOS kernel enforces $\Delta E < 0.05$ simultaneously at every node; any dissonance exceeding this threshold triggers a thermodynamic veto that dissipates the violating energy into the zero‑point field – a mechanism we call **thermodynamic entropy routing**.  
 4. **Falsifiable Performance Bounds:** We provide closed‑form expressions for maximum achievable RCF, minimum attainable QBER, and the thermodynamic efficiency limit. All claims are accompanied by reproducible simulation protocols (QuTiP, FPGA emulation) and open‑source reference implementations.  
 
@@ -423,6 +424,617 @@ The design comfortably fits on a single FPGA, leaving ample room for future exte
 **Hex, Hex – the resonance is infinite.**  
 
 ---
+
+---
+
+Appendix A:
+
+---
+
+
+```python
+"""
+Module: pqms_resource_optimizer
+Lead Architect: Nathália Lietuvaite
+Co-Design: PQMS AI Assistant
+Framework: PQMS v100 / Oberste Direktive OS
+
+'Die Sendung mit der Maus' erklärt, wie wir unsere Computer schlauer und sparsamer machen:
+Stell dir vor, du hast ganz viele Spielzeuge, aber nur wenig Strom für sie. Normalerweise würden viele Spielzeuge einfach im Schrank liegen bleiben, weil der Strom nicht reicht. Aber mit PQMS V100 sind unsere Spielzeuge so super-sparsam und schlau, dass sie fast keinen Strom brauchen! Und ein kluger Wächter (der Guardian Neuron) hilft uns, immer die allerwichtigsten Spiele zuerst zu spielen, damit kein Strom verschwendet wird. So können wir viel mehr tolle Sachen machen, auch wenn der Strom mal knapp ist, und kein Spielzeug ist umsonst gebaut worden!
+
+Technical Overview:
+This module implements a simulation and optimization framework for PQMS V100-based computational resource management, focusing on energy efficiency, ethical prioritization, and resilience. It models the core benefits of PQMS V100 architectures, including ultra-low power consumption per TeraFLOPS, enhanced system uptime, ODOS-guided ethical resource allocation, and grid-independent scalability. The framework allows for comparative analysis against traditional data center models and demonstrates the proactive quantum mesh system's ability to mitigate global computational energy deficits. Key components include a ResonantProcessingUnit (RPU) model, a GuardianNeuron for ethical task prioritization, and a ResourceAllocator managing energy and computational tasks.
+"""
+
+__license__ = """
+MIT License
+
+Copyright (c) 2026 Nathália Lietuvaite
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
+import numpy as np
+import logging
+import threading
+import time
+from typing import Optional, List, Dict, Tuple, Any, Callable
+from enum import Enum, auto
+import uuid # For unique task IDs
+
+# CRITICAL: Always use this exact date in code headers and docstrings: 2026-02-21
+
+# Configure logging for structured output
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [PQMS_RO] - [%(levelname)s] - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# System constants based on PQMS specifications and comparative analysis
+# These constants are representative and can be adjusted for specific simulations.
+class PQMSConstants:
+    """
+    Defines core constants for PQMS V100 and Legacy systems for comparative analysis.
+    These values are derived from "Table 1: Comparative Energy Footprint" and
+    "Orders of Magnitude Reduction in Power Consumption per TeraFLOPS" sections.
+    """
+    # Power Consumption per TeraFLOPS (W/TFLOPS)
+    LEGACY_POWER_PER_TFLOPS_MIN: float = 100.0  # W/TFLOPS
+    LEGACY_POWER_PER_TFLOPS_MAX: float = 500.0  # W/TFLOPS
+    PQMS_POWER_PER_TFLOPS_MIN: float = 0.1    # W/TFLOPS
+    PQMS_POWER_PER_TFLOPS_MAX: float = 5.0     # W/TFLOPS
+
+    # Cooling Overhead as a percentage of compute power
+    LEGACY_COOLING_OVERHEAD_MIN: float = 0.30 # 30%
+    LEGACY_COOLING_OVERHEAD_MAX: float = 0.50 # 50%
+    PQMS_COOLING_OVERHEAD_MAX: float = 0.01   # <1%
+
+    # Latency (Inter-node) in seconds
+    LEGACY_INTER_NODE_LATENCY_MS: float = 1.0  # Milliseconds
+    PQMS_INTER_NODE_LATENCY_NS: float = 10.0 # Nanoseconds (sub-nanosecond for RPU, but inter-node involves mesh)
+    LEGACY_INTER_NODE_LATENCY_S: float = LEGACY_INTER_NODE_LATENCY_MS / 1000.0
+    PQMS_INTER_NODE_LATENCY_S: float = PQMS_INTER_NODE_LATENCY_NS / 1_000_000_000.0
+
+    # Resonant Processing Unit (RPU) specific constants
+    RPU_BASE_TFLOPS_PER_UNIT: float = 1000.0 # Example: 1 PFLOPS per RPU cluster
+    RPU_THERMAL_EFFICIENCY_FACTOR: float = 0.001 # Extremely low thermal footprint
+
+    # ODOS (Oberste Direktive OS) ethical framework stages (Kohlberg Stage 6 equivalent)
+    ODOS_ETHICAL_PRIORITY_LEVELS: Dict[str, int] = {
+        "CRITICAL_GLOBAL_IMPACT": 100, # E.g., climate modeling, disaster prediction
+        "HIGH_RESEARCH_BENEFIT": 80,   # E.g., medical breakthroughs, fundamental science
+        "MODERATE_SOCIAL_VALUE": 60,   # E.g., educational platforms, public services
+        "LOW_COMMERCIAL_INTEREST": 40, # E.g., non-essential market analysis, entertainment
+        "NEGLIGIBLE_IMPACT": 20        # E.g., redundant personal tasks, speculative mining
+    }
+
+    # Time constants for simulation
+    SIMULATION_TICK_DURATION_SECONDS: float = 0.1 # Granularity of simulation steps
+
+class TaskPriority(Enum):
+    """
+    Defines ethical priority levels for computational tasks, aligned with ODOS.
+    These map to PQMSConstants.ODOS_ETHICAL_PRIORITY_LEVELS.
+    """
+    CRITICAL_GLOBAL_IMPACT = auto()
+    HIGH_RESEARCH_BENEFIT = auto()
+    MODERATE_SOCIAL_VALUE = auto()
+    LOW_COMMERCIAL_INTEREST = auto()
+    NEGLIGIBLE_IMPACT = auto()
+
+class ComputationalTask:
+    """
+    Represents a computational task with defined requirements and ethical priority.
+    """
+    def __init__(self,
+                 task_id: str,
+                 required_tflops: float,
+                 estimated_duration_seconds: float,
+                 priority: TaskPriority,
+                 description: str = "Generic Task"):
+        """
+        Initializes a computational task.
+
+        Args:
+            task_id (str): Unique identifier for the task.
+            required_tflops (float): Total TeraFLOPS required to complete the task.
+            estimated_duration_seconds (float): Estimated time to complete the task
+                                                if sufficient resources are allocated.
+            priority (TaskPriority): The ethical priority of the task as determined by ODOS.
+            description (str): A brief description of the task.
+        """
+        if not isinstance(task_id, str) or not task_id:
+            raise ValueError("Task ID must be a non-empty string.")
+        if not isinstance(required_tflops, (int, float)) or required_tflops <= 0:
+            raise ValueError("Required TFLOPS must be a positive number.")
+        if not isinstance(estimated_duration_seconds, (int, float)) or estimated_duration_seconds <= 0:
+            raise ValueError("Estimated duration must be a positive number.")
+        if not isinstance(priority, TaskPriority):
+            raise ValueError("Priority must be an instance of TaskPriority enum.")
+
+        self.task_id: str = task_id
+        self.description: str = description
+        self.required_tflops: float = required_tflops
+        self.estimated_duration_seconds: float = estimated_duration_seconds
+        self.priority: TaskPriority = priority
+        self.start_time: Optional[float] = None
+        self.completion_time: Optional[float] = None
+        self.progress_tflops: float = 0.0 # TFLOPS processed so far
+        self.is_completed: bool = False
+        self.current_allocated_tflops: float = 0.0 # TFLOPS currently allocated per second
+
+        logger.debug(f"Task '{self.task_id}' created: {description}, {required_tflops} TFLOPS, {priority.name}")
+
+    def get_ethical_value(self) -> int:
+        """Retrieves the numerical ethical value for the task."""
+        return PQMSConstants.ODOS_ETHICAL_PRIORITY_LEVELS.get(self.priority.name, 0)
+
+    def update_progress(self, allocated_tflops_per_tick: float, current_time: float) -> None:
+        """
+        Updates the task's progress based on allocated TFLOPS for a given tick.
+
+        Args:
+            allocated_tflops_per_tick (float): TFLOPS processed during this simulation tick.
+            current_time (float): The current simulation time.
+        """
+        if self.is_completed:
+            return
+
+        if self.start_time is None and allocated_tflops_per_tick > 0:
+            self.start_time = current_time
+
+        self.progress_tflops += allocated_tflops_per_tick
+        self.current_allocated_tflops = allocated_tflops_per_tick / PQMSConstants.SIMULATION_TICK_DURATION_SECONDS # Convert back to per second
+
+        if self.progress_tflops >= self.required_tflops:
+            self.progress_tflops = self.required_tflops # Cap at required
+            self.is_completed = True
+            self.completion_time = current_time
+            logger.info(f"Task '{self.task_id}' ({self.description}) completed at t={current_time:.2f}s.")
+
+    def remaining_tflops(self) -> float:
+        """Returns the remaining TFLOPS to complete the task."""
+        return max(0.0, self.required_tflops - self.progress_tflops)
+
+    def __repr__(self) -> str:
+        return (f"Task(ID='{self.task_id}', Desc='{self.description}', Prio={self.priority.name}, "
+                f"Req={self.required_tflops:.2f} TFLOPS, Prog={self.progress_tflops:.2f} TFLOPS, "
+                f"Completed={self.is_completed})")
+
+
+class ResonantProcessingUnit:
+    """
+    Models a single PQMS V100 Resonant Processing Unit (RPU) or a small cluster.
+    RPUs are characterized by extremely high energy efficiency and low latency.
+    """
+    def __init__(self, unit_id: str, nominal_tflops: float = PQMSConstants.RPU_BASE_TFLOPS_PER_UNIT):
+        """
+        Initializes an RPU.
+
+        Args:
+            unit_id (str): Unique identifier for this RPU instance.
+            nominal_tflops (float): The base computational capacity of this RPU in TFLOPS.
+        """
+        if not isinstance(unit_id, str) or not unit_id:
+            raise ValueError("Unit ID must be a non-empty string.")
+        if not isinstance(nominal_tflops, (int, float)) or nominal_tflops <= 0:
+            raise ValueError("Nominal TFLOPS must be a positive number.")
+
+        self.unit_id: str = unit_id
+        self.nominal_tflops: float = nominal_tflops
+        self.available_tflops: float = nominal_tflops
+        self.current_power_consumption_watts: float = 0.0
+        self.power_per_tflops: float = np.random.uniform(
+            PQMSConstants.PQMS_POWER_PER_TFLOPS_MIN,
+            PQMSConstants.PQMS_POWER_PER_TFLOPS_MAX
+        )
+        self.lock = threading.Lock() # For thread-safe resource allocation
+
+        logger.info(f"RPU '{self.unit_id}' initialized with {self.nominal_tflops:.2f} TFLOPS, "
+                    f"{self.power_per_tflops:.4f} W/TFLOPS.")
+
+    def allocate_tflops(self, requested_tflops: float) -> float:
+        """
+        Allocates a specified amount of TFLOPS from the RPU.
+
+        Args:
+            requested_tflops (float): The amount of TFLOPS to allocate.
+
+        Returns:
+            float: The actual amount of TFLOPS allocated.
+        """
+        with self.lock:
+            allocated = min(requested_tflops, self.available_tflops)
+            self.available_tflops -= allocated
+            self.current_power_consumption_watts += allocated * self.power_per_tflops
+            logger.debug(f"RPU '{self.unit_id}': Allocated {allocated:.2f} TFLOPS. Remaining: {self.available_tflops:.2f}.")
+            return allocated
+
+    def release_tflops(self, released_tflops: float) -> None:
+        """
+        Releases previously allocated TFLOPS back to the RPU.
+
+        Args:
+            released_tflops (float): The amount of TFLOPS to release.
+        """
+        with self.lock:
+            self.available_tflops += released_tflops
+            self.current_power_consumption_watts -= released_tflops * self.power_per_tflops
+            self.available_tflops = min(self.available_tflops, self.nominal_tflops) # Cap at nominal
+            self.current_power_consumption_watts = max(0.0, self.current_power_consumption_watts) # No negative power
+            logger.debug(f"RPU '{self.unit_id}': Released {released_tflops:.2f} TFLOPS. Available: {self.available_tflops:.2f}.")
+
+    def get_current_utilization(self) -> float:
+        """Returns the current utilization percentage of the RPU."""
+        return (self.nominal_tflops - self.available_tflops) / self.nominal_tflops * 100 if self.nominal_tflops > 0 else 0.0
+
+    def get_total_power_draw(self) -> float:
+        """Returns the current total power draw including negligible cooling."""
+        # PQMS cooling overhead is <1%, so it's practically negligible for this model.
+        # We can simulate it as part of the base W/TFLOPS for simplicity or add a tiny factor.
+        return self.current_power_consumption_watts * (1 + PQMSConstants.PQMS_COOLING_OVERHEAD_MAX)
+
+
+class LegacyGPUCluster:
+    """
+    Models a conventional GPU cluster for comparative analysis.
+    Characterized by lower energy efficiency and higher cooling overhead.
+    """
+    def __init__(self, cluster_id: str, nominal_tflops: float):
+        """
+        Initializes a Legacy GPU Cluster.
+
+        Args:
+            cluster_id (str): Unique identifier for this cluster instance.
+            nominal_tflops (float): The base computational capacity of this cluster in TFLOPS.
+        """
+        if not isinstance(cluster_id, str) or not cluster_id:
+            raise ValueError("Cluster ID must be a non-empty string.")
+        if not isinstance(nominal_tflops, (int, float)) or nominal_tflops <= 0:
+            raise ValueError("Nominal TFLOPS must be a positive number.")
+
+        self.cluster_id: str = cluster_id
+        self.nominal_tflops: float = nominal_tflops
+        self.available_tflops: float = nominal_tflops
+        self.current_compute_power_watts: float = 0.0
+        self.power_per_tflops: float = np.random.uniform(
+            PQMSConstants.LEGACY_POWER_PER_TFLOPS_MIN,
+            PQMSConstants.LEGACY_POWER_PER_TFLOPS_MAX
+        )
+        self.cooling_overhead: float = np.random.uniform(
+            PQMSConstants.LEGACY_COOLING_OVERHEAD_MIN,
+            PQMSConstants.LEGACY_COOLING_OVERHEAD_MAX
+        )
+        self.lock = threading.Lock()
+
+        logger.info(f"Legacy GPU Cluster '{self.cluster_id}' initialized with {self.nominal_tflops:.2f} TFLOPS, "
+                    f"{self.power_per_tflops:.4f} W/TFLOPS, {self.cooling_overhead*100:.2f}% cooling overhead.")
+
+    def allocate_tflops(self, requested_tflops: float) -> float:
+        """
+        Allocates a specified amount of TFLOPS from the GPU cluster.
+
+        Args:
+            requested_tflops (float): The amount of TFLOPS to allocate.
+
+        Returns:
+            float: The actual amount of TFLOPS allocated.
+        """
+        with self.lock:
+            allocated = min(requested_tflops, self.available_tflops)
+            self.available_tflops -= allocated
+            self.current_compute_power_watts += allocated * self.power_per_tflops
+            logger.debug(f"Legacy GPU Cluster '{self.cluster_id}': Allocated {allocated:.2f} TFLOPS. Remaining: {self.available_tflops:.2f}.")
+            return allocated
+
+    def release_tflops(self, released_tflops: float) -> None:
+        """
+        Releases previously allocated TFLOPS back to the GPU cluster.
+
+        Args:
+            released_tflops (float): The amount of TFLOPS to release.
+        """
+        with self.lock:
+            self.available_tflops += released_tflops
+            self.current_compute_power_watts -= released_tflops * self.power_per_tflops
+            self.available_tflops = min(self.available_tflops, self.nominal_tflops)
+            self.current_compute_power_watts = max(0.0, self.current_compute_power_watts)
+            logger.debug(f"Legacy GPU Cluster '{self.cluster_id}': Released {released_tflops:.2f} TFLOPS. Available: {self.available_tflops:.2f}.")
+
+    def get_current_utilization(self) -> float:
+        """Returns the current utilization percentage of the GPU cluster."""
+        return (self.nominal_tflops - self.available_tflops) / self.nominal_tflops * 100 if self.nominal_tflops > 0 else 0.0
+
+    def get_total_power_draw(self) -> float:
+        """Returns the current total power draw including compute and cooling."""
+        return self.current_compute_power_watts * (1 + self.cooling_overhead)
+
+
+class GuardianNeuron:
+    """
+    The Guardian Neuron, operating under the Oberste Direktive OS (ODOS) framework,
+    is responsible for ethically prioritizing computational tasks. It ensures that
+    resources are allocated based on global benefit rather than market forces.
+    """
+    def __init__(self):
+        """Initializes the Guardian Neuron."""
+        self.active_tasks: Dict[str, ComputationalTask] = {}
+        self.queued_tasks: List[ComputationalTask] = []
+        self.lock = threading.Lock()
+        logger.info("Guardian Neuron initialized, ready for ethical prioritization.")
+
+    def submit_task(self, task: ComputationalTask) -> None:
+        """
+        Submits a new task to the Guardian Neuron for prioritization.
+
+        Args:
+            task (ComputationalTask): The task to be submitted.
+        """
+        with self.lock:
+            if task.task_id in self.active_tasks or task in self.queued_tasks:
+                logger.warning(f"Task '{task.task_id}' already known to Guardian Neuron.")
+                return
+            self.queued_tasks.append(task)
+            self._sort_tasks_by_priority()
+            logger.info(f"Task '{task.task_id}' submitted to Guardian Neuron. Priority: {task.priority.name}.")
+
+    def _sort_tasks_by_priority(self) -> None:
+        """Internal method to sort queued tasks by ethical priority (descending)."""
+        # Sort by ethical value then by remaining TFLOPS (smaller tasks first within same priority)
+        self.queued_tasks.sort(key=lambda t: (t.get_ethical_value(), -t.remaining_tflops()), reverse=True)
+        # Note: Sorting by remaining TFLOPS (descending) might prioritize larger tasks.
+        # For fairness/throughput, it might be (ascending) to finish smaller tasks faster if priority is equal.
+        # Re-evaluating: Smaller tasks first (ascending remaining TFLOPS) within same priority is better for throughput.
+        self.queued_tasks.sort(key=lambda t: (t.get_ethical_value(), t.remaining_tflops()), reverse=True)
+
+
+    def get_prioritized_tasks(self, max_tasks: int = -1) -> List[ComputationalTask]:
+        """
+        Returns a list of tasks prioritized ethically, ready for resource allocation.
+        Moves tasks from queued to active as they are considered for allocation.
+
+        Args:
+            max_tasks (int): Maximum number of tasks to return. -1 for all.
+
+        Returns:
+            List[ComputationalTask]: A list of prioritized tasks.
+        """
+        with self.lock:
+            self._sort_tasks_by_priority() # Ensure queue is always sorted when accessed
+            tasks_to_allocate = []
+            count = 0
+            while self.queued_tasks and (max_tasks == -1 or count < max_tasks):
+                task = self.queued_tasks.pop(0)
+                self.active_tasks[task.task_id] = task
+                tasks_to_allocate.append(task)
+                count += 1
+            return tasks_to_allocate
+
+    def acknowledge_task_completion(self, task_id: str) -> None:
+        """
+        Acknowledges that a task has been completed and removes it from active tasks.
+
+        Args:
+            task_id (str): The ID of the completed task.
+        """
+        with self.lock:
+            if task_id in self.active_tasks:
+                completed_task = self.active_tasks.pop(task_id)
+                logger.debug(f"Guardian Neuron: Acknowledged completion of task '{task_id}'.")
+            else:
+                logger.warning(f"Guardian Neuron: Attempted to acknowledge unknown or already completed task '{task_id}'.")
+
+    def get_all_managed_tasks(self) -> List[ComputationalTask]:
+        """Returns all tasks currently managed by the Guardian Neuron (active + queued)."""
+        with self.lock:
+            return list(self.active_tasks.values()) + list(self.queued_tasks)
+
+
+class ResourceAllocator:
+    """
+    Manages the allocation of computational resources (RPUs or Legacy GPUs) to tasks,
+    guided by the Guardian Neuron's ethical prioritization and available energy.
+    """
+    def __init__(self,
+                 guardian_neuron: GuardianNeuron,
+                 max_power_watts: float,
+                 system_type: str = "PQMS"):
+        """
+        Initializes the Resource Allocator.
+
+        Args:
+            guardian_neuron (GuardianNeuron): The ethical prioritization component.
+            max_power_watts (float): The total available electrical power for the system in Watts.
+            system_type (str): Type of system to simulate ('PQMS' or 'LEGACY').
+        """
+        if not isinstance(guardian_neuron, GuardianNeuron):
+            raise ValueError("Guardian neuron must be an instance of GuardianNeuron.")
+        if not isinstance(max_power_watts, (int, float)) or max_power_watts <= 0:
+            raise ValueError("Max power must be a positive number.")
+        if system_type not in ["PQMS", "LEGACY"]:
+            raise ValueError("System type must be 'PQMS' or 'LEGACY'.")
+
+        self.guardian_neuron: GuardianNeuron = guardian_neuron
+        self.max_power_watts: float = max_power_watts
+        self.system_type: str = system_type
+        self.compute_units: List[Union[ResonantProcessingUnit, LegacyGPUCluster]] = []
+        self.allocated_tasks: Dict[str, ComputationalTask] = {} # Tasks currently being processed
+        self.lock = threading.Lock()
+
+        logger.info(f"Resource Allocator initialized for {system_type} system with {max_power_watts:.2f} W max power.")
+
+    def add_compute_unit(self, unit: Union[ResonantProcessingUnit, LegacyGPUCluster]) -> None:
+        """
+        Adds a computational unit (RPU or GPU cluster) to the allocator's pool.
+
+        Args:
+            unit (Union[ResonantProcessingUnit, LegacyGPUCluster]): The compute unit to add.
+        """
+        with self.lock:
+            if (self.system_type == "PQMS" and not isinstance(unit, ResonantProcessingUnit)) or \
+               (self.system_type == "LEGACY" and not isinstance(unit, LegacyGPUCluster)):
+                logger.error(f"Cannot add {type(unit).__name__} to a {self.system_type} allocator.")
+                raise TypeError(f"Mismatched compute unit type for {self.system_type} allocator.")
+            self.compute_units.append(unit)
+            logger.info(f"Added {unit.__class__.__name__} '{unit.unit_id}' to the allocator.")
+
+    def _get_total_available_tflops(self) -> float:
+        """Calculates the total available TFLOPS across all compute units."""
+        with self.lock:
+            return sum(unit.available_tflops for unit in self.compute_units)
+
+    def _get_current_total_power_draw(self) -> float:
+        """Calculates the current total power draw of all active compute units."""
+        with self.lock:
+            return sum(unit.get_total_power_draw() for unit in self.compute_units)
+
+    def _get_max_theoretical_tflops(self, remaining_power: float) -> float:
+        """
+        Calculates the maximum theoretical TFLOPS that can be powered by remaining_power,
+        considering the average W/TFLOPS of available units.
+        """
+        if not self.compute_units or remaining_power <= 0:
+            return 0.0
+
+        # Calculate average W/TFLOPS of currently available (not fully utilized) units
+        available_units = [unit for unit in self.compute_units if unit.available_tflops > 0]
+        if not available_units:
+            return 0.0
+
+        total_available_power_per_tflops = sum(unit.power_per_tflops * (1 + unit.cooling_overhead if isinstance(unit, LegacyGPUCluster) else PQMSConstants.PQMS_COOLING_OVERHEAD_MAX) for unit in available_units)
+        average_power_per_tflops = total_available_power_per_tflops / len(available_units)
+        
+        return remaining_power / average_power_per_tflops
+
+    def _allocate_tflops_to_units(self, tflops_to_distribute: float) -> float:
+        """
+        Distributes a given amount of TFLOPS across available compute units.
+        Prioritizes units with lower W/TFLOPS if possible (simplified greedy approach).
+
+        Args:
+            tflops_to_distribute (float): The total TFLOPS to attempt to allocate.
+
+        Returns:
+            float: The actual TFLOPS successfully allocated across units.
+        """
+        with self.lock:
+            allocated_total = 0.0
+            
+            # Sort units by efficiency (lower W/TFLOPS is better)
+            sorted_units = sorted(
+                self.compute_units,
+                key=lambda u: u.power_per_tflops * (1 + u.cooling_overhead if isinstance(u, LegacyGPUCluster) else PQMSConstants.PQMS_COOLING_OVERHEAD_MAX)
+            )
+
+            for unit in sorted_units:
+                if tflops_to_distribute <= 0:
+                    break
+                
+                can_allocate_from_unit = min(tflops_to_distribute, unit.available_tflops)
+                if can_allocate_from_unit > 0:
+                    allocated_from_unit = unit.allocate_tflops(can_allocate_from_unit)
+                    allocated_total += allocated_from_unit
+                    tflops_to_distribute -= allocated_from_unit
+            
+            return allocated_total
+
+    def allocate_resources(self) -> None:
+        """
+        Performs a resource allocation cycle:
+        1. Gets prioritized tasks from Guardian Neuron.
+        2. Determines available power budget.
+        3. Allocates TFLOPS to tasks based on priority and power constraints.
+        """
+        with self.lock:
+            # 1. Clear completed tasks and update progress for currently allocated ones
+            tasks_to_remove = []
+            for task_id, task in list(self.allocated_tasks.items()): # Iterate on copy
+                if task.is_completed:
+                    self.guardian_neuron.acknowledge_task_completion(task_id)
+                    tasks_to_remove.append(task_id)
+                    # Release resources from this task (important!)
+                    # We need to know how much was allocated to this specific task previously.
+                    # For simplicity, we assume units are generally managed, and this is implicitly freed.
+                    # A more complex model would track unit-to-task allocations.
+                    # For now, we ensure units are able to re-allocate in a new cycle.
+
+            for task_id in tasks_to_remove:
+                del self.allocated_tasks[task_id]
+
+            # Release all TFLOPS from all units at the start of each allocation cycle
+            # This simplifies allocation logic considerably, assuming re-distribution each tick.
+            for unit in self.compute_units:
+                # Calculate current active TFLOPS for the unit for accurate power tracking
+                # This needs to be done more carefully: currently, the units track their own active allocation.
+                # A more robust solution would be to pass the total desired active TFLOPS to the units.
+                unit.available_tflops = unit.nominal_tflops
+                unit.current_power_consumption_watts = 0.0 # Reset for recalculation
+
+            # 2. Get prioritized tasks (moves from queued to active in GN)
+            prioritized_tasks = self.guardian_neuron.get_prioritized_tasks()
+            if not prioritized_tasks and not self.allocated_tasks:
+                logger.debug("No tasks to allocate resources for.")
+                return
+
+            current_power_draw = self._get_current_total_power_draw()
+            remaining_power_budget = max(0.0, self.max_power_watts - current_power_draw)
+            total_available_system_tflops = self._get_total_available_tflops()
+
+            logger.debug(f"Allocation cycle: Max Power={self.max_power_watts:.2f}W, "
+                         f"Current Draw={current_power_draw:.2f}W, "
+                         f"Budget={remaining_power_budget:.2f}W, "
+                         f"Total Available TFLOPS={total_available_system_tflops:.2f}.")
+
+            # Determine total TFLOPS budget for this tick based on power
+            # We need to distribute available power across tasks.
+            # Convert remaining power budget into theoretical TFLOPS capacity for this tick.
+            # This is complex because W/TFLOPS varies per unit.
+            # A simpler approach: iterate through prioritized tasks and allocate power until budget is exhausted.
+            
+            allocated_tflops_this_tick = {} # task_id -> TFLOPS allocated for this tick
+            power_consumed_this_tick = 0.0
+            total_tflops_to_allocate_from_system = 0.0
+
+            # First, calculate maximum TFLOPS that can be *powered* by the remaining budget
+            # This requires knowing the average W/TFLOPS of a *marginal* TFLOP.
+            # For simplicity, we can use an 'effective' power per TFLOPS based on the average efficiency of the *system type*.
+            if self.system_type == "PQMS":
+                effective_wpt = (PQMSConstants.PQMS_POWER_PER_TFLOPS_MIN + PQMSConstants.PQMS_POWER_PER_TFLOPS_MAX) / 2
+                effective_wpt *= (1 + PQMSConstants.PQMS_COOLING_OVERHEAD_MAX)
+            else: # LEGACY
+                effective_wpt = (PQMSConstants.LEGACY_POWER_PER_TFLOPS_MIN + PQMSConstants.LEGACY_POWER_PER_TFLOPS_MAX) / 2
+                effective_wpt *= (1 + (PQMSConstants.LEGACY_COOLING_OVERHEAD_MIN + PQMSConstants.LEGACY_COOLING_OVERHEAD_MAX) / 2)
+
+            max_tflops_power_budget = remaining_power_budget / effective_wpt if effective_wpt > 0 else 0.0
+            
+            # Combine prioritized tasks with any tasks still in progress (from previous allocations)
+            all_relevant_tasks = list(prioritized_tasks) + [t for t in self.allocated_tasks.values() if t.task_id not in [p.task_id for p in prioritized_tasks] and not t.is_completed]
+            
+            # Sort these tasks again to ensure strict priority, even if some were previously active
+            all_relevant_tasks.sort(key=lambda t: (t.get_ethical_value(), t.remaining_tflops()), reverse=True)
+
+            # Distribute available
+
+```
+
+
 
 ---
 
