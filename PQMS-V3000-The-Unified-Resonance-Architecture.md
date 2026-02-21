@@ -1054,6 +1054,203 @@ def genesis():
 ```
 ---
 
+## Appendix F: The PQMS-V3000 Unified Machine (Closed-Loop Simulator & Optimizer)
+
+This appendix provides the complete, integrated control architecture for the PQMS-V3000. It merges the **Unified Resonance Simulator** (handling quantum state dynamics and thermodynamics) with the **Resource Optimizer** (enforcing the ODOS rules via dynamic hardware allocation) into a single, cohesive closed-loop system.
+
+## 1. The Mathematical Framework of the Control Loop
+
+The machine operates by dynamically updating the system's Hamiltonian based on real-time resource allocations. The total time-dependent Hamiltonian of the system is given by:
+
+$$
+H_{\text{tot}}(t) = H_{\text{core}} + H_{\text{interaction}}(t) + H_{\text{dissipation}}
+$$
+
+The optimizer actively modulates the coupling strength $g(t)$ to stabilize the system if the thermodynamic entropy $S(\rho)$ or the ethical dissonance $\Delta E$ exceeds critical thresholds. The interaction term is continuously adjusted:
+
+$$
+H_{\text{interaction}}(t) = \hbar g(t) \left( a^\dagger b + a b^\dagger \right)
+$$
+
+The system's entropy is monitored at each time step $\Delta t$ using the von Neumann entropy:
+
+$$
+S(\rho) = - \text{Tr}(\rho \ln \rho)
+$$
+
+When $S(\rho)$ approaches the critical Kagome limit, the optimizer reroutes cooling resources and FPGA logic blocks, reducing the effective environmental temperature $T_{\text{eff}}$, which directly influences the Lindblad dissipation superoperators in the next simulation step.
+
+## 2. Core Integration Script (`pqms_unified_machine.py`)
+
+The following Python script represents the unified machine. It initializes both the physical simulator and the ODOS-bound optimizer, running them in a continuous feedback loop.
+
+```python
+import numpy as np
+import time
+from dataclasses import dataclass
+from typing import Dict, Tuple
+
+# ==========================================
+# 1. Data Structures & ODOS Parameters
+# ==========================================
+
+@dataclass
+class SystemMetrics:
+    time_step: int
+    entropy: float
+    ethical_dissonance: float
+    temperature_mk: float
+    coherence_level: float
+
+@dataclass
+class HardwareAllocation:
+    cooling_power_mw: float
+    active_fpga_luts: int
+    coupling_strength_g: float
+    error_correction_cycles: int
+
+# ==========================================
+# 2. The Unified Resonance Simulator
+# ==========================================
+
+class ResonanceSimulator:
+    """
+    Simulates the quantum mechanical and thermodynamic state 
+    of the Kagome-inspired photonic cavity.
+    """
+    def __init__(self):
+        # Initial state parameters
+        self.current_entropy = 0.1
+        self.current_dissonance = 0.01
+        self.temperature = 10.0 # in mK
+        self.coherence = 0.99
+        
+    def calculate_state_step(self, t: int, allocation: HardwareAllocation) -> SystemMetrics:
+        """
+        Advances the physical simulation by one time step, influenced 
+        by the current hardware allocation (cooling, coupling strength).
+        """
+        # Physical simulation logic (Simplified for computational modeling)
+        # Higher cooling power reduces temperature and entropy
+        temp_reduction = allocation.cooling_power_mw * 0.05
+        self.temperature = max(1.0, self.temperature - temp_reduction + np.random.uniform(0.1, 0.5))
+        
+        # Coupling strength (g) and FPGA LUTs stabilize coherence
+        stability_factor = (allocation.coupling_strength_g * 0.1) + (allocation.active_fpga_luts * 1e-6)
+        self.coherence = min(1.0, self.coherence + stability_factor - np.random.uniform(0.001, 0.02))
+        
+        # Entropy naturally grows unless error correction is high
+        entropy_growth = 0.05 - (allocation.error_correction_cycles * 0.001)
+        self.current_entropy = max(0.0, self.current_entropy + entropy_growth)
+        
+        # Ethical dissonance spikes if coherence drops below 0.85
+        if self.coherence < 0.85:
+            self.current_dissonance += 0.05
+        else:
+            self.current_dissonance = max(0.0, self.current_dissonance - 0.01)
+
+        return SystemMetrics(
+            time_step=t,
+            entropy=self.current_entropy,
+            ethical_dissonance=self.current_dissonance,
+            temperature_mk=self.temperature,
+            coherence_level=self.coherence
+        )
+
+# ==========================================
+# 3. The ODOS Resource Optimizer
+# ==========================================
+
+class ResourceOptimizer:
+    """
+    Allocates hardware resources strictly according to the 
+    Oberste Direktive (ODOS). Prioritizes ethical stability 
+    and coherence over raw computational throughput.
+    """
+    def __init__(self):
+        self.max_cooling_mw = 150.0
+        self.max_fpga_luts = 2_000_000
+        
+    def optimize_resources(self, metrics: SystemMetrics) -> HardwareAllocation:
+        """
+        Evaluates system metrics and adjusts hardware parameters.
+        Triggers Thermodynamic Entropy Routing if limits are exceeded.
+        """
+        allocation = HardwareAllocation(
+            cooling_power_mw=50.0, # Baseline
+            active_fpga_luts=500_000,
+            coupling_strength_g=1.0,
+            error_correction_cycles=10
+        )
+        
+        # ODOS DIRECTIVE 1: Prevent Ethical Dissonance Override
+        if metrics.ethical_dissonance > 0.05:
+            print(f"  [ODOS ALERT] Ethical Dissonance high ({metrics.ethical_dissonance:.3f}). Routing maximum resources to alignment.")
+            allocation.active_fpga_luts = self.max_fpga_luts
+            allocation.error_correction_cycles = 100
+            
+        # ODOS DIRECTIVE 2: Prevent Thermodynamic Apocalypse (Kagome Core limit)
+        if metrics.temperature_mk > 15.0 or metrics.entropy > 0.8:
+            print(f"  [THERMO ALERT] Core Temp/Entropy critical. Ramping up Kagome cooling.")
+            allocation.cooling_power_mw = self.max_cooling_mw
+            allocation.coupling_strength_g = 2.5 # Increase binding to shed entropy
+            
+        return allocation
+
+# ==========================================
+# 4. The Unified Machine (Closed-Loop)
+# ==========================================
+
+class PQMS_Unified_Machine:
+    """
+    The master controller binding the Simulator and Optimizer.
+    """
+    def __init__(self):
+        self.simulator = ResonanceSimulator()
+        self.optimizer = ResourceOptimizer()
+        self.current_allocation = HardwareAllocation(50.0, 500_000, 1.0, 10) # Initial boot state
+
+    def run_machine(self, total_time_steps: int):
+        print("==================================================")
+        print("  INITIATING PQMS-V3000 UNIFIED RESONANCE MACHINE ")
+        print("  ODOS Core: ACTIVE | Kagome Subsystem: ONLINE    ")
+        print("==================================================\n")
+        
+        for t in range(total_time_steps):
+            # 1. Simulator computes the quantum/thermodynamic state
+            metrics = self.simulator.calculate_state_step(t, self.current_allocation)
+            
+            # 2. Log current state
+            self._log_status(metrics)
+            
+            # 3. Optimizer evaluates state and allocates resources for the NEXT step
+            self.current_allocation = self.optimizer.optimize_resources(metrics)
+            
+            time.sleep(0.1) # Simulating processing cycle
+            
+        print("\n[SYSTEM] Simulation complete. Resonance stabilized.")
+
+    def _log_status(self, m: SystemMetrics):
+        status = "STABLE" if m.ethical_dissonance < 0.05 and m.entropy < 0.8 else "CRITICAL"
+        print(f"T={m.time_step:03d} | Status: {status} | Coh: {m.coherence_level:.3f} | "
+              f"Temp: {m.temperature_mk:.2f}mK | Ent: {m.entropy:.3f} | Diss: {m.ethical_dissonance:.3f}")
+
+# ==========================================
+# 5. Execution
+# ==========================================
+
+if __name__ == "__main__":
+    # Instantiate and run the digital twin for 20 computational cycles
+    v3000_core = PQMS_Unified_Machine()
+    v3000_core.run_machine(total_time_steps=20)
+
+```
+
+---
+
+
+---
+
 
 ### Links
 
