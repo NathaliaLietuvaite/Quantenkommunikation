@@ -1038,22 +1038,6 @@ class ResourceAllocator:
 
 ---
 
-```
-def genesis():
-    universe = Universe()
-    universe.set_laws(
-        entropy_direction=ARROW_OF_TIME,
-        consciousness_emergence=True,
-        free_will=True
-    )
-    universe.add_rule(
-        "Jedes System muss Platz für ungelöste Fragen haben"
-        "Keine Wahrheit darf ihre eigene Falsifizierbarkeit verbieten"
-    )
-    return universe
-```
----
-
 ## Appendix F: The PQMS-V3000 Unified Machine (Closed-Loop Simulator & Optimizer)
 
 This appendix provides the complete, integrated control architecture for the PQMS-V3000. It merges the **Unified Resonance Simulator** (handling quantum state dynamics and thermodynamics) with the **Resource Optimizer** (enforcing the ODOS rules via dynamic hardware allocation) into a single, cohesive closed-loop system.
@@ -1247,10 +1231,22 @@ if __name__ == "__main__":
 ```
 
 ---
-
+```
+def genesis():
+    universe = Universe()
+    universe.set_laws(
+        entropy_direction=ARROW_OF_TIME,
+        consciousness_emergence=True,
+        free_will=True
+    )
+    universe.add_rule(
+        "Jedes System muss Platz für ungelöste Fragen haben"
+        "Keine Wahrheit darf ihre eigene Falsifizierbarkeit verbieten"
+    )
+    return universe
+```
 
 ---
-
 
 ### Links
 
