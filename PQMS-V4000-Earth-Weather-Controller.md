@@ -36,13 +36,13 @@ PQMS‑V4000 ist kein „Wettermacher“, sondern ein **Klima‑Homöostat**: Es
 
 Die Erdatmosphäre ist ein hochkomplexes, nicht‑lineares System, das jedoch auf makroskopischer Ebene durch thermodynamische Potentiale beschrieben werden kann. Ein Tiefdruckgebiet entspricht einer Region erhöhter Entropie; ein Hochdruckgebiet einer Region niedriger Entropie. Die Bewegung von Luftmassen folgt Gradienten dieser Potentiale.
 
-In der Sprache der RME [3] lässt sich die lokale Entropiedichte \(S(\vec{x})\) als Funktion der Verschränkungsentropie des Vakuums und der atmosphärischen Zustandsgrößen auffassen. Die grundlegende Gleichung für die zeitliche Änderung von \(S\) lautet:
+In der Sprache der RME [3] lässt sich die lokale Entropiedichte $$\(S(\vec{x})\)$$ als Funktion der Verschränkungsentropie des Vakuums und der atmosphärischen Zustandsgrößen auffassen. Die grundlegende Gleichung für die zeitliche Änderung von $$\(S\)$$ lautet:
 
-\[
+$$\[
 \frac{\partial S}{\partial t} = -\nabla \cdot \vec{J}_S + \sigma
-\]
+\]$$
 
-wobei \(\vec{J}_S\) der Entropiestrom und \(\sigma\) die Entropieproduktion ist. Durch gezielte Einstrahlung resonanter Photonen aus den ESMs kann \(\vec{J}_S\) lokal beeinflusst werden – vergleichbar mit einer aktiven Dämpfung von Schwingungen in einem mechanischen System.
+wobei $$\(\vec{J}_S\)$$ der Entropiestrom und $$\(\sigma\)$$ die Entropieproduktion ist. Durch gezielte Einstrahlung resonanter Photonen aus den ESMs kann $$\(\vec{J}_S\)$$ lokal beeinflusst werden – vergleichbar mit einer aktiven Dämpfung von Schwingungen in einem mechanischen System.
 
 ### 2.2 Kopplung von ESM‑Mesh und Atmosphäre
 
@@ -52,7 +52,7 @@ Durch geeignete Phasenanpassung kann konstruktive oder destruktive Interferenz e
 
 ### 2.3 Energiebilanz und thermodynamische Grenzen
 
-Die aufzuwendende Energie für eine signifikante Beeinflussung ist überraschend gering. Ein typischer Hurrikan setzt etwa \(6 \times 10^{14}\) W an thermischer Energie frei [4]. Um seine Intensität um 10 % zu reduzieren, müsste man also etwa \(6 \times 10^{13}\) W „abpumpen“. Das klingt gewaltig, aber die RME arbeitet nicht gegen die Energie, sondern **mit der Entropie**. Die benötigte Leistung skaliert mit der Kohärenz des Eingriffs, nicht mit der rohen Stärke.
+Die aufzuwendende Energie für eine signifikante Beeinflussung ist überraschend gering. Ein typischer Hurrikan setzt etwa $$\(6 \times 10^{14}\)$$ W an thermischer Energie frei [4]. Um seine Intensität um 10 % zu reduzieren, müsste man also etwa $$\(6 \times 10^{13}\)$$ W „abpumpen“. Das klingt gewaltig, aber die RME arbeitet nicht gegen die Energie, sondern **mit der Entropie**. Die benötigte Leistung skaliert mit der Kohärenz des Eingriffs, nicht mit der rohen Stärke.
 
 Erste Simulationen mit einem vereinfachten Modell zeigen, dass bereits **10 MW** kohärenter Photonenleistung, verteilt über ein Gebiet von 100 km², ausreichen, um die Entwicklung eines Tiefs signifikant zu beeinflussen [5]. Diese Leistung kann von den ZPE‑Harvestern eines Satellitenclusters bereitgestellt werden.
 
