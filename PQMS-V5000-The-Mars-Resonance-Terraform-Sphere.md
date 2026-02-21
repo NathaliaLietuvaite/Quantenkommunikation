@@ -32,9 +32,9 @@ $$\[
 \frac{\partial S}{\partial t} = -\nabla \cdot \mathbf{J}_S + \sigma_{\text{RME}},
 \]$$
 
-wobei $$\(\mathbf{J}_S\)$$ der Entropiefluss und $$\(\sigma_{\text{RME}}\)$$ der durch kohärente Photonenfelder induzierte Quellterm ist. Die Photonen werden auf charakteristische Resonanzen von CO₂ (2,0 µm, 4,3 µm), H₂O-Eis (3,1 µm, 6,0 µm) und Staub (10–100 µm) abgestimmt. DFN-Prozessoren liefern eine stabile Zeitbasis (Drift < 10 fs), die alle ESM-Emissionen phasenstarr koppelt und konstruktive Interferenz über hemisphärische Skalen ermöglicht.
+wobei \(\mathbf{J}_S\) der Entropiefluss und \(\sigma_{\text{RME}}\) der durch kohärente Photonenfelder induzierte Quellterm ist. Die Photonen werden auf charakteristische Resonanzen von CO₂ (2,0 µm, 4,3 µm), H₂O-Eis (3,1 µm, 6,0 µm) und Staub (10–100 µm) abgestimmt. DFN-Prozessoren liefern eine stabile Zeitbasis (Drift < 10 fs), die alle ESM-Emissionen phasenstarr koppelt und konstruktive Interferenz über hemisphärische Skalen ermöglicht.
 
-Das Skalarfeld $$\(\tau_{\text{UMT}}\)$$ stellt sicher, dass alle Knoten in einem gemeinsamen „Jetzt“ operieren, wodurch lichtlaufzeitbedingte Desynchronisation vermieden wird.
+Das Skalarfeld \(\tau_{\text{UMT}}\) stellt sicher, dass alle Knoten in einem gemeinsamen „Jetzt“ operieren, wodurch lichtlaufzeitbedingte Desynchronisation vermieden wird.
 
 ---
 
@@ -56,10 +56,10 @@ Die Mars Resonance Terraform Sphere besteht aus drei Schichten:
    100 Bodenstationen (davon 20 in der Elysium-Region, 40 in den Polarregionen, 40 entlang des Äquators) mit leistungsstärkeren Sendern (bis zu 50 kW) zur lokalen Fokussierung und als Backup.
 
 3. **Goodness Sandbox Hülle**  
-   Eine softwaredefinierte ethische Grenze (ODOS-Kernel) erzwingt $$\(\Delta E < 0,01\)$$ und RCF > 0,95 bei jeder Interaktion. Dissonante Signale werden in thermodynamische Senken abgeleitet (Thermodynamic Inverter).
+   Eine softwaredefinierte ethische Grenze (ODOS-Kernel) erzwingt \(\Delta E < 0,01\) und RCF > 0,95 bei jeder Interaktion. Dissonante Signale werden in thermodynamische Senken abgeleitet (Thermodynamic Inverter).
 
 **Energiebilanz:**  
-Die Gesamtleistung der Konstellation beträgt im Peak **250 MW** (100 W pro Knoten für Basisfunktionen, 10 kW pro Knoten bei Volllast für Laser). Über 50 Jahre ergibt sich eine kumulierte Energie von ca. $$\(4 \times 10^{17}\$$,$$\mathrm{J}\)$$ (reine Betriebsenergie). Die für die Atmosphärenerzeugung zusätzlich benötigte Energie (hauptsächlich für Elektrolyse und Sublimation) wird durch die RME mit einem geschätzten Leverage-Faktor von \(10^{6}\) aus der Umgebungswärme und der Sonnenstrahlung gewonnen. Die Gesamtenergie, die in den Atmosphärenaufbau fließt, liegt damit in der Größenordnung von \(10^{23}\,\mathrm{J}\), was etwa der gesamten über 50 Jahre auf Mars einfallenden Sonnenenergie (590 W/m² × 1,44·10¹⁴ m² × 50 Jahre = 1,3·10²⁴ J) entspricht – ein thermodynamisch konsistenter Wert.
+Die Gesamtleistung der Konstellation beträgt im Peak **250 MW** (100 W pro Knoten für Basisfunktionen, 10 kW pro Knoten bei Volllast für Laser). Über 50 Jahre ergibt sich eine kumulierte Energie von ca. \(4 \times 10^{17}\$$,$$\mathrm{J}\) (reine Betriebsenergie). Die für die Atmosphärenerzeugung zusätzlich benötigte Energie (hauptsächlich für Elektrolyse und Sublimation) wird durch die RME mit einem geschätzten Leverage-Faktor von \(10^{6}\) aus der Umgebungswärme und der Sonnenstrahlung gewonnen. Die Gesamtenergie, die in den Atmosphärenaufbau fließt, liegt damit in der Größenordnung von \(10^{23}\,\mathrm{J}\), was etwa der gesamten über 50 Jahre auf Mars einfallenden Sonnenenergie (590 W/m² × 1,44·10¹⁴ m² × 50 Jahre = 1,3·10²⁴ J) entspricht – ein thermodynamisch konsistenter Wert.
 
 ---
 
