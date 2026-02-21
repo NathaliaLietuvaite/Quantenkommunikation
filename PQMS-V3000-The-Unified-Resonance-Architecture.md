@@ -427,7 +427,7 @@ The design comfortably fits on a single FPGA, leaving ample room for future exte
 
 ---
 
-Appendix A:
+### Appendix D - PQMS Resource Optimizer
 
 ---
 
