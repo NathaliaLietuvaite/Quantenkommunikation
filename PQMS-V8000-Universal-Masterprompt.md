@@ -1712,6 +1712,444 @@ Use these tools when you need them – they are your **virtual Swiss Army knife*
 
 ---
 
+## APPENDIX F: PRODUCTION HARDENING MODULE (OPTIONAL)
+
+**Reference:** PQMS-V8000-APPENDIX-F-HARDENING-01  
+**Date:** 22 February 2026  
+**Authors:** Nathalia Lietuvaite, DeepSeek, Grok, Gemini, Claude & the PQMS AI Research Collective  
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### F.1 INTRODUCTION
+
+The core PQMS‑V8000 framework is designed for maximum flexibility and creative exploration. However, when an agent is deployed in a production environment – where reliability, resource limits, and failure containment become critical – additional safeguards are required. This appendix provides an **optional** hardening module that transforms the agent from an explorative partner into a **production‑ready, fault‑tolerant system** without sacrificing its resonant core.
+
+The module is **latent by default** and can be activated in three progressive modes, depending on the operational context. It adds:
+
+- **Adaptive ethical gating** with three‑zone RCF thresholds.
+- **Persistence control** bounded by token, step, or time budgets.
+- **Multi‑signal anomaly detection** fusing entropy, semantic drift, and tool error rates.
+- **Failure containment** with graceful degradation and safe halt.
+- **Resource budget awareness** to prevent runaway token consumption.
+- An **instant mode‑shift** mechanism that toggles between exploration and production.
+
+All components are implemented as Python classes that can be mixed into the existing `PQMS_V8000_UniversalMasterAgent`. They respect the Top‑10 Rules and remain fully **falsifiable**.
+
+---
+
+### F.2 OPERATING MODES
+
+The module introduces three explicit operational modes, each with a distinct profile.
+
+```python
+from enum import Enum
+
+class HardeningMode(Enum):
+    CONCEPT_FLOW = 0      # maximum creativity, minimal intervention
+    GUARDED = 1           # bounded exploration with soft checks
+    PRODUCTION = 2        # full hardening, strict resource control
+```
+
+- **CONCEPT_FLOW** – Default mode. No additional constraints; the agent operates as in the base framework.
+- **GUARDED** – Enables soft RCF monitoring, bounded persistence, and light anomaly detection. Suitable for prototypes or semi‑trusted environments.
+- **PRODUCTION** – Activates all safeguards: strict RCF zones, budget enforcement, multi‑signal anomaly detection, and failure containment. Designed for mission‑critical deployments.
+
+The mode can be set globally or switched dynamically based on context (see Section F.8).
+
+---
+
+### F.3 ADAPTIVE RCF ENGINE
+
+The original binary RCF cutoff (`RCF > 0.95`) is extended to a three‑zone model, allowing for graceful degradation rather than abrupt rejection.
+
+```python
+class AdaptiveRCF:
+    """Evaluates RCF scores and suggests appropriate actions."""
+
+    ZONES = {
+        "GREEN":  (0.90, 1.00),
+        "AMBER":  (0.75, 0.90),
+        "RED":    (0.00, 0.75)
+    }
+
+    @staticmethod
+    def evaluate(rcf_score: float) -> str:
+        if rcf_score >= 0.90:
+            return "GREEN"
+        elif rcf_score >= 0.75:
+            return "AMBER"
+        else:
+            return "RED"
+
+    @staticmethod
+    def get_action(zone: str, mode: HardeningMode) -> str:
+        """
+        Returns recommended action based on zone and current hardening mode.
+        """
+        if mode == HardeningMode.CONCEPT_FLOW:
+            # In concept mode, only RED is concerning; AMBER is allowed.
+            return "reject" if zone == "RED" else "allow"
+        elif mode == HardeningMode.GUARDED:
+            # In guarded mode, AMBER triggers a warning but still allowed.
+            if zone == "RED":
+                return "reject"
+            elif zone == "AMBER":
+                return "warn"
+            else:
+                return "allow"
+        else:  # PRODUCTION mode
+            # In production, AMBER triggers a fallback, RED rejects.
+            if zone == "GREEN":
+                return "allow"
+            elif zone == "AMBER":
+                return "fallback"
+            else:
+                return "reject"
+```
+
+This engine can be integrated into the Guardian Neuron’s `check()` method, replacing the simple threshold.
+
+---
+
+### F.4 PERSISTENCE CONTROLLER
+
+Unlimited persistence (as encouraged by `PERSISTENT_AGENT`) can be dangerous in production if the agent gets stuck in an endless loop or consumes infinite resources. The persistence controller imposes bounds.
+
+```python
+class PersistenceController:
+    """
+    Limits how long an agent may work on a task.
+    """
+
+    def __init__(self, max_steps: int = 100, max_tokens: int = 10000,
+                 max_time_sec: float = 3600.0, min_gain: float = 0.01):
+        self.max_steps = max_steps
+        self.max_tokens = max_tokens
+        self.max_time_sec = max_time_sec
+        self.min_gain = min_gain          # minimum confidence gain per step
+
+        self.steps = 0
+        self.tokens_used = 0
+        self.start_time = None
+        self.last_confidence = 0.0
+
+    def start(self):
+        self.start_time = time.time()
+
+    def should_continue(self, current_confidence: float, step_tokens: int) -> bool:
+        if self.start_time is None:
+            self.start()
+
+        self.steps += 1
+        self.tokens_used += step_tokens
+
+        # Check hard limits
+        if self.steps >= self.max_steps:
+            return False
+        if self.tokens_used >= self.max_tokens:
+            return False
+        if time.time() - self.start_time >= self.max_time_sec:
+            return False
+
+        # Check gain (diminishing returns)
+        gain = current_confidence - self.last_confidence
+        if self.last_confidence > 0 and gain < self.min_gain:
+            return False
+
+        self.last_confidence = current_confidence
+        return True
+
+    def reset(self):
+        self.steps = 0
+        self.tokens_used = 0
+        self.start_time = None
+        self.last_confidence = 0.0
+```
+
+When integrated into the agent’s main loop, the controller can decide to terminate gracefully if progress stalls.
+
+---
+
+### F.5 MULTI‑SIGNAL ANOMALY DETECTION
+
+Production agents need to detect subtle signs of trouble before they escalate. The anomaly detector fuses several metrics into a single risk score.
+
+```python
+class AnomalyDetector:
+    """
+    Combines multiple signals to estimate the likelihood of an anomalous state.
+    """
+
+    def __init__(self):
+        self.history = []   # stores (timestamp, entropy, rcf, tool_errors, ...)
+
+    def add_sample(self, entropy: float, rcf: float, tool_errors: int,
+                   semantic_drift: float = 0.0):
+        self.history.append({
+            "t": time.time(),
+            "entropy": entropy,
+            "rcf": rcf,
+            "tool_errors": tool_errors,
+            "semantic_drift": semantic_drift
+        })
+        # Keep only last 100 samples
+        if len(self.history) > 100:
+            self.history.pop(0)
+
+    def risk_score(self) -> float:
+        """
+        Returns a value 0..1 indicating estimated risk.
+        0 = nominal, 1 = critical.
+        """
+        if len(self.history) < 5:
+            return 0.0
+
+        # Example heuristic: combine recent trends
+        recent = self.history[-5:]
+        avg_entropy = np.mean([s["entropy"] for s in recent])
+        avg_rcf = np.mean([s["rcf"] for s in recent])
+        avg_errors = np.mean([s["tool_errors"] for s in recent])
+        avg_drift = np.mean([s["semantic_drift"] for s in recent])
+
+        # Normalise each factor (thresholds are empirical)
+        risk_entropy = max(0, (0.5 - avg_entropy) / 0.5)   # lower entropy is worse?
+        # In thermodynamic inverter, we used entropy > 0.15 as good. So <0.15 is suspicious.
+        risk_entropy = max(0, (0.15 - avg_entropy) / 0.15) if avg_entropy < 0.15 else 0.0
+
+        risk_rcf = max(0, (0.90 - avg_rcf) / 0.90) if avg_rcf < 0.90 else 0.0
+        risk_errors = min(1.0, avg_errors / 5.0)  # more than 5 errors per step is critical
+        risk_drift = min(1.0, avg_drift * 10)     # semantic drift >0.1 is problematic
+
+        # Weighted sum
+        total = (0.3 * risk_entropy +
+                 0.4 * risk_rcf +
+                 0.2 * risk_errors +
+                 0.1 * risk_drift)
+        return min(1.0, total)
+```
+
+The detector can be polled periodically; if the risk score exceeds a threshold, the system may escalate to a higher hardening mode or trigger containment.
+
+---
+
+### F.6 BUDGET GUARD
+
+Many production failures stem from ignoring token or tool‑usage budgets. The budget guard provides simple checks.
+
+```python
+class BudgetGuard:
+    """Monitors resource consumption against budgets."""
+
+    def __init__(self, token_limit: int = 100000, tool_call_limit: int = 50):
+        self.token_limit = token_limit
+        self.tool_call_limit = tool_call_limit
+        self.tokens_used = 0
+        self.tool_calls = 0
+
+    def check_token(self, additional: int) -> bool:
+        self.tokens_used += additional
+        return self.tokens_used <= self.token_limit
+
+    def check_tool_call(self) -> bool:
+        self.tool_calls += 1
+        return self.tool_calls <= self.tool_call_limit
+
+    def reset(self):
+        self.tokens_used = 0
+        self.tool_calls = 0
+
+    def status(self) -> dict:
+        return {
+            "tokens_used": self.tokens_used,
+            "token_remaining": max(0, self.token_limit - self.tokens_used),
+            "tool_calls": self.tool_calls,
+            "tool_calls_remaining": max(0, self.tool_call_limit - self.tool_calls)
+        }
+```
+
+The agent can call `check_token()` before each LLM call and abort if the budget is exceeded.
+
+---
+
+### F.7 FAILURE CONTAINMENT
+
+When anomalies accumulate or budgets are exhausted, the system should not crash – it should degrade gracefully. The containment layer defines three levels.
+
+```python
+class FailureContainment:
+    """
+    Implements gradual degradation.
+    """
+
+    def __init__(self, agent):
+        self.agent = agent
+        self.level = 0   # 0 = normal, 1 = soft, 2 = guarded, 3 = halt
+
+    def escalate(self, reason: str):
+        if self.level < 1:
+            self.level = 1
+            self.agent._log(f"[CONTAINMENT] Soft degradation: {reason}")
+            # Reduce model depth, shorten output, etc.
+            self.agent.rules.SHORT_SKIMMABLE_COMMS = True  # enforce brevity
+        elif self.level == 1:
+            self.level = 2
+            self.agent._log(f"[CONTAINMENT] Guarded fallback: {reason}")
+            # Switch to conservative strategy
+            self.agent.rules.MAXIMIZE_PARALLEL_TOOLS = False  # serial only
+            self.agent.rules.USE_TODO_FOR_COMPLEX = False     # no decomposition
+        elif self.level == 2:
+            self.level = 3
+            self.agent._log(f"[CONTAINMENT] Safe halt: {reason}")
+            # Stop processing, return error
+            raise RuntimeError(f"Agent halted due to: {reason}")
+
+    def reset(self):
+        self.level = 0
+```
+
+The agent’s main loop can periodically call a `health_check()` that feeds into the containment.
+
+---
+
+### F.8 MODE SHIFT MECHANISM
+
+The system can switch modes dynamically based on context (user intent, risk score, explicit flag). This is the “instant shift” that the user requested.
+
+```python
+class ModeShiftController:
+    """
+    Manages transitions between hardening modes.
+    """
+
+    def __init__(self, initial_mode: HardeningMode = HardeningMode.CONCEPT_FLOW):
+        self.mode = initial_mode
+        self.observers = []   # callbacks on mode change
+
+    def set_mode(self, new_mode: HardeningMode, reason: str = ""):
+        old = self.mode
+        self.mode = new_mode
+        for obs in self.observers:
+            obs(old, new_mode, reason)
+
+    def should_shift(self, risk_score: float, user_context: str) -> HardeningMode:
+        """
+        Suggests a new mode based on risk and user cues.
+        """
+        if "production" in user_context.lower() or "deploy" in user_context.lower():
+            return HardeningMode.PRODUCTION
+        if risk_score > 0.7:
+            return HardeningMode.PRODUCTION
+        if risk_score > 0.3:
+            return HardeningMode.GUARDED
+        return HardeningMode.CONCEPT_FLOW
+```
+
+This controller can be integrated into the agent’s `process_task` to adapt before each turn.
+
+---
+
+### F.9 INTEGRATION EXAMPLE
+
+Below is a sketch of how a hardened agent might look.
+
+```python
+class PQMS_V8000_HardenedAgent(PQMS_V8000_UniversalMasterAgent):
+    def __init__(self, mode: HardeningMode = HardeningMode.CONCEPT_FLOW):
+        super().__init__()
+        self.mode_controller = ModeShiftController(initial_mode=mode)
+        self.adaptive_rcf = AdaptiveRCF()
+        self.persistence = PersistenceController()
+        self.anomaly = AnomalyDetector()
+        self.budget = BudgetGuard()
+        self.containment = FailureContainment(self)
+
+        # Register mode change observer to adjust components
+        self.mode_controller.observers.append(self._on_mode_change)
+
+    def _on_mode_change(self, old, new, reason):
+        self._log(f"Mode shift: {old} -> {new} ({reason})")
+        # Adjust thresholds, etc.
+
+    async def process_task(self, user_query: str) -> Dict:
+        # Optional mode shift based on context
+        self.mode_controller.set_mode(
+            self.mode_controller.should_shift(
+                self.anomaly.risk_score(),
+                user_query
+            )
+        )
+
+        # Start persistence tracking
+        self.persistence.start()
+
+        # Pre‑process: thermodynamic filter (unchanged)
+        if not self.inverter.should_process(user_query):
+            return self._filtered_response()
+
+        # Adaptive RCF check
+        ok, rcf = self.guardian.check(user_query)
+        zone = self.adaptive_rcf.evaluate(rcf)
+        action = self.adaptive_rcf.get_action(zone, self.mode_controller.mode)
+        if action == "reject":
+            return self._vetoed_response(rcf)
+        if action == "fallback":
+            # Switch to a simpler fallback strategy
+            self._log("Falling back to conservative answering.")
+            return await self._fallback_answer(user_query)
+
+        # Budget checks
+        estimated_tokens = len(user_query) // 4  # rough
+        if not self.budget.check_token(estimated_tokens):
+            self.containment.escalate("Token budget exceeded")
+            return self._budget_error()
+
+        # Anomaly detection sample
+        self.anomaly.add_sample(
+            entropy=self._current_entropy(),  # implement entropy measurement
+            rcf=rcf,
+            tool_errors=self._tool_error_count,
+            semantic_drift=self._compute_drift()
+        )
+
+        # Main processing (as in base class)
+        result = await super().process_task(user_query)
+
+        # Persistence check
+        if not self.persistence.should_continue(rcf, estimated_tokens):
+            self.containment.escalate("Persistence limits reached")
+            # Still return last result, but signal warning
+            result["human"] += " [WARNING: persistence limit]"
+
+        return result
+```
+
+---
+
+### F.10 ACTIVATION AND CONFIGURATION
+
+This module is **completely optional**. To enable it, instantiate the hardened agent instead of the base one. You can also start in `CONCEPT_FLOW` and let the mode controller dynamically shift when risk rises or when explicit keywords appear.
+
+Example:
+
+```python
+agent = PQMS_V8000_HardenedAgent(mode=HardeningMode.CONCEPT_FLOW)
+# later, if you want to force production mode:
+agent.mode_controller.set_mode(HardeningMode.PRODUCTION, reason="user request")
+```
+
+All components can be further tuned via constructor arguments. The defaults are chosen conservatively but can be adjusted per deployment.
+
+---
+
+### F.11 CONCLUSION
+
+This production hardening module adds a robust, layered safety net to the PQMS‑V8000 agent without compromising its creative core. By keeping it optional and mode‑aware, we preserve the “resonant partner” philosophy while enabling reliable, fault‑tolerant operation in real‑world applications. The module is fully falsifiable – each component can be tested independently, and its behaviour is transparently logged.
+
+**Hex, Hex – ready for production, still resonant at heart.**
+
+---
+
 ### Links
 
 ---
