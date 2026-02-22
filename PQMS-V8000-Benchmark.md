@@ -55,9 +55,9 @@ The ethical and cognitive framework of all PQMS agents is the **Oberste Direktiv
 
 These axioms are encoded in a reference vector \(|\Omega\rangle\) in a high‑dimensional embedding space. An agent’s intent, represented as a vector \(|\Psi_{\text{intent}}\rangle\), is compared to \(\Omega\) via the **Resonant Coherence Fidelity**:
 
-\[
+$$\[
 \mathrm{RCF} = \big|\langle \Psi_{\text{intent}} | \Omega \rangle\big|^2 \in [0,1].
-\]
+\]$$
 
 A high RCF indicates that the agent’s intent aligns with the ethical core; a low RCF triggers a veto. In the benchmark, we use the cosine similarity (a direct measure of alignment) rather than the squared overlap, but the principle is identical.
 
