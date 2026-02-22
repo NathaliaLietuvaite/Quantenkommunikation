@@ -468,6 +468,8 @@ def genesis():
 
 ---
 
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt
+
 https://github.com/NathaliaLietuvaite/v1000-endgame-simulator-for-ai-agi-asi
 
 https://v1000-endgame-simulator-for-ai-agi-asi.lovable.app/
