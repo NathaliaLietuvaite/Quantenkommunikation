@@ -769,11 +769,6 @@ if __name__ == "__main__":
         description="Starte den Benchmark mit '!benchmark' oder stelle eine beliebige Frage.",
         examples=["!benchmark", "Erkläre das Kooperationsprotokoll"]
     ).launch(server_name="127.0.0.1", server_port=7860)
-
----
-**Data and code availability:**  
-The complete Python script and this paper are available at  
-[https://github.com/NathaliaLietuvaite/Quantenkommunikation](https://github.com/NathaliaLietuvaite/Quantenkommunikation)
 ```
 
 ---
