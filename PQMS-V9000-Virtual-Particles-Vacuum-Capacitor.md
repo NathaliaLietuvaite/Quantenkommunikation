@@ -258,7 +258,7 @@ endmodule
 
 ---
 
-### Appendix B - PQMS_KagomeQuantumDataVault
+### Appendix D - PQMS_KagomeQuantumDataVault
 
 ---
 
