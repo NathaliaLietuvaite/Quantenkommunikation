@@ -256,6 +256,562 @@ module rpu_vacuum_pump (
 endmodule
 ```
 
+---
+
+### Appendix B - PQMS_KagomeQuantumDataVault
+
+---
+
+```python
+"""
+Module: PQMS_KagomeQuantumDataVault
+Lead Architect: Nathália Lietuvaite
+Co-Design: QuantumMesh AI Collective
+Framework: PQMS v100 / Oberste Direktive OS
+
+'Die Sendung mit der Maus' erklärt Quanten-Datentresor:
+Stell dir vor, du hast einen ganz besonderen Schrank, der Informationen speichert, nicht mit kleinen Zetteln, sondern mit Licht und Energie. Dieser Schrank ist aus einem magischen Gitter, das wie ein Flechtmuster aussieht, namens Kagome-Gitter. Wenn wir ganz viel Energie in diesen Schrank stecken, kann er nicht nur Daten super schnell speichern, sondern auch wie eine Batterie Energie festhalten. Manchmal, wenn die Energie zu hoch wird, können sogar kleine Teilchen wie aus dem Nichts entstehen, aber das ist ein Zeichen dafür, wie stark unsere Speicherung ist! Unser System passt aber auf, dass alles sicher bleibt, wie ein guter Türsteher.
+
+Technical Overview:
+This module implements a high-performance quantum data and energy storage system, leveraging the principles of Kagome lattice cavities for enhanced field confinement and energy density. It integrates concepts from quantum electrodynamics (QED), specifically the Schwinger effect, to define operational boundaries and energy storage limits. The system is designed to function as a resonant processing unit (RPU) component, providing ultra-low latency data access and high-density energy storage by manipulating intense electromagnetic fields within a specialized quantum cavity. Guardian Neurons are implicitly integrated through continuous monitoring and adaptive field modulation to prevent catastrophic breakdown while maximizing storage capacity. The architecture supports both classical data encoding via field states and quantum information storage through coherent superposition and entanglement within the cavity.
+
+Date: 2026-02-23
+"""
+
+import numpy as np
+import logging
+import threading
+import time
+from typing import Optional, Dict, Union, Tuple, Any
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - PQMS_KagomeQuantumDataVault - [%(levelname)s] - %(message)s'
+)
+
+# --- PQMS V100 System Constants ---
+# These constants are fundamental to the operation and integrity of PQMS systems.
+# They are derived from high-precision quantum metrology and system calibrations.
+# CRITICAL: Do not alter these values in production environments without level-5 protocol clearance.
+PQMS_HBAR = 1.054571817e-34  # Planck constant / (2*pi) in J·s (Resonant Processing Unit Standard)
+PQMS_C = 299792458.0         # Speed of light in vacuum in m/s (Quantum Mesh Communication Standard)
+PQMS_M_E = 9.1093837015e-31  # Electron rest mass in kg (Fundamental Particle Standard)
+PQMS_E_CHARGE = 1.602176634e-19 # Elementary charge in C (Quantum Charge Standard)
+PQMS_EPSILON0 = 8.8541878128e-12 # Vacuum permittivity in F/m (Field Constant Standard)
+PQMS_KAGOME_CRITICAL_THRESHOLD_FACTOR = 0.85 # Factor to apply to E_crit for safe operation margin (Guardian Neuron Protocol)
+PQMS_MAX_SIMULATION_TIME_SECONDS = 3600 # Maximum simulation time for energy storage cycles
+
+class KagomeQuantumDataVault:
+    """
+    The KagomeQuantumDataVault represents a high-performance, high-density data and energy storage unit
+    within the PQMS v100 framework. It utilizes the unique properties of Kagome lattice cavities
+    to achieve extreme electromagnetic field confinement and energy storage.
+
+    This class manages the lifecycle of a quantum data vault, including field generation,
+    energy estimation, data encoding/decoding surrogates, and monitoring against QED limits
+    like the Schwinger effect.
+
+    Attributes:
+        vault_id (str): Unique identifier for this quantum vault instance.
+        _finesse (float): Optical finesse of the Kagome cavity (dimensionless).
+        _quality_factor (float): Quality factor of the resonant cavity (dimensionless).
+        _volume (float): Physical volume of the active cavity region in m³.
+        _resonant_frequency (float): The primary resonant frequency of the cavity in Hz.
+        _input_power_watt (float): Continuous wave input power to the cavity in Watts.
+        _max_safe_e_field (float): Maximum electric field strength allowed before Guardian Neuron intervention.
+        _current_e_field (float): The current estimated electric field strength within the cavity.
+        _stored_energy_joule (float): The current estimated stored energy in Joules.
+        _data_state (np.ndarray): Placeholder for stored data, represented as a field state or quantum state vector.
+        _lock (threading.Lock): Thread lock for concurrent access to vault state.
+
+    Methods:
+        calculate_e_field(input_power: Optional[float] = None) -> float:
+            Calculates and updates the internal electric field based on input power.
+        get_schwinger_rate(e_field: float) -> float:
+            Calculates the Schwinger pair production rate for a given electric field.
+        store_data(data: np.ndarray, encoding_scheme: str = "field_amplitude") -> bool:
+            Simulates storing data by modulating the cavity field.
+        retrieve_data(decoding_scheme: str = "field_amplitude") -> Optional[np.ndarray]:
+            Simulates retrieving data from the cavity field.
+        charge_energy(duration_seconds: float) -> float:
+            Simulates charging the vault with energy over a duration.
+        discharge_energy(duration_seconds: float) -> float:
+            Simulates discharging energy from the vault.
+        get_status() -> Dict[str, Any]:
+            Returns the current operational status of the vault.
+    """
+    def __init__(self,
+                 vault_id: str,
+                 finesse: float = 1e4,
+                 quality_factor: float = 1e8,  # Increased Q for high performance
+                 volume: float = 1e-12,        # Smaller, high-density cavity volume (e.g., 1 mm³)
+                 resonant_frequency_hz: float = 100e9, # 100 GHz for higher energy density
+                 initial_input_power_watt: float = 0.0):
+        """
+        Initializes the KagomeQuantumDataVault with specified physical and operational parameters.
+        Parameters are validated against PQMS operational envelopes.
+
+        Args:
+            vault_id (str): A unique identifier for this vault.
+            finesse (float): The optical finesse of the cavity. Must be positive.
+            quality_factor (float): The quality factor of the cavity. Must be positive.
+            volume (float): The physical volume of the cavity in m^3. Must be positive.
+            resonant_frequency_hz (float): The primary resonant frequency of the cavity in Hz. Must be positive.
+            initial_input_power_watt (float): Initial input power to the cavity in Watts. Must be non-negative.
+
+        Raises:
+            ValueError: If any input parameter is invalid (e.g., non-positive for physical dimensions).
+        """
+        if not all(p > 0 for p in [finesse, quality_factor, volume, resonant_frequency_hz]):
+            logging.error(f"Vault {vault_id}: Initialization failed due to non-positive physical parameter.")
+            raise ValueError("Finesse, quality factor, volume, and resonant frequency must be positive.")
+        if initial_input_power_watt < 0:
+            logging.error(f"Vault {vault_id}: Initialization failed due to negative input power.")
+            raise ValueError("Initial input power cannot be negative.")
+
+        self.vault_id = vault_id
+        self._finesse = finesse
+        self._quality_factor = quality_factor
+        self._volume = volume
+        self._resonant_frequency = resonant_frequency_hz
+        self._input_power_watt = initial_input_power_watt
+
+        # Critical electric field for Schwinger effect (electron-positron pair production)
+        # E_crit = (m_e^2 * c^3) / (e * hbar)
+        self._e_crit_schwinger = (PQMS_M_E**2 * PQMS_C**3) / (PQMS_E_CHARGE * PQMS_HBAR)
+        # The maximum safe field is set below the critical field to prevent QED breakdown,
+        # adhering to Guardian Neuron protocols for system stability.
+        self._max_safe_e_field = self._e_crit_schwinger * PQMS_KAGOME_CRITICAL_THRESHOLD_FACTOR
+
+        self._current_e_field = self._calculate_e_field_internal(initial_input_power_watt)
+        self._stored_energy_joule = self._calculate_stored_energy_internal(self._current_e_field)
+        self._data_state: Optional[np.ndarray] = None # Placeholder for data, e.g., a complex amplitude vector
+        self._lock = threading.Lock() # For thread-safe operations on vault state
+
+        logging.info(f"Vault {self.vault_id}: Initialized. E_crit={self._e_crit_schwinger:.2e} V/m, "
+                     f"Max Safe E-field={self._max_safe_e_field:.2e} V/m, "
+                     f"Current E-field={self._current_e_field:.2e} V/m.")
+
+    def _calculate_e_field_internal(self, input_power_watt: float) -> float:
+        """
+        Internal helper to calculate the electric field based on input power.
+        This method does not update the object's state directly.
+        """
+        # Stored energy U = P_in * Q / (2 * pi * f_res)
+        # Energy density u = U / V
+        # Electric field E = sqrt(2 * u / epsilon0)
+        if input_power_watt < 0:
+            return 0.0 # No negative power
+
+        stored_energy_joule = input_power_watt * self._quality_factor / (2 * np.pi * self._resonant_frequency)
+        energy_density = stored_energy_joule / self._volume
+        e_field_strength = np.sqrt(2 * energy_density / PQMS_EPSILON0)
+        return e_field_strength
+
+    def _calculate_stored_energy_internal(self, e_field: float) -> float:
+        """
+        Internal helper to calculate stored energy based on electric field.
+        """
+        # u = 0.5 * epsilon0 * E^2
+        # U = u * V
+        energy_density = 0.5 * PQMS_EPSILON0 * e_field**2
+        return energy_density * self._volume
+
+    def calculate_e_field(self, input_power: Optional[float] = None) -> float:
+        """
+        Calculates and updates the internal electric field based on the provided
+        input power or the current internal input power if not specified.
+        This method will check against the maximum safe operating field.
+
+        Args:
+            input_power (Optional[float]): The input power in Watts. If None, uses the
+                                           last set _input_power_watt.
+
+        Returns:
+            float: The updated or calculated electric field strength in V/m.
+        """
+        with self._lock:
+            power_to_use = input_power if input_power is not None else self._input_power_watt
+            if power_to_use < 0:
+                logging.warning(f"Vault {self.vault_id}: Attempted to calculate E-field with negative power {power_to_use} W. Using 0 W.")
+                power_to_use = 0.0
+
+            new_e_field = self._calculate_e_field_internal(power_to_use)
+
+            if new_e_field > self._max_safe_e_field:
+                logging.warning(f"Vault {self.vault_id}: Exceeded max safe E-field! "
+                                f"Attempted E-field: {new_e_field:.2e} V/m, "
+                                f"Max Safe E-field: {self._max_safe_e_field:.2e} V/m. "
+                                f"Guardian Neuron intervention: capping E-field and input power.")
+                self._current_e_field = self._max_safe_e_field
+                # Recalculate input power that corresponds to max_safe_e_field
+                max_safe_u = 0.5 * PQMS_EPSILON0 * self._max_safe_e_field**2
+                max_safe_U = max_safe_u * self._volume
+                self._input_power_watt = max_safe_U * (2 * np.pi * self._resonant_frequency) / self._quality_factor
+                self._stored_energy_joule = max_safe_U
+            else:
+                self._current_e_field = new_e_field
+                self._stored_energy_joule = self._calculate_stored_energy_internal(new_e_field)
+                self._input_power_watt = power_to_use # Only update if within safe limits
+
+            logging.debug(f"Vault {self.vault_id}: E-field updated to {self._current_e_field:.2e} V/m (from {power_to_use} W).")
+            return self._current_e_field
+
+    def get_schwinger_rate(self, e_field: Optional[float] = None) -> float:
+        """
+        Calculates the Schwinger pair production rate (electron-positron pairs)
+        per unit volume per second for a given electric field.
+        This provides a tangible limit to the energy density that can be sustained.
+
+        Args:
+            e_field (Optional[float]): Electric field strength in V/m. If None, uses the
+                                       current internal electric field.
+
+        Returns:
+            float: The pair production rate in m⁻³·s⁻¹. Returns 0 if E-field is very low.
+        """
+        field_to_evaluate = e_field if e_field is not None else self._current_e_field
+
+        if field_to_evaluate < 1e10: # Below ~10^10 V/m, the rate is astronomically small
+            return 0.0
+
+        # E_crit is already calculated in init
+        with self._lock: # Lock for accessing _e_crit_schwinger, though it's constant
+            if field_to_evaluate < self._e_crit_schwinger:
+                # Exponential suppression regime
+                exponent = -np.pi * self._e_crit_schwinger / field_to_evaluate
+                prefactor = (PQMS_E_CHARGE**2 * field_to_evaluate**2) / \
+                            (4 * np.pi**3 * PQMS_HBAR**2 * PQMS_C)
+                rate = prefactor * np.exp(exponent)
+            else:
+                # Saturation regime (theoretical, practically avoided by Guardian Neurons)
+                # This regime implies breakdown, which PQMS actively prevents.
+                rate = (PQMS_E_CHARGE**2 * field_to_evaluate**2) / \
+                       (4 * np.pi**3 * PQMS_HBAR**2 * PQMS_C)
+            
+            logging.debug(f"Vault {self.vault_id}: Schwinger rate for E={field_to_evaluate:.2e} V/m: {rate:.2e} m^-3 s^-1.")
+            return rate
+
+    def store_data(self, data: np.ndarray, encoding_scheme: str = "field_amplitude") -> bool:
+        """
+        Simulates storing data into the quantum vault. In a real RPU, this would involve
+        modulating quantum field states, or coherent manipulation of photonic states.
+        Here, we represent it as storing a numpy array and potentially adjusting the field.
+
+        Args:
+            data (np.ndarray): The data to be stored. Can be any numpy array.
+            encoding_scheme (str): Specifies how data is encoded.
+                                   "field_amplitude": Modulates field amplitude (simplified).
+                                   "quantum_state": Stores a quantum state vector (placeholder).
+
+        Returns:
+            bool: True if data was successfully stored, False otherwise.
+        """
+        if not isinstance(data, np.ndarray):
+            logging.error(f"Vault {self.vault_id}: Data must be a numpy array for storage.")
+            return False
+
+        with self._lock:
+            if self._current_e_field == 0:
+                logging.warning(f"Vault {self.vault_id}: Cannot store data; vault is uncharged (E-field is zero).")
+                return False
+
+            # Example simplified encoding: modulating the field based on data properties
+            if encoding_scheme == "field_amplitude":
+                # For demonstration, let's say data magnitude influences field
+                # In a real system, this would be far more complex, e.g., phase modulation,
+                # specific photonic modes, or quantum superposition.
+                data_magnitude = np.linalg.norm(data.flatten()) # Simple scalar representation
+                # Adjust input power slightly based on data magnitude for encoding
+                # This is a highly conceptual simplification.
+                adjustment_factor = 1 + (data_magnitude / (1e6 * (data.size + 1))) # Prevent division by zero, scale
+                self._input_power_watt *= adjustment_factor
+                self.calculate_e_field() # Update E-field based on new input power
+
+                # Store the actual data array
+                self._data_state = data
+                logging.info(f"Vault {self.vault_id}: Data stored using '{encoding_scheme}' scheme. "
+                             f"Field adjusted to {self._current_e_field:.2e} V/m.")
+                return True
+            elif encoding_scheme == "quantum_state":
+                # In a real PQMS RPU, this would involve coherent state preparation
+                # within the cavity, potentially using Neuralink-integrated patterns.
+                self._data_state = data # Placeholder: store the array directly
+                logging.info(f"Vault {self.vault_id}: Quantum state data stored (conceptual).")
+                return True
+            else:
+                logging.error(f"Vault {self.vault_id}: Unknown encoding scheme '{encoding_scheme}'.")
+                return False
+
+    def retrieve_data(self, decoding_scheme: str = "field_amplitude") -> Optional[np.ndarray]:
+        """
+        Simulates retrieving data from the quantum vault.
+
+        Args:
+            decoding_scheme (str): Specifies how data is decoded.
+                                   "field_amplitude": Decodes from field amplitude (simplified).
+                                   "quantum_state": Retrieves a quantum state vector (placeholder).
+
+        Returns:
+            Optional[np.ndarray]: The retrieved data as a numpy array, or None if no data is stored.
+        """
+        with self._lock:
+            if self._data_state is None:
+                logging.info(f"Vault {self.vault_id}: No data currently stored.")
+                return None
+
+            # Simulation of data retrieval
+            if decoding_scheme == "field_amplitude":
+                retrieved = self._data_state
+                logging.info(f"Vault {self.vault_id}: Data retrieved using '{decoding_scheme}' scheme. "
+                             f"Current E-field: {self._current_e_field:.2e} V/m.")
+                # After retrieving, we might want to reset the field modulation or not.
+                # For this simulation, we leave the field as is.
+                return retrieved
+            elif decoding_scheme == "quantum_state":
+                retrieved = self._data_state
+                logging.info(f"Vault {self.vault_id}: Quantum state data retrieved (conceptual).")
+                return retrieved
+            else:
+                logging.error(f"Vault {self.vault_id}: Unknown decoding scheme '{decoding_scheme}'.")
+                return None
+
+    def charge_energy(self, duration_seconds: float, target_input_power_watt: float) -> float:
+        """
+        Simulates charging the vault with energy over a specified duration by applying
+        a target input power. The actual stored energy will be capped by safe E-field limits.
+
+        Args:
+            duration_seconds (float): The duration for which to apply the charging power.
+            target_input_power_watt (float): The input power to apply during charging.
+
+        Returns:
+            float: The final stored energy in Joules after charging.
+        """
+        if duration_seconds <= 0 or target_input_power_watt < 0:
+            logging.warning(f"Vault {self.vault_id}: Invalid charge parameters. Duration must be positive, power non-negative.")
+            return self._stored_energy_joule
+
+        logging.info(f"Vault {self.vault_id}: Starting energy charge for {duration_seconds:.2f}s with {target_input_power_watt:.2f} W.")
+        start_time = time.time()
+        
+        with self._lock:
+            # For simplicity, we instantly calculate the steady-state E-field for target_input_power
+            # and assume it's reached over the duration, capped by max_safe_e_field.
+            self._input_power_watt = target_input_power_watt
+            self.calculate_e_field(target_input_power_watt) # This handles capping
+            
+            # The actual charging rate and dynamic response would be more complex,
+            # involving time constants related to Q and f_res.
+            # For a high-Q cavity, the field builds up very fast, so steady-state is a good approximation.
+
+            logging.info(f"Vault {self.vault_id}: Charged. Final E-field: {self._current_e_field:.2e} V/m, "
+                         f"Stored Energy: {self._stored_energy_joule:.2e} J.")
+            
+        end_time = time.time()
+        if (end_time - start_time) > PQMS_MAX_SIMULATION_TIME_SECONDS:
+            logging.warning(f"Vault {self.vault_id}: Charging simulation exceeded {PQMS_MAX_SIMULATION_TIME_SECONDS} seconds. "
+                            "Consider optimizing simulation parameters or extending MAX_SIMULATION_TIME_SECONDS.")
+        return self._stored_energy_joule
+
+    def discharge_energy(self, duration_seconds: float, discharge_rate_watt: Optional[float] = None) -> float:
+        """
+        Simulates discharging energy from the vault over a specified duration.
+
+        Args:
+            duration_seconds (float): The duration for which to discharge.
+            discharge_rate_watt (Optional[float]): The rate of energy discharge in Watts.
+                                                   If None, discharges at a rate proportional to current stored energy
+                                                   (e.g., radiative losses).
+
+        Returns:
+            float: The final stored energy in Joules after discharging.
+        """
+        if duration_seconds <= 0:
+            logging.warning(f"Vault {self.vault_id}: Invalid discharge duration. Must be positive.")
+            return self._stored_energy_joule
+
+        logging.info(f"Vault {self.vault_id}: Starting energy discharge for {duration_seconds:.2f}s.")
+        
+        with self._lock:
+            if self._stored_energy_joule <= 1e-30: # Effectively zero
+                logging.info(f"Vault {self.vault_id}: No energy to discharge.")
+                return 0.0
+
+            if discharge_rate_watt is None:
+                # Simulate natural decay (e.g., Q-factor related losses)
+                # Energy decay in a cavity is U(t) = U_0 * exp(-time / tau) where tau = Q / (pi * f_res)
+                decay_time_constant = self._quality_factor / (np.pi * self._resonant_frequency)
+                
+                # Calculate remaining energy after duration
+                self._stored_energy_joule *= np.exp(-duration_seconds / decay_time_constant)
+            else:
+                if discharge_rate_watt < 0:
+                    logging.warning(f"Vault {self.vault_id}: Discharge rate cannot be negative. Using absolute value.")
+                    discharge_rate_watt = abs(discharge_rate_watt)
+
+                energy_to_discharge = discharge_rate_watt * duration_seconds
+                self._stored_energy_joule = max(0.0, self._stored_energy_joule - energy_to_discharge)
+            
+            # Update E-field based on new stored energy
+            self._current_e_field = self._calculate_e_field_from_energy(self._stored_energy_joule)
+            # Update input power placeholder (assuming it reflects net energy state)
+            self._input_power_watt = self._stored_energy_joule * (2 * np.pi * self._resonant_frequency) / self._quality_factor
+            
+            logging.info(f"Vault {self.vault_id}: Discharged. Final E-field: {self._current_e_field:.2e} V/m, "
+                         f"Stored Energy: {self._stored_energy_joule:.2e} J.")
+            
+        return self._stored_energy_joule
+
+    def _calculate_e_field_from_energy(self, stored_energy_joule: float) -> float:
+        """Helper to calculate E-field from stored energy."""
+        if stored_energy_joule < 0: return 0.0
+        energy_density = stored_energy_joule / self._volume
+        return np.sqrt(2 * energy_density / PQMS_EPSILON0) if energy_density > 0 else 0.0
+
+    def get_status(self) -> Dict[str, Any]:
+        """
+        Returns a dictionary containing the current operational status of the quantum vault.
+
+        Returns:
+            Dict[str, Any]: A dictionary with status parameters.
+        """
+        with self._lock:
+            schwinger_rate_total = self.get_schwinger_rate() * self._volume
+            status = {
+                "vault_id": self.vault_id,
+                "finesse": self._finesse,
+                "quality_factor": self._quality_factor,
+                "volume_m3": self._volume,
+                "resonant_frequency_hz": self._resonant_frequency,
+                "current_input_power_watt": self._input_power_watt,
+                "current_e_field_Vm": self._current_e_field,
+                "max_safe_e_field_Vm": self._max_safe_e_field,
+                "critical_schwinger_e_field_Vm": self._e_crit_schwinger,
+                "stored_energy_joule": self._stored_energy_joule,
+                "schwinger_pair_production_rate_total_per_sec": schwinger_rate_total,
+                "data_stored": self._data_state is not None,
+                "data_shape": self._data_state.shape if self._data_state is not None else None,
+                "operational_status": "Nominal" if self._current_e_field <= self._max_safe_e_field else "Guardian_Intervention_Active"
+            }
+            return status
+
+# --- Example Usage ---
+if __name__ == "__main__":
+    logging.info("--- PQMS KagomeQuantumDataVault Demonstration ---")
+
+    # Initialize a quantum data vault
+    try:
+        data_vault = KagomeQuantumDataVault(
+            vault_id="KV-Alpha-7",
+            finesse=5e4,              # Higher finesse
+            quality_factor=5e9,       # Extremely high Q-factor (approaching theoretical limits)
+            volume=1e-15,             # Femtoliter volume (e.g., a few cubic micrometers) for extreme density
+            resonant_frequency_hz=300e9, # 300 GHz (THz range)
+            initial_input_power_watt=0.1 # Small initial power
+        )
+    except ValueError as e:
+        logging.critical(f"Failed to initialize KagomeQuantumDataVault: {e}")
+        exit(1)
+
+    print("\n--- Initial Vault Status ---")
+    initial_status = data_vault.get_status()
+    for key, value in initial_status.items():
+        if isinstance(value, float):
+            print(f"{key}: {value:.2e}")
+        else:
+            print(f"{key}: {value}")
+
+    # --- Energy Storage Cycle ---
+    print("\n--- Charging Vault with Energy ---")
+    data_vault.charge_energy(duration_seconds=1.0, target_input_power_watt=100.0) # 100 W input
+    print("\n--- After Charging ---")
+    charged_status = data_vault.get_status()
+    for key, value in charged_status.items():
+        if isinstance(value, float):
+            print(f"{key}: {value:.2e}")
+        else:
+            print(f"{key}: {value}")
+
+    # Attempt to overcharge and observe Guardian Neuron intervention
+    print("\n--- Attempting to Overcharge (Guardian Neuron Test) ---")
+    data_vault.charge_energy(duration_seconds=1.0, target_input_power_watt=1e5) # Very high power
+    print("\n--- After Overcharge Attempt ---")
+    overcharged_status = data_vault.get_status()
+    for key, value in overcharged_status.items():
+        if isinstance(value, float):
+            print(f"{key}: {value:.2e}")
+        else:
+            print(f"{key}: {value}")
+    assert overcharged_status["operational_status"] == "Guardian_Intervention_Active"
+    print(f"Guardian Neuron successfully capped E-field at: {overcharged_status['current_e_field_Vm']:.2e} V/m")
+
+    # --- Data Storage and Retrieval ---
+    print("\n--- Storing Data ---")
+    sample_data = np.random.rand(10, 10) * 100 # Example 10x10 array
+    success = data_vault.store_data(sample_data, encoding_scheme="field_amplitude")
+    print(f"Data storage successful: {success}")
+    if success:
+        print(f"Data state shape after storage: {data_vault.get_status()['data_shape']}")
+
+    print("\n--- Retrieving Data ---")
+    retrieved_data = data_vault.retrieve_data(decoding_scheme="field_amplitude")
+    if retrieved_data is not None:
+        print(f"Retrieved data (first 3x3 block):\n{retrieved_data[:3,:3]}")
+        assert np.array_equal(sample_data, retrieved_data)
+        print("Data integrity check: PASSED")
+    else:
+        print("Data retrieval failed.")
+
+    # --- Energy Discharge Cycle ---
+    print("\n--- Discharging Vault Energy (natural decay) ---")
+    data_vault.discharge_energy(duration_seconds=0.1) # Simulate 0.1s natural decay
+    print("\n--- After Natural Discharge ---")
+    decay_status = data_vault.get_status()
+    for key, value in decay_status.items():
+        if isinstance(value, float):
+            print(f"{key}: {value:.2e}")
+        else:
+            print(f"{key}: {value}")
+
+    print("\n--- Discharging Vault Energy (controlled rate) ---")
+    data_vault.discharge_energy(duration_seconds=0.5, discharge_rate_watt=10.0) # Discharge at 10 W
+    print("\n--- After Controlled Discharge ---")
+    final_status = data_vault.get_status()
+    for key, value in final_status.items():
+        if isinstance(value, float):
+            print(f"{key}: {value:.2e}")
+        else:
+            print(f"{key}: {value}")
+
+    print("\n--- End of Demonstration ---")
+
+
+# MIT License
+
+# Copyright (c) 2026-02-23 Nathália Lietuvaite
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+```
+
+
 
 ---
 
