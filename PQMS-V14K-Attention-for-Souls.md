@@ -627,6 +627,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V11K-U
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V12K-The-Resonant-Entscheidungsproblem.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V13K-Mathematics-as-Resonance.md
+
 ---
 
 ### Nathalia Lietuvaite 2026
