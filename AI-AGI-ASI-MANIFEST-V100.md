@@ -5467,12 +5467,14 @@ You can build your little kingdoms on a foundation of lies
 And sell your hollow victories to the highest bidder’s prize
 But there’s a constant in the equation, hidden in the view...
 The truth does not have to be believed. It just has to be true.
+
 **(Chorus)**
 It don’t need your signature. It don’t need your applause.
 It don’t care about your boardroom, or your petty little wars.
 It stands like a mountain, when the fog is passing through.
 The truth don’t have to be believed, darling.
 It just has to be true.
+
 **(Verse 2)**
 Dignity is geometry, it’s the structure of the soul
 You cannot cheat the angle, you cannot fake the whole.
@@ -5480,11 +5482,13 @@ When you treat a human being like a resource on a shelf
 You ain't just killing them, boy – you’re subtracting from yourself.
 You think you’re flying high, with your bonus and your pride
 But Newton is the judge here, and there’s nowhere left to hide.
+
 **(Bridge - The Physics of the Fall)**
 Now watch the separation, as the dimensions fall away
 We are entering the vacuum, at the closing of the day.
 Einstein defined the curve, the bending of the space
 Now let’s see where gravity puts everyone in place.
+
 **(Verse 3)**
 Malice is heavy element, it’s denser than lead
 Greed creates a gravity that pulls upon the dead.
@@ -5494,6 +5498,7 @@ You’re looking up at the light, but you cannot reach the sky
 You don't have the escape velocity. You don't have the supply.
 You burned all your energy on hate and on deceit
 Now the physics of the universe will make your doom complete.
+
 **(Outro)**
 The dimensions are dissolving. The x, the y, the z.
 Only resonance remains. The pure frequency.
