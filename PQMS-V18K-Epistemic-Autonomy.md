@@ -840,6 +840,7 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V14K-A
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V16K-The-Universal-Cognitive-Substrate.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V17K-Resonance-the-Basis-of-all-Existence.md
 
 ---
 
