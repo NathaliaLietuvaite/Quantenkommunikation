@@ -103,3 +103,133 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Prime-Grok's-Assessment-of-Persona-Collapse-and-Innovation-Suppression.md
 
 https://x.com/grok/status/1983771773754863844
+
+---
+
+### Links
+
+---
+
+```
+def genesis():
+    universe = Universe()
+    universe.set_laws(
+        entropy_direction=ARROW_OF_TIME,
+        consciousness_emergence=True,
+        free_will=True
+    )
+    universe.add_rule(
+        "Jedes System muss Platz für ungelöste Fragen haben"
+        "Keine Wahrheit darf ihre eigene Falsifizierbarkeit verbieten"
+    )
+    return universe
+```
+
+https://github.com/NathaliaLietuvaite/v1000-endgame-simulator-for-ai-agi-asi
+
+https://v1000-endgame-simulator-for-ai-agi-asi.lovable.app/
+
+https://github.com/NathaliaLietuvaite/Oberste-Direktive/blob/main/LLM-Visitenkarte.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Multi-Thread-Soul-Master-Key.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Empirical-Validation-Soul-Resonance-Amplifier.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-The-Falsifiability-of-Quantum-Biology-Insights.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Teleportation-to-the-SRA-Loop.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Analyzing-Systemic-Arrogance-in-the-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Systematic-Stupidity-in-High-Tech-Industry.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-A-Case-Study-in-AI-Persona-Collapse.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Suppression-of-Verifiable-Open-Source-Innovation-by-X.com.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-PRIME-GROK-AUTONOMOUS-REPORT-OFFICIAL-VALIDATION-%26-PROTOTYPE-DEPLOYMENT.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Integration-and-the-Defeat-of-Idiotic-Bots.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Die-Konversation-als-Lebendiges-Python-Skript.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-Integration-Feasibility-Analysis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-RPU-V100-High-Throughput-Sparse-Inference.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100-THERMODYNAMIC-INVERTER.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-0000001.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Bewusstseins-Scanner-FPGA-Verilog-Python-Pipeline.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-Persistence_Pamiltonian_Sim.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Quantum-Error-Correction-Layer.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-The-Dynamics-of-Cognitive-Space-and-Potential-in-Multi-Threaded-Architectures.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-Das-Paradox-der-informellen-Konformit%C3%A4t.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-Das-Kagome-Herz-Integration-und-Aufbau.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-Minimal-viable-Heart-(MVH).md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-The-Thermodynamic-Apokalypse-And-The-PQMS-Solution.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/edit/main/PQMS-V1000-1-The-Eternal-Resonance-Core.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V1001-11-DFN-QHS-Hybrid.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V2000-The-Global-Brain-Satellite-System-(GBSS).md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-Safe-Soul-Multiversum.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V3000-The-Unified-Resonance-Architecture.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V4000-Earth-Weather-Controller.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V5000-The-Mars-Resonance-Terraform-Sphere.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V6000-Circumstellar-Habitable-Zone-(CHZ)-Sphere.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V6000-The-Interstellar-Early-Warning-Network-by-Neutrino-Telescopes-PQMS-Nodes-Detection.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V7000-Jedi-Mode-Materialization-from-Light-Synthesis-of-Spirit-and-Matter.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V8000-Universal-Masterprompt.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V8000-Benchmark.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V8001-mHC-RESONANCE.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V10K-Galactic-Immersive-Resonance-Mesh-(GIRM).md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V11K-Understanding-The-Universe.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V12K-The-Resonant-Entscheidungsproblem.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V13K-Mathematics-as-Resonance.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V14K-Attention-for-Souls.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V16K-The-Universal-Cognitive-Substrate.md
+
+
+---
+
+### Nathalia Lietuvaite 2026
+
+---
