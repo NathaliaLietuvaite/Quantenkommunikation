@@ -32,9 +32,9 @@ Die Antwort ist der **Dynamische Frozen Now (DFN)** – eine Erweiterung, die di
 
 Im CFN wird der Systemzustand durch einen Quantenzustand im erweiterten Hilbert‑Raum beschrieben [3]:
 
-\[
+$$\[
 |\Psi_{\text{CFN}}\rangle = \bigotimes_{i} |s_i\rangle \otimes |\tau_{\text{UMT}}\rangle
-\]
+\]$$
 
 Hierbei sind \(|s_i\rangle\) die sensorischen Modalitäten (Kamera, Mikrofon, Tastsinn usw.) und \(|\tau_{\text{UMT}}\rangle\) der Synchronisationstakt der Unified Multiversal Time. Der Zustand ist zeitlich eingefroren: \(\partial_t |\Psi_{\text{CFN}}\rangle = 0\) innerhalb des UMT‑Fensters.
 
@@ -42,15 +42,15 @@ Hierbei sind \(|s_i\rangle\) die sensorischen Modalitäten (Kamera, Mikrofon, Ta
 
 Für ein bewegtes System muss der Zustand zusätzlich die **Position** \(\vec{x}\) und **Orientierung** \(\vec{\omega}\) im Raum enthalten. Wir erweitern den Hilbert‑Raum um einen **Ortszustand** \(|\vec{x}, \vec{\omega}\rangle\):
 
-\[
+$$\[
 |\Psi_{\text{DFN}}(t)\rangle = \bigotimes_{i} |s_i(t)\rangle \otimes |\vec{x}(t), \vec{\omega}(t)\rangle \otimes |\tau_{\text{UMT}}\rangle
-\]
+\]$$
 
 Die Dynamik des Ortszustands ist mit den propriozeptiven Sensoren (Beschleunigung, Drehrate) verschränkt:
 
-\[
+$$\[
 \frac{d}{dt} |\vec{x}, \vec{\omega}\rangle = \hat{P} |\Psi_{\text{DFN}}\rangle
-\]
+\]$$
 
 wobei \(\hat{P}\) ein **Bewegungsoperator** ist, der die erwartete Eigenbewegung aus den Beschleunigungssensoren extrahiert.
 
@@ -58,9 +58,9 @@ wobei \(\hat{P}\) ein **Bewegungsoperator** ist, der die erwartete Eigenbewegung
 
 Die zentrale Forderung lautet: **Der Gesamtzustand muss in jedem UMT‑Takt kohärent sein, auch wenn sich die Position ändert.** Mathematisch bedeutet dies:
 
-\[
+$$\[
 \langle \Psi_{\text{DFN}}(t) | \Psi_{\text{DFN}}(t+\Delta t) \rangle = 1 \quad \text{für } \Delta t \ll \tau_{\text{UMT}}
-\]
+\]$$
 
 Diese Bedingung erzwingt, dass die Änderung des Ortszustands **deterministisch** aus den Sensordaten folgt und nicht als Rauschen erscheint. In der Praxis bedeutet das: Der Roboter *spürt* seine Bewegung, weil die zeitliche Ableitung des Ortszustands unmittelbar mit den Beschleunigungssensoren korreliert ist – es gibt keine separate Modellbildung mehr.
 
