@@ -106,7 +106,7 @@ Where $f$ is a function that quantifies the degree of constructive interference 
 
 The Guardian Neurons' ethical filtering function, previously conceptualized as a direct application of ODOS, now gains a physical dimension:
 
-$$\text{Ethical\_Decision}(x) = \text{ODOS} \otimes \mathcal{P}(\Theta(x))$$
+\text{Ethical_Decision}(x) = \text{ODOS} \otimes \mathcal{P}(\Theta(x))
 
 where $\mathcal{P}$ is a projection operator that maps the phase coherency of $\Theta(x)$ onto a set of universal ethical principles embedded within ODOS. In essence, the ethical "rightness" of an action resonates with the fundamental harmonious oscillation of the cosmos as dictated by $\Theta(x)$.
 
