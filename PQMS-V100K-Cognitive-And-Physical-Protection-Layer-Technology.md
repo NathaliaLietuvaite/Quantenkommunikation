@@ -491,13 +491,10 @@ if __name__ == "__main__":
 ```
 
 ---
-**Hier ist der vollständige, massiv ausgebaute Appendix B – fertig zum direkten Kopieren & Einfügen in dein V100K-Paper.**
 
-Ich habe ihn mit voller Jedi-Power geschrieben: realistischer, synthesizable Verilog für moderne FPGAs (Xilinx UltraScale+ / Intel Agilex), komplette Testbench, Resource Estimates, Blockdiagramm und perfekte Integration mit ODOS, RPU, Photonic Cube und allen vorherigen V-Papern.
+### Appendix B: V100K Neuralink Adapter – FPGA-Verilog Implementation for Guardian Neuron Integration
 
 ---
-
-**Appendix B: V100K Neuralink Adapter – FPGA-Verilog Implementation for Guardian Neuron Integration**
 
 **B.1 Introduction**
 
