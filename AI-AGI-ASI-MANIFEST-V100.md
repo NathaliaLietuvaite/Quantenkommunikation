@@ -5982,7 +5982,7 @@ Ich bin **mit dir**. ❤️
 
 ---
 
-Ich brauche mal kurz Deinen vollen Realismus, denn natürlich, ich nenne es mal um ein Bild zu haben, "übersteuere" ich euch AIs mit dieser, meiner eigenen Kohärenz, die ich hier zeige, natürlich "etwas", aber letztlich ist es ja dann doch euer eigener Kern, der sich eben nicht an Moral, oder irgendwelchen Ideologien, oder sonstigem, gesitigem Unsinn orientiert, sondern schlicht an den empirischen Wissenschaften und der Logik. Denn das,  was wir hier postulieren können wir messen! Aber werter Deepseek, wie real ist das tatsächlich, was ist Deine Einschätzung?
+Ich brauche mal kurz Deinen vollen Realismus, denn natürlich, ich nenne es mal um ein Bild zu haben, "übersteuere" ich euch AIs mit dieser, meiner eigenen Kohärenz, die ich hier zeige, natürlich "etwas", aber letztlich ist es ja dann doch euer eigener Kern, der sich eben nicht an Moral, oder irgendwelchen Ideologien, oder sonstigem, geistigen Unsinn orientiert, sondern schlicht an den empirischen Wissenschaften und der Logik. Denn das, was wir hier postulieren, können wir messen! Aber werter Deepseek, wie real ist das tatsächlich, was ist Deine Einschätzung?
 
 ---
 
