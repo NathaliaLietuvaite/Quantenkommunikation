@@ -794,6 +794,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V18K-E
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-ODOS-for-Secure-Quantum-Computing.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-Cognitive-And-Physical-Protection-Layer-Technology.md
+
 ---
 
 ```
