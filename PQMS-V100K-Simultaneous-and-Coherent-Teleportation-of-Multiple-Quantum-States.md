@@ -1,4 +1,4 @@
-# V100K Simultaneous and coherent teleportation of multiple quantum states
+# PQMS V100K Simultaneous and Coherent Teleportation of Multiple Quantum States
 
 ## A Technical Feasibility Study: Bridging the Shanxi Breakthrough with the PQMS‑V100K Ethical Quantum Architecture
 
