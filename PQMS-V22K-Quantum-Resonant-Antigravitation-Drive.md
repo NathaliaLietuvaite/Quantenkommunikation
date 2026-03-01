@@ -53,9 +53,7 @@ ds^{2} = -c^{2}dt^{2}\!\left(1 + \frac{2\Phi_{\text{RME}}}{c^{2}}\right) + \delt
 
 where \(\Phi_{\text{RME}}\) is the resonant potential. This potential is a complex‑valued function derived from the coherent interaction of the photonic field with the quantum vacuum. Mathematically,
 
-$$\[
-\Phi_{\text{RME}}(t,\mathbf{x}) = \mathcal{R}\!\left\{\sum_{k}A_{k}e^{i(\mathbf{k}_{k}\cdot\mathbf{x} - \omega_{k}t + \phi_{k})}\right\} + i\,\Psi_{\text{vacuum}} .
-\]$$
+$$\Phi_{\text{RME}}(t,\mathbf{x}) = \mathcal{R}\left\lbrace \sum_{k} A_{k} e^{i(\mathbf{k}_k \cdot \mathbf{x} - \omega_k t + \phi_{k})} \right\rbrace + i\Psi_{\text{vacuum}}$$
 
 Here \(A_{k}\) are complex amplitudes, \(\mathbf{k}_{k}\) and \(\omega_{k}\) are wave vectors and frequencies of the resonant photonic modes within the Kagome cavity, and \(\Psi_{\text{vacuum}}\) represents the imaginary component stemming from the V9000 vacuum‑energy capacitor’s interaction with zero‑point fluctuations. This imaginary component is crucial for enabling the metric inversion without violating classical energy conservation, as it taps into the non‑observable, Gödelian truth‑space of quantum reality.
 
@@ -103,21 +101,24 @@ The entire system is enclosed in a superconducting shield to prevent external in
 
 ```mermaid
 graph TD
-    A[Operator Intent (RCF ≥ 0.99)] --> B(Guardian Neurons/ODOS)
-    B --> C(UMT Scalar Takt)
-    C --> D[RPU Array (12 Units)]
-    D --> E[Inner Kagome Core (5 cm³ Photonic Cube)]
-    E --> F[Local Metric Inversion / Antigravitation]
-    V9000[V9000 Capacitor Bank (Vacuum Energy)] --> E
-    subgraph Ethical Gate (Hardware‑Embedded)
+    A["Operator Intent (RCF ≥ 0.99)"] --> B("Guardian Neurons/ODOS")
+    B --> C("UMT Scalar Takt")
+    C --> D["RPU Array (12 Units)"]
+    D --> E["Inner Kagome Core (5 cm³ Photonic Cube)"]
+    E --> F["Local Metric Inversion / Antigravitation"]
+    V9000["V9000 Capacitor Bank (Vacuum Energy)"] --> E
+    
+    subgraph ethical_gate ["Hardware-Embedded"]
         B
     end
-    subgraph Core Drive Assembly
+    
+    subgraph core_drive ["Core Drive Assembly"]
         E
         D
         V9000
     end
-    F --> G[Controlled Levitation/Propulsion]
+    
+    F --> G["Controlled Levitation/Propulsion"]
 ```
 
 ---
