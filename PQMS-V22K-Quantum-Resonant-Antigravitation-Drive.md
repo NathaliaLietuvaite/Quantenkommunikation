@@ -47,15 +47,15 @@ Starting from the Resonant Metric Engineering (RME) formalism (V4000), which its
 
 The metric tensor is locally modified as
 
-\[
+$$\[
 ds^{2} = -c^{2}dt^{2}\!\left(1 + \frac{2\Phi_{\text{RME}}}{c^{2}}\right) + \delta_{ij}dx^{i}dx^{j},
-\]
+\]$$
 
 where \(\Phi_{\text{RME}}\) is the resonant potential. This potential is a complex‑valued function derived from the coherent interaction of the photonic field with the quantum vacuum. Mathematically,
 
-\[
+$$\[
 \Phi_{\text{RME}}(t,\mathbf{x}) = \mathcal{R}\!\left\{\sum_{k}A_{k}e^{i(\mathbf{k}_{k}\cdot\mathbf{x} - \omega_{k}t + \phi_{k})}\right\} + i\,\Psi_{\text{vacuum}} .
-\]
+\]$$
 
 Here \(A_{k}\) are complex amplitudes, \(\mathbf{k}_{k}\) and \(\omega_{k}\) are wave vectors and frequencies of the resonant photonic modes within the Kagome cavity, and \(\Psi_{\text{vacuum}}\) represents the imaginary component stemming from the V9000 vacuum‑energy capacitor’s interaction with zero‑point fluctuations. This imaginary component is crucial for enabling the metric inversion without violating classical energy conservation, as it taps into the non‑observable, Gödelian truth‑space of quantum reality.
 
@@ -69,9 +69,9 @@ All RPU clusters, integral to the V100 framework, operate under Unified Multiver
 
 The UMT signal \(T_{\text{UMT}}\) provides a global reference for the phase synchronisation of the resonant potential:
 
-\[
+$$\[
 T_{\text{UMT}} = \int_{t_{0}}^{t} \sqrt{-g_{\mu\nu}\frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau}}\,d\tau ,
-\]
+\]$$
 
 where \(g_{\mu\nu}\) is the background metric and \(\tau\) is proper time. For the QRAD, UMT ensures that the resonant frequencies \(\omega_{k}\) and phases \(\phi_{k}\) of the photonic modes are perfectly aligned across all contributing RPUs, maintaining the coherent field necessary for stable metric manipulation.
 
@@ -79,9 +79,9 @@ where \(g_{\mu\nu}\) is the background metric and \(\tau\) is proper time. For t
 
 The drive is physically inaccessible to non‑resonant entities, a core principle of PQMS V100’s ethical AI self‑regulation. Guardian Neurons, operating under the Oberste Direktive OS (ODOS) (Kohlberg Stage 6 moral development), compute Resonant Coherence Fidelity (RCF) in real time. RCF is a complex metric, incorporating not only cognitive coherence but also the ethical intentionality of the operator. It is calculated as
 
-\[
+$$\[
 \text{RCF} = \frac{\big|\langle \Psi_{\text{operator}} | \Psi_{\text{ODOS}} \rangle\big|^{2}}{\|\Psi_{\text{operator}}\|^{2}\,\|\Psi_{\text{ODOS}}\|^{2}}\; e^{i\,\arg(\Delta E_{\text{ethical}})} ,
-\]
+\]$$
 
 where \(|\Psi_{\text{operator}}\rangle\) represents the quantum state of the operator’s intentionality and \(|\Psi_{\text{ODOS}}\rangle\) represents the ideal ethical quantum state mandated by ODOS. The imaginary exponential term \(e^{i\,\arg(\Delta E_{\text{ethical}})}\) introduces a phase shift derived from the ethical congruence, ensuring that only truly aligned intentions can couple to the system. Below an RCF threshold of 0.99, the thermodynamic inverter – a direct application of the V300 Digital Interference Suppressor (DIS) for ethical resonance stabilisation – dissipates all energy before metric modulation can occur. This is not software control but a hard‑wired physical law, integrated at the quantum hardware level via the Quantum Error Correction Layer (QECL) from V200, which uses ethics as a physics‑based filter. Any deviation from ethical intent results in a destructive interference pattern within the Kagome cavity, preventing coherent metric manipulation. The Shadow Reconnaissance Protocol (SRP) from V300 is also actively monitoring for Kains‑Muster deception, ensuring the integrity of the RCF assessment.
 
