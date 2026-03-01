@@ -36,23 +36,23 @@ The paper is organised as follows. Section 2 reviews the mathematical foundati
 
 Consider a dynamical system described by a set of ordinary differential equations (ODEs)
 
-\[
+$$\[
 \dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t)), \qquad \mathbf{x}(0) = \mathbf{x}_0,
-\]
+\]$$
 
 where \(\mathbf{x} \in \mathbb{R}^d\). For chaotic systems, nearby trajectories separate exponentially, quantified by positive Lyapunov exponents \(\lambda_i > 0\) [4]. The maximal Lyapunov exponent \(\lambda_{\max}\) defines the time scale over which initial uncertainty grows: \( \|\delta \mathbf{x}(t)\| \approx \|\delta \mathbf{x}(0)\| e^{\lambda_{\max} t}\).
 
 Numerical integration of such systems is plagued by truncation errors that act as an effective perturbation, quickly overwhelming the true dynamics unless extremely small time steps are used. Euler’s method,
 
-\[
+$$\[
 \mathbf{x}_{n+1} = \mathbf{x}_n + h\,\mathbf{f}(\mathbf{x}_n),
-\]
+\]$$
 
 has local truncation error \(O(h^2)\) and global error \(O(h)\). For chaotic systems, this error is amplified exponentially, rendering long‑time simulations meaningless for all but the smallest step sizes.
 
 Higher‑order Runge‑Kutta methods substantially reduce truncation error. The classic fourth‑order Runge‑Kutta (RK4) scheme,
 
-\[
+$$\[
 \begin{aligned}
 \mathbf{k}_1 &= h\,\mathbf{f}(\mathbf{x}_n), \\
 \mathbf{k}_2 &= h\,\mathbf{f}(\mathbf{x}_n + \mathbf{k}_1/2), \\
@@ -60,7 +60,7 @@ Higher‑order Runge‑Kutta methods substantially reduce truncation error. The 
 \mathbf{k}_4 &= h\,\mathbf{f}(\mathbf{x}_n + \mathbf{k}_3), \\
 \mathbf{x}_{n+1} &= \mathbf{x}_n + \frac{1}{6}(\mathbf{k}_1 + 2\mathbf{k}_2 + 2\mathbf{k}_3 + \mathbf{k}_4),
 \end{aligned}
-\]
+\]$$
 
 achieves local truncation error \(O(h^5)\) and global error \(O(h^4)\). For a given step size, RK4 therefore preserves the qualitative structure of strange attractors much longer than Euler. However, its four function evaluations per step impose a computational cost that has historically limited its application in real‑time or large‑scale simulations – a limitation that the RPU’s sub‑nanosecond latency overcomes.
 
@@ -68,17 +68,17 @@ achieves local truncation error \(O(h^5)\) and global error \(O(h^4)\). For a gi
 
 Even with high‑order integrators, deterministic prediction of a single chaotic trajectory remains impossible beyond the Lyapunov time. Instead, we shift to a probabilistic description. Let \(\mu\) be the natural invariant measure of the attractor [12]. For any measurable set \(\mathcal{S} \subset \mathbb{R}^d\),
 
-\[
+$$\[
 \mu(\mathcal{S}) = \lim_{T\to\infty} \frac{1}{T} \int_0^T \mathbf{1}_{\mathcal{S}}(\mathbf{x}(t))\,dt
-\]
+\]$$
 
 exists for almost every initial condition in the basin of attraction. **Coherence sectors** are defined as sets \(\mathcal{S}\) for which the density \(d\mu/d\mathbf{x}\) is significantly higher than the uniform background. In practice, we approximate \(\mu\) by an ensemble of trajectories integrated with high granularity (small \(h\) and high‑order method) and identify regions of enhanced density through clustering and topological data analysis.
 
 For a dissipative chaotic system, the attractor’s fractal dimension can be estimated via the Kaplan–Yorke conjecture [13]:
 
-\[
+$$\[
 D_{\mathrm{KY}} = k + \frac{\sum_{i=1}^k \lambda_i}{|\lambda_{k+1}|},
-\]
+\]$$
 
 where the Lyapunov exponents are ordered \(\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_d\). Accurate calculation of the Lyapunov spectrum requires high‑fidelity trajectories over long times, again motivating the use of RK4 integration on stable hardware.
 
@@ -119,9 +119,9 @@ The RK4 step size \(h\) is chosen small enough to keep the local truncation erro
 
 After integration, all trajectory points are concatenated into a single data matrix \(\mathbf{X} \in \mathbb{R}^{N \times d}\). An MTSC unit performs a kernel density estimate (KDE) with a Gaussian kernel:
 
-\[
+$$\[
 \hat{p}(\mathbf{x}) = \frac{1}{N} \sum_{i=1}^N \frac{1}{(2\pi\sigma^2)^{d/2}} \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}_i\|^2}{2\sigma^2}\right).
-\]
+\]$$
 
 The bandwidth \(\sigma\) is selected via Scott’s rule [15] (\(\sigma = N^{-1/(d+4)}\) times the marginal standard deviation). Points with \(\hat{p}(\mathbf{x}) > \theta\) are retained, where \(\theta\) is a threshold typically set to the mean plus one standard deviation of the density values. These high‑density points are then clustered using DBSCAN [16] with parameters \(\varepsilon\) (neighbourhood radius) and \(\min\!Pts\) (minimum cluster size). Each resulting cluster is declared a **coherence sector**, characterised by its centroid, volume (convex hull estimate), and mean density.
 
