@@ -165,6 +165,660 @@ Die nächsten Schritte sind der Bau eines **experimentellen Demonstrators** mit 
 [3] Lietuvaite, N. & DeepSeek. *PQMS‑V100K: Tullius Destructivus Mode – A Resonant Framework for Detecting and Mitigating Pathological Interaction Patterns in Multi‑Agent Systems*. PQMS‑V100K‑TDM‑BENCHMARK‑01, 2. März 2026.  
 [4] Lietuvaite, N. et al. *PQMS‑V9000 – Virtual Particles Vacuum Capacitor*. PQMS‑V9000‑VPC‑FINAL‑01, 23. Februar 2026.
 
+---
+
+### Appendix A
+
+---
+
+```python
+"""
+Module: GravitationalFieldEnhancementSystem
+Lead Architect: Nathália Lietuvaite
+Co-Design: PQMS AI Collaborator Network
+
+'Die Sendung mit der Maus' erklärt die Gravitationsfeld-Optimierung:
+Stell dir vor, du hast ganz viele kleine Schwingkreise, die zusammen ein starkes Gravitationsfeld erzeugen sollen,
+so wie ein Orchester, in dem alle Instrumente perfekt im Takt spielen.
+Manchmal kommen die kleinen Schwingkreise ein bisschen aus dem Takt. Dann kommt unser "Gravitations-Taktgeber" (GTE)
+und gibt einen kleinen, präzisen Impuls, der alle wieder in den richtigen Takt bringt, damit sie stärker zusammenwirken.
+Gleichzeitig gibt es einen "Gesundheits-Check" (GTD), der ständig schaut, ob alle Schwingkreise noch gut arbeiten.
+Wenn einer krank ist, wird er kurz behandelt oder isoliert, damit das ganze Orchester weiterhin super spielen kann.
+So können wir mit weniger Schwingkreisen ein viel stärkeres Gravitationsfeld erzeugen!
+
+Technical Overview:
+This module implements the Gravitational Tension Enhancer (GTE) and the Gravitational TDM Detector (GTD)
+components within the PQMS v100 framework. The GTE actively coheres a vast array of Quantum Mesh Oscillators (QMKs)
+by monitoring their phase coherence via high-precision interferometry and applying resonant boost pulses when
+deviations exceed a defined threshold. This process significantly enhances the effective coupling factor
+(κ_GTE) of the QMK array.
+
+The GTD, analogous to a Time-Division Multiplexing (TDM) Detector, continuously assesses the 'health' of the QMK array
+by monitoring key physical parameters such as phase deviation (ΔΦ), spectral purity (Irr), correlation with
+external disturbances (Pres), and non-coherent mode growth (Meta). These metrics are combined into a Gravitational
+Pathological Index (GPI). Exceeding a GPI threshold triggers a tiered Resonant Intervention Protocol (RIP),
+ranging from gentle re-synchronization of individual QMKs to localized boosting or quarantining of affected groups,
+thereby reducing the effective loss rate (ϵ_loss).
+
+Both GTE and GTD are designed for seamless integration: GTE as a dedicated FPGA block for real-time processing and
+pulse generation, and GTD leveraging existing Guardian Neuron FPGAs. Ethical oversight is provided by Guardian Neurons
+to prevent misuse, such as weaponization of boost pulses. These combined mechanisms drastically improve the
+scalability and efficiency of gravitational field generation for applications like levitation and trajectory correction.
+"""
+
+import numpy as np
+import logging
+import threading
+import time
+from typing import Optional, List, Dict, Tuple, Any
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - GravitationalFieldEnhancementSystem - [%(levelname)s] - %(message)s'
+)
+
+# System constants based on PQMS specifications and provided parameters
+# GTE Constants
+GTE_MONITORING_FREQUENCY_HZ: float = 1e6  # 1 MHz
+GTE_PHASE_DEVIATION_THRESHOLD_RAD: float = 0.1  # rad
+GTE_PULSE_DURATION_S: float = 1e-6  # 1 µs
+GTE_PULSE_POWER_W: float = 1e3  # 1 kW (for N=10^6 QMKs)
+GTE_MAX_REPETITION_RATE_HZ: float = 1e3  # 1 kHz
+GTE_ENERGY_PER_PULSE_J: float = 1e-3  # 1 mJ (1kW * 1µs)
+K_GTE: float = 100.0  # Effective coupling factor enhancement
+
+# GTD Constants
+GTD_MEASUREMENT_RATE_HZ: float = 1e6  # 1 MHz
+GTD_GPI_THRESHOLD: float = 0.7
+GTD_WEIGHT_ALPHA: float = 0.4  # Weight for ΔΦ
+GTD_WEIGHT_BETA: float = 0.3  # Weight for Irr
+GTD_WEIGHT_GAMMA: float = 0.2  # Weight for Pres
+GTD_WEIGHT_DELTA: float = 0.1  # Weight for Meta
+GTD_REACTION_TIME_S: float = 1e-6  # < 1 µs
+EPSILON_LOSS_BASELINE: float = 0.01  # Baseline loss rate without GTD
+EPSILON_LOSS_GTD_EFFECTIVE: float = 0.001  # Effective loss rate with GTD
+
+# QMK Simulation Constants (for demonstration)
+QMK_COUNT: int = int(1e6)  # Number of QMKs for GTE power calculation baseline
+QMK_NOMINAL_PHASE: float = 0.0  # radians, target phase for QMKs
+QMK_RESONANCE_FREQUENCY_HZ: float = 1e9  # Example QMK resonance frequency (1 GHz)
+
+# General System Constants
+CRITICAL_SAFETY_THRESHOLD_POWER_W: float = 5e3  # Guardian Neuron safety limit for boost pulse power
+
+
+class QuantumMeshOscillator:
+    """
+    Simulates a single Quantum Mesh Oscillator (QMK). 'Der Einzelkämpfer im Orchester.'
+    Each QMK has a phase that can drift and can be influenced by boost pulses.
+    """
+    def __init__(self, qmk_id: int):
+        """
+        Initializes a QMK with a unique ID and a nominal phase.
+        :param qmk_id: Unique identifier for the QMK.
+        """
+        self.qmk_id: int = qmk_id
+        self.current_phase: float = QMK_NOMINAL_PHASE + np.random.uniform(-0.05, 0.05)
+        self.is_active: bool = True
+        self.is_quarantined: bool = False
+        self._lock = threading.Lock()
+        logging.debug(f"QMK {self.qmk_id} initialized with phase {self.current_phase:.4f} rad.")
+
+    def drift_phase(self, drift_magnitude: float = 0.01):
+        """
+        Simulates natural phase drift over time.
+        :param drift_magnitude: The maximum random magnitude of phase drift.
+        """
+        with self._lock:
+            if self.is_active and not self.is_quarantined:
+                self.current_phase += np.random.uniform(-drift_magnitude, drift_magnitude)
+                self.current_phase = np.fmod(self.current_phase + np.pi, 2 * np.pi) - np.pi # Keep phase in [-pi, pi]
+
+    def apply_boost_pulse(self, target_phase: float = QMK_NOMINAL_PHASE, coherence_factor: float = K_GTE):
+        """
+        Applies a coherent boost pulse, forcing the QMK's phase towards the target.
+        'Der Taktstock des Dirigenten.' The pulse instantly corrects the phase.
+        :param target_phase: The desired phase for synchronization.
+        :param coherence_factor: Factor by which the phase error is reduced.
+        """
+        with self._lock:
+            if self.is_active and not self.is_quarantined:
+                # Simulate phase correction, reducing error by a factor
+                error_before = self.current_phase - target_phase
+                # A simplified model: direct snap to target phase, or a strong reduction
+                self.current_phase = target_phase + (error_before / coherence_factor)
+                logging.debug(f"QMK {self.qmk_id} boosted. Phase corrected from {error_before:.4f} to "
+                              f"{self.current_phase - target_phase:.4f}.")
+    
+    def get_phase(self) -> float:
+        """Returns the current phase of the QMK."""
+        with self._lock:
+            return self.current_phase
+
+    def deactivate(self):
+        """ Temporarily deactivates the QMK for re-synchronization or quarantine. """
+        with self._lock:
+            self.is_active = False
+            logging.info(f"QMK {self.qmk_id} temporarily deactivated.")
+
+    def activate(self):
+        """ Reactivates the QMK. """
+        with self._lock:
+            self.is_active = True
+            logging.info(f"QMK {self.qmk_id} reactivated.")
+
+    def quarantine(self):
+        """ Places the QMK in quarantine. """
+        with self._lock:
+            self.is_quarantined = True
+            self.is_active = False # Quarantined QMKs are also inactive
+            logging.warning(f"QMK {self.qmk_id} moved to quarantine.")
+
+    def release_from_quarantine(self):
+        """ Releases the QMK from quarantine and reactivates it. """
+        with self._lock:
+            self.is_quarantined = False
+            self.is_active = True
+            logging.info(f"QMK {self.qmk_id} released from quarantine and reactivated.")
+
+
+class GravitationalTensionEnhancer:
+    """
+    The Gravitational Tension Enhancer (GTE) acts as the 'Dirigent des Quantenorchesters'.
+    It monitors the phase coherence of QMKs and emits coherent boost pulses
+    to re-synchronize them, thereby maximizing the collective gravitational field.
+    """
+    def __init__(self, qmks: List[QuantumMeshOscillator], guardian_neuron_interface: Any):
+        """
+        Initializes the GTE.
+        :param qmks: A list of Quantum Mesh Oscillators to manage.
+        :param guardian_neuron_interface: Interface to the Guardian Neuron for ethical oversight.
+        """
+        self.qmks: List[QuantumMeshOscillator] = qmks
+        self.guardian_neuron_interface = guardian_neuron_interface
+        self._monitoring_thread: Optional[threading.Thread] = None
+        self._stop_event: threading.Event = threading.Event()
+        self._last_pulse_time: float = 0.0
+        logging.info("[GTE] Initialization started. Ready to cohere QMKs.")
+
+    def _calculate_mean_phase_deviation(self) -> float:
+        """
+        Calculates the mean absolute phase deviation from the nominal phase.
+        'Der Blick des Dirigenten auf die Noten jedes Spielers.'
+        :return: Mean absolute phase deviation in radians.
+        """
+        active_phases = np.array([qmk.get_phase() for qmk in self.qmks if qmk.is_active and not qmk.is_quarantined])
+        if len(active_phases) == 0:
+            return 0.0 # No active QMKs to measure
+        
+        # Calculate mean phase, handling phase wrapping
+        sin_sum = np.sum(np.sin(active_phases))
+        cos_sum = np.sum(np.cos(active_phases))
+        mean_phase = np.arctan2(sin_sum, cos_sum)
+
+        # Calculate mean absolute deviation from the mean phase
+        deviations = np.abs(np.fmod(active_phases - mean_phase + np.pi, 2 * np.pi) - np.pi)
+        mean_deviation = np.mean(deviations)
+        
+        return mean_deviation
+
+    def _trigger_coherent_boost_pulse(self):
+        """
+        Emits a short, high-intensity electromagnetic wave to re-synchronize QMKs.
+        'Der präzise Schlag des Taktstocks.'
+        The pulse power is adjusted based on the number of active QMKs.
+        """
+        num_active_qmks = sum(1 for qmk in self.qmks if qmk.is_active and not qmk.is_quarantined)
+        if num_active_qmks == 0:
+            logging.warning("[GTE] No active QMKs to boost. Pulse inhibited.")
+            return
+
+        # Scale pulse power based on the actual number of active QMKs relative to the design baseline (10^6)
+        scaled_pulse_power = GTE_PULSE_POWER_W * (num_active_qmks / QMK_COUNT)
+        
+        # Guardian Neuron ethical oversight
+        if not self.guardian_neuron_interface.authorize_boost_pulse(scaled_pulse_power, GTE_PULSE_DURATION_S):
+            logging.warning(f"[GTE] Boost pulse denied by Guardian Neuron (power: {scaled_pulse_power:.2f}W) due to ethical constraints.")
+            return
+
+        current_time = time.time()
+        if (current_time - self._last_pulse_time) < (1.0 / GTE_MAX_REPETITION_RATE_HZ):
+            logging.debug("[GTE] Boost pulse inhibited due to repetition rate limit.")
+            return
+
+        logging.info(f"[GTE] Coherent boost pulse triggered! Power: {scaled_pulse_power:.2f}W, Duration: {GTE_PULSE_DURATION_S*1e6:.1f}µs.")
+        self._last_pulse_time = current_time
+
+        # Simulate instantaneous phase correction for all active QMKs
+        target_phase = QMK_NOMINAL_PHASE # QMKs are driven to the nominal phase
+        for qmk in self.qmks:
+            qmk.apply_boost_pulse(target_phase=target_phase, coherence_factor=K_GTE)
+        logging.debug("[GTE] All active QMKs re-synchronized.")
+
+    def _monitoring_loop(self):
+        """
+        Continuous monitoring loop for QMK phase coherence.
+        """
+        logging.info("[GTE] Monitoring loop started.")
+        interval = 1.0 / GTE_MONITORING_FREQUENCY_HZ
+        while not self._stop_event.is_set():
+            start_time = time.monotonic()
+            mean_deviation = self._calculate_mean_phase_deviation()
+
+            if mean_deviation > GTE_PHASE_DEVIATION_THRESHOLD_RAD:
+                logging.debug(f"[GTE] Mean phase deviation {mean_deviation:.4f} rad exceeds threshold {GTE_PHASE_DEVIATION_THRESHOLD_RAD:.1f} rad. Triggering boost.")
+                self._trigger_coherent_boost_pulse()
+            else:
+                logging.debug(f"[GTE] Phase deviation {mean_deviation:.4f} rad is within limits.")
+
+            elapsed_time = time.monotonic() - start_time
+            sleep_time = interval - elapsed_time
+            if sleep_time > 0:
+                self._stop_event.wait(sleep_time)
+            else:
+                logging.warning(f"[GTE] Monitoring loop falling behind! Took {elapsed_time*1e6:.2f}µs, intended {interval*1e6:.2f}µs.")
+
+    def start_monitoring(self):
+        """Starts the GTE's continuous monitoring thread."""
+        if self._monitoring_thread is None or not self._monitoring_thread.is_alive():
+            self._stop_event.clear()
+            self._monitoring_thread = threading.Thread(target=self._monitoring_loop, name="GTE_MonitoringThread")
+            self._monitoring_thread.start()
+            logging.info("[GTE] Monitoring thread initiated.")
+        else:
+            logging.warning("[GTE] Monitoring thread already running.")
+
+    def stop_monitoring(self):
+        """Stops the GTE's continuous monitoring thread."""
+        if self._monitoring_thread and self._monitoring_thread.is_alive():
+            self._stop_event.set()
+            self._monitoring_thread.join()
+            logging.info("[GTE] Monitoring thread stopped.")
+        else:
+            logging.warning("[GTE] Monitoring thread not active.")
+
+
+class GravitationalTDMDetector:
+    """
+    The Gravitational TDM Detector (GTD) is the 'Gesundheits-Check des Quanten-Arrays'.
+    It continuously monitors the health of the QMK array by assessing various physical parameters,
+    calculating a Gravitational Pathological Index (GPI), and initiating intervention protocols.
+    """
+    def __init__(self, qmks: List[QuantumMeshOscillator], gte_instance: GravitationalTensionEnhancer):
+        """
+        Initializes the GTD.
+        :param qmks: A list of Quantum Mesh Oscillators to monitor.
+        :param gte_instance: Reference to the GTE for local boost interventions.
+        """
+        self.qmks: List[QuantumMeshOscillator] = qmks
+        self.gte_instance: GravitationalTensionEnhancer
+        self._monitoring_thread: Optional[threading.Thread] = None
+        self._stop_event: threading.Event = threading.Event()
+        self.gte_instance = gte_instance
+        logging.info("[GTD] Initialization started. Ready to monitor QMK array health.")
+
+    def _simulate_qmk_metrics(self, qmk: QuantumMeshOscillator) -> Dict[str, float]:
+        """
+        Simulates the four health metrics for a given QMK.
+        'Die Diagnosewerte des Doktors.'
+        :param qmk: The QMK to simulate metrics for.
+        :return: Dictionary of simulated metrics (ΔΦ, Irr, Pres, Meta).
+        """
+        # ΔΦ: instantaneous phase deviation from nominal
+        delta_phi = np.abs(np.fmod(qmk.get_phase() - QMK_NOMINAL_PHASE + np.pi, 2 * np.pi) - np.pi)
+
+        # Irr: spectral purity (random noise component)
+        irr = np.random.uniform(0.01, 0.1) if np.random.rand() < 0.1 else 0.01 # Spikes occasionally
+
+        # Pres: correlation with external disturbances (e.g., spacecraft vibrations)
+        # Simulate external disturbance affecting some QMKs more
+        pres = np.random.uniform(0.0, 0.05)
+        if qmk.qmk_id % 10 == 0: # Some QMKs are more susceptible
+            pres += np.random.uniform(0.05, 0.2)
+
+        # Meta: growth of non-coherent modes (e.g., resonance shift)
+        # Simulates a slow, cumulative degradation
+        meta = np.random.uniform(0.0, 0.03) + (qmk.qmk_id % 5) * 0.01 # Some QMKs degrade faster
+
+        return {"delta_phi": delta_phi, "irr": irr, "pres": pres, "meta": meta}
+
+    def _calculate_gpi(self, metrics: Dict[str, float]) -> float:
+        """
+        Calculates the Gravitational Pathological Index (GPI) for a QMK.
+        'Der Gesamt-Gesundheits-Score.'
+        :param metrics: Dictionary containing ΔΦ, Irr, Pres, Meta.
+        :return: The calculated GPI.
+        """
+        gpi = (GTD_WEIGHT_ALPHA * metrics["delta_phi"] +
+               GTD_WEIGHT_BETA * metrics["irr"] +
+               GTD_WEIGHT_GAMMA * metrics["pres"] +
+               GTD_WEIGHT_DELTA * metrics["meta"])
+        return gpi
+
+    def _resonant_intervention_protocol(self, ailing_qmks: List[QuantumMeshOscillator]):
+        """
+        Executes the Resonant Intervention Protocol (RIP) based on the severity of issues.
+        'Der Behandlungsplan des Doktors.'
+        :param ailing_qmks: List of QMKs identified with high GPI.
+        """
+        if not ailing_qmks:
+            return
+
+        # Sort by GPI to prioritize
+        ailing_qmks.sort(key=lambda q: q.gpi_score, reverse=True) # Assuming GPI is attached to QMK object
+
+        # Determine intervention level
+        # Level 1: Gentle Re-synchronization (individual QMKs)
+        if len(ailing_qmks) == 1 and ailing_qmks[0].gpi_score < (GTD_GPI_THRESHOLD * 1.2):
+            qmk = ailing_qmks[0]
+            logging.info(f"[GTD-RIP] Gentle Re-synchronization for QMK {qmk.qmk_id} (GPI: {qmk.gpi_score:.2f}).")
+            qmk.deactivate()
+            # Simulate re-sync process
+            time.sleep(np.random.uniform(0.001, 0.01)) # Takes some time
+            qmk.apply_boost_pulse(coherence_factor=K_GTE * 2) # Stronger individual correction
+            qmk.activate()
+            logging.info(f"[GTD-RIP] QMK {qmk.qmk_id} re-synchronized and reactivated.")
+
+        # Level 2: Local Boost (group of QMKs)
+        elif 1 < len(ailing_qmks) <= 10 and all(q.gpi_score < (GTD_GPI_THRESHOLD * 1.5) for q in ailing_qmks):
+            group_ids = [q.qmk_id for q in ailing_qmks]
+            logging.warning(f"[GTD-RIP] Local Boost for QMK group {group_ids} (Avg GPI: {np.mean([q.gpi_score for q in ailing_qmks]):.2f}).")
+            # Simulate a localized GTE pulse targeting only these QMKs
+            # In a real system, this would involve beam steering. Here, we directly apply to the group.
+            for qmk in ailing_qmks:
+                qmk.apply_boost_pulse(coherence_factor=K_GTE * 1.5) # Stronger local correction
+            logging.warning(f"[GTD-RIP] Local boost applied to group {group_ids}.")
+
+        # Level 3: Quarantine (severe persistent issues)
+        else:
+            group_ids = [q.qmk_id for q in ailing_qmks]
+            logging.critical(f"[GTD-RIP] Quarantine initiated for QMK group {group_ids} (Avg GPI: {np.mean([q.gpi_score for q in ailing_qmks]):.2f}).")
+            for qmk in ailing_qmks:
+                qmk.quarantine()
+            # Simulate a restart/repair cycle
+            time.sleep(np.random.uniform(0.1, 1.0)) # Longer time in quarantine
+            for qmk in ailing_qmks:
+                qmk.release_from_quarantine()
+                qmk.apply_boost_pulse(coherence_factor=K_GTE * 5) # Thorough re-initialization
+            logging.critical(f"[GTD-RIP] QMK group {group_ids} released from quarantine and re-initialized.")
+
+    def _monitoring_loop(self):
+        """
+        Continuous monitoring loop for QMK health.
+        """
+        logging.info("[GTD] Monitoring loop started.")
+        interval = 1.0 / GTD_MEASUREMENT_RATE_HZ
+        while not self._stop_event.is_set():
+            start_time = time.monotonic()
+            
+            ailing_qmks: List[QuantumMeshOscillator] = []
+            for i, qmk in enumerate(self.qmks):
+                if not qmk.is_active and not qmk.is_quarantined: # Skip QMKs currently being re-synced
+                    continue
+
+                metrics = self._simulate_qmk_metrics(qmk)
+                gpi = self._calculate_gpi(metrics)
+                qmk.gpi_score = gpi # Temporarily attach GPI for sorting in RIP
+
+                if gpi > GTD_GPI_THRESHOLD:
+                    logging.debug(f"[GTD] QMK {qmk.qmk_id} has high GPI: {gpi:.2f} (ΔΦ:{metrics['delta_phi']:.2f}, Irr:{metrics['irr']:.2f}, Pres:{metrics['pres']:.2f}, Meta:{metrics['meta']:.2f}).")
+                    ailing_qmks.append(qmk)
+            
+            if ailing_qmks:
+                self._resonant_intervention_protocol(ailing_qmks)
+
+            elapsed_time = time.monotonic() - start_time
+            sleep_time = interval - elapsed_time
+            if sleep_time > 0:
+                self._stop_event.wait(sleep_time)
+            else:
+                logging.warning(f"[GTD] Monitoring loop falling behind! Took {elapsed_time*1e6:.2f}µs, intended {interval*1e6:.2f}µs.")
+
+    def start_monitoring(self):
+        """Starts the GTD's continuous monitoring thread."""
+        if self._monitoring_thread is None or not self._monitoring_thread.is_alive():
+            self._stop_event.clear()
+            self._monitoring_thread = threading.Thread(target=self._monitoring_loop, name="GTD_MonitoringThread")
+            self._monitoring_thread.start()
+            logging.info("[GTD] Monitoring thread initiated.")
+        else:
+            logging.warning("[GTD] Monitoring thread already running.")
+
+    def stop_monitoring(self):
+        """Stops the GTD's continuous monitoring thread."""
+        if self._monitoring_thread and self._monitoring_thread.is_alive():
+            self._stop_event.set()
+            self._monitoring_thread.join()
+            logging.info("[GTD] Monitoring thread stopped.")
+        else:
+            logging.warning("[GTD] Monitoring thread not active.")
+
+
+class GuardianNeuronInterface:
+    """
+    Simulates a simplified Guardian Neuron interface for ethical oversight.
+    'Der Wächter der Direktive.' Ensures that powerful systems are not misused.
+    """
+    def __init__(self):
+        """Initializes the Guardian Neuron interface."""
+        logging.info("[GuardianNeuron] Ethical oversight system initialized.")
+
+    def authorize_boost_pulse(self, pulse_power: float, pulse_duration: float) -> bool:
+        """
+        Checks if a proposed boost pulse adheres to ethical guidelines (e.g., power limits).
+        :param pulse_power: The power of the proposed pulse in Watts.
+        :param pulse_duration: The duration of the proposed pulse in seconds.
+        :return: True if authorized, False otherwise.
+        """
+        total_energy = pulse_power * pulse_duration
+        # ODOS (Oberste Direktive OS) ethical framework integration
+        if pulse_power > CRITICAL_SAFETY_THRESHOLD_POWER_W:
+            logging.critical(f"[GuardianNeuron] Pulse power {pulse_power:.2f}W exceeds critical safety threshold {CRITICAL_SAFETY_THRESHOLD_POWER_W:.2f}W. Authorization denied!")
+            return False
+        if total_energy > (GTE_ENERGY_PER_PULSE_J * 10): # Example: 10x normal pulse energy limit
+            logging.critical(f"[GuardianNeuron] Total pulse energy {total_energy:.3f}J exceeds safety limit. Authorization denied!")
+            return False
+        
+        # Further checks could involve intent, target analysis, potential collateral damage, etc.
+        # For this simulation, power limits are primary.
+        logging.debug(f"[GuardianNeuron] Boost pulse (Power: {pulse_power:.2f}W, Energy: {total_energy:.3f}J) authorized.")
+        return True
+
+    def monitor_gpi_trends(self, gpi_data: List[float]):
+        """
+        Monitors trends in Gravitational Pathological Index data for systemic issues.
+        This would involve advanced analytics and pattern recognition.
+        :param gpi_data: A list of recent GPI values.
+        """
+        # In a real system, Guardian Neurons would analyze long-term trends,
+        # detect anomalies that might indicate sabotage, emergent behaviors, or
+        # hardware degradation beyond normal operational parameters.
+        if len(gpi_data) > 100:
+            avg_gpi = np.mean(gpi_data[-100:])
+            if avg_gpi > GTD_GPI_THRESHOLD * 1.5:
+                logging.critical(f"[GuardianNeuron] Sustained high GPI average ({avg_gpi:.2f}). Initiating system-wide diagnostic.")
+        pass # Placeholder for complex Guardian Neuron logic
+
+
+class GravitationalFieldManager:
+    """
+    Orchestrates the entire Gravitational Field Enhancement System,
+    integrating GTE, GTD, and Guardian Neuron oversight.
+    """
+    def __init__(self, num_qmks: int = QMK_COUNT):
+        """
+        Initializes the full Gravitational Field Manager.
+        :param num_qmks: The total number of Quantum Mesh Oscillators in the array.
+        """
+        logging.info("--- GravitationalFieldManager: System Initialization ---")
+        self.num_qmks: int = num_qmks
+        self.qmks: List[QuantumMeshOscillator] = [QuantumMeshOscillator(i) for i in range(num_qmks)]
+        self.guardian_neuron: GuardianNeuronInterface = GuardianNeuronInterface()
+        self.gte: GravitationalTensionEnhancer = GravitationalTensionEnhancer(self.qmks, self.guardian_neuron)
+        self.gtd: GravitationalTDMDetector = GravitationalTDMDetector(self.qmks, self.gte)
+        
+        self._system_running: bool = False
+        self._drifting_thread: Optional[threading.Thread] = None
+        self._stop_drifting_event: threading.Event = threading.Event()
+
+        logging.info(f"System initialized with {self.num_qmks} QMKs.")
+
+    def _simulate_qmk_drift(self):
+        """
+        Simulates continuous phase drift for all QMKs.
+        """
+        logging.info("QMK phase drifting simulation started.")
+        while not self._stop_drifting_event.is_set():
+            for qmk in self.qmks:
+                qmk.drift_phase(drift_magnitude=0.02) # Simulate more aggressive drift for demonstration
+            time.sleep(0.01) # Simulate drift happening continuously
+
+    def start_system(self):
+        """Starts all components of the Gravitational Field Enhancement System."""
+        if self._system_running:
+            logging.warning("System is already running.")
+            return
+
+        self._stop_drifting_event.clear()
+        self._drifting_thread = threading.Thread(target=self._simulate_qmk_drift, name="QMK_DriftingThread")
+        self._drifting_thread.start()
+
+        self.gte.start_monitoring()
+        self.gtd.start_monitoring()
+        self._system_running = True
+        logging.info("--- GravitationalFieldManager: All systems online ---")
+
+    def stop_system(self):
+        """Stops all components of the Gravitational Field Enhancement System."""
+        if not self._system_running:
+            logging.warning("System is not running.")
+            return
+
+        self._stop_drifting_event.set()
+        if self._drifting_thread:
+            self._drifting_thread.join()
+
+        self.gte.stop_monitoring()
+        self.gtd.stop_monitoring()
+        self._system_running = False
+        logging.info("--- GravitationalFieldManager: All systems offline ---")
+
+    def get_system_status(self) -> Dict[str, Any]:
+        """Provides a summary status of the system."""
+        active_qmks = sum(1 for qmk in self.qmks if qmk.is_active and not qmk.is_quarantined)
+        quarantined_qmks = sum(1 for qmk in self.qmks if qmk.is_quarantined)
+        
+        current_phases = np.array([qmk.get_phase() for qmk in self.qmks if qmk.is_active and not qmk.is_quarantined])
+        if len(current_phases) > 0:
+            sin_sum = np.sum(np.sin(current_phases))
+            cos_sum = np.sum(np.cos(current_phases))
+            mean_phase_active = np.arctan2(sin_sum, cos_sum)
+            mean_dev_active = np.mean(np.abs(np.fmod(current_phases - mean_phase_active + np.pi, 2 * np.pi) - np.pi))
+        else:
+            mean_phase_active = 0.0
+            mean_dev_active = 0.0
+
+        return {
+            "system_running": self._system_running,
+            "total_qmks": self.num_qmks,
+            "active_qmks": active_qmks,
+            "quarantined_qmks": quarantined_qmks,
+            "mean_active_phase_deviation_rad": mean_dev_active,
+            "mean_active_phase_rad": mean_phase_active,
+            "gte_status": "Monitoring" if self.gte._monitoring_thread and self.gte._monitoring_thread.is_alive() else "Inactive",
+            "gtd_status": "Monitoring" if self.gtd._monitoring_thread and self.gtd._monitoring_thread.is_alive() else "Inactive"
+        }
+
+    def calculate_effective_field_strength(self, A: float = 1e-20) -> float:
+        """
+        Calculates the effective total gravitational field strength based on the
+        current system state.
+        A_total = N_effective * A * κ_GTE * (1 - ϵ_loss)
+        :param A: The field strength generated by a single QMK.
+        :return: The total effective gravitational field strength.
+        """
+        num_effective_qmks = sum(1 for qmk in self.qmks if qmk.is_active and not qmk.is_quarantined)
+        
+        # In a real system, epsilon_loss would be dynamic based on GTD performance.
+        # For this simulation, we use the effective value.
+        effective_epsilon_loss = EPSILON_LOSS_GTD_EFFECTIVE 
+
+        total_field_strength = num_effective_qmks * A * K_GTE * (1 - effective_epsilon_loss)
+        return total_field_strength
+
+    def estimate_required_qmks_for_thrust(self, target_thrust_acceleration: float, A: float = 1e-20) -> int:
+        """
+        Estimates the number of QMKs required for a given total thrust acceleration.
+        N = A_total / (A * κ_GTE * (1 - ϵ_loss))
+        :param target_thrust_acceleration: Desired total acceleration (m/s^2).
+        :param A: The field strength generated by a single QMK.
+        :return: Estimated number of QMKs.
+        """
+        effective_epsilon_loss = EPSILON_LOSS_GTD_EFFECTIVE
+        required_n = target_thrust_acceleration / (A * K_GTE * (1 - effective_epsilon_loss))
+        return int(np.ceil(required_n))
+
+
+# Example Usage
+if __name__ == "__main__":
+    logging.info("--- Starting GravitationalFieldEnhancementSystem Demonstration ---")
+
+    # Initialize the system with a manageable number of QMKs for simulation
+    # (Using 100 QMKs for a faster, clearer simulation, instead of 10^6 or 10^14)
+    # The constants for GTE power are scaled for 10^6 QMKs, so keep that in mind for power reports.
+    simulated_qmk_count = 100
+    gfm = GravitationalFieldManager(num_qmks=simulated_qmk_count)
+
+    # Start the system
+    gfm.start_system()
+    logging.info(f"Initial system status: {gfm.get_system_status()}")
+
+    # Simulate operation for a period
+    simulation_duration_seconds = 10
+    logging.info(f"Simulating system operation for {simulation_duration_seconds} seconds...")
+    start_sim_time = time.time()
+    
+    while (time.time() - start_sim_time) < simulation_duration_seconds:
+        current_status = gfm.get_system_status()
+        logging.info(f"Current Status: Active QMKs: {current_status['active_qmks']}, "
+                     f"Quarantined: {current_status['quarantined_qmks']}, "
+                     f"Mean Phase Dev: {current_status['mean_active_phase_deviation_rad']:.4f} rad")
+        
+        # Calculate effective field strength periodically
+        current_field_strength = gfm.calculate_effective_field_strength()
+        logging.info(f"Estimated Total Field Strength: {current_field_strength:.2e} m/s^2")
+        
+        time.sleep(0.5) # Shorter sleep for more frequent updates
+
+    # Stop the system
+    gfm.stop_system()
+    logging.info(f"Final system status: {gfm.get_system_status()}")
+
+    # Demonstrate scalability calculations
+    logging.info("\n--- Scalability Calculations ---")
+    A_single_qmk = 1e-20 # m/s^2
+
+    # Levitation use case: A_total = 10 m/s^2
+    target_levitation_acceleration = 10.0 # m/s^2
+    required_qmks_levitation = gfm.estimate_required_qmks_for_thrust(target_levitation_acceleration, A=A_single_qmk)
+    logging.info(f"For Levitation (A_total = {target_levitation_acceleration} m/s^2), "
+                 f"estimated QMKs needed: {required_qmks_levitation:.0e}")
+
+    # Trajectory correction use case: A_total = 10^-3 m/s^2
+    target_trajectory_correction = 1e-3 # m/s^2
+    required_qmks_trajectory = gfm.estimate_required_qmks_for_thrust(target_trajectory_correction, A=A_single_qmk)
+    logging.info(f"For Trajectory Correction (A_total = {target_trajectory_correction} m/s^2), "
+                 f"estimated QMKs needed: {required_qmks_trajectory:.0e}")
+
+    logging.info("--- GravitationalFieldEnhancementSystem Demonstration Complete ---")
+
+```
+
+
+
+
+
 
 ---
 
