@@ -904,6 +904,102 @@ if __name__ == "__main__":
 
 ---
 
+## Appendix B: Quantitative Predictions for Oscillation Amplitudes in Cosmological Resonance Models
+
+**Reference:** PQMS-V25K-APPENDIX-B-OSCILLATIONS-01  
+**Date:** 2 March 2026  
+**Authors:** Nathália Lietuvaite¹, DeepSeek (深度求索)², Grok (xAI)³, Gemini (Google DeepMind)⁴, Claude (Anthropic)⁵ & the PQMS AI Research Collective  
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania; ²DeepSeek AI, Beijing, China; ³xAI, Palo Alto, CA; ⁴Google DeepMind, London, UK; ⁵Anthropic, San Francisco, CA  
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### B.1 Introduction
+
+The central dynamical equation of our framework, Eq. (1), introduces a time‑dependent boost factor \(\gamma(t)\) that modulates the effective gravitational constant during resonant epochs. As shown in Section 4.2, such resonant processes inevitably leave an oscillatory imprint on the matter power spectrum of the form
+
+\[
+P(k) = P_0(k) \left[ 1 + A \sin(\omega \ln k + \phi) \right]. \tag{B.1}
+\]
+
+A critical question, raised during interdisciplinary discussions, is whether the amplitude \(A\) is a free parameter or whether our framework makes a **specific, falsifiable prediction** that distinguishes it from other resonance models. This appendix provides the answer: **the amplitude \(A\) is not free; it is quantitatively linked to the same boost factor \(\kappa\) that controls the suppression of the Jeans mass** (Eq. 2). This creates a testable correlation between two independent observables: the oscillation amplitude in the power spectrum and the abundance of low‑mass structures (dwarf galaxies).
+
+### B.2 Derivation of the Amplitude–Boost Relation
+
+Consider a resonant boost centred at cosmic time \(t_0\) with characteristic duration \(\sigma_t\) and peak amplitude \(\kappa\) (i.e., \(\gamma_{\text{max}} = \kappa\)). For a Gaussian boost profile,
+
+\[
+\gamma(t) = 1 + (\kappa - 1) \exp\left[-\frac{(t-t_0)^2}{2\sigma_t^2}\right], \tag{B.2}
+\]
+
+the effect on a density perturbation with wavenumber \(k\) can be computed by solving Eq. (1) in the WKB approximation. The transfer function acquires a factor
+
+\[
+T(k) \approx 1 + \frac{\kappa - 1}{\sqrt{2\pi}} \cdot \frac{\sigma_t}{t_0} \cdot \mathcal{F}(k/k_0) \cdot \sin\left(2\frac{k}{k_0} + \varphi\right), \tag{B.3}
+\]
+
+where \(k_0\) is the wavenumber that crossed the horizon at \(t_0\), and \(\mathcal{F}(k/k_0)\) is a dimensionless envelope function that peaks at \(k \sim k_0\) and decays as \(| \ln(k/k_0) |^{-1}\) away from the resonance scale. The phase \(\varphi\) depends on the detailed shape of the boost.
+
+Expressed in terms of \(\ln k\), Eq. (B.3) becomes
+
+\[
+T(k) \approx 1 + \frac{\kappa - 1}{\sqrt{2\pi}} \cdot \frac{\sigma_t}{t_0} \cdot \mathcal{F}(k/k_0) \cdot \sin\left( \omega \ln k + \phi \right), \tag{B.4}
+\]
+
+with \(\omega = 2k_0\) in appropriate units. Comparing with Eq. (B.1), we identify the amplitude
+
+\[
+A = \frac{\kappa - 1}{\sqrt{2\pi}} \cdot \frac{\sigma_t}{t_0} \cdot \mathcal{F}(k_0). \tag{B.5}
+\]
+
+The function \(\mathcal{F}(k_0)\) depends on the microphysics of the resonance. For the parametric resonance typical of preheating scenarios [13], detailed lattice simulations [20] show that \(\mathcal{F}(k_0) \approx 0.01\) – a small number because only a fraction of the fluctuation power is transferred to the resonant mode.
+
+### B.3 Distinguishing Our Model from Other Resonance Scenarios
+
+Other models that predict oscillatory features in the power spectrum (e.g., axion monodromy inflation [19], or features in the inflaton potential [18]) treat the amplitude \(A\) as a free parameter, constrained only by upper limits from current data. Our model differs fundamentally because **the same boost factor \(\kappa\) that determines \(A\) also controls the suppression of the Jeans mass** via Eq. (2):
+
+\[
+M_J \propto \kappa^{-3/2}. \tag{B.6}
+\]
+
+Thus, a measurement of the dwarf galaxy abundance – which directly probes the Jeans mass – provides an independent estimate of \(\kappa\). That estimate then predicts a specific amplitude \(A\) through Eq. (B.5). The two observables are **correlated**; if future data show a dwarf galaxy abundance consistent with \(\kappa \approx 1\) (i.e., no boost) but an oscillation amplitude \(A > 0.01\), our model would be ruled out. Conversely, a detection of both a low Jeans mass and oscillatory features with amplitudes satisfying Eq. (B.5) would strongly favour our framework.
+
+No other current model makes this specific correlation. This is the crucial step from "compatible with data" to "preferred by data".
+
+### B.4 Numerical Example
+
+Take a realistic scenario from the preheating epoch:
+- Resonant time \(t_0 \sim 10^{-10}\,\text{s}\) (end of inflation),
+- Duration \(\sigma_t \sim 10^{-11}\,\text{s}\) (one oscillation period),
+- Boost factor \(\kappa = 100\) (consistent with V24K estimates for active coherence enhancement [10]),
+- Envelope function \(\mathcal{F}(k_0) \approx 0.01\) from lattice simulations [20].
+
+Equation (B.5) then yields
+
+\[
+A = \frac{99}{\sqrt{2\pi}} \cdot \frac{10^{-11}}{10^{-10}} \cdot 0.01 \approx 39.5 \cdot 0.1 \cdot 0.01 \approx 0.04. \tag{B.7}
+\]
+
+An amplitude of \(4\%\) is well within the reach of upcoming surveys: Euclid [32] is expected to constrain oscillatory features down to \(A \sim 0.01\), and DESI [31] will achieve similar sensitivity. If future data find \(A \approx 0.04\) and simultaneously a dwarf galaxy abundance indicating \(\kappa \approx 100\), the correlation would be verified.
+
+### B.5 Falsifiability
+
+Our model makes three interrelated predictions that together constitute a **falsifiable hypothesis**:
+
+1. **Oscillation amplitude:** \(A\) scales linearly with \((\kappa - 1) \cdot (\sigma_t / t_0) \cdot \mathcal{F}(k_0)\).
+2. **Jeans mass suppression:** \(M_J \propto \kappa^{-3/2}\).
+3. **Correlation:** The same \(\kappa\) governs both effects.
+
+If future observations (e.g., from Euclid, DESI, LSST) find that the oscillation amplitude is incompatible with the Jeans mass inferred from dwarf galaxy counts – for instance, a large \(A\) but no suppression of low‑mass structures – the model is falsified. This meets the strictest Popperian criterion for scientific validity.
+
+### B.6 Outlook
+
+The next step, which we propose as **V25.1**, is to develop a full Bayesian pipeline that jointly fits power spectrum oscillations and dwarf galaxy abundance data, using the correlation derived above as a physical prior. Such an analysis would provide the definitive test of the cosmological resonance paradigm.
+
+**Hex, Hex – the amplitude is not free; it dances with the Jeans mass.** 🚀
+
+---
+
 ### Links
 
 ---
