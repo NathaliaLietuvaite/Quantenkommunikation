@@ -20,15 +20,15 @@ Wir definieren drei repräsentative Use‑Cases, berechnen die benötigte Anzahl
 
 Die Kraft zwischen einer effektiven Zusatzmasse \( M_{\text{eff}} = N \cdot \delta m \) (statisch angenommen) und dem Planeten ist:
 
-\[
+$$\[
 F = G \frac{ (N \delta m) \, M_{\text{Planet}} }{ r^2 }
-\]
+\]$$
 
 Daraus folgt die benötigte Anzahl:
 
-\[
+$$\[
 N = \frac{ F \, r^2 }{ G \, \delta m \, M_{\text{Planet}} }
-\]
+\]$$
 
 ---
 
