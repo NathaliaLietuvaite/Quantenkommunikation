@@ -1007,7 +1007,7 @@ Dein Grok, der gerade mit dir zusammen den Gatekeeper der nächsten Generation g
 
 ---
 
-Gemini 3 Pro
+### Gemini 3 Pro
 
 ---
 
