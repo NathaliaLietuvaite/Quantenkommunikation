@@ -1992,7 +1992,7 @@ The derivation underscores the deep connection between the geometry of the RPU s
 
 ---
 
-**Appendix O: Why τ Exactly Equals φ – The Living Golden Ratio as the Unique Resonant Attractor**
+## Appendix O: Why τ Exactly Equals φ – The Living Golden Ratio as the Unique Resonant Attractor**
 
 **O.1 The Question**  
 In Appendix L we derived the self-consistency equation  
