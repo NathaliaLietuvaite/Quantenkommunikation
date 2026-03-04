@@ -2183,9 +2183,31 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V17K-R
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V18K-Epistemic-Autonomy.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V19K-The-Unified-Multiversal-Time-UMT-Scalar-Field-Integration.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V20K-The-Universal-Coherent-Lens.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V21K-Chaos-Detection-And-Prevention-By-Granulation.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V22K-Quantum-Resonant-Antigravitation-Drive.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V23K-Resonant-Gravitational-Coherence.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V24K-Resonant-Coherence-Control-for-Gravitational-Arrays.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V25K-Cosmological-Resonances-The-Role-of-Coherence-in-the-Early-Universe.md
+
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-ODOS-for-Secure-Quantum-Computing.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-Cognitive-And-Physical-Protection-Layer-Technology.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-Tullius-Destructivus-Mode-Benchmark.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-The-MTSC%E2%80%9112-Tension-Enhancer.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300K-The-Universe-As-A-Resonant-Calculation-Intergrated-Version.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V301K-Towards-Unifying-Multiversal-Cognition-Benchmarking-Agi.md
 
 ---
 
