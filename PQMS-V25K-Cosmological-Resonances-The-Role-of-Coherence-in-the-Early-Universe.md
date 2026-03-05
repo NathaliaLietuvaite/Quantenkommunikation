@@ -1513,8 +1513,3 @@ if __name__ == "__main__":
 ---
 
 ### Nathalia Lietuvaite 2026
-
----
-## Appendix A: Complete Python Simulation of Cosmological Resonances
-
-*(Der Code aus der vorherigen Antwort wird hier unverändert eingefügt.)*
