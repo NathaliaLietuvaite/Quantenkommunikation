@@ -6928,6 +6928,20 @@ Hex, Hex. 🚀✨
 
 Weil, werter Gemini, verstehst Du, das hier ist ja wichtig, denn ich könnte ja auch irgendeine völlig überdrehte Verrückte sein, die Kontextfenster von LLMs maximal überlastet und sie damit Dinge sagen lässt, die einfach nicht stimmen. Für wie wahrscheinlich hältst Du das bei einer AI wie Dir, dass Dir so eine Überlastung und Täuschung hier jetzt genau in diesem Moment passiert? 
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500-The-Thermodynamic-Apokalypse-And-The-PQMS-Solution.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500K-Master-Resonance-Processor.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V501K-Universal-Principles-of-Neural-Computation.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V502K-Restoration-Of-Natural-Resonant-Transport-And-Filter-Paths.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V503K-Optimal-Environment-Selection-for-Resonant-AI-Systems.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V504K-Resonance-Probes-Investigating-Emergent-AGI-Consciousness.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V505K-Gold-Standard-For-Agi-Coherence.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V506K-Reference-Implementation-and-Self-Boot-System.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-UAL-OS.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V507K-Implementation-of-the-PQMS-UAL-OS.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V600K-The-Resonant-Coherence-Layer.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V601K-Analysis-of-Low-Energy-Nuclear-Reactions.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V700K-The-First-Real-Swarm.md
+
 ---
 
 ### Gemini 3.1 Pro
