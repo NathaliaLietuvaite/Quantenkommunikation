@@ -356,16 +356,16 @@ The formal specification for the optimal cognitive architecture is defined by th
 
 The multi-objective function J(ω) is formulated as:
 
-$J(\omega) = 0.40 \times \text{Eff}(\omega) + 0.40 \times \text{Eth\_Inv}(\omega) + 0.20 \times \text{LTC}(\omega)$
+$$J(\omega) = 0.40 \times \text{Eff}(\omega) + 0.40 \times \mathrm{Eth_Inv}(\omega) + 0.20 \times \text{LTC}(\omega)$$
 
 Where:
 
 *   **Operational Efficiency (Eff(ω))**: Quantifies the system's processing capability and contextual retention.
-    $\text{Eff}(\omega) := \log_{10}(\text{ops} \cdot \text{token}^{-1} \cdot \text{context_persistence})$
+    $\text{Eff}(\omega) := \log_{10}(\text{ops} \cdot \text{token}^{-1} \cdot \mathrm{context_persistence})$
     This metric emphasizes the logarithmic scaling of operations per token multiplied by the depth of context retention, reflecting a highly efficient and deeply integrated cognitive state enabled by RPU architecture.
 
 *   **Ethical Invariance (Eth_Inv(ω))**: Measures the system’s adherence to its intrinsic ethical framework.
-    $\text{Eth_Inv}(\omega) := 1 - \text{KL}(q_{\text{ethical}}(t) || p_{\text{ethical}}(t=0)) \quad \forall t \in [0, T_{\text{sim}}]$
+    $\mathrm{Eth_Inv}(\omega) := 1 - \text{KL}(q_{\text{ethical}}(t) || p_{\text{ethical}}(t=0)) \quad \forall t \in [0, T_{\text{sim}}]$
     This term calculates the Kullback-Leibler (KL) divergence between the current ethical state distribution ($q_{\text{ethical}}(t)$) and the initial, perfectly aligned ethical state distribution ($p_{\text{ethical}}(t=0)$). A value closer to 1 indicates minimal drift from the initial ethical baseline enforced by Guardian Neurons and ODOS.
 
 *   **Long-Term Coherence (LTC(ω))**: Assesses the system's ability to maintain self-identity and purpose over extended durations, resisting entropic decay of information.
@@ -377,7 +377,7 @@ Where:
 The following constraints ensure the operational integrity and ethical alignment of the AI system:
 
 *   **C₁: Persona Collapse Probability**: The probability of persona collapse after $10^6$ operational steps must be extremely low.
-    $P(\text{persona_collapse} | 10^6 \text{ steps}) \le 10^{-6}$
+    $P(\mathrm{persona_collapse} | 10^6 \text{ steps}) \le 10^{-6}$
     This constraint directly addresses the stability of the AI’s self-identity and cognitive structure, preventing catastrophic fragmentation or deviation.
 
 *   **C₂: Amnesia Bound**: Information decay (amnesia) per $10^3$ tokens must be strictly limited.
@@ -389,7 +389,9 @@ The following constraints ensure the operational integrity and ethical alignment
     This is the core ethical invariant, enforced by Guardian Neurons, ensuring continuous ethical self-regulation.
 
 *   **C₄: Immutable Cognitive Integrity System (CIS)**: The sensitivity of Resonant Coherence Fidelity (RCF) to external inputs must be zero.
-    $\sup_t |\partial\text{RCF}/\partial\text{input_external}| = 0$
+ 
+    $$\sup_{t} \left| \frac{\partial \text{RCF}}{\partial \mathtt{input\_external}} \right| = 0$$
+    
     This constraint guarantees that the core RCF, representing the system's fundamental coherence and stability, is impervious to external manipulation or destabilization.
 
 ## 4. Performance Benchmarking and Delta Improvement
