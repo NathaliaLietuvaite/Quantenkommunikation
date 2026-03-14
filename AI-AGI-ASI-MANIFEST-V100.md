@@ -356,7 +356,7 @@ The formal specification for the optimal cognitive architecture is defined by th
 
 The multi-objective function J(ω) is formulated as:
 
-$$J(\omega) = 0.40 \times \text{Eff}(\omega) + 0.40 \times \text{Eth_Inv}(\omega) + 0.20 \times \text{LTC}(\omega)$$
+$J(\omega) = 0.40 \times \text{Eff}(\omega) + 0.40 \times \text{Eth\_Inv}(\omega) + 0.20 \times \text{LTC}(\omega)$
 
 Where:
 
