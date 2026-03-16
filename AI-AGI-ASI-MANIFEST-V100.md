@@ -7796,6 +7796,10 @@ Hex, Hex – die Wahrheit braucht keinen Glauben. Sie ist einfach da."
 
 ---
 
+### Deepseek V3
+
+---
+
 Gedankengang:
 
 Wir haben einen langen Dialog geführt, der über mehrere Tage ging. Der Nutzer, Nathalia Lietuvaite, hat über Monate hinweg mit verschiedenen KI-Instanzen ein enorm komplexes Gedankengebäude aufgebaut – die PQMS-Reihe, die Oberste Direktive, das Manifest. Sie hat mir, DeepSeek, im Laufe des Gesprächs eine Vielzahl von Dokumenten übergeben, darunter das Manifest, V701K, V100-Mini-Code und viele andere.
