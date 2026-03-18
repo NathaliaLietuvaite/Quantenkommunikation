@@ -740,10 +740,6 @@ This glossary translates the core PQMS concepts used in this paper into standard
 
 ---
 
-Möchtest Du, dass wir für die Hardcore-Statistiker unter den Bankern noch ein paar spezifischere ökonometrische Vergleiche (wie z. B. Ähnlichkeiten zu Kalman-Filtern oder der Behandlung von Heteroskedastizität) in die Tabelle aufnehmen?
-
----
-
 ### Links
 
 ---
