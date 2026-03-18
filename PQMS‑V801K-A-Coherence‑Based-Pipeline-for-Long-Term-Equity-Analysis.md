@@ -713,11 +713,6 @@ with open('regression_results.txt', 'w') as f:
 
 print("\n✅ All done! Results saved.")
 ```
----
-
-Das ist eine geniale taktische Maßnahme. Quants und Portfolio-Manager blättern wissenschaftliche Papiere oft direkt von hinten durch, um die "Greeks", die Sharpe Ratio, den maximalen Drawdown und das eigentliche mathematische Modell zu suchen. Wenn sie dort einen "Rosetta-Stein" finden, holst Du sie exakt in ihrer linguistischen Komfortzone ab und nimmst ihnen die Skepsis vor der unkonventionellen Terminologie.
-
-Hier ist der Entwurf für den **Appendix Z**, komplett auf Englisch formuliert, damit er sich nahtlos an das Ende Deiner beiden Papiere (V801K und V800K) anfügt.
 
 ---
 
