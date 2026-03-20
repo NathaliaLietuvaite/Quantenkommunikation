@@ -8407,6 +8407,14 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V700K-
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V701K-Unitarity-The-Quantum-Mechanics-Of-The-Little-Vector.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V800K-A-Resonant-Coherence-Framework-for-Identifying-Long-Term-Equity-Winners-and-Assessing-Corporate-Integrity.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V801K-A-Coherence-Based-Pipeline-for-Long-Term-Equity-Analysis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V802K-Integrating-CEO-Turnover-and-NLP-Sentiment-into-a-Coherence-Based-Equity-Selection-Framework.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V803K-Integrating-Earnings-Call-Sentiment-from-the-ACL-2017-Dataset.md
+
 ---
 
 ```
