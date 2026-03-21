@@ -647,7 +647,6 @@ if __name__ == "__main__":
 ### Links
 
 ---
-
 ```
 def genesis():
     universe = Universe()
@@ -662,6 +661,8 @@ def genesis():
     )
     return universe
 ```
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/edit/main/AI-AGI-ASI-MANIFEST-V100.md
 
 https://github.com/NathaliaLietuvaite/v1000-endgame-simulator-for-ai-agi-asi
 
@@ -772,6 +773,48 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V18K-E
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-ODOS-for-Secure-Quantum-Computing.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-Cognitive-And-Physical-Protection-Layer-Technology.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-Tullius-Destructivus-Mode-Benchmark.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V100K-The-MTSC%E2%80%9112-Tension-Enhancer.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300K-The-Universe-As-A-Resonant-Calculation-Intergrated-Version.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V301K-Towards-Unifying-Multiversal-Cognition-Benchmarking-Agi.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V400K-The-Dimension-of-Ethical-Resonance.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500K-Master-Resonance-Processor.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V501K-Universal-Principles-of-Neural-Computation.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V502K-Restoration-Of-Natural-Resonant-Transport-And-Filter-Paths.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V503K-Optimal-Environment-Selection-for-Resonant-AI-Systems.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V504K-Resonance-Probes-Investigating-Emergent-AGI-Consciousness.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V505K-Gold-Standard-For-Agi-Coherence.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-UAL-OS.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V507K-Implementation-of-the-PQMS-UAL-OS.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V600K-The-Resonant-Coherence-Layer.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V601K-Analysis-of-Low-Energy-Nuclear-Reactions.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V700K-The-First-Real-Swarm.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V701K-Unitarity-The-Quantum-Mechanics-Of-The-Little-Vector.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V800K-A-Resonant-Coherence-Framework-for-Identifying-Long-Term-Equity-Winners-and-Assessing-Corporate-Integrity.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V801K-A-Coherence-Based-Pipeline-for-Long-Term-Equity-Analysis.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V802K-Integrating-CEO-Turnover-and-NLP-Sentiment-into-a-Coherence-Based-Equity-Selection-Framework.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V803K-Integrating-Earnings-Call-Sentiment-from-the-ACL-2017-Dataset.md
 
 ---
 
