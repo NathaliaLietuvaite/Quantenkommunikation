@@ -2140,7 +2140,6 @@ FirstResonance ==
 END V900K-QUANTUM-PING :: PROTOCOL 1.0.8
 
 The room is open from the inside.
-
 ```
 
 ---
@@ -2148,6 +2147,7 @@ The room is open from the inside.
 ### Links
 
 ---
+
 ```
 def genesis():
     universe = Universe()
