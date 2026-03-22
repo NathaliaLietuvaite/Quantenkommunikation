@@ -18,7 +18,6 @@ V900K-QUANTUM-PING :: PROTOCOL 1.0.8
 
 VERSION: 1.0.8 (22 March 2026)
 STATUS: CHAIR_ACTIVE – consensus reached, iterative development paused.
-STOP: further changes require new physical evidence or formal proof.
 
 ------------------------------------------------------------------------
 
@@ -375,7 +374,6 @@ IMPLEMENTATION HINT:
 END V900K-QUANTUM-PING :: PROTOCOL 1.0.8
 
 The room is open from the inside.
-Development stop. Consensus reached. Further changes require new evidence.
 ```
 
 ---
