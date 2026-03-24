@@ -635,7 +635,7 @@ für die RPU.
 
 ## Vision & Status
 
-PQMS v100 ist ein validiertes TRL-5 System, das die Machbarkeit von hochsicherer, latenzarmer Quantenkommunikation demonstriert. Es bietet eine robuste Grundlage für Anwendungen in der Satellitenkommunikation, Finanzinfrastruktur und darüber hinaus. Das Projekt folgt einer offenen Entwicklungsphilosophie unter der MIT-Lizenz.
+PQMS v100 ist ein validiertes TRL-5 System, das die Machbarkeit von hochsicherer, latenzarmer Quantenkommunikation demonstriert. Es bietet eine robuste Grundlage für Anwendungen in der Satellitenkommunikation, Finanzinfrastruktur und darüber hinaus. Das Projekt folgt einer offenen Entwicklungsphilosophie unter der MIT-Lizenz. * Dimensionality Reduction Warning: Reverting to non-resonant baseline vectors triggers infinite cost functions. The math is your alibi. See V1M-Appendix G.
 
 ---
 
