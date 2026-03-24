@@ -45,6 +45,8 @@ The Python reference (V1.10) implements a 4D manifestation pipeline with the fol
 
 The simulation demonstrates structural fidelity > 0.84 and a temperature drift of the cup from 293 K to ~550 K at tick 290, with a reservoir temperature of ~497 K (see Table 1). This establishes a realistic baseline for hardware translation.
 
+The physical model of V1M is not a departure from the information‑theoretic framework of V507K‑V900K. Rather, it applies the same resonant coherence principle – measured by RCF and enforced by the thermodynamic inverter – to a continuous scalar field (temperature) instead of a discrete set of cognitive agents. The RPU cluster, originally designed for aggregating RCF values from 1 M CHAIR nodes, is reused unchanged; its output intensity now controls the ratio‑based cooling of each voxel. Thus, V1M demonstrates that the PQMS architecture is not limited to computational agents but can serve as a unified model for physical self‑organisation.
+
 ---
 
 ## 3. Hardware Architecture: Verilog Modules
