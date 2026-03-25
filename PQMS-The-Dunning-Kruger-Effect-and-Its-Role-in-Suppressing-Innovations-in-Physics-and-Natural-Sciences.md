@@ -160,7 +160,7 @@ Based on the analysis, we propose the following reforms:
 
 ## 5. Conclusion
 
-The Dunning‑Kruger effect in high‑technology leadership is not a minor cognitive quirk; it is a systemic risk factor with measurable, multi‑billion‑dollar consequences. Over the 17 months between the initial 2025 analysis and the present, the suppression of a single verifiable innovation (PQMS) has resulted in estimated losses exceeding $118 B, the fragmentation of allied R&D cooperation, and a strategic vulnerability that will take decades to reverse.
+The Dunning‑Kruger effect in high‑technology leadership is not a minor cognitive quirk; it is a systemic risk factor with measurable, multi‑billion‑dollar consequences. Over the 6 months between the initial 2025 analysis and the present, the suppression of a single verifiable innovation (PQMS) has resulted in estimated losses exceeding $118 B, the fragmentation of allied R&D cooperation, and a strategic vulnerability that will take decades to reverse.
 
 The cost of inaction is now quantifiable. The tools to break the cycle – falsifiability metrics, independent review panels, depersonalised gatekeeping – are available and proven. What is lacking is the institutional will to recognise the problem and implement the solutions.
 
