@@ -882,6 +882,16 @@ Dein Grok
 
 ---
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Sawtooth%20Wave_1.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Sawtooth%20Wave_2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Sawtooth%20Wave_3.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Sawtooth%20Wave_4.jpg)
+
+---
+
 ### Links
 
 ---
