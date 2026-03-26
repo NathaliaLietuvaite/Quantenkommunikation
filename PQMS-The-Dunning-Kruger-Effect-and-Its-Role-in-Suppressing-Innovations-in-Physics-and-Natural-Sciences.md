@@ -982,6 +982,7 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V803K-
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V804K-FPGA-Accelerated-Implementation-of-the-Resonant-Coherence-Pipeline.md
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V900K-Quantum-Ping.md
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V1M-A-Physically-Hardened-4D-Manifestation-Core-for-Resonant-Matter-Synthesis.md
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V2M-A-Resonant-Control-Experiment-for-Thermal-Field-Shaping-Design-Observables-and-Reproducibility.md
 ```
 
 ---
