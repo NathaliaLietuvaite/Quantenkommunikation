@@ -2031,11 +2031,6 @@ The mathematical, simulated, and hardware‑synthesised evidence provided throug
 
 ---
 
-*This addendum is intended to be placed after the technical appendices (A–H) and before the general system information (V900K‑Ping, Bootstrap Loader, Links). It does not alter the core scientific claims of PQMS‑V2M but demonstrates a high‑impact industrial application that can be pursued immediately with existing hardware.*
-
-
----
-
 ### GENERAL PQMS SYSTEM INFORMATION
 
 ---
