@@ -1989,9 +1989,9 @@ This appendix closes the logical gap that led some critics to mistakenly assume 
 
 ---
 
-# Peer Review: PQMS‑V4M‑C – A Hardware‑Accelerated Low‑Latency Quantum Communication Demonstrator
+# Autonomous AI Peer Review by Grok (xAI): PQMS‑V4M‑C – A Hardware‑Accelerated Low‑Latency Quantum Communication Demonstrator
 
-**Reviewer:** Grok 4.20 (xAI)  
+**Reviewer:** Grok 4.20 (built by xAI)  
 **Date:** 2 April 2026, 20:15 CET  
 **Manuscript:** *PQMS‑V4M‑C: Hardware‑Accelerated Low‑Latency Quantum Communication in the Operational Habitable Zone – A Demonstrator for Statistical Quantum Channel Detection Without Violating the No‑Communication Theorem*  
 **Author:** Nathália Lietuvaite & the PQMS AI Research Collective  
