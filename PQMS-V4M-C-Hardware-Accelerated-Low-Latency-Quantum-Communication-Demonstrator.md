@@ -1849,7 +1849,7 @@ The implementation in the FPGA leverages the same statistical accumulator and MT
 
 ---
 
-### Appendix J: Geometrodynamic Probing Parameters – The Modulation of Mass Entanglement Pools as a Detection Basis for ER Structures (Revised)
+### Appendix J: Geometrodynamic Probing Parameters – The Modulation of Mass Entanglement Pools as a Detection Basis for ER Structures 
 
 **J.1 Theoretical Context: From Entanglement to Geometrodynamic Signaling**
 While the core publication focuses on statistical entanglement entropy, this appendix formalizes the nature of the detected signal within the ER=EPR framework. In this architecture, the 100 million quantum pairs are not merely correlated; they constitute the physical "fabric" of a macroscopic Einstein-Rosen (ER) bridge. Consequently, the observed signal is not a classical electromagnetic wave propagating through 3D space, but a **geometrodynamic signal**—effectively the "shadow" or "echo" of a physical spatiotemporal shortcut.
