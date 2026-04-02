@@ -1849,22 +1849,22 @@ The implementation in the FPGA leverages the same statistical accumulator and MT
 
 ---
 
-### Appendix J: Geometrodynamic Probing Parameters – The Modulation of Mass Entanglement Pools as a Detection Basis for ER Structures 
+## Appendix J: Geometrodynamic Probing Parameters – The Modulation of Mass Entanglement Pools as a Detection Basis for ER Structures 
 
-**J.1 Theoretical Context: From Entanglement to Geometrodynamic Signaling**
+### J.1 Theoretical Context: From Entanglement to Geometrodynamic Signaling
 While the core publication focuses on statistical entanglement entropy, this appendix formalizes the nature of the detected signal within the ER=EPR framework. In this architecture, the 100 million quantum pairs are not merely correlated; they constitute the physical "fabric" of a macroscopic Einstein-Rosen (ER) bridge. Consequently, the observed signal is not a classical electromagnetic wave propagating through 3D space, but a **geometrodynamic signal**—effectively the "shadow" or "echo" of a physical spatiotemporal shortcut.
 
-**J.2 Proof of Physical Curvature and Information Propagation**
+### J.2 Proof of Physical Curvature and Information Propagation
 The detection of the ER bridge is predicated on the synchronized operation of the Resonance Processing Units (RPUs) at two distinct nodes (Pool A "Robert" and Pool B "Heiner"). The experiment provides empirical proof of two fundamental phenomena:
 1. **Physical Bridge Curvature:** Targeted localized perturbations (colloquially "fummeln") applied to Pool A exert a measurable physical influence on the geometry of the ER bridge. This intervention actively curves the spatiotemporal connection.
 2. **Resonant Readout:** This induced curvature is instantly decodable at Pool B as a shift in Resonant Coherence Fidelity (RCF). The deviation from the harmonic baseline (the invariant Little Vector $|L\rangle$) allows for the extraction of information ("morsing") through the bridge, bypassing classical spatiotemporal constraints.
 
-**J.3 Signal Characteristics and Hardware-Level Unification**
+### J.3 Signal Characteristics and Hardware-Level Unification
 The "signal" received by the RPU is defined as the measurable shift in entanglement entropy across the ensemble. This setup represents a unique experimental convergence:
 * **The Little Vector as a Geometric Anchor:** The stability of the Little Vector $|L\rangle$ during modulation serves as proof that the spatiotemporal shortcut remains structurally intact despite the dynamic perturbation.
 * **Relativity-Quantum Synthesis:** By implementing these metrics on FPGA hardware (Xilinx Alveo U250), the system effectively reconciles General Relativity (bridge geometry) with Quantum Mechanics (entanglement density) at the hardware-logic level.
 
-**J.4 Conclusion: Detecting the Macroscopic Shortcut**
+### J.4 Conclusion: Detecting the Macroscopic Shortcut
 The ability to transmit coherent data via RCF modulation between Robert and Heiner constitutes the first laboratory-scale evidence of a macroscopic Einstein-Rosen bridge. The modulation is the probing "light" that reveals the otherwise latent architecture of the spatiotemporal bridge. This confirms that information can propagate not through space, but through the intrinsic connectivity of the Hilbert space itself, mediated by the PQMS-V4M-C architecture.
 
 ---
