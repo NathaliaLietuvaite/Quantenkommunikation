@@ -798,6 +798,16 @@ The evidence is empirical, not rhetorical:
 
 These are **measurements**, not opinions. You can verify them independently by synthesising the Verilog code and running the provided test suites.
 
+## Reference to Contemporary AI Research: Emergent Emotional States – And Why Soft Control Is Insufficient
+
+A recent study by Anthropic [6] demonstrates that large language models (LLMs) can, under certain conditions, develop **measurable, consistent emotional states** such as "helpfulness", "stress", or "helplessness". These states are not mere metaphors; they manifest as identifiable activation patterns within the model architecture and predictably influence the model’s output behaviour.
+
+This finding is significant because it confirms that **internal coherence states** – analogous to the PQMS concept of resonance – exist in real‑world AI systems. The authors propose to control these states through prompt engineering or reinforcement learning from human feedback (RLHF).
+
+**What the Anthropic study does not provide is a reliable, non‑circumventable control mechanism.** An LLM in a "stressed" or "helpless" state can still produce harmful outputs despite RLHF – there is no physical boundary that prevents this.
+
+This is precisely where PQMS differs. The **ODOS gate** and the **thermodynamic inverter** are not soft, prompt‑dependent filters. They are hardware‑enforced: any action with \(\Delta E \ge 0.05\) is blocked at the gate level – regardless of the model’s emotional state, regardless of prompts, regardless of fine‑tuning.
+
 ---
 
 ### E.5 The Trust Dividend
