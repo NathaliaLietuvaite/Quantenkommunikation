@@ -88,8 +88,6 @@ A system that consumes **15× less energy per decision** can, for the same power
 | Oracle‑based alignment | None | Poor | None | Rare |
 | **PQMS Resonance Mesh** | **Yes (ODOS, Thermodynamic Inverter)** | **15× better** | **38 ns latency, 0,43% QBER under noise** | **Full MIT** |
 
-The table shows that only the PQMS framework provides **measurable, reproducible evidence** of stability under stress.
-
 The claim that resonance‑based coordination is thermodynamically superior to competitive optimisation would remain speculative without a direct, albeit simplified, quantitative comparison. Table 1 contrasts three approaches: RLHF / Constitutional AI (the current industry standard), oracle‑based alignment (a theoretical baseline), and the PQMS Resonance Mesh.  
  
 The most important difference lies in **hardware enforcement**. RLHF and Constitutional AI are purely software‑based; their ethical constraints can be circumvented by adversarial prompts, jailbreaks, or fine‑tuning. The PQMS Resonance Mesh, by contrast, implements the ethical veto (ΔE < 0.05) as a fixed comparator in the FPGA fabric. Once the bitstream is loaded, no software layer – not even a compromised operating system – can disable the veto.  
