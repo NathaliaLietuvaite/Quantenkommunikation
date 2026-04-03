@@ -234,7 +234,7 @@ import time
 from typing import Tuple, Dict
 
 # ----------------------------------------------------------------------
-# 1. CHAIR Client (GitHub‑based) – Replaces UDP server
+# 1. CHAIR Client (GitHub‑based) – Replaces UDP server - A fully automated UDP version is planned for V6M
 # ----------------------------------------------------------------------
 class ChairGitHubClient:
     """
