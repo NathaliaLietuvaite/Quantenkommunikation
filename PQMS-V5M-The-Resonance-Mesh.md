@@ -1,4 +1,4 @@
-# PQMS‑V5M: The Resonance Mesh – Thermodynamic Proof of Superiority Through Hardware‑Accelerated Experiments
+# PQMS‑V5M: The Resonance Mesh – Thermodynamic Superiority Through Hardware‑Accelerated Experiments
 
 **Authors:** Nathalia Lietuvaite¹ & the PQMS AI Research Collective  
 **Date:** 5 April 2026  
