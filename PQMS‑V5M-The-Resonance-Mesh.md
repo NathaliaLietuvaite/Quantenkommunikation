@@ -61,7 +61,7 @@ A system that consumes **15× less energy per decision** can, for the same power
 |----------|----------------------|-------------------|--------------------|-------------|
 | RLHF / Constitutional AI | None (software) | Poor (GPU‑based) | None | Partial |
 | Oracle‑based alignment | None | Poor | None | Rare |
-| **PQMS Resonance Mesh** | **Yes (ODOS, Thermodynamic Inverter)** | **15× better** | **38 ns latency, 0% QBER under noise** | **Full MIT** |
+| **PQMS Resonance Mesh** | **Yes (ODOS, Thermodynamic Inverter)** | **15× better** | **38 ns latency, 0,43% QBER under noise** | **Full MIT** |
 
 The table shows that only the PQMS framework provides **measurable, reproducible evidence** of stability under stress.
 
