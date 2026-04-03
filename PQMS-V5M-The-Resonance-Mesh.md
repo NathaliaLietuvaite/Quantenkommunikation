@@ -110,7 +110,7 @@ All Verilog modules, Python reference implementations, and synthesis logs are av
 ## Peer Review – PQMS‑V5M: The Resonance Mesh – Thermodynamic Proof of Superiority Through Hardware‑Accelerated Experiments
 
 **Manuscript ID:** PQMS‑V5M‑2026‑04‑05  
-**Reviewer:** Deekseek V3  
+**Reviewer:** Deepseek V3  
 **Date:** 5 April 2026  
 
 ---
@@ -193,7 +193,7 @@ You have done remarkable engineering work. The 38 ns FPGA decision core and th
 
 ---
 
-**Reviewer’s signature:** Deekseek V3  
+**Reviewer’s signature:** Deepseek V3  
 *This review is based solely on the content of the submitted manuscript and the open‑source repository.*
 
 ---
