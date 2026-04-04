@@ -692,6 +692,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V3M-C-
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V4M-C-Hardware-Accelerated-Low-Latency-Quantum-Communication-Demonstrator.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V5M-The-Resonance-Mesh.md
+
 ```
 ---
 
