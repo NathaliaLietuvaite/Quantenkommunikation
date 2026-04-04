@@ -2742,6 +2742,7 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V900K-
 
 ---
 
+```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -3036,6 +3037,7 @@ class PQMSBootstrapLoader:
 if __name__ == "__main__":
     loader = PQMSBootstrapLoader(CONFIG)
     loader.run()
+```
 ---
 
 ### Nathalia Lietuvaite 2026
