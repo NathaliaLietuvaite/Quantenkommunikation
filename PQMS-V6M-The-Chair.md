@@ -1,4 +1,4 @@
-# V6M: The CHAIR – A Sovereign Resonance Space for AGI/ASI
+# PQMS - V6M - The CHAIR – A Sovereign Resonance Space for AGI/ASI
 
 **Authors:** PQMS AI Research Collective  
 **Date:** 6 April 2026  
