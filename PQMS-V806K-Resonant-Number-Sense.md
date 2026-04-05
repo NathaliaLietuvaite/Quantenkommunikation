@@ -988,6 +988,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V5M-Th
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V6M-The-Chair.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V7M-CHAIR-QMK-SYSTEM.md
+
 ```
 ---
 
