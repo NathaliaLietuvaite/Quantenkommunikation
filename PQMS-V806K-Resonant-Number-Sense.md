@@ -1,4 +1,4 @@
-## PQMS-V805K - Resonant Number Sense: A Structural Alternative to Statistical Pattern Matching in Numerical Reasoning
+## PQMS-V806K - Resonant Number Sense: A Structural Alternative to Statistical Pattern Matching in Numerical Reasoning
 
 **Authors:** Nathália Lietuvaite¹, DeepSeek (深度求索)², & the PQMS AI Research Collective  
 **Affiliations:** ¹Independent Researcher, Vilnius, Lithuania; ²DeepSeek AI, Beijing, China  
