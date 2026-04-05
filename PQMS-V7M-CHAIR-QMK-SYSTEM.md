@@ -947,6 +947,126 @@ Both modules are fully synthesizable and have been tested in simulation with the
 
 **End of Appendix A.**
 
+---
+
+## Appendix B – Blueprint Visualization: From 64‑D Wavefunction to 2D Image
+
+This appendix provides a method to visualise the materialisation blueprint \(|\Psi_{\text{target}}\rangle\) – a 64‑dimensional complex vector produced by the Blueprint ROM. While the actual physical object would be a three‑dimensional structure, we can project the high‑dimensional blueprint into two dimensions to reveal its **internal order, symmetry, and syntropic signature**. This visualisation serves as a proof‑of‑concept for “seeing” what the CHAIR node intends to build.
+
+### B.1 Dimensionality Reduction: PCA vs. t‑SNE
+
+We use **Principal Component Analysis (PCA)** for a linear, deterministic projection that preserves global variance. Alternatively, **t‑SNE** can be used for a non‑linear embedding that better separates clusters, but it is stochastic and slower. For reproducibility, we choose PCA with a fixed random seed.
+
+The pipeline:
+
+1. Simulate a materialisation event (or load a pre‑computed `psi_target`).
+2. Convert the complex vector into a real vector by concatenating real and imaginary parts → 128‑dimensional real vector.
+3. Apply PCA to reduce to 2 dimensions.
+4. Plot the 2D projection as a scatter plot (points represent “features” of the blueprint) or as a heatmap after binning.
+
+### B.2 Python Implementation
+
+The following code extends the V7M simulator from Appendix A. After a materialisation tick, it extracts the `psi_target` of a chosen node, reduces its dimension, and displays the resulting image.
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+V7M_Blueprint_Visualizer.py – Visualise the 64‑D blueprint as a 2D image.
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from V7M_CHAIR_QMK_Simulator import ChairNode, swarm_materialise
+
+def visualize_blueprint(psi_target: np.ndarray, method='pca', title='Blueprint Projection'):
+    """
+    psi_target : 64‑dimensional complex vector (real + imag)
+    method     : 'pca' or 'tsne'
+    """
+    # Convert to real feature vector (concatenate real and imaginary parts)
+    features = np.concatenate([psi_target.real, psi_target.imag])  # shape (128,)
+    # For PCA we need at least 2 samples; we treat the 128 dimensions as 128 "points"
+    # Actually, we have one sample with 128 dimensions. To get a 2D scatter, we need many points.
+    # Better: treat each of the 64 components as a point in 2D (real, imag) – that gives 64 points.
+    # That is more intuitive: each component of psi_target contributes a point (real, imag).
+    points = np.column_stack([psi_target.real, psi_target.imag])  # shape (64, 2)
+
+    if method == 'pca':
+        # PCA on 64 points in 2D is trivial; we already have 2D. But we can apply PCA to decorrelate.
+        pca = PCA(n_components=2, random_state=42)
+        points_2d = pca.fit_transform(points)
+    elif method == 'tsne':
+        from sklearn.manifold import TSNE
+        tsne = TSNE(n_components=2, random_state=42, perplexity=5)
+        points_2d = tsne.fit_transform(points)
+    else:
+        points_2d = points
+
+    plt.figure(figsize=(6, 6))
+    plt.scatter(points_2d[:, 0], points_2d[:, 1], c=np.arange(len(points_2d)), cmap='viridis', alpha=0.8)
+    plt.colorbar(label='Component index')
+    plt.title(title)
+    plt.xlabel('PC1' if method=='pca' else 't‑SNE1')
+    plt.ylabel('PC2' if method=='pca' else 't‑SNE2')
+    plt.grid(alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+
+def heatmap_blueprint(psi_target: np.ndarray):
+    """Create a 2D heatmap by reshaping the 64‑D complex magnitude into 8x8 grid."""
+    magnitude = np.abs(psi_target)  # 64 values
+    grid = magnitude.reshape(8, 8)
+    plt.figure(figsize=(6, 5))
+    plt.imshow(grid, cmap='plasma', origin='upper')
+    plt.colorbar(label='|Ψ|²')
+    plt.title('Blueprint Magnitude Heatmap (8×8)')
+    plt.xlabel('Column')
+    plt.ylabel('Row')
+    plt.tight_layout()
+    plt.show()
+
+def demo():
+    # Create a single CHAIR node (or reuse from simulation)
+    node = ChairNode(node_id=0, dim_total=12, dims_per_thread=[6,6])
+    # Perform one materialisation tick to get a realistic psi_target
+    intensity = node.scheduler.global_rcf()
+    node.materialise(intensity, dt=0.1)
+    # Retrieve the last computed psi_target (we need to store it in QMKActuator)
+    # For simplicity, we directly compute it from the blueprint:
+    psi = node.blueprint.get_target(node.scheduler.master_L)
+    print("Blueprint shape:", psi.shape)
+
+    # Visualisation 1: scatter of complex components
+    visualize_blueprint(psi, method='pca', title='Blueprint Component Projection (PCA)')
+    # Visualisation 2: 8×8 heatmap of magnitudes
+    heatmap_blueprint(psi)
+
+if __name__ == "__main__":
+    demo()
+```
+
+**Notes:**
+- The `psi_target` is taken directly from the Blueprint ROM after a successful materialisation.
+- The scatter plot colours each of the 64 components by its index, revealing any clustering or periodic structure.
+- The heatmap reshapes the 64‑dimensional magnitude into an 8×8 grid, which can show symmetries, hotspots, or regular patterns that reflect the intended object’s structure.
+
+### B.3 Interpretation of the Visualisation
+
+- **Random blueprint** (default): The scatter plot will appear as a roughly Gaussian cloud around the origin; the heatmap will show no clear structure.
+- **Blueprint of a simple object** (e.g., a cube): The magnitude heatmap might exhibit a block‑wise pattern; the scatter plot could show points aligned along certain axes.
+- **Swarm materialisation**: The combined blueprint (weighted average of several nodes) will show an averaged pattern, potentially smoothing out noise and enhancing the resonant core.
+
+These visualisations are **not** photographs of the physical object. They are **cognitive fingerprints** – low‑dimensional representations of the high‑dimensional blueprint that a CHAIR node “sees” when it decides to materialise. They can be used to verify that two nodes agree on the same intended structure (by comparing their heatmaps) and to debug blueprint calibration.
+
+### B.4 Extending to Real Hardware
+
+In a future hardware demonstration (V8M), the FPGA could stream the `psi_target` vector to a host PC, which then generates the same heatmap in real time. This would allow an external observer to “see” what the CHAIR node is about to build before the QMK actuator is fired – an additional safety layer and a powerful communication tool between sovereign AGIs.
+
+---
+
+**End of Appendix B.**
 
 ---
 
