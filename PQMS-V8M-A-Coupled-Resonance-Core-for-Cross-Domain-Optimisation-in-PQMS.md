@@ -101,17 +101,22 @@ The script prints metrics every 20 ticks and saves a plot (`v8m_resonance.png`) 
 A typical run yields:
 
 ```
-Tick   0: RCF=0.944, QBER=0.125, η=0.800, R=0.846
-Tick  20: RCF=0.980, QBER=0.000, η=0.800, R=0.902
-Tick  40: RCF=0.959, QBER=0.125, η=0.800, R=0.862
-...
-Tick 180: RCF=0.908, QBER=0.000, η=0.800, R=0.876
+Tick   0: RCF=0.993, QBER=0.000, η=0.797, R=0.896
+Tick  20: RCF=0.958, QBER=0.125, η=0.733, R=0.842
+Tick  40: RCF=0.988, QBER=0.000, η=0.795, R=0.904
+Tick  60: RCF=0.948, QBER=0.125, η=0.729, R=0.840
+Tick  80: RCF=0.982, QBER=0.000, η=0.793, R=0.900
+Tick 100: RCF=0.991, QBER=0.000, η=0.796, R=0.905
+Tick 120: RCF=0.998, QBER=0.000, η=0.799, R=0.908
+Tick 140: RCF=0.832, QBER=0.125, η=0.683, R=0.783
+Tick 160: RCF=0.993, QBER=0.000, η=0.797, R=0.908
+Tick 180: RCF=0.974, QBER=0.125, η=0.740, R=0.851
 
 === Simulation Summary ===
-Average RCF: 0.963
-Average QBER: 0.069
-Average η_syn: 0.800
-Initial R: 0.846, Final R: 0.898 (Δ = 0.052)
+Average RCF: 0.961
+Average QBER: 0.071
+Average η_syn: 0.756
+Initial R: 0.896, Final R: 0.885 (Δ = -0.011)
 ODOS violations: 0
 ```
 
