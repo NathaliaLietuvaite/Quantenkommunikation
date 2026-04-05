@@ -1377,7 +1377,7 @@ This script demonstrates the intrinsic resilience of the CHAIR architecture. Bec
 
 ---
 
-### Appendix F: Formal Stability Proof (Lyapunov Dynamics)
+### Appendix F: Sketch of a Stability Argument (Lyapunov Dynamics)
 
 **Purpose:** This final appendix addresses Step 9 of the V9M roadmap. Empirical validation (Appendices A-E) demonstrates that the coupled resonance core functions reliably. However, to classify the Proactive Quantum Mesh System (PQMS) as a rigorously safe architecture for Artificial Superintelligence (ASI), empirical observation is insufficient. We must provide a formal mathematical proof of stability. 
 
