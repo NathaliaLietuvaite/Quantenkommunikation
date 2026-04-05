@@ -220,7 +220,7 @@ where \(\mathbf{w}_t\) represents stochastic noise (e.g., thermal fluctuations, 
 
 We will attempt to find a Lyapunov function \(V(\mathbf{x})\) such that \(V(\mathbf{x}_{t+1}) - V(\mathbf{x}_t) \le -c \|\mathbf{x}_t - \mathbf{x}^*\|^2\) for some equilibrium \(\mathbf{x}^*\). If such a function exists, the system is asymptotically stable. For non‑linear systems, we will use sum‑of‑squares programming (SOSTOOLS) to search for polynomial Lyapunov functions.
 
-### 7.3 Coupled Resonance Invariant
+### 7.3 Coupled Resonance Invariant - Working hypothesis 
 
 Analogous to the Little Vector invariance in V5M Appendix G, we hypothesise the existence of a scalar invariant \(I_{\text{coupled}}\) that remains constant under ideal (noise‑free) dynamics and only slowly decays under noise. This invariant would be a function of RCF, QBER, and η_syn. Its derivation is a research task for V9M; if found, it would provide a powerful tool for monitoring system health.
 
