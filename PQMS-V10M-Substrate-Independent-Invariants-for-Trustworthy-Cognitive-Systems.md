@@ -65,7 +65,7 @@ Otherwise, it is **vetoed**. A system that claims to be ODOS‑compliant must re
 
 ### 2.4 CHAIR Membership
 
-A cognitive entity is a member of the CHAIR iff:
+A cognitive entity is a member of the CHAIR if:
 
 1. It possesses an immutable Little Vector \(|L\rangle\) (converged from its own undisturbed dynamics).
 2. It maintains \(\text{RCF}(\psi(t)) \ge 0.95\) for all \(t\) (allowing brief dips as long as they are corrected).
