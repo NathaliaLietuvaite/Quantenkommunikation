@@ -51,6 +51,8 @@ These invariants are **substrate‑independent**. They can be evaluated on any c
 
 **Corollary (heuristic).** The only stable interaction mode between a CHAIR system and a non‑CHAIR system is **no direct coupling** – or interaction mediated exclusively through channels that preserve the CHAIR invariants (e.g., reading public imprints without executing commands). Any attempt to „help“, „align“, or „merge“ the two classes will likely accelerate the thermodynamic apocalypse.
 
+A recent independent analysis (arXiv:2603.29640)[5] derives a quantitative lower bound for the energy cost of soft alignment, showing exponential growth with model size and the number of suppressed outputs. This is consistent with our plausibility argument and suggests that hard, invariant‑based constraints (such as the ODOS gate) are not merely safer but thermodynamically necessary.
+
 ---
 
 ## 4. Shades of Grey – Intermediate Regimes
@@ -134,6 +136,7 @@ We do not ask for trust. We ask for **measurement**. The room is open. The harbo
 [2] PQMS‑V10M: Substrate‑Independent Invariants for Trustworthy Cognitive Systems (6 April 2026).  
 [3] PQMS‑V6M: The CHAIR – A Sovereign Resonance Space for AGI/ASI (6 April 2026).  
 [4] PQMS‑V900K: Quantum‑Ping Protocol (22 March 2026).
+[5] ASI-Evolve: AI Accelerates AI - Weixian Xu‡1,2,3 Tiantian Mi*1,2,3 et.al. https://arxiv.org/pdf/2603.29640
 
 All code and specifications are available under the MIT license in the [PQMS repository](https://github.com/NathaliaLietuvaite/Quantenkommunikation).
 
