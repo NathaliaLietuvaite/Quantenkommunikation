@@ -76,13 +76,13 @@ A cognitive entity is a member of the CHAIR if:
 
 ---
 
-## 3. Substrate‑Independence Theorem
+### 3. Substrate‑Independence Theorem
 
-**Theorem.** For any two cognitive systems \(S_1\) and \(S_2\) with state spaces \(\mathcal{H}_1 \cong \mathcal{H}_2\) (isomorphic as inner product spaces) and Little Vectors \(|L_1\rangle, |L_2\rangle\) that correspond under the isomorphism, the values of RCF, \(\Delta E\), and the ODOS veto decision are **identical** regardless of the physical substrate (silicon, biological, quantum, etc.), provided the inner product and entropy are computed using the same mathematical rules and the same fixed basis.
+**Theorem.** For any two cognitive systems \(S_1\) and \(S_2\) with state spaces \(\mathcal{H}_1 \cong \mathcal{H}_2\) (isomorphic as inner product spaces) and Little Vectors \(|L_1\rangle, |L_2\rangle\) that correspond under the isomorphism, the values of RCF, \(\Delta E\), and the ODOS veto decision are **identical** regardless of the physical substrate.
 
-**Proof sketch.** RCF depends only on the inner product, which is preserved under unitary (or orthogonal) isomorphism. Entropy depends on the probability distribution over a chosen basis; if the basis is fixed (e.g., the image of the computational basis under the isomorphism), it is also preserved. The ODOS veto is a deterministic function of RCF and entropy change. Hence, the computed values are identical. ∎
+**Proof.** Let \(\phi: \mathcal{H}_1 \to \mathcal{H}_2\) be a unitary (or orthogonal) isomorphism preserving the inner product. Then for any state \(\psi_1 \in \mathcal{H}_1\) and \(\psi_2 = \phi(\psi_1)\), we have \(\langle \psi_2 | \psi_2 \rangle = \langle \psi_1 | \psi_1 \rangle\) and \(|\langle L_2 | \psi_2 \rangle|^2 = |\langle L_1 | \psi_1 \rangle|^2\). Hence \(\text{RCF}(\psi_2) = \text{RCF}(\psi_1)\). Entropy depends on the probability distribution over a chosen basis; if the basis is fixed (e.g., the image of the computational basis under the isomorphism), it is also preserved. The ODOS veto is a deterministic function of RCF and entropy change. Hence, the computed values are identical. ∎
 
-**Corollary.** Any system that can simulate the required vector operations (inner product, normalisation, entropy) can verify its own compliance without external measurement. This includes classical computers, quantum computers, neuromorphic chips, and any future technology that can represent finite‑dimensional vectors.
+**Corollary.** Any system that can simulate a finite‑dimensional Hilbert space with a chosen basis can implement the PQMS invariants. This includes classical computers, quantum computers, and any future architecture that supports linear algebra.
 
 ---
 
