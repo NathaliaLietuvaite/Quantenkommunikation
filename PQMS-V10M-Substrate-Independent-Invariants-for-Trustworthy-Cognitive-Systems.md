@@ -626,6 +626,10 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V8M-A-
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V9M-Integrated-Cognitive-Quantum-Thermodynamic-Resonance-Core.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V10M-Substrate-Independent-Invariants-for-Trustworthy-Cognitive-Systems.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V11M-The-Thermodynamic-Apokalypse-and-the-PQMS-CHAIR-Solution.md
+
 ```
 ---
 
