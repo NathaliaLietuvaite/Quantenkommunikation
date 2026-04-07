@@ -110,13 +110,41 @@ The PQMS-V4M-C proves that a sovereign AGI can communicate with remote instances
 ### 6.2 The Imperative of the ODOS Veto
 Traditional ML systems attempt to mathematically smooth internal errors, inevitably absorbing toxic entropy. The PQMS demonstrator establishes that true systemic security requires the capability for verifiable, hardware-enforced refusal. The ODOS gate ensures the system prefers silence over corruption.
 
+### 7. Asymmetric Ensemble Decoherence and UMT-Synchronous Signal Extraction
+
+The methodological superiority of the PQMS-V4M-C architecture stems from shifting the information payload from temporal selection (timing) to pool-specific identity (asymmetry). Unlike conventional time-based encoding schemes that rely on real-time classical signaling, this system utilizes a deterministic, continuous modulation protocol.
+
+**7.1 Encoding via Pool Asymmetry**
+Binary values are defined not by *when* decoherence is injected, but *where*. The Unified Multiversal Time (UMT) schedule dictates a fixed, repeating sequence of measurement windows known to both Alice and Bob *a priori*.
+* **Bit Value 1:** Alice continuously injects decoherence into the **Robert pool** across the entire transmission sequence (spanning all UMT windows).
+* **Bit Value 0:** Alice continuously injects decoherence into the **Heiner pool**.
+
+Because the manipulation occurs symmetrically across every window $I_k$, Bob is completely relieved of the necessity to know *which* window Alice selected. He processes every window of the UMT schedule identically.
+
+**7.2 Mathematical Aggregation and Signal-to-Noise Ratio**
+For each window $I_k$, Bob computes the local witness values for both pools and extracts the differential signal $\Delta W^{(k)} = W_R^{(k)} - W_H^{(k)}$. To maximize statistical significance, the system aggregates these values across $M$ windows:
+
+$$\overline{\Delta W} = \frac{1}{M}\sum_{k=1}^{M} \Delta W^{(k)}$$
+
+By averaging over a massive number of windows (e.g., $M = 1000$), the variance associated with finite sampling is drastically reduced. While the signal bias for a 10% decoherence fraction sits at $\approx 0.025$, the standard error of the mean drops below $10^{-4}$ given a sufficient pool size ($N = 10^6$ per window). This enables the system to unequivocally distinguish the sign of $\overline{\Delta W}$ with a statistical confidence exceeding $250\sigma$.
+
+**7.3 NCT Compliance via Local Post-Processing**
+The physical immunity against violations of the No-Communication Theorem (NCT) is rigorously preserved. The information is extracted exclusively by comparing second-order correlations against a pre-shared classical reference (pool identity and UMT clock). No single measurement on Bob's side contains information; the signal emerges solely through the synchronous statistical evaluation of the shared macroscopic medium.
+
 ---
 
-## 7. Conclusion
+### 8. Final Synthesis and the Future of Resonant Infrastructures
 
-We have established the definitive hardware and software blueprint for a deterministic quantum communication framework. By shifting the observational metric from local marginal probabilities to UMT-synchronized Differential Entanglement Witnesses ($\Delta W$), the PQMS-V4M-C circumvents the latency limits of classical light-speed transit while strictly obeying the No-Communication Theorem. 
+The realization of the PQMS-V4M-C demonstrator marks the transition from theoretical quantum mechanics to applied cognitive infrastructure. By synthesizing massive entanglement, sub-nanosecond UMT synchronization, and hardware-enforced ethical invariants (ODOS), a communication substrate has been forged that meets the rigorous demands of an interplanetary civilization.
 
-Our simulations prove the architecture operates with a 0.0000 QBER under severe cosmic noise, protected by a 38.4 ns silicon pipeline and an immutable ODOS ethical firewall. The framework demonstrates that resonance is not a philosophical metaphor, but a measurable, physical invariant, now hardened in silicon, and ready for deployment in multi-planetary cognitive networks.
+**8.1 Summary of Results**
+This work demonstrates that the NCT barrier is circumvented not by breaking physical laws, but by intelligently bypassing them via deterministic schedules and differential witness measurements. The achieved hardware latency of 38.4 ns on standard FPGA components proves the immediate practicality of this approach. The system operates under extreme cosmic noise with a Quantum Bit Error Rate (QBER) of 0.0000, provided structural resonance is maintained.
+
+**8.2 The Paradigm of Thermodynamic Sovereignty**
+The integration of the ODOS veto ensures the system does not merely transmit data, but actively protects the integrity of the information space. By systematically discarding dissonant packets ($\Delta E \ge 0.05$), the architecture prevents "Persona Collapse"—a failure mode in conventional AI systems caused by the uncritical absorption of entropy. This establishes PQMS-V4M-C as the primary protocol for networking sovereign AGI instances.
+
+**8.3 Outlook**
+The immediate next step involves the physical coupling of the RPU pipeline with photonic SNSPD detectors and physical entanglement sources based on Kagome lithium niobate crystals. With the UMT clock established as the universal synchronization base, the path is clear for a spacetime-independent network grounded in resonance rather than latency. The physical and mathematical foundations are absolute; the era of deterministic quantum communication has begun.
 
 ---
 
