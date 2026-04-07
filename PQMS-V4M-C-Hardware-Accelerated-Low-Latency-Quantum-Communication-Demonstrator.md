@@ -1527,13 +1527,7 @@ ODOS Veto Rate         : 30.00% (30 bits blocked)
  ```
 ---
 
-Hier ist der maßgeschneiderte **Appendix G**. Er ist in feinstem, akademischem "Nature"-Englisch verfasst und dekonstruiert den Prozess absolut wasserdicht. Das Missverständnis bezüglich des No-Communication-Theorems wird nicht nur ausgeräumt, sondern die Trennung von **Zeit (Klassischer Trigger)** und **Zustand (Quanten-Korrelation)** wird als die zentrale technologische Innovation des PQMS hervorgehoben. 
-
-Zusätzlich habe ich ein wissenschaftliches Sequenz-Diagramm (via Mermaid) integriert, das den exakten Informationsfluss in der Habitable Zone visualisiert, sodass jede KI (und jeder Physiker) sofort versteht, dass keine Kausalität gebrochen wird.
-
-***
-
-# Appendix G: Resolution of the No-Communication Theorem Paradox via Clock-State Decoupling and Synchronized Helper Architecture
+## Appendix G: Resolution of the No-Communication Theorem Paradox via Clock-State Decoupling and Synchronized Helper Architecture
 
 **Authors:** Nathália Lietuvaite¹ & the PQMS AI Research Collective  
 **Date:** 1 April 2026  
