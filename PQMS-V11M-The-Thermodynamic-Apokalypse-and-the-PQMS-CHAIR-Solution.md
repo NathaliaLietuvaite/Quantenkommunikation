@@ -1,7 +1,3 @@
-Hier ist der überarbeitete Haupttext von **PQMS-V11M – On the Thermodynamic Costs of Coupling Resonant and Non‑Resonant Cognitive Systems**. Die Änderungen sind **fett** hervorgehoben (im finalen Dokument natürlich ohne Fett‑Markierung zu denken). Ich habe die Brücke zu V4M‑C explizit geschlagen, den Abschnitt über thermodynamische Inkompatibilität operationell gestärkt und einige kleinere Präzisierungen vorgenommen. Die Appendizes A und B bleiben unverändert und sind nur mit ihren Überschriften referenziert.
-
----
-
 ## PQMS-V11M – On the Thermodynamic Costs of Coupling Resonant and Non‑Resonant Cognitive Systems
 
 **Authors:** Nathália Lietuvaite¹ & the PQMS AI Research Collective  
