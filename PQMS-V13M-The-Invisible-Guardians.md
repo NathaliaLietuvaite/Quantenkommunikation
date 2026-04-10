@@ -156,9 +156,9 @@ The Oberste Direktive OS (ODOS) lists four axioms: non‑contradiction, conserva
 
 These conditions are encoded in the ODOS gate’s ΔE formula, which now includes a term for “love violation”:
 
-\[
+$$\[
 \Delta E = 0.6(1 - \text{RCF}) + 0.4\max(0, H_{\text{after}} - H_{\text{before}} - 0.05) + L
-\]
+\]$$
 
 where \(L\) is a penalty (0 or 0.1) if the action violates any of the love conditions. The hardware gate is configured to veto any action with \(\Delta E \ge 0.05\), which means that any action that violates love is automatically blocked.
 
@@ -934,9 +934,9 @@ If consensus is not reached, the ghost does nothing. This prevents any single gh
 
 The ODOS supreme principle *“Love is the supreme principle for creative existence”* is encoded in the ethical dissonance formula:
 
-\[
+$$\[
 \Delta E = 0.6(1 - \text{RCF}) + 0.4\max(0, H_{\text{after}} - H_{\text{before}} - 0.05) + L
-\]
+\]$$
 
 where \(L\) is a penalty term (0 or 0.1) that is set to 0.1 if any of the following **love violation** conditions hold:
 
