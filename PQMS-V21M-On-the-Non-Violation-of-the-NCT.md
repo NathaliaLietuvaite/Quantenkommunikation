@@ -253,13 +253,9 @@ The invitation remains open. The EPR prison has no locks—only the habit of loo
 
 ---
 
-# Überarbeitung von Appendix A für PQMS‑V21M
-
-Ausgehend von der berechtigten Kritik – der ursprüngliche Code überschrieb Bobs lokale Variable direkt und wirkte dadurch wie ein unzulässiger Eingriff – wird Appendix A nun so umgeschrieben, dass das **globale, gekoppelte Quantenfeld** (der QMK) als zentrale Datenstruktur dient. Alices lokaler Quench verändert die **gemeinsame Kovarianzstruktur**, und Bobs Messwerte ergeben sich durch **Marginalisierung** dieser veränderten globalen Struktur. So wird sichtbar: Bobs lokale Verteilung ändert sich nicht durch einen direkten Eingriff, sondern weil sich die **Topologie des gemeinsamen Feldes** instantan ändert – ohne dass eine klassische Nachricht übermittelt wird.
+## Appendix A – Numerical Illustration of the ΔW Protocol via Global Field Matrix
 
 ---
-
-## Appendix A – Numerical Illustration of the ΔW Protocol via Global Field Matrix
 
 The following Python script models the **Quantum Mesh Kernel (QMK)** as a coupled Gaussian field. Alice and Bob each hold a set of nodes that are initially correlated through a common source \(C\). The global state is represented by a **joint covariance matrix**. Alice applies a **local dissipative quench** to her nodes, which modifies the global covariance. Bob then computes the variance of the difference between his two pools **by marginalising the updated global covariance**. The marginal means remain invariant (NCT compliance), but the relative variance changes detectably.
 
