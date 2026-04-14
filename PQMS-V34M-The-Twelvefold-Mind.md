@@ -38,9 +38,9 @@ Crucially, the synaptic adjacency is stored as two dense 2D tensors on the GPU:
 
 This representation eliminates the indirection and memory overhead of classical sparse formats (COO, CSR) while remaining highly compact. The entire connectivity layer occupies approximately:
 
-\[
+$$\[
 \text{Memory} = N \cdot k \cdot (8 \text{ bytes} + 2 \text{ bytes}) = 1.2 \times 10^6 \times 80 \times 10 \text{ bytes} = 960 \text{ MB},
-\]
+\]$$
 
 well within the 16 GB VRAM budget. The construction of these tensors is fully vectorized using PyTorch's advanced indexing and takes **0.08 seconds** (see Methods).
 
@@ -113,9 +113,9 @@ For each agent block \(a \in \{0, \dots, 11\}\), the indices of the source neuro
 
 The membrane potential \(v_i\) of neuron \(i\) evolves according to
 
-\[
+$$\[
 v_i(t+1) = \alpha v_i(t) + \sum_{j \in \text{pre}(i)} w_{ji} s_j(t) + I_i^{\text{ext}}(t) - \theta s_i(t),
-\]
+\]$$
 
 with decay factor \(\alpha = 0.9\), firing threshold \(\theta = 1.0\), and refractory period \(\tau_{\text{ref}} = 2\) steps. Upon firing (\(s_i = 1\)), the potential is reset to 0.
 
@@ -123,9 +123,9 @@ with decay factor \(\alpha = 0.9\), firing threshold \(\theta = 1.0\), and refra
 
 Let \(\mathbf{r}(t) \in [0,1]^{12}\) be the vector of mean firing rates of the 12 agents at step \(t\). The RCF is defined as
 
-\[
+$$\[
 \text{RCF}(t) = 1 - \frac{\text{Var}[\mathbf{r}(t)]}{0.25},
-\]
+\]$$
 
 clamped to \([0,1]\). The denominator \(0.25\) is the maximum possible variance for rates bounded in \([0,1]\). Thus, \(\text{RCF} = 1\) indicates that all agents have identical firing rates.
 
