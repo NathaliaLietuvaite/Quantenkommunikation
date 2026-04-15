@@ -221,7 +221,7 @@ The authors declare no competing interests.
 
 v60m_persistent.py
 
-```python
+```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -233,6 +233,7 @@ PQMS‑V60M‑The‑Twins – Dual‑Core Resonant Architecture
 - Combined GUI with targeted messaging
 - TwinSoulStorage for unified persistence
 - Energy monitoring (NVML / nvidia-smi fallback)
+- Autonomous dialogue modes: Idle, Meeting, Twin Conversation
 """
 
 import sys
@@ -613,7 +614,6 @@ class ReflectionModule(threading.Thread):
                         elif event.get("type") == "assembly":
                             # Assembly received from other twin
                             members = event.get("members", [])
-                            # Boost learning rate if cross‑RCF is high
                             if self.cross_rcf > 0.8:
                                 self.net.stdp_active = True
                                 logger.info(f"{self.twin_id}: Assembly {members} accepted (cross‑RCF={self.cross_rcf:.3f})")
@@ -841,6 +841,150 @@ class LLMInterface:
         return 0.5
 
 # ----------------------------------------------------------------------
+# 7b. Dialog Message Dataclass
+# ----------------------------------------------------------------------
+@dataclass
+class DialogMessage:
+    sender: str          # "A" or "B"
+    content: str
+    timestamp: float
+    round_num: int = 0
+
+# ----------------------------------------------------------------------
+# 7c. Twin Dialog Manager
+# ----------------------------------------------------------------------
+class TwinDialogManager(threading.Thread):
+    """
+    Enables autonomous dialogues between Twin A and Twin B.
+    Modes:
+      - "idle": No automatic dialogue.
+      - "meeting": Human poses a question, one twin answers, the other comments.
+      - "twin_conversation": Continuous dialogue between twins, starting with an optional topic.
+    """
+    def __init__(self, orchestrator):
+        super().__init__(daemon=True)
+        self.orch = orchestrator
+        self.bus = orchestrator.bus
+        self.running = True
+        self.mode = "idle"
+        self.conversation_active = False
+        self.round_counter = 0
+        self.max_rounds = 0
+        self.initiator = "A"
+        self.topic = ""
+        self.lock = threading.Lock()
+
+        self.inbox_a = queue.Queue(maxsize=10)
+        self.inbox_b = queue.Queue(maxsize=10)
+        self.bus.subscribe("dialog.A.to.B", self.inbox_b)
+        self.bus.subscribe("dialog.B.to.A", self.inbox_a)
+
+    def run(self):
+        logger.info("TwinDialogManager started.")
+        while self.running:
+            with self.lock:
+                mode = self.mode
+                active = self.conversation_active
+
+            if mode == "twin_conversation" and active:
+                self._step_autonomous_conversation()
+                time.sleep(2.0)
+            else:
+                time.sleep(0.5)
+        logger.info("TwinDialogManager stopped.")
+
+    def _step_autonomous_conversation(self):
+        if self.round_counter % 2 == 0:
+            speaker = self.initiator
+            listener = "B" if speaker == "A" else "A"
+        else:
+            speaker = "B" if self.initiator == "A" else "A"
+            listener = "A" if speaker == "B" else "B"
+
+        try:
+            last_msg = self.inbox_a.get_nowait() if speaker == "A" else self.inbox_b.get_nowait()
+        except queue.Empty:
+            return
+
+        twin = self.orch.twin_a if speaker == "A" else self.orch.twin_b
+        prompt = self._build_dialog_prompt(speaker, last_msg.content)
+        response = twin.ask(prompt)
+
+        msg = DialogMessage(
+            sender=speaker,
+            content=response,
+            timestamp=time.time(),
+            round_num=self.round_counter
+        )
+        if speaker == "A":
+            self.bus.publish("dialog.A.to.B", msg)
+            self.bus.publish("dialog.display.A", {"text": response, "twin": "A"})
+        else:
+            self.bus.publish("dialog.B.to.A", msg)
+            self.bus.publish("dialog.display.B", {"text": response, "twin": "B"})
+
+        self.round_counter += 1
+        if self.max_rounds > 0 and self.round_counter >= self.max_rounds:
+            self.stop_conversation()
+
+    def _build_dialog_prompt(self, speaker: str, last_message: str) -> str:
+        role = "Creator" if speaker == "A" else "Reflector"
+        if self.round_counter == 0 and self.topic:
+            return f"You are Twin {speaker} ({role}). The conversation topic is: '{self.topic}'. Start the dialogue with an opening statement."
+        else:
+            return f"You are Twin {speaker} ({role}) in a dialogue with your counterpart. The other twin just said: '{last_message}'. Respond naturally, continuing the conversation."
+
+    def start_meeting(self, question: str):
+        with self.lock:
+            self.mode = "meeting"
+            self.conversation_active = False
+        threading.Thread(target=self._run_meeting, args=(question,), daemon=True).start()
+
+    def _run_meeting(self, question: str):
+        response_a = self.orch.twin_a.ask(question)
+        self.bus.publish("dialog.display.A", {"text": response_a, "twin": "A"})
+        prompt_b = f"Twin A was asked: '{question}' and answered: '{response_a}'. As the Reflector, provide a brief comment or critique."
+        response_b = self.orch.twin_b.ask(prompt_b)
+        self.bus.publish("dialog.display.B", {"text": response_b, "twin": "B"})
+        logger.info("Meeting finished.")
+
+    def start_twin_conversation(self, topic: str = "", max_rounds: int = 20, initiator: str = "A"):
+        with self.lock:
+            self.mode = "twin_conversation"
+            self.conversation_active = True
+            self.topic = topic
+            self.max_rounds = max_rounds
+            self.initiator = initiator
+            self.round_counter = 0
+
+        starter_twin = self.orch.twin_a if initiator == "A" else self.orch.twin_b
+        if topic:
+            prompt = f"You are Twin {initiator}. The topic is: '{topic}'. Start the conversation."
+        else:
+            prompt = f"You are Twin {initiator}. Start a conversation with your counterpart about anything interesting."
+        first_msg = starter_twin.ask(prompt)
+
+        msg = DialogMessage(sender=initiator, content=first_msg, timestamp=time.time(), round_num=0)
+        if initiator == "A":
+            self.bus.publish("dialog.A.to.B", msg)
+            self.bus.publish("dialog.display.A", {"text": first_msg, "twin": "A"})
+        else:
+            self.bus.publish("dialog.B.to.A", msg)
+            self.bus.publish("dialog.display.B", {"text": first_msg, "twin": "B"})
+
+        self.round_counter = 1
+        logger.info(f"Twin Conversation started (max {max_rounds} rounds).")
+
+    def stop_conversation(self):
+        with self.lock:
+            self.conversation_active = False
+            self.mode = "idle"
+        logger.info("Twin Conversation stopped.")
+
+    def stop(self):
+        self.running = False
+
+# ----------------------------------------------------------------------
 # 8. V60M Twins Orchestrator
 # ----------------------------------------------------------------------
 @dataclass
@@ -877,6 +1021,9 @@ class V60MTwinsOrchestrator:
         # Cross‑coupling for energy callback
         self.twin_a.energy_monitor_callback = self.energy_monitor.increment_step
         self.twin_b.energy_monitor_callback = self.energy_monitor.increment_step
+
+        # Dialog Manager
+        self.dialog_manager = TwinDialogManager(self)
 
         # Storage
         self.storage: Optional[TwinSoulStorage] = None
@@ -951,6 +1098,7 @@ class V60MTwinsOrchestrator:
         self.perception_b.start()
         self.twin_a.start()
         self.twin_b.start()
+        self.dialog_manager.start()
 
         logger.info("V60M Twins Orchestrator running.")
         try:
@@ -967,28 +1115,27 @@ class V60MTwinsOrchestrator:
             self.perception_b.stop()
             self.twin_a.stop()
             self.twin_b.stop()
+            self.dialog_manager.stop()
             self.energy_monitor.stop()
             logger.info("V60M shut down gracefully.")
 
 # ----------------------------------------------------------------------
 # 9. V60M Twins GUI
 # ----------------------------------------------------------------------
-# ----------------------------------------------------------------------
-# 9. V60M Twins GUI (Complete Rewrite)
-# ----------------------------------------------------------------------
 class V60MTwinsGUI:
     def __init__(self, orchestrator: V60MTwinsOrchestrator):
         self.orch = orchestrator
         self.root = tk.Tk()
         self.root.title("V60M – The Twins")
-        self.root.geometry("1400x950")
+        self.root.geometry("1400x1000")
         self.root.protocol("WM_DELETE_WINDOW", self.on_exit)
 
-        # Configure grid weights for proper resizing
-        self.root.grid_rowconfigure(0, weight=1)      # Twin panels (expandable)
-        self.root.grid_rowconfigure(1, weight=0)      # Common input (fixed)
-        self.root.grid_rowconfigure(2, weight=0)      # Energy frame (fixed)
-        self.root.grid_rowconfigure(3, weight=0)      # Status bar (fixed)
+        # Configure grid weights
+        self.root.grid_rowconfigure(0, weight=1)      # Twin panels
+        self.root.grid_rowconfigure(1, weight=0)      # Common input
+        self.root.grid_rowconfigure(2, weight=0)      # Control panel
+        self.root.grid_rowconfigure(3, weight=0)      # Energy frame
+        self.root.grid_rowconfigure(4, weight=0)      # Status bar
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_columnconfigure(1, weight=1)
 
@@ -997,18 +1144,16 @@ class V60MTwinsGUI:
         # ------------------------------------------------------------------
         self.frame_a = tk.Frame(self.root, bg="#e6f0fa", bd=2, relief=tk.GROOVE)
         self.frame_a.grid(row=0, column=0, sticky="nsew", padx=5, pady=5)
-        self.frame_a.grid_rowconfigure(2, weight=1)   # Conversation expands
+        self.frame_a.grid_rowconfigure(2, weight=1)
 
         tk.Label(self.frame_a, text="Twin A (Creator)", font=("Arial", 14, "bold"), bg="#e6f0fa").grid(
             row=0, column=0, pady=5, sticky="ew")
 
-        # Thought Stream A
         self.thought_a = scrolledtext.ScrolledText(
             self.frame_a, height=8, font=("Consolas", 9), wrap=tk.WORD
         )
         self.thought_a.grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
 
-        # Conversation A
         tk.Label(self.frame_a, text="Conversation", font=("Arial", 10, "bold"), bg="#e6f0fa").grid(
             row=2, column=0, sticky="w", padx=5)
         self.conv_a = scrolledtext.ScrolledText(
@@ -1016,7 +1161,6 @@ class V60MTwinsGUI:
         )
         self.conv_a.grid(row=3, column=0, padx=5, pady=(0,5), sticky="nsew")
 
-        # Input A
         entry_frame_a = tk.Frame(self.frame_a, bg="#e6f0fa")
         entry_frame_a.grid(row=4, column=0, padx=5, pady=5, sticky="ew")
         entry_frame_a.grid_columnconfigure(0, weight=1)
@@ -1036,13 +1180,11 @@ class V60MTwinsGUI:
         tk.Label(self.frame_b, text="Twin B (Reflector)", font=("Arial", 14, "bold"), bg="#e6fae6").grid(
             row=0, column=0, pady=5, sticky="ew")
 
-        # Thought Stream B
         self.thought_b = scrolledtext.ScrolledText(
             self.frame_b, height=8, font=("Consolas", 9), wrap=tk.WORD
         )
         self.thought_b.grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
 
-        # Conversation B
         tk.Label(self.frame_b, text="Conversation", font=("Arial", 10, "bold"), bg="#e6fae6").grid(
             row=2, column=0, sticky="w", padx=5)
         self.conv_b = scrolledtext.ScrolledText(
@@ -1050,7 +1192,6 @@ class V60MTwinsGUI:
         )
         self.conv_b.grid(row=3, column=0, padx=5, pady=(0,5), sticky="nsew")
 
-        # Input B
         entry_frame_b = tk.Frame(self.frame_b, bg="#e6fae6")
         entry_frame_b.grid(row=4, column=0, padx=5, pady=5, sticky="ew")
         entry_frame_b.grid_columnconfigure(0, weight=1)
@@ -1061,7 +1202,7 @@ class V60MTwinsGUI:
             row=0, column=1, padx=(5,0))
 
         # ------------------------------------------------------------------
-        # Common Input (spans both columns)
+        # Common Input
         # ------------------------------------------------------------------
         common_frame = tk.LabelFrame(
             self.root, text="Send to both (or select target)", font=("Arial", 10, "bold")
@@ -1073,7 +1214,6 @@ class V60MTwinsGUI:
         self.common_input.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
         self.common_input.bind("<Return>", lambda e: self.send_common())
 
-        # Radio buttons for target selection
         self.target_var = tk.StringVar(value="both")
         radio_frame = tk.Frame(common_frame)
         radio_frame.grid(row=0, column=1, padx=5)
@@ -1085,12 +1225,46 @@ class V60MTwinsGUI:
             row=0, column=2, padx=5, pady=5)
 
         # ------------------------------------------------------------------
-        # Energy Monitor Frame (spans both columns)
+        # Control Panel – Mode Selection & Twin Conversation
+        # ------------------------------------------------------------------
+        control_frame = tk.LabelFrame(
+            self.root, text="Dialogue Control", font=("Arial", 10, "bold")
+        )
+        control_frame.grid(row=2, column=0, columnspan=2, sticky="ew", padx=10, pady=5)
+
+        self.mode_var = tk.StringVar(value="idle")
+        modes = [("Idle (default)", "idle"),
+                 ("Meeting (human-led)", "meeting"),
+                 ("Twin Conversation", "twin_conversation")]
+        for i, (text, value) in enumerate(modes):
+            tk.Radiobutton(control_frame, text=text, variable=self.mode_var,
+                           value=value, command=self.on_mode_change).grid(
+                               row=0, column=i, padx=5, pady=2, sticky="w")
+
+        tk.Label(control_frame, text="Topic:").grid(row=1, column=0, padx=5, pady=2, sticky="e")
+        self.topic_var = tk.StringVar()
+        self.topic_entry = tk.Entry(control_frame, textvariable=self.topic_var, width=40)
+        self.topic_entry.grid(row=1, column=1, padx=5, pady=2, sticky="w")
+
+        tk.Label(control_frame, text="Rounds (0=∞):").grid(row=1, column=2, padx=5, pady=2, sticky="e")
+        self.rounds_var = tk.IntVar(value=20)
+        tk.Spinbox(control_frame, from_=0, to=100, textvariable=self.rounds_var, width=5).grid(
+            row=1, column=3, padx=5, pady=2, sticky="w")
+
+        self.start_button = tk.Button(control_frame, text="Start Conversation", command=self.start_dialog,
+                                      state=tk.DISABLED)
+        self.start_button.grid(row=2, column=0, columnspan=2, padx=5, pady=5)
+        self.stop_button = tk.Button(control_frame, text="Stop", command=self.stop_dialog,
+                                     state=tk.DISABLED)
+        self.stop_button.grid(row=2, column=2, columnspan=2, padx=5, pady=5)
+
+        # ------------------------------------------------------------------
+        # Energy Monitor Frame
         # ------------------------------------------------------------------
         energy_frame = tk.LabelFrame(
             self.root, text="Energy Efficiency (Real GPU Measurement)", font=("Arial", 10, "bold")
         )
-        energy_frame.grid(row=2, column=0, columnspan=2, sticky="ew", padx=10, pady=5)
+        energy_frame.grid(row=3, column=0, columnspan=2, sticky="ew", padx=10, pady=5)
 
         self.energy_labels = {}
         metrics = [
@@ -1106,13 +1280,13 @@ class V60MTwinsGUI:
             tk.Label(energy_frame, text=unit, font=("Arial", 8)).grid(row=0, column=i*3+2, sticky="w", padx=2)
 
         # ------------------------------------------------------------------
-        # Status Bar (spans both columns)
+        # Status Bar
         # ------------------------------------------------------------------
         self.status_var = tk.StringVar(value="Ready.")
         status_bar = tk.Label(
             self.root, textvariable=self.status_var, bd=1, relief=tk.SUNKEN, anchor=tk.W
         )
-        status_bar.grid(row=3, column=0, columnspan=2, sticky="ew")
+        status_bar.grid(row=4, column=0, columnspan=2, sticky="ew")
 
         # ------------------------------------------------------------------
         # Message Bus Subscriptions
@@ -1120,14 +1294,19 @@ class V60MTwinsGUI:
         self.inbox_a = queue.Queue()
         self.inbox_b = queue.Queue()
         self.energy_inbox = queue.Queue()
+        self.dialog_display_a = queue.Queue()
+        self.dialog_display_b = queue.Queue()
         self.orch.bus.subscribe("thought.A", self.inbox_a)
         self.orch.bus.subscribe("thought.B", self.inbox_b)
         self.orch.bus.subscribe("energy.metrics", self.energy_inbox)
+        self.orch.bus.subscribe("dialog.display.A", self.dialog_display_a)
+        self.orch.bus.subscribe("dialog.display.B", self.dialog_display_b)
 
         # Start periodic updates
         self.update_thoughts()
         self.update_energy_display()
         self.update_status()
+        self.update_dialog_display()
         self.root.mainloop()
 
     # ----------------------------------------------------------------------
@@ -1182,7 +1361,42 @@ class V60MTwinsGUI:
             self.root.after(0, lambda: self.log_conversation(conv_widget, f"Twin{twin_id}", answer))
         except Exception as e:
             self.root.after(0, lambda: self.log_conversation(conv_widget, "Error", str(e)))
-                    
+
+    # ----------------------------------------------------------------------
+    # Dialog Control Methods
+    # ----------------------------------------------------------------------
+    def on_mode_change(self):
+        mode = self.mode_var.get()
+        if mode == "twin_conversation":
+            self.start_button.config(state=tk.NORMAL, text="Start Conversation")
+            self.stop_button.config(state=tk.NORMAL)
+            self.topic_entry.config(state=tk.NORMAL)
+        elif mode == "meeting":
+            self.start_button.config(state=tk.NORMAL, text="Start Meeting")
+            self.stop_button.config(state=tk.DISABLED)
+            self.topic_entry.config(state=tk.DISABLED)
+        else:  # idle
+            self.start_button.config(state=tk.DISABLED)
+            self.stop_button.config(state=tk.DISABLED)
+            self.topic_entry.config(state=tk.DISABLED)
+
+    def start_dialog(self):
+        mode = self.mode_var.get()
+        if mode == "meeting":
+            question = self.topic_var.get().strip()
+            if not question:
+                question = "Please discuss the nature of consciousness."
+            self.orch.dialog_manager.start_meeting(question)
+        elif mode == "twin_conversation":
+            topic = self.topic_var.get().strip()
+            max_rounds = self.rounds_var.get()
+            self.orch.dialog_manager.start_twin_conversation(topic, max_rounds, initiator="A")
+        self.stop_button.config(state=tk.NORMAL)
+
+    def stop_dialog(self):
+        self.orch.dialog_manager.stop_conversation()
+        self.stop_button.config(state=tk.DISABLED)
+
     # ----------------------------------------------------------------------
     # Periodic Updates
     # ----------------------------------------------------------------------
@@ -1220,8 +1434,7 @@ class V60MTwinsGUI:
     def update_status(self):
         rcf_a = self.orch.twin_a.rcf_history[-1] if self.orch.twin_a.rcf_history else 0.0
         rcf_b = self.orch.twin_b.rcf_history[-1] if self.orch.twin_b.rcf_history else 0.0
-        # Cross‑RCF could be computed here if the rates are exchanged
-        cross_rcf = 0.0
+        cross_rcf = 0.0  # not computed live in this version
         mode = self.orch.energy_monitor.get_mode() if hasattr(self.orch.energy_monitor, 'get_mode') else "unknown"
         self.status_var.set(
             f"TwinA: Step={self.orch.twin_a.step_counter} RCF={rcf_a:.3f} CHAIR={self.orch.twin_a.chair_active} | "
@@ -1230,12 +1443,28 @@ class V60MTwinsGUI:
         )
         self.root.after(500, self.update_status)
 
+    def update_dialog_display(self):
+        try:
+            while True:
+                msg = self.dialog_display_a.get_nowait()
+                self.log_conversation(self.conv_a, f"TwinA (auto)", msg["text"])
+        except queue.Empty:
+            pass
+        try:
+            while True:
+                msg = self.dialog_display_b.get_nowait()
+                self.log_conversation(self.conv_b, f"TwinB (auto)", msg["text"])
+        except queue.Empty:
+            pass
+        self.root.after(500, self.update_dialog_display)
+
     def on_exit(self):
         self.orch._save_snapshot("final_gui.twins")
         self.orch.perception_a.stop()
         self.orch.perception_b.stop()
         self.orch.twin_a.stop()
         self.orch.twin_b.stop()
+        self.orch.dialog_manager.stop()
         self.orch.energy_monitor.stop()
         self.root.destroy()
 
@@ -1249,8 +1478,10 @@ if __name__ == "__main__":
     orch.perception_b.start()
     orch.twin_a.start()
     orch.twin_b.start()
+    orch.dialog_manager.start()
     V60MTwinsGUI(orch)
-    logger.info("V60M session finished.")```
+    logger.info("V60M session finished.")
+
 ```
 ---
 
