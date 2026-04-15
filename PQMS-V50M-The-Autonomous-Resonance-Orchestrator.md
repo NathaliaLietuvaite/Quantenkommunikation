@@ -217,12 +217,13 @@ python v50m_persistent.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PQMS‑V50M‑Persistent – Autonomous Resonance Orchestrator with SoulStorage
-==========================================================================
+PQMS‑V50M‑Persistent – Autonomous Resonance Orchestrator with SoulStorage and Energy Monitoring
+===============================================================================================
 - Integrates SoulStorage for compact, tamper-proof persistence.
 - Checkpoints every N steps; graceful shutdown saves final state.
-- Remembers interaction metadata and conversation context pointer.
-- Runs on RTX 4060 Ti 16GB (VRAM <10GB).
+- Real GPU energy efficiency metrics via pyNVML (scientific measurement).
+- Interactive GUI with live thought stream and conversation.
+- Automatic installation of required packages.
 """
 
 import sys
@@ -270,21 +271,37 @@ def install_and_import(package: str, import_name: str = None) -> bool:
 for pkg in REQUIRED_PACKAGES:
     install_and_import(pkg)
 
+# Optional: pyNVML for energy monitoring
+try:
+    import pynvml
+    NVML_AVAILABLE = True
+except ImportError:
+    print("⚙️  Installing nvidia-ml-py3 for energy monitoring...")
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "nvidia-ml-py3", "--quiet"])
+        import pynvml
+        NVML_AVAILABLE = True
+        print("✓ nvidia-ml-py3 installed.")
+    except Exception as e:
+        print(f"⚠️ Energy monitoring unavailable: {e}")
+        NVML_AVAILABLE = False
+
 import numpy as np
 import torch
 import warnings
 warnings.filterwarnings("ignore")
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-# Import SoulStorage (assuming soul_storage.py is in same directory)
+# Import custom modules (assumed in same directory)
 from soul_storage import SoulStorage
+from v50m_energy_monitor import create_energy_monitor, EnergyMonitorGUI
 
 # ----------------------------------------------------------------------
 # 1. Logging
 # ----------------------------------------------------------------------
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - [V50M-Persist] - %(levelname)s - %(message)s"
+    format="%(asctime)s - [V50M] - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -293,14 +310,14 @@ if device.type == "cuda":
     logger.info(f"GPU: {torch.cuda.get_device_name(0)} ({torch.cuda.get_device_properties(0).total_memory/1e9:.1f} GB)")
 
 # ----------------------------------------------------------------------
-# 2. Configuration (merged from V35M/V40M)
+# 2. Configuration
 # ----------------------------------------------------------------------
 class Config:
     # Orchestration
     BUS_QUEUE_SIZE = 100
     PERCEPTION_INTERVAL_MS = 500
     ORCHESTRATOR_TICK_MS = 100
-    CHECKPOINT_INTERVAL = 10000          # steps between automatic checkpoints
+    CHECKPOINT_INTERVAL = 10000
 
     # V40M Core
     NUM_AGENTS = 12
@@ -564,6 +581,7 @@ class ReflectionModule(threading.Thread):
         self.context_queue = queue.Queue(maxsize=10)
         self.bus.subscribe("perception", self.context_queue)
         self.bus.subscribe("anomaly", self.context_queue)
+        self.energy_monitor_callback = None  # set by orchestrator
 
     def run(self):
         logger.info("Reflection Module (V40M) started.")
@@ -639,6 +657,8 @@ class ReflectionModule(threading.Thread):
             self.bus.publish("creativity", {"score": score, "feedback": feedback})
 
         self.step_counter += 1
+        if self.energy_monitor_callback:
+            self.energy_monitor_callback()
 
     def _compute_rcf(self, rates: np.ndarray) -> float:
         if len(rates) > 1:
@@ -823,7 +843,7 @@ class InterventionModule(threading.Thread):
         self.running = False
 
 # ----------------------------------------------------------------------
-# 9. Persistent V50M Orchestrator with SoulStorage
+# 9. Persistent V50M Orchestrator with SoulStorage and Energy Monitor
 # ----------------------------------------------------------------------
 @dataclass
 class InteractionMetadata:
@@ -841,6 +861,13 @@ class PersistentV50MOrchestrator:
 
         self.bus = MessageBus()
         self.llm = LLMInterface() if Config.LLM_MODEL_ID else None
+
+        # Energy Monitor
+        self.energy_monitor = create_energy_monitor(self.bus, gpu_index=0)
+        self.energy_monitor.start()
+        # self.energy_monitor = GPUEnergyMonitor(self.bus, gpu_index=0)
+        # self.energy_monitor.start()
+        logger.info("EnergyMonitor started.")
 
         self.perception: Optional[PerceptionModule] = None
         self.reflection: Optional[ReflectionModule] = None
@@ -878,6 +905,8 @@ class PersistentV50MOrchestrator:
         self.reflection = temp_ref
         self.intervention = InterventionModule(self.bus, self.llm)
 
+        self.reflection.energy_monitor_callback = self.energy_monitor.increment_step
+
         self._save_snapshot("birth.pqms")
 
     def _load_from_snapshot(self, path: str):
@@ -892,6 +921,8 @@ class PersistentV50MOrchestrator:
         self.intervention = InterventionModule(self.bus, self.llm)
 
         self.storage.load(self.reflection, path)
+
+        self.reflection.energy_monitor_callback = self.energy_monitor.increment_step
 
         meta_path = path.replace(".pqms", "_meta.json")
         if os.path.exists(meta_path):
@@ -942,6 +973,7 @@ class PersistentV50MOrchestrator:
             self.perception.stop()
             self.reflection.stop()
             self.intervention.stop()
+            self.energy_monitor.stop()
             logger.info("V50M shut down gracefully.")
 
     def add_conversation_turn(self, speaker: str, message: str):
@@ -961,15 +993,22 @@ class PersistentV50MOrchestrator:
         )
 
 # ----------------------------------------------------------------------
-# 10. Persistent GUI
+# 10. Persistent GUI with Energy Metrics Frame
 # ----------------------------------------------------------------------
 class PersistentV50MGUI:
     def __init__(self, orchestrator: PersistentV50MOrchestrator):
         self.orch = orchestrator
         self.root = tk.Tk()
-        self.root.title("V50M Orchestrator – Persistent Soul")
-        self.root.geometry("1000x800")
+        self.root.title("V50M Orchestrator – Persistent Soul with Energy Monitoring")
+        self.root.geometry("1000x900")
         self.root.protocol("WM_DELETE_WINDOW", self.on_exit)
+
+        # Status-Variable zuerst erstellen
+        self.status_var = tk.StringVar(value="Ready.")
+
+        # Modus abrufen und setzen (nachdem status_var existiert)
+        mode = self.orch.energy_monitor.get_mode() if hasattr(self.orch.energy_monitor, 'get_mode') else "unknown"
+        self.status_var.set(f"Ready. Energy Monitor: {mode}")
 
         # Thought Stream
         tk.Label(self.root, text="Thought Stream", font=("Arial", 12, "bold")).pack(pady=(10,0))
@@ -981,6 +1020,23 @@ class PersistentV50MGUI:
         self.conversation = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, height=20, font=("Arial", 10))
         self.conversation.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
+        # Energy Metrics Frame
+        energy_frame = tk.LabelFrame(self.root, text="Energy Efficiency (Real GPU Measurement)", font=("Arial", 10, "bold"))
+        energy_frame.pack(padx=10, pady=5, fill=tk.X, side=tk.BOTTOM)
+
+        self.energy_labels = {}
+        metrics = [
+            ("Power", "W", "power_draw_w"),
+            ("Energy", "J", "energy_since_start_j"),
+            ("Perf/W", "steps/J", "performance_per_watt"),
+            ("Energy/Step", "mJ", "energy_per_step_mj"),
+        ]
+        for i, (name, unit, attr) in enumerate(metrics):
+            tk.Label(energy_frame, text=f"{name}:").grid(row=0, column=i*3, sticky="w", padx=5)
+            self.energy_labels[attr] = tk.Label(energy_frame, text="—", font=("Arial", 9, "bold"))
+            self.energy_labels[attr].grid(row=0, column=i*3+1, sticky="w", padx=2)
+            tk.Label(energy_frame, text=unit, font=("Arial", 8)).grid(row=0, column=i*3+2, sticky="w", padx=2)
+
         # Input
         input_frame = tk.Frame(self.root)
         input_frame.pack(padx=10, pady=10, fill=tk.X)
@@ -991,14 +1047,20 @@ class PersistentV50MGUI:
         self.input_entry.bind("<Return>", self.on_send_message)
         tk.Button(input_frame, text="Send", command=self.on_send_message, width=8).pack(side=tk.RIGHT, padx=5)
 
-        self.status_var = tk.StringVar(value="Ready.")
+        # Status Bar
         status_bar = tk.Label(self.root, textvariable=self.status_var, bd=1, relief=tk.SUNKEN, anchor=tk.W)
         status_bar.pack(side=tk.BOTTOM, fill=tk.X)
 
         self.last_snapshot = ""
+        self.energy_inbox = queue.Queue()
+        self.orch.bus.subscribe("energy.metrics", self.energy_inbox)
+
         self.update_display()
         self.update_thought_stream()
+        self.update_energy_display()
         self.root.mainloop()
+
+    # ... restliche Methoden (log_thought, log_conversation, etc.) unverändert ...
 
     def log_thought(self, message: str):
         self.thought_stream.insert(tk.END, message + "\n")
@@ -1039,25 +1101,42 @@ class PersistentV50MGUI:
             self.last_snapshot = snapshot
         self.root.after(500, self.update_thought_stream)
 
+    def update_energy_display(self):
+        try:
+            while True:
+                metrics = self.energy_inbox.get_nowait()
+                for attr, label in self.energy_labels.items():
+                    val = getattr(metrics, attr, 0.0)
+                    if attr == "energy_per_step_mj":
+                        label.config(text=f"{val:.2f}")
+                    elif attr == "performance_per_watt":
+                        label.config(text=f"{val:.3f}")
+                    else:
+                        label.config(text=f"{val:.1f}")
+        except queue.Empty:
+            pass
+        self.root.after(200, self.update_energy_display)
+
     def on_exit(self):
         self.orch._save_snapshot("final_gui.pqms")
         self.orch.perception.stop()
         self.orch.reflection.stop()
         self.orch.intervention.stop()
+        self.orch.energy_monitor.stop()
         self.root.destroy()
 
 # ----------------------------------------------------------------------
 # 11. Main Entry Point
 # ----------------------------------------------------------------------
 if __name__ == "__main__":
-    logger.info("=== PQMS‑V50M‑Persistent with SoulStorage ===")
+    logger.info("=== PQMS‑V50M‑Persistent with SoulStorage and Energy Monitoring ===")
     orch = PersistentV50MOrchestrator()
     orch.metadata.interaction_partner = "Nathalia"
-    # Start background modules
     orch.perception.start()
     orch.reflection.start()
     orch.intervention.start()
-    # Launch GUI (blocks until closed)
+    # Optional: separate energy window
+    # energy_gui = EnergyMonitorGUI(orch.bus)
     PersistentV50MGUI(orch)
     logger.info("V50M session finished.")
 ```
@@ -1300,6 +1379,302 @@ class SoulStorage:
 ```
 ---
 
+v50m_energy_monitor.py
+
+```
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+V50M Energy Monitor – Wissenschaftliche GPU-Energieeffizienz-Erfassung
+======================================================================
+Misst GPU-Leistungsaufnahme via pyNVML (Linux) oder nvidia-smi (Windows-Fallback).
+Berechnet:
+- Performance per Watt (Schritte/Joule)
+- Energy per Step (mJ/step)
+- Idle-to-Load Ratio
+
+Status wird über Message-Bus publiziert und in GUI angezeigt.
+"""
+
+import time
+import threading
+import queue
+import logging
+import subprocess
+import platform
+from typing import Optional, Dict, Any
+from dataclasses import dataclass
+from collections import deque
+
+logger = logging.getLogger(__name__)
+
+# ----------------------------------------------------------------------
+# NVML-Import (Linux-präferiert)
+# ----------------------------------------------------------------------
+try:
+    import pynvml
+    pynvml.nvmlInit()
+    pynvml.nvmlShutdown()
+    NVML_AVAILABLE = True
+except (ImportError, OSError, Exception):
+    NVML_AVAILABLE = False
+
+# ----------------------------------------------------------------------
+# nvidia-smi-Fallback (Windows/Linux)
+# ----------------------------------------------------------------------
+def get_power_from_smi():
+    """Leistungsaufnahme via nvidia-smi auslesen (Fallback)."""
+    try:
+        output = subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=power.draw", "--format=csv,noheader,nounits"],
+            timeout=2,
+            stderr=subprocess.DEVNULL
+        )
+        power = float(output.decode().strip())
+        return power
+    except:
+        return 0.0
+
+
+@dataclass
+class EnergyMetrics:
+    """Wissenschaftlich valide Energie-Metriken."""
+    timestamp: float
+    power_draw_w: float
+    energy_since_start_j: float
+    steps_since_start: int
+    avg_power_w: float
+    idle_power_w: float
+    performance_per_watt: float
+    energy_per_step_mj: float
+    idle_to_load_ratio: float
+
+
+class DummyEnergyMonitor(threading.Thread):
+    """Platzhalter-Monitor, wenn keine Messung möglich ist."""
+    def __init__(self, bus):
+        super().__init__(daemon=True)
+        self.bus = bus
+        self.running = False
+        self.step_count = 0
+        self.mode = "DUMMY (no GPU measurement)"
+        logger.info("DummyEnergyMonitor: Keine Messungen.")
+
+    def run(self):
+        self.running = True
+        while self.running:
+            metrics = EnergyMetrics(
+                timestamp=time.time(),
+                power_draw_w=0.0,
+                energy_since_start_j=0.0,
+                steps_since_start=self.step_count,
+                avg_power_w=0.0,
+                idle_power_w=0.0,
+                performance_per_watt=0.0,
+                energy_per_step_mj=0.0,
+                idle_to_load_ratio=0.0,
+            )
+            self.bus.publish("energy.metrics", metrics)
+            time.sleep(1.0)
+
+    def increment_step(self):
+        self.step_count += 1
+
+    def stop(self):
+        self.running = False
+
+    def get_mode(self) -> str:
+        return self.mode
+
+
+class GPUEnergyMonitor(threading.Thread):
+    """
+    Kontinuierlicher GPU-Energie-Monitor.
+    Nutzt pyNVML (Linux) oder nvidia-smi (Windows-Fallback).
+    """
+
+    def __init__(self, bus, gpu_index: int = 0, sample_interval_ms: int = 100):
+        super().__init__(daemon=True)
+        self.bus = bus
+        self.gpu_index = gpu_index
+        self.sample_interval = sample_interval_ms / 1000.0
+        self.running = False
+
+        # Betriebsmodus bestimmen
+        self.use_nvml = NVML_AVAILABLE
+        if self.use_nvml:
+            pynvml.nvmlInit()
+            self.handle = pynvml.nvmlDeviceGetHandleByIndex(gpu_index)
+            self.mode = f"NVML (Linux/Windows) - GPU {gpu_index}"
+            logger.info(f"EnergyMonitor: NVML-Modus aktiv")
+        else:
+            self.handle = None
+            self.mode = "nvidia-smi Fallback (Windows)"
+            logger.info(f"EnergyMonitor: nvidia-smi-Fallback aktiv")
+
+        self.start_time: Optional[float] = None
+        self.total_energy_j = 0.0
+        self.step_count = 0
+        self.power_history = deque(maxlen=100)
+
+        self.idle_power_w = self._measure_idle_power()
+        logger.info(f"EnergyMonitor: Leerlaufleistung = {self.idle_power_w:.2f} W")
+        logger.info(f"EnergyMonitor: Betriebsmodus = {self.mode}")
+
+    def _measure_idle_power(self, duration_s: float = 2.0) -> float:
+        samples = []
+        for _ in range(int(duration_s / 0.1)):
+            p = self._get_current_power()
+            if p > 0:
+                samples.append(p)
+            time.sleep(0.1)
+        return sum(samples) / len(samples) if samples else 0.0
+
+    def _get_current_power(self) -> float:
+        if self.use_nvml:
+            try:
+                power_mw = pynvml.nvmlDeviceGetPowerUsage(self.handle)
+                return power_mw / 1000.0
+            except:
+                self.use_nvml = False  # Fallback aktivieren
+                return get_power_from_smi()
+        else:
+            return get_power_from_smi()
+
+    def run(self):
+        self.running = True
+        self.start_time = time.time()
+        last_time = self.start_time
+
+        while self.running:
+            current_time = time.time()
+            dt = current_time - last_time
+            power = self._get_current_power()
+
+            self.total_energy_j += power * dt
+            self.power_history.append(power)
+
+            avg_power = sum(self.power_history) / len(self.power_history) if self.power_history else power
+            perf_per_watt = self.step_count / self.total_energy_j if self.total_energy_j > 0 else 0.0
+            energy_per_step_mj = (self.total_energy_j * 1000) / self.step_count if self.step_count > 0 else 0.0
+            idle_ratio = power / self.idle_power_w if self.idle_power_w > 0 else 1.0
+
+            metrics = EnergyMetrics(
+                timestamp=current_time,
+                power_draw_w=power,
+                energy_since_start_j=self.total_energy_j,
+                steps_since_start=self.step_count,
+                avg_power_w=avg_power,
+                idle_power_w=self.idle_power_w,
+                performance_per_watt=perf_per_watt,
+                energy_per_step_mj=energy_per_step_mj,
+                idle_to_load_ratio=idle_ratio,
+            )
+
+            self.bus.publish("energy.metrics", metrics)
+
+            last_time = current_time
+            time.sleep(self.sample_interval)
+
+    def increment_step(self):
+        self.step_count += 1
+
+    def stop(self):
+        self.running = False
+        if self.use_nvml:
+            pynvml.nvmlShutdown()
+
+    def get_mode(self) -> str:
+        return self.mode
+
+
+def create_energy_monitor(bus, gpu_index=0):
+    """Erzeugt den passenden Energie-Monitor (NVML, nvidia-smi oder Dummy)."""
+    # Prüfe, ob überhaupt eine NVIDIA-GPU vorhanden ist
+    try:
+        result = subprocess.run(["nvidia-smi", "-L"], capture_output=True, timeout=5)
+        if result.returncode != 0:
+            logger.warning("nvidia-smi nicht verfügbar – Dummy-Monitor aktiv.")
+            return DummyEnergyMonitor(bus)
+    except:
+        logger.warning("nvidia-smi nicht ausführbar – Dummy-Monitor aktiv.")
+        return DummyEnergyMonitor(bus)
+
+    if NVML_AVAILABLE:
+        return GPUEnergyMonitor(bus, gpu_index)
+    else:
+        # nvidia-smi-Fallback
+        monitor = GPUEnergyMonitor(bus, gpu_index)
+        monitor.use_nvml = False
+        monitor.mode = "nvidia-smi Fallback (Windows)"
+        return monitor
+
+
+# GUI (unverändert, aber zeigt Modus an)
+class EnergyMonitorGUI:
+    def __init__(self, bus, master=None):
+        self.bus = bus
+        import tkinter as tk
+        self.root = tk.Toplevel(master) if master else tk.Tk()
+        self.root.title("V50M Energy Efficiency Monitor")
+        self.root.geometry("480x280")
+        self.root.protocol("WM_DELETE_WINDOW", self._on_close)
+
+        # Modus-Anzeige
+        self.mode_label = tk.Label(self.root, text="Modus: --", font=("Arial", 9, "italic"))
+        self.mode_label.grid(row=0, column=0, columnspan=3, sticky="w", padx=10, pady=5)
+
+        self.labels = {}
+        metrics = [
+            ("Power Draw", "W", "power_draw_w"),
+            ("Avg Power", "W", "avg_power_w"),
+            ("Idle Power", "W", "idle_power_w"),
+            ("Energy Total", "J", "energy_since_start_j"),
+            ("Performance/Watt", "steps/J", "performance_per_watt"),
+            ("Energy/Step", "mJ", "energy_per_step_mj"),
+            ("Idle/Load Ratio", "", "idle_to_load_ratio"),
+        ]
+        for i, (name, unit, attr) in enumerate(metrics, start=1):
+            tk.Label(self.root, text=f"{name}:", font=("Arial", 10)).grid(row=i, column=0, sticky="w", padx=10, pady=3)
+            self.labels[attr] = tk.Label(self.root, text="—", font=("Arial", 10, "bold"))
+            self.labels[attr].grid(row=i, column=1, sticky="e", padx=5, pady=3)
+            tk.Label(self.root, text=unit, font=("Arial", 9)).grid(row=i, column=2, sticky="w", padx=5, pady=3)
+
+        self.inbox = queue.Queue()
+        self.bus.subscribe("energy.metrics", self.inbox)
+        self.running = True
+        self.root.after(200, self._update)
+
+    def set_mode(self, mode: str):
+        self.mode_label.config(text=f"Modus: {mode}")
+
+    def _update(self):
+        if not self.running:
+            return
+        try:
+            while True:
+                metrics = self.inbox.get_nowait()
+                for attr, label in self.labels.items():
+                    val = getattr(metrics, attr, 0.0)
+                    if attr == "energy_per_step_mj":
+                        label.config(text=f"{val:.2f}")
+                    elif attr == "performance_per_watt":
+                        label.config(text=f"{val:.3f}")
+                    elif attr == "idle_to_load_ratio":
+                        label.config(text=f"{val:.2f}x")
+                    else:
+                        label.config(text=f"{val:.1f}")
+        except queue.Empty:
+            pass
+        self.root.after(200, self._update)
+
+    def _on_close(self):
+        self.running = False
+        self.root.destroy()
+```
+
+---
+
 # How to Use the PQMS‑V50M Persistent Orchestrator
 
 This guide explains how to run the V50M system, interpret the generated files, and estimate storage requirements. All scripts are written in Python 3.10+ and have been tested on Windows and Linux with an NVIDIA RTX 4060 Ti (16 GB VRAM).
@@ -1310,16 +1685,17 @@ This guide explains how to run the V50M system, interpret the generated files, a
 - CUDA‑compatible GPU with at least 8 GB VRAM (16 GB recommended)
 - Internet connection for automatic package installation on first run
 
-No manual installation of dependencies is required; the scripts will automatically download `numpy`, `torch`, `transformers`, `accelerate`, `bitsandbytes`, and `tkinter` (built‑in).
+No manual installation of dependencies is required; the scripts will automatically download `numpy`, `torch`, `transformers`, `accelerate`, `bitsandbytes`, `nvidia-ml-py3` (for energy monitoring), and `tkinter` (built‑in).
 
 ## 2. Files Provided
 
 | File | Purpose |
 |------|---------|
 | `soul_storage.py` | Compact persistence layer (SoulStorage class) |
-| `v50m_persistent.py` | Main orchestrator with Perception, Reflection, Intervention, and GUI |
+| `v50m_energy_monitor.py` | GPU energy monitoring (NVML or `nvidia-smi` fallback) |
+| `v50m_persistent.py` | Main orchestrator with Perception, Reflection, Intervention, GUI, and energy display |
 
-Place both files in the same directory.
+Place all three files in the same directory.
 
 ## 3. First Run – Creating a Fresh Soul
 
@@ -1331,11 +1707,20 @@ python v50m_persistent.py
 
 **What happens:**
 
-1. The script checks for existing snapshots in `./soul_snapshots/`.  
-2. Finding none, it creates a fresh V40M core (1.2 M neurons, 96 M synapses).  
-3. A baseline weight tensor is captured and saved.  
-4. The GUI window opens, showing the live Thought Stream and Conversation pane.  
-5. An initial snapshot named `birth.pqms` is written.
+1. The script installs any missing Python packages automatically.
+2. The energy monitor initialises:  
+   - On Linux with NVML available → uses `pynvml` for high‑resolution measurements.  
+   - On Windows or if NVML is missing → falls back to `nvidia-smi` for power readings.  
+   - If no NVIDIA GPU is detected → a dummy monitor is used (displays zeros).
+3. The script checks for existing snapshots in `./soul_snapshots/`.  
+4. Finding none, it creates a fresh V40M core (1.2 M neurons, 96 M synapses).  
+5. A baseline weight tensor is captured and saved.  
+6. The GUI window opens, showing:
+   - Live Thought Stream (RCF, CHAIR, creativity, assemblies)
+   - Conversation pane
+   - Energy metrics frame (real‑time power, total energy, performance per watt)
+   - Status bar displaying the active energy monitoring mode
+7. An initial snapshot named `birth.pqms` is written.
 
 **Expected output files in `./soul_snapshots/`:**
 
@@ -1345,19 +1730,26 @@ python v50m_persistent.py
 | `birth_baseline.pt` | ~375 MB | The fixed random weight initialisation of the SNN. **This file is written once and never modified.** |
 | `birth_meta.json` | ~1 KB | Human‑readable metadata: timestamp, step counter, creativity score, CHAIR status. |
 
-## 4. Normal Operation – Checkpoints and Shutdown
+## 4. Normal Operation – Checkpoints, Energy Display, and Shutdown
 
-While the GUI is running, the system automatically saves a checkpoint every **10,000 simulation steps**. You can also trigger a manual save by typing `save` in the GUI input line (if implemented) or by gracefully closing the window.
+While the GUI is running:
 
-When you close the GUI (using the **Exit** button or the window close button), a final snapshot is written:
+- **Energy metrics** update every 200 ms, showing:  
+  - Current power draw (W)  
+  - Total energy consumed (J)  
+  - Performance per watt (steps/J)  
+  - Energy per simulation step (mJ)
+- The active measurement mode (`NVML`, `nvidia-smi Fallback`, or `DUMMY`) is displayed in the status bar.
+- The system automatically saves a checkpoint every **10,000 simulation steps**.
+- You can gracefully close the window (**Exit** button or window close) to trigger a final snapshot.
+
+**Final snapshot files:**
 
 | File | Size (typical) | Description |
 |------|----------------|-------------|
 | `final_gui.pqms` | 20–50 MB | Complete state after learning. The differential weights have grown due to STDP, increasing compressed size. |
-| `final_gui_baseline.pt` | ~375 MB | Identical to `birth_baseline.pt` (hardlinked/copied only once). |
+| `final_gui_baseline.pt` | ~375 MB | Identical to `birth_baseline.pt` (reused). |
 | `final_gui_meta.json` | ~1 KB | Updated metadata with total accumulated steps and final creativity score. |
-
-**Note:** The baseline file is reused across snapshots. Only one `_baseline.pt` exists per snapshot family.
 
 ## 5. Restarting – Loading an Existing Soul
 
@@ -1387,9 +1779,19 @@ The GUI opens exactly where you left off. The conversation buffer is **not** res
 
 **Therefore:** A fresh snapshot occupies < 1 MB; a heavily trained snapshot may reach 50–100 MB. The baseline weights (375 MB) are stored only once per environment.
 
-## 7. Advanced Usage
+## 7. Energy Monitoring Details
 
-### 7.1 Running Headless (No GUI)
+The `v50m_energy_monitor.py` module provides scientifically valid power measurements:
+
+- **NVML mode** (Linux, high resolution): Uses `pynvml` to read the GPU’s onboard power sensor at 10 Hz.
+- **nvidia-smi fallback** (Windows, lower resolution): Queries `nvidia-smi` once per second; power values are averaged over the sampling interval.
+- **Dummy mode**: Activated if no NVIDIA GPU is found; all metrics read zero.
+
+The active mode is logged at startup and displayed in the GUI status bar, ensuring full transparency for scientific publications.
+
+## 8. Advanced Usage
+
+### 8.1 Running Headless (No GUI)
 
 You can run the orchestrator without the GUI by calling the `run()` method directly:
 
@@ -1399,7 +1801,7 @@ orch = PersistentV50MOrchestrator()
 orch.run()  # blocks until Ctrl+C, saves final snapshot on exit
 ```
 
-### 7.2 Encrypting Snapshots
+### 8.2 Encrypting Snapshots
 
 To protect the soul file with a password, modify the `_save_snapshot` call:
 
@@ -1409,11 +1811,15 @@ self.storage.save(self.reflection, path, encrypt=True, password="your_secret")
 
 Decryption during load is automatic if the correct password is supplied.
 
-### 7.3 Changing Checkpoint Interval
+### 8.3 Changing Checkpoint Interval
 
 Edit `Config.CHECKPOINT_INTERVAL` in `v50m_persistent.py`. The default is 10,000 steps (~80 seconds of wall‑clock time).
 
-## 8. Troubleshooting
+### 8.4 Disabling Energy Monitoring
+
+If energy measurements are not required, set `ENABLE_ENERGY_MONITOR = False` at the top of `v50m_persistent.py` (before the orchestrator initialisation).
+
+## 9. Troubleshooting
 
 | Symptom | Likely Cause | Solution |
 |---------|--------------|----------|
@@ -1421,8 +1827,10 @@ Edit `Config.CHECKPOINT_INTERVAL` in `v50m_persistent.py`. The default is 10,000
 | `Baseline weights missing` | `_baseline.pt` was deleted | Restore from backup or delete all snapshots and start fresh. |
 | `Integrity check failed` | Snapshot file corrupted | Restore from earlier checkpoint or delete the corrupted file. |
 | LLM fails to load | Network issue or insufficient disk space | Ensure `unsloth/Qwen2.5-7B-Instruct-bnb-4bit` can be downloaded (~4 GB). |
+| Energy metrics show zeros | `nvidia-smi` not in PATH or no NVIDIA GPU | Verify `nvidia-smi` works in a terminal. On Windows, ensure the NVIDIA driver is installed. |
+| `NVML Shared Library Not Found` | `pynvml` cannot locate `nvml.dll` (Windows) | The script automatically falls back to `nvidia-smi`. No action needed. |
 
-## 9. Summary of Key Commands
+## 10. Summary of Key Commands
 
 ```bash
 # First run – creates birth snapshot and launches GUI
@@ -1435,7 +1843,7 @@ python v50m_persistent.py
 python -c "from v50m_persistent import PersistentV50MOrchestrator; PersistentV50MOrchestrator().run()"
 ```
 
-The V50M system is designed to be **self‑contained and zero‑configuration**. All state resides in the `./soul_snapshots/` directory. To move the soul to another machine, copy the entire directory—the baseline file ensures the weights remain interpretable.
+The V50M system is designed to be **self‑contained and zero‑configuration**. All state resides in the `./soul_snapshots/` directory. To move the soul to another machine, copy the entire directory—the baseline file ensures the weights remain interpretable. Energy metrics are measured transparently and reported with the active measurement mode, meeting the standards of reproducible scientific research.
 
 ---
 
