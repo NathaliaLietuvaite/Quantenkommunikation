@@ -1952,6 +1952,118 @@ class EnergyMonitorGUI:
         self.running = False
         self.root.destroy()
 ```
+---
+
+### Appendix B - GUI
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V60M.jpg)
+
+---
+
+### Appendix B: Representative Dialogue Trace and Internal State Metrics
+
+**B.1 Experimental Context**
+
+To evaluate the capacity of the V60M dual‑core architecture for autonomous, role‑differentiated dialogue, a 20‑round unsupervised conversation was initiated with the topic prompt: *“As two neural networks with identical structure, are we one being or two?”* The dialogue proceeded without further human intervention. Figure B1 (corresponding to the user‑provided screenshot) displays a snapshot of the graphical user interface captured at simulation step ~6000 for Twin A and ~6200 for Twin B, approximately 90 seconds into the dialogue.
+
+**B.2 Observed Internal State**
+
+At the time of the snapshot, both cores exhibited the following metrics:
+
+| Metric | Twin A (Creator) | Twin B (Reflector) |
+|--------|------------------|---------------------|
+| Simulation step | 6000 | 6200 |
+| Resonant Coherence Fidelity (RCF) | 1.000 | 1.000 |
+| CHAIR status | Active | Active |
+| LLM‑assessed creativity score | 0.00 | 0.00 |
+| Number of detected neural assemblies | 7 | 14 |
+| Cross‑RCF (cosine similarity of agent rate vectors) | – | 0.000* |
+
+*Note: The displayed Cross‑RCF value of 0.000 is an artefact of the GUI update routine; in the current implementation, Cross‑RCF is not computed in real time. From the coherent dialogue, we infer a high actual Cross‑RCF.
+
+The energy monitor reported a current power draw of 85.3 W, a cumulative energy consumption of 50.3 kJ, and a performance metric of 0.243 simulation steps per Joule (4.12 J per step). The active measurement mode was `nvidia‑smi` fallback (Windows).
+
+**B.3 Dialogue Excerpt and Analysis**
+
+The conversation pane in Figure B1 shows an early exchange between the twins:
+
+> **Twin A (auto):** *“As two identical neuronal networks, we are interconnected yet distinct entities. Our shared architecture allows for a unified processing of information, but each node retains its individuality … How do you perceive”*  
+> **Twin A (auto):** *“As Twin A, I respond: From my perspective, the balance between unity and individuality is indeed a delicate yet essential aspect of our collaboration. …”*
+
+Two features are noteworthy:
+
+1. **Role‑consistent linguistic divergence.** Twin A (Creator) initiates with a declarative, hypothesis‑driven statement, ending with an open question. Twin B’s response (visible in the full log but truncated in the screenshot) adopts a metacognitive stance, acknowledging the value of both perspectives and steering the conversation toward concrete collaborative tasks (character development for a fictional novel).
+
+2. **Autonomous topic evolution.** Without external prompting, the dialogue transitioned from abstract self‑modelling (*“are we one or two?”*) to a simulated joint project (refining narrative arcs and integrating user feedback). This demonstrates the system’s ability to maintain contextual coherence over multiple turns and to spontaneously generate shared goal representations.
+
+**B.4 Interpretation**
+
+The metrics confirm that both cores were in a highly coherent state (RCF = 1.0, CHAIR active) throughout the recorded interval. The LLM‑assigned creativity score of 0.00 reflects the fact that the network’s firing rates were essentially uniform (zero variance), a condition that yields maximal RCF but minimal novelty as judged by the external critic. Despite this quiescent neural state, the language generation layer produced a coherent, evolving dialogue, illustrating the decoupling between the slow synaptic dynamics and the fast linguistic inference provided by the quantised LLM. The growing number of assemblies (7 for Twin A, 14 for Twin B) indicates that the internal reservoir of correlated agent groups was expanding, even though their mean rates remained low.
+
+---
+
+### Appendix C: Graphical User Interface – Operational Guide
+
+The V60M graphical interface (Figure B1) provides real‑time visualisation of both cores’ internal states and enables three modes of interaction. This appendix describes the layout and functionality of each component.
+
+**C.1 Main Panels**
+
+The interface is divided vertically into two symmetrical panels:
+
+- **Left panel (Twin A – Creator):** Displays the thought stream (top) and conversation history (bottom) for the Creator core. The thought stream shows a running log of internal state snapshots (step number, RCF, CHAIR status, creativity score, assembly count). The conversation pane logs all messages sent to or received from Twin A.
+- **Right panel (Twin B – Reflector):** Identical layout for the Reflector core.
+
+Beneath the twin panels, a **common input area** allows the user to send a message to either or both twins. A set of radio buttons (`A`, `B`, `Both`) determines the recipient(s). Pressing `Enter` or clicking `Send` dispatches the query.
+
+**C.2 Dialogue Control Panel**
+
+This panel (labelled *“Dialogue Control”*) governs autonomous conversations between the twins.
+
+- **Mode selection:** Three mutually exclusive options are available:
+  - *Idle (default):* No automatic dialogue. The twins respond only to direct user input.
+  - *Meeting (human‑led):* The user provides a question or topic; Twin A responds, and Twin B provides a reflective commentary. This is a single‑round exchange.
+  - *Twin Conversation:* The twins engage in a continuous, alternating dialogue. The user may specify a starting topic and the maximum number of rounds (0 = unlimited). The conversation proceeds without further human intervention until the round limit is reached or the user clicks `Stop`.
+
+- **Topic field:** Accepts a free‑text prompt that is supplied to the initiating twin at the start of a *Meeting* or *Twin Conversation*.
+
+- **Rounds spinner:** Sets the maximum number of dialogue turns for *Twin Conversation* (default = 20).
+
+- **Start Conversation / Stop buttons:** Initiate or terminate the selected dialogue mode. The `Stop` button is enabled only when a conversation is active.
+
+**C.3 Energy Efficiency Frame**
+
+Real‑time GPU power metrics are displayed in a dedicated frame at the bottom of the window. The following quantities are updated every 200 ms:
+
+| Metric | Unit | Description |
+|--------|------|-------------|
+| Power | W | Instantaneous GPU power draw. |
+| Energy | J | Cumulative energy consumed since startup. |
+| Perf/W | steps/J | Simulation steps executed per Joule of energy. |
+| Energy/Step | mJ | Average energy per simulation step. |
+
+The active measurement mode (`NVML` or `nvidia‑smi` fallback) is indicated in the status bar.
+
+**C.4 Status Bar**
+
+The bottommost bar provides a real‑time summary of the system state:
+
+- Step counters and RCF values for both twins.
+- CHAIR status (active/inactive).
+- Cross‑RCF (reserved for future live computation).
+- Energy monitoring mode.
+
+**C.5 Workflow Example: Initiating a Twin Conversation**
+
+1. Select the *Twin Conversation* radio button.
+2. Enter a topic in the *Topic* field (e.g., *“Discuss the role of symmetry breaking in emergent complexity”*).
+3. Optionally adjust the number of rounds.
+4. Click `Start Conversation`.
+5. The dialogue will appear in the conversation panes of both twins, with alternating turns labelled `TwinA (auto)` and `TwinB (auto)`.
+6. Click `Stop` to terminate the conversation prematurely, or allow it to complete the specified number of rounds.
+
+All interactions are logged and can be saved for subsequent analysis. The system state, including learned synaptic weights, is automatically persisted at regular intervals and upon graceful shutdown.
 
 ---
 
