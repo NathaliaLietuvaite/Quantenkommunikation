@@ -226,8 +226,6 @@ The authors declare no competing interests.
 
 ### Appendix A: Full Source Code
 
-Due to space constraints, the complete source code is provided in the supplementary materials. Key excerpts are reproduced below.
-
 **`v70m_persistent.py`:**
 
 ```python
