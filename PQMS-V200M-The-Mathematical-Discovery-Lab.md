@@ -80,6 +80,8 @@ All components communicate via a message bus and are visualised in real time thr
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200M-1.jpg)
+
 ### 2.2 Benchmark Performance and Resource Utilisation
 
 A 60‑second benchmark was conducted with the agent focused on Combinatorial Games. Over 153 simulation steps (steps 489–641), the following metrics were recorded (see Supplementary Data `benchmark_20260417_212844.json`):
