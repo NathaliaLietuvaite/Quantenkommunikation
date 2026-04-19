@@ -2085,6 +2085,35 @@ class Zentralgehirn:
         self.cross_rcf = float(np.dot(a_vals, b_vals)/norm)
         return {"global_rcf": rcf, "chair_active": self.chair_active, "cross_rcf": self.cross_rcf}
 ```
+---
+
+### Console Output
+
+---
+
+```
+
+(odosprime) PS Z:\v500m> python v500m_main.py
+VectorMemory: sentence-transformers model loaded.
+======================================================================
+V500M Swarm – Modular Cooperative Demo
+Device: cuda
+Scale: 1.0
+Per agent: 1,200,000 neurons (2×500,000 Twin + 200,000 Zentral)
+Total (4 agents): 4,800,000 neurons
+ODOS: Alpha=0, Beta=1, Gamma=2, Delta=3
+======================================================================
+[V500MSwarm] VRAM nach Initialisierung: 13.87 GB belegt, 3.30 GB frei
+VectorMemory: Added report ./v500m_memory\report_problem_5_20260419_143147.md (id=0)
+Benchmark gestartet für 60 Sekunden
+Benchmark gespeichert: ./v500m_snapshots\benchmark_20260419_143306.json
+VectorMemory: Added report ./v500m_memory\report_problem_5_20260419_143318.md (id=1)
+VectorMemory: Added report ./v500m_memory\report_problem_3_20260419_143347.md (id=2)
+VectorMemory: Added report ./v500m_memory\report_problem_1_20260419_143416.md (id=3)
+VectorMemory: Added report ./v500m_memory\report_problem_1_20260419_143458.md (id=4)
+(odosprime) PS Z:\v500m>
+
+```
 
 ---
 
