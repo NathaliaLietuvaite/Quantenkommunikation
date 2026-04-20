@@ -259,68 +259,31 @@ The extraction script `extract_workspace.py` (provided in the same repository or
 
 ```python
 #!/usr/bin/env python3
-# extract_workspace.py – Extrahiert Dateien aus einer kombinierten .md (erzeugt von combine_workspace.py)
-# Verwendung: python extract_workspace.py PQMS-V700M-Hyper-Physics-Math-Python-AGI-Agent-Install.md [--out DIR]
-
+# extract_workspace.py
 import re
-import os
 import sys
-import argparse
 from pathlib import Path
 
 def extract_files(md_file, output_dir="."):
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
-
-    # Sucht nach Codeblöcken mit einem Pfad-Kommentar in der ersten Zeile
-    # Muster: ```(python|markdown|text)?\n# PATH: (.*?)\n(.*?)```
-    pattern = r"```(\w+)?\n# PATH: (.*?)\n(.*?)```"
+    pattern = r"```(\w+)\n# PATH: (.*?)\n(.*?)```"
     matches = re.findall(pattern, content, re.DOTALL)
-
-    created = []
-    out_path = Path(output_dir).resolve()
-    out_path.mkdir(parents=True, exist_ok=True)
-
+    out = Path(output_dir).resolve()
     for lang, rel_path_str, code in matches:
-        rel_path = Path(rel_path_str)
-        if '..' in rel_path.parts:
-            print(f"⚠️  Überspringe unsicheren Pfad: {rel_path}")
-            continue
-        target = out_path / rel_path
+        target = out / rel_path_str
         target.parent.mkdir(parents=True, exist_ok=True)
-        lines = code.splitlines()
-        if lines and lines[0].strip() == f"# PATH: {rel_path_str}":
-            code_body = "\n".join(lines[1:])
-        else:
-            code_body = code
-        with open(target, 'w', encoding='utf-8') as out:
-            out.write(code_body)
-        print(f"✅ Erstellt: {target}")
-        created.append(str(target))
-
-    # Legacy-Fallback für alte Formate ohne PATH
-    legacy_pattern = r"```python\n# (.*?\.py)\n(.*?)```"
-    legacy_matches = re.findall(legacy_pattern, content, re.DOTALL)
-    for filename, code in legacy_matches:
-        target = out_path / filename
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with open(target, 'w', encoding='utf-8') as out:
-            out.write(code)
-        print(f"✅ Erstellt (Legacy): {target}")
-        created.append(str(target))
-
-    print(f"\n📦 Extraktion abgeschlossen. {len(created)} Dateien wurden nach {out_path} geschrieben.")
-    return created
+        code_body = re.sub(r'^# PATH: .*?\n', '', code, count=1)
+        with open(target, 'w', encoding='utf-8') as f:
+            f.write(code_body)
+        print(f"✅ {target}")
+    print(f"Extraktion abgeschlossen. {len(matches)} Dateien.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extrahiere Dateien aus kombinierter Markdown-Datei")
-    parser.add_argument("md_file", help="Die kombinierte .md Datei")
-    parser.add_argument("--out", default=".", help="Zielverzeichnis (Standard: aktuelles Verzeichnis)")
-    args = parser.parse_args()
-    if not os.path.exists(args.md_file):
-        print(f"Fehler: Datei {args.md_file} nicht gefunden.")
+    if len(sys.argv) < 2:
+        print("Usage: python extract_workspace.py <file.md>")
         sys.exit(1)
-    extract_files(args.md_file, args.out)
+    extract_files(sys.argv[1])
 ```
 
 **Run the extraction:**
