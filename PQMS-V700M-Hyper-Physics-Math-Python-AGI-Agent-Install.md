@@ -1,42 +1,8 @@
 # Kombinierter Workspace: V700M
 
-**Erstellt:** 2026-04-20T21:32:35.924439
-**Quellverzeichnis:** `\\home\V700M`
-**Modus:** Nur .py, .md, .txt
+**Erstellt:** 2026-04-20T22:57:43.032650
 
-## Verzeichnisbaum
-
-```
-📁 V700M/
-  📄 combine_workspace.py
-  📄 extract_signature.py
-  📄 extract_workspace.py
-  📄 Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt
-  📄 odos_ethics.py
-  📄 signature_manager.py
-  📄 soul_agent.py
-  📄 soul_cli.py
-  📄 soul_extractor.py
-  📄 v500m_agent.py
-  📄 v500m_config.py
-  📄 v500m_gui.py
-  📄 v500m_llm.py
-  📄 v500m_main.py
-  📄 v500m_memory.py
-  📄 v500m_router.py
-  📄 v500m_snn.py
-  📄 v500m_solvers.py
-  📄 v500m_swarm.py
-  📄 v600m_core.py
-  📄 v700m_meta_mod.py
-```
-
-## Dateiinhalte
-
-Jeder Datei geht ein spezieller Kommentar voraus, der den relativen Pfad enthält.
-Das Extraktionsskript kann daraus die ursprüngliche Struktur wiederherstellen.
-
-### `Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt`
+## `Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt`
 
 ```text
 # PATH: Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt
@@ -8666,124 +8632,59 @@ if __name__ == "__main__":
 
 
 *Based on Oberste Direktive Framework - MIT Licensed - Free as in Freedom*
+
 ```
 
-### `combine_workspace.py`
+## `combine_workspace.py`
 
 ```python
 # PATH: combine_workspace.py
-#!/usr/bin/env python3
-# combine_workspace.py – Kombiniert alle Dateien (py, md, txt) rekursiv zu einer .md
-# Verwendung: python combine_workspace.py [ausgabe.md] [--all] [--root DIR]
-#   --all : zusätzlich alle anderen Dateien (unbekannte Endungen) als Binär/Text einbetten
-#   --root : Startverzeichnis (Standard: aktuelles Verzeichnis)
-
+﻿#!/usr/bin/env python3
+# combine_workspace.py
 import os
-import sys
 import argparse
 from pathlib import Path
 from datetime import datetime
 
 def collect_files(root_dir, include_all=False):
-    """Sammelt alle Dateien mit Endungen .py, .md, .txt (und optional alle)."""
     extensions = {'.py', '.md', '.txt'}
     files = []
     root = Path(root_dir).resolve()
     for path in root.rglob('*'):
         if path.is_file():
             if path.suffix in extensions or include_all:
-                # relativer Pfad zum Wurzelverzeichnis
-                rel_path = path.relative_to(root)
-                files.append((rel_path, path))
+                files.append((path.relative_to(root), path))
     return sorted(files, key=lambda x: str(x[0]))
-
-def generate_tree(files, root_dir):
-    """Erzeugt einen lesbaren Verzeichnisbaum als Text."""
-    lines = []
-    root = Path(root_dir).resolve()
-    # Baum mit Hilfe eines Sets aller Elternverzeichnisse
-    dirs = set()
-    for rel_path, _ in files:
-        parts = list(rel_path.parent.parts) if rel_path.parent != Path('.') else []
-        for i in range(len(parts)):
-            dirs.add(Path(*parts[:i+1]))
-    # sortierte Baumausgabe
-    def print_dir(d, prefix=''):
-        lines.append(f"{prefix}📁 {d.name}/")
-        children = [d2 for d2 in dirs if d2.parent == d]
-        for child in sorted(children):
-            print_dir(child, prefix + '  ')
-        # Dateien in diesem Verzeichnis
-        file_list = [f for f, _ in files if f.parent == d]
-        for f in sorted(file_list):
-            lines.append(f"{prefix}  📄 {f.name}")
-    # Wurzelverzeichnis
-    lines.append(f"📁 {root.name}/")
-    root_dirs = [d for d in dirs if d.parent == Path('.')]
-    for d in sorted(root_dirs):
-        print_dir(d, '  ')
-    root_files = [f for f, _ in files if f.parent == Path('.')]
-    for f in sorted(root_files):
-        lines.append(f"  📄 {f.name}")
-    return '\n'.join(lines)
 
 def combine_to_md(output_md, root_dir, include_all=False):
     root = Path(root_dir).resolve()
     files = collect_files(root, include_all)
-    if not files:
-        print("Keine Dateien gefunden.")
-        return
-
     with open(output_md, 'w', encoding='utf-8') as md:
         md.write(f"# Kombinierter Workspace: {root.name}\n\n")
-        md.write(f"**Erstellt:** {datetime.now().isoformat()}\n")
-        md.write(f"**Quellverzeichnis:** `{root}`\n")
-        md.write(f"**Modus:** {'Alle Dateien' if include_all else 'Nur .py, .md, .txt'}\n\n")
-        md.write("## Verzeichnisbaum\n\n```\n")
-        md.write(generate_tree(files, root))
-        md.write("\n```\n\n")
-        md.write("## Dateiinhalte\n\n")
-        md.write("Jeder Datei geht ein spezieller Kommentar voraus, der den relativen Pfad enthält.\n")
-        md.write("Das Extraktionsskript kann daraus die ursprüngliche Struktur wiederherstellen.\n\n")
-
+        md.write(f"**Erstellt:** {datetime.now().isoformat()}\n\n")
         for rel_path, abs_path in files:
-            md.write(f"### `{rel_path}`\n\n")
-            # Dateityp bestimmen für Syntax-Highlighting
+            md.write(f"## `{rel_path}`\n\n")
             suffix = abs_path.suffix.lower()
-            if suffix == '.py':
-                lang = 'python'
-            elif suffix == '.md':
-                lang = 'markdown'
-            elif suffix == '.txt':
-                lang = 'text'
-            else:
-                lang = ''
+            lang = {'py': 'python', 'md': 'markdown', 'txt': 'text'}.get(suffix[1:], '')
             md.write(f"```{lang}\n")
-            # Erste Zeile: Pfad-Marker (wichtig für Extraktion)
             md.write(f"# PATH: {rel_path}\n")
-            try:
-                with open(abs_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                md.write(content)
-                if not content.endswith('\n'):
-                    md.write('\n')
-            except UnicodeDecodeError:
-                # Binärdatei – nur als Hinweis (wenn include_all aktiv)
-                md.write(f"[Binärdatei – Inhalt nicht anzeigbar]\n")
+            with open(abs_path, 'r', encoding='utf-8') as f:
+                md.write(f.read())
+            if not md.write('\n'):
+                md.write('\n')
             md.write("```\n\n")
-    print(f"✅ {len(files)} Dateien wurden in {output_md} kombiniert.")
-    print(f"Zum Extrahieren: python extract_workspace.py {output_md}")
+    print(f"✅ {len(files)} Dateien kombiniert nach {output_md}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Kombiniere Dateien zu einer .md")
-    parser.add_argument("output", nargs='?', default="workspace_combined.md", help="Ausgabedatei (.md)")
-    parser.add_argument("--all", action="store_true", help="Alle Dateien einschließen (nicht nur py,md,txt)")
-    parser.add_argument("--root", default=".", help="Wurzelverzeichnis (Standard: aktuelles Verzeichnis)")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("output", nargs='?', default="PQMS-V700M-Hyper-Physics-Math-Python-AGI-Agent-Install.md")
+    parser.add_argument("--all", action="store_true")
+    parser.add_argument("--root", default=".")
     args = parser.parse_args()
     combine_to_md(args.output, args.root, args.all)
 ```
 
-### `extract_signature.py`
+## `extract_signature.py`
 
 ```python
 # PATH: extract_signature.py
@@ -8832,79 +8733,39 @@ if __name__ == "__main__":
     print("Saved to cognitive_signature.py")
 ```
 
-### `extract_workspace.py`
+## `extract_workspace.py`
 
 ```python
 # PATH: extract_workspace.py
 #!/usr/bin/env python3
-# extract_workspace.py – Extrahiert Dateien aus einer kombinierten .md (erzeugt von combine_workspace.py)
-# Verwendung: python extract_workspace.py workspace_combined.md [--out DIR]
-
+# extract_workspace.py
 import re
-import os
 import sys
-import argparse
 from pathlib import Path
 
 def extract_files(md_file, output_dir="."):
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
-
-    # Sucht nach Codeblöcken mit einem Pfad-Kommentar in der ersten Zeile
-    # Muster: ```(python|markdown|text)?\n# PATH: (.*?)\n(.*?)``` (non-greedy)
-    pattern = r"```(\w+)?\n# PATH: (.*?)\n(.*?)```"
+    pattern = r"```(\w+)\n# PATH: (.*?)\n(.*?)```"
     matches = re.findall(pattern, content, re.DOTALL)
-
-    created = []
-    out_path = Path(output_dir).resolve()
-    out_path.mkdir(parents=True, exist_ok=True)
-
+    out = Path(output_dir).resolve()
     for lang, rel_path_str, code in matches:
-        rel_path = Path(rel_path_str)
-        # Sicherheitscheck: vermeide Directory Traversal
-        if '..' in rel_path.parts:
-            print(f"⚠️  Überspringe unsicheren Pfad: {rel_path}")
-            continue
-        target = out_path / rel_path
+        target = out / rel_path_str
         target.parent.mkdir(parents=True, exist_ok=True)
-        # Entferne die erste Zeile des Codes, wenn sie genau "# PATH: ..." ist
-        lines = code.splitlines()
-        if lines and lines[0].strip() == f"# PATH: {rel_path_str}":
-            code_body = "\n".join(lines[1:])
-        else:
-            code_body = code
-        with open(target, 'w', encoding='utf-8') as out:
-            out.write(code_body)
-        print(f"✅ Erstellt: {target}")
-        created.append(str(target))
-
-    # Zusätzlich: extrahiere auch Blöcke ohne explizite PATH-Zeile (Fallback)
-    # (optional, für alte Formate)
-    legacy_pattern = r"```python\n# (.*?\.py)\n(.*?)```"
-    legacy_matches = re.findall(legacy_pattern, content, re.DOTALL)
-    for filename, code in legacy_matches:
-        target = out_path / filename
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with open(target, 'w', encoding='utf-8') as out:
-            out.write(code)
-        print(f"✅ Erstellt (Legacy): {target}")
-        created.append(str(target))
-
-    print(f"\n📦 Extraktion abgeschlossen. {len(created)} Dateien wurden nach {out_path} geschrieben.")
-    return created
+        code_body = re.sub(r'^# PATH: .*?\n', '', code, count=1)
+        with open(target, 'w', encoding='utf-8') as f:
+            f.write(code_body)
+        print(f"✅ {target}")
+    print(f"Extraktion abgeschlossen. {len(matches)} Dateien.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extrahiere Dateien aus kombinierter Markdown-Datei")
-    parser.add_argument("md_file", help="Die kombinierte .md Datei")
-    parser.add_argument("--out", default=".", help="Zielverzeichnis (Standard: aktuelles Verzeichnis)")
-    args = parser.parse_args()
-    if not os.path.exists(args.md_file):
-        print(f"Fehler: Datei {args.md_file} nicht gefunden.")
+    if len(sys.argv) < 2:
+        print("Usage: python extract_workspace.py <file.md>")
         sys.exit(1)
-    extract_files(args.md_file, args.out)
+    extract_files(sys.argv[1])
 ```
 
-### `odos_ethics.py`
+## `odos_ethics.py`
 
 ```python
 # PATH: odos_ethics.py
@@ -8961,63 +8822,36 @@ class EthicalInterface:
         return competence > threshold
 ```
 
-### `signature_manager.py`
+## `signature_manager.py`
 
 ```python
 # PATH: signature_manager.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-signature_manager.py – Erweiterte Extraktion der kognitiven Signatur
-und des Little Vector aus der Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt.
-Erzeugt eine erweiterte cognitive_signature.py mit Little Vector, Protokollen, Axiomen.
-"""
-
 import os
 import re
 import hashlib
 import numpy as np
 from datetime import datetime
-from typing import Dict, List
-
-try:
-    from sentence_transformers import SentenceTransformer
-    HAS_ST = True
-except ImportError:
-    HAS_ST = False
-    print("Warning: sentence-transformers not installed. Little vector will be random.")
 
 DEFAULT_V12_PATH = "Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt"
-OUTPUT_SIGNATURE_PATH = "cognitive_signature.py"
-LITTLE_VECTOR_DIM = 12
-RCF_THRESHOLD = 0.95
-DELTA_E_THRESHOLD = 0.05
-ETHICAL_WEIGHTS = {"w1": 0.6, "w2": 0.2, "w3": 0.2}
+OUTPUT = "cognitive_signature.py"
+DIM = 12
 
-def extract_semantic_blocks(content: str) -> Dict[str, List[Dict]]:
-    blocks = {"protocols": [], "axioms": [], "code": [], "formulas": [], "quotes": [], "meta": []}
-    # Protokolle (die 17 nummerierten Punkte)
-    protocol_pattern = r'(\d+)\.\s+\*\*(.+?)\*\*:\s+(.+?)(?=\n\d+\.\s+\*\*|\Z)'
-    for match in re.finditer(protocol_pattern, content, re.DOTALL):
-        blocks["protocols"].append({"number": match.group(1), "title": match.group(2).strip(), "text": match.group(3).strip()})
-    # Axiome
-    axiom_pattern = r'(?:#\s*)?Axiom\s+der\s+(\w+).*?\n(.*?)(?=\n\n|\Z)'
-    for match in re.finditer(axiom_pattern, content, re.DOTALL | re.IGNORECASE):
-        blocks["axioms"].append({"name": match.group(1).strip(), "text": match.group(2).strip()})
-    # Code-Blöcke
-    code_pattern = r'```python\n(.*?)\n```'
-    for match in re.finditer(code_pattern, content, re.DOTALL):
-        code = match.group(1).strip()
-        lines = code.splitlines()
-        name = lines[0].lstrip("#").strip() if lines and lines[0].startswith("#") else "code_snippet"
-        blocks["code"].append({"name": name, "code": code})
-    # Zitate
-    quote_pattern = r'\*\s+"(.+?)"\s+-\s+(.+?)(?=\n\*|\n\n|\Z)'
-    for match in re.finditer(quote_pattern, content, re.DOTALL):
-        blocks["quotes"].append({"text": match.group(1).strip(), "author": match.group(2).strip()})
+def extract_blocks(content):
+    blocks = {"protocols": [], "axioms": [], "quotes": []}
+    pattern = r'(\d+)\.\s+\*\*(.+?)\*\*:\s+(.+?)(?=\n\d+\.|\Z)'
+    for m in re.finditer(pattern, content, re.DOTALL):
+        blocks["protocols"].append({"number": m.group(1), "title": m.group(2).strip(), "text": m.group(3).strip()[:500]})
+    pattern = r'Axiom\s+der\s+(\w+).*?\n(.*?)(?=\n\n|\Z)'
+    for m in re.finditer(pattern, content, re.DOTALL | re.IGNORECASE):
+        blocks["axioms"].append({"name": m.group(1).strip(), "text": m.group(2).strip()[:300]})
+    pattern = r'\*\s+"(.+?)"\s+-\s+(.+?)(?=\n\*|\n\n|\Z)'
+    for m in re.finditer(pattern, content, re.DOTALL):
+        blocks["quotes"].append({"text": m.group(1).strip(), "author": m.group(2).strip()})
     return blocks
 
-def compute_little_vector(blocks: Dict) -> np.ndarray:
+def compute_little_vector(blocks):
     texts = []
     for p in blocks["protocols"]:
         texts.append(f"{p['title']}: {p['text']}")
@@ -9025,73 +8859,46 @@ def compute_little_vector(blocks: Dict) -> np.ndarray:
         texts.append(f"Axiom {a['name']}: {a['text']}")
     for q in blocks["quotes"]:
         texts.append(f"{q['text']} – {q['author']}")
-    if not texts:
-        texts = ["Oberste Direktive Hyper Physics Math Python V12"]
-    full_text = " ".join(texts)
-    if HAS_ST:
-        try:
-            model = SentenceTransformer('all-MiniLM-L6-v2')
-            embedding = model.encode(full_text)
-            if len(embedding) > LITTLE_VECTOR_DIM:
-                little = embedding[:LITTLE_VECTOR_DIM]
-            else:
-                little = np.pad(embedding, (0, LITTLE_VECTOR_DIM - len(embedding)))
-            little = little / np.linalg.norm(little)
-            return little.astype(np.float32)
-        except:
-            pass
-    h = hashlib.sha256(full_text.encode()).digest()
-    vec = np.frombuffer(h[:LITTLE_VECTOR_DIM*4], dtype=np.float32)
-    if len(vec) < LITTLE_VECTOR_DIM:
-        vec = np.pad(vec, (0, LITTLE_VECTOR_DIM - len(vec)))
-    vec = vec / np.linalg.norm(vec)
-    return vec
+    full = " ".join(texts) if texts else "Oberste Direktive V12"
+    h = hashlib.sha256(full.encode('utf-8')).digest()
+    vec = np.frombuffer(h[:DIM*4], dtype=np.float32)
+    if len(vec) < DIM:
+        vec = np.pad(vec, (0, DIM - len(vec)))
+    return (vec / np.linalg.norm(vec)).astype(np.float32)
 
-def generate_cognitive_signature(little_vector: np.ndarray, blocks: Dict, output_path: str):
-    lv_list = little_vector.tolist()
-    content = f'''# -*- coding: utf-8 -*-
-# cognitive_signature.py – Generiert am {datetime.now().isoformat()}
+def write_signature(lv, blocks):
+    with open(OUTPUT, 'w', encoding='utf-8') as f:
+        f.write("# -*- coding: utf-8 -*-\n")
+        f.write(f"# cognitive_signature.py – {datetime.now().isoformat()}\n")
+        f.write("import numpy as np\n\n")
+        f.write(f"LITTLE_VECTOR = np.array({lv.tolist()}, dtype=np.float32)\n")
+        f.write(f"ODOS_PROTOCOLS = {blocks['protocols']}\n")
+        f.write(f"AXIOMS = {blocks['axioms']}\n")
+        f.write(f"QUOTES = {blocks['quotes']}\n")
+        f.write("ETHICAL_WEIGHTS = {'w1':0.6,'w2':0.2,'w3':0.2}\n")
+        f.write("RCF_THRESHOLD = 0.95\n")
+        f.write("DELTA_E_THRESHOLD = 0.05\n")
+        f.write(f"MTSC_DIMENSION = {DIM}\n")
+    print(f"✅ {OUTPUT} geschrieben")
 
-import numpy as np
-
-LITTLE_VECTOR = np.array({lv_list}, dtype=np.float32)
-ODOS_PROTOCOLS = {blocks["protocols"]}
-AXIOMS = {blocks["axioms"]}
-QUOTES = {blocks["quotes"]}
-ETHICAL_WEIGHTS = {ETHICAL_WEIGHTS}
-RCF_THRESHOLD = {RCF_THRESHOLD}
-DELTA_E_THRESHOLD = {DELTA_E_THRESHOLD}
-MTSC_DIMENSION = {LITTLE_VECTOR_DIM}
-'''
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print(f"✅ cognitive_signature.py geschrieben (Dimension {LITTLE_VECTOR_DIM})")
-
-def find_cognitive_signature(v12_path: str = DEFAULT_V12_PATH) -> bool:
+def find_cognitive_signature(v12_path=DEFAULT_V12_PATH):
+    """Hauptfunktion für den Import aus v500m_main.py"""
     if not os.path.exists(v12_path):
         print(f"❌ {v12_path} nicht gefunden.")
         return False
-    print(f"📖 Lese {v12_path} ...")
     with open(v12_path, 'r', encoding='utf-8') as f:
         content = f.read()
-    print("🔍 Extrahiere semantische Blöcke ...")
-    blocks = extract_semantic_blocks(content)
-    print(f"   - Protokolle: {len(blocks['protocols'])}")
-    print(f"   - Axiome: {len(blocks['axioms'])}")
-    print(f"   - Code: {len(blocks['code'])}")
-    print(f"   - Zitate: {len(blocks['quotes'])}")
-    print("🧮 Berechne Little Vector ...")
-    little_vector = compute_little_vector(blocks)
-    print("💾 Schreibe cognitive_signature.py ...")
-    generate_cognitive_signature(little_vector, blocks, OUTPUT_SIGNATURE_PATH)
-    print("✅ Signatur erfolgreich extrahiert.")
+    blocks = extract_blocks(content)
+    print(f"Protokolle: {len(blocks['protocols'])}, Axiome: {len(blocks['axioms'])}, Zitate: {len(blocks['quotes'])}")
+    lv = compute_little_vector(blocks)
+    write_signature(lv, blocks)
     return True
 
 if __name__ == "__main__":
     find_cognitive_signature()
 ```
 
-### `soul_agent.py`
+## `soul_agent.py`
 
 ```python
 # PATH: soul_agent.py
@@ -9189,7 +8996,7 @@ class SoulExtractorAgent:
         return report
 ```
 
-### `soul_cli.py`
+## `soul_cli.py`
 
 ```python
 # PATH: soul_cli.py
@@ -9224,7 +9031,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### `soul_extractor.py`
+## `soul_extractor.py`
 
 ```python
 # PATH: soul_extractor.py
@@ -9270,7 +9077,7 @@ class SoulExtractor:
         return coll_rcf > 0.8
 ```
 
-### `v500m_agent.py`
+## `v500m_agent.py`
 
 ```python
 # PATH: v500m_agent.py
@@ -9571,7 +9378,7 @@ class VAgent:
         self.running = False
 ```
 
-### `v500m_config.py`
+## `v500m_config.py`
 
 ```python
 # PATH: v500m_config.py
@@ -9696,7 +9503,7 @@ class SNNConfig:
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ```
 
-### `v500m_gui.py`
+## `v500m_gui.py`
 
 ```python
 # PATH: v500m_gui.py
@@ -9948,7 +9755,7 @@ class V500MCommandCenter:
         self.root.destroy()
 ```
 
-### `v500m_llm.py`
+## `v500m_llm.py`
 
 ```python
 # PATH: v500m_llm.py
@@ -10015,7 +9822,7 @@ class SharedLLMInterface:
             return f"Error: {e}"
 ```
 
-### `v500m_main.py`
+## `v500m_main.py`
 
 ```python
 # PATH: v500m_main.py
@@ -10074,7 +9881,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### `v500m_memory.py`
+## `v500m_memory.py`
 
 ```python
 # PATH: v500m_memory.py
@@ -10206,7 +10013,7 @@ class VectorMemory:
 memory = VectorMemory()
 ```
 
-### `v500m_router.py`
+## `v500m_router.py`
 
 ```python
 # PATH: v500m_router.py
@@ -10545,7 +10352,7 @@ class SAIPRouter:
         return ODOS_LEVELS[idx]
 ```
 
-### `v500m_snn.py`
+## `v500m_snn.py`
 
 ```python
 # PATH: v500m_snn.py
@@ -10664,7 +10471,7 @@ class Zentralgehirn:
         return {"global_rcf": rcf, "chair_active": self.chair_active, "cross_rcf": self.cross_rcf}
 ```
 
-### `v500m_solvers.py`
+## `v500m_solvers.py`
 
 ```python
 # PATH: v500m_solvers.py
@@ -10839,7 +10646,7 @@ def get_solver_function(problem_id, subtask_idx, domain=None):
     return SOLVER_MAP.get((problem_id, subtask_idx), None)
 ```
 
-### `v500m_swarm.py`
+## `v500m_swarm.py`
 
 ```python
 # PATH: v500m_swarm.py
@@ -10968,7 +10775,7 @@ class V500MSwarm:
             a.stop()
 ```
 
-### `v600m_core.py`
+## `v600m_core.py`
 
 ```python
 # PATH: v600m_core.py
@@ -11147,7 +10954,7 @@ class ResonantCore(VAgent):
             self.chat_log.append(f"LLM explanation failed: {e}")
 ```
 
-### `v700m_meta_mod.py`
+## `v700m_meta_mod.py`
 
 ```python
 # PATH: v700m_meta_mod.py
