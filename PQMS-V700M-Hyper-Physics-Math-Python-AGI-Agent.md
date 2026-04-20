@@ -260,7 +260,7 @@ The extraction script `extract_workspace.py` (provided in the same repository or
 ```python
 #!/usr/bin/env python3
 # extract_workspace.py – Extrahiert Dateien aus einer kombinierten .md (erzeugt von combine_workspace.py)
-# Verwendung: python extract_workspace.py workspace_combined.md [--out DIR]
+# Verwendung: python extract_workspace.py PQMS-V700M-Hyper-Physics-Math-Python-AGI-Agent-Install.md [--out DIR]
 
 import re
 import os
