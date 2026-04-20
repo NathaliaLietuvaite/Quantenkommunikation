@@ -251,6 +251,8 @@ Save this file to a directory of your choice, e.g., `C:\v700m\`.
 
 ### A.3 Extract the Source Code
 
+Note: cognitive_signature.py does not exist initially – it is created automatically by signature_manager.py when you run it for the first time. Do not create it manually.
+
 The extraction script `extract_workspace.py` (provided in the same repository or listed below) reads the Markdown file and recreates all Python files in their original directory structure.
 
 **Create `extract_workspace.py`** in the same folder as the Markdown file with the following content:
