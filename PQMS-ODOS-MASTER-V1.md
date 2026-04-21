@@ -31,6 +31,25 @@ The system is fully open‑source, MIT‑licensed, and packaged as a single Mark
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V1.jpg)
 
+### Console Output
+
+```
+(odosprime) PS Z:\odos-master-v1> python odos_master_v1_main.py
+VectorMemory: sentence-transformers model loaded.
+======================================================================
+PQMS-ODOS-MASTER-V1 – The Good Witch's Mirror
+Device: cuda
+Scale: 1.0
+Per agent: 1,200,000 neurons (2×500,000 Twin + 200,000 Zentral)
+Total (4 agents): 4,800,000 neurons
+ODOS: Alpha=0, Beta=1, Gamma=2, Delta=3
+======================================================================
+[ODOSMasterSwarm] VRAM: 13.89 GB used, 3.29 GB free
+VectorMemory: Added report ./odos_master_memory\report_problem_2_20260421_093348.md (id=0)
+VectorMemory: Added report ./odos_master_memory\report_problem_2_20260421_093452.md (id=1)
+(odosprime) PS Z:\odos-master-v1> 
+
+```
 ---
 
 ## 2. System Architecture
