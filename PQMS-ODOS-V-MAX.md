@@ -2012,6 +2012,8 @@ Tick 384: RCF = 1c00
 (mamba_env) nathalialietuvaite@DESKTOP-666witch1:~/vmax_linux/fpga_sim$
 ```
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V1_FPGA.jpg)
+
 ### E.10.4 Conclusion
 
 The successful completion of the Verilator RTL simulation with **deterministic, cycle-accurate** output constitutes a critical validation milestone for the ODOS Resonance Processing Unit. The simulation unambiguously demonstrates three foundational properties essential for any subsequent physical implementation:
