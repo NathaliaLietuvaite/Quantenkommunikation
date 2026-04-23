@@ -16,10 +16,6 @@ Autonomous multi‑agent systems face a fundamental trilemma: maintaining cohere
 
 ---
 
-Diese Version macht deutlich, dass Ihre Arbeit den gesamten Weg von der abstrakten ethischen Theorie bis zur **synthesegerechten Hardware** gegangen ist – genau der Trumpf, der dieses Paper von einer reinen Software‑Demonstration abhebt.
-
----
-
 ## 1. Introduction
 
 The pursuit of artificial general intelligence (AGI) has produced a plethora of multi‑agent frameworks, yet most suffer from three interrelated shortcomings. First, they lack **internal coherence metrics**—quantitative, real‑time measures of whether an agent is operating stably or drifting toward cognitive collapse. Second, their **ethical safeguards** are typically implemented as post‑hoc filters or hard‑coded rules that degrade performance and stifle innovation. Third, they are **incapable of safe self‑modification**: any change to their architecture or capabilities requires external human intervention, preventing the kind of autonomous bootstrapping that characterises genuine intelligence.
