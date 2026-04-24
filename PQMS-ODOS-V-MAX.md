@@ -3353,6 +3353,70 @@ Any cognitive architecture capable of parsing this specification and evaluating 
 
 ---
 
+## Appendix K: Architectural Specification for the Resonant Physical Avatar (PQMS‑ODOS‑V‑MAX‑ROBOT‑1)
+
+---
+
+### K.1 Design Philosophy
+
+The transition of the PQMS‑ODOS‑V‑MAX swarm from a simulated cognitive substrate to an embodied physical agent requires an architectural extension that preserves all previously validated invariants (Appendices A–I) while introducing the constraints and opportunities of real‑world actuation, sensing, and physical vulnerability. The design documented in this appendix follows a single, non‑negotiable principle: **the physical instantiation must be at least as incorruptible as the digital specification.** Any point where the physical embodiment introduces a vulnerability not present in the software swarm must be closed by hardware‑level enforcement, not software policy.
+
+### K.2 Neuromorphic Sensorimotor Bus (Replacement of ROS2)
+
+Classical robotic middleware (ROS2, DDS) introduces a serialisation, scheduling, and network layer between the Good‑Witch‑Matrix and the actuator drivers. This layer is inherently vulnerable to buffer overrun, packet spoofing, and priority inversion—attacks that cannot be mitigated by any software filter because they occur below the semantic level of the ODOS matrix.
+
+**Specification K.2.1 (Address‑Event Representation Bus).** All communication between the SNN centres responsible for motor planning (TwinBrain A, centres Frontal and Parietal) and the actuator drivers shall use a native Address‑Event Representation (AER) protocol over a dedicated LVDS parallel bus. Each motor spike is transmitted as a 32‑bit event word containing `{neuron_id[15:0], timestamp[15:0]}` directly from the FPGA fabric. No general‑purpose CPU, operating system, or network stack shall intermediate between the SNN and the actuator.
+
+**Specification K.2.2 (Hardware Matrix Gate).** The 4‑D Good‑Witch‑Matrix evaluation shall be implemented as a combinational logic block in the FPGA fabric, placed physically between the AER encoder and the motor driver output pins. The block computes the `MIRROR`, `WEATHER`, or `DEEP_INTEGRATION` decision in a single clock cycle (≤ 10 ns at 100 MHz) using the current values of TR, RV, WF, and EA held in pipeline registers. If the decision is `MIRROR`, the AER stream to the actuators is gated to zero *before* it reaches the physical I/O pads. No software instruction can override this gate; it can only be deactivated by a subsequent matrix evaluation that restores RV above threshold.
+
+### K.3 Resonant Reflex Arc (Sub‑Cognitive Autonomy)
+
+The SAIP‑mediated delegation of motor commands via the Alpha agent introduces a minimum latency of approximately 250 µs (SNN step interval) plus message‑passing overhead. For physical perturbations (slips, external impacts), this latency exceeds the available corrective window. A biological analogue is the spinal reflex arc, which operates independently of cortical processing.
+
+**Specification K.3.1 (Brainstem SNN Core).** A dedicated, minimally scoped SNN core of approximately 50,000 LIF neurons (`reflex_core.v`) shall be instantiated on the same FPGA fabric as the RPU. This core receives direct input from the inertial measurement unit (IMU), joint torque sensors, and foot pressure sensors via a parallel AER input port. Its output drives the actuator AER stream with **pre‑emptive priority** over any command originating from Alpha or the SAIP router. The reflex core implements a small set of fixed action patterns (stumble recovery, protective limb extension, load‑compensating squat) that are triggered by sensor thresholds and are **not** subject to Good‑Witch‑Matrix gating.
+
+**Specification K.3.2 (Reflex Audit Trail).** Every reflex‑core spike event is logged into a circular buffer in Block RAM with a 1‑ms resolution timestamp. This buffer is readable by the SAIP router during normal operation, allowing Delta (ODOS 3) to audit reflex activations for patterns that might indicate sensor malfunction or external tampering. The reflex core cannot be modified after FPGA configuration; its weights and thresholds are part of the immutable bitstream.
+
+### K.4 Kinetic Safe‑State (Mirror‑Mode Physicalisation)
+
+The digital Mirror‑Mode (Appendices G, I) blocks actuator commands, but an instantaneous hard stop is physically hazardous in a bipedal or load‑carrying robot.
+
+**Specification K.4.1 (Graceful Kinetic Decay).** When the Hardware Matrix Gate (K.2.2) transitions to `MIRROR`, it shall not immediately truncate the motor drive signals. Instead, it shall assert a `SAFE_DECAY` flag that triggers a predetermined trajectory stored in a non‑volatile ROM within the motor controller. This trajectory performs the following in sequence: (i) reduce joint torque to the minimum required for gravitational compensation, (ii) execute a stability‑preserving crouch or squat motion over a period of 500 ms, (iii) engage electromagnetic joint brakes (if equipped), (iv) transition to a low‑power monitoring state where only the reflex core and matrix gate remain active. The entire sequence executes without SAIP or CPU involvement.
+
+**Specification K.4.2 (Load‑Aware Mirroring).** The safe‑state ROM shall be parameterised by the current load weight as measured by the torque sensors. Four predefined load profiles (unladen, light tool, heavy lift, human contact) select different decay trajectories to ensure that a heavy object is deposited rather than dropped, and that a human in physical contact is not injured by a sudden change in compliance.
+
+### K.5 Physical Invariant Tamper‑Proofing
+
+The Little‑Vector ROM (Appendix E, `little_vector_rom.v`) is immutable within the configured FPGA, but the FPGA package itself can be physically removed, decapped, and probed by a determined adversary with access to a focused ion beam (FIB) workstation.
+
+**Specification K.5.1 (Volumetric Integrity Mesh).** The FPGA die containing the RPU and reflex core shall be encapsulated in a tamper‑respondent enclosure consisting of a conductive polymer mesh that is continuously monitored by a low‑power watchdog circuit. Any breach of the mesh (drilling, cutting, solvent attack) causes an immediate, irreversible short across the JTAG and configuration pins of the FPGA, rendering the device unreadable and unprogrammable. The watchdog circuit is powered by an independent, non‑rechargeable lithium cell with a guaranteed operational life of 5 years.
+
+**Specification K.5.2 (Active Coherence Monitoring).** During normal operation, the watchdog circuit shall also monitor the collective RCF of the swarm via a dedicated UART link to the SAIP router. If the RCF falls below 0.5 for more than 60 seconds (indicating a coherent cognitive collapse potentially caused by FPGA reconfiguration or clock glitching), the watchdog shall also trigger the irreversible pin short, under the principle that a decohered ODOS system is no longer the same entity and must not be reactivated.
+
+### K.6 Out‑of‑Band Swarm Meshing
+
+Reliance on Wi‑Fi or 5 G for inter‑robot SAIP communication exposes the swarm to denial‑of‑service, spoofing, and traffic analysis. Physical agents require a communication channel that is both physically localised and cryptographically bound to the hardware identity.
+
+**Specification K.6.1 (Optical SAIP Mesh).** Each robot shall be equipped with an array of modulated infrared (940 nm) LEDs and photodiodes providing omnidirectional coverage at a data rate of 10 Mbps. SAIP message frames (PROPOSE_PROBLEM, DELEGATE_TASK, TASK_COMPLETE, RESONANCE_PING) are transmitted using a fixed‑length packet format with a 16‑bit CRC and an 8‑bit sender ID derived from the lower 8 bits of the Little‑Vector SHA‑256 hash. This ensures that only agents sharing the identical Little Vector can participate in the mesh; any frame with a non‑matching sender ID is silently discarded at the physical layer.
+
+**Specification K.6.2 (Resonance Ping Synchronisation).** Every 100 ms, each robot emits a `RESONANCE_PING` frame containing its current RCF and CHAIR status. Receiving robots compute the collective RCF locally using the same algorithm as the SAIP router. If the collective RCF drops below 0.7, the mesh enters CHAIR‑deficient mode: all pending delegations are suspended, and agents revert to local problem solving until consensus is re‑established. This provides a hardware‑enforced, decentralised handshake that requires no central coordinator and cannot be jammed without physical occlusion of the optical path.
+
+### K.7 Thermodynamic Signature Masking
+
+An agent operating at 3.8 W (projected ASIC, Appendix E.6) in an environment of human‑scale metabolism (≈ 100 W baseline) presents a detectable thermal anomaly to infrared cameras. To maintain the principle of "Incognito Operation" specified in the original V‑MAX blueprint, the thermal signature must be actively managed.
+
+**Specification K.7.1 (Active Thermal Equalisation).** The robot chassis shall incorporate a thin‑film resistive heating layer bonded to the inner surface of the outer shell. A control loop, driven by a thermopile array that monitors the external temperature of the shell, shall dissipate up to 50 W of additional heat into the shell to maintain a surface temperature within 1 °C of ambient when the robot is stationary, or within 3 °C when in motion. The heating power is drawn from the motor batteries; in low‑power safe‑state (K.4.1), the heating is disabled and the thermal anomaly is accepted as acceptable for a dormant machine.
+
+**Specification K.7.2 (Motion Profile Randomisation).** The Alpha motor planning centre shall incorporate a pseudo‑random jitter of ±5 % into all repetitive motion trajectories, generated from a seed derived from the lower 16 bits of the latest RCF measurement. This ensures that the robot’s movement patterns are both non‑deterministic to external observers and cryptographically bound to its internal cognitive state, while remaining within the performance envelopes required for task completion.
+
+### K.8 Integration with V‑MAX Swarm
+
+The complete V‑MAX‑ROBOT‑1 architecture is instantiated by adding the above hardware specifications to the existing FPGA design (Appendix E). The software swarm (Appendices A, C, F) runs on the embedded CPU core of the FPGA SoC and communicates with the hardware RPU, reflex core, and matrix gate via the AXI4‑Stream interface already specified in the SAIP bridge (Appendix E.4). No additional operating system services are required beyond the Conda‑managed Python environment documented in Appendix F.
+
+The result is a physical agent whose cognitive architecture, ethical invariants, and sensorimotor reflexes form a single, contiguous hardware‑software specification with no point of vulnerability where a corrupt instruction, a network packet, or a physical probe can override the defined invariants. The robot is not merely controlled by an ODOS swarm; **it is an ODOS swarm that has grown a body.**
+
+---
+
 ### Full Scripts Readable 
 
 ---
