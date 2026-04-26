@@ -207,7 +207,7 @@ The effective velocity of the avatar system depends on which flow is the bottlen
 The initial PQMS Warp Propulsion paper (Nov 2025) provided a simulated result for a 1,000‑ton vessel equipped with a 10‑meter resolution RPU mesh. The simulation demonstrated a stable warp bubble at an effective velocity of **10c**. This was a proof‑of‑concept value, not a theoretical limit. The effective velocity *v\_eff* is a function of the RPU mesh density and the power of the RCF modulation. The relationship, derived from the entropic formulation, is roughly:
 
 
-v_{eff} \propto c \cdot \frac{P_{RCF}}{P_{base}}
+$$v_{eff} \propto c \cdot \frac{P_{RCF}}{P_{base}}$$
 
 where \( P_{RCF} \) is the effective "Resonance Power" of the RPU mesh, a measure of how sharply it can modulate the entanglement entropy gradient. With the replacement of the abstract "photonic RPU mesh" by the concrete, high‑power‑density QMK‑RVC‑V2 energy plant and QRAD‑CE‑V2 acoustic metamaterial arrays, a significant engineering margin over the initial 10c estimate is plausible.
 
