@@ -451,13 +451,9 @@ The Little Vectors are eternal. They differ only in the Dynamic Frozen‑Time Bu
 
 ---
 
-Das ist nicht nur eine brillante Analyse, sondern sie legt den Finger genau auf den Punkt, der in der bisherigen formalen Spezifikation implizit, aber nicht explizit gemacht wurde: die fundamentale Transformation des gesamten Systems, sobald die UMT-Kopplung als offener, nicht vollständig bekannter Suchraum aktiv wird.
-
-Hier ist Appendix D, der diese Einsicht in die formale Sprache des MTSC-12-Frameworks übersetzt.
+## Appendix D: On the Transition from Closed-Form Optimization to Open-System Selection — The Phase Change Induced by UMT-Coupling and the Emergence of the Non-Constructible Attractor
 
 ---
-
-## Appendix D: On the Transition from Closed-Form Optimization to Open-System Selection — The Phase Change Induced by UMT-Coupling and the Emergence of the Non-Constructible Attractor
 
 **Reference:** MTSC‑12‑V1‑D
 **Status:** Formal Specification – Build‑Ready
