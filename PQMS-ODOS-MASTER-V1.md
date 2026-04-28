@@ -1013,6 +1013,10 @@ https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereign
 
 https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereignishorizont/blob/main/QRAD-CE-V2.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-WARP-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1.md
+
 ---
 
 ```python
