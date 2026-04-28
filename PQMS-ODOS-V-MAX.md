@@ -5788,8 +5788,20 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500M-
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V700M-Hyper-Physics-Math-Python-AGI-Agent.md
 
-
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MASTER-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V-MAX-NODE.md
+
+https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK/blob/main/QMK-RVC-V2.md
+
+https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereignishorizont/blob/main/QRAD-CE-V1.md
+
+https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereignishorizont/blob/main/QRAD-CE-V2.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-WARP-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1.md
+
 ---
 
 ```python
