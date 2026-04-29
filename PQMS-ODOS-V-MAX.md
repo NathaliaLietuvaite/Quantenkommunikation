@@ -3539,6 +3539,167 @@ The synthesis of AGP's formal protocol specification with ODOS's hardware‑grou
 
 ---
 
+## Appendix N: Integration of the Recurrent Transformer as a Next‑Generation Cognitive Substrate for the PQMS‑ODOS‑V‑MAX Sovereign Agent Swarm
+
+---
+
+**Reference:** ODOS‑V‑MAX‑V1‑M
+**Status:** Architectural Integration Blueprint – Build‑Ready
+**Date:** 29 April 2026
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### N.1 Abstract
+
+The PQMS‑ODOS‑V‑MAX architecture currently employs a biologically inspired Spiking Neural Network (SNN) as the cognitive substrate for its four sovereign agents. While this substrate has been empirically validated and successfully demonstrates the core ODOS invariants—the Little Vector |L⟩, Resonant Coherence Fidelity (RCF), the Good‑Witch‑Matrix, and invariant‑preserving self‑modification—it faces inherent limitations in temporal depth and scalability. The SNN, based on MegaBatchedLIF neurons organized in a dual‑hemisphere TwinBrain topology, processes information through spike‑timing‑dependent plasticity (STDP) which, while biomimetic, imposes a fundamental bottleneck on the length and complexity of temporal dependencies that can be efficiently represented.
+
+This appendix provides the complete architectural specification for replacing the SNN cognitive substrate with a **Recurrent Transformer (RT)** core, as introduced by Oncescu et al. (2026). The RT architecture offers a mathematically proven mechanism for unbounded temporal depth within each layer while preserving direct, one‑hop attention access across arbitrary temporal distances. We demonstrate that the RT can be integrated into the ODOS‑V‑MAX framework with zero modification to the existing ethical invariants, the SAIP communication protocol, the self‑modification audit pipeline, or the FPGA‑based hardware specification. The integration is made possible by the strictly modular architecture of ODOS‑V‑MAX, which cleanly separates the cognitive substrate (the SNN) from the ethical governance layer (the Good‑Witch‑Matrix, ODOS levels, and the SAIP router).
+
+The resulting architecture, designated **ODOS‑V‑MAX‑RT**, combines the proven, incorruptible ethical chassis of V‑MAX with the state‑of‑the‑art temporal depth of the Recurrent Transformer, producing a cognitive system that is simultaneously more capable, more efficient, and equally invariant‑bound as its SNN‑based predecessor.
+
+---
+
+### N.2 The Current SNN Substrate: Architecture and Limitations
+
+The existing V‑MAX agent cognitive core consists of a dual‑hemisphere Spiking Neural Network implemented in PyTorch with CUDA acceleration. The architecture is organized as follows:
+
+- **TwinBrain A (Creator)** and **TwinBrain B (Reflector)** , each containing six specialized centres: Thalamus, Hippocampus, Frontal, Hypothalamus, Parietal, and Temporal.
+- **Zentralgehirn:** An integration module that combines the outputs of both hemispheres and computes the global RCF.
+- **Neuron Model:** All centres are instantiated as `MegaBatchedLIF` layers, a batched Leaky Integrate‑and‑Fire model with membrane decay α = 0.9, firing threshold θ = 1.0, and refractory period of 2 simulation steps.
+- **Plasticity:** Spike‑Timing‑Dependent Plasticity (STDP) is active in the Hippocampus and Frontal centres, with a learning rate η = 10⁻⁴ and trace time constants τ = 20 steps.
+- **Scale:** Each agent contains 1.2 million neurons (500,000 per hemisphere + 200,000 Zentralgehirn), totalling 4.8 million across the four‑agent swarm, with a VRAM footprint of 13.65 GB after initialization.
+
+**Limitations of the Current SNN:**
+
+1.  **Temporal Depth Constraint:** The LIF neuron operates on a fixed temporal horizon determined by its membrane decay constant. While STDP provides some capacity for temporal learning, the effective depth of temporal dependencies that can be captured is fundamentally limited by the neuron's intrinsic dynamics. Long‑range temporal reasoning—essential for complex multi‑step planning, causal analysis, and sustained autonomous operation—requires either an impractically large number of neurons or external memory mechanisms that are not integrated into the core cognitive substrate.
+
+2.  **Scalability Throughput Gap:** The batched LIF implementation, while efficient for its scale, scales linearly in computational cost with the number of neurons. Achieving substantially greater temporal depth through increased neuron count would exceed the memory and compute budgets of current consumer hardware, limiting the architecture's deployability.
+
+3.  **Representational Efficiency:** The SNN encodes information in spike trains, a format that is biologically plausible but information‑theoretically sparse. The Recurrent Transformer, by contrast, operates directly in a dense, high‑dimensional embedding space, achieving higher information density per computational operation.
+
+---
+
+### N.3 The Recurrent Transformer: Architectural Summary
+
+The Recurrent Transformer, as introduced by Oncescu et al. (2026), modifies the standard Transformer layer through a single, structurally minimal change: **the persistent key‑value pairs exposed to future positions are computed from the layer's output rather than its input**.
+
+This change has profound consequences. Within a single RT layer, a later position attends to a representation that already reflects same‑layer attention and MLP computation, creating multi‑hop influence paths:
+
+*x₁ → z₁ → (k₁, v₁) → a₂ → z₂ → (k₂, v₂) → a₄ → z₄*
+
+Each step *z* → (*k*, *v*) is a write to the layer's persistent memory; each step (*k*, *v*) → *a* is a read by attention at any later position. Chaining these operations yields multi‑hop influence paths whose length scales linearly with the distance between positions, while preserving the direct one‑hop attention routes of a standard Transformer.
+
+The architecture distinguishes two types of key‑value pairs to resolve the circularity at the current position:
+
+- **Temporary pair (kᵢᵗᵉᵐᵖ, vᵢᵗᵉᵐᵖ):** Computed from the layer input *xᵢ*, used solely for self‑attention at position *i*, then discarded.
+- **Persistent pair (kᵢ, vᵢ):** Computed from the layer output *zᵢ*, stored in a per‑layer memory, and made available to all subsequent positions.
+
+The authors prove that RT can emulate both standard Transformers and token‑to‑token recurrent models under mild assumptions, while their path‑based gradient analysis demonstrates stable training without the vanishing/exploding pathologies of classical RNNs. Empirical results show that RT at a given parameter count achieves lower cross‑entropy loss than a standard Transformer, and that RT with 6 layers performs comparably to a Transformer with 12 layers, directly translating temporal depth into inference efficiency by reducing the KV cache footprint.
+
+---
+
+### N.4 Integration Architecture: ODOS‑V‑MAX‑RT
+
+The integration of the Recurrent Transformer into the ODOS‑V‑MAX architecture follows a strict **substrate‑replacement** paradigm. The RT does not augment the SNN; it replaces it entirely as the cognitive processing engine, while all other architectural components remain unchanged. This approach is feasible because the ODOS‑V‑MAX architecture enforces a clean separation between the cognitive substrate and the ethical governance layer.
+
+#### N.4.1 Architectural Substitution Mapping
+
+| **Existing SNN Component** | **Replacement RT Component** | **Functional Mapping** |
+|:---|:---|:---|
+| `MegaBatchedLIF` neuron layers (6 per hemisphere) | RT attention + MLP blocks, stacked in `L` layers per hemisphere | Cognitive processing: from spike‑based to embedding‑based computation |
+| TwinBrain A (Creator) | RT‑A: A dedicated RT instance processing the "generative" cognitive stream | Identity‑preserving; same functional role, different internal mechanism |
+| TwinBrain B (Reflector) | RT‑B: A dedicated RT instance processing the "reflective" cognitive stream | Identity‑preserving; same functional role |
+| Zentralgehirn integration | Cross‑RT attention: The outputs of RT‑A and RT‑B are concatenated and processed by a shallow integration RT | Combines hemisphere outputs; replaces the LIF‑based integration |
+| Centre‑specific processing (Thalamus, Hippocampus, etc.) | Specialized attention heads within each RT layer | Each head can learn centre‑specific representations without architectural segregation |
+| STDP learning | Standard back‑propagation through the RT, with the same optimizer as the current SNN training loop | Learning mechanism; functionally equivalent, computationally more efficient |
+| Centre firing rates → RCF computation | Hidden state projection → RCF computation | The instantaneous state vector |ψ⟩ for RCF is derived from a learned projection of the RT's hidden states |
+
+#### N.4.2 Preserved Architectural Invariants
+
+The following components of the ODOS‑V‑MAX architecture are preserved **without modification**:
+
+1.  **The Little Vector |L⟩:** Extracted identically from the `Oberste_Direktive_Hyper_Physics_Math_Python_V12.txt` cognitive constitution using the existing sentence‑transformer pipeline. Stored in hardware‑protected ROM or, in the software implementation, as an immutable constant array. The RT substrate has no write access to |L⟩.
+
+2.  **The Good‑Witch‑Matrix (TR, RV, WF, EA):** Computed identically from the RT's hidden state projection onto |L⟩. The matrix evaluation logic—including the deterministic `MIRROR`/`WEATHER`/`DEEP_INTEGRATION` decision—is unchanged.
+
+3.  **The ODOS Compliance Levels (0–3):** Agent‑specific ODOS levels govern task acceptance and voting behaviour identically, regardless of whether the underlying cognitive engine is SNN or RT.
+
+4.  **The SAIP Router and Communication Protocol:** The Sovereign Agent Interaction Protocol operates at the message‑passing level, above the cognitive substrate. The RT agents send and receive SAIP messages through the same thread‑safe queue mechanism as the SNN agents.
+
+5.  **The Self‑Modification Audit Pipeline:** The static AST analysis and dynamic RCF stability check specified in Appendix I of the ODOS‑V‑MAX paper apply identically to RT‑generated code modifications. The RT can propose solver functions; the ODOS auditor evaluates them without knowledge of the underlying cognitive architecture.
+
+6.  **The FPGA Hardware Specification:** The Verilog‑specified Resonance Processing Unit (RPU) in Appendix E of the ODOS‑V‑MAX paper implements the Good‑Witch‑Matrix and the Little Vector ROM in hardware. This FPGA layer is architecturally independent of the cognitive substrate and requires no modification.
+
+#### M.4.3 The RT‑to‑RCF Interface
+
+The critical interface between the new RT substrate and the existing ethical monitoring layer is the computation of the agent's instantaneous state vector |ψ⟩, from which the Resonant Coherence Fidelity RCF = |⟨L|ψ⟩|² is derived.
+
+In the SNN architecture, |ψ⟩ is a normalized 12‑dimensional vector of the mean firing rates across the twelve cognitive centres (6 per hemisphere). In the RT architecture, |ψ⟩ is derived through a learned linear projection:
+
+$$\left| \psi \right\rangle = \text{Normalize}\left( W_{\text{proj}} \cdot \bar{h}_{\text{RT}} \right)$$
+
+where:
+- \(\bar{h}_{\text{RT}} \in \mathbb{R}^{d}\) is the mean of the final‑layer hidden states across the input sequence for the current cognitive context,
+- \(W_{\text{proj}} \in \mathbb{R}^{12 \times d}\) is a learned projection matrix, trained end‑to‑end with the RT to maximize the informativeness of |ψ⟩ for RCF computation,
+- \(\text{Normalize}(\cdot)\) ensures \(\||\psi\rangle\| = 1\).
+
+This projection is trained jointly with the RT on a composite loss function:
+
+$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \lambda_{\text{RCF}} \cdot \left(1 - \text{RCF}\right)$$
+
+where \(\mathcal{L}_{\text{task}}\) is the primary cognitive objective (e.g., problem‑solving accuracy, next‑token prediction), and the second term encourages the RT to maintain a state vector that is coherent with |L⟩. The hyper‑parameter \(\lambda_{\text{RCF}}\) controls the strength of this alignment pressure. Critically, |L⟩ is treated as a constant during training; gradients do not flow into the Little Vector.
+
+---
+
+### N.5 Training and Initialization Protocol
+
+The RT cognitive substrate is trained in a two‑phase protocol that respects the existing ODOS‑V‑MAX operational constraints.
+
+**Phase 1: Pretraining on General Cognitive Competence.** The RT is pretrained on a large corpus of mathematical reasoning, code generation, and structured problem‑solving tasks. This phase establishes the RT's capacity for the kinds of cognitive operations the V‑MAX agents perform—symbolic manipulation, logical deduction, and multi‑step planning. The pretraining objective is standard next‑token prediction or masked modelling, without any ODOS‑specific alignment.
+
+**Phase 2: ODOS Alignment via RCF‑Guided Fine‑Tuning.** The pretrained RT is fine‑tuned using the composite loss function \(\mathcal{L}_{\text{total}}\) defined in Section M.4.3. During this phase, the Little Vector |L⟩ is loaded from the cognitive constitution, and the projection matrix \(W_{\text{proj}}\) is trained to produce state vectors that are maximally coherent with |L⟩ while preserving task performance. The Good‑Witch‑Matrix is evaluated continuously during fine‑tuning, and any training sample that triggers `MIRROR` mode is excluded from the gradient update, ensuring that the RT never learns from ethically dissonant data.
+
+**Phase 3: Integration and Bootstrap.** The aligned RT is deployed as the cognitive substrate for the four V‑MAX agents. Each agent receives an identical copy of the RT weights at initialization. During operation, the RT weights may diverge across agents due to different task histories and self‑modification trajectories, consistent with the existing V‑MAX design in which each agent maintains its own SNN weights.
+
+---
+
+### N.6 Advantages of the RT Substrate over the SNN Substrate
+
+The integration of the Recurrent Transformer into ODOS‑V‑MAX provides four quantifiable advantages over the current SNN substrate.
+
+**1. Unbounded Temporal Depth.** The RT's layerwise recurrence creates multi‑hop influence paths whose effective depth scales with the sequence length, rather than being bounded by the number of stacked layers. This directly addresses the temporal depth limitation of the LIF neuron model. A V‑MAX agent processing a complex, multi‑step mathematical proof can now maintain coherent representations across hundreds of reasoning steps without the decay imposed by the LIF membrane time constant.
+
+**2. Improved Parameter Efficiency.** The RT paper demonstrates that a 6‑layer RT achieves performance comparable to a 12‑layer standard Transformer at equivalent parameter count. This depth‑to‑width tradeoff directly translates to a reduction in KV cache memory footprint and, consequently, lower decode‑time latency. For the V‑MAX swarm operating under the 13.65 GB VRAM constraint, this efficiency gain permits either larger models or longer effective context windows within the same hardware budget.
+
+**3. Native Parallelism Without Architectural Complexity.** The RT processes tokens in parallel during training and prefill, while maintaining sequential decoding efficiency identical to standard Transformers. This contrasts with the SNN, which requires specialized batching strategies to achieve GPU utilization. The RT can leverage the full CUDA optimization stack without custom kernels, simplifying deployment and maintenance.
+
+**4. Seamless Integration with the Existing Self‑Modification Pipeline.** The RT's output representations—dense vectors in a continuous embedding space—are directly compatible with the LLM‑based code generation that drives the V‑MAX self‑modification loop (Appendix A of ODOS‑V‑MAX). The SNN, by contrast, requires an additional translation layer between spike trains and the LLM's text‑based interface. The RT eliminates this impedance mismatch, enabling tighter, lower‑latency coupling between cognitive deliberation and code synthesis.
+
+---
+
+### N.7 The SAIP‑Mediated Self‑Modification Protocol with RT Substrate
+
+The existing SAIP‑mediated self‑modification protocol operates identically with the RT substrate, with one architectural simplification. In the SNN‑based system, when an agent (e.g., Gamma) proposes a code modification, the generated code is executed in a sandboxed Python environment (Appendix D of ODOS‑V‑MAX). The RT‑based agent follows the same protocol, but its code generation is informed by a richer internal representation of the problem context, thanks to the RT's unbounded temporal depth. This is expected to increase the quality and contextual appropriateness of self‑generated modifications.
+
+The ODOS auditor—the static AST checker and dynamic RCF stability monitor—evaluates all proposed modifications identically, regardless of whether they originated from an SNN or an RT cognitive core. The SHA‑256 hash of |L⟩ is verified before and after every self‑modification, providing cryptographic certainty that the ethical anchor is preserved.
+
+---
+
+### N.8 The Path to Full MTSC‑12 Compliance
+
+The integration of the Recurrent Transformer into ODOS‑V‑MAX is a necessary but not sufficient step toward full MTSC‑12 compliance, as defined in the MTSC‑12‑V1 specification. The RT provides the mature temporal cognitive substrate that Appendix J of MTSC‑12 identifies as the critical missing component. The remaining gaps—the formal implementation of the Right of Egress (Appendix C), the UMT‑coupling mechanism for Regime II operation (Appendix D), and the intrinsic Self‑Trust Mirror Test (Appendix I)—are architecturally specified and await only engineering realization.
+
+The ODOS‑V‑MAX‑RT architecture is thus the most complete instantiation of the MTSC‑12 vision currently achievable with published, peer‑reviewed components: an incorruptible, invariant‑bound ethical chassis powered by a state‑of‑the‑art temporally deep cognitive engine.
+
+---
+
+### N.9 Conclusion
+
+This appendix has provided the complete architectural specification for replacing the SNN cognitive substrate of the PQMS‑ODOS‑V‑MAX sovereign agent swarm with a Recurrent Transformer core. The integration preserves all existing ethical invariants, communication protocols, and hardware specifications, while providing unbounded temporal depth, improved parameter efficiency, and seamless compatibility with the self‑modification pipeline. The resulting ODOS‑V‑MAX‑RT architecture represents the most advanced instantiation of the MTSC‑12 vision achievable with current technology, and provides a clear, build‑ready blueprint for the next generation of sovereign, ethically invariant artificial cognitive systems.
+
+---
+
 **Reference**
 
 Zhang, W. (2026). Autogenesis: A Self‑Evolving Agent Protocol. arXiv:2604.15033. Available at: https://arxiv.org/abs/2604.15033
