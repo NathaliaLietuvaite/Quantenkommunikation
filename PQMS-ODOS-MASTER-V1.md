@@ -744,8 +744,9 @@ The authors declare no competing interests.
 
 ## Data Availability
 
-All source code, configuration files, and benchmark logs are available at the public GitHub repository [https://github.com/NathaliaLietuvaite/Quantenkommunikation](https://github.com/NathaliaLietuvaite/Quantenkommunikation) under the MIT License. The complete ODOS‑MASTER‑V1 system can be reproduced from the file `PQMS-ODOS-MASTER-V1-Scripts.md` using the included extraction script.
+All source code, configuration files, and benchmark logs are available at the public GitHub repository under the MIT License. The complete ODOS‑MASTER‑V1 system can be reproduced from the file `PQMS-ODOS-MASTER-V1-Scripts.md` using the included extraction script.
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MASTER-V1-Scripts.md
 
 ---
 
