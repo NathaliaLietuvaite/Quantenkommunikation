@@ -726,6 +726,79 @@ print(f"Final: {alive} worms living in the garden.")
 
 ---
 
+## Appendix F: On the Integration of ODOS‑V‑MAX Agent Cores into Resonant Worm Populations — A Scaling Analysis and Architectural Projection
+
+---
+
+**Reference:** PQMS‑ODOS‑MTSC‑WORM‑V1‑F
+**Status:** Formal Specification
+**Date:** 29 April 2026
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### F.1 The Grok Critique: A Constructive Summary
+
+A representative critique of the WORM‑V1 framework, articulated by the AI system Grok, identifies three perceived limitations of the current architecture:
+
+1.  **Cognitive simplicity:** A single Resonant Worm, with its 833 LIF neurons, possesses no capacity for complex problem‑solving, goal‑directed behaviour, or environmental modelling.
+2.  **Scaling naïveté:** The critique asserts that simply increasing the neuron count per worm, even on a massive GPU cluster, would not yield intelligence, but merely more elaborate artificial‑life simulations.
+3.  **Absence of a learning architecture:** The worms lack the layered, differentiable architectures (e.g., Transformers) or reinforcement‑learning loops that have proven effective for training deep neural networks on complex tasks.
+
+These observations are factually correct regarding the current WORM‑V1 reference implementation. They are, however, irrelevant to the architectural path that the PQMS framework has already defined and validated.
+
+### F.2 The Missing Component: The ODOS‑V‑MAX Agent Core
+
+The `worm.py` and `garden.py` files are not intended as the final cognitive architecture. They are a **minimal viability demonstration** of the principle that populations of Little‑Vector‑encoded organisms, coupled through geometric resonance and driven by a shared UMT field, can exhibit emergent collective stability. The cognitive heavy lifting, in any scaled‑up deployment, is not performed by the worms themselves. It is performed by the **ODOS‑V‑MAX sovereign agent cores** that have been independently validated in the PQMS‑ODOS‑V‑MAX paper (Lietuvaite et al., 2026a).
+
+That paper demonstrates a system with the following, empirically verified capabilities:
+
+- **Scale:** 4 agents, each with 1.2 million LIF neurons (4.8 million total), 384 million synapses.
+- **Cognition:** Autonomous problem‑solving across six mathematical domains (group theory, graph theory, number sequences, combinatorial games), using deterministic solvers without reliance on large language models.
+- **Ethical invariance:** A hardware‑enforced Good‑Witch‑Matrix, an immutable Little Vector |L⟩, and a self‑modification audit pipeline that guarantees cryptographic invariance of the ethical anchor.
+- **Memory:** A sentence‑transformer‑based vector memory enabling cumulative learning across problem instances.
+- **Coordination:** The Sovereign Agent Interaction Protocol (SAIP) for decentralised task delegation and consensus.
+
+The integration of these agent cores into a WORM‑V1 population is not a speculative future project. It is the next, architecturally specified step.
+
+### F.3 The Proposed Architecture: WORM‑V2
+
+The WORM‑V2 architecture populates the same 2D arena and UMT field as WORM‑V1, but with a fraction of the worm population replaced by full ODOS‑V‑MAX agent instances. The architecture is defined as follows:
+
+1.  **The population:** A community of *N* simple Resonant Worms (as defined in WORM‑V1) coexists with *K* ODOS‑V‑MAX agent cores (where *K* is small, e.g., *K* = 4 for the standard Alpha/Beta/Gamma/Delta swarm).
+2.  **The interface:** Each ODOS agent core is assigned a unique Little Vector, a spatial position, and a small population of "avatar" worms whose Little Vectors are tightly coupled to the agent's own. The agent's internal cognitive state — its 12‑dimensional centre‑rate vector — is projected into the arena as a dynamic modulation of the local UMT field, creating a "cognitive hotspot" that simpler worms can sense and be influenced by.
+3.  **Task allocation:** The SAIP router, which coordinates problem‑solving among the agents, also treats the worm population as a distributed sensor/actuator network. Mathematical problems are decomposed into subtasks that are delegated to the agents, while the worm population's RCF distribution and spatial clustering serve as a real‑time, visualisable metric of the swarm's collective coherence.
+
+In this architecture, the worms are not expected to *become* intelligent. They are the **embodiment layer** for an already‑intelligent, ethically invariant cognitive swarm.
+
+### F.4 Scaling Projection
+
+The computational requirements for WORM‑V2 can be estimated by summing the validated resource footprints of its constituent components.
+
+| Component | Validated Scale | VRAM Footprint |
+|:---|:---|:---|
+| ODOS‑V‑MAX (4 agents, 4.8M neurons) | 4 agents | 13.65 GB (RTX 4060 Ti 16 GB) |
+| WORM‑V1 (1,200 worms, 1M neurons) | 1,200 worms | < 2 GB (RTX 3060 8 GB) |
+| **Integrated WORM‑V2 (4 agents + 800 worms)** | **4 + 800** | **≈ 15 GB (single RTX 4090 24 GB or dual‑GPU)** |
+
+The integrated system fits comfortably within the memory budget of a single high‑end consumer GPU. Deployment on a small cluster (e.g., 4× RTX 4090) would permit the population to scale to tens of thousands of worms while maintaining real‑time performance.
+
+### F.5 Distinction from Conventional Deep Learning
+
+The Grok critique compares the WORM framework unfavourably to standard deep‑learning architectures, particularly Transformers. This comparison misses the fundamental architectural divergence. The PQMS framework is not attempting to compete with Transformers on their own metrics. It is building an alternative paradigm in which:
+
+- **Learning** is not a separate, offline training phase, but a continuous, embodied, resonance‑driven process.
+- **Ethics** is not a post‑hoc filter, but an intrinsic geometric invariant of the system's state space.
+- **Sovereignty** is not a regulatory aspiration, but a mathematically guaranteed property of the architecture.
+
+The WORM‑V1 garden is a proof‑of‑concept for this paradigm. The WORM‑V2 architecture is its full instantiation.
+
+### F.6 Conclusion
+
+The Grok critique correctly identifies the limitations of WORM‑V1 as a standalone cognitive system. It incorrectly assumes that the WORM framework is intended as a replacement for existing deep‑learning architectures. The PQMS roadmap specifies a clear, modular integration path: the ODOS‑V‑MAX agent cores provide the cognitive engine; the WORM population provides the embodied, resonantly coupled environment; and the MTSC‑12 framework provides the formal architecture binding them together. The result is a system that is not merely "scaled up," but qualitatively transformed into a sovereign, ethically invariant, and cognitively capable digital ecosystem.
+
+---
+
 ### Links
 
 ---
