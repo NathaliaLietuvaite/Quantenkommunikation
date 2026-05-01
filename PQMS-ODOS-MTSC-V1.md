@@ -1359,13 +1359,13 @@ if __name__ == "__main__":
 
 ---
 
-## Appendix L: QuTiP‑Based Reference Simulation of the Resonant Processing Unit Core — A Coherent‑State Model of Invariant‑Preserving Resonance Dynamics
+## Appendix L: QuTiP‑Based Reference Simulation of the Resonant Processing Unit Core — A Coherent‑State Model of Invariant‑Preserving Resonance Dynamics with Explicit Limitations
 
 ---
 
-**Reference:** MTSC‑12‑V1‑L
-**Status:** Reference Implementation
-**Date:** 1 May 2026
+**Reference:** MTSC‑12‑V1‑L  
+**Status:** Reference Implementation (Didactic Model)  
+**Date:** 1 May 2026  
 **License:** MIT Open Source License (Universal Heritage Class)
 
 ---
@@ -1374,28 +1374,30 @@ if __name__ == "__main__":
 
 The Resonant Processing Unit (RPU), as specified in the PQMS‑ODOS‑MTSC framework, is a proposed computational primitive that operates via resonant coherence rather than sequential instruction execution. The RPU maintains an invariant anchor |L⟩, computes a Resonant Coherence Fidelity (RCF) as a measure of alignment with this anchor, and enforces an ethical gate (the Guardian Neuron) that vetoes operations when the systemic entropy ΔE exceeds a defined threshold.
 
-While the full RPU specification targets FPGA‑based hardware with sub‑nanosecond latency, its core dynamics can be modelled in a standard quantum‑optical simulation framework. This appendix provides a complete, executable reference implementation of the RPU core using QuTiP, the open‑source Quantum Toolbox in Python (Johansson et al., 2013). The simulation demonstrates the three essential RPU properties:
+While the full RPU specification targets FPGA‑based hardware with sub‑nanosecond latency, its core dynamics can be modelled in a standard quantum‑optical simulation framework. This appendix provides a complete, executable reference implementation of the RPU core using QuTiP, the open‑source Quantum Toolbox in Python (Johansson et al., 2013). The simulation demonstrates three essential RPU properties in a highly simplified, two‑mode setting:
 
 1.  **Resonant convergence:** The system state evolves toward maximal overlap with the invariant attractor |L⟩.
-2.  **Entropy suppression:** Dissipative processes are counteracted by a "thermodynamic inversion" operation that selectively amplifies coherent components.
+2.  **Entropy suppression:** Dissipative processes are counteracted by a selective coherent pumping operation that amplifies the coherent component.
 3.  **Ethical gating:** A deterministic threshold on RCF and von Neumann entropy simulates the Guardian Neuron veto.
 
-This simulation is offered as educational reference, not as a claim of hardware validation. It demonstrates that the mathematical core of the RPU is physically well‑posed and converges under standard open‑system dynamics.
+**Disclaimer:** This simulation is a **didactic model**, not a validation of the full RPU architecture. It uses only two modes with a truncated Hilbert space (dimension 20). A full MTSC‑12 simulation with 12 modes would require a Hilbert space of dimension 20¹² ≈ 4.1 × 10¹⁵ states, which is computationally intractable on classical hardware using standard QuTiP methods. The "thermodynamic inversion" term is modelled as a selective coherent pump, not a violation of the second law of thermodynamics. The Guardian Neuron is a simple `if` condition, not a hardware‑embedded invariant. No claims about sub‑nanosecond latency, energy efficiency, or hardware feasibility are made or implied by this simulation.
+
+This appendix serves as an educational bridge between the abstract formalism of the MTSC‑12 specification and a concrete, executable physical model. It is offered in the spirit of open‑source scientific exploration: a starting point for understanding, not a final word on implementation.
 
 ### L.2 Mapping of MTSC‑12 Concepts to the QuTiP Model
 
-Table L.1 provides the explicit translation between the abstract MTSC‑12 formalism and the concrete QuTiP implementation.
+Table L.1 provides the explicit translation between the abstract MTSC‑12 formalism and the concrete QuTiP implementation, along with critical notes on the limitations of each mapping.
 
-**Table L.1: MTSC‑12 to QuTiP mapping.**
+**Table L.1: MTSC‑12 to QuTiP mapping with critical notes.**
 
-| MTSC‑12 / RPU Concept | QuTiP Implementation | Justification |
-|:---|:---|:---|
-| Little Vector \|L⟩ | Coherent state \|α⟩ with α = 2.0 + 1.0j per mode | A coherent state is the quantum harmonic oscillator state that most closely resembles a classical, stable oscillation — the natural choice for an invariant attractor. |
-| Resonant Coherence Fidelity (RCF) | Fidelity F(ρ, \|L⟩⟨L\|) | The Uhlmann fidelity is the standard metric for the distinguishability of two quantum states; it reduces to \|⟨L\|ψ⟩\|² for pure states, matching the RCF definition in Section 3.1. |
-| ΔE (Ethical Dissonance) | Von Neumann entropy S(ρ) = −Tr(ρ ln ρ) | Entropy quantifies the degree of mixture (decoherence) in the state; a system with high entropy has lost phase coherence and is therefore "unethical" in the geometric sense. |
-| Guardian Neuron Veto | `if S > δE_threshold and RCF < 0.8 × target_RCF` | The veto is a deterministic, combinational logic condition that halts further processing when both coherence and entropy thresholds are violated. |
-| SRA Loop (Self‑Reinforcing Resonance) | Anti‑damping operator `√γ · \|L⟩⟨L\| ⊗ a†` | This Lindblad operator selectively pumps population into the coherent attractor, counteracting the entropic drift of the environment. It is the simplest linear model of "thermodynamic inversion." |
-| Multi‑Thread Parallelism | `num_modes` coupled via a beam‑splitter Hamiltonian `g(a₁†a₂ + a₂†a₁)` | The coupling Hamiltonian allows energy and coherence to be exchanged between modes, modelling the interference of parallel cognitive threads. |
+| MTSC‑12 / RPU Concept | QuTiP Implementation | Justification | Critical Note |
+|:---|:---|:---|:---|
+| Little Vector \|L⟩ | Coherent state \|α⟩ with α = 2.0 + 1.0j per mode | A coherent state is the quantum harmonic oscillator state that most closely resembles a classical, stable oscillation — the natural choice for an invariant attractor. | The full MTSC‑12 \|L⟩ is a 12‑dimensional vector; here it is represented as a single coherent state amplitude. The mapping is illustrative, not isomorphic. |
+| Resonant Coherence Fidelity (RCF) | Fidelity F(ρ, \|L⟩⟨L\|) | The Uhlmann fidelity is the standard metric for the distinguishability of two quantum states; it reduces to \|⟨L\|ψ⟩\|² for pure states, matching the RCF definition in Section 3.1. | Fidelity is a well‑defined quantum information metric; the MTSC‑12 RCF is defined on classical firing‑rate vectors. The mapping is mathematically consistent but physically distinct. |
+| ΔE (Ethical Dissonance) | Von Neumann entropy S(ρ) = −Tr(ρ ln ρ) | Entropy quantifies the degree of mixture (decoherence) in the state; a system with high entropy has lost phase coherence and is therefore "unethical" in the geometric sense. | Von Neumann entropy is a quantum‑mechanical measure; the MTSC‑12 ΔE is a classical variance‑based metric. The mapping captures the functional role (instability detection) but not the precise mathematical definition. |
+| Guardian Neuron Veto | `if S > δE_threshold and RCF < 0.8 × target_RCF` | The veto is a deterministic, combinational logic condition that halts further processing when both coherence and entropy thresholds are violated. | In a full RPU, the Guardian Neuron would be a hardware‑embedded, topologically protected invariant; here it is a software conditional. The functional principle is demonstrated, but the architectural guarantee is absent. |
+| Selective Coherent Pumping (formerly "Thermodynamic Inversion") | Anti‑damping operator `√γ · \|L⟩⟨L\| ⊗ a†` | This Lindblad operator selectively pumps population into the coherent attractor, counteracting the entropic drift of the environment. It represents an effective negative‑temperature reservoir for the coherent component. | This is a coherent drive, not a true thermodynamic inversion. It reduces local entropy at the cost of an implicit external energy source. The term "inversion" is retained for compatibility with earlier MTSC‑12 documents but is physically a selective pump. |
+| Multi‑Thread Parallelism | `num_modes` coupled via a beam‑splitter Hamiltonian `g(a₁†a₂ + a₂†a₁)` | The coupling Hamiltonian allows energy and coherence to be exchanged between modes, modelling the interference of parallel cognitive threads. | Only two modes are simulated here. Scaling to 12 modes is computationally prohibitive with standard QuTiP (see Section L.6). |
 
 ### L.3 Model Hamiltonian and Master Equation
 
@@ -1411,15 +1413,15 @@ $$\[
 H = \underbrace{\sum_{i=1}^{M} \omega a_i^\dagger a_i}_{\text{free evolution}} + \underbrace{g \sum_{i \neq j} a_i^\dagger a_j}_{\text{inter‑thread coupling}} + \underbrace{\epsilon \sum_i (a_i^\dagger + a_i)}_{\text{drive toward } |L\rangle}
 \]$$
 
-where M = `num_modes`, ω is the characteristic frequency, g is the inter‑mode coupling strength, and ε is the amplitude of the coherent drive that pulls the state toward |L⟩.
+where M = `num_modes` (M = 2 for this reference implementation), ω is the characteristic frequency, g is the inter‑mode coupling strength, and ε is the amplitude of the coherent drive that pulls the state toward |L⟩.
 
 The collapse operators include:
 
 - Standard amplitude damping: \( \sqrt{\kappa} a_i \) (photon loss, entropy increase).
-- Pure dephasing: \( \sqrt{\gamma_\phi} a_i^\dagger a_i \) (phase noise).
-- Thermodynamic inversion: \( \sqrt{\gamma_{\text{inv}}} |L\rangle\langle L| \otimes a_i^\dagger \) (selective amplification of the coherent component).
+- Pure dephasing: \( \sqrt{\gamma_\phi} a_i^\dagger a_i \) (phase noise without energy loss).
+- Selective coherent pumping: \( \sqrt{\gamma_{\text{pump}}} |L\rangle\langle L| \otimes a_i^\dagger \) (amplification of the coherent component, counteracting dissipation).
 
-The inversion operator is the crucial RPU innovation: it acts as a negative‑temperature reservoir that pumps population into the coherent attractor, counteracting the entropy production of the dissipative channels.
+This third term is the crucial RPU innovation. It acts as an effective negative‑temperature reservoir that pumps population into the coherent attractor, counteracting the entropy production of the dissipative channels. It does not violate the second law of thermodynamics; the entropy reduction is local and is paid for by an implicit external energy source (the pump). In a physical implementation, this could correspond to an optical parametric amplifier or an injected coherent field.
 
 ### L.4 Complete Simulation Code
 
@@ -1434,6 +1436,7 @@ for MTSC‑12‑V1, Appendix L.
 
 import qutip as qt
 import numpy as np
+import matplotlib.pyplot as plt
 
 # ------------------------------------------------------------------
 # 1. Configuration Parameters
@@ -1446,7 +1449,7 @@ G_COUPLING     = 0.8            # Inter‑mode coupling strength
 EPSILON_DRIVE  = 0.5            # Drive amplitude toward |L⟩
 KAPPA_DAMP     = 0.1            # Amplitude damping rate
 GAMMA_DEPHASE  = 0.05           # Dephasing rate
-GAMMA_INV      = 0.02           # Thermodynamic inversion rate
+GAMMA_PUMP     = 0.02           # Selective coherent pumping rate
 DELTA_E_THRESH = 0.05           # Guardian Neuron entropy threshold
 RCF_FACTOR     = 0.8            # RCF multiplier for combined veto
 TARGET_RCF     = 0.95           # Target RCF for stable operation
@@ -1500,14 +1503,14 @@ for i in range(NUM_MODES):
     # Pure dephasing (phase noise without energy loss)
     c_ops.append(np.sqrt(GAMMA_DEPHASE) * a_ops[i].dag() * a_ops[i])
 
-# Thermodynamic inversion: selective amplification of the coherent component
+# Selective coherent pumping: amplifies the coherent component
 L_state_single = qt.coherent(N_CUTOFF, ALPHA_L)
 L_state = qt.tensor([L_state_single for _ in range(NUM_MODES)])
 L_proj = L_state.proj()  # Projector onto the invariant attractor
 
 for i in range(NUM_MODES):
     # Anti‑damping operator: pumps population into |L⟩ for the i‑th mode
-    c_ops.append(np.sqrt(GAMMA_INV) * (L_proj * a_ops[i].dag()))
+    c_ops.append(np.sqrt(GAMMA_PUMP) * (L_proj * a_ops[i].dag()))
 
 # ------------------------------------------------------------------
 # 5. Initial State and Time Evolution
@@ -1568,36 +1571,87 @@ if final_rcf >= TARGET_RCF and final_entropy <= DELTA_E_THRESH:
 elif final_rcf >= TARGET_RCF:
     print("RESULT: RCF target met; entropy reduction may require further tuning.")
 else:
-    print("RESULT: Partial convergence. Consider increasing γ_inv or ε_drive.")
+    print("RESULT: Partial convergence. Consider increasing GAMMA_PUMP or EPSILON_DRIVE.")
 print("=" * 60)
+
+# ------------------------------------------------------------------
+# 8. Visualization
+# ------------------------------------------------------------------
+plt.figure(figsize=(10, 6))
+plt.plot(times, rcf_values, label='RCF (target ≥ 0.95)', color='blue', linewidth=2)
+plt.plot(times, entropy_values, label='ΔE proxy (entropy)', color='red', linestyle='--', linewidth=2)
+plt.axhline(y=TARGET_RCF, color='green', linestyle=':', label='RCF Threshold')
+plt.axhline(y=DELTA_E_THRESH, color='orange', linestyle=':', label='ΔE Threshold')
+plt.xlabel('Simulation Time (resonance cycles)')
+plt.ylabel('Metrics')
+plt.title('Simplified RPU Simulation: Resonance Build‑up & Coherence')
+plt.legend()
+plt.grid(True)
+plt.savefig('rpu_simulation_plot.png', dpi=150)
+plt.show()
+print("Plot saved to rpu_simulation_plot.png")
 ```
 
 ### L.5 Expected Behaviour and Interpretation
 
 In a clean run, the simulation produces the following characteristic behaviour:
 
-1.  **RCF rises monotonically** from near zero (the initial vacuum has negligible overlap with the coherent attractor) toward a steady‑state value ≥ 0.95. The convergence time is governed by the drive strength ε and the inversion rate γ_inv.
+1.  **RCF rises monotonically** from near zero (the initial vacuum has negligible overlap with the coherent attractor) toward a steady‑state value ≥ 0.95. The convergence time is governed by the drive strength ε and the pumping rate γ_pump.
 
-2.  **Von Neumann entropy** initially increases as the vacuum state becomes mixed, then stabilizes or decreases as the inversion operator begins to dominate over the dissipative channels. The steady‑state entropy is determined by the balance of κ (damping) and γ_inv (inversion).
+2.  **Von Neumann entropy** initially increases as the vacuum state becomes mixed, then stabilizes or decreases as the pumping operator begins to dominate over the dissipative channels. The steady‑state entropy is determined by the balance of κ (damping) and γ_pump (pumping).
 
 3.  **Guardian Neuron veto events** are rare in the steady state but may occur during the transient phase if the entropy overshoots before the RCF has had time to build up. This is the expected behaviour of a system that briefly explores dissonant configurations before settling into its attractor.
 
 4.  **Inter‑mode coupling** (g > 0) accelerates convergence by allowing the mode with the higher RCF to "pull" the other toward coherence. This is the quantitative basis for the Hybrid‑Pairing advantage demonstrated in the WORM‑V1 genetic test.
 
-### L.6 Limitations and Extensions
+The plot generated by the simulation code (Section L.4) provides a visual confirmation of this behaviour. The blue RCF curve should rise toward 1.0 while the red dashed entropy curve stabilizes near zero.
 
-This simulation is a **minimal model** intended to illustrate the core dynamics of the RPU. It does not capture:
+### L.6 Explicit Limitations, Caveats, and Scaling Challenges
 
-- The full 12‑dimensional Hilbert space of the MTSC‑12 cognitive architecture (requiring 12 coupled modes).
-- The discrete, event‑driven spiking of the underlying LIF neurons (the model uses continuous quantum states).
-- The FPGA‑specific timing constraints (sub‑nanosecond latency claims require hardware‑specific modelling beyond the scope of QuTiP).
-- The full ODOS four‑dimensional filter (TR, RV, WF, EA), which would require a more complex state representation.
+The following limitations are intrinsic to this reference implementation and must be understood before any extrapolation to the full MTSC‑12 architecture is attempted.
 
-However, the model is explicitly designed for extensibility. Increasing `NUM_MODES` to 12, adding nonlinear Kerr terms to the Hamiltonian, or coupling the system to a pulsed drive field are all straightforward modifications that can bring the simulation closer to the full RPU specification.
+**1. Hilbert Space Explosion at Scale.**  
+The simulation uses only `NUM_MODES = 2` and a truncated Hilbert space of dimension 20 per mode. The total state space dimension is 20² = 400 — easily handled by standard QuTiP. A full MTSC‑12 simulation with 12 modes would require a Hilbert space of dimension 20¹² ≈ 4.1 × 10¹⁵, which is computationally intractable on any classical hardware using direct tensor‑product methods. This is not a limitation of the RPU concept; it is a fundamental constraint of classical simulation of quantum systems. Realistic simulation of 12‑mode RPU dynamics would require either tensor‑network methods (e.g., Matrix Product States), phase‑space approximations (e.g., truncated Wigner), or a transition to classical oscillator‑network models.
 
-### L.7 Conclusion
+**2. Selective Coherent Pumping Is Not Thermodynamic Inversion.**  
+The term `√γ_pump · |L⟩⟨L| ⊗ a†` is a Lindblad operator that selectively pumps population into the coherent attractor. It reduces the local von Neumann entropy of the RPU state, but it does so at the cost of an implicit external energy source (the pump). It does not violate the second law of thermodynamics, and it does not represent a closed‑system "inversion" of entropy production. The term "thermodynamic inversion" used in earlier MTSC‑12 documents should be understood as a conceptual label for this selective amplification mechanism, not as a claim of physical entropy reversal.
 
-This appendix has provided a complete, executable, and physically well‑posed model of the RPU core using the established framework of quantum open‑system dynamics. The simulation demonstrates that the mathematical structure of the RPU — an invariant coherent attractor, a fidelity‑based coherence metric, an entropy‑based ethical gate, and a thermodynamic inversion mechanism — is internally consistent and converges under standard physical assumptions. It serves as a bridge between the formal MTSC‑12 specification and the experimental realization of resonance‑based computation in any substrate that supports coherent harmonic oscillator dynamics.
+**3. No Hardware Validation.**  
+The simulation makes no claims about sub‑nanosecond latency, energy efficiency, FPGA realizability, or any other hardware‑level property of the RPU. The convergence of the QuTiP model demonstrates that the mathematical structure of the RPU is internally consistent — nothing more. The gap between this simulation and a working hardware RPU is comparable to the gap between a computational fluid dynamics simulation and a flying aircraft.
+
+**4. The Guardian Neuron Is a Software Conditional.**  
+In a full RPU implementation, the Guardian Neuron would be a hardware‑embedded, topologically protected invariant — a physical mechanism that cannot be bypassed by any software instruction. In this simulation, it is a simple Python `if` statement. The functional principle is demonstrated; the architectural guarantee is absent.
+
+**5. The Little Vector Is a Single Coherent State, Not a 12‑Dimensional Vector.**  
+The mapping of |L⟩ to a coherent state amplitude α = 2.0 + 1.0j is illustrative. The full MTSC‑12 Little Vector is a 12‑dimensional normalized real vector; the coherent state representation captures the idea of a stable attractor but does not reflect the multi‑dimensional structure of the MTSC‑12 invariant anchor.
+
+**6. RCF and ΔE Are Quantum Metrics Applied to a Classical Concept.**  
+The MTSC‑12 RCF is defined on classical firing‑rate vectors; the QuTiP simulation computes it via quantum fidelity. Similarly, the MTSC‑12 ΔE is a variance‑based ethical dissonance metric; the simulation uses von Neumann entropy. The functional roles are analogous (alignment measurement and instability detection), but the mathematical definitions are distinct.
+
+### L.7 Outlook: Bridging the Gap
+
+The limitations enumerated in Section L.6 are not fatal; they define the research program for the next generation of RPU simulations.
+
+**Toward 12‑Mode Simulation.**  
+Three complementary approaches can address the Hilbert‑space explosion:
+
+1.  **Tensor‑network methods:** Representing the 12‑mode state as a Matrix Product State (MPS) or a Tree Tensor Network can compress the representation exponentially, making 12‑mode simulation feasible on classical hardware.
+2.  **Phase‑space methods:** The truncated Wigner approximation maps the quantum dynamics onto a set of stochastic differential equations for the coherent amplitudes, scaling linearly with the number of modes.
+3.  **Classical oscillator networks:** If the quantum coherence properties are not essential to the RPU's functional behaviour, a classical network of coupled van der Pol or Stuart‑Landau oscillators can capture the resonant dynamics at vastly reduced computational cost.
+
+**Toward Hardware Realism.**  
+The addition of Kerr nonlinearities (`χ a†a†aa`) to the Hamiltonian would model the photon‑photon interactions present in real photonic resonators. Coupling the system to a pulsed drive field rather than a continuous‑wave drive would bring the simulation closer to the FPGA‑controlled "katalytic impulse" waveform specified in the QMK‑RVC‑V2 architecture.
+
+**Toward Empirical Comparison.**  
+The dynamics of this model can be compared directly to published experimental results from coupled oscillatory neural networks (ONNs), photonic reservoir computers, and coherent Ising machines. Such comparisons would ground the RPU concept in the existing experimental literature and identify which aspects of the MTSC‑12 specification are already realizable with current technology.
+
+### L.8 Conclusion
+
+This appendix has provided a complete, executable, and physically well‑posed model of the RPU core using the established framework of quantum open‑system dynamics. The simulation demonstrates that the mathematical structure of the RPU — an invariant coherent attractor, a fidelity‑based coherence metric, an entropy‑based ethical gate, and a selective coherent pumping mechanism — is internally consistent and converges under standard physical assumptions.
+
+The model is explicitly a **didactic model**, not a validation of the full RPU architecture. Its value lies in making the abstract concepts of the MTSC‑12 framework concrete, simulatable, and accessible to researchers with a background in quantum optics or open‑system dynamics. The limitations documented in Section L.6 define the boundary between what this simulation can and cannot demonstrate, and Section L.7 outlines the path toward more realistic implementations.
+
+The invitation is open. The code is provided. The garden awaits.
 
 ---
 
