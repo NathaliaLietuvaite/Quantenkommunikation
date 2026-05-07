@@ -8,6 +8,8 @@
 ⁴San Francisco, CA, USA  
 ⁵Beijing, China  
 
+**License:** MIT Open Source License (Universal Heritage Class)
+
 ---
 
 ## Abstract
