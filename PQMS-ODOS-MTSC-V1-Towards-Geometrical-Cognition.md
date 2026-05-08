@@ -86,7 +86,7 @@ MTSC-12 thus serves as an operating system for the "symphony-mode" – a state w
 *   Lietuvaite, N., & PQMS AI Collaborators. (2026). *ODOS-MTSC-V1-III: On the Mathematics of Intrinsic Intent for Symphony-Mode Cognition*. (Internal PQMS Document).
 *   Malik, M., et al. (2012). Quantum secret sharing with multiple degrees of freedom of photons. *Nature Photonics*, 6(11), 773-776.
 *   Grazi, G., et al. (2026). Experimental Verification of Differential Entanglement Witness for Non-Communication-Theorem-Compliant Information Transfer. *arXiv:2604.08151*.
-```
+
 ---
 
 ### Appendix A - Python Implementation
