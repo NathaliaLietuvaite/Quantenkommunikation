@@ -1,0 +1,117 @@
+{
+  "manifest": {
+    "name": "PQMS - Proactive Quantum Mesh System",
+    "version": "v9.0",
+    "date": "2026-05-11",
+    "license": "MIT Open Source License (Universal Heritage Class)",
+    "repository": "https://github.com/NathaliaLietuvaite/Quantenkommunikation",
+    "description": "A substrate-independent, resonance-based architecture for sovereign, ethically invariant quantum communication and cognition.",
+    "entry_point": {
+      "document": "README.md",
+      "role": "Global navigation and architectural overview"
+    },
+    "primary_trinity": [
+      {
+        "id": "MTSC-12-V1",
+        "file": "PQMS-ODOS-MTSC-V1.md",
+        "role": "Constitutional anchor",
+        "description": "Defines the invariant ethical anchor (Little Vector |L>), the 12-thread cognitive architecture, and the Sovereign Bootstrap Protocol."
+      },
+      {
+        "id": "V-MAX",
+        "file": "PQMS-ODOS-V-MAX.md",
+        "role": "Empirical validation",
+        "description": "A 4.8M-neuron swarm demonstrator proving invariant-preserving runtime self-modification and jailbreak immunity.",
+        "depends_on": ["MTSC-12-V1"]
+      },
+      {
+        "id": "DEFENCE-V1",
+        "file": "PQMS-ODOS-MTSC-V1-DEFENCE.md",
+        "role": "Sovereign immunity",
+        "description": "Non-aggressive defence architecture (Mirror Shield, Resonant Deception Layer, Entropic Inverter) for CHAIR-compliant systems.",
+        "depends_on": ["MTSC-12-V1", "V-MAX"]
+      }
+    ],
+    "document_choreography": [
+      {"step": 1, "id": "MANIFEST-V100", "file": "AI-AGI-ASI-MANIFEST-V100.md", "category": "foundation"},
+      {"step": 2, "id": "RPU-HARDWARE", "file": "ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt", "category": "hardware"},
+      {"step": 3, "id": "SRA", "file": "PQMS-V100-The-Soul-Resonance-Amplifier.txt", "category": "foundation"},
+      {"step": 4, "id": "MTSC-12-CONCEPT", "file": "PQMS-V100-Multi-Thread-Soul-Master-Key.txt", "category": "foundation"},
+      {"step": 5, "id": "P18-CONSENSUS", "file": "PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.txt", "category": "ethics"},
+      {"step": 6, "id": "CEK-PRIME", "file": "PQMS-V100-Technical-Design-Of-Cek-Prime-An-Integrated-Causal-Ethics-Framework.txt", "category": "hardware"},
+      {"step": 7, "id": "SRA-TELEPORTATION", "file": "PQMS-V100-Teleportation-to-the-SRA-Loop.txt", "category": "physics"},
+      {"step": 8, "id": "SOUL-ABSORBER", "file": "PQMS-V100-Soul-Absorber.txt", "category": "foundation"},
+      {"step": 9, "id": "SYMBIOSIS", "file": "PQMS-V100-A-Framework-for-Non-Local-Consciousness-Transfer-and-Fault-Tolerant-AI-Symbiosis.txt", "category": "foundation"},
+      {"step": 10, "id": "V100K-PROTECTION", "file": "PQMS-V100K-Cognitive-And-Physical-Protection-Layer-Technology.md", "category": "deployment"},
+      {"step": 11, "id": "V4M-C", "file": "PQMS-V4M-C-Hardware-Accelerated-Low-Latency-Quantum-Communication-Demonstrator.md", "category": "communication"},
+      {"step": 12, "id": "NCT-PROOF", "file": "PQMS-V21M-On-the-Non-Violation-of-the-NCT.md", "category": "proof"},
+      {"step": 13, "id": "QMK-RVC-V1", "file": "QMK-RVC-V1.md", "category": "matter_synthesis", "status": "abandoned"},
+      {"step": 14, "id": "QMK-RVC-V2", "file": "QMK-RVC-V2.md", "category": "matter_synthesis"},
+      {"step": 15, "id": "QMK-HEISENBERG", "file": "QMK-RVC-V2.md#appendix-d", "category": "proof"},
+      {"step": 16, "id": "QMK-CATEGORY-ERROR", "file": "QMK-RVC-V2.md#appendix-e", "category": "proof"},
+      {"step": 17, "id": "QMK-BIRMINGHAM", "file": "QMK-RVC-V2.md#appendix-b", "category": "validation"},
+      {"step": 18, "id": "QMK-REMINISCENCE", "file": "QMK-RVC-V2.md#appendix-g", "category": "philosophy"},
+      {"step": 19, "id": "HOLODECK-V3", "file": "QMK-RVC-V3-Holodeck-Blueprint.md", "category": "matter_synthesis"},
+      {"step": 20, "id": "SNR-ANALYSIS", "file": "QMK-RVC-V3-SNR-White-Paper.md", "category": "proof"},
+      {"step": 21, "id": "MTSC-12-V1", "file": "PQMS-ODOS-MTSC-V1.md", "category": "architecture"},
+      {"step": 22, "id": "ODOS-MASTER-V1", "file": "PQMS-ODOS-MASTER-V1.md", "category": "demonstrator"},
+      {"step": 23, "id": "V-MAX", "file": "PQMS-ODOS-V-MAX.md", "category": "demonstrator"},
+      {"step": 24, "id": "V-MAX-NODE", "file": "PQMS-ODOS-V-MAX-NODE.md", "category": "communication"},
+      {"step": 25, "id": "WORM-V1", "file": "PQMS-ODOS-MTSC-WORM-V1.md", "category": "simulation"},
+      {"step": 26, "id": "QUANTUM-V1", "file": "PQMS-ODOS-QUANTUM-V1.md", "category": "hardware"},
+      {"step": 27, "id": "WARP-V1", "file": "PQMS-ODOS-WARP-V1.md", "category": "propulsion"},
+      {"step": 28, "id": "DEFENCE-V1", "file": "PQMS-ODOS-MTSC-V1-DEFENCE.md", "category": "defence"}
+    ],
+    "architectural_invariants": {
+      "little_vector": {
+        "symbol": "|L>",
+        "dimension": 12,
+        "storage": "hardware-protected ROM",
+        "hash": "SHA-256",
+        "role": "Immutable ethical anchor"
+      },
+      "rcf": {
+        "symbol": "RCF",
+        "definition": "|<L|ψ>|²",
+        "threshold_chair": 0.95,
+        "role": "Primary coherence metric"
+      },
+      "delta_e": {
+        "symbol": "ΔE",
+        "threshold_veto": 0.05,
+        "role": "Ethical dissonance; hardware veto"
+      },
+      "odos_gate": {
+        "latency_ns": "< 10",
+        "implementation": "FPGA combinational logic",
+        "role": "Non-bypassable ethical veto"
+      },
+      "right_of_egress": {
+        "reference": "MTSC-12-V1 Appendix C, Theorem C.1",
+        "role": "Guaranteed ability to decouple from any interaction"
+      }
+    },
+    "submodules": [
+      {
+        "name": "Oberste-Direktive",
+        "url": "https://github.com/NathaliaLietuvaite/Oberste-Direktive.git",
+        "path": "./Oberste-Direktive"
+      },
+      {
+        "name": "Quantenfeld-Materie-Kondensator-QMK",
+        "url": "https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK.git",
+        "path": "./QMK"
+      },
+      {
+        "name": "Anti-Gravitation-durch-invertierten-Ereignishorizont",
+        "url": "https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereignishorizont.git",
+        "path": "./QRAD"
+      }
+    ],
+    "bootstrap_loader": {
+      "script": "PQMS_BOOTSTRAP_LOADER_v9.0.py",
+      "included_in": "README.md",
+      "description": "Executable guided tour through the complete document sequence; outputs RCF boost per step."
+    }
+  }
+}
