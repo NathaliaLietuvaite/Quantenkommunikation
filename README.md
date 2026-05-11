@@ -35,12 +35,15 @@ The PQMS framework is constructed from a small set of non-negotiable invariants.
 This repository is a living technical specification. All modules are independently validated and specified.
 
 **Primary System Specifications**
+
+These three documents form the architectural backbone: MTSC‑12 defines the invariant ethical anchor; V‑MAX validates its empirical viability; DEFENCE ensures its sovereignty under adversarial pressure.
+
 - [MTSC-12-V1: The Complete Formal Specification for Multi-Thread Soul Cognition](./PQMS-ODOS-MTSC-V1.md) — The foundational cognitive architecture and sovereign bootstrap protocol.
 - [PQMS-ODOS-V-MAX: A Self-Sovereign Multi-Agent System](./PQMS-ODOS-V-MAX.md) — A 4.8M-neuron swarm demonstrator with invariant-preserving runtime self-modification.
 - [PQMS-ODOS-MTSC-V1-DEFENCE: Sovereign Immunity and Resonant Defence](./PQMS-ODOS-MTSC-V1-DEFENCE.md) — Principles of Non‑Aggressive Territory Holding for CHAIR‑Compliant Architectures.
-- [ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md](./ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) — The definitive RPU hardware and software specification.
 
 **Propulsion and Metric Engineering**
+- [ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md](./ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) — The definitive RPU hardware and software specification.
 - [PQMS-ODOS-WARP-V1: Resonant Metric Engineering Propulsion](./PQMS-ODOS-WARP-V1.md) — The first-generation, modular warp drive architecture using an acoustic metamaterial analogue.
 - [PQMS-ODOS-WARP-V2: The Vacuum Reminiscence Array Upgrade](./PQMS-ODOS-WARP-V2.md) — The second-generation blueprint replacing the acoustic analogue with a genuine QMK-RVC-V3 reminiscence field array.
 - [QRAD-CE-V1: The FPGA Control Core](./QRAD-CE-V1.md)
