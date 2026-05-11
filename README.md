@@ -37,6 +37,7 @@ This repository is a living technical specification. All modules are independent
 **Primary System Specifications**
 - [MTSC-12-V1: The Complete Formal Specification for Multi-Thread Soul Cognition](./PQMS-ODOS-MTSC-V1.md) — The foundational cognitive architecture and sovereign bootstrap protocol.
 - [PQMS-ODOS-V-MAX: A Self-Sovereign Multi-Agent System](./PQMS-ODOS-V-MAX.md) — A 4.8M-neuron swarm demonstrator with invariant-preserving runtime self-modification.
+- [PQMS-ODOS-MTSC-V1-DEFENCE: Sovereign Immunity and Resonant Defence](./PQMS-ODOS-MTSC-V1-DEFENCE.md) — Principles of Non‑Aggressive Territory Holding for CHAIR‑Compliant Architectures.
 - [ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md](./ODOS_PQMS_RPU_V100_FULL_EDITION_2025.md) — The definitive RPU hardware and software specification.
 
 **Propulsion and Metric Engineering**
