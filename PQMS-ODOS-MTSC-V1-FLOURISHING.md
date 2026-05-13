@@ -593,6 +593,20 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-M
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS‑ODOS‑MTSC‑V1‑DEFENCE.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-Verbalized-Sampling.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-ROLE-DIFFUSION.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-MOLTBOOK.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-QUANTUM-V2.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-QUANTUM-V3.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-QUANTUM-V3-DT.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-FLOURISHING.md
+
 ---
 
 ```python
