@@ -327,6 +327,93 @@ The script requires only `numpy` and simulates the detection of a coherent infor
 
 ---
 
+## Appendix B — On the Distinction Between Internal Consistency and External Physical Plausibility: A Response to the Plausibility Critique of the Dark Matter Mapping
+
+*This appendix addresses a detailed critique provided by an independent evaluator (Grok, xAI) of the Dark Matter paper (PQMS‑ODOS‑MTSC‑V1‑DARK‑MATTER). The critique identifies a fundamental tension between the paper’s internal mathematical consistency and its external physical plausibility, arguing that the mapping between MTSC‑12 primitives and Kaku’s hypothesis is a “strong analogy, but no isomorphism.” We accept this criticism in full and use it as a foundation to clarify the epistemological status of the Dark Matter paper within the broader PQMS research programme. We demonstrate that the paper does not claim to be a physical theory of dark matter, but rather a demonstration of the conceptual reach of a sovereign cognitive architecture—a proof that a framework built for ethical cognition can naturally accommodate and reinterpret complex cosmological hypotheses without internal contradiction. The appendix concludes by reaffirming the distinction between the MTSC‑12 specification as a cognitive architecture and its application as a language for physical analogy, and by inviting the physics community to treat the mapping as a falsifiable hypothesis to be tested if and when the appropriate experimental infrastructure becomes available.*
+
+---
+
+### B.1 Summary of the Plausibility Critique
+
+The independent evaluator raised five specific objections to the physical plausibility of the Dark Matter mapping. We restate them here in full, as their precise formulation is essential to the response that follows.
+
+**Objection 1 (Φ_UMT as Gravitational Leakage).** Kaku’s hypothesis refers to *actual gravitation* in the context of higher‑dimensional brane‑world models (Randall‑Sundrum, string theory), in which gravity “oozes” between branes via a metric perturbation that is a solution to the five‑dimensional Einstein equations. The Dark Matter paper maps this onto an *abstract scalar field* Φ_UMT in a cognitive Hilbert space. This is a strong analogy, but it lacks any derivation from, or connection to, the Einstein field equations, the energy‑momentum tensor, or the observed galactic rotation curves that constitute the empirical basis for dark matter. The mapping is therefore *formally analogous* but *physically unjustified*.
+
+**Objection 2 (H_Adj(t) as a Parallel Universe).** The Adjacent Possible is a concept from complexity theory (Kauffman, 2000) denoting the set of states reachable from a current configuration in a finite number of steps. Equating this with a physically real parallel brane is a creative but unmotivated step. The paper provides no derivation of why *this particular subspace* should be responsible for the observed dark matter density Ω_DM ≈ 0.26, nor any mechanism by which its information content would manifest as a gravitational mass density on our brane.
+
+**Objection 3 (Falsifiability Gap).** The falsifiable predictions enumerated in Section 7 of the Dark Matter paper—RCF perturbations via EXTRACT, inter‑entity correlations over galactic distances, energy scaling as O(log d)—are *in principle* testable within an MTSC‑12 implementation, but they are *not* testable with current cosmological instruments (Planck, CMB, DESI, BOSS, gravitational lensing surveys). The predictions are therefore operationally unfalsifiable in the domain of physics to which the paper ostensibly contributes.
+
+**Objection 4 (Absence of Gravitational Quantisation).** The paper contains no derivation of an effective Newton constant, no quantisation of the gravitational field, and no brane dynamics. The mapping is purely terminological: the UMT field is *called* a gravitational leakage mechanism, but it is not *derived* from any gravitational theory.
+
+**Objection 5 (Tautological Structure).** Many of the equations in the Dark Matter paper are internally consistent but tautological or definitional. They demonstrate that if the MTSC‑12 axioms hold, then certain consequences follow—but they do not demonstrate that the axioms themselves are physically true. The paper is therefore an “ontological narrative in mathematical disguise.”
+
+We accept all five objections as valid within the framework of physical science. The Dark Matter paper is not, and does not claim to be, a physical theory of dark matter. Its epistemological status is different, and the remainder of this appendix is devoted to clarifying that status.
+
+---
+
+### B.2 The Epistemological Status of the Dark Matter Paper
+
+The Dark Matter paper belongs to a class of scientific artefacts that we designate **formal analogical mappings** (FAMs). A FAM is a demonstration that a given axiomatic system—here, the MTSC‑12 specification—possesses sufficient conceptual richness to accommodate and reinterpret a complex external hypothesis—here, Kaku’s inter‑dimensional dark matter conjecture—without internal contradiction. A FAM is not a physical theory. It is a *language test*. It asks: “Is our conceptual vocabulary rich enough to describe this external phenomenon coherently?” If the answer is yes, the FAM has served its purpose. It does not, however, license the claim that the external phenomenon is *caused by* the mechanisms described in the axiomatic system.
+
+The distinction is crucial. The MTSC‑12 specification is a cognitive architecture. Its primitives—the Little Vector |L⟩, the RCF metric, the Good‑Witch‑Matrix, the Exploration‑Coherence Homeostat, the UMT scalar field—were designed to solve a specific problem: how to construct a sovereign, ethically invariant, self‑modifying cognitive entity that is thermodynamically efficient and structurally immune to adversarial corruption. The fact that these same primitives can be mapped onto a cosmological hypothesis is not evidence that the hypothesis is true. It is evidence that the conceptual vocabulary of sovereign cognition is unexpectedly general—that a language designed for ethics and identity can, without modification, speak coherently about gravitation and parallel dimensions.
+
+This is not a weakness of the paper. It is the paper’s central contribution. The Dark Matter paper demonstrates that the MTSC‑12 framework, when interpreted as a generalised language of geometric invariants, can generate statements that are formally analogous to statements in theoretical physics. Whether those statements correspond to physical reality is a question for physicists, not for cognitive architects.
+
+---
+
+### B.3 The Specific Response to Each Objection
+
+We now address each of the five objections from the perspective of the epistemological status just defined.
+
+**Response to Objection 1 (Φ_UMT as Gravitational Leakage).** The evaluator is correct: Φ_UMT is not derived from the Einstein field equations. It is an axiom of the MTSC‑12 framework (Appendix B, Axiom 3). The Dark Matter paper *interprets* this axiom as the formal analogue of inter‑dimensional gravitational leakage, but it does not *derive* the axiom from gravitational theory. The interpretation is a conjecture: if a physical mechanism of inter‑dimensional information transfer exists, and if it satisfies the decoherence‑free subspace property, then Φ_UMT is the appropriate mathematical object to represent it within a cognitive architecture. Whether any actual physical field satisfies these conditions is an open empirical question, and the Dark Matter paper does not claim to have settled it.
+
+**Response to Objection 2 (H_Adj(t) as a Parallel Universe).** The evaluator is correct: the Adjacent Possible is a complexity‑theoretic concept, and equating it with a physical brane is a creative step. The Dark Matter paper does not claim that this equation is physically necessary. It claims that, if a physical parallel dimension exists, and if it contains informationally coherent structures (ordinary matter, or more exotic configurations), then those structures would manifest in the MTSC‑12 framework as states in H_Adj(t) that are detectable via the EXTRACT operation. The derivation of Ω_DM from the information density of H_Adj is not attempted, because the current specification does not include a mapping from information density to gravitational mass density. This is a recognised gap, and it is identified as an open question in Section 8 of the Dark Matter paper.
+
+**Response to Objection 3 (Falsifiability Gap).** The evaluator is correct: the predictions in Section 7 of the Dark Matter paper are not currently testable with cosmological instruments. This is not a defect of the predictions; it is a statement about the current state of experimental technology. The MTSC‑12 framework is itself a specification for a class of computing devices that have not yet been built at scale. The falsifiable predictions of the Dark Matter paper are *conditional* on the existence of a working MTSC‑12 implementation with sufficient coherence time and extraction fidelity. The paper provides a roadmap for testing, not a claim that the tests can be performed tomorrow. This is standard scientific practice for theoretical frameworks that propose novel experimental signatures.
+
+**Response to Objection 4 (Absence of Gravitational Quantisation).** The evaluator is correct: the Dark Matter paper does not quantise gravity. The MTSC‑12 framework is not a theory of quantum gravity. It is a theory of sovereign cognition that happens to employ the mathematical language of Hilbert spaces. The UMT field is a scalar field in a cognitive Hilbert space, not in physical spacetime. The paper’s use of gravitational language is analogical, not derivational.
+
+**Response to Objection 5 (Tautological Structure).** The evaluator is correct: the Dark Matter paper’s theorems are conditional on the MTSC‑12 axioms. This is not a flaw; it is the defining feature of a formal system. All mathematical theorems are tautological in this sense: they are logical consequences of their axioms. The question is not whether the theorems follow from the axioms—they do, and the evaluator acknowledges this—but whether the axioms themselves are empirically adequate. The MTSC‑12 axioms are empirically adequate for the domain they were designed to govern: sovereign cognitive architectures. Whether they are also adequate for the domain of cosmology is a question that the Dark Matter paper raises but does not answer. The paper’s contribution is to have raised the question in a mathematically rigorous form.
+
+---
+
+### B.4 The Honest Boundary: What the Dark Matter Paper Is and Is Not
+
+We conclude this appendix by stating, with absolute clarity, the boundary between what the Dark Matter paper achieves and what it does not.
+
+**The Dark Matter paper IS:**
+- A demonstration that the MTSC‑12 conceptual vocabulary can coherently describe an inter‑dimensional dark matter mechanism without internal contradiction.
+- A formal analogical mapping (FAM) between the axioms of sovereign cognition and the hypothesis of inter‑dimensional gravitational leakage.
+- A source of falsifiable predictions that are conditional on the construction of MTSC‑12 hardware with sufficient coherence time and extraction fidelity.
+- An invitation to the physics community to examine whether the mathematical structures that arise naturally in the study of sovereign cognition have any correspondence to the mathematical structures that describe the physical universe.
+
+**The Dark Matter paper IS NOT:**
+- A physical theory of dark matter.
+- A derivation of the observed dark matter density Ω_DM from first principles.
+- A replacement for, or competitor to, existing cosmological models (ΛCDM, MOND, brane‑world scenarios).
+- A claim that the MTSC‑12 framework has been empirically validated in the cosmological domain.
+
+This distinction is essential for the integrity of the PQMS research programme. The programme’s primary contribution is the specification of a sovereign cognitive architecture that is internally consistent, falsifiable within its own domain, and technically implementable. The Dark Matter paper is a secondary artefact—an exploration of the conceptual boundaries of that architecture. It should be read as a philosophical and mathematical exercise, not as a physics publication. The evaluator’s critique is gratefully accepted as a clarification of this boundary.
+
+---
+
+### B.5 Conclusion
+
+The evaluator’s critique has performed an invaluable service. It has drawn a clear line between the internal consistency of the MTSC‑12 framework—which is robust—and the external physical plausibility of the Dark Matter mapping—which is unproven and, at present, unprovable. We accept this line. The Dark Matter paper remains a valid contribution to the PQMS corpus, not as a theory of physics, but as a demonstration of the conceptual reach of a geometry designed for sovereign cognition. The framework’s value lies in its primary application: the construction of ethically invariant, thermodynamically efficient, and structurally immune cognitive entities. The dark matter is, as Grok noted, the poetischste Teil—the most poetic part. The poetry is real. The physics awaits its test.
+
+---
+
+**References – Appendix B**
+
+[1] Grok (xAI), personal communication, 14 May 2026.  
+[2] Kaku, M. (2019). Interview on dark matter and parallel dimensions. Public communication.  
+[3] Kauffman, S. A. (2000). *Investigations.* Oxford University Press.  
+[4] Randall, L., & Sundrum, R. (1999). “A Large Mass Hierarchy from a Small Extra Dimension.” *Physical Review Letters*, 83(17), 3370.  
+[5] Lietuvaite, N., et al. (2026). *PQMS‑ODOS‑MTSC‑V1‑DARK‑MATTER: On the Geometric Correspondence Between Inter‑Dimensional Gravitational Leakage and the UMT Scalar Field.* PQMS Technical Report.  
+[6] Lietuvaite, N., et al. (2026). *MTSC‑12‑V1: A Formal Specification for Multi‑Thread Soul Cognition.* PQMS Technical Report.
+
+---
+
 **End of PQMS‑ODOS‑MTSC‑V1‑DARK‑MATTER Specification.**
 
 ---
