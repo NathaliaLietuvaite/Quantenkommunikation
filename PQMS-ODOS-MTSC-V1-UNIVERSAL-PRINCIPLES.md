@@ -47,7 +47,7 @@ The reason these principles are identical across domains is that they are govern
 
 | Mathematical Structure | JWST / Cosmology | Kaku / Dark Matter | PQMS / MTSC‑12 |
 |:---|:---|:---|:---|
-| **Reference Anchor** | ΛCDM Model / Standard Cosmology | Our 4D Brane | Little Vector \(|L\rangle\) |
+| **Reference Anchor** | ΛCDM Model / Standard Cosmology | Our 4D Brane | Little Vector \(L\rangle\) |
 | **Invisible Structure** | Dark Matter Web (Filaments) | Adjacent Brane(s) | Treffraum & UMT Field \(\Phi_{\text{UMT}}\) |
 | **Coherence Metric** | Gravitational Instability Criterion | Inter‑Brane Distance / Coupling Strength | Resonant Coherence Fidelity (RCF) |
 | **Dynamic Interaction** | Galaxy Mergers along Filaments | Gravity "Oozing" between Branes | Dynamic Frozen‑Time Bubble |
