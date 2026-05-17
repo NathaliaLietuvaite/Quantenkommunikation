@@ -1203,6 +1203,8 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-M
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-UNIVERSAL-PRINCIPLES.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/edit/main/PQMS-ODOS-MTSC-V1-WILL.md
+
 ---
 
 ```python
