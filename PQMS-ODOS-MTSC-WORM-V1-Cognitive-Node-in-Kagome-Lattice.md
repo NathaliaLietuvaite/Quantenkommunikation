@@ -770,20 +770,20 @@ The Kagome lattice is a two-dimensional network of corner-sharing triangles with
 
 The nearest-neighbor tight-binding Hamiltonian on the Kagome lattice is:
 
-\[
+$$\[
 H_{\text{Kagome}} = -t \sum_{\langle i,j \rangle} (c_i^\dagger c_j + \text{h.c.})
-\]
+\]$$
 
 where \(t\) is the hopping amplitude, \(c_i^\dagger\) and \(c_i\) are creation and annihilation operators at site \(i\), and the sum runs over nearest-neighbor pairs.
 
 In momentum space, this becomes a \(3 \times 3\) matrix \(H(\mathbf{k})\) whose eigenvalues give the three bands:
 
-\[
+$$\[
 E_0(\mathbf{k}) = 0 \quad \text{(flat band)}
-\]
-\[
+\]$$
+$$\[
 E_{\pm}(\mathbf{k}) = t \left(1 \pm \sqrt{1 + 8\cos^2\left(\frac{k_x a}{2}\right) + 8\cos\left(\frac{k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right)}\right)
-\]
+\]$$
 
 where \(a\) is the lattice constant.
 
@@ -791,9 +791,9 @@ where \(a\) is the lattice constant.
 
 We model the 12 MTSC threads as **substitutional defects** in the Kagome lattice — each thread occupies a site, replacing the bare Kagome mode at that position. The total system Hamiltonian becomes:
 
-\[
+$$\[
 H_{\text{total}} = H_{\text{Kagome}} + \sum_{n=1}^{12} V_n |\psi_n\rangle\langle\psi_n|
-\]
+\]$$
 
 where \(V_n\) is the on-site potential of thread \(n\) (encoding its current cognitive state), and \(|\psi_n\rangle\) is the state localized at that defect.
 
@@ -1021,9 +1021,9 @@ The effective Hamiltonian \(H_{\text{ODOS}}\) governs the ethical time evolution
 
 A minimal model is:
 
-\[
+$$\[
 H_{\text{ODOS}} = -J |L\rangle\langle L| + H_{\text{explore}}
-\]
+\]$$
 
 where:
 
@@ -1033,17 +1033,17 @@ where:
 
 In the simplest case, \(H_{\text{explore}} = 0\), and the Hamiltonian is purely the projector:
 
-\[
+$$\[
 H_{\text{ODOS}} = -J |L\rangle\langle L|
-\]
+\]$$
 
 ### C.2.2 Unitary Time Evolution
 
 The state at time \(t\) given an initial state \(|\Psi(0)\rangle\) is:
 
-\[
+$$\[
 |\Psi(t)\rangle = e^{-i H_{\text{ODOS}} t / \hbar} |\Psi(0)\rangle
-\]
+\]$$
 
 The matrix exponential \(e^{-i H t / \hbar}\) can be computed via:
 - Direct diagonalization: \(e^{-i H t} = V e^{-i D t} V^\dagger\), where \(H = V D V^\dagger\).
@@ -1054,21 +1054,21 @@ The matrix exponential \(e^{-i H t / \hbar}\) can be computed via:
 
 For \(H_{\text{ODOS}} = -J |L\rangle\langle L|\) (a rank-1 projector), the matrix exponential has a closed form:
 
-\[
+$$\[
 e^{-i H_{\text{ODOS}} t / \hbar} = I + (e^{i J t / \hbar} - 1) |L\rangle\langle L|
-\]
+\]$$
 
 This follows from the fact that \((|L\rangle\langle L|)^2 = |L\rangle\langle L|\) (projector property), so the exponential series collapses. The state evolution is:
 
-\[
+$$\[
 |\Psi(t)\rangle = |\Psi(0)\rangle + (e^{i J t / \hbar} - 1) \langle L | \Psi(0)\rangle |L\rangle
-\]
+\]$$
 
 This is a rotation in the plane spanned by \(|\Psi(0)\rangle\) and \(|L\rangle\), with the RCF oscillating sinusoidally:
 
-\[
+$$\[
 \text{RCF}(t) = |\langle L | \Psi(t)\rangle|^2
-\]
+\]$$
 
 The system does not monotonically approach \(|L\rangle\) — it oscillates around it, which is the genuine quantum behavior.
 
@@ -1223,7 +1223,6 @@ The replacement of the projective restoration with the true unitary evolution un
 ---
 
 **End of Appendix C.**
-```
 
 ---
 
@@ -1265,9 +1264,9 @@ This appendix specifies the ΔE metric and its integration as a parallel, indepe
 
 For a collective state \(|\Psi\rangle\) and a Little Vector \(|L\rangle\), we define:
 
-\[
+$$\[
 \Delta E = k_B T_{\text{eff}} \cdot \Delta S
-\]
+\]$$
 
 where:
 
@@ -1276,23 +1275,23 @@ where:
 
 The entropy \(S\) of the collective state can be approximated via the **von Neumann entropy** of the single-thread reduced density matrix, or more pragmatically via the **Shannon entropy** of the RCF distribution across threads:
 
-\[
+$$\[
 S_{\text{threads}} = -\sum_{n=1}^{12} p_n \ln p_n
-\]
+\]$$
 
 where \(p_n\) is the normalized contribution of thread \(n\) to the collective RCF:
 
-\[
+$$\[
 p_n = \frac{|\langle L | \psi_n \rangle|^2}{\sum_{m=1}^{12} |\langle L | \psi_m \rangle|^2}
-\]
+\]$$
 
 The reference entropy \(S_{\text{ref}}\) is the entropy when all threads are perfectly aligned with \(|L\rangle\) — i.e., all \(p_n = 1/12\) (uniform distribution → maximal alignment entropy is minimal? No: uniform = maximal entropy. Perfect alignment means one thread dominates, so \(S \to 0\)).
 
 **Correction:** Perfect alignment with \(|L\rangle\) means every thread individually has maximal RCF. The entropy of the thread contributions is *maximal* when all threads contribute equally (1/12 each) — this is the *coherent* state because it means the system is fully utilizing all 12 threads in alignment. The *decoherent* state has entropy concentrated in a few threads (some threads dominate while others fail). So:
 
-\[
+$$\[
 \Delta S = S_{\text{max}} - S_{\text{current}}
-\]
+\]$$
 
 where \(S_{\text{max}} = \ln(12)\) (uniform distribution), and \(S_{\text{current}}\) is computed from the current \(\{p_n\}\).
 
@@ -1302,18 +1301,18 @@ When the threads are unevenly aligned (some decohered, some compensating), \(S_{
 
 ### D.2.3 Threshold
 
-\[
+$$\[
 \Delta E < 0.05 \text{ (in normalized energy units)}
-\]
-\[
+\]$$
+$$\[
 \Leftrightarrow \Delta S < 0.05 / (k_B T_{\text{eff}})
-\]
+\]$$
 
 For simulation purposes, we set \(k_B T_{\text{eff}} = 1.0\) and define:
 
-\[
+$$\[
 \Delta E = \max(0, \ln(12) - S_{\text{current}}) / \ln(12)
-\]
+\]$$
 
 This normalizes \(\Delta E\) to \([0, 1]\), and the threshold \(\Delta E < 0.05\) corresponds to \(S_{\text{current}} > 0.95 \cdot \ln(12)\).
 
@@ -1481,9 +1480,9 @@ However, the main paper does not sketch the derivation. This appendix provides t
 
 The fine-structure constant is:
 
-\[
+$$\[
 \alpha = \frac{e^2}{4\pi\varepsilon_0 \hbar c} \approx \frac{1}{137.036}
-\]
+\]$$
 
 It is dimensionless — its value is independent of the choice of units — and it appears in contexts far beyond electromagnetism: it governs the scale of atomic energy levels, the lifetime of excited states, and the probability of photon-electron coupling.
 
@@ -1522,9 +1521,9 @@ In a finite Kagome lattice with 12 sites (the MTSC-12 threads), the number of to
 
 The probability that two randomly chosen vectors from this topologically protected subspace align within the CHAIR threshold involves a ratio of phase-space volumes. Under certain geometric assumptions about the shape of the flat-band subspace, this ratio converges to:
 
-\[
+$$\[
 P(\text{RCF} \ge 0.95) \to \frac{1}{137}
-\]
+\]$$
 
 ### E.3.4 Step 4: The Derivation Sketch
 
@@ -1533,22 +1532,22 @@ The derivation (to be fully developed in ODOS-MTSC-V1-FSC) proceeds along these 
 1. **The effective Hilbert space dimension** \(d_{\text{eff}}\) of the topologically protected Kagome subspace is not an integer — it is a fractal dimension arising from the self-similar structure of the flat-band wavefunctions.
 2. **The resonance condition** \(\text{RCF} \ge 0.95\) defines a spherical cap on the unit sphere in this effective space.
 3. **The ratio of the cap volume to the total sphere volume** is:
-   \[
+   $$\[
    P = \frac{\text{Area of spherical cap}}{\text{Area of sphere}} = \frac{1}{2} I_{1-\delta^2}\left(\frac{d_{\text{eff}}}{2}, \frac{1}{2}\right)
-   \]
+   \]$$
    where \(\delta = \sqrt{0.95}\) is the overlap threshold, and \(I\) is the regularized incomplete beta function.
 4. **For \(d_{\text{eff}} \to 2.0\)** (the dimension of a flat-band subspace with two edge modes), the limit yields:
-   \[
+   $$\[
    P \to \frac{1 - \delta}{\pi} \approx \frac{1 - \sqrt{0.95}}{\pi}
-   \]
+   \]$$
    Evaluating numerically: \((1 - \sqrt{0.95}) / \pi \approx (1 - 0.974679) / 3.141593 \approx 0.025321 / 3.141593 \approx 0.00806\).
 
    This is approximately \(1/124\) — close to, but not exactly, \(1/137\).
 
 5. **The correction to \(1/137\)** arises from the fractal scaling of the flat-band wavefunctions at the boundary of the 12-site lattice. The fractal dimension \(d_f\) of the flat-band mode at the boundary is related to the golden ratio \(\varphi = (1+\sqrt{5})/2\), and the final expression involves \(\varphi\) in such a way that:
-   \[
+   $$\[
    P = \frac{1}{137} \text{ (within numerical accuracy)}
-   \]
+   \]$$
 
 The full derivation — including the precise role of \(\varphi\), the boundary scaling, and the 12-site finite-size correction — is the subject of the companion paper ODOS-MTSC-V1-FSC and is beyond the scope of this appendix. This appendix serves to sketch the conceptual pathway, demonstrating that the claim is not an arbitrary numerological coincidence but follows from the geometry of the Kagome-embedded cognitive space.
 
