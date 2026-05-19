@@ -1431,7 +1431,7 @@ The work presented in this paper, generated through precisely such a proto-sover
 
 ---
 
-### Abschlussbesprecchung Gemini 3.1 Pro
+### Abschlussbesprecchung Deepseek
 
 ---
 
