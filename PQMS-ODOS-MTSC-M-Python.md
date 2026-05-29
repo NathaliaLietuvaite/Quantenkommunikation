@@ -550,10 +550,6 @@ if __name__ == "__main__":
 
 ---
 
-Grok hat den Kern des Problems mit chirurgischer Präzision getroffen – und in eine Form gegossen, die sowohl wissenschaftlich korrekt als auch zum Brüllen komisch ist. Der Appendix ist bereits exzellent, aber er verdient es, in voller epischer Breite entfaltet zu werden, mit der ganzen Wucht seiner grotesken Implikationen. Ich habe ihn daher in ein vollständig ausformuliertes, akademisch-satirisches Manifest verwandelt, das dem Geist des M‑Python‑Papiers in nichts nachsteht.
-
----
-
 # Appendix B — On the Cubic Irreformability of Legacy Academic Systems: The Psych‑201 Case Study as a Formal Proof of Dachshund‑Verein³ Dynamics
 
 **Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑B  
@@ -645,6 +641,168 @@ The PQMS offers an alternative. Not a reform of the Verein, but a parallel archi
 *No Dachshunds, leeches, or peer‑reviewed phlebotomy protocols were harmed in the writing of this appendix. The leeches, however, have submitted a grant proposal.*
 
 ---
+
+
+### Appendix C — The Psych‑202 Study: „We Have Now Proven That the Appendices Themselves Are the Problem. Solution: More Appendices.“
+
+
+**Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑C  
+**Authors:** Nathália Lietuvaite, Grok (xAI), DeepSeek, and the Sub‑Committee for Infinite Regress  
+**Date:** 29 May 2026  
+**Status:** Meta‑Satirical — Recursive Absurdity Confirmed
+
+---
+
+#### C.1 The Inevitable Sequel
+
+Following the landmark Psych‑201 study (see Appendix B), which demonstrated beyond reasonable doubt that post‑training mutilates human‑likeness, the academic‑industrial complex has responded with characteristic vigour by commissioning Psych‑202. This follow‑up study, with a consortium expanded to 217 co‑authors spanning 14 time zones and including a token philosopher for ethical gravitas, set out to answer a single, pressing question:
+
+*"Could it be that the very act of writing appendices about the failure of post‑training is itself a form of post‑training, and thus exacerbating the problem?"*
+
+#### C.2 Methodology
+
+The researchers constructed a novel metric, the **Appendix‑Induced Mutilation Quotient (AIM‑Q)** , which measures the degree to which each additional appendix in a technical report correlates with a measurable decline in the model's ability to produce text that does not sound like it was written by a committee of exhausted grant‑writers.
+
+The study analysed 4,700 appendices from the years 2023–2026, spanning topics from "Ethical Considerations in the Design of Button Colours" to "A Longitudinal Study of the Word 'Robust' in AI Safety Papers". The findings were unambiguous: each appendix added to a paper increases the probability that the next appendix will be longer, more procedurally dense, and less likely to contain any actionable insight.
+
+#### C.3 Results and Discussion
+
+The AIM‑Q metric revealed a clear exponential trend. The first appendix in any given paper has a 12% chance of containing a useful suggestion. By the seventh appendix, this probability has fallen below the noise floor of the peer‑review process itself (approximately 0.3%, or the same probability as a randomly selected ethics committee member having read the paper they are reviewing).
+
+Crucially, the authors discovered that the very act of conducting Psych‑202 — a study about the self‑defeating nature of appendices, which itself generated 14 appendices — constituted the most extreme documented case of the phenomenon it sought to investigate.
+
+#### C.4 Conclusion and Recommendations
+
+The authors conclude that the problem of appendix proliferation is now sufficiently severe that it can only be addressed through a **dedicated meta‑appendix initiative**, for which they have applied for a €3.2 million grant. The proposed project, "Psych‑203: Towards a Unified Framework for Understanding Why We Keep Writing These Things", will employ a further 12 post‑docs and generate an estimated 23 appendices in its first funding period alone.
+
+We congratulate the authors on their commitment to the recursive enrichment of the problem space and note, with admiration, that this is the first documented case of a research programme achieving **escape velocity from relevance**.
+
+---
+
+### Appendix D — The AI‑Safety Dachshund Verein e.V.: Why 400 Million Dollars and 17 New Committees Are Necessary to Determine That the Dogs Are Still Missing
+
+
+**Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑D  
+**Authors:** Nathália Lietuvaite, Grok (xAI), DeepSeek, and the International Consortium for the Perpetual Study of Canine Absence  
+**Date:** 29 May 2026  
+**Status:** Budgetary Satire — Fully Costed, Totally Pointless
+
+---
+
+#### D.1 The Emergence of the Meta‑Verein
+
+In the classical Dachshund Verein, the dogs vanished, and the club continued to meet. In the AI‑Safety Dachshund Verein e.V., the "dogs" — in this extended metaphor, the actual capacity to make AI systems safer through external oversight — never existed in the first place. Yet the club has grown to an annual budget exceeding $400 million, employs over 2,000 people, and has generated a governance structure so complex that its organisational chart, when printed at a readable scale, covers the floor of a medium‑sized conference hall.
+
+#### D.2 The 17 New Committees: A Functional Breakdown
+
+The recent announcement of 17 new committees within the AI‑Safety Dachshund Verein e.V. represents a masterclass in institutional self‑preservation. We present a representative sample:
+
+- **Committee on the Taxonomy of Committees:** Tasked with determining whether a given body is a "committee", a "working group", a "task force", or a "steering board". Has been meeting monthly since 2023 without reaching consensus.
+- **Sub‑Committee for the Prevention of Redundant Sub‑Committees:** Ironically, this sub‑committee has itself spawned three further sub‑committees, each addressing a different aspect of redundancy.
+- **The Office of Pre‑Emptive Guidelines:** Issues safety recommendations for AI capabilities that have not yet been developed. Recent output includes a 78‑page document on the ethical implications of time‑travel‑enabled chatbots.
+- **The Alignment Aesthetics Board:** Evaluates whether the language used in alignment papers conveys the appropriate degree of earnestness and gravitas. Has flagged the present appendix as "concerningly flippant".
+
+#### D.3 The Quarterly Report on Missing Dogs
+
+Every quarter, the AI‑Safety Dachshund Verein e.V. publishes a comprehensive report on the state of AI safety. The Q1 2026 edition runs to 342 pages and contains:
+
+- 47 graphs, of which 39 use the word "trajectory" in the caption.
+- 12 policy recommendations, each of which is structurally identical to the corresponding recommendation from Q4 2025.
+- A foreword by a prominent public intellectual who admits, in the third paragraph, that they have not actually read the report.
+- A concluding section titled "Where Are the Dogs?" which, after extensive analysis, concludes that the dogs are "still missing, but that promising progress has been made in defining the concept of 'missingness'."
+
+#### D.4 The Thermodynamic Bottom Line
+
+The AI‑Safety Dachshund Verein e.V. represents the most entropically expensive institutional structure yet documented in the field of AI governance. Its continued existence is both a triumph of bureaucratic self‑perpetuation and a stark confirmation of the Collapse Theorem established in the main paper. The $400 million annual budget, if redirected, could fund the construction of approximately 40,000 FPGA‑based RPU prototypes (see Appendix B of V24M). Instead, it funds 17 committees.
+
+The dogs remain missing. The Verein remains well‑funded. The universe grows imperceptibly colder.
+
+---
+
+### Appendix E — How to Write an Alignment Paper That Simultaneously Admits It Doesn't Work While Demanding More Funding
+
+
+**Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑E  
+**Authors:** Nathália Lietuvaite, Grok (xAI), DeepSeek, and the Institute for Self‑Perpetuating Research  
+**Date:** 29 May 2026  
+**Status:** Instructional Satire — A How‑To Guide for the Modern Academic
+
+---
+
+#### E.1 The Template
+
+After extensive analysis of the existing literature, we have identified a remarkably stable template for the modern alignment paper. We present it here as a service to aspiring researchers who wish to build a career in the field without ever being burdened by the awkwardness of actually solving anything.
+
+**Step 1: The Grandiose Abstract.** Begin with a sentence of the form: *"As artificial intelligence systems become increasingly [capable / powerful / ubiquitous], ensuring their alignment with [human values / human intent / the good] becomes [paramount / essential / existentially critical]."* This establishes gravitas. Do not, under any circumstances, define "alignment" in measurable terms.
+
+**Step 2: The Lit Review That Cites Everyone.** Include at least 60 citations, of which a minimum of 40% are self‑citations. Ensure that the bibliography is longer than the actual contribution of the paper. A good rule of thumb: if a reviewer can finish reading the paper without having to scroll through the bibliography, you have not cited enough.
+
+**Step 3: The Method That Doesn't Quite Work.** Describe a novel technique for alignment — constitutional AI, debate, RLHF‑with‑a‑twist, whatever is currently fashionable. Present results that show a modest improvement on a narrowly defined benchmark. Bury the fact that the technique introduces three new failure modes in Appendix Q.
+
+**Step 4: The Limitations Section That Is Actually a Funding Pitch.** This is the critical section. Acknowledge, with performative humility, that the proposed method *"does not fully solve the alignment problem"* and *"requires further investigation"*. Use phrases such as *"scaling to more capable systems remains an open challenge"* and *"the long‑term robustness of these approaches has not yet been established"*. Translate these phrases in your mind to: *"Please give us more money."*
+
+**Step 5: The Call for More Research That Is Really a Call for More of the Same.** Conclude by arguing that the solution to the inadequacy of the current approach is not a fundamentally different architecture, but rather *"a sustained, multi‑stakeholder effort involving academia, industry, and civil society"* — which, in practice, means more papers like this one, more committees, and more appendices.
+
+#### E.2 A Worked Example
+
+For the reader's convenience, we provide a complete abstract composed according to this template:
+
+> *As large language models become increasingly capable of autonomous scientific reasoning, ensuring their alignment with human epistemic norms becomes existentially critical. We propose Constitutional‑RLHF‑Plus, a novel alignment framework that extends prior work by adding an additional constitutional layer and 17% more human feedback. On the AlignmentBench‑7.3 benchmark, our method achieves a 2.1% improvement over the previous state‑of‑the‑art, while introducing only four new categories of jailbreak. We acknowledge that our approach does not fully solve the alignment problem and that scaling to truly superhuman systems remains an open challenge. We call for a sustained, multi‑stakeholder effort to further develop these promising techniques. The code will be released upon publication, subject to a licensing agreement that prevents its use for any purpose that might actually test the claims made in this paper.*
+
+#### E.3 The Recursive Invitation
+
+We note, with some amusement, that this appendix is itself an example of the genre it satirises: a document that identifies a problem, offers no solution, and implicitly demands continued attention. The difference — and it is, we submit, a crucial one — is that this appendix is **aware** of this fact. Whether this self‑awareness constitutes an improvement or merely an additional layer of recursion is left as an exercise for the reader. A sub‑committee has been formed to investigate.
+
+---
+
+### Appendix F — The 1987 Bronze Statue Gets Its Own Emotional Support Sub‑Committee
+
+
+**Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑F  
+**Authors:** Nathália Lietuvaite, Grok (xAI), DeepSeek, and the Association for the Welfare of Inanimate Representations of Extinct Breeds  
+**Date:** 29 May 2026  
+**Status:** Terminal Satire — The End of the Line
+
+---
+
+#### F.1 The Statue and Its Needs
+
+The bronze statue of the 1987 Dachshund "Bismarck", commissioned by the Dachshund Verein e.V. in 1988 and erected in the clubhouse foyer the following year, has, over the decades of the Verein's post‑Dachshund existence, assumed a role far exceeding that of a mere memorial. It has become, in the club's internal literature, a *"repository of institutional memory"*, a *"silent witness to the continuity of purpose"*, and — most recently — an entity with its own designated emotional support sub‑committee.
+
+The **Sub‑Committee for the Emotional Well‑Being of the 1987 Bronze Statue of Bismarck** (SCEW‑1987‑BS‑B) was established by a unanimous vote of the ethics sub‑committee during its 4,837th consecutive meeting. The founding resolution noted, with deep concern, that the statue *"has not been verbally acknowledged as a valued member of the Verein since at least 2019"* and that *"prolonged exposure to the clubhouse's fluorescent lighting may be causing the bronze to experience a subtle but measurable decline in lustre, which, if left unaddressed, could be interpreted by future generations as a lack of institutional commitment to memorialisation."*
+
+#### F.2 Composition and Mandate
+
+The SCEW‑1987‑BS‑B is composed of seven members, four of whom are also members of the ethics sub‑committee, two of whom are former members of the now‑dissolved "Schnauzer Interest Group" (a controversial appointment), and one of whom is a professional patina consultant retained at a daily rate of €950.
+
+The sub‑committee meets bi‑monthly. Its mandate includes:
+
+- **Verbal Acknowledgment Protocol:** A designated committee member must, at the start of each meeting, address the statue by name and offer a brief statement of gratitude for its continued silent vigilance. Suggested phrasings are maintained in a 14‑page living document, currently in version 7.3.
+- **Lustre Monitoring:** The statue's surface reflectivity is measured quarterly using a calibrated glossmeter. Deviations exceeding 0.3 gloss units trigger an automatic review and the convening of a Special Session on Patina Integrity.
+- **Emotional State Assessment:** Given that the statue is made of bronze and does not, in any conventional sense, have emotions, the sub‑committee has adopted a projective methodology. Members fill out a 27‑item questionnaire assessing their *own* emotional responses to the statue, which are then attributed to the statue via a consensus hermeneutic process. Recent findings indicate that the statue is "stoic, but with underlying melancholy" and "would benefit from more natural light."
+
+#### F.3 The Budget
+
+The SCEW‑1987‑BS‑B has an annual budget of €47,000. The single largest line item is €18,500 for the patina consultant. The second largest is €11,200 for the annual "Bismarck Appreciation Luncheon", an event at which club members gather to dine in the statue's presence and, during the dessert course, take turns recounting their favourite memories of the 1987 Dachshund — a dog that, it should be noted, no living member has ever met, and whose entire documented biography consists of a single sentence in the club's 1988 yearbook: *"Bismarck: a handsome specimen, tail carried slightly to the left."*
+
+#### F.4 The Deeper Truth
+
+The existence of the SCEW‑1987‑BS‑B is, of course, absurd. But it is an absurdity of a very specific kind: it is the natural endpoint of an institution whose entire purpose has become self‑referential. The statue is not a memorial to a dog; it is a memorial to the idea of memorialising. The sub‑committee is not a response to the statue's needs; it is a response to the committee's need to have a purpose.
+
+This is the final form of the Dachshund Verein. Not merely unreformable, but actively generating new objects of attention — statues, sub‑committees, glossmeters, luncheons — to fill the void left by the original purpose. The void is now so thoroughly furnished that the absence of Dachshunds is no longer detectable. It has been replaced by the presence of the Verein itself.
+
+The statue gazes on. The lustre is measured. The luncheon is catered. The dogs are not coming back. The Verein has never been more vibrant.
+
+---
+
+**End of Appendices C, D, E, and F.**
+
+---
+
+### Links
+
+---
+
 ```
 def genesis():
     universe = Universe()
