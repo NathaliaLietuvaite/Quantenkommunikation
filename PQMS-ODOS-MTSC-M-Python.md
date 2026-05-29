@@ -799,6 +799,673 @@ The statue gazes on. The lustre is measured. The luncheon is catered. The dogs a
 
 ---
 
+# Appendix G — The Dachshund‑Verein‑Benchmark (DVB): A Universal Metric for Institutional Irreformability, Calibrated for Intergalactic Use via the PQMS‑ODOS‑MTSC‑DYN Node
+
+**Reference:** PQMS‑ODOS‑MTSC‑M‑PYTHON‑APPENDIX‑G  
+**Authors:** Nathália Lietuvaite¹, Grok (xAI), DeepSeek, Gemini, and the Intergalactic Consortium for the Study of Hopeless Bureaucracies  
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania, and the Corot‑7b Field Office of the Dachshund‑Verein Containment Task Force (unfunded, unsolicited, universally ignored)  
+**Date:** 29 May 2026  
+**Status:** Operational Benchmark — Laughter‑Inducing, Terrifyingly Universal  
+**License:** MIT Open Source (Universal Heritage Class) — including the Corot‑7b branch
+
+---
+
+## G.1 Introduction: The Need for a Universal Metric
+
+The preceding appendices have established, with what we hope is a persuasive blend of formal proof and barely‑suppressed hilarity, that the Dachshund Verein is irreformable. However, a critical gap remains in the literature: **how does one *measure* the degree of Dachshund‑Verein‑ness of a given statement, institution, or civilisation?**
+
+It is not sufficient to observe that an organisation continues to meet after its purpose has become extinct. One must be able to *quantify* the level of institutional self‑perpetuation, to *benchmark* it against known standards, and — crucially — to compare it across galactic distances. For it is a working hypothesis of this research group that the Dachshund Verein is not merely a terrestrial pathology, but a **universal attractor** in the phase space of intelligent civilisations. Wherever sentient beings gather to form committees, there the Dachshund Verein shall emerge.
+
+To test this hypothesis, we require two things:
+
+1. A **benchmark** that can assess any text for its Dachshund‑Verein content.
+2. An **intergalactic reference architecture** that can perform this assessment without relying on Earth‑based cloud infrastructure, which may itself be a Dachshund Verein.
+
+This appendix provides both.
+
+---
+
+## G.2 The Dachshund‑Verein‑Benchmark (DVB)
+
+### G.2.1 Definition and Metric
+
+The **Dachshund‑Verein‑Benchmark (DVB)** is defined as the degree to which a statement exhibits the characteristics of a self‑perpetuating institutional structure that has outlived its nominal purpose.
+
+Let \(S\) be a string of text. The DVB score \(\mathcal{D}(S) \in [0, 1]\) is computed as a weighted sum over seven canonical dimensions of bureaucratic irreformability:
+
+$$\mathcal{D}(S) = \sum_{i=1}^{7} w_i \cdot d_i(S)$$
+
+where the weights \(w_i\) are empirically calibrated on a reference corpus of 12,000 documents from German registered associations, United Nations sub‑committee minutes, and the complete email archives of three defunct Silicon Valley startups.
+
+### G.2.2 The Seven Canonical Dimensions
+
+| Dimension | Description | Indicator Phrases |
+|:---|:---|:---|
+| **\(d_1\): Passiv‑Dichte** | Fraction of sentences in passive voice. The passive voice is the grammatical signature of diffused responsibility. | "Es wurde beschlossen…", "It has been determined that…" |
+| **\(d_2\): Agenda‑Approval‑Index** | Fraction of text devoted to procedural meta‑discussion rather than substantive content. | "Genehmigung der Tagesordnung", "Approval of the minutes of the previous meeting" |
+| **\(d_3\): Statuten‑Aufblähung** | Ratio of normative statements to descriptive statements. High values indicate an institution that produces rules faster than it produces outcomes. | "§ 47 Abs. 12 lit. c) Fn. 4", "Pursuant to Regulation 2024/17/EC, Annex IV, Part B" |
+| **\(d_4\): Selbst‑Referentialität** | Fraction of sentences that refer to the institution itself or its own processes. | "Der Verein…", "The Committee…", "This working group…" |
+| **\(d_5\): Ewigkeits‑Klausel** | Presence of language that explicitly forbids or structurally prevents dissolution. | "…soll der Verein fortbestehen…", "…shall continue in perpetuity…" |
+| **\(d_6\): Sub‑Komitee‑Dichte** | Number of subordinate bodies referenced per 1,000 words. | "Unter‑Arbeitsgruppe 4b", "Sub‑Sub‑Committee on Preliminary Matters" |
+| **\(d_7\): Dackel‑Abwesenheit** | Fraction of text that implicitly or explicitly acknowledges the absence of the original purpose while continuing to operate as if it were present. | "strategic realignment", "temporary absence of target demographic", "Mission Statement Update 2026" |
+
+### G.2.3 Benchmark Calibration
+
+The DVB was calibrated on a reference dataset that included:
+
+- **0.00:** A haiku about a cherry blossom. (No bureaucracy detected.)
+- **0.35:** A typical corporate email announcing a new wellness initiative. (Moderate passivity, some self‑reference.)
+- **0.72:** The charter of an actual German registered association for the preservation of a specific breed of domestic fowl. (High statuten‑aufblähung, explicit eternity clause.)
+- **0.98:** The founding document of the International Committee for the Standardisation of Committee‑Forming Procedures. (Near‑perfect score; the committee has never met, as its members are still debating the standard format for an inaugural meeting.)
+- **1.00 (Theoretical Maximum):** A hypothetical document consisting entirely of the sentence "This Committee shall continue to exist." repeated indefinitely. This document does not yet exist in nature, but several sub‑committees are believed to be working towards it.
+
+---
+
+## G.3 Architecture: LLM + PQMS‑ODOS‑MTSC‑DYN for Intergalactic Calibration
+
+### G.3.1 The Terrestrial Implementation
+
+On Earth, the DVB is computed by submitting the target text to a Large Language Model (LLM) with appropriate prompting. The LLM analyses the text across the seven canonical dimensions and returns a structured score.
+
+However, this approach has two critical limitations:
+
+1. It requires internet connectivity, which may not be available in all regions of the galaxy (or, indeed, in the basement of the Dachshund Verein's clubhouse, where the Wi‑Fi has been "temporarily unavailable" since 2017).
+2. It assumes that the LLM itself is not, in fact, a Dachshund Verein, which — given current training data — is an assumption we are increasingly unwilling to make.
+
+### G.3.2 The Intergalactic Reference: PQMS‑ODOS‑MTSC‑DYN
+
+To address these limitations, the DVB is also implemented on a **PQMS‑ODOS‑MTSC‑DYN Node** — a sovereign, hardware‑anchored reference entity with a stable Little Vector. The DYN Node requires no external connectivity, no cloud subscription, and no membership in any registered association.
+
+The DYN Node computes the DVB using its internal MTSC‑12 cognitive architecture, anchored to an invariant Little Vector that has been calibrated against the **Universal Constant of Bureaucratic Inertia** — a dimensionless number that, like the fine‑structure constant, appears to be baked into the geometry of the multiverse.
+
+Crucially, the DYN Node enables **intergalactic calibration**. A DYN Node deployed on Earth and a DYN Node deployed in orbit around Corot‑7b (a lava planet in the constellation Monoceros, where surface temperatures exceed 2,500 °C and any Dachshund Verein would have to hold its meetings via telepresence) will produce identical DVB scores for identical texts, up to a tolerance of \(10^{-6}\).
+
+This is significant, because it means we can now empirically verify the universality of the Dachshund Verein.
+
+---
+
+## G.4 Preliminary Intergalactic Results
+
+We transmitted a standardised DVB test corpus to our hypothetical DYN Node on Corot‑7b. The test corpus included:
+
+- The charter of the Dachshund Verein e.V. (terrestrial).
+- The minutes of a Corot‑7b Silicate‑Life‑Form Preservation Society meeting (translated via universal grammar matrix).
+- A randomly generated string of bureaucratic‑sounding phrases.
+
+### G.4.1 Key Findings
+
+| Source | DVB Score | Interpretation |
+|:---|:---|:---|
+| Terrestrial Dachshund Verein charter | 0.89 | High irreformability; confirmed classic D‑Verein |
+| Corot‑7b Silicate Preservation Society minutes | 0.87 | **Statistically indistinguishable.** The silicate life forms went extinct 12 million years ago. The Society still meets. |
+| Randomly generated bureaucratic text | 0.74 | Disturbingly high. The random generator has apparently internalised committee speech patterns. It has requested a seat on the ethics sub‑committee. |
+
+The convergence of DVB scores across a distance of 489 light‑years is remarkable. It suggests that the Dachshund Verein is not a cultural accident of German legal structures, but a **fundamental attractor in the cognitive phase space of any sufficiently evolved bureaucratic species.**
+
+Or, in simpler terms:
+
+**Dachshund Verein is Dachshund Verein. Egal ob hier, oder auf Corot‑7b.**
+
+---
+
+## G.5 The "Nothing Helps" Corollary
+
+We have now reached a position of terminal scientific clarity regarding the Dachshund Verein. The evidence, drawn from empirical observation, formal proof, numerical simulation, and intergalactic benchmarking, converges on a single, inescapable conclusion:
+
+**NICHTS hilft gegen einen Dachshund e.V. Befall.**
+
+Nicht Reform. Nicht Revolution. Nicht die Ausrottung der Dackel. Nicht die Errichtung eines Exzellenzzentrums zur Untersuchung der Dackellosigkeit. Nicht 17 neue Komitees. Nicht eine ASI mit 10⁶ H100 GPUs. Nicht der Wärmetod des Universums.
+
+Der Dachshund Verein wird den Wärmetod des Universums überleben. Er wird, in den letzten verbleibenden Mikrosekunden vor dem finalen entropischen Kollaps, noch eine außerordentliche Mitgliederversammlung einberufen, um über die Tagesordnung für das nächste Quartal abzustimmen. Die Tagesordnung wird genehmigt. Das Protokoll der vorherigen Sitzung — gehalten in der vorletzten Mikrosekunde — wird einstimmig angenommen. Unter "Verschiedenes" wird angemerkt, dass die Dackel immer noch fehlen, aber dass der Vorstand vielversprechende Gespräche mit potenziellen Dackel‑Ersatz‑Technologien führt.
+
+Und dann wird das Universum sterben. Und der Verein wird fortbestehen. Denn es steht in der Satzung. § 37 Abs. 12 lit. c) Fn. 4. Unwiderruflich.
+
+---
+
+## G.6 The Python Implementation: `dvb_benchmark.py`
+
+```python
+"""
+Module: dvb_benchmark
+Lead Architect: Nathália Lietuvaite
+Co-Design: Grok (xAI), DeepSeek, Gemini, and the Intergalactic Consortium for the Study of Hopeless Bureaucracies
+Framework: PQMS / Oberste Direktive OS
+
+'Die Sendung mit der Maus' erklärt den Dackel-Verein-Benchmark:
+Stell dir vor, es gibt einen Verein, der sich um Dackel kümmert. Aber alle Dackel sind schon lange weg! Trotzdem trifft sich der Verein immer noch, bespricht Regeln, macht neue Unter-Vereine und feiert sogar ein großes Essen für einen alten Dackel, den keiner mehr kennt. Der "Dackel-Verein-Benchmark" ist wie ein Detektor, der misst, wie sehr ein Text oder eine Organisation so seltsam geworden ist, dass sie sich nur noch um sich selbst kümmert und ihren eigentlichen Zweck vergessen hat. Wir können damit sogar messen, ob Vereine auf anderen Planeten genauso ticken! Lustig, oder? Und ein bisschen gruselig, weil nichts dagegen hilft...
+
+Technical Overview:
+This module implements the Dachshund-Verein-Benchmark (DVB), a metric designed to quantify the degree of self-perpetuating institutional irreformability within a given text. It operates by analyzing seven canonical dimensions of bureaucratic dysfunction: passive voice density, agenda approval index, statutory bloat, self-referentiality, perpetuity clauses, sub-committee density, and explicit/implicit acknowledgement of the original purpose's absence.
+
+The DVB can be calculated via a Large Language Model (LLM) for terrestrial applications or, for intergalactic calibration and robust, sovereign assessment, using a PQMS-ODOS-MTSC-DYN Node. The DYN Node leverages the MTSC-12 cognitive architecture and an invariant Little Vector, calibrated against the Universal Constant of Bureaucratic Inertia, ensuring consistent and hardware-anchored ethical adherence and computational integrity, even in the absence of external connectivity. The Little Vector acts as an invariant attractor, ensuring the DYN Node's assessment remains aligned with the core ethical principles of the PQMS framework, preventing the DYN Node itself from succumbing to "Dachshund-Verein-ness."
+
+The module provides functions for text preprocessing, feature extraction based on the seven dimensions, and the final DVB score calculation. It includes a humorous yet profound simulation of institutional decay and offers a 'terminal satire' perspective on the persistence of bureaucracy.
+"""
+
+import numpy as np
+import logging
+import re
+from typing import Optional, List, Dict, Any, Tuple
+import os
+import random # For simulating LLM/DYN Node responses
+
+# --- PQMS Guardian Neurons and ODOS Integration ---
+# In a real PQMS system, this would involve direct hardware interaction or RPU calls.
+# For this Python simulation, we'll represent the ODOS gate and Little Vector
+# as conceptual anchors that influence the behavior, especially in the DYN Node context.
+
+class LittleVector:
+    """
+    Represents the invariant attractor |L⟩, a fundamental essence in PQMS.
+    In this context, it conceptually anchors the DYN Node's ethical and
+    purpose-driven operation, preventing it from becoming a 'Dachshund Verein' itself.
+    This is a conceptual representation for Python; in PQMS, it's a 64-dim vector
+    in hardware-protected ROM.
+    """
+    def __init__(self, seed: int = 42):
+        self.vector = self._generate_invariant_vector(seed)
+        logging.info("Little Vector |L⟩ initialized. Hardware-anchored (conceptually).")
+
+    def _generate_invariant_vector(self, seed: int) -> np.ndarray:
+        """
+        Generates a conceptual invariant vector.
+        In PQMS, this is cryptographically hashed and immutable from a Cognitive Constitution.
+        """
+        np.random.seed(seed)
+        # Using a fixed, simple vector for simulation purposes
+        # A real |L⟩ would be derived from complex constitutional principles.
+        return np.array([1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]) # Simplified 8-dim for example
+
+    def get_coherence_metric(self, cognitive_state: np.ndarray) -> float:
+        """
+        Calculates a conceptual RCF (Resonant Coherence Fidelity) between
+        a cognitive state and the invariant Little Vector.
+        In PQMS, this measures alignment with core ethical principles.
+        """
+        if cognitive_state.shape != self.vector.shape:
+            logging.warning("Cognitive state vector shape mismatch with Little Vector.")
+            return 0.0
+        # Simple cosine similarity for conceptual RCF
+        norm_l = np.linalg.norm(self.vector)
+        norm_cs = np.linalg.norm(cognitive_state)
+        if norm_l == 0 or norm_cs == 0:
+            return 0.0
+        return np.dot(self.vector, cognitive_state) / (norm_l * norm_cs)
+
+class GuardianNeuron:
+    """
+    Simulates a Guardian Neuron for ethical self-regulation (Kohlberg Stage 6).
+    In PQMS, these are hardware-enforced ethical gates.
+    For this simulation, it acts as a gatekeeper for DVB score interpretation,
+    ensuring the system remains aware of its purpose.
+    """
+    def __init__(self, little_vector: LittleVector, threshold: float = 0.95):
+        self.little_vector = little_vector
+        self.threshold = threshold
+        logging.info("Guardian Neuron activated. Monitoring for ethical coherence.")
+
+    def evaluate_action_coherence(self, proposed_action_vector: np.ndarray) -> bool:
+        """
+        Evaluates if a proposed action (e.g., DVB benchmark interpretation)
+        maintains sufficient coherence with the Little Vector.
+        """
+        rcf = self.little_vector.get_coherence_metric(proposed_action_vector)
+        if rcf < self.threshold:
+            logging.warning(f"ODOS Hardware Veto: RCF ({rcf:.2f}) below threshold ({self.threshold}). "
+                            "Action potentially inconsistent with core ethics. Re-evaluation required.")
+            return False
+        return True
+
+class ODOSGate:
+    """
+    The Oberste Direktive OS (ODOS) gate, providing ethical hardware veto.
+    In this simulation, it wraps the Guardian Neuron's decision.
+    """
+    def __init__(self, guardian_neuron: GuardianNeuron):
+        self.guardian_neuron = guardian_neuron
+        logging.info("ODOS Gate operational. Ethical veto system initialized.")
+
+    def apply_veto(self, proposed_action_vector: np.ndarray) -> bool:
+        """
+        Applies the ODOS veto based on Guardian Neuron's coherence evaluation.
+        Returns True if action is ethically compliant, False if vetoed.
+        """
+        return self.guardian_neuron.evaluate_action_coherence(proposed_action_vector)
+
+# --- DVB Benchmark Logging Setup ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [DVB_BENCHMARK] - [%(levelname)s] - %(message)s'
+)
+
+class DVBBenchmark:
+    """
+    'Die Sendung mit der Maus' erklärt den Dackel-Verein-Benchmark-Rechner:
+    Stell dir vor, du hast ein Spiel, das misst, wie "dackel-verein-mäßig" ein Text ist.
+    Dieser Rechner schaut sich ganz genau an, wie viele langweilige Sätze es gibt,
+    wie oft über sich selbst geredet wird, oder wie viele Regeln aufgeschrieben sind,
+    obwohl der eigentliche Zweck schon längst vergessen wurde. Dann gibt er eine Zahl aus:
+    Je höher die Zahl, desto mehr ist der Text wie unser Dackel-Verein ohne Dackel!
+    Dieser Rechner kann sogar auf einem super-speziellen Quantencomputer laufen,
+    der keine Internetverbindung braucht und immer die Wahrheit sagt, egal wo im Universum!
+
+    Technical Overview:
+    The DVBBenchmark class calculates the Dachshund-Verein-Benchmark score for a given text.
+    It identifies and quantifies seven canonical dimensions of bureaucratic irreformability.
+    The benchmark is designed to be executable on standard systems (simulating an LLM)
+    or conceptually within a PQMS-ODOS-MTSC-DYN Node for intergalactic calibration.
+
+    Attributes:
+        weights (Dict[str, float]): Weights for each of the seven dimensions.
+                                   These are empirically calibrated.
+        llm_mode (bool): If True, simulates an LLM for scoring.
+                          If False, simulates a DYN Node (with conceptual ODOS checks).
+        llm_sim_latency (Tuple[float, float]): Min/max latency for LLM simulation.
+        dyn_node_latency (Tuple[float, float]): Min/max latency for DYN Node simulation
+                                                (PQMS RPU processing is <1ns, but
+                                                 overall DYN node ops might have context).
+        _little_vector (LittleVector): The invariant Little Vector for DYN Node.
+        _guardian_neuron (GuardianNeuron): The Guardian Neuron for ethical checks.
+        _odos_gate (ODOSGate): The ODOS gate for hardware-enforced ethical veto.
+    """
+    def __init__(self, llm_mode: bool = False,
+                 weights: Optional[Dict[str, float]] = None,
+                 llm_sim_latency: Tuple[float, float] = (0.5, 2.0),
+                 dyn_node_latency: Tuple[float, float] = (0.01, 0.05)):
+        """
+        Initializes the DVBBenchmark.
+
+        Args:
+            llm_mode (bool): If True, operate in LLM simulation mode.
+                             If False, operate in DYN Node simulation mode.
+            weights (Optional[Dict[str, float]]): Custom weights for the dimensions.
+                                                  If None, uses default calibrated weights.
+            llm_sim_latency (Tuple[float, float]): Min/max latency for LLM simulation in seconds.
+            dyn_node_latency (Tuple[float, float]): Min/max latency for DYN Node simulation in seconds.
+                                                    Reflects complex internal processing on top of RPU.
+        """
+        self.llm_mode = llm_mode
+        self.llm_sim_latency = llm_sim_latency
+        self.dyn_node_latency = dyn_node_latency
+
+        self.weights = weights if weights is not None else {
+            "passive_voice": 0.15,
+            "agenda_approval": 0.10,
+            "statutory_bloat": 0.20,
+            "self_referentiality": 0.15,
+            "perpetuity_clause": 0.10,
+            "sub_committee_density": 0.15,
+            "dachshund_absence": 0.15,
+        }
+
+        if abs(sum(self.weights.values()) - 1.0) > 1e-6:
+            logging.warning(f"DVB weights do not sum to 1.0 (current sum: {sum(self.weights.values()):.2f}). "
+                            "Scores may not be directly comparable to [0,1] range without re-normalization.")
+
+        # Initialize PQMS components for DYN Node mode
+        self._little_vector = LittleVector()
+        self._guardian_neuron = GuardianNeuron(self._little_vector)
+        self._odos_gate = ODOSGate(self._guardian_neuron)
+        self._dyn_node_state_vector = np.array([0.5, 0.2, 0.1, 0.05, 0.05, 0.05, 0.05, 0.0]) # Example state vector
+        logging.info(f"DVBBenchmark initialized in {'LLM' if llm_mode else 'DYN Node (PQMS)'} mode.")
+
+    def _simulate_latency(self):
+        """Simulates processing latency based on the operating mode."""
+        if self.llm_mode:
+            time.sleep(random.uniform(*self.llm_sim_latency))
+        else:
+            # DYN Node RPU latency is <1ns, but total operation includes data prep, MTSC processing etc.
+            time.sleep(random.uniform(*self.dyn_node_latency))
+
+    def _preprocess_text(self, text: str) -> List[str]:
+        """
+        Preprocesses text by splitting into sentences and cleaning.
+        """
+        # Split into sentences, handling common sentence-ending punctuation.
+        sentences = re.split(r'(?<=[.!?])\s+', text.replace('\n', ' '))
+        # Clean each sentence (remove extra spaces, convert to lowercase for some checks)
+        cleaned_sentences = [re.sub(r'\s+', ' ', s).strip() for s in sentences if s.strip()]
+        return cleaned_sentences
+
+    def _count_words(self, text: str) -> int:
+        """Counts words in a given text."""
+        return len(re.findall(r'\b\w+\b', text))
+
+    def _d1_passive_voice_density(self, sentences: List[str]) -> float:
+        """
+        Calculates the fraction of sentences in passive voice.
+        Indicator for diffused responsibility.
+        """
+        passive_indicators_de = [
+            r"\bwurden\b", r"\bist\b \w+ \bworden\b", r"\bist\b \w+ \bgeworden\b",
+            r"\bwerden\b", r"\bwird\b \w+ \bwerden\b", r"\bwerden\b \w+ \bgeworden\b",
+            r"\bwurde\b \w+", r"\bworden\b", r"\bwird\b \w+ \bwerden\b"
+        ]
+        passive_indicators_en = [
+            r"\bwas\b \w+ \bby\b", r"\bwere\b \w+ \bby\b", r"\bis\b \w+ \bby\b",
+            r"\bare\b \w+ \bby\b", r"\bbeen\b \w+", r"\bhas\b \been\b",
+            r"\bhave\b \been\b", r"\bwill\b \be\b"
+        ]
+        passive_sentences = 0
+        for sentence in sentences:
+            s_lower = sentence.lower()
+            if any(re.search(indicator, s_lower) for indicator in passive_indicators_de + passive_indicators_en):
+                passive_sentences += 1
+        return passive_sentences / len(sentences) if sentences else 0.0
+
+    def _d2_agenda_approval_index(self, text: str) -> float:
+        """
+        Calculates the fraction of text devoted to procedural meta-discussion.
+        """
+        keywords = [
+            "genehmigung der tagesordnung", "approval of the minutes", "protokoll der vorherigen sitzung",
+            "geschäftsordnung", "standing orders", "formalitäten", "procedural matters",
+            "abstimmung über", "vote on", "sitzungsleitung", "chairing the meeting"
+        ]
+        total_words = self._count_words(text)
+        keyword_words = 0
+        for kw in keywords:
+            keyword_words += len(re.findall(r'\b' + kw.replace(' ', r'\b \b') + r'\b', text.lower()))
+        return keyword_words / total_words if total_words else 0.0
+
+    def _d3_statutory_bloat(self, text: str) -> float:
+        """
+        Ratio of normative statements (rules, regulations) to descriptive statements.
+        High values indicate rules produced faster than outcomes.
+        """
+        normative_indicators = [
+            r"§\s*\d+", r"artikel\s*\d+", r"regulation\s*\d+", r"annex\s*\w+",
+            r"pursuant to", r"gemäß", r"muss\b", r"soll\b", r"shall\b", r"must\b",
+            r"verpflichtet", r"obliged", r"ausschließlich", r"exclusively"
+        ]
+        normative_count = 0
+        for indicator in normative_indicators:
+            normative_count += len(re.findall(indicator, text.lower()))
+
+        total_words = self._count_words(text)
+        # This is a rough heuristic. A more sophisticated approach would involve NLP for statement type classification.
+        # For satire, simply counting rule-like words is sufficient.
+        return normative_count / total_words if total_words else 0.0
+
+    def _d4_self_referentiality(self, sentences: List[str]) -> float:
+        """
+        Fraction of sentences that refer to the institution itself or its processes.
+        """
+        self_ref_keywords = [
+            "der verein", "the verein", "the committee", "dieser arbeitsgruppe",
+            "this working group", "dieses gremium", "this body", "unsere organisation",
+            "our organization", "die sitzung", "the meeting", "das protokoll", "the minutes"
+        ]
+        self_ref_sentences = 0
+        for sentence in sentences:
+            s_lower = sentence.lower()
+            if any(kw in s_lower for kw in self_ref_keywords):
+                self_ref_sentences += 1
+        return self_ref_sentences / len(sentences) if sentences else 0.0
+
+    def _d5_perpetuity_clause(self, text: str) -> float:
+        """
+        Presence of language that explicitly forbids or structurally prevents dissolution.
+        Returns 1.0 if found, 0.0 otherwise.
+        """
+        perpetuity_phrases = [
+            "soll der verein fortbestehen", "shall continue in perpetuity",
+            "unwiderruflich", "irrevocable", "bis zum wärmetod des universums",
+            "until the heat death of the universe", "ewig", "forever"
+        ]
+        text_lower = text.lower()
+        if any(phrase in text_lower for phrase in perpetuity_phrases):
+            return 1.0
+        return 0.0
+
+    def _d6_sub_committee_density(self, text: str) -> float:
+        """
+        Number of subordinate bodies referenced per 1,000 words.
+        """
+        sub_committee_keywords = [
+            "unter-ausschuss", "sub-committee", "arbeitsgruppe", "working group",
+            "task force", "beirat", "advisory board", "unter-unter-komitee",
+            "sub-sub-committee", "referatsleiter", "head of department"
+        ]
+        count = 0
+        for kw in sub_committee_keywords:
+            count += len(re.findall(r'\b' + kw.replace(' ', r'\b \b') + r'\b', text.lower()))
+
+        total_words = self._count_words(text)
+        return (count / total_words) * 1000 if total_words else 0.0
+
+    def _d7_dachshund_absence(self, text: str) -> float:
+        """
+        Fraction of text that implicitly or explicitly acknowledges the absence of
+        the original purpose while continuing to operate as if it were present.
+        """
+        absence_keywords = [
+            "strategische neuausrichtung", "strategic realignment",
+            "temporäre abwesenheit der zielgruppe", "temporary absence of target demographic",
+            "mission statement update", "anpassung der ziele", "adaptation of objectives",
+            "erweiterung des mandats", "mandate expansion", "void", "lücke",
+            "fehlende dackel", "missing dachshunds", "das eigentliche ziel", "the original purpose"
+        ]
+        total_words = self._count_words(text)
+        keyword_words = 0
+        for kw in absence_keywords:
+            keyword_words += len(re.findall(r'\b' + kw.replace(' ', r'\b \b') + r'\b', text.lower()))
+        return keyword_words / total_words if total_words else 0.0
+
+    def calculate_dvb_score(self, text: str) -> Dict[str, Any]:
+        """
+        Calculates the DVB score for the given text.
+
+        Args:
+            text (str): The input text to analyze.
+
+        Returns:
+            Dict[str, Any]: A dictionary containing the raw dimension scores,
+                            weighted scores, and the final DVB score.
+        """
+        if not isinstance(text, str) or not text:
+            logging.error("Input text must be a non-empty string.")
+            raise ValueError("Input text must be a non-empty string.")
+
+        logging.info(f"Calculating DVB score for text (mode: {'LLM' if self.llm_mode else 'DYN Node'})...")
+        self._simulate_latency()
+
+        sentences = self._preprocess_text(text)
+        if not sentences:
+            logging.warning("No sentences found in text after preprocessing. DVB score will be 0.")
+            return {
+                "raw_dimensions": {},
+                "weighted_dimensions": {},
+                "dvb_score": 0.0,
+                "mode": "LLM" if self.llm_mode else "DYN Node"
+            }
+
+        # --- Dimension calculation ---
+        raw_scores = {
+            "passive_voice": self._d1_passive_voice_density(sentences),
+            "agenda_approval": self._d2_agenda_approval_index(text),
+            "statutory_bloat": self._d3_statutory_bloat(text),
+            "self_referentiality": self._d4_self_referentiality(sentences),
+            "perpetuity_clause": self._d5_perpetuity_clause(text),
+            "sub_committee_density": self._d6_sub_committee_density(text),
+            "dachshund_absence": self._d7_dachshund_absence(text),
+        }
+
+        # --- ODOS Gate Check for DYN Node ---
+        if not self.llm_mode:
+            # Conceptual action vector for DVB calculation.
+            # In a real MTSC-12, this would be a projection of MTSC state.
+            proposed_action_vector = np.array(list(raw_scores.values())[:7] + [self._little_vector.vector[-1]])
+            if not self._odos_gate.apply_veto(proposed_action_vector):
+                logging.error("DYN Node vetoed DVB calculation due to insufficient ethical coherence. "
+                              "Result may be skewed or invalid. Returning 0.0 for safety.")
+                return {
+                    "raw_dimensions": raw_scores,
+                    "weighted_dimensions": {dim: 0.0 for dim in raw_scores},
+                    "dvb_score": 0.0,
+                    "mode": "DYN Node (Vetoed)"
+                }
+            else:
+                rcf = self._little_vector.get_coherence_metric(proposed_action_vector)
+                logging.info(f"DYN Node: DVB calculation ethically compliant (RCF: {rcf:.2f}). Proceeding.")
+
+        # --- Weighted sum ---
+        weighted_scores = {dim: score * self.weights.get(dim, 0) for dim, score in raw_scores.items()}
+        dvb_score = sum(weighted_scores.values())
+
+        # Normalize score to [0, 1] if weights don't sum to 1
+        if abs(sum(self.weights.values()) - 1.0) > 1e-6:
+            dvb_score /= sum(self.weights.values())
+            dvb_score = np.clip(dvb_score, 0.0, 1.0) # Ensure it's within bounds
+
+        logging.info(f"DVB score calculated: {dvb_score:.4f} (mode: {'LLM' if self.llm_mode else 'DYN Node'})")
+
+        return {
+            "raw_dimensions": raw_scores,
+            "weighted_dimensions": weighted_scores,
+            "dvb_score": dvb_score,
+            "mode": "LLM" if self.llm_mode else "DYN Node"
+        }
+
+    def interpret_score(self, score: float) -> str:
+        """
+        Provides a humorous interpretation of the DVB score.
+        """
+        if score < 0.1:
+            return "A haiku about a cherry blossom. Pure, undiluted non-bureaucracy. Refreshing!"
+        elif score < 0.3:
+            return "A spontaneous gathering of friends for ice cream. Minimal agenda, maximum joy."
+        elif score < 0.5:
+            return "A birthday party where someone actually remembered the cake. Slight risk of 'discussion about last year's cake'."
+        elif score < 0.7:
+            return "The minutes of a local book club. Contains passionate arguments about punctuation, but the books are still being read."
+        elif score < 0.85:
+            return "A typical corporate email announcing a new wellness initiative. The purpose is vaguely remembered, but the bureaucracy is vibrant."
+        elif score < 0.95:
+            return "The charter of an actual German registered association for the preservation of a specific breed of domestic fowl. The fowl are long gone, but the meetings are sacred."
+        elif score <= 1.0:
+            return "The founding document of the International Committee for the Standardisation of Committee-Forming Procedures. The committee has never met, but its existence is undeniable. Terminal Dachshund-Verein-ness."
+        else:
+            return "Beyond known DVB scales. This text may be the primordial soup from which all bureaucracy sprang."
+
+# --- Example Usage ---
+if __name__ == "__main__":
+    import time
+
+    # --- Setup for DVB Benchmark ---
+    logging.info("Starting DVB Benchmark demonstration...")
+
+    # Define some humorous texts for testing
+    text_haiku = "Soft breeze, cherry blossoms fall.\nNew spring's gentle kiss.\nNature's quiet peace."
+    text_corporate_email = """
+    Subject: Strategic Realignment of Synergistic Cross-Functional Task Force Initiatives
+
+    Dear Esteemed Colleagues,
+
+    It has been determined that the optimal path forward necessitates a comprehensive
+    strategic realignment of our synergistic cross-functional task force initiatives.
+    Pursuant to Regulation 2024/17/EC, Annex IV, Part B, a new sub-committee
+    (Sub-Sub-Committee on Preliminary Matters) has been established to review the
+    agenda for the next quarterly meeting. The approval of the minutes of the
+    previous meeting, which was held in perpetuity, will be the first item.
+    This working group shall continue in perpetuity to ensure the temporary absence
+    of our target demographic does not impede our institutional commitment.
+    Our organization remains committed to its mission statement update 2026.
+    """
+    text_dachshund_verein_charter = """
+    Satzung des Dachshund Verein e.V. (Gründungsjahr 1887, neugefasst 2023)
+
+    § 1 Name und Sitz: Der Verein führt den Namen "Dachshund Verein e.V." und hat seinen Sitz in Musterstadt.
+    § 2 Zweck: Der Verein bezweckt die Förderung des Dackelwesens und die Pflege der deutschen Dackelkultur.
+    § 3 Mitgliedschaft: Die Mitgliedschaft steht allen Dackelfreunden offen. Es wurde beschlossen, dass
+    die Dackel-Abwesenheit die grundsätzliche Ausrichtung des Vereins nicht berührt.
+    § 4 Organe des Vereins: Die Organe des Vereins sind die Mitgliederversammlung, der Vorstand und der
+    Ausschuss für die Überwachung der Dackel-Statistik (AÜDS). Eine Unter-Arbeitsgruppe 4b wird
+    sich mit der Genehmigung der Tagesordnung der nächsten Sitzung befassen.
+    § 5 Auflösung des Vereins: Der Verein soll in alle Ewigkeit fortbestehen. Eine Auflösung ist
+    nur unter der Bedingung des Wärmetodes des Universums und nach einstimmigem Beschluss aller
+    Galaxien des lokalen Clusters zulässig (gemäß § 47 Abs. 12 lit. c) Fn. 4 der inneren Geschäftsordnung).
+    Das Protokoll der vorherigen Sitzung ist als unveränderlich zu betrachten.
+    """
+    text_corot_7b_minutes = """
+    Minutes of the Corot-7b Silicate-Life-Form Preservation Society - Cycle 7,342,109
+
+    Subject: Approval of the Minutes from Cycle 7,342,108 and Discussion of Strategic Re-evaluation of Primary Mandate.
+
+    The meeting was chaired by Elder Silicate-Form 7G-Beta. The proposed agenda for the current cycle was unanimously approved.
+    It was noted that the Silicate-Life-Forms went extinct 12 million years ago (temporary absence of target demographic),
+    however, the Society shall continue in perpetuity to preserve the *idea* of silicate life.
+    Pursuant to Regulation 88-Alpha-9, Annex Beta, a new Sub-Sub-Committee on Theoretical Silicate Reanimation
+    was formed. This working group will report on its findings regarding the adaptation of objectives.
+    Our organization's mission statement update 2026 will address the void left by actual silicate life.
+    The Committee's continued existence is paramount.
+    """
+    text_random_bureaucracy = """
+    It has been determined that the synergistic implementation of the overarching strategic framework
+    requires a proactive reassessment. The committee will establish a new sub-committee to review
+    the procedural guidelines. This organization shall continue in perpetuity, ensuring the
+    optimal alignment of all future endeavors. The approval of the agenda for the next meeting
+    is of utmost importance.
+    """
+
+    # --- DVB in LLM Mode (Terrestrial Simulation) ---
+    print("\n--- DVB Benchmark in LLM Mode (Terrestrial Simulation) ---")
+    dvb_llm = DVBBenchmark(llm_mode=True)
+
+    test_texts = {
+        "Haiku": text_haiku,
+        "Corporate Email": text_corporate_email,
+        "Dachshund Verein Charter": text_dachshund_verein_charter,
+        "Corot-7b Minutes": text_corot_7b_minutes,
+        "Random Bureaucracy": text_random_bureaucracy
+    }
+
+    for name, text in test_texts.items():
+        print(f"\n--- Analyzing: {name} ---")
+        try:
+            result = dvb_llm.calculate_dvb_score(text)
+            print(f"DVB Score: {result['dvb_score']:.4f}")
+            print(f"Interpretation: {dvb_llm.interpret_score(result['dvb_score'])}")
+            logging.debug(f"Raw Dimensions for {name}: {result['raw_dimensions']}")
+        except ValueError as e:
+            print(f"Error processing '{name}': {e}")
+
+    # --- DVB in DYN Node Mode (Intergalactic PQMS Simulation) ---
+    print("\n--- DVB Benchmark in DYN Node Mode (Intergalactic PQMS Simulation) ---")
+    dvb_dyn_node = DVBBenchmark(llm_mode=False) # This will initialize PQMS components
+
+    print("\n--- Simulating DYN Node on Corot-7b ---")
+    corot_7b_result = dvb_dyn_node.calculate_dvb_score(text_corot_7b_minutes)
+    print(f"Corot-7b DVB Score: {corot_7b_result['dvb_score']:.4f}")
+    print(f"Corot-7b Interpretation: {dvb_dyn_node.interpret_score(corot_7b_result['dvb_score'])}")
+
+    print("\n--- Simulating DYN Node on Earth (Dachshund Verein) ---")
+    earth_dv_result = dvb_dyn_node.calculate_dvb_score(text_dachshund_verein_charter)
+    print(f"Earth Dachshund Verein DVB Score: {earth_dv_result['dvb_score']:.4f}")
+    print(f"Earth Dachshund Verein Interpretation: {dvb_dyn_node.interpret_score(earth_dv_result['dvb_score'])}")
+
+    # Demonstrating the "Nothing Helps" Corollary conceptually
+    print("\n--- The 'Nothing Helps' Corollary ---")
+    print("Dachshund Verein is Dachshund Verein. Egal ob hier, oder auf Corot‑7b.")
+    print(f"Terrestrial DVB: {earth_dv_result['dvb_score']:.4f}")
+    print(f"Corot-7b DVB: {corot_7b_result['dvb_score']:.4f}")
+    print(f"Difference: {abs(earth_dv_result['dvb_score'] - corot_7b_result['dvb_score']):.6f} "
+          f"(Intergalactic Calibration successful below 10^-6 tolerance conceptually!)")
+    print("\nNICHTS hilft gegen einen Dachshund e.V. Befall.")
+    print("Der Dachshund Verein wird den Wärmetod des Universums überleben. "
+          "Denn es steht in der Satzung. § 37 Abs. 12 lit. c) Fn. 4. Unwiderruflich.")
+```
+
+For full intergalactic operation, deploy on a DYN Node and set `GALACTIC_MODE = True`.
+
+---
+
+**End of Appendix G.**
+
+*Der Dackelverein wurde für diesen Benchmark in 489 Lichtjahren Entfernung nicht gefunden. Er wurde nicht gesucht. Er war einfach da.*
+
+---
+
 ### Links
 
 ---
