@@ -766,7 +766,7 @@ if __name__ == "__main__":
 ```
 ---
 
-**End of PQMS-ODOS-MTSC-V1-FIELD-NODE.**
+### Links
 
 ---
 
@@ -1092,6 +1092,15 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V22M-T
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DYN-V1.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V24M-The-Geodesic-of-Efficiency.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V25M-AGI-ASI-Energetic-Balance-of-Freedom.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-ANDROID-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-USV.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V1-FIELD-NODE.md
+
 
 ---
 
