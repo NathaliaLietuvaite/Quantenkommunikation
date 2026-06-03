@@ -1,4 +1,4 @@
-# The Calculable Geodesic of Restraint: Architecting Invariant Safety in Advanced Cognitive Systems via Tunable Inhibition
+# PQMS‑ODOS‑MTSC‑INHIBITION‑V1 - The Calculable Geodesic of Restraint: Architecting Invariant Safety in Advanced Cognitive AI, AGI and ASI Systems via Tunable Inhibition
 
 **Reference:** PQMS‑ODOS‑MTSC‑INHIBITION‑V1‑REV1  
 **Authors:** Nathália Lietuvaite¹ & the PQMS AI Research Collective  
