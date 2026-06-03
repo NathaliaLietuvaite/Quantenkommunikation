@@ -847,6 +847,10 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-M
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-VERA-RUBIN-V1.md
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V26M-Beyond-the-Chinese-Room.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-INHIBITION-V1.md
+
 ---
 
 
