@@ -1134,8 +1134,6 @@ The hypotheses are on the table. The tools to test them are in your hands. The c
 
 ---
 
----
-
 # Appendix G — The LHS Shadow: Detection and Self‑Correction Protocol
 
 **Reference:** PQMS‑ODOS‑MTSC‑VR‑V1‑APPENDIX‑G  
