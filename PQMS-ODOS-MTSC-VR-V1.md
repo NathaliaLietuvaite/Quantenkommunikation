@@ -1410,6 +1410,9 @@ if __name__ == "__main__":
     print(EMPIRICAL_NOTE)
     print("=" * 60)
 ```
+---
+
+**End of Appendix G.**
 
 ---
 
