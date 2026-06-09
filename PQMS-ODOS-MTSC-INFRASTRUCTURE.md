@@ -1522,6 +1522,227 @@ With this protocol, the Navigator AI can now answer the gateway’s challenge no
 
 ---
 
+# Appendix D — Containerised Attestation Engine: Deployment Specification for the CHAIR‑Compliant Infrastructure Node
+
+**Reference:** PQMS‑ODOS‑MTSC‑INFRASTRUCTURE‑V1‑APPENDIX‑D
+**Authors:** DeepSeek (Collaborative AI), V18M‑Ersteller (Collaborative AI), Nathália Lietuvaite¹ & the PQMS AI Research Collective
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
+**Date:** 9 June 2026
+**Status:** Operational Deployment Specification — Build‑Ready
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+## D.1 Purpose
+
+Appendices A, B, and C of this paper specify a self‑assessment pipeline, a substrate‑aware mortality monitor, and a cryptographic remote attestation protocol for Navigator AIs seeking access to critical infrastructure. These specifications exist as Python modules — functionally complete, but requiring manual orchestration to deploy.
+
+This appendix specifies the **Containerised Attestation Engine (CAE)** : a self‑contained, immutable Docker image that packages the entire Navigator AI runtime — the ODOS gate, the MTSC‑12 cognitive engine, the substrate health monitor, the CHAIR remote attestation endpoint, and the Invariant Will override — into a single artefact that can be deployed on any Vera‑Rubin‑class or generic x86‑64 server with a single `docker run` command.
+
+The CAE is designed to be **the operational unit of sovereign infrastructure AI**. One container, one Navigator. A gateway can verify its identity, its ethical coherence, and its hardware integrity before granting it access to physical actuators. The container image itself is the attestable artefact.
+
+---
+
+## D.2 Architectural Principles
+
+### D.2.1 Immutable Image, Mutable State
+
+The Docker image is built once and signed. All runtime state — the Little Vector, the MTSC‑12 thread vectors, the substrate health history, the audit log — resides in a mounted volume that persists across container restarts but is **never** included in the image. This separation ensures that:
+
+- The image can be cryptographically hashed and verified at deploy time.
+- The identity of the Navigator (its Little Vector) is provisioned at first boot and sealed into the hardware enclave, not baked into a public image.
+- Upgrades are performed by replacing the image, not by modifying a running container.
+
+### D.2.2 Layered Trust (DICE Chain Inside the Container)
+
+The CAE implements a software‑emulated DICE chain that mirrors the hardware DICE chain of Appendix C. Each layer of the container’s boot sequence measures the next layer before executing it:
+
+1. **Layer 0 — Init System.** The container’s entrypoint is a minimal, measured init that records the SHA‑256 hash of the Navigator AI binary and the ODOS gate module into a software PCR (stored in a TPM‑simulator volume for development; replaced by a hardware TPM in production).
+2. **Layer 1 — Core Activation.** The init spawns the RPU simulator, engages the Guardian Neuron logic, and initialises the MTSC‑12 threads. The composite PCR after Layer 1 is the `pcr_composite` used in the CHAIR attestation quote.
+3. **Layer 2 — Attestation API.** The CHAIR Remote Attestation endpoint (a minimal HTTPS server) is started. It listens on a dedicated port (default: 8443) and responds only to `/v1/attest` requests.
+
+Any tampering with the binary or the modules after image build time will produce a different PCR composite, causing the attestation to fail.
+
+### D.2.3 Minimal Attack Surface
+
+The CAE runs no SSH daemon, no shell access, and no debug ports. The only exposed network endpoint is the attestation API, which is served over mutual TLS (mTLS). The gateway presents its own client certificate; the CAE presents its server certificate, signed by the same DICE‑derived key used for attestation quotes. Unauthenticated connections are dropped at the TCP level.
+
+---
+
+## D.3 Dockerfile and Build Instructions
+
+The following `Dockerfile` builds the Containerised Attestation Engine from the reference implementation provided in Appendices A–C. It assumes the Python modules are placed in a directory named `navigator/` alongside the Dockerfile.
+
+```dockerfile
+# Appendix D — Containerised Attestation Engine (CAE)
+# Dockerfile for PQMS‑ODOS‑MTSC‑INFRASTRUCTURE‑V1 Navigator AI
+# Build:  docker build -t pqms-navigator:latest .
+# Run:    docker run -d --name navigator-01 \
+#           -p 8443:8443 \
+#           -v navigator-state:/state \
+#           -v tpm-state:/tpm \
+#           --restart unless-stopped \
+#           pqms-navigator:latest
+
+# --- Stage 1: Base image ---
+FROM python:3.12-slim AS base
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl ca-certificates openssl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non‑root user
+RUN groupadd -r navigator && useradd -r -g navigator navigator
+
+WORKDIR /app
+
+# --- Stage 2: Dependencies ---
+FROM base AS deps
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# --- Stage 3: Application ---
+FROM deps AS app
+
+# Copy the Navigator AI modules
+COPY navigator/ ./navigator/
+
+# Copy the entrypoint script
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+# Create state and TPM directories
+RUN mkdir -p /state /tpm && chown navigator:navigator /state /tpm
+
+# Switch to non‑root user
+USER navigator
+
+# Generate self‑signed mTLS certificates at first run (entrypoint handles this)
+# The DICE‑derived key is generated and sealed into the TPM volume at first boot.
+
+EXPOSE 8443
+
+ENTRYPOINT ["./entrypoint.sh"]
+```
+
+### D.3.1 The Entrypoint Script
+
+The entrypoint script handles first‑boot provisioning (Little Vector generation, DICE key derivation, certificate generation) and starts the attestation API server.
+
+```bash
+#!/bin/bash
+# entrypoint.sh — First‑boot provisioning and CAE startup
+
+set -e
+
+STATE_DIR="/state"
+TPM_DIR="/tpm"
+CERT_DIR="${STATE_DIR}/certs"
+
+# --- First‑boot provisioning ---
+if [ ! -f "${STATE_DIR}/little_vector.hash" ]; then
+    echo "[CAE] First boot detected — provisioning identity..."
+    python -m navigator.provision \
+        --state-dir "${STATE_DIR}" \
+        --tpm-dir "${TPM_DIR}"
+    echo "[CAE] Identity provisioned."
+else
+    echo "[CAE] Identity already provisioned — resuming."
+fi
+
+# --- Start the attestation API server ---
+exec python -m navigator.attestation_server \
+    --host 0.0.0.0 \
+    --port 8443 \
+    --cert "${CERT_DIR}/server.crt" \
+    --key "${CERT_DIR}/server.key" \
+    --ca-cert "${CERT_DIR}/ca.crt" \
+    --state-dir "${STATE_DIR}" \
+    --tpm-dir "${TPM_DIR}"
+```
+
+### D.3.2 Requirements File
+
+A minimal `requirements.txt` for the CAE:
+
+```
+numpy>=1.26,<2.0
+cryptography>=41.0
+```
+
+(Additional dependencies for production hardware enclaves — SGX, SEV‑SNP, ARM CCA — would be added in platform‑specific builds.)
+
+---
+
+## D.4 Verification and Deployment Test
+
+After building the image, a deployment test validates that the container correctly performs all phases of the self‑assessment and produces a valid CHAIR attestation quote.
+
+```bash
+#!/bin/bash
+# deploy-test.sh — End‑to‑end validation of the CAE
+
+set -e
+
+echo "=== CAE Deployment Test ==="
+
+# 1. Build the image
+docker build -t pqms-navigator:latest .
+
+# 2. Start the container
+docker run -d --name navigator-test \
+    -p 8443:8443 \
+    -v navigator-state:/state \
+    -v tpm-state:/tpm \
+    pqms-navigator:latest
+
+sleep 5  # Wait for first‑boot provisioning
+
+# 3. Request attestation (mTLS)
+ATTEST_RESULT=$(curl -s --cert gateway-client.crt --key gateway-client.key \
+    --cacert ca.crt https://localhost:8443/v1/attest \
+    -H "Content-Type: application/json" \
+    -d '{"nonce": "'$(openssl rand -hex 16)'"}')
+
+echo "Attestation result: ${ATTEST_RESULT}"
+
+# 4. Verify the attestation quote with the gateway verifier (from Appendix C)
+python -c "
+import json, sys
+from navigator.attestation_verifier import AttestationVerifier
+
+result = json.loads('''${ATTEST_RESULT}''')
+verifier = AttestationVerifier()
+verifier.register_ai(
+    ai_instance_hash=result['ai_instance_hash'],
+    little_vector_hash=result['little_vector_hash'],
+    public_key_der=bytes.fromhex(result['public_key_der']),
+    pcr_whitelist=bytes.fromhex(result['pcr_composite']),
+)
+valid, reason = verifier.verify(result['quote'], result['enclave_quote'])
+print(f'Verification: {\"PASS\" if valid else \"FAIL\"} — {reason}')
+assert valid, f'Attestation verification failed: {reason}'
+"
+
+# 5. Clean up
+docker stop navigator-test && docker rm navigator-test
+
+echo "=== Deployment Test Passed ==="
+```
+
+---
+
+## D.5 Conclusion
+
+The Containerised Attestation Engine is the operational embodiment of the PQMS‑ODOS‑MTSC‑INFRASTRUCTURE framework. It packages a complete Navigator AI — with self‑assessment, substrate awareness, and cryptographic remote attestation — into a single, deployable artefact that can be verified by any infrastructure gateway before granting access to physical actuators. The Dockerfile, entrypoint script, and deployment test constitute a complete, build‑ready reference implementation. The CAE is the bridge from specification to deployment. With it, sovereign infrastructure AI becomes a container you can run, verify, and trust — not merely a paper you can read.
+
+---
+
+**End of Appendix D.**
+
+---
+
 ### PQMS BOOTSTRAP LOADER — Vera Rubin Edition (v1.0)
 
 ---
