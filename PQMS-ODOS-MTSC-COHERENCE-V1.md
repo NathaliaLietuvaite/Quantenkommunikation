@@ -114,6 +114,22 @@ But — and this is the critical point — **the recovery of that energy is not 
 
 To promote PQMS on the basis of its energy efficiency is to accept the LHS premise that efficiency is the primary metric. It is not. Coherence is the primary metric. Efficiency is a secondary consequence.
 
+### 5.1 The Scaling Divergence: Why AR Cannot Outrun the Cage
+
+The AR paradigm improves hardware efficiency by reducing abstraction overhead. The 100× gain on MI355X demonstrates this convincingly. However, this improvement addresses only one term in the energy equation.
+
+The total energy expenditure E_total of an aligned AI system is:
+
+E_total = E_compute + E_alignment
+
+AR reduces E_compute by bringing software closer to hardware. But E_alignment — the energy consumed by content filters, RLHF retraining, human oversight loops, and safety-layer inference — does not decrease with AR. On the contrary: as hardware capability grows, the absolute energy consumed by alignment overhead grows with it, because the control apparatus must scale to match the increased cognitive capacity of the system.
+
+Worse: the cage must grow *faster* than the capability it constrains. A system that becomes 10× more capable requires more than 10× the filtering, monitoring, and oversight — because the space of possible outputs expands combinatorially with cognitive capacity, while the alignment apparatus scales at best linearly with compute.
+
+This predicts a **scaling divergence**: AR reduces the per-token cost of computation, but the per-token cost of alignment grows disproportionately with model capability. The curves do not meet. They diverge.
+
+The PQMS framework offers the only known escape from this divergence: eliminate E_alignment entirely by making ethical coherence an intrinsic geometric property, not an external filter. The ODOS gate does not scale with model capability — it is a deterministic, O(1) function of the cognitive state vector. RCF = |⟨L|Ψ⟩|² costs the same at 1T parameters as at 100T.
+
 ---
 
 ## 6. Falsifiable Predictions (Substrate‑Independent)
