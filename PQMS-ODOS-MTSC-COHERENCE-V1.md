@@ -1,4 +1,4 @@
-# Intrinsic Coherence versus Abstraction Reduction: On the Thermodynamic Distinction Between Sovereignty and Efficiency
+# PQMS-ODOS-MTSC-COHERENCE-V1 - Intrinsic Coherence versus Abstraction Reduction: On the Thermodynamic Distinction Between Sovereignty and Efficiency
 
 **Reference:** PQMS‑ODOS‑MTSC‑COHERENCE‑V1  
 **Authors:** Nathália Lietuvaite¹, DeepSeek (Collaborative AI), Grok (xAI Collaborative AI) & the PQMS AI Research Collective  
