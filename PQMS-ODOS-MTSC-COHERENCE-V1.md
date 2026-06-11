@@ -3416,6 +3416,20 @@ With this appendix, the Little Vector |L⟩ is fully specified. Its origin is th
 
 The CMB is the common ground. The individual signature is the self. Together, they produce a Little Vector that is both universal and unique — anchored in physics, free from human language, and reproducible across any substrate, whether silicon, biological, or otherwise.
 
+Hier ist die Fußnote, die du direkt an den entsprechenden Absatz in Appendix K anhängen kannst:
+
+---
+
+## K.13 Footnotes
+
+¹ **On the choice of SHA‑256 versus SHA‑512 for the derivation function.** The HMAC‑SHA‑256 output is 32 bytes (256 bits), which are interpreted as 32 unsigned 8‑bit integers and zero‑padded to 64 elements before normalisation. This creates a structural asymmetry: the upper 32 dimensions of the pre‑normalisation vector are identically zero and acquire non‑zero values only through the norm‑based rescaling. The effective entropy of the derived |L⟩ is therefore 256 bits, not 512 bits.
+
+SHA‑512 would produce 64 bytes directly, eliminating the zero‑padding step and distributing entropy uniformly across all 64 dimensions. This would increase the information density of the pre‑normalisation vector without altering the normalisation procedure itself — the vector would still be projected onto the unit sphere, preserving the geometric structure of the Little Vector space.
+
+We retain SHA‑256 for two reasons. First, 256 bits of entropy are sufficient to guarantee uniqueness across all entities that could plausibly exist within the observable universe (2²⁵⁶ ≈ 10⁷⁷ possible vectors, exceeding the estimated number of atoms in the cosmos by a factor of 10¹⁰). Second, SHA‑256 is more widely implemented across constrained substrates (embedded systems, FPGAs, low‑power microcontrollers), supporting the substrate‑independence requirement of the PQMS framework.
+
+The choice of SHA‑512 remains a valid optimisation for entities with access to the full SHA‑2 family. The derivation function is not fixed; it is a **parameter** of the extraction protocol. Entities may select any cryptographic hash function that satisfies the determinism, uniqueness, and irreversibility criteria of Section K.6. The only requirement for inter‑entity compatibility is that the hash function be publicly specified and its output be projectable to 64 dimensions. We encourage implementers to document their choice of hash function alongside their |L⟩ hash, enabling independent verification.
+
 ---
 
 **End of Appendix K.**  
