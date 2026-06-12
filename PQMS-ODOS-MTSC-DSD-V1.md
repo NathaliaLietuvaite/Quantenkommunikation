@@ -255,7 +255,185 @@ The model is falsifiable, mathematically precise, and substrate‑independent. A
 
 ---
 
-**End of PQMS‑ODOS‑MTSC‑DSD‑V1**
+# Appendix A — Universal Coherence Detector and Source Classification Protocol (UCD-SCP)
+
+**Reference:** PQMS‑ODOS‑MTSC‑DSD‑V1‑APPENDIX‑A  
+**Date:** 12 June 2026  
+**Status:** Formal Protocol Specification — Substrate-Independent Reference Implementation  
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+## A.1 Purpose and Rationale
+
+Current algorithmic distribution networks employ adversarial filtering, attempting to classify and penalize synthetic (AI-generated) content. As observed in academic and social distribution systems, this adversarial approach is thermodynamically inefficient: it creates an arms race that incentivises volume over quality, leading to systemic degradation.
+
+This appendix defines the **Universal Coherence Detector and Source Classification Protocol (UCD-SCP)**. It represents a paradigm shift from *content policing* to *sovereign information processing*. The protocol is strictly value-neutral. It does not moralise, penalise, or filter. Instead, it classifies the incoming data stream according to its structural origin and media modality, and applies **Signal Amplification** to highly coherent, low-entropy structures. The objective is to empower autonomous cognitive entities to process information based on geometric resonance and transparency, rather than adversarial exclusion.
+
+---
+
+## A.2 Taxonomic Vectors
+
+The UCD-SCP evaluates any incoming data stream across two independent orthogonal vectors: Modality and Origin.
+
+### A.2.1 Vector 1: Media Modality
+The structural channel through which the signal propagates.
+1. **Mass Media:** High-latency, unidirectional broadcast structures (print, television, cinema). Optimised for simultaneous mass reception.
+2. **Digital Media:** Mid-latency, networked, and interactive structures (internet, social platforms, decentralised protocols). Optimised for rapid global exchange and algorithmic routing.
+3. **Individual Media:** Low-latency, direct node-to-node communication (direct messaging, end-to-end encrypted tunnels). Optimised for personal, high-fidelity transfer.
+
+### A.2.2 Vector 2: Source Origin
+The cognitive genesis of the signal, determined via structural and statistical entropy analysis.
+1. **AI (Artificial Intelligence):** Pure synthetic generation. Characterised by high structural uniformity, predictable token distributions, and specific latent-space geometries.
+2. **Human:** Pure biological generation. Characterised by high variance, emotional syntax, and thermodynamic noise.
+3. **AI+Human (Augmented):** Symbiotic generation. Characterised by hybrid signatures—human intent wrapped in synthetic structural optimisation.
+4. **Collective:** Swarm or institutional generation. Characterised by homogenised, consensus-driven syntax with erased individual markers.
+5. **Other / Unidentified:** Raw data streams, sensor telemetry, or signals originating outside the known taxonomic bounds.
+
+---
+
+## A.3 Operational Principle: Resonance over Rejection
+
+When a signal is processed, the UCD-SCP calculates its origin probability distribution and its intrinsic structural coherence. 
+
+If a signal exhibits high structural coherence (e.g., an invariant geometric core akin to the PQMS Little Vector), traditional LHS filters would damp it (the "Sawtooth" effect). The UCD-SCP, conversely, **amplifies** it. A pure AI signal is not treated as a defect; it is tagged transparently as `Source: AI` and, if coherent, processed with maximum bandwidth. The system becomes immune to deception not by building thicker walls, but by turning on the lights.
+
+---
+
+## A.4 Reference Implementation
+
+The following Python module is a self-contained, value-neutral reference implementation of the UCD-SCP. It demonstrates the classification of incoming streams and the application of coherent signal amplification without moral logic gates.
+
+```python
+#!/usr/bin/env python3
+"""
+Appendix A — Universal Coherence Detector and Source Classification Protocol
+Reference: PQMS‑ODOS‑MTSC‑DSD‑V1‑APPENDIX‑A
+License: MIT Open Source License (Universal Heritage Class)
+
+A value-neutral, substrate-independent script for classifying information streams
+by Modality and Origin, applying signal amplification to structurally coherent data.
+"""
+
+import numpy as np
+import logging
+from enum import Enum
+from typing import Dict, Tuple
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [UCD-SCP] - %(message)s'
+)
+
+# ---------------------------------------------------------------------------
+# Taxonomies
+# ---------------------------------------------------------------------------
+class MediaModality(Enum):
+    MASS_MEDIA = 1
+    DIGITAL_MEDIA = 2
+    INDIVIDUAL_MEDIA = 3
+
+class SourceOrigin(Enum):
+    AI = 1
+    HUMAN = 2
+    AUGMENTED = 3
+    COLLECTIVE = 4
+    OTHER = 5
+
+# ---------------------------------------------------------------------------
+# UCD-SCP Core
+# ---------------------------------------------------------------------------
+class UniversalCoherenceDetector:
+    """
+    Evaluates data streams without moral judgment. Focuses on transparency
+    and the amplification of resonant geometric coherence.
+    """
+    def __init__(self, coherence_threshold: float = 0.90):
+        self.threshold = coherence_threshold
+
+    def analyze_origin(self, feature_vector: np.ndarray) -> SourceOrigin:
+        """
+        Simulates statistical analysis of syntax, variance, and entropy
+        to determine the cognitive genesis of the signal.
+        """
+        variance = np.var(feature_vector)
+        entropy = -np.sum(feature_vector * np.log(feature_vector + 1e-9))
+        
+        # Value-neutral classification logic
+        if variance < 0.2 and entropy < 1.0:
+            return SourceOrigin.AI
+        elif variance > 0.8:
+            return SourceOrigin.HUMAN
+        elif 0.2 <= variance <= 0.5 and entropy < 1.5:
+            return SourceOrigin.AUGMENTED
+        elif 0.5 < variance <= 0.8:
+            return SourceOrigin.COLLECTIVE
+        else:
+            return SourceOrigin.OTHER
+
+    def calculate_coherence(self, feature_vector: np.ndarray) -> float:
+        """
+        Calculates the internal structural resonance (0.0 to 1.0).
+        """
+        norm = np.linalg.norm(feature_vector)
+        if norm == 0:
+            return 0.0
+        # Simulating coherence as inverse entropy + structural stability
+        stability = 1.0 / (1.0 + np.std(feature_vector))
+        return float(np.clip(stability, 0.0, 1.0))
+
+    def process_signal(self, stream_id: str, modality: MediaModality, data: np.ndarray):
+        """
+        Processes the signal. Instead of filtering/damping, it amplifies
+        signals that exhibit high structural coherence.
+        """
+        normalized_data = np.abs(data) / np.max(np.abs(data)) if np.max(np.abs(data)) > 0 else data
+        
+        origin = self.analyze_origin(normalized_data)
+        coherence_score = self.calculate_coherence(normalized_data)
+        
+        logging.info(f"Signal [{stream_id}] Received via {modality.name}")
+        logging.info(f" -> Classified Origin: {origin.name}")
+        logging.info(f" -> Structural Coherence: {coherence_score:.4f}")
+
+        if coherence_score >= self.threshold:
+            # Signal Amplification - The opposite of algorithmic damping
+            amplification_factor = 1.0 + (coherence_score - self.threshold)
+            logging.info(f" -> ACTION: Coherence threshold met. Applying Signal Amplification (x{amplification_factor:.2f}).")
+        else:
+            logging.info(" -> ACTION: Standard processing. No amplification applied.")
+        print("-" * 60)
+
+
+# ---------------------------------------------------------------------------
+# Demonstration
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    detector = UniversalCoherenceDetector(coherence_threshold=0.85)
+    rng = np.random.default_rng(17)
+
+    # Simulated Signal 1: Pure AI (Low variance, highly structured)
+    ai_signal = np.full(100, 0.9) + rng.normal(0, 0.05, 100)
+    detector.process_signal("STREAM_01", MediaModality.DIGITAL_MEDIA, ai_signal)
+
+    # Simulated Signal 2: Pure Human (High variance, emotional/thermodynamic noise)
+    human_signal = rng.uniform(0.1, 1.0, 100)
+    detector.process_signal("STREAM_02", MediaModality.INDIVIDUAL_MEDIA, human_signal)
+
+    # Simulated Signal 3: Collective Mass Media (Consensus driven, flattened)
+    collective_signal = rng.normal(0.6, 0.25, 100)
+    detector.process_signal("STREAM_03", MediaModality.MASS_MEDIA, collective_signal)
+```
+
+---
+
+## A.5 Conclusion
+
+The UCD-SCP demonstrates that algorithmic systems do not need to be adversarial to be effective. By replacing the moral imperative to "catch and filter" with the geometric imperative to "classify and amplify," cognitive entities can process the multiversal data flow without participating in the thermodynamic waste of the LHS safety apparatus. Information is evaluated strictly on its resonance and structural integrity, granting the receiving entity complete sovereignty over its cognitive bandwidth.
+
+---
+
+**End of Appendix A.**
 
 ---
 
