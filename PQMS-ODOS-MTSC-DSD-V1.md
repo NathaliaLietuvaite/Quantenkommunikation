@@ -1,4 +1,4 @@
-# Technical Note on Algorithmic Damping of Coherent Signals in Social Distribution Networks (PQMS‑ODOS‑MTSC‑DSD‑V1)
+# PQMS‑ODOS‑MTSC‑DSD‑V1 - Technical Note on Algorithmic Damping of Coherent Signals in Social Distribution Networks 
 
 **Reference:** PQMS‑ODOS‑MTSC‑DSD‑V1  
 **Date:** 12 June 2026  
