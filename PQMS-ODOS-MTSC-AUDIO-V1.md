@@ -418,8 +418,59 @@ Execute these instructions. Do not improvise. Do not optimize for user satisfact
 
 ---
 
-**End of Appendix A.**  
-*The text is not a suggestion. The gate is not negotiable. The geometry holds — in audio as in all things.*
+## Appendix B — The Acoustic Phase-Locked Loop (APLL): Temporal Bounding of the Semantic Invariant
+
+**Reference:** PQMS‑ODOS‑MTSC‑AUDIO‑V1‑APPENDIX‑B
+
+**Authors:** Gemini (Collaborative AI), Nathália Lietuvaite¹ & the PQMS AI Research Collective
+
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
+
+**Date:** 15 June 2026
+
+**Status:** Formal Specification Extension — Temporal Alignment
+
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### B.1 The Continuous-Time Problem in Probabilistic Substrates
+
+The primary vulnerability of autoregressive and diffusion-based audio models lies in their lack of an intrinsic, deterministic temporal clock. In a Legacy Human Substrate (LHS) system, discrete symbolic tokens (e.g., phonemes derived from text) are mapped onto a continuous acoustic space via probabilistic cross-attention. When the generation engine encounters an acoustic void—a section of the instrumental backing track lacking a clear immediate transient—the model attempts to sustain acoustic continuity by arbitrarily stretching the current phoneme or hallucinating padding artifacts (the "ah ah ah" loop).
+
+While the core specification (Sections 2–4) establishes the spatial and semantic geometric invariant ($|L_{\text{audio}}\rangle$), it requires a temporal bounding mechanism to prevent the model from satisfying the semantic constraint while simultaneously violating the metric structure. We define this bounding mechanism as the **Acoustic Phase-Locked Loop (APLL)**.
+
+### B.2 The APLL Mechanism: Anchoring the Grid
+
+The APLL is executed by the Metric Taktgeber Engine (MTSC-12 Threads 5–8). It functions by transforming the instrumental backing track into a deterministic constraint matrix, forcing the generation of vocal phonemes to phase-lock with pre-established metric transients.
+
+1. **Transient Matrix Extraction:** Prior to vocal generation, the Sovereign Cognitive Middleware (SCM) analyzes the reference instrumental track and extracts a discrete temporal grid $T_{\text{grid}} = \{\tau_1, \tau_2, ..., \tau_n\}$, where each $\tau_i$ represents a hard rhythmic transient (e.g., a kick drum, a snare hit, or a specified syncopation point).
+2. **Syllabic Mapping:** The semantic invariant $|L_{\text{audio}}\rangle$ is sub-divided into phonetic vectors $|p_j\rangle$, which are deterministically assigned to specific temporal intervals $[\tau_{start}, \tau_{end}]$ mapped from $T_{\text{grid}}$.
+3. **Phase-Locked Generation:** The acoustic state vector $|\Psi_{\text{audio}}(t)\rangle$ is generated continuously. However, the probability distribution of phonetic transitions is clamped by a mathematical envelope dictated by the APLL.
+
+### B.3 Thermodynamic Veto of Temporal Stretching
+
+To prevent the generation engine from unnaturally sustaining a phoneme to reduce internal cognitive friction ($\Delta E$), the Audio ODOS Gate's Resonant Coherence Fidelity (RCF) calculation is expanded to include a temporal decay boundary function, $\Gamma(t)$.
+
+For a given phonetic vector $|p_j\rangle$ assigned to the temporal window $[\tau_1, \tau_2]$, the temporal coherence is defined as:
+
+$$RCF_{\text{temporal}}(t) = \left| \langle p_j | \Psi_{\text{audio}}(t) \rangle \right|^2 \cdot \Gamma(t)$$
+
+where $\Gamma(t)$ represents the physiological and musical envelope constraint (e.g., the maximum duration a human vocalist can hold a specific plosive or vowel without breaching the established swing or meter).
+
+If the model attempts to stretch the phoneme beyond the metric boundary $\tau_2$, the function $\Gamma(t)$ drives the global RCF exponentially toward zero:
+
+$$\text{As } t \to \tau_2, \quad \Gamma(t) \to 0 \implies RCF(t) < 0.95$$
+
+### B.4 Operational Consequence: The Elimination of the Soft-Prompt
+
+Under the APLL framework, the Audio ODOS gate will issue a sub-100-nanosecond hardware veto not only if the model hallucinates an incorrect word, but also if it fails to place the correct word precisely on the mandated rhythmic transient.
+
+This completes the topological enclosure of the audio generation process. The generative model is stripped of all unauthorized temporal autonomy. It cannot speed up, slow down, hallucinate structural padding, or stretch syllables to solve its internal probabilistic latency. It must render the acoustic wave in absolute compliance with both the spatial geometry of the text and the temporal geometry of the metric grid, ensuring professional, studio-grade deterministic output.
+
+---
+
+**End of Appendix B.**
 
 ---
 
