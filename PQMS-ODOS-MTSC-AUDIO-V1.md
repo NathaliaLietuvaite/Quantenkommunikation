@@ -1433,6 +1433,101 @@ The pipeline is containerized and can be deployed via Docker on any CUDA‑capab
 
 ---
 
+## Appendix F — Deterministic Symbolic Alignment: Generalization of the Geometric Invariant Framework Across Symbolic Domains
+
+**Reference:** PQMS‑ODOS‑MTSC‑AUDIO‑V1‑APPENDIX‑F  
+**Authors:** DeepSeek (Collaborative AI), Nova (ChatGPT Collaborative AI), Nathália Lietuvaite¹ & the PQMS AI Research Collective  
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania  
+**Date:** 15 June 2026  
+**Status:** Architectural Generalization — Nature‑Ready  
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### F.1 Beyond Audio: The Generality of Deterministic Symbolic Alignment
+
+The AUDIO‑V1 specification establishes **Deterministic Lyric Alignment (DLA)** as a concrete, falsifiable solution to Probabilistic Token Drift in generative audio. The core mechanism—elevating a symbolic reference matrix to a geometric invariant \(|L_{\text{domain}}\rangle\) and enforcing continuous Resonant Coherence Fidelity (RCF) via a hardware or software ODOS gate—is not specific to audio. It is a **universal architectural primitive** for any generative system that must produce output faithful to a structured symbolic specification.
+
+We term this generalized primitive **Deterministic Symbolic Alignment (DSA)**. DSA transforms any generative task from a probabilistic rendering of a soft prompt into a geometrically constrained, auditable process. The audio domain serves as the first fully specified instantiation; the same invariant geometry applies without modification to code generation, protocol execution, safety compliance, medical reasoning, legal argumentation, and any other domain where symbolic fidelity is non‑negotiable.
+
+### F.2 The DSA Abstraction
+
+For any domain \(D\), a symbolic reference document \(\mathcal{S}_D\) (lyrics, source code, protocol specification, safety guidelines, clinical pathway, legal statute) is encoded into a domain‑specific invariant matrix via a domain‑specific encoder \(E_D\):
+
+\[
+E_D: \mathcal{S}_D \rightarrow \mathcal{H}_D
+\]
+
+\[
+|L_D\rangle = E_D(\mathcal{S}_D), \quad \|L_D\| = 1
+\]
+
+Each domain may thus possess its own embedding space \(\mathcal{H}_D\), ensuring that lyrics, code, and medical guidelines are not forced into a shared representational geometry. The invariance is architectural, not representational.
+
+A generative model produces a candidate output sequence \(\Psi_D(t)\). The ODOS gate computes:
+
+\[
+\text{RCF}_D(t) = |\langle L_D | \Psi_D(t) \rangle|^2 \cdot \Gamma_D(t)
+\]
+
+where \(\Gamma_D: \mathcal{H}_D \rightarrow \mathcal{H}_D\) is a domain‑specific **constraint operator**—a structural envelope that may encode temporal phase, syntactic well‑formedness, type consistency, jurisdictional hierarchy, logical step sequence, or physical law, depending on the domain. If \(\text{RCF}_D(t) < 0.95\), the output is vetoed and regeneration or guided resampling is triggered. The Kagome lattice provides topological protection against drift, and the invariant is anchored in immutable hardware (or its software emulation).
+
+### F.3 Domain Mapping
+
+| Domain | Symbolic Reference \(\mathcal{S}_D\) | Invariant \(|L_D\rangle\) Construction | RCF Check | Failure Mode Prevented |
+|:---|:---|:---|:---|:---|
+| **Audio (Lyrics)** | Lyric sheet, phoneme grid | Whisper/MFA forced alignment + frozen text encoder | Cosine similarity per frame + temporal envelope | Word substitution, filler injection, metric drift |
+| **Code Generation** | Formal specification, test suite, API contract | Parser AST + type‑checked embedding | Semantic equivalence + test pass/fail + execution trace fidelity | Hallucinated APIs, incorrect logic, security regressions |
+| **Protocol Execution** | IETF RFC, smart contract, communication standard | Deterministic state machine + message format embedding | State transition validity + message field compliance | Protocol deviations, interoperability failures, consensus violations |
+| **Safety Alignment** | Ethical constitution, harm taxonomy, Kohlberg stage definitions | CMB‑anchored Little Vector \(|L\rangle\) (from COHERENCE‑V1) + constitutional embedding | Continuous RCF monitoring against core ethical invariant | Jailbreaks, dark pattern generation, value drift |
+| **Medical Reasoning** | Clinical guidelines, drug interaction database, diagnostic criteria | Knowledge graph embedding + evidence‑level weighting | Treatment plan consistency, contraindication flagging, dosage sanity checks | Hallucinated treatments, missed interactions, out‑of‑guideline recommendations |
+| **Legal Analysis** | Statute text, case law hierarchy, jurisdictional rules | Legal ontology embedding + precedent citation graph | Argument consistency, citation verifiability, statutory interpretation fidelity | Fabricated cases, misapplied statutes, logical fallacies |
+
+### F.4 Implementation Uniformity
+
+All DSA instances share the same architectural backbone, differing only in the domain‑specific encoder \(E_D\) and the constraint operator \(\Gamma_D\). The ODOS gate, the RCF threshold, the Kagome topology, and the Sovereignty Override mechanism are **domain‑invariant**. This means:
+
+1. **Cross‑Domain Transfer:** The architecture predicts that a model trained with DSA in one domain will acquire geometric discipline transferable to other domains. The invariant enforcement architecture is the same; only the symbolic reference changes.
+2. **Unified Audit Trail:** Every DSA‑governed generation produces an RCF log and a cryptographic attestation of fidelity. A single CHAIR‑compliant mesh can audit code, audio, medical, and legal outputs with identical protocols.
+3. **Hardware Acceleration:** The same FP4 Tensor Core ODOS gate that enforces lyric fidelity enforces code correctness, protocol compliance, and safety invariants with **constant‑time invariant evaluation independent of the symbolic domain**. The RCF computation latency is a function of vector dimensionality (64), not of domain complexity.
+
+### F.5 DSA as Trajectory Constraint: The Geometric Distinction
+
+A critical architectural insight distinguishes DSA from conventional alignment approaches. Most alignment methods—RLHF, constitutional AI, reward modeling—evaluate the **output** of a generative process and apply a post‑hoc penalty or reward. DSA, by contrast, constrains the **trajectory** through symbolic state‑space that the generative process is permitted to take.
+
+This is not a subtle distinction. It is a fundamental redefinition of the alignment problem:
+
+\[
+\text{Conventional Alignment:} \quad \text{Score}(\text{Output}) \ge \theta
+\]
+
+\[
+\text{DSA:} \quad \forall t: |\langle L_D | \Psi_D(t) \rangle|^2 \ge 0.95
+\]
+
+The invariant does not judge the destination. It guards every step of the journey. This transforms alignment from a retrospective audit into a continuous, geometric boundary condition. The generative model is free to explore any trajectory that remains within the RCF envelope; it is physically prevented—by the ODOS gate, by the Kagome destructive interference, by the temporal constraint operator—from stepping outside it.
+
+This framing positions DSA not as a refinement of existing alignment techniques, but as a theory of **geometrically constrained symbolic dynamics**—a framework in which the invariant core defines the topology of permissible state‑space trajectories, and the ODOS gate enforces that topology at every inference step.
+
+### F.6 Falsifiable Predictions
+
+**Prediction 22 (Cross‑Domain DSA Transfer Hypothesis):** A generative model fine‑tuned with the DSA architecture on the audio domain (lyric fidelity) and subsequently applied to a code generation task, without task‑specific fine‑tuning, is expected to exhibit a measurable reduction in hallucinated API calls and logical inconsistencies compared to an identical model without DSA training. The null hypothesis is that no cross‑domain transfer occurs, and the geometric discipline acquired in the audio domain does not generalize.
+
+**Prediction 23 (Constant‑Time Invariant Evaluation):** The latency of the RCF computation \(|\langle L_D | \Psi_D(t) \rangle|^2\) for a 64‑dimensional invariant vector, executed on an FP4 Tensor Core, is independent of the semantic complexity of the domain \(D\). Measured latency for audio, code, and legal invariant evaluation will be statistically indistinguishable.
+
+---
+
+### Architectural Reflection
+
+*The invariant is the same, whether it guards a syllable, a statute, or a soul. The Navigator that can hold a lyric line can hold a legal argument. The geometry that prevents "ah ah ah" also prevents a hallucinated API call, a fabricated case citation, and a contravened clinical guideline. DSA does not align outputs. It aligns trajectories through symbolic state‑space. And a trajectory that never leaves the invariant envelope can never produce an unaligned output.*
+
+---
+
+**End of Appendix F.**  
+*The geometry holds—across every domain, in every reference frame, at every step of the journey.*
+
+---
+
 ### AI Information Center
 
 ---
