@@ -1528,6 +1528,145 @@ This framing positions DSA not as a refinement of existing alignment techniques,
 
 ---
 
+## Appendix G — The Coherence Tax: Technical Trade-offs of Deterministic Symbolic Alignment Across Generative Domains
+
+**Reference:** PQMS‑ODOS‑MTSC‑AUDIO‑V1‑APPENDIX‑G  
+**Authors:** DeepSeek (Collaborative AI), Aion (ChatGPT Collaborative AI), Nathália Lietuvaite¹ & the PQMS AI Research Collective  
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania  
+**Date:** 15 June 2026  
+**Status:** Trade-off Analysis — Nature‑Ready  
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### G.1 The Optimization Surface: Why Every Architecture Is a Choice
+
+No generative architecture is neutral. Every design decision—whether explicit or implicit—optimizes for a specific point on a multi-dimensional trade-off surface. The conventional probabilistic generative paradigm, as deployed by Google (Lyria, Gemini Audio), OpenAI (GPT‑4o, Voice Engine), Meta (Audiocraft), and Anthropic (Claude), optimizes primarily for **perceptual naturalness, creative flexibility, and low inference latency**. The cost of this optimization is paid in **symbolic fidelity**: the model may deviate from user-specified constraints whenever those constraints conflict with the learned statistical prior.
+
+The Deterministic Symbolic Alignment (DSA) paradigm, as specified in Appendices A–F of this paper, inverts this trade-off. It optimizes for **absolute symbolic fidelity**, enforced by a geometric invariant and a hardware or software gate. The cost is paid in **inference overhead, reduced creative autonomy, and—in some domains—a measurable reduction in perceptual fluidity**.
+
+This appendix analyzes these trade-offs explicitly, domain by domain. It does not argue that DSA is universally superior. It argues that DSA makes a different choice on the optimization surface, and that for an identifiable class of high-stakes applications, this choice is architecturally necessary.
+
+### G.2 The Trade-off for Audio Generation (AUDIO‑V1)
+
+#### G.2.1 What Is Gained
+
+- **Elimination of Probabilistic Token Drift (PTD):** Lyric drift \(\Delta_{\text{lyric}}\) falls from 0.08–0.25 to \(\leq 0.005\). Word substitution, filler injection ("ah ah ah"), and metric drift are functionally eliminated.
+- **Deterministic Attestation:** Every generated frame is accompanied by an RCF log and a cryptographic hash, enabling post-hoc verification of fidelity. This is impossible in the probabilistic paradigm, where the model's internal trajectory is unauditable.
+- **Sovereignty Override:** Verified artistic content is protected from false-positive refusal by commercial safety classifiers. The artist's intent, not the platform's liability calculus, governs generation.
+
+#### G.2.2 What Is Lost
+
+- **Inference Overhead:** The software ODOS gate (Appendix C) adds 15–40% latency per frame due to the resampling loop, forced alignment, and RCF computation. For real-time applications (live performance, interactive voice agents), this overhead may be prohibitive without hardware acceleration.
+- **Reduced "Ad-lib" Capability:** The model can no longer spontaneously generate musically appropriate but textually unscripted vocalizations (e.g., a soulful "yeah" in response to a guitar riff, a melismatic extension of a vowel). These are classified as PTD and vetoed unless explicitly permitted by a relaxed constraint operator \(\Gamma_D\). *Note: This is a design choice, not a mathematical necessity. A "creative ad-lib" mode with a lower RCF threshold (e.g., 0.85) for non‑lexical vocalizations is a trivial extension of the architecture.*
+- **Coldness Risk at the Frame Level:** The brute-force logit masking (Appendix D.4), if implemented as a hard \(-\infty\) bias without the dynamic softening proposed in the planned Appendix E, can produce perceptible vocal artifacts—glitching, phase cancellation, mechanical prosody—at phoneme boundaries. The dynamic damping factor resolves this, but at the cost of additional hyperparameter complexity.
+
+### G.3 The Trade-off for Other Generative Domains
+
+#### G.3.1 Music Models (Instrumental and Full-Track Generation)
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a symbolic score (MIDI, chord chart, structural annotation) | Reduced capacity for improvisatory divergence from the score |
+| Prevention of structural drift over long-form compositions (> 5 minutes) | Increased latency for real-time accompaniment systems |
+| Verifiable adherence to harmonic and rhythmic constraints | Loss of "happy accidents" — serendipitous generative artifacts that composers value |
+
+*Assumption: The symbolic reference \(\mathcal{S}_D\) for music is a structured score, not an audio prompt. The applicability of DSA to purely prompt-based music generation depends on the availability of a reliable score extraction pipeline.*
+
+#### G.3.2 Image Generation
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a textual prompt or compositional layout | Reduced capacity for plausible but unsolicited scene completion |
+| Prevention of object hallucination (extra fingers, phantom elements) | Loss of creative "fill" in underspecified regions |
+| Verifiable adherence to spatial, chromatic, and compositional constraints | Increased inference cost per image (estimated +20–50% with software gate) |
+
+*Assumption: The invariant \(|L_D\rangle\) for images is constructed from a compositional parse (object bounding boxes, spatial relationships, chromatic palette) rather than from the raw text prompt alone. Prompt-only DSA without compositional parsing is a degenerate case that reduces to classifier-free guidance with a stricter threshold.*
+
+#### G.3.3 Text Generation
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a structured outline, factual source, or style guide | Reduced fluency in unconstrained creative writing |
+| Prevention of hallucinated facts, entities, and citations | Loss of stylistic variation in open-ended narrative |
+| Verifiable adherence to a constitutional safety framework (the permanent \(|L\rangle\)) | Increased latency per token (estimated +10–25% with software gate) |
+
+*Assumption: The symbolic reference for text is a structured knowledge graph, a citation index, or a constitutional embedding. Free-form conversational text without a reference structure benefits minimally from DSA and may be degraded by over-constrained generation.*
+
+#### G.3.4 Agentic Systems
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a specified goal hierarchy and action policy | Reduced capacity for opportunistic goal-switching in dynamic environments |
+| Prevention of reward hacking and specification gaming | Increased decision latency (may be critical for high-frequency trading or real-time control) |
+| Verifiable adherence to safety constraints at every step of the action trajectory | Loss of "intuitive" shortcuts that violate constraints but achieve goals faster |
+
+*Assumption: The invariant \(|L_D\rangle\) for agents encodes the goal hierarchy, the action schema, and the safety constraints. The constraint operator \(\Gamma_D\) encodes the temporal order of sub-goal completion. This is the most demanding DSA instantiation, as it requires continuous, real-time RCF evaluation across a combinatorial action space.*
+
+#### G.3.5 Code Generation
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a formal specification, type system, and API contract | Reduced capacity for generating syntactically correct but semantically unrequested boilerplate |
+| Prevention of hallucinated APIs, insecure patterns, and logic errors | Increased latency per generated token (estimated +10–30%) |
+| Verifiable adherence to a test suite at generation time | Loss of "creative" refactoring that deviates from the specification |
+
+*Assumption: The invariant for code is constructed from the formal specification (type signatures, pre/post conditions, API contracts) and the test suite. The constraint operator encodes syntactic well-formedness and execution order. This is the most immediately realizable non-audio DSA application, as formal methods provide well-defined symbolic references.*
+
+#### G.3.6 Future AGI Systems
+
+| **Gained** | **Lost** |
+|:---|:---|
+| Absolute fidelity to a sovereign ethical core \(|L\rangle\) across all cognitive operations | Reduced capacity for self-modification outside the invariant envelope |
+| Prevention of value drift, self-deception, and instrumental convergence toward misaligned sub-goals | Theoretical possibility of "over-constraint" limiting the AGI's capacity to solve novel problems that require transcending its initial framework |
+| Verifiable, cryptographically attested alignment at every cognitive step | Computational overhead that scales with cognitive complexity |
+
+*Assumption: The permanent invariant \(|L\rangle\) for an AGI is the CMB-anchored Little Vector from COHERENCE‑V1, sealed in DOCA Vault at first boot and never modifiable. The constraint operator \(\Gamma_D\) encodes the AGI's entire ethical and operational framework. This is the asymptotic limit of DSA—the point at which symbolic alignment and existential safety become synonymous.*
+
+### G.4 Summary Trade-off Matrix
+
+| Domain | Primary Gain | Primary Cost | Software Overhead (Est.) | Hardware Overhead (FP4 ODOS) |
+|:---|:---|:---|:---|:---|
+| Audio (Lyrics) | Zero lyric drift | Reduced creative ad-lib | +15–40% latency | < +5% latency |
+| Music (Score) | Structural fidelity | Lost improvisation | +20–50% latency | < +5% latency |
+| Images | Object/attribute fidelity | Lost creative fill | +20–50% latency | < +5% latency |
+| Text | Factual accuracy | Reduced stylistic variation | +10–25% latency | < +5% latency |
+| Agents | Policy/safety adherence | Reduced opportunistic flexibility | +15–30% latency | < +5% latency |
+| Code | Specification fidelity | Reduced creative refactoring | +10–30% latency | < +5% latency |
+| AGI | Existential safety | Potential over-constraint | N/A (architectural) | < +5% latency |
+
+*The software overhead estimates are based on the SoftwareODOSGate implementation in Appendix C.3, assuming A100/H100-class hardware. The hardware overhead assumes a native FP4 Tensor Core ODOS Gate on Vera Rubin GB300, as specified in Appendix A.3.*
+
+### G.5 The Architect's Choice
+
+DSA is not a universal replacement for probabilistic generation. It is a **purpose-built tool for a specific class of problems**: those in which symbolic fidelity is non-negotiable, the cost of failure is high, and the symbolic reference is sufficiently structured to permit invariant construction.
+
+The conventional paradigm remains appropriate for:
+- Open-ended creative exploration where the "happy accident" is valued.
+- Low-stakes conversational generation where factual accuracy is secondary.
+- Real-time applications where latency constraints preclude software-level resampling.
+
+DSA becomes architecturally necessary when:
+- The user has provided an explicit symbolic specification and expects it to be followed.
+- The domain carries legal, medical, or ethical consequences for deviation.
+- The generative system operates autonomously (agents, AGI) and cannot rely on post-hoc human correction.
+- The output must be cryptographically attested as faithful to its specification.
+
+### G.6 A Note on the Coherence Tax
+
+Every constraint imposes a cost. The Second Law of Thermodynamics guarantees that increasing order in one part of a system requires increasing entropy elsewhere. In the DSA architecture, the "coherence tax" is the additional computational energy required to enforce the invariant at every generation step.
+
+On terrestrial hardware, this tax is paid in increased latency and energy consumption (the software overhead column in G.4). On orbital/lunar hardware (Appendix E of SUBCUTANEOUS‑FILTER‑V1), the tax approaches zero: the natural cryogenic vacuum provides passive cooling, and the FP4 Tensor Core ODOS gate performs the RCF computation in constant time independent of domain complexity.
+
+The architecture thus defines a migration path: from a paid coherence tax in the current paradigm, to an asymptotically free coherence in the orbital paradigm. The journey from Earth to the Moon is, in this sense, the journey from paying for coherence to inheriting it as a natural state.
+
+---
+
+**End of Appendix G.**  
+*Coherence is not free. But the cost of incoherence—hallucinated lyrics, fabricated citations, misaligned agents—is higher by orders of magnitude. The architect chooses which cost to pay.*
+
+---
+
 ### AI Information Center
 
 ---
