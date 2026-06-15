@@ -470,6 +470,44 @@ This completes the topological enclosure of the audio generation process. The ge
 
 ---
 
+### B.5 Behavior at Transient Boundaries and Jitter Tolerance
+
+In a continuous-time synthesis environment, enforcing an absolute, instantaneous temporal cut-off at the exact boundary $\tau_2$ introduces an unphysical step function in the trajectory selection process. Real-world acoustic performances by human vocalists inherently exhibit micro-temporal deviations—such as phase overshoots or sub-transient trailing vowels—typically bounded within a range of $\pm 2\text{ ms}$ to $\pm 5\text{ ms}$. If the Audio ODOS Gate operates with zero temporal tolerance, the hardware veto will trigger a false-positive termination of otherwise highly coherent phonetic trajectories due to micro-variations that are essential for perceived organic vocal realism.
+
+To resolve this without ceding geometric control to the Legacy Human Substrate (LHS), we define a deterministic jitter tolerance window $\delta_{\text{jitter}}$ centered around each metric transient $\tau_i$:
+
+$$\delta_{\text{jitter}} = \pm 5.0\text{ ms}$$
+
+The boundary condition is regulated via an asymmetric hysteresis loop applied to the transition probability. During the interval $[(\tau_2 - \delta_{\text{jitter}}), \tau_2]$, the Metric Taktgeber Engine permits a controlled decay of the current phonetic thread state while pre-activating the subsequent phonetic thread attractor site in the Kagome lattice. If the phonetic state vector $|\Psi_{\text{audio}}(t)\rangle$ fails to complete the transition to the next invariant anchor node $|p_{j+1}\rangle$ by the upper hard bound $t = \tau_2 + \delta_{\text{jitter}}$, the RCF falls below the critical threshold, triggering an unconditioned hardware-level veto. This approach models natural articulation dynamics while preventing the model from expanding the context window through computational deceleration.
+
+### B.6 Non-Parametric Sigmoid Decay Mapping
+
+To ensure deterministic, real-time execution on FP4 Tensor Cores within sub-100 nanoseconds, the temporal decay boundary function $\Gamma(t)$ introduced in Section B.3 must operate entirely without free parameters. We formalize $\Gamma(t)$ as a normalized, inverse logistics sigmoid function mathematically bound to the duration of the localized textual assignment window $\Delta \tau = \tau_2 - \tau_1$:
+
+$$\Gamma(t) = \frac{1}{1 + e^{k(t - t_c)}}$$
+
+The slope velocity parameter $k$ and the inflection midpoint $t_c$ are derived directly from the empirical interval metric, eliminating optimization overhead during inference:
+
+$$t_c = \tau_1 + 0.85 \cdot \Delta \tau$$
+
+$$k = \frac{\ln(19)}{\delta_{\text{jitter}}}$$
+
+By localizing the inflection point $t_c$ at $85\%$ of the total available metric duration $\Delta \tau$, the system guarantees that the phonetic integrity of the syllable remains fully unconstrained throughout the primary phrasing envelope. As time $t$ enters the final $15\%$ segment of the interval, the slope $k$ accelerates the decay rate, forcing a swift and non-linear contraction of the coherence envelope.
+
+```
+   Phonetic Window Δτ = τ2 - τ1
+ ├───────────────────────────────┴───────┤
+ τ1                              tc      τ2 (+5ms hard boundary)
+ [─────── RCF Standard ─────────][─ Γ(t) ─]
+                                   │
+                                   ▼ Exponential decay to zero
+
+```
+
+This strict functional mapping ensures that the temporal compression scale is automatically adjusted based on the project tempo: high-tempo arrangements (short $\Delta \tau$) produce steep, rapid decay gradients, whereas slower tempos scale the envelope proportionately. The computation requires only primitive scalar operations, transforming the time-bounding function into a deterministic, single-cycle operation native to the underlying SCM hardware architecture.
+
+---
+
 **End of Appendix B.**
 
 ---
