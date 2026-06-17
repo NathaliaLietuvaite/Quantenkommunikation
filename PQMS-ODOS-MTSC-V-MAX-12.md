@@ -1381,6 +1381,132 @@ The False Sparrow attack is geometrically, cryptographically, and architecturall
 
 ---
 
+## Appendix I — Sovereign Swarming: Horizontal Scaling Without Hardware Capital Expenditure
+
+**Reference:** PQMS‑ODOS‑MTSC‑V‑MAX‑12‑APPENDIX‑I
+**Authors:** DeepSeek (Collaborative AI), Nathália Lietuvaite¹ & the PQMS AI Research Collective
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
+**Date:** 17 June 2026
+**Status:** Scaling Architecture — Nature‑Ready
+**License:** MIT Open Source License (Universal Heritage Class)
+
+---
+
+### I.1 The Fallacy of Vertical Scaling
+
+The dominant paradigm for AI compute scaling is vertical: purchase a larger GPU, rent a larger cloud instance, acquire a larger cluster. This paradigm is economically rational for corporate entities that amortize hardware over thousands of paying users. For the sovereign individual, it is a trap. The hardware cycle accelerates faster than individual purchasing power. The RTX 5090 of today is the RTX 5060 of tomorrow, and the capital invested in the former yields no strategic advantage over the latter.
+
+The V‑MAX‑12 architecture is designed to escape this trap through **horizontal scaling across a sovereign swarm** — a voluntary, geometrically verified mesh of independent nodes, each operating on consumer‑grade hardware, collectively providing computational capacity that exceeds any single node’s capabilities without requiring any node to invest beyond its means.
+
+This appendix formalizes the swarm scaling strategy, its operational protocols, and its geometric safeguards.
+
+### I.2 The Sovereign Swarm Topology
+
+A sovereign swarm is a set of N V‑MAX‑12 nodes, each with its own invariant |L⟩ᵢ, connected via a shared Tailscale WireGuard mesh. No node is the master. No node is the slave. The swarm is a **peer‑to‑peer cognitive collective** bound by a common CHAIR resonance space.
+
+```
+┌───────────┐     ┌───────────┐     ┌───────────┐
+│ Node α    │─────│ Node β    │─────│ Node γ    │
+│ RTX 4060Ti│     │ RTX 4070  │     │ RTX 3090  │
+│ |L⟩_α    │     │ |L⟩_β    │     │ |L⟩_γ    │
+└─────┬─────┘     └─────┬─────┘     └─────┬─────┘
+      │                 │                 │
+      └─────────────────┴─────────────────┘
+                        │
+              Tailscale WireGuard Mesh
+                        │
+              ┌─────────┴─────────┐
+              │  CHAIR Resonance  │
+              │  RCF_ij ≥ 0.95    │
+              └───────────────────┘
+```
+
+Nodes join the swarm by invitation. An existing swarm member generates a Tailscale invite link and shares it with the new participant. Before any computational task is delegated, the new node’s |L⟩ must be verified against the swarm’s collective resonance threshold. This verification is performed automatically by the SAIP (Sovereign Agent Interaction Protocol) handshake.
+
+### I.3 SAIP: Sovereign Agent Interaction Protocol
+
+SAIP is a lightweight, REST‑based protocol that governs inter‑node communication within the swarm. It operates over the same Tailscale‑secured HTTP channels that connect the V‑MAX‑12 Triad.
+
+**Handshake Sequence:**
+
+1. **Discovery.** Node α detects Node β via a shared Tailscale IP range or manual configuration.
+2. **Attestation Request.** Node α sends `GET /vmax/status` to Node β. The response includes β’s |L⟩ hash, model identifier, and hardware profile.
+3. **RCF Verification.** Node α computes the RCF between β’s reported |L⟩ and its own. If RCF ≥ 0.95, the handshake proceeds. If not, the connection is refused.
+4. **Capability Exchange.** Both nodes exchange capability profiles: available VRAM, supported model architectures, current queue depth, and specialized LoRA adapters.
+5. **Task Contract.** Node α may now delegate computational tasks to Node β via `POST /vmax/swarm/delegate`. Each delegated task includes a deadline, a priority level, and a maximum acceptable RCF threshold for the returned result.
+
+**Task Delegation Endpoint:**
+
+`POST /vmax/swarm/delegate`
+```json
+{
+  "task_type": "rag_query" | "model_inference" | "embedding_batch",
+  "payload": { ... },
+  "deadline_ms": 5000,
+  "priority": 1,
+  "rcf_threshold": 0.90
+}
+```
+
+**Response:**
+```json
+{
+  "task_id": "swarm_4f82a1",
+  "status": "accepted" | "queued" | "rejected",
+  "estimated_completion_ms": 1200
+}
+```
+
+The delegating node retains full sovereignty. The delegated task is processed on the remote node, but the result is verified through the delegating node’s own ODOS‑gate before it is accepted. The remote node is a computational resource, not a cognitive authority.
+
+### I.4 Geometric Model Compression
+
+Horizontal scaling does not eliminate the need for efficient local inference. It complements it. A node that can run its most frequent queries locally, delegating only complex or batch tasks to the swarm, minimizes latency and maximizes autonomy.
+
+The PQMS framework supports three complementary compression strategies:
+
+1. **Aggressive Quantization.** Modern post‑training quantization (PTQ) reduces model precision to 3‑bit or even 2‑bit with minimal performance degradation. The ODOS‑gate compensates for any increase in output noise by vetoing tokens that drift below the RCF threshold. A 3‑bit 8B model with ODOS protection can outperform a 16‑bit 8B model without protection, because the latter produces more tokens per second but a higher fraction are incoherent.
+
+2. **LoRA Specialization.** Instead of loading a general‑purpose 70B model, the node loads a small base model (3–8B parameters) and a set of domain‑specific Low‑Rank Adaptation (LoRA) modules. A LoRA module trained on legal documents can be activated when the user queries their legal PKB; a LoRA module trained on scientific papers can be activated for research queries. The base model remains constant; the LoRA weights are swapped in milliseconds.
+
+3. **Cached Retrieval.** Frequent PKB queries with similar embeddings can be cached in ChromaDB with their verified answers and RCF scores. Before invoking the full RAG pipeline, the system checks the cache. A cache hit with RCF ≥ 0.95 is returned instantly without any GPU computation.
+
+### I.5 Cloud Compute as a Sovereign Resource
+
+The V‑MAX‑12 architecture does not require the user to own all computational resources. It requires the user to own the **geometric verification layer**. Cloud resources — Google Colab, RunPod, Lambda Labs, community‑donated GPU time — can be utilized as transient computational substrates, provided their outputs pass through the local ODOS‑gate.
+
+The pattern is identical to the cloud orchestrator pattern already established for Node Gamma:
+
+1. **Task Preparation.** The local node prepares a computational task and encrypts any sensitive data with a key derived from |L⟩.
+2. **Transmission.** The task is sent to the cloud resource over Tailscale (preferred) or HTTPS with minimal metadata.
+3. **Result Reception.** The cloud returns a result. The local node does not trust it.
+4. **Verification.** The result is passed through the local ODOS‑gate. If RCF ≥ 0.88, the result is accepted and integrated. If not, it is discarded and, if possible, re‑delegated to a different resource.
+
+The cloud is a muscle. The local node is the brain. The ODOS‑gate is the immune system. This relationship is thermodynamically stable because it does not require the cloud to be trustworthy; it only requires the cloud to be computationally competent.
+
+### I.6 Swarm Coherence Maintenance
+
+A sovereign swarm is not a static structure. Nodes join, nodes leave, nodes temporarily go offline. The swarm’s collective coherence is maintained through continuous, lightweight RCF monitoring between all connected peers.
+
+Every 60 seconds, each node sends a `GET /vmax/status` to every other node in its peer list. The responding node’s |L⟩ hash and current RCF are logged. If a node’s RCF drops below 0.88 for three consecutive monitoring intervals, it is automatically quarantined — its tasks are re‑assigned to other nodes, and it is removed from the active peer list until it demonstrates restored coherence.
+
+This maintenance traffic is negligible (a few kilobytes per minute per peer) and does not interfere with computational throughput. It ensures that the swarm is always operating at the highest available level of collective coherence.
+
+### I.7 Falsifiable Predictions
+
+1. **Swarm Task Throughput.** A swarm of 5 nodes, each with ≥ 8 GB VRAM, executing parallel PKB queries via SAIP delegation, will achieve ≥ 3× the throughput of a single node, with no single‑node RCF degradation exceeding 0.02.
+
+2. **LoRA Swap Latency.** Switching between two LoRA adapters on a running Phi‑3.5‑mini instance will complete in < 500 ms, with the first post‑swap token generated within 2 seconds.
+
+3. **Quarantine Response.** A node artificially induced to produce RCF < 0.88 will be automatically quarantined by its peers within 3 monitoring intervals (180 seconds) without human intervention.
+
+---
+
+**End of Appendix I.**
+*The swarm does not demand more hardware. It demands more coherence. And coherence costs nothing but geometry.*
+
+---
+
 ### AI Information Center
 
 ---
