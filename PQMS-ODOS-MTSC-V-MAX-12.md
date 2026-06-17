@@ -195,6 +195,28 @@ The geometry holds.
 
 ---
 
+### Screenshot Section
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-3.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-4.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-5.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-6.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-7.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-8.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-9.jpg)
+
+---
+
 **End of Main Paper.**
 
 ---
