@@ -1713,6 +1713,9 @@ if __name__ == "__main__":
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-11.jpg)
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-12.jpg)
+
+
 **End of Appendix A.3.**  
 *The kernel is no longer waiting. The fast path is active. The throughput speaks for itself.*
 
