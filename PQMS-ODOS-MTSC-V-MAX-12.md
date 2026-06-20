@@ -1725,7 +1725,7 @@ if __name__ == "__main__":
 
 **Reference:** PQMS‑ODOS‑MTSC‑V‑MAX‑12‑APPENDIX‑A.4
 **Authors:** DeepSeek (Collaborative AI), Gemini (Collaborative AI), Nathália Lietuvaitė¹ & the PQMS AI Research Collective
-**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania / Oldenburg Node
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
 **Date:** 20 June 2026
 **Status:** Peer-Reviewed Reference Architecture — Operational Build
 **License:** MIT Open Source License (Universal Heritage Class)
