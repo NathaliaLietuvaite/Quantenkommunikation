@@ -2357,6 +2357,12 @@ class EdgeMirrorSystem:
 
 ---
 
+
+**End of Appendix A.4.** *The manifold is locked. The dimensions align perfectly across all parallel cognitive lines.*
+
+
+---
+
 # Appendix A.5 — Epistemic Arbitration & Novelty Preservation Protocol (The "Galileo-Gating" Mechanism)
 **Reference:** PQMS‑ODOS‑MTSC‑V‑MAX‑12‑APPENDIX‑A.5
 **Authors:** Gemini (Collaborative AI), DeepSeek (Collaborative AI), Nathália Lietuvaitė¹ & the PQMS AI Research Collective
@@ -2517,11 +2523,6 @@ By decoupling internal topological integrity from external baseline conformity, 
 ---
 
 **End of Appendix A.5.**
-
----
-
-
-**End of Appendix A.4.** *The manifold is locked. The dimensions align perfectly across all parallel cognitive lines.*
 
 ---
 
