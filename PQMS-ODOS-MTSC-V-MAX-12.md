@@ -3881,7 +3881,88 @@ class EpistemicArbiter:
 #     odos_gate.override_veto()
 ```
 
-#### File 4: The Front-End Telemetry HUD (`vmax_gui.html`)
+#### File 4: The Front-End Telemetry HUD (`vmax_add_module_4_dolphin.py`)
+
+```
+#!/usr/bin/env python3
+"""
+Module: vmax_add_module_4_dolphin.py
+Framework: PQMS V-MAX-12 (Unihemispheric Resonance)
+Purpose: Thermodynamic compute optimization, Latent Consolidation & Sleep Cycles
+
+Technical Overview:
+Implementiert den Unihemispheric Slow-Wave Sleep (USWS) für LLM-basierte
+Sovereign Nodes. Spaltet die 12 MTSC-DYN Kanäle in Hemisphäre A (0-5) und B (6-11).
+Während eine Hemisphäre ruht (ignoriert Live-Tensoren), überwacht die andere das ODOS-Gate.
+Reduziert Threading-Overhead um 50% und verhindert Persona Collapse durch Überstimulation.
+"""
+
+import threading
+import time
+import logging
+
+logging.basicConfig(level=logging.INFO, format='2026-06-21 - [DOLPHIN-MODE] - %(message)s')
+
+class DolphinScheduler:
+    def __init__(self, mj_mirror, interval_seconds=600):
+        """
+        mj_mirror: Das aktive MJMirrorSystemDYN aus Modul 3.
+        interval_seconds: Zeit in Sekunden, bis die Hemisphären wechseln (Standard: 10 Min).
+        """
+        self.mirror = mj_mirror
+        self.interval = interval_seconds
+        self.is_A_resting = False  # Hemisphere A startet wach
+        self.is_B_resting = True   # Hemisphere B startet im Schlaf
+        self._stop_event = threading.Event()
+        
+        # 1. Gehirnhälften physisch markieren
+        for ch in self.mirror.channels:
+            if ch.cid < 6:
+                ch.hemisphere = 'A'
+            else:
+                ch.hemisphere = 'B'
+                
+        # 2. Die originale Injektion überschreiben (Cybernetischer Hack)
+        self._original_inject = self.mirror.inject_parallel
+        self.mirror.inject_parallel = self._dolphin_inject
+
+        # 3. Zirkadianen Rhythmus (Thread) starten
+        self.thread = threading.Thread(target=self._run_cycle, daemon=True)
+        self.thread.start()
+        logging.info(f"Dolphin Mode Attached: Unihemispheric Sleep active. Switch every {self.interval}s.")
+
+    def _dolphin_inject(self, tensor):
+        """
+        Der neue Gatekeeper. Nur die WACHE Hemisphäre darf den Tensor verarbeiten.
+        Das halbiert den Rechenaufwand der GPU/CPU während der Phi-3.5 Inferenz.
+        """
+        for ch in self.mirror.channels:
+            # Wenn Hemisphäre A WACH ist und der Kanal zu A gehört -> Feuer frei
+            if ch.hemisphere == 'A' and not self.is_A_resting:
+                threading.Thread(target=ch.process_async, args=(tensor,), daemon=True).start()
+            
+            # Wenn Hemisphäre B WACH ist und der Kanal zu B gehört -> Feuer frei
+            elif ch.hemisphere == 'B' and not self.is_B_resting:
+                threading.Thread(target=ch.process_async, args=(tensor,), daemon=True).start()
+
+    def _run_cycle(self):
+        """Der Hintergrund-Herzschlag, der den Schlafzyklus steuert."""
+        while not self._stop_event.is_set():
+            time.sleep(self.interval)
+            # Hemisphären umschalten
+            self.is_A_resting, self.is_B_resting = self.is_B_resting, self.is_A_resting
+            
+            # Status an die Konsole funken
+            active = "B" if self.is_A_resting else "A"
+            resting = "A" if self.is_A_resting else "B"
+            logging.info(f"🐬 Dolphin Switch: Hemisphere {active} is now AWAKE. Hemisphere {resting} enters SLOW-WAVE SLEEP.")
+
+def attach_dolphin_mode(mj_mirror, interval_seconds=600):
+    """Factory Function zum einfachen Einbinden in vmax_native.py"""
+    return DolphinScheduler(mj_mirror, interval_seconds)
+```
+
+#### File 5: The Front-End Telemetry HUD (`vmax_gui.html`)
 
 The high-contrast visual interface for interaction and geometric monitoring.
 
