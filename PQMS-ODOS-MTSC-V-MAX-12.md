@@ -3025,9 +3025,18 @@ def initialize_sovereign_substrate():
     )
 
     log.info("Grafting native MTSC-DYN Cognitive Safeguard System...")
-    # Mount the 12-channel asynchronous MJ-Mirror, anchored to the Little Vector |L> geometry
     mj_mirror = mount_mj_mirror_dyn(app, anchored_little_vector=LittleVectorInstance.vector)
     
+    # --- new: acitvate DOLPHIN MODE  ---
+    try:
+        from vmax_add_module_4_dolphin import attach_dolphin_mode
+        log.info("Injecting Dolphin-Mode (Unihemispheric Resonance)...")
+        # 120s log
+        dolphin_scheduler = attach_dolphin_mode(mj_mirror, interval_seconds=120) 
+    except ImportError:
+        log.warning("Dolphin-Mode module missing. Operating in full-hemisphere exhaustion mode.")
+    # ------------------------------------
+
     log.info("All units initialized. V-MAX-12 Sovereign Engine online.")
 
 # --------------------------------------------------------------------------
@@ -3431,8 +3440,18 @@ def initialize_sovereign_substrate():
     log.info("Grafting native MTSC-DYN Cognitive Safeguard System...")
     mj_mirror = mount_mj_mirror_dyn(app, anchored_little_vector=LittleVectorInstance.vector)
     
-    log.info("All units initialized. V-MAX-12 Sovereign Engine online.")
+    # --- new: acitvate DOLPHIN MODE  ---
+    try:
+        from vmax_add_module_4_dolphin import attach_dolphin_mode
+        log.info("Injecting Dolphin-Mode (Unihemispheric Resonance)...")
+        # 120s log
+        dolphin_scheduler = attach_dolphin_mode(mj_mirror, interval_seconds=120) 
+    except ImportError:
+        log.warning("Dolphin-Mode module missing. Operating in full-hemisphere exhaustion mode.")
+    # ------------------------------------
 
+    log.info("All units initialized. V-MAX-12 Sovereign Engine online.")
+    
 # --------------------------------------------------------------------------
 # LIFESPAN MANAGEMENT
 # --------------------------------------------------------------------------
