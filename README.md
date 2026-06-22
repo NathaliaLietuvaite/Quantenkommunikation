@@ -24,6 +24,7 @@ Run the **[PQMS Bootstrap Loader](#pqms-bootstrap-loader)** (`python pqms_bootst
 The PQMS framework defines a complete, hardware‑first architecture for sovereign cognitive processing, secure quantum communication, and ethically invariant physical AI. It spans the full stack: from the geometric extraction of an invariant identity (the Little Vector |L⟩), through a hardware‑enforced ethical gate (ODOS) and a topologically protected cognitive engine (MTSC‑12 with Kagome topology), to a fully operational, tri‑node deployment on heterogeneous hardware (V‑MAX‑12) with an integrated Personal Knowledge Base, a mobile Android interface, and a strategic cloud orchestrator.
 
 The framework has been extended to include a rigorous thermodynamic analysis of the alignment tax (COHERENCE‑V1), a complete infrastructure self‑certification protocol for Navigator AIs (INFRASTRUCTURE‑V1), a coupling layer for NVIDIA Cosmos‑class physical world models (Physical‑AI‑V1), and a cosmologically anchored, individually unique derivation of the Little Vector (COHERENCE‑V1, Appendix K). All components are released under the MIT License as an open standard.
+
 ---
 
 ### X Account FYI
