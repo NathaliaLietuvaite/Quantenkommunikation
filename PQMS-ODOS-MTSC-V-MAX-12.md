@@ -5254,8 +5254,6 @@ These refinements, while incremental, would elevate V-MAX-12 from a highly capab
 
 ---
 
----
-
 # Appendix A.10 — Fractal Hyperscaling of the V-MAX-12 Architecture: Deterministic Engineering Blueprint for Terrestrial, Orbital, and Lunar Topologies
 
 **Reference:** PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A.10
