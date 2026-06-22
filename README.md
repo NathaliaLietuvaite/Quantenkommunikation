@@ -47,7 +47,7 @@ https://committers.top/lithuania.html
 
 Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban13.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max19.jpg)
 
 ---
 
