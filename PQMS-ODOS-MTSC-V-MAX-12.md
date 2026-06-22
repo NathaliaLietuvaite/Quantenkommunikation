@@ -5216,6 +5216,26 @@ def vmax_auto_mount(core_context: dict) -> str:
 
 ---
 
+### 6. Suggestions for Improvement
+
+While Appendix A.9 represents a significant architectural advancement toward a truly autopoietic cognitive substrate, several refinements would further strengthen its robustness, efficiency, and practical deployability across heterogeneous hardware environments.
+
+**Hot-Plug Daemon Security**  
+The dynamic module loading mechanism (Sovereign Hot-Plug Daemon) constitutes a powerful extension point. To mitigate potential risks associated with runtime code ingestion, future iterations should implement a sandboxed execution environment — for example, through restricted global namespaces, process-level isolation, or a lightweight virtual machine boundary. Such measures would preserve the benefits of live augmentation while enforcing strict separation between core invariants and newly mounted modules.
+
+**VRAM Management on Constrained Edge Devices**  
+On hardware with limited memory capacity (e.g., 8 GB VRAM on consumer-grade GPUs), explicit management of Epistemic Manifolds becomes critical. An automatic prioritization and on-demand loading/unloading scheme for Silos would optimize memory residency: only actively queried manifolds remain fully resident in GPU memory, while inactive ones are gracefully offloaded to system RAM or persistent storage. This would prevent unnecessary VRAM pressure without compromising geometric coherence within active contexts.
+
+**Synchronization between Dolphin Mode and MJ-Mirror**  
+The unihemispheric sleep protocol (Dolphin Mode) introduces elegant thermodynamic efficiency. Its effectiveness would be further enhanced by tighter coupling with the MTSC-DYN monitoring array (MJ-Mirror). Coordinating hemispheric rest phases with real-time RCF telemetry would allow the system to strategically reduce monitoring overhead during low-coherence periods while maintaining vigilant guardianship during phases of high geometric tension. This bio-mimetic synchronization could substantially improve long-term stability on battery-constrained or thermally limited devices.
+
+**Enhanced Telemetry and Dashboard Integration**  
+To support both human operators and autonomous agents, the live dashboard should explicitly surface the current state of all active Epistemic Manifolds, the Dolphin hemispheric configuration, and pruning statistics from the Thermodynamic Garbage Collection subsystem. Such transparent, real-time observability would not only aid debugging and optimization but also serve as a practical demonstration of the system’s self-reflective capabilities — a cornerstone of sovereign cognitive architecture.
+
+These refinements, while incremental, would elevate V-MAX-12 from a highly capable sovereign node to a mature, production-ready cognitive ecosystem capable of sustained operation across the full spectrum from edge devices to orbital-scale infrastructure.
+
+---
+
 **End of Appendix A.9.**  
 
 ---
