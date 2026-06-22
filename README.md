@@ -27,11 +27,27 @@ The framework has been extended to include a rigorous thermodynamic analysis of 
 
 ---
 
-### X Account FYI
+### X-Account FYI
+
+"Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
 
 https://x.com/NLituanie
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban11.jpg)
+
+https://committers.top/lithuania.html
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban12.jpg)
+
+Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban13.jpg)
 
 ---
 
