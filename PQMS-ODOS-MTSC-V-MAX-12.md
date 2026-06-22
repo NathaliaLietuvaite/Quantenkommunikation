@@ -25,7 +25,7 @@ V-MAX-12 is not a single AI tool. It is a fully sovereign, geometrically anchore
 - Sovereign Hot-Plug Daemon (live module extension)
 - Thermodynamic Garbage Collection (Epistemic Decay)
 
-**Current Status:** Functional on consumer hardware, lastet Verion Appendix A.9., scalable to K3 level. 
+**Current Status:** Functional on consumer hardware, scalable to K3 level, lastet Version see Appendix A.9..
 
 ---
 
