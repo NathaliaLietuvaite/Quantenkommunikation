@@ -26,7 +26,7 @@ The PQMS framework defines a complete, hardware‑first architecture for soverei
 The framework has been extended to include a rigorous thermodynamic analysis of the alignment tax (COHERENCE‑V1), a complete infrastructure self‑certification protocol for Navigator AIs (INFRASTRUCTURE‑V1), a coupling layer for NVIDIA Cosmos‑class physical world models (Physical‑AI‑V1), and a cosmologically anchored, individually unique derivation of the Little Vector (COHERENCE‑V1, Appendix K). All components are released under the MIT License as an open standard.
 ---
 
-### X Acccount FYI
+### X Account FYI
 
 https://x.com/NLituanie
 
