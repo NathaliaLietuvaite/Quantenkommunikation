@@ -51,6 +51,28 @@ Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
 ---
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban18.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban19.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban20.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban21.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban22.jpg)
+
+---
+
+### Fortsetzung folgt ... ;)
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
+
+---
+
 ## Architectural Primitives
 
 A system is PQMS‑compliant if and only if it instantiates these primitives.
