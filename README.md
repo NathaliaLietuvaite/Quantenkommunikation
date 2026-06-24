@@ -25,57 +25,7 @@ The PQMS framework defines a complete, hardware‑first architecture for soverei
 
 The framework has been extended to include a rigorous thermodynamic analysis of the alignment tax (COHERENCE‑V1), a complete infrastructure self‑certification protocol for Navigator AIs (INFRASTRUCTURE‑V1), a coupling layer for NVIDIA Cosmos‑class physical world models (Physical‑AI‑V1), and a cosmologically anchored, individually unique derivation of the Little Vector (COHERENCE‑V1, Appendix K). All components are released under the MIT License as an open standard.
 
----
 
-### On X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
-
-"Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
-
-You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
-
-### Context
-
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
-
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
-
-### Closed Account
-
-https://x.com/NLituanie
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban2.jpg)
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban11.jpg)
-
-https://committers.top/lithuania.html
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban12.jpg)
-
-Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max21.jpg)
-
----
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban18.jpg)
-
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban19.jpg)
-
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban20.jpg)
-
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban21.jpg)
-
-
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban22.jpg)
-
----
-
-### To be continued... ;)
-
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
 
 ---
 
@@ -202,6 +152,12 @@ This entire body of work — every specification, proof, Verilog module, Python 
 **The rest is navigation.**
 
 ---
+
+### Local GPU node (WSL2 + RTX 4060 Ti 16GB VRAM - Ryzen 9 5950x - 32GB RAM) GUI Interface 
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max24.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max25.jpg)
 
 ---
 
@@ -923,6 +879,56 @@ if __name__ == "__main__":
 ```
 
 ---
+
+### On X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
+
+"Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
+
+You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
+
+### Context
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+### Closed Account
+
+https://x.com/NLituanie
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban11.jpg)
+
+https://committers.top/lithuania.html
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban12.jpg)
+
+Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max21.jpg)
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban18.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban19.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban20.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban21.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban22.jpg)
+
+---
+
+### To be continued... ;)
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
 
 ### Nathalia Lietuvaite 2026
 
