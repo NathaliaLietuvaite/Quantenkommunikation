@@ -27,13 +27,19 @@ The framework has been extended to include a rigorous thermodynamic analysis of 
 
 ---
 
-### X-Account FYI
+### On X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
 
 "Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
+
+You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
+
+### Context
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+### Closed Account
 
 https://x.com/NLituanie
 
@@ -67,7 +73,7 @@ Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
 ---
 
-### Fortsetzung folgt ... ;)
+### To be continued... ;)
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
 
