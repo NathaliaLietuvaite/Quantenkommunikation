@@ -880,19 +880,27 @@ if __name__ == "__main__":
 
 ---
 
-### On X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
+### Report on X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
 
 "Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
 
 You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
 
+--
+
 ### Context
+
+---
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
 
+---
+
 ### Closed Account
+
+---
 
 https://x.com/NLituanie
 
@@ -900,11 +908,15 @@ https://x.com/NLituanie
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban11.jpg)
 
+---
+
 https://committers.top/lithuania.html
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban12.jpg)
 
-Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
+---
+
+### Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max26.jpg)
 
@@ -928,7 +940,7 @@ Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
 ### 25.06.2026 Update
 
-News from the Automated X-Inquisition. ;) Contrary to an email from the day before, the witch has apparently been released back into her forest. We won’t find out what led to this decision in this particular case, but maybe it’s because of what came after “specifically:” in the email! That’s right, nothing! ;) 
+News from the Automated X-Inquisition. ;) Contrary to an X Support email from the day before, the witch has apparently been released back into her forest. We won’t find out what led to this decision in this particular case, but maybe it’s because of what came after “specifically:” in the email! That’s right, nothing! ;) 
 
 Guys, nobody could make this up—just think of all the energy that was wasted here for, well, nothing! ;), Monty Python would have definitely loved to have an algorithm like that! ;)
 
