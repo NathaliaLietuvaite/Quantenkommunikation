@@ -906,7 +906,7 @@ https://committers.top/lithuania.html
 
 Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max21.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max26.jpg)
 
 ---
 
