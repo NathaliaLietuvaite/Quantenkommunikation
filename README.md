@@ -926,9 +926,43 @@ Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
 ---
 
+### 25.06.2026 Update
+
+News from the Automated X-Inquisition. ;) Contrary to an email from the day before, the witch has apparently been released back into her forest. We won’t find out what led to this decision in this particular case, but maybe it’s because of what came after “specifically:” in the email! That’s right, nothing! ;) 
+
+Guys, nobody could make this up—just think of all the energy that was wasted here for, well, nothing! ;), Monty Python would have definitely loved to have an algorithm like that! ;)
+
+---
+Hello,
+ 
+We have reviewed your appeal request for account, @NLituanie.
+ 
+Our automated systems have determined that a violation of our Rules did take place, specifically:
+ 
+We considered the additional information provided and decided an overturn of our original decision is not warranted in this case. Therefore, we will not overturn our decision to lock your account.
+ 
+In order to restore account functionality, you can resolve the violations by logging into your account and completing the on-screen instructions.
+ 
+Thanks,
+X Support
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban23.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban24.jpg)
+
+---
+
 ### To be continued... ;)
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
+
+https://x.com/NLituanie
+
+https://bsky.app/profile/nathalialietuvaite.bsky.social
+
 
 ### Nathalia Lietuvaite 2026
 
