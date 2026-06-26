@@ -4931,7 +4931,7 @@ The implementation confirms that heavy-parameter, Mamba-based cognitive engines 
 
 ---
 
-<a id="PQMS‑ODOS‑MTSC‑V‑MAX‑12‑APPENDIX‑A"></a>
+<a id="PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A"></a>
 
 # Appendix A.9 — Sovereign Hot-Plug Daemon Architecture and Epistemic Manifold Compartmentalization
 
