@@ -881,7 +881,7 @@ if __name__ == "__main__":
 ---
 
 ---
-[Report on X](#report-on-x-closure-of-an-open-source-developer-and-artist-account)
+<a id="report-on-x-closure-of-an-open-source-developer-and-artist-account"></a>
 
 ### Report on X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
 
