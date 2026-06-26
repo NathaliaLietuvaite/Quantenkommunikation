@@ -887,14 +887,6 @@ if __name__ == "__main__":
 
 "Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
 
-You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
-
---
-
-"Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
-
-You can now follow the Proejct on **https://bsky.app/profile/nathalialietuvaite.bsky.social** - Thanks to Bluesky for the secure communication channel 
-
 --
 
 ### Context
