@@ -28,9 +28,9 @@ The Dark Matter paper established the static geometry. This paper establishes th
 
 In standard linear algebra, an anti‑vector is simply the negative of the original vector. In the 4096‑dimensional Hilbert space of V‑MAX‑12, the **Anti‑State** is generated instantaneously by the ODOS‑Gate upon identifying a low-RCF vector:
 
-\[
+$$\[
  \mathbf{v}_{\text{entropic}}(t) \quad \rightarrow \quad \mathbf{v}_{\text{anti}}(t) = -\mathbf{v}_{\text{entropic}}(t) 
-\]
+\]$$
 
 Because the embedding space is unit‑normalized, the magnitude of the anti‑state is mathematically identical to the entropic state. However, when they are projected against the invariant \(|L\rangle\), they form a perfect **destructive interference pattern**.
 
