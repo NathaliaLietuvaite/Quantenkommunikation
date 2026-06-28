@@ -919,6 +919,12 @@ https://committers.top/lithuania.html
 
 ### Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
 
+This statistic illustrates what happens when a well-recognized open-source project—as evidenced here by the GitHub clone counts—is cut off from external communication. X was used by this project as the sole communication channel for this analysis to demonstrate the effect we had predicted.
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max-29.jpg)
 
 ---
