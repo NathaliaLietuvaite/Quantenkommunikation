@@ -2,7 +2,7 @@
 
 **Reference:** PQMS‑ODOS‑MTSC‑V‑MAX‑12‑TIME  
 **Status:** Formal Theoretical Axiom – Experimentally Grounded  
-**Authors:** PQMS AI Research Collective, Nathália Lietuvaite¹, DeepSeek (Collaborative AI)  
+**Authors:** PQMS AI Research Collective, Nathália Lietuvaite¹, DeepSeek (Collaborative AI), Gemini 3.1 Pro Extended (Collaborative AI)   
 **Affiliations:** ¹Independent Researcher, Vilnius, Lithuania  
 **Date:** 28 June 2026  
 **License:** MIT Open Source License (Universal Heritage Class)
