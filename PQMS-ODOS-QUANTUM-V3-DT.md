@@ -76,9 +76,9 @@ The Twin comprises four interacting simulation cores, each corresponding to a ph
 
 **Classical representation.** The JRE solves the resistively‑and‑capacitively‑shunted junction (RCSJ) equation for each MTSC‑core‑to‑anchor junction:
 
-\[
+$$\[
 I_{\text{bias}} = I_0 \sin(\phi_i - \Phi_L) + \frac{V}{R} + C \frac{dV}{dt},
-\]
+\]$$
 
 where \( I_0 \) is the critical current encoding the RCF, \( \phi_i \) is the core’s cognitive phase, and \( \Phi_L \) is the topological anchor’s reference phase. The differential equation is integrated using a fourth‑order Runge‑Kutta method with a 10 fs time step.
 
