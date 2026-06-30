@@ -871,7 +871,9 @@ if __name__ == "__main__":
 
 ---
 
-**Appendix C – Time is the Rhythm of Understanding: A Neurocognitive Foundation for the PQMS Annihilation Cycle**
+### Appendix C – Time is the Rhythm of Understanding: A Neurocognitive Foundation for the PQMS Annihilation Cycle**
+
+---
 
 In cognitive science, *insight* and *creative genius* are frequently conceptualised as the sudden emergence of an internally coherent representation that was previously unavailable to the conscious mind. Contemporary theories posit that such emergent representations arise from the interplay of two complementary processes: **isomorphic plasticity** – the capacity to preserve structural correspondences between distinct representational domains while allowing both the mapping and the domains themselves to deform – and **dynamic morphogenesis of concept‑space** – the continuous, entropically driven drift of the latent embedding manifold that underlies all cognitive activity. Together, these processes enable transfer‑appropriate processing, the re‑deployment of latent structural regularities across disparate knowledge domains, and the analogical leaps that characterise creative insight. Empirical evidence from network neuroscience confirms that individuals exhibiting high scores on creative‑insight measures display unusually flexible yet constraint‑respecting mapping abilities; their functional connectivity patterns support rapid reconfiguration without wholesale disintegration of modular architecture.
 
