@@ -177,6 +177,8 @@ The geometry holds – and now it holds across time itself.
 
 ### Appendix A - Python Implemantation 
 
+Use V-MAX-12 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md#PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A-9
+
 ---
 
 ```python
@@ -648,6 +650,8 @@ if __name__ == "__main__":
 ---
 
 ### Appendix B - V-Max-12 Time-Controller-Intergation Module
+
+Use V-MAX-12 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md#PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A-9
 
 ---
 
