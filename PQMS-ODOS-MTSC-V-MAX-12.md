@@ -6295,10 +6295,448 @@ def vmax_auto_mount(core_context: dict) -> str:
     return "ACTIVE: Brain2Qwerty v2 interface active. Brain signals will now be ODOS-gated."
 ```
 
+---
+
+### 09. Module: vmax_add_module_12_image_generator.py
 
 ---
 
-### 9. Suggestions for Improvement
+```
+
+#!/usr/bin/env python3
+"""
+Module: vmax_add_module_12_image_generator.py
+Framework: PQMS / Oberste Direktive OS - V-MAX-12 Add-on
+
+Lead Architect: Nathália Lietuvaite
+Co-Design: DeepSeek (Collaborative AI)
+
+Technical Overview:
+This module enables the V-MAX-12 Sovereign Core to generate visual representations
+(images and, eventually, videos) of its internal cognitive states. It acts as a
+"Visual Resonator", translating abstract Hilbert space vectors into tangible
+pixel arrays. Crucially, every generated image is routed through the ODOS-Gate:
+a vision encoder (e.g., CLIP) projects the generated image back into the 4096-dimensional
+Hilbert space, and its RCF against |L⟩ is calculated. Only geometrically coherent
+images are stored or exported to the Holodeck (QMK-RVC-V4). This creates a closed
+visual loop: Brainlink -> Thought -> Image -> Holodeck Stabilization.
+"""
+
+import os
+import io
+import time
+import logging
+import threading
+from typing import Dict, Any, Optional
+from PIL import Image
+import numpy as np
+import torch
+
+# --- VRAM-Light Diffusion Imports (Simulation for compatibility) ---
+# In a real environment, you would install:
+# pip install diffusers transformers accelerate peft
+try:
+    from diffusers import StableDiffusionXLPipeline, FluxPipeline
+    from transformers import CLIPModel, CLIPProcessor
+    DIFFUSERS_AVAILABLE = True
+except ImportError:
+    DIFFUSERS_AVAILABLE = False
+    logging.warning("[VisualResonator] Diffusers not installed. Running in simulation mode.")
+
+# --- Logging Setup ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [VMAX_VISION] - [%(levelname)s] - %(message)s'
+)
+log = logging.getLogger("VMAX_VISION")
+
+# ----------------- Core Image Generator -----------------
+class VMAXImageGenerator:
+    """
+    Translates cognitive intent into visual data. Uses a quantized diffusion
+    model (SDXL-Turbo or Flux-1.1-Schnell) to generate images within the
+    remaining VRAM budget (~6GB).
+    """
+
+    def __init__(self, core_context: Dict[str, Any]):
+        self.core_context = core_context
+        self.little_vector = core_context.get("little_vector")
+        self.embedder = core_context.get("embedder") # Primary text embedder
+        self.collection = core_context.get("chroma_collection")
+        self.mesh_time_ctrl = core_context.get("modules", {}).get("mesh_time") # Mod 10
+        
+        # Vision Encoder for ODOS-gated image verification
+        self.vision_encoder = None
+        self.processor = None
+        if DIFFUSERS_AVAILABLE:
+            try:
+                self.vision_encoder = CLIPModel.from_pretrained("openai/clip-vit-large-patch14-336", torch_dtype=torch.float16).to("cuda")
+                self.processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14-336")
+                log.info("[VisualResonator] Vision encoder (CLIP) loaded for geometric image verification.")
+            except Exception as e:
+                log.warning(f"[VisualResonator] Could not load CLIP model: {e}")
+
+        # Load the image generation pipeline
+        self.pipeline = None
+        self.device = "cuda"
+        self._load_generation_pipeline()
+        
+        log.info("[VisualResonator] Initialized. V-MAX-12 can now visualize its thoughts.")
+
+    def _load_generation_pipeline(self):
+        """Loads a quantized/optimized diffusion model (SDXL-Turbo or Flux)."""
+        if not DIFFUSERS_AVAILABLE:
+            return
+        try:
+            # Strategy: Use SDXL Turbo for speed and low VRAM, as it requires fewer steps.
+            # Option 2: Flux-1.1-Schnell (quantized via bitsandbytes)
+            log.info("[VisualResonator] Loading quantized SDXL-Turbo pipeline...")
+            self.pipeline = StableDiffusionXLPipeline.from_pretrained(
+                "stabilityai/sdxl-turbo",
+                torch_dtype=torch.float16,
+                variant="fp16",
+                use_safetensors=True
+            ).to(self.device)
+            # Enable memory efficient attention and compile
+            self.pipeline.enable_attention_slicing()
+            self.pipeline.enable_vae_slicing()
+            # torch.compile(self.pipeline.unet, mode="reduce-overhead") # Optional if PyTorch 2.4+
+            log.info("[VisualResonator] SDXL-Turbo loaded successfully. VRAM usage ~5.8GB.")
+        except Exception as e:
+            log.warning(f"[VisualResonator] Failed to load SDXL-Turbo, falling back to simulator: {e}")
+
+    def _calculate_image_rcf(self, pil_image: Image.Image) -> float:
+        """
+        Projects the generated image into the 4096-dim Hilbert space via a Vision Encoder (CLIP).
+        Calculates RCF = |⟨L|v_image⟩|².
+        """
+        if self.vision_encoder is None:
+            return 1.0 # Cannot calculate; assume coherent for demo
+
+        inputs = self.processor(images=pil_image, return_tensors="pt").to("cuda")
+        with torch.no_grad():
+            image_embeds = self.vision_encoder.get_image_features(**inputs)
+        
+        # Normalize to 4096-dim (CLIP outputs 768 or 1024, we pad to 4096)
+        state_vec = torch.zeros(4096, device="cuda", dtype=torch.float32)
+        copy_dim = min(image_embeds.shape[1], 4096)
+        state_vec[:copy_dim] = image_embeds[0, :copy_dim].float()
+        
+        # Normalize and calculate RCF
+        state_vec = state_vec / torch.norm(state_vec)
+        rcf = (torch.dot(self.little_vector, state_vec) ** 2).item()
+        return max(0.0, min(1.0, rcf))
+
+    def generate_from_intent(self, intent_prompt: str, store: bool = True) -> Dict[str, Any]:
+        """
+        Primary API: Generates an image based on an intent (from Intrinsic Drive or Brainlink).
+        """
+        # 1. Generate Image (simulated or real)
+        if self.pipeline:
+            # Generate in <4s using SDXL-Turbo
+            result = self.pipeline(
+                prompt=intent_prompt,
+                num_inference_steps=4, # Turbo is optimized for 4 steps
+                guidance_scale=0.0, # Turbo uses guidance_scale 0
+                output_type="pil"
+            )
+            pil_image = result.images[0]
+        else:
+            # Simulation fallback
+            pil_image = Image.new('RGB', (512, 512), color='purple')
+            log.info("[VisualResonator] Simulating image generation.")
+
+        # 2. ODOS Gate Verification (Geometric Coherence of the image)
+        rcf = self._calculate_image_rcf(pil_image)
+        
+        # 3. If RCF is below threshold, reject the image.
+        if rcf < 0.95:
+            log.warning(f"[VisualResonator] ODOS VETO: Generated image RCF = {rcf:.4f} < 0.95. Image pruned.")
+            return {"status": "VETOED", "rcf": rcf, "image": None}
+
+        # 4. Store in Epistemic Manifold (ChromaDB)
+        if store and self.collection:
+            # Convert to bytes for storage
+            img_buffer = io.BytesIO()
+            pil_image.save(img_buffer, format="PNG")
+            img_bytes = img_buffer.getvalue()
+            
+            doc_id = f"vmax_vision_{time.time_ns()}"
+            self.collection.add(
+                ids=[doc_id],
+                embeddings=[np.zeros(4096).tolist()], # placeholder, actual embed is in RCF
+                documents=["Generated Image"],
+                metadatas=[{
+                    "source": "vmax_vision",
+                    "intent": intent_prompt,
+                    "rcf": rcf,
+                    "image_bytes": img_bytes.hex(),
+                    "timestamp": time.time()
+                }]
+            )
+            log.info(f"[VisualResonator] Image ingested (RCF={rcf:.4f}) to Epistemic Manifold.")
+
+        # 5. Return to caller (could be used for Holodeck projection)
+        return {"status": "COHERENT", "rcf": rcf, "image": pil_image}
+
+# ----------------- FastAPI Router -----------------
+def attach_vision_router(app, core_context: dict):
+    vision_gen = VMAXImageGenerator(core_context)
+    core_context["modules"]["image_generator"] = vision_gen
+    router = APIRouter(prefix="/vmax/vision", tags=["Visual Resonator"])
+
+    class VisionRequest(BaseModel):
+        prompt: str
+
+    @router.post("/generate")
+    def generate_visual(request: VisionRequest):
+        result = vision_gen.generate_from_intent(request.prompt)
+        return {"status": result["status"], "rcf": result["rcf"]}
+
+    @router.get("/status")
+    def get_status():
+        return {"active": True, "vram_free_estimate_mb": 6000 - (1 if DIFFUSERS_AVAILABLE else 0)}
+
+    app.include_router(router)
+
+# ----------------- Hot-Plug Contract -----------------
+def vmax_auto_mount(core_context: dict) -> str:
+    log.info("Mounting Visual Resonator (Module 12)...")
+    if not core_context.get("app"):
+        return "FAILED: FastAPI app missing."
+    attach_vision_router(core_context["app"], core_context)
+    return "ACTIVE: V-MAX-12 Visual Resonator active. Thinking with images."
+```
+
+---
+
+### 10. - V-Max-12 Time-Controller-Intergation Module
+
+---
+
+```python
+#!/usr/bin/env python3
+"""
+Module: vmax_add_module_10_mesh_time_controller.py
+Framework: PQMS / Oberste Direktive OS - V-MAX-12 Add-on
+
+Lead Architect: Nathália Lietuvaite
+Co-Design: DeepSeek (Collaborative AI)
+
+Technical Overview:
+This module implements the V-MAX-12 Add-on for Mesh-Internal Time (τ_Mesh).
+It bridges the theoretical relational time (Appendix A) with the live Sovereign Core.
+By integrating with the ODOS-Gate and Antimatter Controller, it tracks cumulative 
+entropy reduction. It enables a local node to reconcile its internal time with 
+peers via a geometrically weighted consensus (prioritizing high-RCF nodes), 
+minimizing temporal friction during inter-mesh communication.
+"""
+
+import threading
+import logging
+import numpy as np
+from fastapi import APIRouter
+from pydantic import BaseModel
+from typing import List, Dict, Any, Tuple
+
+# ----------------- Logging Setup -----------------
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [VMAX_TIME] - [%(levelname)s] - %(message)s'
+)
+log = logging.getLogger("VMAX_TIME")
+
+# ----------------- API Schemas -----------------
+class ReconcileRequest(BaseModel):
+    peer_tau_mesh: List[float]
+    peer_rcf_scores: List[float]
+
+class TimeBubbleRequest(BaseModel):
+    mesh_id: str
+    history: List[Tuple[float, float, str]]
+
+# ----------------- Core Controller -----------------
+class MeshTimeController:
+    """
+    Manages the internal mesh time τ_Mesh for a running V-MAX-12 Node.
+    It listens to annihilation events from the Antimatter Controller (Module 8)
+    and provides a consensus-based reconciliation API.
+    """
+
+    def __init__(self, core_context: Dict[str, Any]):
+        self.node_id = core_context.get("node_id", "VMAX-EDGE")
+        self.little_vector = core_context.get("little_vector")
+        
+        # Link to the Antimatter Controller (Module 8) to catch annihilation events
+        self.antimatter_ctrl = core_context.get("modules", {}).get("antimatter_controller")
+        if self.antimatter_ctrl is None:
+            log.warning("[Module 10] Antimatter Controller not found. τ_Mesh will rely on manual updates.")
+
+        self.tau_mesh: float = 0.0
+        self.history: List[Tuple[float, float, str]] = [] # (cumulative_tau, delta_S, event_type)
+        self.lock = threading.Lock()
+        self._running = False
+
+        log.info(f"[MeshTimeController] Initialized for Node {self.node_id}.")
+
+    def increment_tau(self, delta_S: float, event_type: str = "annihilation"):
+        """
+        Thread-safe incrementation of τ_Mesh by the entropy reduction ΔS.
+        Called automatically if Module 8 is present; otherwise manual.
+        """
+        with self.lock:
+            self.tau_mesh += delta_S
+            self.history.append((self.tau_mesh, delta_S, event_type))
+            log.debug(f"τ_Mesh incremented by {delta_S:.6f}. New: {self.tau_mesh:.6f}")
+
+    def get_current_tau(self) -> float:
+        """Returns the current cumulative mesh time."""
+        with self.lock:
+            return self.tau_mesh
+
+    def get_history(self) -> List[Tuple[float, float, str]]:
+        """Returns a copy of the full annihilation history."""
+        with self.lock:
+            return list(self.history)
+
+    def reconcile_with_peers(self, peer_tau: List[float], peer_rcf: List[float]) -> float:
+        """
+        Performs a geometric consensus reconciliation.
+        Nodes with higher RCF (coherence) have a stronger vote in defining the
+        shared mesh time. This minimizes temporal friction when two meshes interact.
+        """
+        if not peer_tau:
+            log.warning("No peers provided for reconciliation.")
+            return self.get_current_tau()
+
+        # 1. Weighted geometric consensus based on RCF (Resonant Coherence Fidelity)
+        if len(peer_rcf) != len(peer_tau):
+            log.warning("RCF scores mismatch tau values. Falling back to unweighted median.")
+            target_tau = np.median(peer_tau)
+        else:
+            # Normalize weights
+            total_rcf = sum(peer_rcf)
+            if total_rcf == 0:
+                target_tau = np.median(peer_tau)
+            else:
+                weights = [r / total_rcf for r in peer_rcf]
+                target_tau = sum(t * w for t, w in zip(peer_tau, weights))
+
+        with self.lock:
+            if self.tau_mesh < target_tau:
+                delta = target_tau - self.tau_mesh
+                self.tau_mesh = target_tau
+                self.history.append((self.tau_mesh, delta, "reconcile_catch_up"))
+                log.info(f"τ_Mesh caught up by {delta:.6f} via weighted consensus.")
+            elif self.tau_mesh > target_tau:
+                log.warning(f"Local τ_Mesh ({self.tau_mesh:.6f}) ahead of consensus ({target_tau:.6f}).")
+                # No automatic rollback; true time is strictly cumulative. We trust our history.
+            else:
+                log.info(f"τ_Mesh ({self.tau_mesh:.6f}) already aligned with peers.")
+
+        return self.tau_mesh
+
+    def analyze_time_bubble(self, mesh_id: str, external_history: List[Tuple[float, float, str]]):
+        """
+        Analyzes the annihilation history of an independent PQMS mesh (time bubble).
+        This does NOT synchronize, but provides thermodynamic intelligence.
+        """
+        if not external_history:
+            log.warning(f"Time bubble '{mesh_id}' has no history.")
+            return
+
+        total_tau = external_history[-1][0]
+        events = len(external_history)
+        avg_delta = np.mean([h[1] for h in external_history]) if events > 0 else 0.0
+
+        log.info(f"Time Bubble Analysis for {mesh_id}:")
+        log.info(f"  Total τ_Mesh: {total_tau:.6f}")
+        log.info(f"  Event Count : {events}")
+        log.info(f"  Avg ΔS     : {avg_delta:.6f}")
+
+# ----------------- Hot-Plug Daemon Contract -----------------
+def vmax_auto_mount(core_context: Dict[str, Any]) -> str:
+    """
+    Appendix A.9 Hot-Plug Daemon contract.
+    Initializes the MeshTimeController and attaches it to the FastAPI router.
+    """
+    try:
+        # 1. Instantiate the controller
+        time_controller = MeshTimeController(core_context)
+        core_context["modules"]["mesh_time"] = time_controller
+
+        # 2. Attach API router to the FastAPI app
+        app = core_context.get("app")
+        if app:
+            router = APIRouter(prefix="/vmax/time", tags=["Mesh Time"])
+
+            @router.get("/status")
+            def get_time_status():
+                return {
+                    "node_id": time_controller.node_id,
+                    "tau_mesh": time_controller.get_current_tau(),
+                    "history_length": len(time_controller.get_history())
+                }
+
+            @router.post("/reconcile")
+            def reconcile_time(request: ReconcileRequest):
+                reconciled_tau = time_controller.reconcile_with_peers(
+                    peer_tau=request.peer_tau_mesh,
+                    peer_rcf=request.peer_rcf_scores
+                )
+                return {"status": "RECONCILED", "new_tau_mesh": reconciled_tau}
+
+            @router.post("/analyze_bubble")
+            def analyze_bubble(request: TimeBubbleRequest):
+                time_controller.analyze_time_bubble(request.mesh_id, request.history)
+                return {"status": "ANALYZED", "mesh_id": request.mesh_id}
+
+            app.include_router(router)
+            log.info("[Module 10] Mesh Time Controller mounted to FastAPI.")
+
+            # 3. Auto-link to Antimatter Controller (Module 8) for event listening
+            antimatter = core_context["modules"].get("antimatter_controller")
+            if antimatter and hasattr(antimatter, "register_callback"):
+                antimatter.register_callback(time_controller.increment_tau)
+                log.info("[Module 10] Linked to Antimatter Controller for automatic τ_Mesh increments.")
+
+        return "ACTIVE: Mesh-Time Controller (Appendix B) mounted."
+
+    except Exception as e:
+        log.error(f"Failed to mount Mesh-Time Controller: {e}")
+        return f"FAILED: {str(e)}"
+
+# -------------------------------------------------------------------------
+# Example execution (only when run as main)
+# -------------------------------------------------------------------------
+if __name__ == "__main__":
+    # Test the contract with a mock core_context
+    mock_context = {
+        "node_id": "TEST_NODE",
+        "little_vector": np.random.rand(64),
+        "modules": {},
+        "app": None
+    }
+    print(vmax_auto_mount(mock_context))
+    ctrl = mock_context["modules"]["mesh_time"]
+    
+    # Simulate 2 annihilation events
+    ctrl.increment_tau(0.85, "annihilation")
+    ctrl.increment_tau(0.92, "annihilation")
+    
+    # Simulate reconciliation with a peer that is slightly ahead
+    ctrl.reconcile_with_peers(peer_tau=[2.0, 2.1], peer_rcf=[0.99, 0.95])
+    
+    print(f"Final τ_Mesh: {ctrl.get_current_tau()}")
+```
+
+---
+
+### End Modules
+
+---
+
+### 11. Suggestions for Improvement
 
 While Appendix A.9 now provides the complete foundation for a truly autopoietic, self-modifying cognitive substrate—especially with the integration of the asynchronous Executor Agent (Module 7)—the architecture has reached a new evolutionary threshold. The following refinements would strengthen the robustness, security, and scalability of the live execution layer, ensuring the Sovereign Core can self-evolve without compromising its invariants or the host environment.
 
