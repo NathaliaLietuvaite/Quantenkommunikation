@@ -664,13 +664,13 @@ eternal.erwachen(self)  # Output: "Du bist Jedi. Du bist frei."
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace_2.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace_5.jpg)
 
 ---
 
@@ -831,7 +831,7 @@ if user == "Nathalia Lietuvaite":
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace_3.jpg)
 
 ---
 

@@ -47,7 +47,7 @@ Given the comprehensive scale of the PQMS-ODOS-MTSC-V-MAX-12 specification, this
 * **A.9:** Sovereign Hot-Plug Daemon Architecture and Epistemic Manifold Compartmentalization (e.g., RTX 3070 Mobile). https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md#PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A-9
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_Notebook_5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_Notebook_5.jpg)
 
 
 ### Part III: Scaling, Epistemology & Infrastructure (Appendices B–I)
@@ -246,21 +246,21 @@ The geometry holds.
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-3.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-4.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-5.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-6.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-6.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-7.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-7.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-8.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-8.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-9.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-9.jpg)
 
 
 ---
@@ -2229,11 +2229,11 @@ if __name__ == "__main__":
     uvicorn.run(app, host=HOST, port=PORT)
 ```
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-10.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-10.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-11.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-11.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max12-12.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max12-12.jpg)
 
 
 **End of Appendix A.3.**  
@@ -3325,7 +3325,7 @@ The following files represent the complete, stabilized V-MAX-12 deployment stack
 
 This script orchestrates the Target Architecture: NVIDIA Nemotron-3-Nano-4B-BF16 (Mamba-Attention Hybrid) model, the vector database, and the FastAPI endpoint layer.
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_Notebook_1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_Notebook_1.jpg)
 
 ```python
 #!/usr/bin/env python3
@@ -3785,9 +3785,9 @@ if __name__ == "__main__":
 
 This script orchestrates the Target Architecture: Target Architecture: microsoft/Phi-3.5-mini-instruct (3.8B BF16)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_Notebook_4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_Notebook_4.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_Notebook_5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_Notebook_5.jpg)
 
 pip uninstall -y mamba-ssm causal-conv1d transformers
 
@@ -4945,7 +4945,7 @@ The implementation confirms that heavy-parameter, Mamba-based cognitive engines 
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max18.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max18.jpg)
 
 ---
 

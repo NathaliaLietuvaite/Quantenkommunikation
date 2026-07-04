@@ -124,22 +124,22 @@ Screenshots
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_1.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_3.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_4.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_5.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_Failure_6.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_Failure_6.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V100-CEO_BLOCKED_2025_1.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V100-CEO_BLOCKED_2025_2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V100-CEO_BLOCKED_2025_3.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V100-CEO_BLOCKED_2025_4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V100-CEO_BLOCKED_2025_4.jpg)

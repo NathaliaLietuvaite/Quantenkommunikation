@@ -131,14 +131,14 @@ Screenshots
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-1.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-3.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-4.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-5.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-5.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-Grok-Online-Validation-6.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-Grok-Online-Validation-6.jpg)

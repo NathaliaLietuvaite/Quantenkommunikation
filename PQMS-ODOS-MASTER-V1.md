@@ -29,7 +29,7 @@ The PQMS (Proactive Quantum Mesh System) lineage[1–10] has progressively addre
 
 The system is fully open‑source, MIT‑licensed, and packaged as a single Markdown file from which all Python source code can be extracted. A complete installation guide is provided in the supplementary materials.
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-ODOS-V1.jpg)
 
 ### Console Output
 

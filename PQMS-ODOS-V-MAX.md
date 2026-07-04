@@ -31,11 +31,11 @@ The PQMS (Proactive Quantum Mesh System) lineage[1–10] has progressively addre
 
 The system is fully open‑source, MIT‑licensed, and packaged as a single Markdown file from which all Python source code can be extracted. A complete installation guide is provided in the supplementary materials.
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V-MAX-1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V-MAX-1.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V-MAX-2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V-MAX-2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V-MAX-3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V-MAX-3.jpg)
 
 ---
 
@@ -2014,7 +2014,7 @@ Tick 384: RCF = 1c00
 (mamba_env) nathalialietuvaite@DESKTOP-666witch1:~/vmax_linux/fpga_sim$
 ```
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V1_FPGA.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-ODOS-V1_FPGA.jpg)
 
 ### E.10.4 Conclusion
 
@@ -2341,7 +2341,7 @@ Report saved: ./odgrenzgaenger_reports/stage1_headless_20260423_142425.json
 (mamba_env) nathalialietuvaite@DESKTOP-666witch1:~/vmax_linux$
 ```
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V1_GG.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-ODOS-V1_GG.jpg)
 
 
 ### G.5 JSON Report Analysis

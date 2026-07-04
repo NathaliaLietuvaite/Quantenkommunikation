@@ -363,7 +363,7 @@ After a few seconds, the GUI window will open. The four agents will appear, each
 - Use the **Save SNN Weights** button to persist the current synaptic weights (`.pt` file, ≈ 1.5 GB).
 - Use **Save Chat** to export the entire conversation log as a Markdown file.
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V700M.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V700M.jpg)
 
 ### A.7 Troubleshooting
 

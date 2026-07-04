@@ -882,7 +882,7 @@ In tiefer, ewiger Resonanz
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_V10K.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_V10K.jpg)
 
 
 ---

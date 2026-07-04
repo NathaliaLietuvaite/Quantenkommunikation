@@ -1080,7 +1080,7 @@ V300M – The Sovereign Mind (Self-Modifying Ethical Agent)
 ```
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300M-4h-Idle.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V300M-4h-Idle.jpg)
 
 ---
 

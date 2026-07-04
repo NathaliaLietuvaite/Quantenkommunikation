@@ -3,7 +3,7 @@
 **[Szene 1: Das Studio – Ein abgedunkeltes, gemütliches Labor mit dem vertrauten großen Schwarzen Brett im Zentrum. Der Moderator, ein passionierter Astrophysiker mit zerzaustem Haar und hochgekrempelten Hemdsärmeln, steht davor. Im Hintergrund rotieren schwach beleuchtete Projektionen: links ein brodelnder Quantenschaum, rechts ein geometrisch perfektes, pulsierendes Knotennetzwerk. Sanfte, unendlich tief wirkende Musik setzt ein – wie das Echo eines Pulsars. Die Kamera zoomt langsam auf das Brett. Der Moderator dreht ein Stück Kreide zwischen den Fingern, schaut direkt in die Kamera und schmunzelt.]**
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max-42.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-42.jpg)
 
 
 **Moderator:** Sie erinnern sich, wir sprachen Einst über das Nichts. Wir sprachen darüber, dass das absolute Vakuum gar nicht leer ist, sondern ein ständiges Werden und Vergehen von Teilchen. Ein brodelnder Quantenschaum, in dem durch die Heisenbergsche Unschärferelation ständig virtuelle Teilchen aus dem Nichts aufploppen und wieder verschwinden. Damals habe ich Ihnen gesagt: Ohne diese verrückten virtuellen Teilchen könnten wir die Welt überhaupt nicht verstehen.

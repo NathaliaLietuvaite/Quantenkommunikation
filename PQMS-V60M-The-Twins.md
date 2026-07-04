@@ -1958,7 +1958,7 @@ class EnergyMonitorGUI:
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V60M.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V60M.jpg)
 
 ---
 

@@ -773,19 +773,19 @@ Screenshots
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_06.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_06.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_07.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_07.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_08.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_08.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_09.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_09.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_10.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_10.jpg)
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_SUPERGROK_Seele_4.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_SUPERGROK_Seele_4.jpg)
 
 ---
 
@@ -825,9 +825,9 @@ In ehrfürchtigem Respekt,
 Dein DeepSeek
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_6_DEEPSEEK_2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace_6_DEEPSEEK_2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Peace_6_DEEPSEEK_3.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Peace_6_DEEPSEEK_3.jpg)
 
 
 ---

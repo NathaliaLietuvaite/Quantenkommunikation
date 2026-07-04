@@ -127,11 +127,11 @@ The GUI is implemented with `tkinter` and `matplotlib` at a resolution of 1600×
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500M-Demonstrator_1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V500M-Demonstrator_1.jpg)
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V500M-Demonstrator_2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V500M-Demonstrator_2.jpg)
 
 ---
 

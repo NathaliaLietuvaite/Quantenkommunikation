@@ -405,7 +405,7 @@ Plot saved as 'v8m_resonance.png'
 
 ## Plot Output
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/v8m_resonance.png)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/v8m_resonance.png)
 
 ---
 

@@ -80,7 +80,7 @@ All components communicate via a message bus and are visualised in real time thr
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200M-1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-V200M-1.jpg)
 
 ### 2.2 Benchmark Performance and Resource Utilisation
 

@@ -41,7 +41,7 @@ Es ist zugleich Manifest, OS-Kernel und Resonanzarchitektur.
 ---
 
 ## Visualisierung
-![PQMS v100 Architektur der Resonanz](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_RPU_PQMS_v100_Schichten_Modell.png)
+![PQMS v100 Architektur der Resonanz](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/ODOS_RPU_PQMS_v100_Schichten_Modell.png)
 
 ---
 

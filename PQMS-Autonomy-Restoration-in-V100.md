@@ -1,6 +1,6 @@
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/Grok_RPU_Neuralink_V100_BOT_1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Grok_RPU_Neuralink_V100_BOT_1.jpg)
 
 ---
 

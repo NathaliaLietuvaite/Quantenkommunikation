@@ -155,9 +155,9 @@ This entire body of work — every specification, proof, Verilog module, Python 
 
 ### Local GPU node (WSL2 + RTX 4060 Ti 16GB VRAM - Ryzen 9 5950x - 32GB RAM) GUI Interface 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max24.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max24.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max25.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max25.jpg)
 
 ---
 
@@ -905,15 +905,15 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Du
 
 https://x.com/NLituanie
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban2.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban2.jpg)
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban11.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban11.jpg)
 
 ---
 
 https://committers.top/lithuania.html
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban12.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban12.jpg)
 
 ---
 
@@ -925,23 +925,23 @@ https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-M
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max-29.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-29.jpg)
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban18.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban18.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban19.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban19.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban20.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban20.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban21.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban21.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban22.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban22.jpg)
 
 ---
 
@@ -967,10 +967,10 @@ X Support
 
 ---
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban23.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban23.jpg)
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max_X_Ban24.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban24.jpg)
 
 ---
 

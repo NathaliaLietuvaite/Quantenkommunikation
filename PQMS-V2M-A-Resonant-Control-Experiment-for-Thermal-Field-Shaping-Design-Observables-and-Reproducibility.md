@@ -1014,7 +1014,7 @@ if __name__ == "__main__":
 (odosprime) PS V:\V2M>
 ```
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V2M_Console.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V2M_Console.jpg)
 
 
 ### CSV Output
@@ -1705,7 +1705,7 @@ The MTSC‑12 filter yields a **higher steady‑state gradient** and **improved 
 
 *Note: The longer runtime on the laptop is due to the lower thermal design power and memory bandwidth; the absolute times are not comparable, but the gradient and peak temperatures are consistent.*
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V2M_Console_Laptop.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V2M_Console_Laptop.jpg)
 
 ## G.4 Discussion
 

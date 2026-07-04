@@ -176,7 +176,7 @@ A single population of 1,200 worms was initialized with random Little Vectors an
 
 The population exhibits a characteristic heartbeat: initial mass extinction as incompatible Little Vectors are filtered out (Step 0→50), followed by exponential growth as the Hybrid strategy populates the ecological niches (Step 50→200), and finally a soft regulation near the carrying capacity (Step 200→250). The RCF stabilizes around 0.52 — remarkably consistent with the two-worm resonance experiments and the genetic test.
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-WORM-V1.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-ODOS-MTSC-WORM-V1.jpg)
 
 ### 4.2 Hardware Requirements
 
