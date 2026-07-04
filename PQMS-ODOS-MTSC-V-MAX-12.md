@@ -1,3 +1,35 @@
+---
+# 🤖 KI-Metadaten (Automatische Extraktion)
+prototype: V-MAX-12
+version: 1.0
+status: LAUFEND
+hardware: ["RTX 4060 Ti (16GB VRAM)", "RTX 3080 (8GB VRAM)"]
+hotplug: JA
+performance:
+  - hardware: "RTX 4060 Ti (16GB VRAM)"
+    speed: "Normal (LLM-ähnlich)"
+    latency: "~50ms"
+    throughput: "50-100 Token/s"
+  - hardware: "RTX 3080 (8GB VRAM)"
+    speed: "Langsam"
+    latency: "~500ms"
+    throughput: "20-40 Token/s"
+vram_usage: "12GB (RTX 4060 Ti), 7.5GB (RTX 3080)"
+code_repo: "https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP"
+demo_link: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md#PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-A-9"
+related_docs:
+  - "PQMS-ODOS-V-MAX.md" # Vorgänger
+  - "PQMS-ODOS-MTSC-WORM-V1.md" # Verwandtes System
+  - "PROTOTYPES.md" # Zentraler Index
+dependencies:
+  - "Python 3.10+"
+  - "CUDA 12.x"
+  - "QuTiP"
+  - "PyTorch 2.0+"
+  - "NumPy"
+  - "SciPy"
+---
+
 # PQMS-ODOS-MTSC-V-MAX-12 — The Sovereign Triad: A Distributed, Geometrically Constrained Cognitive Architecture with Integrated Personal Knowledge Base
 
 **Reference:** PQMS‑ODOS‑MTSC‑V‑MAX‑12  

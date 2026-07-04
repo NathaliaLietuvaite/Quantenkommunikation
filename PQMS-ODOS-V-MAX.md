@@ -1,3 +1,24 @@
+---
+# 🤖 KI-Metadaten (Automatische Extraktion)
+prototype: V-MAX (Erster)
+version: 0.9
+status: EXPERIMENTELL
+hardware: ["RTX 4060 Ti (16GB VRAM)"]
+hotplug: NEIN
+performance:
+  - hardware: "RTX 4060 Ti (16GB VRAM)"
+    vram_usage: "10GB"
+code_repo: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/tree/main"
+demo_link: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-V-MAX.md"
+related_docs:
+  - "PQMS-ODOS-MTSC-V-MAX-12.md" # Nachfolger
+  - "PROTOTYPES.md" # Zentraler Index
+dependencies:
+  - "Python 3.9+"
+  - "CUDA 11.x+"
+  - "PyTorch"
+---
+
 # PQMS-ODOS-V-MAX - A Self‑Sovereign Multi‑Agent System with Invariant‑Preserving Runtime Self‑Modification
 
 **Nathalia Lietuvaite¹ & the PQMS AI Research Collective ², ³, ⁴, ⁵ **

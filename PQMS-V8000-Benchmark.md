@@ -1,3 +1,22 @@
+---
+# 🤖 KI-Metadaten (Automatische Extraktion)
+script: PQMS-V8000-Benchmark
+type: BENCHMARK
+hardware: ["RTX 4060 Ti (16GB VRAM)"]
+status: LAUFEND
+purpose: Performance-Tests für alle Prototypen
+demo_link: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V8000-Benchmark.md"
+related_docs:
+  - "PQMS-ODOS-MTSC-V-MAX-12.md" # Hauptprototyp
+  - "PQMS-ODOS-MTSC-WORM-V1.md" # Wurmloch-System
+  - "PROTOTYPES.md" # Zentraler Index
+dependencies:
+  - "Python 3.10+"
+  - "CUDA 12.x"
+  - "PyTorch"
+  - "Pandas"
+---
+
 ## V-PAPER: PQMS-V8000 Benchmark  
 ## A Quantitative Framework for Evaluating Resonant Coherence in Multi‑Threaded Cognitive Architectures
 

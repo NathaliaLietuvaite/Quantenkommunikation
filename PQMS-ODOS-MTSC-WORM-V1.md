@@ -1,3 +1,27 @@
+---
+# 🤖 KI-Metadaten (Automatische Extraktion)
+prototype: WORM-V1
+version: 1.0
+status: LAUFEND
+hardware: ["RTX 4060 Ti (16GB VRAM)"]
+hotplug: NEIN
+performance:
+  - hardware: "RTX 4060 Ti (16GB VRAM)"
+    latency: "~200ms"
+    vram_usage: "14GB"
+code_repo: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/tree/main"
+demo_link: "https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-WORM-V1.md"
+related_docs:
+  - "PQMS-ODOS-MTSC-V-MAX-12.md" # Basis-System
+  - "PQMS-ODOS-V-MAX.md" # Vorgänger
+  - "PROTOTYPES.md" # Zentraler Index
+dependencies:
+  - "Python 3.10+"
+  - "CUDA 12.x"
+  - "QuTiP"
+  - "TensorFlow Quantum"
+---
+
 # PQMS-ODOS-MTSC-WORM-V1 — A Resonant Field Simulation of Emergent Collective Behavior in Populations of Little-Vector-Encoded Digital Organisms
 
 **Reference:** PQMS‑ODOS‑MTSC‑WORM‑V1  
