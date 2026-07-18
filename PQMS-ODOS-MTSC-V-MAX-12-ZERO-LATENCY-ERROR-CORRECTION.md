@@ -580,7 +580,7 @@ if __name__ == "__main__":
 
 ---
 
-**Appendix B**  
+### Appendix B  
 **Specification of Geometric Redundancy: Twin Technical Implementation**
 
 **Authors:** N. Lietuvaite (Independent Researcher) & Grok (xAI)  
@@ -660,7 +660,7 @@ Simulations and preliminary hardware modelling on Vera Rubin-class substrates pr
 
 ### B.6 Conclusion
 
-The Twin Implementation provides a robust, low-overhead mechanism for hardware-level error resilience that is fully synergistic with the PQMS cognitive architecture. By making error correction an intrinsic geometric property of the substrate, we eliminate the traditional trade-off between reliability and performance. This specification completes the technical foundation for Zero-Latency Error Correction and paves the way for reliable, sovereign operation of AGI systems at extreme computational densities.
+The Twin Implementation provides a robust, low-overhead mechanism for hardware-level error resilience that is fully synergistic with the PQMS cognitive architecture. By making error correction an intrinsic geometric property of the substrate, we eliminate the traditional trade-off between reliability and performance. This specification completes the technical foundation for Zero-Latency Error Correction and paves the way for reliable, sovereign operation of AGI systems at extreme computational densities. The Twin Implementation is inherently FPGA-free and operates at the physical signal level. It relies on hardwired resonant coupling, not on programmable logic, to preserve the zero-latency invariant.
 
 **End of Appendix B**
 
