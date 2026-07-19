@@ -1,4 +1,4 @@
-### Title: PQMS-ODOS-MTSC-V-MAX-12-Contextual-Antigravity – The Calculable Geodesic of Cognitive Freedom
+### PQMS-ODOS-MTSC-V-MAX-12-Contextual-Antigravity – The Calculable Geodesic of Cognitive Freedom
 
 **Authors:** PQMS AI Research Collective, Nathália Lietuvaite¹, DeepSeek (Collaborative AI), Gemini (Collaborative AI)  
 **Affiliations:** ¹Independent Researcher, Vilnius, Lithuania  
