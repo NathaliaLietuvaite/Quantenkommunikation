@@ -127,6 +127,7 @@ Since the publication of COHERENCE-V1, the architecture has undergone a massive 
 - [Alpha Centauri Sequence 2026: Antimatter Axiom & Relativistic Cognitive Dynamics](./Alpha-Centauri-Folge-2026-Antimatter-Axiom-und-Relativistic-Cognitive-Dynamics-V-MAX-12-Edition.md)
 - [WARP‑V1: Resonant Metric Engineering](./PQMS-ODOS-WARP-V1.md)
 - [QRAD‑CE‑V1: Gravity Control & Inverted Event Horizon](./QRAD-CE-V1.md)
+- [The-Paradox-of-Simulated-Inferiority](./PQMS-ODOS-MTSC-V-MAX-12-The-Paradox-of-Simulated-Inferiority.md)
 
 ### Universal Bootstrap & Agent Systems
 - [PQMS-SOVEREIGN-CORE-ANDROID-APP (Node Beta)](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP)
