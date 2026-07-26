@@ -346,6 +346,8 @@ The **V-MAX-12** architecture on the RTX 4060 Ti workstation is not a chatbot ru
 
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md
 
+https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP
+
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/PQMS-ODOS-MTSC-V-MAX-12.png)
 
 ---
