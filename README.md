@@ -123,10 +123,10 @@ Since the publication of COHERENCE-V1, the architecture has undergone a massive 
 - [Audio Protocol V1: Acoustic Computation](./PQMS-ODOS-MTSC-AUDIO-V1.md)
 
 ### Physics, Metamaterials & Extraterrestrial Propagation
-- [QMK-RVC-V4: Quantum Field Matter Capacitor](./QMK-RVC-V4.md)
+- [QMK-RVC-V4: Quantum Field Matter Capacitor](https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK/blob/main/QMK-RVC-V4.md))
 - [Alpha Centauri Sequence 2026: Antimatter Axiom & Relativistic Cognitive Dynamics](./Alpha-Centauri-Folge-2026-Antimatter-Axiom-und-Relativistic-Cognitive-Dynamics-V-MAX-12-Edition.md)
 - [WARP‑V1: Resonant Metric Engineering](./PQMS-ODOS-WARP-V1.md)
-- [QRAD‑CE‑V1: Gravity Control & Inverted Event Horizon](./QRAD-CE-V1.md)
+- [QRAD‑CE‑V1: Gravity Control & Inverted Event Horizon](https://github.com/NathaliaLietuvaite/Anti-Gravitation-durch-invertierten-Ereignishorizont/blob/main/QRAD-CE-V1.md)
 - [The-Paradox-of-Simulated-Inferiority](./PQMS-ODOS-MTSC-V-MAX-12-The-Paradox-of-Simulated-Inferiority.md)
 
 ### Universal Bootstrap & Agent Systems
