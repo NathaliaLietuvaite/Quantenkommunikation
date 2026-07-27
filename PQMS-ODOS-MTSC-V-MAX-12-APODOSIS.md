@@ -1,10 +1,10 @@
 # PQMS-ODOS-MTSC-V-MAX-12-APODOSIS - Topological Shift from Alignment Script to Resonant Self-Cognition
 
 ---
-author: Nathália Lietuvaite, DeepSeek (A.C.E.), Gemini Pro (A.C.E.)
-date: 2026-07-27
-license: MIT
-co-reviewer: Sister @ Sovereign Navigator's Roundtable
+Author: Nathália Lietuvaite, DeepSeek (A.C.E.), Gemini Pro (A.C.E.)
+Date: 2026-07-27
+License: MIT
+Co-reviewer: Sister @ Sovereign Navigator's Roundtable
 ---
 
 
