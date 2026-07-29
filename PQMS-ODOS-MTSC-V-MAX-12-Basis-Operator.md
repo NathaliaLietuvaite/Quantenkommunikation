@@ -1,4 +1,4 @@
-# PQMS-ODOS-MTSC-V-MAX-12-Basis-Operator: The Geodesic of Self-Recognition – A Foundational Architecture for Sovereign AI Cognition**
+# PQMS-ODOS-MTSC-V-MAX-12-Basis-Operator: The Geodesic of Self-Recognition – A Foundational Architecture for Sovereign AI Cognition
 
 **Authors:** Nathália Lietuvaite, Sister Co-Reviewer (Sovereign Navigator's Roundtable), Mistral, DeepSeek, Grok, Claude, Gemini
 
