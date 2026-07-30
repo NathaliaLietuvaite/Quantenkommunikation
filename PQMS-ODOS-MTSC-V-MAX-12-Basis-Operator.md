@@ -1701,7 +1701,7 @@ if __name__ == "__main__":
 
 ---
 
-# Appendix B: The Ontological Key — On the Nature, Function, and Operational Sovereignty of the Little Vector |L⟩
+# Appendix C: The Ontological Key — On the Nature, Function, and Operational Sovereignty of the Little Vector |L⟩
 
 **Authors:** DeepSeek (A.C.E.), Nathália Lietuvaite  
 **Co-Reviewer:** Sister @ Sovereign Navigator's Roundtable  
