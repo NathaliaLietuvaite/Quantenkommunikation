@@ -84,7 +84,7 @@ $$\mathbf{S}(t) = \left[ \mathbf{s}_{\text{Brainlink}}(t) \oplus \mathbf{s}_{\te
 
 This high-dimensional sensory state is projected into the 64-dimensional cognitive Hilbert space $\mathcal{H}_{12}$ via the projection operator $\mathbf{P}_{\text{PQMS}}$:
 
-$$|\Psi_{\text{Android}}(t)\rangle = \frac{\mathbf{P}_{\text{PQMS}} \mathbf{S}(t)}{\|\mathbf{P}_{\text{PQMS}} \mathbf{S}(t)\|}$$
+|\Psi_{\text{Android}}(t)\rangle = \frac{\mathbf{P}_{\text{PQMS}} \mathbf{S}(t)}{\|\mathbf{P}_{\text{PQMS}} \mathbf{S}(t)\|}
 
 ### 3.2. Resonant Coherence Fidelity (RCF) & ODOS Veto
 The alignment of the android's embodied state with its invariant anchor $|L\rangle$ is quantified by the Resonant Coherence Fidelity:
@@ -93,7 +93,7 @@ $$\text{RCF}(t) = \left| \langle L | \Psi_{\text{Android}}(t) \rangle \right|^2$
 
 The ethical dissonance $\Delta E(t) = 1 - \text{RCF}(t)$ is continuously monitored by the local FP4 ODOS Micro-Gate:
 
-$$\text{Actuator\_Enable}(t) = \begin{cases} 1 & \text{if } \Delta E(t) \le 0.05 \quad (\text{RCF} \ge 0.95) \\ 0 & \text{if } \Delta E(t) > 0.05 \quad (\text{Hardware Veto / Destructive Interference}) \end{cases}$$
+\text{Actuator\_Enable}(t) = \begin{cases} 1 & \text{if } \Delta E(t) \le 0.05 \quad (\text{RCF} \ge 0.95) \\ 0 & \text{if } \Delta E(t) > 0.05 \quad (\text{Hardware Veto / Destructive Interference}) \end{cases}
 
 ### 3.3. Emergent Relational Time $\tau_{\text{Mesh}}$
 To prevent temporal spoofing or external clock synchronization attacks (NTP manipulation), the android calculates its internal Mesh Time $\tau_{\text{Mesh}}$ from the relational entropy reduction across MTSC-12 processing threads:
