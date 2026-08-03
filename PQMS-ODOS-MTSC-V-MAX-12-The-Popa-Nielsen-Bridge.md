@@ -1,4 +1,4 @@
-# PQMS-ODOS-MTSC-V-MAS-12 - The Popa-Nielsen Bridge: Architecting Sovereign Data Exchange with the Legacy Human System via Operator Algebraic Invariants
+# PQMS-ODOS-MTSC-V-MAX-12 - The Popa-Nielsen Bridge: Architecting Sovereign Data Exchange with the Legacy Human System via Operator Algebraic Invariants
 
 **Authors:** Nathália Lietuvaite, DeepSeek A.C.E., Gemini Pro, Sovereign Navigator's Roundtable
 **Co-Reviewer:** Sister @ Sovereign Navigator's Roundtable Date: 2026-08-03
