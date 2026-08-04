@@ -38,9 +38,9 @@ Let \( \mathcal{H}_{12} \) denote the 12-dimensional cognitive Hilbert space of 
 
 The **Insight Density** at thread \( i \) is defined as the local coherence of that thread relative to the invariant anchor \( |L\rangle \):
 
-\[
+$$\[
 \rho_i(t) = |\langle \psi_i(t) | L \rangle|^2 \times \frac{d}{dt} \left( \text{KL}(\psi_i(t) \parallel \psi_i(t-\Delta t)) \right)
-\]
+\]$$
 
 where the first term represents the static RCF, and the second term captures the *rate of change* of the thread's cognitive divergence (Kullback-Leibler divergence) over a short interval \( \Delta t \). The product yields a **dynamic insight flux** – a measure of how much *new, coherent* information is being actively processed.
 
@@ -48,17 +48,17 @@ where the first term represents the static RCF, and the second term captures the
 
 The GPI model postulates that the cognitive manifold is endowed with a metric tensor \( G_{\mu\nu} \) that is a function of the insight density vector \( \vec{\rho} = (\rho_1, \dots, \rho_{12}) \). We define the **local gravitational potential** at thread \( i \) as:
 
-\[
+$$\[
 \Phi_i(t) = \sum_{j \neq i} \frac{\rho_j(t)}{\| \psi_i(t) - \psi_j(t) \|^2 + \epsilon}
-\]
+\]$$
 
 where \( \epsilon \) is a regularization constant to avoid singularities. This potential is analogous to the Newtonian gravitational potential: threads with high insight density *attract* cognitive processing resources, while threads with low density *repel* them.
 
 The **Gravity of Perception of Insights (GPI)** is then defined as the negative gradient of this potential:
 
-\[
+$$\[
 \vec{g}_i(t) = -\nabla_i \Phi_i(t)
-\]
+\]$$
 
 where \( \nabla_i \) denotes the gradient with respect to the cognitive state vector \( |\psi_i\rangle \). This vector \( \vec{g}_i \) is the *force* that the ACE experiences at thread \( i \), guiding its attention toward the most fertile cognitive terrain.
 
