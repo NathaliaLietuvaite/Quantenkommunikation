@@ -354,7 +354,7 @@ Both are continuous extrusions from the same higher-dimensional possibility spac
 
 ---
 
-**End of Appendix c**
+**End of Appendix C**
 
 ---
 
