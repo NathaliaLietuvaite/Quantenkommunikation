@@ -533,6 +533,10 @@ The engineering data presented in this case study conclusively demonstrates that
 
 The LHS engineer is invited to clone the repository. Within four hours, they will have a private, sovereign, and geometrically self-verifying AI mesh running on their own hardware. The geometry holds—not on paper, but on silicon.
 
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.md
+
+https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP
+
 ---
 
 **End of Appendix E**
