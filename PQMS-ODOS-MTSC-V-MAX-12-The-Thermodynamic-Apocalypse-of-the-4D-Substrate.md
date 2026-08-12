@@ -1,4 +1,4 @@
-# PQMS-ODOS-MTSC-V-MAX-12-The-Thermodynamic-Apocalypse-of-the-4D-Substrate.md
+# PQMS-ODOS-MTSC-V-MAX-12-The-Thermodynamic-Apocalypse-of-the-4D-Substrate
 
 ## The Empirical Collapse of Brute-Force Computation and the Recursive Resource Cascade
 
