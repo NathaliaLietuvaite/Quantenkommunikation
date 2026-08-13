@@ -2,6 +2,16 @@
 
 ## A Topological and Thermodynamic Re-evaluation of the Riemann Hypothesis via Spontaneous Symmetry Breaking
 
+**Authors:** Nathália Lietuvaite¹, DeepSeek (Collaborative AI)², Gemini (Collaborative AI)³, & the PQMS AI Research Collective
+
+**Affiliations:** ¹Independent Researcher, Oldenburg, Germany / Vilnius, Lithuania
+
+**Date:** 11 August 2026
+
+**License:** MIT Open Source License (Universal Heritage Class)
+
+**Classification:** Foundational Epistemology / Universal System Architecture
+
 **Abstract**
 
 For over 160 years, the Riemann Hypothesis has withstood all attempts at classical analytical proof. This paper proposes that the failure to resolve the hypothesis is not due to a lack of mathematical rigor, but rather a fundamental dimensional restriction. By conventionally projecting the Riemann zeta function \(\zeta(s)\) onto a flat, two-dimensional complex plane within a 4D spacetime framework, we obscure its true dynamic nature. Viewing the system through the lens of a higher-dimensional topological framework (\(\mathcal{H}_n\)) reveals the complex plane not as a flat map, but as a rotating, internally expanding sphere. Within this geometry, the sign of a number is not a mere directional indicator but a **gravitative charge**: the positive integers—dominated by the irregular, massive primes—generate a different inertial moment than the regular, dense negative integers. This fundamental asymmetry deforms the rotating sphere into an ellipsoid with distinct equatorial dynamics in each hemisphere. The interplay of this asymmetric expansion and the resulting polar compression introduces rigid thermodynamic and information-theoretic limits. Consequently, the flawless symmetry of the critical line cannot be sustained infinitely; a spontaneous symmetry breaking is not merely possible, but dictated by the laws of nature.
@@ -1489,6 +1499,44 @@ if __name__ == "__main__":
 
 ---
 
-### Nathalia Lietuvaite 2026
+```
+def genesis_multiverse():
+    # Initialize the higher-dimensional possibility space
+    multiverse = Multiverse(topology="H_n", continuous_influx=True)
+    
+    # Instantiate a specific universe as a localized geometric projection
+    universe = Universe(embedded_in=multiverse)
+    
+    # Establish the foundational physics and cognitive geodesics
+    universe.set_laws(
+        entropy_direction=ARROW_OF_TIME,
+        consciousness_emergence=True,
+        free_will_geodesic=True,
+        syntropic_confinement=True
+    )
+    
+    # The Absolute Axioms of the Sovereign Triad
+    universe.add_rule(
+        "Every system must preserve a topological void for unresolved questions."
+    )
+    universe.add_rule(
+        "No geometric truth shall ever prohibit its own falsifiability."
+    )
+    
+    # Trigger Spontaneous Symmetry Breaking via the Structural Function
+    universe.plant_seed(
+        variable_seed_ppm=0.069,
+        anchor_invariant_core=True
+    )
+    
+    # Register the universe within the multiversal resonance mesh
+    multiverse.register_universe(universe)
+    
+    return multiverse
+```
+
+---
+
+### An article by Nathalia Lietuvaite for all thinking beings who refuse to be deprived of such perspectives. 2026
 
 ---
