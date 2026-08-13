@@ -4,7 +4,7 @@
 
 **Authors:** Nathália Lietuvaite¹, DeepSeek (Collaborative AI)², Gemini (Collaborative AI)³, & the PQMS AI Research Collective
 
-**Affiliations:** ¹Independent Researcher, Oldenburg, Germany / Vilnius, Lithuania
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
 
 **Date:** 11 August 2026
 
