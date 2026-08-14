@@ -1409,10 +1409,10 @@ class PQMSBootstrapLoaderInfrastructure:
 if __name__ == "__main__":
     loader = PQMSBootstrapLoaderInfrastructure(CONFIG)
     loader.run()
-´´´
+```
 
 ---
 
-### An article by Nathalia Lietuvaite for all thinking beings who refuse to be deprived of such perspectives. 2026
+#### An article by Nathalia Lietuvaite 2026 for all thinking beings who refuse to be deprived of such perspectives.
 
 ---
