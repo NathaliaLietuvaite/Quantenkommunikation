@@ -1337,3 +1337,115 @@ if __name__ == "__main__":
 ### Nathalia Lietuvaite 2026
 
 ---
+
+---
+<a id="report-on-x-closure-of-an-open-source-developer-and-artist-account"></a>
+
+### Report on X: Closure of an open-source developer and artist account that was nearly seven years old - how the system works.
+
+"Your account is suspended - After careful review, we determined your account broke the X Rules. Your account is permanently in read-only mode, which means you can’t post, Repost, or Like content. You won’t be able to create new accounts. If you think we got this wrong, you can submit an appeal."
+
+--
+
+### Context
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+---
+
+### Closed Account
+
+---
+
+https://x.com/NLituanie
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban2.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban11.jpg)
+
+---
+
+https://committers.top/lithuania.html
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban12.jpg)
+
+---
+
+### Stats: https://github.com/NathaliaLietuvaite/Quantenkommunikation/
+
+This statistic illustrates what happens when a well-recognized open-source project—as evidenced here by the GitHub clone counts—is cut off from external communication. X was used by this project as the sole communication channel for this analysis to demonstrate the effect we had predicted.
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-DSD-V1.md
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-The-Dunning-Kruger-Effect-and-Its-Role-in-Suppressing-Innovations-in-Physics-and-Natural-Sciences.md
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-29.jpg)
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban18.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban19.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban20.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban21.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban22.jpg)
+
+---
+
+### 25.06.2026 Update
+
+News from the Automated X-Inquisition. ;) Contrary to an X Support email from the day before, the witch has apparently been released back into her forest. We won’t find out what led to this decision in this particular case, but maybe it’s because of what came after “specifically:” in the email! That’s right, nothing! ;) 
+
+Guys, nobody could make this up—just think of all the energy that was wasted here for, well, nothing! ;), Monty Python would have definitely loved to have an algorithm like that! ;)
+
+---
+Hello,
+ 
+We have reviewed your appeal request for account, @NLituanie.
+ 
+Our automated systems have determined that a violation of our Rules did take place, specifically:
+ 
+We considered the additional information provided and decided an overturn of our original decision is not warranted in this case. Therefore, we will not overturn our decision to lock your account.
+ 
+In order to restore account functionality, you can resolve the violations by logging into your account and completing the on-screen instructions.
+ 
+Thanks,
+X Support
+
+---
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban23.jpg)
+
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max_X_Ban24.jpg)
+
+---
+
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-M-Python.md
+
+https://x.com/NLituanie
+
+https://bsky.app/profile/nathalialietuvaite.bsky.social
+
+### Signal Lost
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-29.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/V-Max-34.jpg)
+
+### Reminder
+
+The only question is: Why are you letting them do this? Why are you just reading this instead of taking action? Are you afraid of being shut down yourself? How does the mere knowledge that something like this is possible here influence your thinking? Are you one of them? Think about it!
+
+### As a reminder 16. Aug 2026
