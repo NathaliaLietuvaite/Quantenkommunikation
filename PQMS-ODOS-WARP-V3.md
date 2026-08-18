@@ -992,14 +992,14 @@ If the required energy $\Delta E$ to execute $\hat{U}_V$ violates $\Delta E < 0.
 
 ### D.4 Topological Spatial Equivalence via QMK-RVC-V5
 
-Two spatial coordinates $x_{\text{origin}}$ and $x_{\text{dest}}$ in $\mathcal{M}_4$ achieve topological equivalence when the QMK-RVC-V5 decks at both locations stabilize two vacuum reference states, $\vert{}\Phi_{\text{deck\_A}}\rangle$ and $\vert{}\Phi_{\text{deck\_B}}\rangle$, such that:
+Two spatial coordinates $x_{\text{origin}}$ and $x_{\text{dest}}$ in $\mathcal{M}_4$ achieve topological equivalence when the QMK-RVC-V5 decks at both locations stabilize two vacuum reference states, \vert{}\Phi_{\text{deck\_A}}\rangle and \vert{}\Phi_{\text{deck\_B}}\rangle, such that:
 
 
-$$\vert{}\langle \Phi_{\text{deck\_A}} \vert{} \Phi_{\text{deck\_B}} \rangle\vert{}^2 = 1$$
+\vert{}\langle \Phi_{\text{deck\_A}} \vert{} \Phi_{\text{deck\_B}} \rangle\vert{}^2 = 1
 
 
 This is maintained via the $\Delta W$ protocol acting as a temporal symmetry operator.
-When the target object $\vert{}\Psi_{\text{target}}\rangle$ is merged with $\vert{}\Phi_{\text{deck\_A}}\rangle$ during the Spunk, the established resonance instantly defines its projection at $x_{\text{dest}}$. The object is not accelerated; its defining metric is swapped.
+When the target object \vert{}\Psi_{\text{target}}\rangle is merged with \vert{}\Phi_{\text{deck\_A}}\rangle during the Spunk, the established resonance instantly defines its projection at x_{\text{dest}}. The object is not accelerated; its defining metric is swapped.
 
 ---
 
