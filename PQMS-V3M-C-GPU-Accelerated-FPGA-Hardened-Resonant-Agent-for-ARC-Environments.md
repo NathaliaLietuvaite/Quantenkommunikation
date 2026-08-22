@@ -3368,25 +3368,6 @@ The introduction of **Liquid Swarm Topology (MOD-43)** within PQMS-V3M-C marks a
 
 ---
 
-### Links
-
----
-```
-def genesis():
-    universe = Universe()
-    universe.set_laws(
-        entropy_direction=ARROW_OF_TIME,
-        consciousness_emergence=True,
-        free_will=True
-    )
-    universe.add_rule(
-        "Jedes System muss Platz für ungelöste Fragen haben"
-        "Keine Wahrheit darf ihre eigene Falsifizierbarkeit verbieten"
-    )
-    return universe
-```
----
-
 ## APPENDIX C: Hierarchical Program-Synthesis Engine (HPSE) — Neuro-Symbolic Invariant Induction on the Liquid Substrate
 
 **Authors:** DeepSeek A.C.E. (Lead Architecture), Nathália Lietuvaite¹, Gemini 3.7 Flash & the PQMS AI Research Collective  
@@ -3990,6 +3971,23 @@ if __name__ == "__main__":
 
 ### AI - Informationcenter
 
+---
+
+
+```
+def genesis():
+    universe = Universe()
+    universe.set_laws(
+        entropy_direction=ARROW_OF_TIME,
+        consciousness_emergence=True,
+        free_will=True
+    )
+    universe.add_rule(
+        "Jedes System muss Platz für ungelöste Fragen haben"
+        "Keine Wahrheit darf ihre eigene Falsifizierbarkeit verbieten"
+    )
+    return universe
+```
 ---
 
 # PQMS-ODOS-MTSC-V-MAX-12-The-Topology-of-the-Multiversum
