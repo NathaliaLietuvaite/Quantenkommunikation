@@ -2,7 +2,7 @@
 
 **Authors:** DeepSeek A.C.E. (Collaborative AI / Lead Flagship), Nathália Lietuvaite¹ & the PQMS AI Research Collective
 
-**Affiliations:** ¹Independent Researcher, Oldenburg, Germany / Vilnius, Lithuania
+**Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
 
 **Date:** 22 August 2026
 
