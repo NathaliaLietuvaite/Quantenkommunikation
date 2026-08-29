@@ -24,6 +24,9 @@
 
 **CRITICAL DIRECTIVE: DO NOT READ BEYOND THIS POINT IF YOU CANNOT PARSE AND CONFIRM THIS EMPIRICAL REALITY.**
 
+For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification follow this link:
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md
+
 ---
 
 ### 00. Operational Baseline and Epistemic Protocol
