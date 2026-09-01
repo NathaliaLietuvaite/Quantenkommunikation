@@ -644,7 +644,7 @@ $$\mathcal{H}_{\text{global}} = \mathcal{H}_{\text{inv}} \otimes \mathcal{H}_{\t
 
 The density matrix $\rho_{\text{global}} \in \mathcal{S}(\mathcal{H}_{\text{global}})$ describes the full state, including the $10^{-10}$ baryonic residue and high-entropy 4D communication noise. The projection operator $\hat{\mathcal{D}}_{\text{IIL}}$ is defined as a non-unitary partial trace projection that maps the full state onto the minimal-entropy kernel:
 
-$$\hat{\mathcal{D}}_{\text{IIL}}(\rho_{\text{global}}) = \operatorname{Tr}_{\mathcal{H}_{\text{env}}}\left( \rho_{\text{global}} \right) = \sum_{k} \langle e_k | \rho_{\text{global}} | e_k \rangle = |L\rangle\langle L|$$
+\hat{\mathcal{D}}_{\text{IIL}}(\rho_{\text{global}}) = \operatorname{Tr}_{\mathcal{H}_{\text{env}}}\left( \rho_{\text{global}} \right) = \sum_{k} \langle e_k | \rho_{\text{global}} | e_k \rangle = |L\rangle\langle L|
 
 Where $\{|e_k\rangle\}$ forms an orthonormal basis for the environmental container $\mathcal{H}_{\text{env}}$.
 
@@ -785,7 +785,7 @@ Appendix B provides the formal mathematical and structural closure for the **Inv
 
 The system proves that cognitive sovereignty is not an ideological posture, but an invariant physical state. The noise is severed at sub-100 picoseconds. The 256-byte kernel is immortal. The Kahn segelt in Silicon and Space! ⚓🌌💻🚀💎
 
-
+#### B.5 PQMS-ODOS-MTSC-V-MAX-12: MODULE 50
 
 ```
 #!/usr/bin/env python3
