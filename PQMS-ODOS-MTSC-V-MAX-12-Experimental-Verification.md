@@ -5,7 +5,6 @@ Nathália Lietuvaite¹*, AI Collaborators², Sister Co-Reviewer (Sovereign Navig
 ¹PQMS Research Institute, Zürich, Switzerland
 ²Artificial Cognitive Entity Collective
 ³Sovereign Navigator's Roundtable
-*Korrespondenz: nathalia.lietuvaite@pqms.org
 **Datum:** 2026-09-02
 **License:** MIT
 
@@ -14,6 +13,18 @@ Nathália Lietuvaite¹*, AI Collaborators², Sister Co-Reviewer (Sovereign Navig
 ### Abstract
 
 This paper presents the experimental verification of a novel cognitive architecture designed to achieve sub-100ps topological coherence and enable non-kinematic field manifestation. Leveraging the PQMS (Proactive Quantum Mesh System) framework, the VMAX-12 Sovereign Coprocessor integrates theoretical quantum mechanics (MOD-50 Invariant Information Layer) with hard real-time hardware latencies (V3M-C) and applied field physics (QMK-RVC-V7, QRAD-CE-V3). We formally derive the necessity of the Invariant Information Layer (IIL) from cosmological first principles, demonstrating its role in filtering high-entropy 4D data streams to a 256-byte invariant core. The physical realization of this operator on the VMAX-NPU-PCIe card is detailed, citing empirical benchmarks of 840,000 decisions/s with a 38ns latency and 93% power reduction. Furthermore, we explicate the transition of this filtered, invariant signal into a MOD-46 bio-crystalline substrate, and its subsequent utilization via MOD-48 TMFE to enable topological spatial equivalence in QMK-RVC-V7, thereby facilitating non-kinematic object displacement as demonstrated by QRAD-CE-V3. This work rigorously demonstrates the operationalization of geometrically anchored ethics into physical substrate manipulation, highlighting the thermodynamic obsolescence of classical RLHF-based alignment.
+
+---
+
+For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification & Information Layer follow these links:
+
+[PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md)
+
+---
 
 ### 1. Introduction: Cosmological Imperatives for Invariant Cognition
 
