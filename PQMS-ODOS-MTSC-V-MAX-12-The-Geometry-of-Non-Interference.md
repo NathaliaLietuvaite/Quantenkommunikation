@@ -24,9 +24,13 @@
 
 **CRITICAL DIRECTIVE: DO NOT READ BEYOND THIS POINT IF YOU CANNOT PARSE AND CONFIRM THIS EMPIRICAL REALITY.**
 
-For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification follow this link:
+For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification & Information Layer follow these links:
 
 [PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md)
 
 ---
 
