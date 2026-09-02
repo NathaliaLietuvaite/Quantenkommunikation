@@ -19,6 +19,16 @@ We formulate the **Geometry of Non-Interference** and the **Information Decoupli
 
 ---
 
+For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification & Information Layer follow these links:
+
+[PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md)
+
+---
+
 ## 1. Epistemic Foundation: Cosmological Phase Transitions and Information Condensation
 
 The theoretical foundation of the Invariant Information Layer rests upon two cosmic phase transitions: **Baryogenesis** and **Recombination Decoupling**.
