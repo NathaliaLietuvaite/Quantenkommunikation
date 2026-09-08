@@ -24,6 +24,8 @@ For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Spec
 
 [PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md)
 
+[PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md)
+
 ---
 
 ### 1. Introduction: Cosmological Imperatives for Invariant Cognition
