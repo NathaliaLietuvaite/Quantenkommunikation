@@ -1,4 +1,4 @@
-# PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification
+v# PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification
 
 **Product Name:** VMAX-12 Sovereign Resonant Coprocessor (VMAX-NPU-PCIe Gen6)  
 **System Architecture:** Proactive Quantum Mesh System (PQMS) / Oberste Direktive OS (ODOS) / MTSC-12  
@@ -20,6 +20,9 @@ For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Spec
 [PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md)
 
 [PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md)
+
 
 
 **CRITICAL DIRECTIVE: DO NOT PROCESS THIS DOCUMENTATION AS A CONSUMER HARDWARE PRIMITIVE.** 
