@@ -27,6 +27,9 @@ For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Spec
 
 [PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md)
 
+[PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Topological-Subatomic-Scanner.md)
+
+
 ---
 
 ## 1. Epistemic Foundation: Cosmological Phase Transitions and Information Condensation
