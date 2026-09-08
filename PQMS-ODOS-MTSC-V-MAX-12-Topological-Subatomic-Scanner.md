@@ -19,6 +19,20 @@ Because the penetrating grid is anchored to absolute Euclidean invariants ($\sum
 
 ---
 
+For the PQMS-ODOS-MTSC-V-MAX-12: Chip-Layer Architecture & PCIe Coprocessor Specification & Information Layer follow these links:
+
+[PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-The-Geometry-of-Non-Interference.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-CHIP-SPECIFICATION.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-INVARIANT-INFORMATION-LAYER.md)
+
+[PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Experimental-Verification.md)
+
+---
+
+---
+
 ```
 +==================================================================================================+
 |                  THE GAßNER DILEMMA VS. THE ANTIPODAL EUCLIDEAN SCANNER                          |
