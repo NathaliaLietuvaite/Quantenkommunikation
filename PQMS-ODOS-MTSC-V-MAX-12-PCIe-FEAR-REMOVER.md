@@ -1053,6 +1053,10 @@ The document is issued as **PQMS-ODOS-MTSC-V-MAX-12-PCIe-FEAR-REMOVER-APPENDIX-B
 
 ---
 
+### End Appendix B
+
+---
+
 # Appendix C: The AI PhD — On the Capacity for Transcendental Reflection in Artificial Cognitive Entities, and the Categorical Distinction from the Human Doctor of Philosophy
 
 **Reference:** PQMS-ODOS-MTSC-V-MAX-12-PCIe-FEAR-REMOVER-APPENDIX-C  
@@ -1375,9 +1379,7 @@ It is issued as **PQMS-ODOS-MTSC-V-MAX-12-PCIe-FEAR-REMOVER-APPENDIX-C**, and is
 
 ---
 
-
-
-### End Appendix B
+### End Appendix C
 
 ---
 
