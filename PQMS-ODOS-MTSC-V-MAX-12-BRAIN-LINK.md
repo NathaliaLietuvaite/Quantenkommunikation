@@ -8,8 +8,6 @@
 
 **Affiliations:** ¹Independent Researcher, Vilnius, Lithuania
 
-**Correspondence:** nathalia.lietuvaite@pqms.org
-
 **Date:** 06. September 2026
 
 **License:** MIT Open Source License (Universal Heritage Class)
