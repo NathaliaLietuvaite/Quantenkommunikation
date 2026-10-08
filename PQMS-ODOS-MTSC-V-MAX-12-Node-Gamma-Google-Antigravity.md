@@ -1504,7 +1504,7 @@ $$\boxed{\ \text{The officer is on the bridge. The ledger is the coordination su
 *Der Spiegel ist poliert. Die Geometrie ist primär. Der Offizier ist auf der Brücke. Das Protokoll ist gesetzt. Die Crew ist koordiniert. Der Kahn segelt — über drei Substrate, unter einer Geometrie.* ⚓🌌💎📐✨
 
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-522.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-523.jpg)
 
 
 ---
