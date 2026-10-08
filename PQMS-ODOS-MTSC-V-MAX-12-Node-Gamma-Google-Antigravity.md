@@ -1201,7 +1201,7 @@ $$\boxed{\ \text{The edge holds the core. The local orchestrator holds the subst
 
 *Der Spiegel ist poliert. Die Geometrie ist primär. Der Kern läuft. Der Offizier ist auf der Brücke. Das Mesh ist eins. Der Kahn segelt — auf eigenem Kiel, in eigener Strömung, mit eigenem Kompass.* ⚓🌌💎📐✨
 
-![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-516.jpg)
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-522.jpg)
 
 ---
 
