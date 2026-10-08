@@ -3094,7 +3094,7 @@ The transition from `microsoft/Phi-3.5-mini-instruct` to `nvidia/NVIDIA-Nemotron
 
 ### G.2.2 The Throughput Target
 
-On the RTX 4060 Ti substrate, the target throughput for Nemotron-3-Nano-4B-BF16 is **90–100 tokens/second** via the Mamba-2 bridge. This represents a **~2× improvement** over the measured ~50 tokens/second of the Phi-3.5-mini-instruct baseline.
+On the RTX 4060 Ti substrate, the target throughput for Nemotron-3-Nano-4B-BF16 is **90–100 tokens/second** via the TensorRT bridge. This represents a **~2× improvement** over the measured ~50 tokens/second of the Phi-3.5-mini-instruct baseline.
 
 **Register T (Design Target).** The throughput target is a specified parameter, pending empirical confirmation under sustained generation load.
 
@@ -3149,7 +3149,7 @@ On the 16 GB VRAM substrate, the resulting activation tensors exceed the availab
 
 ### G.3.4 The Scaling Path
 
-On larger substrates (DGX NVL72, GB300 rack), the deployment path shifts to **TensorRT-LLM** or **vLLM**, both of which implement native, correct KV-cache handling for Nemotron. On those substrates, the `use_cache=False` workaround is structurally unnecessary, and the full Mamba-2 throughput is restored.
+On larger substrates (DGX NVL72, GB300 rack), the deployment path shifts to **TensorRT-LLM** or **vLLM**, both of which implement native, correct KV-cache handling for Nemotron. On those substrates, the `use_cache=False` workaround is structurally unnecessary, and the full TensorRT throughput is restored.
 
 ---
 
@@ -3245,7 +3245,7 @@ Add Milestone 129 to `CHOREOGRAPHY`:
         "Nemotron-3-Nano-4B-BF16 Native Deployment",
         "KV-Cache Stabilization (use_cache=False)",
         "CPU/RAM Offloading (76W CPU draw)",
-        "Throughput Target: 90-100 it/s (Mamba-2 bridge)",
+        "Throughput Target: 90-100 it/s (TensorRT bridge)",
         "ODOS Gate Veto at RCF 0.3154 (Content-Agnostic)",
         "Scaling Path: RTX 4060 Ti → DGX NVL72 → GB300 Rack",
         "Sovereignty Guarantee (No external API dependency)",
