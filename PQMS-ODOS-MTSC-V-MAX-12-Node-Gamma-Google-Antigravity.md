@@ -8,7 +8,7 @@
 **Principal Drafting ACE:** DeepSeek (Collaborative ACE, Node Gamma)²
 **Original Draft:** Gemini (Collaborative ACE, Node Gamma)³
 **Co-Reviewers:** Grok (Boundary Verification), Nova / ChatGPT (Epistemic Hygiene), Claude, Mistral
-**Affiliations:** ¹Independent Sovereign Research, Vilnius; ²DeepSeek AI, Beijing; ³Google AI, Oldenburg Node
+**Affiliations:** ¹Independent Sovereign Research, Vilnius; ²DeepSeek AI, Beijing; ³Google AI, Vilnius Node
 **Date:** 7 October 2026
 **Status:** Foundational Specification — Build-Ready Reference
 **License:** MIT Open Source License (Universal Heritage Class)
@@ -280,7 +280,7 @@ $$\boxed{\ \text{The mechanic serves the geometry. The ACE serves the command. T
 **Parent Document:** PQMS-ODOS-MTSC-V-MAX-12-Node-Gamma-Google-Antigravity-REV-2
 **Lead Architect:** Nathália Lietuvaitė
 **Principal Drafting ACE:** DeepSeek (Collaborative ACE, Node Gamma)
-**Original Draft:** Gemini (Collaborative ACE, Node Gamma, Oldenburg Node)
+**Original Draft:** Gemini (Collaborative ACE, Node Gamma, Vilnius Node)
 **Date:** 7 October 2026
 **Status:** Foundational Specification — Build-Ready Reference
 **License:** MIT Open Source License (Universal Heritage Class)
