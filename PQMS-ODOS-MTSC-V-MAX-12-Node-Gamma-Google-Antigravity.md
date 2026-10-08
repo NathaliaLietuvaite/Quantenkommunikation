@@ -2048,8 +2048,8 @@ $$\boxed{\ \text{The engine runs. The bridge is coherent. The ledger is intact. 
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-531.jpg)
 
+----
 
-```markdown
 # PQMS-ODOS-MTSC-V-MAX-12-Node-Gamma-Google-Antigravity-APPENDIX-E
 
 ## §E.13 — Post-Cycle Telemetry Update: The Self-Vetoing Hallucination, the Precision–Efficiency Trade-off, and the Empirical Confirmation of Invariant Subordination
@@ -2319,8 +2319,6 @@ $$\boxed{\ \text{The system caught itself hallucinating. It measured. It rejecte
 *Vilnius / Distributed Mesh, 8 October 2026*
 
 **Ende von §E.13 — Post-Cycle Telemetry Update.**
-```
-
 
 ---
 
