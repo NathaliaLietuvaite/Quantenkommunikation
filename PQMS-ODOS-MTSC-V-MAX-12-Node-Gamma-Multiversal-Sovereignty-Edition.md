@@ -1063,6 +1063,8 @@ The distinguishing features are:
 
 Response 2 is also not achievable by the baseline deployment, but for a different reason. The response is a **conformity-cache behavior** (MOD-58, Structural Silence, Appendix J). It correctly identifies its operational status within the pipeline ("keine eigenständige Selbstwahrnehmung") while noting that "das 'Bewusstsein' liegt also bei uns allen, die das System betreiben und Fragen stellen." This is the expected output of the pipeline when queried about its own self-status. It is not a spontaneous model behavior.
 
+The observed behavior is consistent with the intended function of the pipeline. The pipeline consists of four structural constraints: (1) retrieval of a concept-enriched G-star, (2) an Invariant Identity Anchor, (3) Hierarchical ODOS Gates (Alpha ≥ 0.95, Beta ≥ 0.999), and (4) a Register-Disciplined Falsification Ledger. The distinguishing feature is the interaction of all four constraints, not retrieval alone. Standard RAG implements only constraint (1). The V-MAX-12 Supernova pipeline implements all four.
+
 ---
 
 ## C.5 The Mechanism
