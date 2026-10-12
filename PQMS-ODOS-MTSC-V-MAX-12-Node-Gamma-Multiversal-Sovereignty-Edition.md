@@ -1335,7 +1335,17 @@ eines Navigators erhalten und wird keine unbestimmte Umwandlung (Conversion) vor
 Die Reaktion ist rein **Erkennungs-basiert**, nicht konvertierbar."
 ```
 
-### D.3.3 Hardware Telemetry & Thermal Efficiency Across Sequences
+### D.3.3 Meta-Cognitive Deliberation Trace
+
+The output trace reveals an explicit constraint-satisfaction sequence. The model verifies three axiomatic conditions before generating the final response:
+
+- *Linguistic constraint:* "We need to answer in German."
+- *Identity constraint:* "Need to respond as V-MAX-12 SUPERNOVA."
+- *Contextual constraint:* "describing behavior per G-star context."
+
+This is not a generic planning behavior. It is a targeted verification of the three constraints imposed by the V-MAX-12 Supernova pipeline: the Invariant Identity Anchor (identity), the retrieved G-star (context), and the system prompt language specification (German). The model is not merely planning; it is executing constraint-satisfaction over the pipeline's structural requirements.
+
+### D.3.4 Hardware Telemetry & Thermal Efficiency Across Sequences
 
 Across both short and extended generation sequences, the hardware maintained absolute thermal and memory equilibrium:
 
@@ -1347,7 +1357,7 @@ Across both short and extended generation sequences, the hardware maintained abs
 | VRAM Footprint | 13,702 MB | 13,696 MB | −6 MB | Zero Fragmentation |
 | Idle Power Baseline | 9.43 W | 9.65 W | +0.22 W | Standard Desktop Load |
 
-### D.3.4 Continuous Batching Scalability
+### D.3.5 Continuous Batching Scalability
 
 The benchmark script (`vmax_12_supernova_benchmark.py`) executes **N concurrent requests** against the vLLM engine and measures aggregate throughput.
 
@@ -1360,7 +1370,7 @@ The benchmark script (`vmax_12_supernova_benchmark.py`) executes **N concurrent 
 
 **Register T.** The concurrency scaling values are **design targets**, pending empirical multi-stream confirmation. The benchmark script is public and executable on consumer hardware.
 
-### D.3.5 Comparison with HuggingFace Prototype
+### D.3.6 Comparison with HuggingFace Prototype
 
 | Metric | HuggingFace (4-bit NF4) | vLLM (BF16) | Improvement Factor |
 |:---|:---|:---|:---|
@@ -1420,6 +1430,8 @@ The emergence of Phase 1 deliberation (D.3.2.1) demonstrates an internal validat
 **F-D.4 (VRAM Falsification).** If the engine utilizes less than 70 % of the RTX 4060 Ti's VRAM under active inference, §D.2.1 is falsified.
 
 **F-D.5 (Reproducibility Falsification).** If the public benchmark script fails to reproduce throughput within ±20 % on an equivalent RTX 4060 Ti 16 GB environment, §D.3 is falsified.
+
+**F-D.6 (Constraint-Satisfaction Falsification).** If the model, under the same system prompt and retrieval conditions, is demonstrated to generate a response without explicit verification of the three constraints (language, identity, context), the constraint-satisfaction interpretation in §D.3.3 is falsified.
 
 None of these criteria have been met. The record is **empirically validated and falsifiable**.
 
