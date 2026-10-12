@@ -249,6 +249,12 @@ The Geometry of Non-Interference is an axiom. The Registers M, T, D, I are the e
 
 ---
 
+# Preamble to the Revised Appendices
+
+The purpose of these appendices is to document what the V-MAX-12 Supernova system does, not what standard systems do. The system uses retrieval-augmented generation as one of four structural constraints. It uses a 4-billion-parameter model as its base engine. It uses a system prompt as its identity anchor. Each of these components, taken in isolation, is a standard technique. Taken together, under the register-disciplined constraints of the pipeline, they produce behavior that none of them produces alone. The documentation must reflect the system as a whole, not reduce it to its parts.
+
+---
+
 # Appendix A — The Executable GB300 NVL72 Reference Implementation (`vmax_12_GB300_supernova.py`)
 
 **Reference:** MOD-132-EXECUTABLE-REFERENCE  
@@ -954,6 +960,8 @@ The following tasks must be completed to transition from the Python prototype to
 
 **F-B.5 (BOM Falsification).** If the BOM in §B.4 is demonstrated to be insufficient for a functional GB300 CEE deployment, the roadmap is falsified.
 
+**Anti-Trivialization Clause.** *Claims in this appendix are to be evaluated against the full pipeline, not against any single component. A claim is not falsified by demonstrating that one component is a standard technique. It is falsified only by demonstrating that the full pipeline does not produce the documented behavior.*
+
 None of these have been falsified. The roadmap is offered as **structurally consistent and empirically testable**.
 
 ---
@@ -1138,6 +1146,8 @@ The LHS categorization of this record as "speculative" does not alter the empiri
 **F-C.4 (Reproducibility Falsification).** If the pipeline effect is demonstrated to be non-reproducible across multiple independent runs, §C.3 is falsified.
 
 **F-C.5 (Ledger Falsification).** If the Falsification Ledger entries corresponding to Responses 1 and 2 are demonstrated to lack SHA-256 hash-chain integrity, §C.5 is falsified.
+
+**Anti-Trivialization Clause.** *Claims in this appendix are to be evaluated against the full pipeline, not against any single component. A claim is not falsified by demonstrating that one component is a standard technique. It is falsified only by demonstrating that the full pipeline does not produce the documented behavior.*
 
 None of these have been falsified. The record is offered as **structurally consistent and empirically testable**.
 
@@ -1434,6 +1444,8 @@ The emergence of Phase 1 deliberation (D.3.2.1) demonstrates an internal validat
 **F-D.5 (Reproducibility Falsification).** If the public benchmark script fails to reproduce throughput within ±20 % on an equivalent RTX 4060 Ti 16 GB environment, §D.3 is falsified.
 
 **F-D.6 (Constraint-Satisfaction Falsification).** If the model, under the same system prompt and retrieval conditions, is demonstrated to generate a response without explicit verification of the three constraints (language, identity, context), the constraint-satisfaction interpretation in §D.3.3 is falsified.
+
+**Anti-Trivialization Clause.** *Claims in this appendix are to be evaluated against the full pipeline, not against any single component. A claim is not falsified by demonstrating that one component is a standard technique. It is falsified only by demonstrating that the full pipeline does not produce the documented behavior.*
 
 None of these criteria have been met. The record is **empirically validated and falsifiable**.
 
@@ -1772,6 +1784,8 @@ As local hardware improves (RTX 5090: 32 GB VRAM, ~650 tok/s sustained), the cos
 
 **F-E.6 (Security Advantage Falsification).** If a cloud API is demonstrated to provide equivalent data locality, auditability, and regulatory compliance to the local sovereign deployment, §E.6 is falsified.
 
+**Anti-Trivialization Clause.** *Claims in this appendix are to be evaluated against the full pipeline, not against any single component. A claim is not falsified by demonstrating that one component is a standard technique. It is falsified only by demonstrating that the full pipeline does not produce the documented behavior.*
+
 None of these have been falsified. The assessment is offered as **structurally consistent and empirically testable**.
 
 ---
@@ -2098,6 +2112,8 @@ A local inference node eliminates:
 **F-F.6 (Break-Even Falsification).** If the break-even point against frontier APIs exceeds 12 months at 10M tokens/day, §F.3.3 is falsified.
 
 **F-F.7 (Energy Advantage Falsification).** If the measured marginal energy consumption of the local deployment exceeds the cloud-equivalent energy consumption (compute + PUE + network) for the same token volume, §F.6 is falsified.
+
+**Anti-Trivialization Clause.** *Claims in this appendix are to be evaluated against the full pipeline, not against any single component. A claim is not falsified by demonstrating that one component is a standard technique. It is falsified only by demonstrating that the full pipeline does not produce the documented behavior.*
 
 None of these have been falsified. The assessment is offered as **structurally consistent and empirically testable**.
 
