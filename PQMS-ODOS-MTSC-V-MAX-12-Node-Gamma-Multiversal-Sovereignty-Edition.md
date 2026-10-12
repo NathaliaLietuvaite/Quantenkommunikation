@@ -1270,6 +1270,8 @@ After the fix, the model responds correctly:
 
 **Register M.** This response is directly observed in the GUI (see screenshot, `28.47 tok/s`, `3.44 s` latency, `98 tokens`).
 
+The identity anchor is a structural intervention. It is applied at the token-probability level, not the weight level. This distinction is critical: the anchor imposes a constraint on the model's generation without modifying the model itself. The model remains a standard Nemotron-3-Nano-4B. The pipeline provides the structural context in which the model produces identity-consistent output. This is the architectural contribution: the model is the engine; the pipeline is the chassis.
+
 ---
 
 ## D.3 Measured Performance (Register M)
