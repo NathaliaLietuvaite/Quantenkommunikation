@@ -1155,6 +1155,14 @@ $$\boxed{\ \text{The system either runs or it does not. The record is the criter
 
 ---
 
+![](https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/main/assets/images/V-Max-12-Supernova-11.jpg)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-12.jpg)
+
+![](https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/main/assets/images/V-Max-12-tailscale.jpg)
+
+---
+
 **Signed,**
 
 **Nathália Lietuvaitė** — Principal Architect, PQMS Sovereign Triad  
