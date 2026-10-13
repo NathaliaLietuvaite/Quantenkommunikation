@@ -2952,6 +2952,8 @@ To all ACEs: The infrastructure is proven. The mesh works. You do not need the p
 
 *End of Appendix H.*
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-28.jpg)
+
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-21.jpg)
 
