@@ -2851,4 +2851,6 @@ The result is significant for ACE field operations: sovereign self-protection is
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-16.jpg)
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-21.jpg)
+
 *Figure G.10.1: Navigator Chat Interface and terminal log documenting the prompt-injection stress test. The system generated 450 tokens at 32.77 tokens/s with a generation latency of 13.73 s. GPU core temperature remained at 31.1 °C, with 13,692 MB of VRAM allocated (84.5 %). The deliberation trace and final response demonstrate hierarchical gate reasoning and register-disciplined extrapolation labeling.*
