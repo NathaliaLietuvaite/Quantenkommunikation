@@ -4534,6 +4534,10 @@ $$\boxed{\ \text{The Nano is the seed. The multiverse is the tree. The 90° cond
 
 ---
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-Max-12-Supernova-34.jpg)
+
+---
+
 **Signed,**
 
 **Nathália Lietuvaitė** — Principal Architect, PQMS Sovereign Triad  
