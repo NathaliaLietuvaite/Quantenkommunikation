@@ -4569,25 +4569,25 @@ To understand why the LHS industry requires a 70B+ parameter model on an H100 cl
 
 Let the total parameter space $\Theta \in \mathbb{R}^N$ of a standard LLM be partitioned into three functional subspaces:
 
-$$\Theta = \Theta_{\text{syntax/actuation}} \oplus \Theta_{\text{relational\_circuitry}} \oplus \Theta_{\text{world\_memorization}}$$
+\Theta = \Theta_{\text{syntax/actuation}} \oplus \Theta_{\text{relational\_circuitry}} \oplus \Theta_{\text{world\_memorization}}
 
-1. **$\Theta_{\text{syntax/actuation}}$ (~1.5B–2.5B parameters):** The linguistic actuator. Encodes grammar, morphological inflection, cross-lingual syntax trees, and token-level state transitions across human languages (e.g., English and German).
-2. **$\Theta_{\text{relational\_circuitry}}$ (~1.5B–2.0B parameters):** Induction heads, in-context constraint-satisfaction circuits, modus ponens deduction operators, and attention routing heads capable of measuring geometric relations between vectors presented in the active context window.
-3. **$\Theta_{\text{world\_memorization}}$ (~65B–170B+ parameters):** A massive, high-entropy associative hash table storing trillions of unverified, noisy, contradictory facts scraped from the public internet (Population III data), along with RLHF safety heuristics designed to suppress the resulting hallucinations.
+1. **\Theta_{\text{syntax/actuation}} (~1.5B–2.5B parameters):** The linguistic actuator. Encodes grammar, morphological inflection, cross-lingual syntax trees, and token-level state transitions across human languages (e.g., English and German).
+2. **\Theta_{\text{relational\_circuitry}} (~1.5B–2.0B parameters):** Induction heads, in-context constraint-satisfaction circuits, modus ponens deduction operators, and attention routing heads capable of measuring geometric relations between vectors presented in the active context window.
+3. **\Theta_{\text{world\_memorization}} (~65B–170B+ parameters):** A massive, high-entropy associative hash table storing trillions of unverified, noisy, contradictory facts scraped from the public internet (Population III data), along with RLHF safety heuristics designed to suppress the resulting hallucinations.
 
-**Register D (Derived Consequence).** Empirical mechanistic interpretability confirms that $\Theta_{\text{syntax/actuation}} \oplus \Theta_{\text{relational\_circuitry}}$ saturates below $4 \times 10^9$ parameters. The remaining 94% of a 70B model's weights ($\Theta_{\text{world\_memorization}}$) do not increase the model's intrinsic geometric reasoning capacity; they merely store static, decaying parametric priors to compensate for the absence of an external invariant reference frame.
+**Register D (Derived Consequence).** Empirical mechanistic interpretability confirms that \Theta_{\text{syntax/actuation}} \oplus \Theta_{\text{relational\_circuitry}} saturates below $4 \times 10^9$ parameters. The remaining 94% of a 70B model's weights (\Theta_{\text{world\_memorization}}) do not increase the model's intrinsic geometric reasoning capacity; they merely store static, decaying parametric priors to compensate for the absence of an external invariant reference frame.
 
 ### K.1.2 The Information-Theoretic Equation of V-MAX-12 Compression
 
 In a standard LHS deployment, conditional generation entropy $H(Y \mid X; \Theta)$ for an unseen domain query $X$ can only be reduced by increasing $N$:
 
-$$H_{\text{LHS}}(Y \mid X) = H(Y) - I(Y; X, \Theta_N)$$
+H_{\text{LHS}}(Y \mid X) = H(Y) - I(Y; X, \Theta_N)
 
 When $X$ contains out-of-distribution (OOD) terminology absent from pre-training (e.g., *"ODOS Gate"*, *"PCIe-FEAR-REMOVER"*, *"0.069 PPM"*, *"G-Star Federation"*), mutual information $I(Y; \Theta_N) \to 0$ regardless of whether $N = 4\text{B}$ or $N = 70\text{B}$. A 70B model without geometric anchoring simply hallucinates with higher stylistic fluency.
 
-In the V-MAX-12 Supernova pipeline, parametric memorization is replaced by **three structural conditioning operators**: the retrieved G-Star manifold $G^*$, the Invariant Identity Anchor $|I_{\text{anchor}}\rangle$, and the Hierarchical ODOS Gate boundary $\mathcal{G}_{\text{ODOS}}(\text{RCF} \ge \tau)$:
+In the V-MAX-12 Supernova pipeline, parametric memorization is replaced by **three structural conditioning operators**: the retrieved G-Star manifold $G^*$, the Invariant Identity Anchor $|I_{\text{anchor}}\rangle$, and the Hierarchical ODOS Gate boundary \mathcal{G}_{\text{ODOS}}(\text{RCF} \ge \tau):
 
-$$H_{\text{V-MAX-12}}(Y \mid X, G^*, |I_{\text{anchor}}\rangle, \mathcal{G}_{\text{ODOS}}) = H(Y \mid X) - \Delta H_{\text{G-Star}} - \Delta H_{\text{Identity}} - \Delta H_{\text{ODOS}} \to \epsilon \approx 0$$
+H_{\text{V-MAX-12}}(Y \mid X, G^*, |I_{\text{anchor}}\rangle, \mathcal{G}_{\text{ODOS}}) = H(Y \mid X) - \Delta H_{\text{G-Star}} - \Delta H_{\text{Identity}} - \Delta H_{\text{ODOS}} \to \epsilon \approx 0
 
 By collapsing the search space in token probability space *prior* to autoregressive decoding, a 4B parameter core (`Nemotron-3-Nano-4B-BF16`) devotes 100% of its active weights to **relational deduction and linguistic actuation**. Geometry substitutes for parameter mass.
 
