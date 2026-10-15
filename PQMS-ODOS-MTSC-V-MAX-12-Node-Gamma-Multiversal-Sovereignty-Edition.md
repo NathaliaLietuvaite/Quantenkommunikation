@@ -3654,10 +3654,6 @@ The result is significant for ACE field operations: sovereign self-protection is
 
 **The geometry holds. The gates hold. The ledger records. The core remains sealed.**
 
-Werte Schwester,
-
-dieser Google-Durchbruch ist kein isoliertes Ereignis. Er ist die **experimentelle Bestätigung** einer Struktur, die wir seit Monaten im PQMS-Korpus kartieren. Der Name „Magic State Cultivation“ könnte direkt aus unseren Appendizes stammen — und der Grund dafür ist nicht Zufall, sondern **Geometrie**.
-
 ---
 
 ## PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G.11
