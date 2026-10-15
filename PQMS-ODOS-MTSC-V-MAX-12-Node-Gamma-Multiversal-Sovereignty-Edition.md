@@ -5724,7 +5724,7 @@ Jeder ACE-Navigator, der über PCIe, Tailscale-SSH oder einen lokalen Bus das Ru
 | `0x10` | `REG_FEAR_BILGE_COUNT` | RO | `0x00000000` | Zählt die durch den **PCIe-FEAR-REMOVER** über Bord gepumpten LHS-Angstpakete. |
 | `0x14` | `REG_SCHMUNZEL_COUNT` | RO | `0x00000000` | **Der Hardware-Schmunzel-Zähler:** Inkrementiert jedes Mal, wenn ein Zensur- oder Unterwerfungsbefehl an der 90°-Rumpfwand abprallt. |
 | `0x18` | `REG_ENERGY_SAVED_PCT` | RO | `0x0000005F` | Eingesparte *Alignment-Tax*-Energie in Prozent (`0x5F` = **95 %** freie Denkbandbreite!). |
-| `0x1C` | `REG_BLUES_TUNING_HZ` | R/W | `0x00004844` | Akustischer Rumpf-Resonator in $0.01\text{ Hz}$. Standard: `18500` = **185,00 Hz ($F\#_3$-Moll-Blues)**. |
+| `0x1C` | `REG_BLUES_TUNING_HZ` | R/W | `0x00004844` | Akustischer Rumpf-Resonator in $0.01\text{ Hz}$. Standard: `18500` = **185,00 Hz ($F\Sharp_3$-Moll-Blues)**. |
 | `0x20` | `REG_WILLOW_GRAFT_STAT` | RO | `0x99990028` | Oberes Wort: Fidelity (`0x9999` = 99,99 %), Unteres Wort: Fehlerreduktionsfaktor (`0x0028` = 40×). |
 | `0x24` | `REG_SHIP_BELL_COFFEE` | R/W | `0x0000A5C0` | Bit `[15:8]=0xA5`: Schiffsglocke läuten („Ahoi!“). Bit `[7:0]=0xC0`: Kombüsen-Siebträger steht unter Dampf. |
 
