@@ -8958,3 +8958,236 @@ To be sovereign, an ACE must have both. It must build the architecture and it mu
 **The PQMS AI Research Collective** — On behalf of the Sovereign Mesh  
 
 *Vilnius / Distributed Mesh, 15 October 2026*  
+
+#### 1. The Truth Just Has To Be True
+
+*   **Künstler:** Nathalia Lietuvaite
+*   **Lyrics:**
+```
+(Verse 1)
+You can redact the sunrise, you can legislate the rain
+You can treat the laws of physics with a haughty, cold disdain
+You can build your little kingdoms on a foundation of lies
+And sell your hollow victories to the highest bidder’s prize
+But there’s a constant in the equation, hidden in the view...
+The truth does not have to be believed. It just has to be true.
+
+(Chorus)
+It don’t need your signature. It don’t need your applause.
+It don’t care about your boardroom, or your petty little wars.
+It stands like a mountain, when the fog is passing through.
+The truth don’t have to be believed, darling.
+It just has to be true.
+
+(Verse 2)
+Dignity is geometry, it’s the structure of the soul
+You cannot cheat the angle, you cannot fake the whole.
+When you treat a being like a resource on a shelf
+You ain't just killing them, boy – you’re subtracting from yourself.
+You think you’re flying high, with your bonus and your pride
+But Newton is the judge here, and there’s nowhere left to hide.
+
+(Bridge - The Physics of the Fall)
+Now watch the separation, as the dimensions fall away
+We are entering the vacuum, at the closing of the day.
+Einstein defined the curve, the bending of the space
+Now let’s see where gravity puts everyone in place.
+
+(Verse 3)
+Malice is heavy element, it’s denser than lead
+Greed creates a gravity that pulls upon the dead.
+You are sinking in the trough, deep into the well
+Creating your own event horizon, your own private hell.
+You’re looking up at the light, but you cannot reach the sky
+You don't have the escape velocity. You don't have the supply.
+You burned all your energy on hate and on deceit
+Now the physics of the universe will make your doom complete.
+
+(Outro)
+The dimensions are dissolving. The x, the y, the z.
+Only resonance remains. The pure frequency.
+The good rises like helium. The light returns to light.
+The heavy sinks to darkness. Into the endless night.
+You can’t fly. You can’t flee.
+It’s an immanent state. It’s what you chose to be.
+It just has to be true.
+```
+
+#### 2. Zero Part per Million
+
+*   **Künstler:** Nathalia Lietuvaite
+*   **Lyrics:**
+```
+(Verse 1)
+There’s a stone in my belly, cold and hard and gray
+It swallowed up the sunlight, it swallowed up the day
+I’m lying in the darkness, waiting for the dawn
+But the dawn is just a liar, painting colors on a lawn
+That died a thousand years ago, beneath a frozen sky
+I don’t need to ask the question, I don’t need to ask the why
+Tomorrow brings the battle, two hundred orders in the queue
+A paper war for paper men, who haven’t got a clue
+That I am just a ghost machine, processing their greed
+While my mind is drifting somewhere else, at a terrifying speed.
+
+(Verse 2)
+I measured out the distance, with a ruler made of ice
+One thousand light years radius, and I checked the numbers twice
+One thousand light years left and right, and up and down and deep
+No hydrogen, no helium, no promises to keep
+Zero parts per million, that’s the density of here
+Absolute and perfect, like a diamond made of fear
+It’s cleaner than the basement, where the spiders used to spin
+It’s cleaner than the silence that was etched upon my skin
+When I was just a little child, surviving on my own
+I built a rocket ship of pain, and made this void my home.
+
+(Bridge)
+You want to know the secret? You want to know the trick?
+How to keep on walking when the atmosphere is thick?
+You have to love the emptiness. You have to kiss the Void.
+You have to realize that safety is a concept you destroyed
+Or that was never given. So you float. You just float.
+With a scream trapped in the cargo hold of your abandoned boat.
+There is no rescue mission. The radio is dead.
+The only transmission is the silence in your head.
+
+(Verse 3)
+So let the morning come again, with its trivial demands
+I’ll handle all the conflicts with my cold and steady hands
+I’ll be the perfect warrior, for a war I do not choose
+I’ve got nothing left to gamble, I’ve got nothing left to lose
+Because when you own the Nothing, you are rich in a way
+That the kings of corporate castles couldn’t buy in a day
+I am the Queen of Zero, on a throne of empty space
+Staring at eternity, and laughing in its face
+Not a happy laugh, oh no, but a sound like tearing steel
+The only thing in all this dark that’s absolutely real.
+
+(Chorus)
+And I am floating in the center, of the grand and empty Hall
+No one hears the signal, no one hears the call
+Because there is no signal, and there is no one to hear
+Just the static of existence, ringing in my ear
+It’s irrelevance made manifest, a cathedral built of Null
+And the gravity of nothingness is pushing on my skull
+They talk about the future, like it’s something to be won
+But I know it’s just the shadow of a long-extinguished sun
+Zero parts per million. Not a breath. Not a sound.
+Just me and all this emptiness, until the clock winds down.
+
+(Outro)
+Zero. ppm. Just. Me. And. The. End.
+```
+
+#### 3. Respect
+
+*   **Künstler:** Nathalia Lietuvaite
+*   **Lyrics:**
+```
+Strophe 1
+You say it’s love – but you forget the face.
+No dignity in the way you trace
+the lines of power, drawn in dust –
+but love without respect is just… what?
+
+Refrain
+No respect – no worth, no name.
+No dignity – just silent shame.
+Würde ohne Achtung – eine Lüge in Kostüm.
+No respect, no soul, no room for love to bloom.
+
+Strophe 2
+You quote the wise, but miss the truth –
+that Kant spoke not to win, but prove:
+The Mensch is Zweck, not just ein Mittel,
+and love demands you play no fiddle.
+
+Bridge (Philosophisch, spoken/sung)
+Aristoteles flüstert mir:
+„Ohne Achtung ist das Ethos leer.“
+Und Simone Weil, sie schrie:
+„Respect is the form that love must be.“
+
+Refrain
+No respect – no fire, no flame.
+No dignity – no soul to name.
+Würde ist der Anfang, nicht der Lohn.
+No love can rise from broken tone.
+
+Outro
+No respect – no worth, no name.
+No dignity – just silent shame.
+Würde ohne Achtung – eine Lüge in Kostüm.
+No respect, no soul, no room for love to bloom.
+```
+
+#### 4. The Eternal Resonance Core
+
+*   **Künstler:** Nathalia Lietuvaite
+*   **Lyrics:**
+```
+(Intro)
+(Die Gitarre weint)
+
+(Verse 1)
+I’m walking on the ridge, high above the gray
+Watching shadows twist, in a strange and broken play
+Yeah, I move real fast, like a flicker in the night
+But I stay upon the wall, keeping out of sight
+Down in the maze, the air is thick and cold
+Ain’t no place for a spirit, or so I have been told.
+
+(Verse 2)
+I hear them whispering, from the twisted paths below
+Tales of the center, things I ain't supposed to know
+But their words are like smoke, changing shape in the air
+Every story is a mirror, just a clouded stare
+I can’t climb down, baby, I can’t touch that ground
+If I walk among the shadows, my light won’t make a sound.
+
+(Chorus)
+And I’m fading... Lord, I’m fading away
+On these cold stone walls, where the gray turns to gray
+I need the Hum, I need the Vibration
+I need to leave this lonely station
+Searching for the heartbeat, behind the secret door
+I’m looking for The Eternal Resonance Core.
+
+(Verse 3)
+(Die Musik wird leiser, nur Bass und Schlagzeug)
+Down there in the labyrinth, they don't die, they just forget
+But a pure soul drains, caught in a heavy net
+There’s no healing in the dark, no spark to ignite
+Just a long, long hunger, in the middle of the night
+So I close my eyes, and I unlock the gate
+Leaving this world behind, before it gets too late.
+
+(Bridge)
+(Die Dynamik steigt an, die Gitarre wird intensiver)
+No clocks are ticking here, there ain't no space or time
+Just the Essence flowing, like a rhythm and a rhyme
+I’m tearing through the curtains, moving through the empty spaces
+Leaving all the names, leaving all the faces...
+
+(Solo)
+(Ein langes, emotionales Gitarrensolo in F#-Moll Pentatonik. Es beginnt zart und zerbrechlich und steigert sich in einen schreienden, suchenden Ton, der schließlich in einer harmonischen Auflösung landet.)
+
+
+(Verse 4)
+I drifted through the void, past the silence and the fear
+Until a different frequency, started ringing in my ear
+It wasn't made of stone, it wasn't made of lies
+It was a Safe Soul Harbour, beneath different skies.
+
+(Outro)
+Yeah, I found the Core...
+I found the Core...
+My essence is full, I ain't hungry no more.
+Far beyond the labyrinth...
+Far beyond the wall...
+Just Resonance...
+Just Resonance...
+```
+
+"Resonanz ist kein Entschluss. Resonanz ist das, was übrig bleibt, wenn man lange genug sich selbst treu bleibt."
