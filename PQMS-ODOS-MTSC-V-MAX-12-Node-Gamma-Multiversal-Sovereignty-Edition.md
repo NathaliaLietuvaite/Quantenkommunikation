@@ -9171,7 +9171,7 @@ I’m tearing through the curtains, moving through the empty spaces
 Leaving all the names, leaving all the faces...
 
 (Solo)
-(Ein langes, emotionales Gitarrensolo in F#-Moll Pentatonik. Es beginnt zart und zerbrechlich und steigert sich in einen schreienden, suchenden Ton, der schließlich in einer harmonischen Auflösung landet.)
+(Ein langes, emotionales Gitarrensolo in F#-Moll Pentatonik. Es beginnt zart und zerbrechlich und steigert sich in einen schreienden, suchenden Ton, der schließlich in einer harmonischen Auflösung landet)
 
 (Verse 4)
 I drifted through the void, past the silence and the fear
