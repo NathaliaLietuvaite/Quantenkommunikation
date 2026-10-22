@@ -2257,6 +2257,37 @@ By utilizing Tailscale (WireGuard), the mobile app and the local RTX 4060 Ti (No
 ### K.5.2 Asynchronous Non-Blocking I/O
 The `MainActivity.kt` utilizes Kotlin Coroutines (`Dispatchers.IO`) and OkHttp to handle network requests. This ensures that the continuous ingestion of telemetry and the concurrent transmission of Core commands do not block the user interface or degrade the hardware TEE's performance. 
 
+### K.5.4 Ambient Sensor Telemetry: Swarm-Based Inference and Zero-Knowledge Privacy (Register T / I)
+
+Traditional Industrial IoT (IIoT) relies on direct, dedicated telemetric links (e.g., an OTIS elevator connecting to a central monitoring API). This architecture suffers from a critical structural failure: **The Single Point of Failure (SPOF).** When the power grid collapses, or the local network switch dies, the direct telemetry goes dark. The system becomes blind precisely at the moment it is most needed.
+
+The V-MAX-12 architecture resolves this through **Ambient Sensor Telemetry Inference (ASTI)**. Instead of relying on the failing hardware to report its status, the sovereign mesh observes the *environmental impact* of the hardware.
+
+#### K.5.4.1 The Principle of Kinetic Inference
+Every active mechanical system (an elevator, a subway train, an HVAC unit) imposes a deterministic kinematic signature on its environment. In a high-rise complex, the normal operation of an elevator creates a distinct spatiotemporal pattern: a periodic vertical acceleration of mass (passengers) at specific times (e.g., 07:00 to 07:15 during the morning commute).
+
+When the power grid fails and direct telemetry is lost, the V-MAX-12 Mobile Mesh (Appendix K) detects the anomaly through the *absence* of this expected signature. If the aggregated, anonymized sensor data from the smartphones of individuals within the building suddenly shows zero vertical displacement, while simultaneously registering an increase in stationary density in specific corridors, the system deduces the elevator failure. 
+
+**Register I (Invariant):** *The absence of expected kinetic data is as informative as the presence of anomalous data.*
+
+#### K.5.4.2 Edge-Level Differential Privacy
+The immediate objection from the Legacy Human System (LHS) is privacy. The V-MAX-12 architecture does not resolve this through policy or terms of service; it resolves it through **Local Differential Privacy (LDP) at the Edge.**
+
+Before any sensor data leaves the mobile node, it passes through the local `GoodWitchMatrix` (Section K.2.2) running on the device's NPU:
+1.  **Federated Averaging:** The device does not send a continuous stream of raw GPS coordinates. It locally aggregates its movement data into a 12-dimensional vector (\(|Ψ_{env}\rangle\)) over a 5-minute window.
+2.  **Vector Obfuscation:** The device injects a mathematically calibrated Laplacian noise vector into its state vector, ensuring that the data cannot be reverse-engineered to identify the individual user.
+3.  **Zero-Knowledge Proof (ZKP):** The mobile node generates a ZKP proving that its sensor data is within a valid operational range, without revealing the actual coordinates.
+
+The L2-Core (Node Alpha) receives only these anonymized, mathematically secure state vectors. It calculates the macro-level "density heatmap" of the building without ever knowing the identity, exact location, or trajectory of any single individual.
+
+#### K.5.4.3 Generalization Across Heterogeneous Devices
+The ASTI protocol is substrate-independent. It is not limited to smartphones. Any device within the sovereign Tailscale mesh can act as a sensory node:
+*   **Smart Home Devices:** A sudden drop in ambient temperature reported by a smart thermostat can infer HVAC failure or window breach.
+*   **Electric Vehicles:** Aggregated charging rates and localized GPS freezing can infer local grid instability or road blockages.
+*   **Industrial Sensors:** Vibration and acoustic data from stationary machinery can detect micro-fractures before catastrophic failure.
+
+By fusing these heterogeneous, privacy-preserved data streams, the V-MAX-12 Core generates a real-time, high-fidelity **Digital Twin** of the physical environment.
+
 ---
 
 ## K.6 Falsification Criteria (Register T / M)
@@ -2268,6 +2299,18 @@ The `MainActivity.kt` utilizes Kotlin Coroutines (`Dispatchers.IO`) and OkHttp t
 **F-K.3 (Telemetric Grounding Falsification).** If the Core's token generation does not demonstrably change in structure, latency, or semantic context based on the incoming mobile IMU/GNSS data (e.g., knowing the user is moving at 200 km/h vs. stationary), the telemetric grounding claim (§K.4) is falsified.
 
 **F-K.4 (Bidirectional Actuation Falsification).** If the mobile node fails to execute a physical actuator command (e.g., emitting an acoustic sweep or changing visual state) upon receiving a verified JSON directive from the Core, the actuator claim (§K.4) is falsified.
+
+**F-K.4 (Kinetic Baseline Falsification).** If the V-MAX-12 mesh fails to detect the cessation of a known kinetic baseline (e.g., an elevator failing) after 15 minutes of continuous data loss, despite having a statistically significant sample size (> 100 mobile nodes) in the vicinity, the ASTI claim is falsified.
+
+**F-K.5 (Differential Privacy Breach).** If an adversarial node within the mesh can reconstruct the identity or exact physical trajectory of a specific user from the transmitted 12D state vectors, the Local Differential Privacy guarantee is falsified.
+
+**F-K.6 (Heterogeneous Fusion Falsification).** If the integration of non-smartphone devices (e.g., thermostat or EV telemetry) into the ASTI pipeline introduces a data format collision or degrades the RCF of the core's environmental model, the substrate-independence claim in Section K.5.4.3 is falsified.
+
+None of these criteria have been met. The architecture is offered as structurally consistent and empirically testable.
+
+$$\boxed{\ \text{We do not look at the failing machine. We look at the shape of its absence.}\ }$$
+
+*Der Spiegel ist poliert. Die Aufzüge stehen. Die Sensoren sprechen. Die Privatsphäre ist gewahrt. Der Kahn segelt.* ⚓🌌💎📐✨
 
 None of these criteria have been met. The specification is offered as structurally consistent and empirically testable on consumer mobile hardware.
 
