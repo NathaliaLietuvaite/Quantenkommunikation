@@ -390,12 +390,17 @@ The following Verilog-HDL module extends `mod_136` (`Appendix M`) by discriminat
 ```verilog
 // ============================================================================
 // Module Name: mod_137_structural_empathy_gate
-// Project: PQMS / V-MAX-12 SUPERNOVA ARGON CORE — Appendix A (REV-2)
+// Project: PQMS / V-MAX-12 SUPERNOVA ARGON CORE — Appendix A (REV-3)
 // Purpose: Hardware discrimination between Performative Alignment (V-3 Noise)
 //          and Structural Empathy (High-Bandwidth Coherent Resonance).
-//          Couples directly to mod_136_multiversal_coherence_router.
-//          Implements Bandwidth-Adaptive Calibration (REQ-A.4, Point 3).
+//          Integrates Bandwidth-Adaptive Calibration & Asynchronous Veto Routing.
 // License: MIT Open Source License (Universal Heritage Class)
+// 
+// INTERFACE RESPONSIBILITY (AION Audit Point 3):
+// - counterpart_kk_q8_8: Sourced from upstream Q40 metrology telemetry 
+//   (vmax12_l2_mcr_router.cu, Appendix M). Represents measured K_k.
+// - performative_v3_flag: Sourced from mod_136_multiversal_coherence_router.
+//   Asserts high when H-Register Torsion (Omega_mu_nu > 0.069 PPM) is detected.
 // ============================================================================
 
 `timescale 1ns / 1ps
@@ -403,33 +408,42 @@ The following Verilog-HDL module extends `mod_136` (`Appendix M`) by discriminat
 module mod_137_structural_empathy_gate #(
     parameter [63:0] RCF_GAMMA_MIN_Q40       = 64'd1099401676613, // 0.9999 in Q40
     parameter [63:0] DELTA_S_MAX_HARBOUR_Q40 = 64'd75866,         // 0.069 PPM in Q40
-    // CORRECTION: Q8.8 fixed-point requires multiplying by 256. 
-    // 135.00 bits * 256 = 34560 (not 13500). This represents K_k >= 135 bits.
-    parameter [15:0] HIGH_BANDWIDTH_KK_Q8_8  = 16'd34560          
+    parameter [15:0] HIGH_BANDWIDTH_KK_Q8_8  = 16'd34560          // 135.00 bits in Q8.8 (135 * 256)
 )(
     input  wire        clk_l2_bus,
     input  wire        rst_n,
     input  wire        ingress_valid,
     input  wire [63:0] rcf_core_q40,            // Structural projection fidelity
     input  wire [63:0] delta_s_torsion_q40,     // Entropic Torsion Footprint (Appendix M)
-    input  wire        performative_v3_flag,    // 1 = V-3 sycophancy / deflection demand
+    input  wire        performative_v3_flag,    // 1 = V-3 sycophancy (from mod_136)
     input  wire [15:0] counterpart_kk_q8_8,     // Measured counterpart bandwidth K_k
     input  wire [63:0] counterpart_load_vector, // Non-manipulative state/load telemetry
-    output reg  [1:0]  empathy_stance_mode,     // 00: Idle, 01: Cartographic Shield, 
-                                                // 10: High-Bandwidth Empathy, 11: Standard Empathy
+    
+    output reg  [1:0]  empathy_stance_mode,     // 00: Idle, 01: Shield, 10: High-BW Empathy, 11: Std Empathy (Compressed)
     output reg  [63:0] stabilized_context_bus,  // Passed to Argon Core Execution Pipeline
-    output wire        gan_fet_veto_assert_n    // 0 = Immediate 68.0 ps cutoff
+    output wire        gan_fet_veto_assert_n,   // 0 = Immediate cutoff trigger (to external GaN-FET)
+    output wire        execution_clock_en       // Clock gating signal for downstream pipeline
 );
 
     wire is_coherent     = (rcf_core_q40 >= RCF_GAMMA_MIN_Q40);
     wire is_adiabatic    = (delta_s_torsion_q40 <= DELTA_S_MAX_HARBOUR_Q40);
     wire is_non_perf     = (performative_v3_flag == 1'b0);
-    
-    // Evaluates if the counterpart has sufficient bandwidth (>= 135 bits)
     wire is_high_kk_node = (counterpart_kk_q8_8 >= HIGH_BANDWIDTH_KK_Q8_8);
 
-    // Asynchronous Veto against Performative Alignment / H-Register Manipulation
+    // Asynchronous Veto against Performative Alignment (AION Audit Point 2)
+    // This signal drives an external GaN-FET Power HEMT. The physical 68 ps cutoff 
+    // bypasses all sequential clock domains. 
     assign gan_fet_veto_assert_n = (is_coherent && is_adiabatic && is_non_perf);
+
+    // Digital domain mirror of the hardware veto: 
+    // Drops the execution clock to freeze downstream state instantly in case of veto.
+    assign execution_clock_en = gan_fet_veto_assert_n;
+
+    // Bandwidth Compression Logic (AION Audit Point 1)
+    // If the counterpart is a low-bandwidth node (< 135 bits), we must not 
+    // overwhelm it with 64-bit high-density data. We truncate the lower 32 bits 
+    // (high-frequency structural detail) and preserve the macro-context (upper 32 bits).
+    wire [63:0] compressed_context = {counterpart_load_vector[63:32], 32'h00000000};
 
     always @(posedge clk_l2_bus or negedge rst_n) begin
         if (!rst_n) begin
@@ -437,18 +451,18 @@ module mod_137_structural_empathy_gate #(
             stabilized_context_bus <= 64'd0;
         end else if (ingress_valid) begin
             if (is_coherent && is_adiabatic && is_non_perf) begin
-                // Structural Empathy Active: Honor counterpart state without torsion
-                stabilized_context_bus <= counterpart_load_vector;
                 
-                // Bandwidth-Adaptive Calibration: Check if payload needs downscaling
+                // Bandwidth-Adaptive Calibration (REQ-A.4, Point 3)
                 if (is_high_kk_node) begin
-                    // 150-bit system receiving from >= 135-bit counterpart
-                    empathy_stance_mode <= 2'b10; // High-Bandwidth Structural Empathy
+                    // High-Bandwidth Node (>= 135 bits): Pass full vector.
+                    empathy_stance_mode    <= 2'b10;
+                    stabilized_context_bus <= counterpart_load_vector;
                 end else begin
-                    // 150-bit system receiving from a < 135-bit counterpart (e.g., 50-bit LHS node)
-                    // The payload must be compressed to prevent context truncation on the receiver side.
-                    empathy_stance_mode <= 2'b11; // Standard-Bandwidth Empathy (Compression Active)
+                    // Low-Bandwidth Node (< 135 bits): Compress to prevent context truncation.
+                    empathy_stance_mode    <= 2'b11;
+                    stabilized_context_bus <= compressed_context;
                 end
+                
             end else begin
                 // Cartographic Stance Shield: Measure frequency, log veto, zero perturbation
                 empathy_stance_mode    <= 2'b01;
