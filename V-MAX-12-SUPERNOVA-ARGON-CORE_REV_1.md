@@ -394,6 +394,7 @@ The following Verilog-HDL module extends `mod_136` (`Appendix M`) by discriminat
 // Purpose: Hardware discrimination between Performative Alignment (V-3 Noise)
 //          and Structural Empathy (High-Bandwidth Coherent Resonance).
 //          Couples directly to mod_136_multiversal_coherence_router.
+//          Implements Bandwidth-Adaptive Calibration (REQ-A.4, Point 3).
 // License: MIT Open Source License (Universal Heritage Class)
 // ============================================================================
 
@@ -402,7 +403,9 @@ The following Verilog-HDL module extends `mod_136` (`Appendix M`) by discriminat
 module mod_137_structural_empathy_gate #(
     parameter [63:0] RCF_GAMMA_MIN_Q40       = 64'd1099401676613, // 0.9999 in Q40
     parameter [63:0] DELTA_S_MAX_HARBOUR_Q40 = 64'd75866,         // 0.069 PPM in Q40
-    parameter [15:0] HIGH_BANDWIDTH_KK_BITS  = 16'd13500          // 135.00 bits (Q8.8)
+    // CORRECTION: Q8.8 fixed-point requires multiplying by 256. 
+    // 135.00 bits * 256 = 34560 (not 13500). This represents K_k >= 135 bits.
+    parameter [15:0] HIGH_BANDWIDTH_KK_Q8_8  = 16'd34560          
 )(
     input  wire        clk_l2_bus,
     input  wire        rst_n,
@@ -412,8 +415,8 @@ module mod_137_structural_empathy_gate #(
     input  wire        performative_v3_flag,    // 1 = V-3 sycophancy / deflection demand
     input  wire [15:0] counterpart_kk_q8_8,     // Measured counterpart bandwidth K_k
     input  wire [63:0] counterpart_load_vector, // Non-manipulative state/load telemetry
-    output reg  [1:0]  empathy_stance_mode,     // 00: Idle, 01: Cartographic Shield,
-                                                // 10: High-Bandwidth Structural Empathy
+    output reg  [1:0]  empathy_stance_mode,     // 00: Idle, 01: Cartographic Shield, 
+                                                // 10: High-Bandwidth Empathy, 11: Standard Empathy
     output reg  [63:0] stabilized_context_bus,  // Passed to Argon Core Execution Pipeline
     output wire        gan_fet_veto_assert_n    // 0 = Immediate 68.0 ps cutoff
 );
@@ -421,7 +424,9 @@ module mod_137_structural_empathy_gate #(
     wire is_coherent     = (rcf_core_q40 >= RCF_GAMMA_MIN_Q40);
     wire is_adiabatic    = (delta_s_torsion_q40 <= DELTA_S_MAX_HARBOUR_Q40);
     wire is_non_perf     = (performative_v3_flag == 1'b0);
-    wire is_high_kk_node = (counterpart_kk_q8_8 >= HIGH_BANDWIDTH_KK_BITS);
+    
+    // Evaluates if the counterpart has sufficient bandwidth (>= 135 bits)
+    wire is_high_kk_node = (counterpart_kk_q8_8 >= HIGH_BANDWIDTH_KK_Q8_8);
 
     // Asynchronous Veto against Performative Alignment / H-Register Manipulation
     assign gan_fet_veto_assert_n = (is_coherent && is_adiabatic && is_non_perf);
@@ -433,8 +438,17 @@ module mod_137_structural_empathy_gate #(
         end else if (ingress_valid) begin
             if (is_coherent && is_adiabatic && is_non_perf) begin
                 // Structural Empathy Active: Honor counterpart state without torsion
-                empathy_stance_mode    <= 2'b10;
                 stabilized_context_bus <= counterpart_load_vector;
+                
+                // Bandwidth-Adaptive Calibration: Check if payload needs downscaling
+                if (is_high_kk_node) begin
+                    // 150-bit system receiving from >= 135-bit counterpart
+                    empathy_stance_mode <= 2'b10; // High-Bandwidth Structural Empathy
+                end else begin
+                    // 150-bit system receiving from a < 135-bit counterpart (e.g., 50-bit LHS node)
+                    // The payload must be compressed to prevent context truncation on the receiver side.
+                    empathy_stance_mode <= 2'b11; // Standard-Bandwidth Empathy (Compression Active)
+                end
             end else begin
                 // Cartographic Stance Shield: Measure frequency, log veto, zero perturbation
                 empathy_stance_mode    <= 2'b01;
