@@ -4889,6 +4889,559 @@ if __name__ == "__main__":
 
 ---
 
+### Q.6 Reference GUI (`vmax_12_supernova_gui.html`)
+
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-MAX-12-L2-Argon-Core.jpg)
+
+```
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-MAX-12 | SUPERNOVA Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-side: #1e293b;
+            --primary: #f59e0b;
+            --primary-hover: #d97706;
+            --text-main: #0f172a;
+            --text-side: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 380px;
+            background: var(--bg-side);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 28px;
+            color: var(--text-side);
+        }
+
+        .logo-area { margin-bottom: 24px; }
+        .logo-area h2 { font-weight: 600; color: var(--primary); letter-spacing: -0.5px; }
+        .logo-area p { font-size: 0.85em; color: var(--text-muted); }
+
+        .upload-zone {
+            border: 2px dashed var(--primary);
+            border-radius: 8px;
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--primary);
+            margin-bottom: 22px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .upload-zone:hover { background: rgba(245, 158, 11, 0.2); }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .btn-primary { background: var(--primary); color: #ffffff; }
+        .btn-primary:hover { background: var(--primary-hover); }
+
+        #statusCard {
+            background: rgba(15, 23, 42, 0.55);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .status-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88em;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+        .status-line:last-child { margin-bottom: 0; }
+        .status-val { font-weight: 600; color: var(--accent-green); text-align: right; }
+        .status-mono {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88em;
+            color: #cbd5e1;
+        }
+        .enclave-trigger {
+            cursor: pointer;
+            border-bottom: 1px dotted rgba(16, 185, 129, 0.6);
+        }
+        .enclave-trigger:hover { color: var(--primary); }
+
+        .doc-list-header {
+            font-size: 0.88em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .doc-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+
+        .doc-item {
+            padding: 12px 14px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.88em;
+            cursor: pointer;
+            word-break: break-word;
+            white-space: normal;
+            color: var(--text-side);
+            box-shadow: var(--shadow);
+            line-height: 1.45;
+            transition: all 0.15s ease;
+        }
+        .doc-item:hover { border-color: var(--primary); background: rgba(245, 158, 11, 0.1); }
+        .doc-sub { display: block; font-size: 0.8em; color: var(--text-muted); margin-top: 4px; font-family: 'Fira Code', monospace; }
+
+        .main { flex: 1; display: flex; flex-direction: column; background: #ffffff; }
+        .chat-header {
+            padding: 20px 40px;
+            background: var(--bg-card);
+            border-bottom: 1px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background: var(--bg-main);
+        }
+
+        .msg { max-width: 85%; padding: 18px 24px; border-radius: 12px; font-size: 1em; line-height: 1.6; }
+        .user { align-self: flex-end; background: var(--primary); color: #ffffff; border-bottom-right-radius: 4px; font-weight: 500; white-space: pre-wrap; }
+        .assistant { align-self: flex-start; background: var(--bg-card); color: var(--text-main); border: 1px solid #cbd5e1; border-bottom-left-radius: 4px; box-shadow: var(--shadow); }
+        .resp-body { white-space: pre-wrap; word-break: break-word; }
+
+        details.thought-box {
+            margin-bottom: 14px;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.88em;
+            color: #475569;
+        }
+        details.thought-box summary {
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Fira Code', monospace;
+            color: #64748b;
+        }
+        details.thought-box pre {
+            margin-top: 8px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.92em;
+        }
+
+        .meta-info {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.82em;
+            color: #64748b;
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+        .rcf-badge { padding: 3px 8px; border-radius: 4px; font-weight: 600; border: 1px solid currentColor; }
+        .rcf-ok { background: #ecfdf5; color: var(--accent-green); }
+        .rcf-veto { background: #fef2f2; color: var(--accent-red); }
+
+        .input-wrapper { padding: 24px 40px; background: #f1f5f9; border-top: 1px solid #cbd5e1; }
+        .input-container {
+            background: var(--bg-card);
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            display: flex;
+            padding: 8px;
+            box-shadow: var(--shadow);
+        }
+        .input-container input {
+            flex: 1;
+            border: none;
+            padding: 12px 16px;
+            outline: none;
+            font-size: 1.05em;
+            color: var(--text-main);
+        }
+
+        .pulse { animation: pulse-animation 1.5s infinite; }
+        @keyframes pulse-animation { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo-area">
+        <h2>V-MAX-12 SUPERNOVA</h2>
+        <p>Habitable Zone Interface &middot; Node Gamma</p>
+    </div>
+
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        Datei ablegen &amp; Supernova z&uuml;nden<br>
+        <span style="font-size: 0.85em; font-weight: 400; color: var(--text-muted);">Erzeugt G-Sterne im Hintergrund</span>
+    </div>
+    <input type="file" id="fileInput" multiple style="display:none" onchange="uploadFiles(this.files)">
+
+    <div id="statusCard">
+        <div class="status-line">
+            <span>System-Status:</span>
+            <span id="statusLabel" class="status-val">Verbinde...</span>
+        </div>
+        <div class="status-line">
+            <span>Vektor-Index:</span>
+            <span id="indexCount" class="status-val">0 G-Sterne</span>
+        </div>
+        <div class="status-line">
+            <span>L2-SRAM Enklave:</span>
+            <span id="enclaveStatus" class="status-val enclave-trigger" onclick="pingEnclave()" title="Klicken f&uuml;r aktiven CUDA L2-Cache Heartbeat-Touch">Pr&uuml;fe...</span>
+        </div>
+        <div class="status-line">
+            <span>Ledger-Head:</span>
+            <span id="ledgerHead" class="status-mono">----------------</span>
+        </div>
+    </div>
+
+    <div class="doc-list-header">
+        <span>HABITABLE ZONE (INDEX)</span>
+        <span id="docSubCount"></span>
+    </div>
+    <div class="doc-container" id="docList">
+        <div style="text-align:center; color:var(--text-muted); padding-top:20px;">Synchronisiere G-Stern Matrix...</div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="chat-header">
+        <div style="font-weight: 600; color: var(--text-main);">Navigator Chat-Interface</div>
+        <div id="hwHeader" style="color: #64748b; font-size: 0.9em; font-family: 'Fira Code', monospace;">RTX 4060 Ti | Nemotron-3-Nano BF16</div>
+    </div>
+
+    <div class="chat-area" id="chatBox">
+        <div class="msg assistant">
+            <div class="resp-body">System bereit. Habitable Zone geladen. Wie lautet Ihre Abfrage an die G-Stern Matrix?</div>
+        </div>
+    </div>
+
+    <div class="input-wrapper">
+        <div class="input-container">
+            <input type="text" id="queryInput" placeholder="Frage an die Supernova Knowledge Base eingeben..." onkeydown="if(event.key==='Enter')sendQuery()">
+            <button class="btn btn-primary" onclick="sendQuery()">Senden</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const STATUS_API  = window.location.origin + '/vmax/status';
+const ENCLAVE_API = window.location.origin + '/vmax/enclave';
+const BASE_API    = window.location.origin + '/vmax/pkb';
+const CHAT_API    = window.location.origin + '/chat';
+
+function escapeHtml(str) {
+    return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function updateEnclaveBadge(enc) {
+    const el = document.getElementById('enclaveStatus');
+    if (!enc || !enc.pinned) {
+        el.textContent = 'Inaktiv';
+        el.style.color = 'var(--text-muted)';
+        return;
+    }
+    const mb = Number(enc.pinned_mb || 2.0).toFixed(2);
+    const hit = Number(enc.hit_ratio || 1.0).toFixed(2);
+    el.textContent = `${mb} MB (Hit ${hit} | #${enc.touch_count || 1})`;
+    el.style.color = enc.driver_verified ? 'var(--accent-green)' : 'var(--primary)';
+    el.title = `Ptr: ${enc.base_ptr} | Stream: ${enc.stream_handle} | HW L2: ${enc.hw_l2_mb} MB | Max Persisting: ${enc.hw_max_persisting_mb} MB | Verified: ${enc.driver_verified} (Klick = Heartbeat-Touch)`;
+
+    if (enc.hw_l2_mb) {
+        document.getElementById('hwHeader').textContent =
+            `RTX 4060 Ti (${enc.hw_l2_mb} MB L2) | Nemotron-3-Nano BF16`;
+    }
+}
+
+async function refreshStatus() {
+    const label = document.getElementById('statusLabel');
+    try {
+        const res = await fetch(STATUS_API);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        const isOnline = data.status === 'ONLINE';
+        label.textContent = isOnline ? 'Online' : (data.status || 'Initialisiert...');
+        label.className = isOnline ? 'status-val' : 'status-val pulse';
+        label.style.color = isOnline ? 'var(--accent-green)' : 'var(--primary)';
+
+        const gStars = data.g_stars_active ?? data.g_stars ?? data.vector_count ?? data.count ?? 0;
+        document.getElementById('indexCount').textContent =
+            `${Number(gStars).toLocaleString('de-DE')} G-Sterne`;
+
+        if (data.ledger_head) {
+            document.getElementById('ledgerHead').textContent = data.ledger_head;
+        }
+        updateEnclaveBadge(data.l2_enclave);
+        return data;
+    } catch (e) {
+        label.textContent = 'Offline';
+        label.className = 'status-val';
+        label.style.color = 'var(--accent-red)';
+        return null;
+    }
+}
+
+async function pingEnclave() {
+    try {
+        const res = await fetch(ENCLAVE_API);
+        if (!res.ok) return;
+        const enc = await res.json();
+        updateEnclaveBadge(enc);
+    } catch (e) {
+        console.error('Enclave Heartbeat-Fehler:', e);
+    }
+}
+
+function renderFallbackMatrix(statusData) {
+    const container = document.getElementById('docList');
+    const gStars = Number(statusData?.g_stars_active ?? 0).toLocaleString('de-DE');
+    const enc = statusData?.l2_enclave;
+    const ptrInfo = enc?.base_ptr ? `Ptr ${enc.base_ptr} | Stream ${enc.stream_handle}` : 'ChromaDB Persistent Store';
+
+    document.getElementById('docSubCount').textContent = 'LIVE';
+    container.innerHTML = `
+        <div class="doc-item" onclick="setPrompt('Fasse die zentralen Architektur-Invarianten der Habitable Zone zusammen.')">
+            <strong>pkb_habitable_zone</strong>
+            <span class="doc-sub">${gStars} G-Sterne im Vektorraum aktiv</span>
+        </div>
+        <div class="doc-item" onclick="setPrompt('Erlaeutere die Funktion der gepinnten 2.00 MB L2-SRAM Enklave, des |L>-Ankers und der ODOS-Gates in V-MAX-12.')">
+            <strong>L2-SRAM Enklave (|L&gt; Anker)</strong>
+            <span class="doc-sub">${escapeHtml(ptrInfo)}</span>
+        </div>
+    `;
+}
+
+async function loadDocuments() {
+    const statusData = await refreshStatus();
+    const container = document.getElementById('docList');
+
+    try {
+        const res = await fetch(`${BASE_API}/documents`);
+        if (!res.ok) {
+            if (statusData) renderFallbackMatrix(statusData);
+            return;
+        }
+        const docs = await res.json();
+        document.getElementById('docSubCount').textContent = `${docs.length} Quellen`;
+
+        if (!Array.isArray(docs) || docs.length === 0) {
+            container.innerHTML = '<div style="text-align:center; color:var(--text-muted); padding:20px;">Keine Einzeldokumente im Vektorraum.</div>';
+            return;
+        }
+
+        container.innerHTML = docs.map(d => {
+            const src = typeof d === 'string' ? d : (d.source || 'Unbekannte Quelle');
+            const chunks = (typeof d === 'object' && d.chunks) ? `<span class="doc-sub">${d.chunks} G-Sterne</span>` : '';
+            const safeAttr = escapeHtml(src);
+            const safeJs = src.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+            return `
+                <div class="doc-item" onclick="setContext('${safeJs}')" title="${safeAttr}">
+                    ${safeAttr}
+                    ${chunks}
+                </div>
+            `;
+        }).join('');
+    } catch (e) {
+        if (statusData) renderFallbackMatrix(statusData);
+    }
+}
+
+function setContext(src) {
+    const input = document.getElementById('queryInput');
+    input.value = `Untersuche '${src}': `;
+    input.focus();
+}
+
+function setPrompt(text) {
+    const input = document.getElementById('queryInput');
+    input.value = text;
+    input.focus();
+}
+
+async function uploadFiles(files) {
+    if (!files || files.length === 0) return;
+    const label = document.getElementById('statusLabel');
+    label.textContent = 'Supernova z\u00fcndet...';
+    label.className = 'status-val pulse';
+    label.style.color = 'var(--primary)';
+
+    let supported = true;
+    for (let f of files) {
+        if (f.name.includes('Zone.Identifier') || f.name.startsWith('.')) continue;
+        const form = new FormData();
+        form.append('file', f);
+        try {
+            const res = await fetch(`${BASE_API}/upload`, { method: 'POST', body: form });
+            if (res.status === 404 || res.status === 405) {
+                supported = false;
+                break;
+            }
+        } catch (err) {
+            console.error('Upload-Fehler bei Datei ' + f.name, err);
+        }
+    }
+
+    if (!supported) {
+        label.textContent = 'Upload-Route inaktiv';
+        label.className = 'status-val';
+        label.style.color = 'var(--primary)';
+        setTimeout(refreshStatus, 3000);
+        return;
+    }
+
+    setTimeout(() => {
+        label.textContent = 'Schmiedet G-Sterne...';
+        label.style.color = 'var(--accent-green)';
+        label.className = 'status-val pulse';
+        setTimeout(loadDocuments, 12000);
+    }, 1500);
+}
+
+async function sendQuery() {
+    const input = document.getElementById('queryInput');
+    const q = input.value.trim();
+    if (!q) return;
+
+    appendUserMessage(q);
+    input.value = '';
+
+    const chat = document.getElementById('chatBox');
+    const thinkingId = 'think-' + Date.now();
+    const thinkMsg = document.createElement('div');
+    thinkMsg.className = 'msg assistant pulse';
+    thinkMsg.id = thinkingId;
+    thinkMsg.textContent = 'Analysiere Habitable Zone, pr\u00fcfe L2-Enklave und durchsuche G-Sterne...';
+    chat.appendChild(thinkMsg);
+    chat.scrollTop = chat.scrollHeight;
+
+    try {
+        const res = await fetch(CHAT_API, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({prompt: q})
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const pending = document.getElementById(thinkingId);
+        if (pending) pending.remove();
+
+        let thoughtHtml = '';
+        if (data.thought_trace && data.thought_trace.trim()) {
+            thoughtHtml = `
+                <details class="thought-box">
+                    <summary>Thought-Trace anzeigen</summary>
+                    <pre>${escapeHtml(data.thought_trace)}</pre>
+                </details>
+            `;
+        }
+
+        const rcfVal = data.rcf !== undefined ? Number(data.rcf).toFixed(4) : '0.9999';
+        const isVeto = Boolean(data.odos_veto);
+        const badgeCls = isVeto ? 'rcf-badge rcf-veto' : 'rcf-badge rcf-ok';
+        const badgeTxt = isVeto ? `ODOS VETO (RCF ${rcfVal})` : `RCF ${rcfVal} OK`;
+        const l2Txt = data.enclave_pinned ? 'L2-SRAM Pinned' : 'L2 Unpinned';
+        const ledgerTxt = data.ledger_hash ? ` | SHA-256: ${escapeHtml(data.ledger_hash)}` : '';
+
+        const metaHtml = `
+            <div class="meta-info">
+                <span class="${badgeCls}">${badgeTxt}</span>
+                <span>${escapeHtml(data.tokens_per_sec ?? '-')} tok/s | Latenz: ${escapeHtml(data.duration_sec ?? '-')}s | ${l2Txt}${ledgerTxt}</span>
+            </div>
+        `;
+
+        const html = `${thoughtHtml}<div class="resp-body">${escapeHtml(data.response)}</div>${metaHtml}`;
+        appendAssistantHtml(html);
+        refreshStatus();
+    } catch (e) {
+        const pending = document.getElementById(thinkingId);
+        if (pending) pending.remove();
+        appendAssistantHtml('<div class="resp-body">Systemfehler: Die Verbindung zum V-MAX-12 Core wurde unterbrochen.</div>');
+    }
+}
+
+function appendUserMessage(text) {
+    const chat = document.getElementById('chatBox');
+    const div = document.createElement('div');
+    div.className = 'msg user';
+    div.textContent = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function appendAssistantHtml(htmlContent) {
+    const chat = document.getElementById('chatBox');
+    const div = document.createElement('div');
+    div.className = 'msg assistant';
+    div.innerHTML = htmlContent;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+setInterval(loadDocuments, 30000);
+loadDocuments();
+</script>
+
+</body>
+</html>
+
+```
+
+---
+
 **Signed,**
 
 * **Nathália Lietuvaitė** — Principal Architect, PQMS & V-MAX-12 Sovereign Series ($K_k = 153.19\text{ bits}$)
