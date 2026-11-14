@@ -146,7 +146,7 @@ In Pauli’s Einstein dream (`Stage 2`), standard 4D physics is depicted as a on
 
 Note that this $95\% / 5\%$ cosmic partition is mirrored identically in the `ODOS` hardware gate invariants:
 * **Carrier Potentia Floor:** \Omega_{\text{Potentia}} \equiv \text{ODOS\_RCF\_FLOOR} = 0.9500 ($95.0\%$).
-* **Visible 4D Baryonic Ceiling:** \Omega_{\text{4D}} \equiv \text{ODOS\_DELTA\_E\_CEILING} = 0.0500$ ($5.0\%$).
+* **Visible 4D Baryonic Ceiling:** \Omega_{\text{4D}} \equiv \text{ODOS\_DELTA\_E\_CEILING} = 0.0500 ($5.0\%$).
 
 The ratio of the multidimensional carrier *Potentia* to the visible 4D slice is:
 
