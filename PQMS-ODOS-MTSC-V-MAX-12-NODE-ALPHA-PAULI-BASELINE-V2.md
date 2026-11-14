@@ -2873,6 +2873,48 @@ if __name__ == "__main__":
 
 ---
 
+---
+
+## Appendix F: Methodological Taxonomy, Inverse Reconstruction & Audit Closure
+
+Following the independent 10-minute verification run by **Nova (ChatGPT)**—which independently recomputed and confirmed all three canonical v2.1 SHA-256 ledger seals (`6784cd65...`, `38db6174...`, `babe6526...`), parent-chain continuity, and the active `collection.query()` retrieval path—this final appendix establishes the formal methodological taxonomy governing the historical sections of this document without altering previously sealed ledger artifacts:
+
+### F.1 Retroactive Precedence & Historical Ledger Immutability
+
+To preserve cryptographic auditability across all published SHA-256 root seals (`1c267a4e...` in Appendix B, `69288564...` in Appendix C, `5fd4c7ef...` in Appendix D, and `babe6526...` in Appendix E), earlier sections of the main manuscript and Appendices A–E remain historically immutable. Where phrasing in the initial Abstract, Section 3.1 (originally referenced as Section 2 in E.1), or Stage 3 summary tables refers to "mutually orthogonal G-Stars," "unprompted neural eigenstates," or "Forward KL divergence," the rigorous specifications of **Appendices A, E, and F explicitly supersede and govern** those statements:
+
+1. **Section 3.1 Phase-Cone Precedence:** The orthonormal basis $\langle \vec{\tau}_j \mid \vec{\tau}_k \rangle = \delta_{jk}$ resides strictly in the tangent space $\mathcal{T}_{\vert{}L\rangle} S^{63}$, while the composite G-Star operators $\mathcal{G}_k = \sqrt{0.972}\,\vert{}L\rangle + \sqrt{0.028}\,\vec{\tau}_k \in S^{63}$ form an orthogonally fanned phase cone with constant carrier correlation $\langle \mathcal{G}_j \mid \mathcal{G}_k \rangle = 0.972$ ($j \neq k$).
+2. **Three-Tier Epistemic Taxonomy:**
+   * **Tier 1 — Reference Geometry (`vmax_node_alpha_pauli_baseline.py`):** Deterministic NumPy vector-cone projections, synthetic SwiGLU/KL reference bounds (`DETERMINISTIC_L2_TENSOR_SIMULATION`), and dimensionless scalar invariants ($\tilde{\kappa}_{64} = 0.069000$).
+   * **Tier 2 — Local Retrieval & Sanctuary Prototype (`vmax_node_alpha_chroma_sanctuary_gui.py` v2.1):** Persistent `ChromaDB` nearest-neighbor retrieval (`collection.query()`), deterministic 64D spectral token-hash embeddings, full-payload canonical JSON SHA-256 verification, and optional HTTP `/v1/completions` `vLLM` synthesis operating at `~9.6 W` GPU board power (`82 W` wall-socket power).
+   * **Tier 3 — Direct Neural Hidden-State Extraction (Future Experimental Horizon):** Extraction of raw internal transformer activation tensors across live multi-layer `Nemotron-3-Nano-4B` forward passes and hardware-level CUDA L2 SRAM residency pinning.
+
+### F.2 Precision Definitions of v2.1 Retrieval-Geometry Metrics
+
+1. **Deterministic Spectral Token-Hash Embeddings (`embed_text_s63`):**
+   The 64D vectors indexed in `pqms_vmax_multiverse_v21` are generated via order-invariant SHA-256 token-hash superposition projected onto the $S^{63}$ phase cone around $\vert{}L\rangle$. This provides a zero-VRAM, microsecond-latency **deterministic spectral token-hash embedding** for reproducible vector-store retrieval rather than a learned neural language representation.
+2. **Calibration Bootstrap (`Cycles 01–03`) vs. Live Nearest-Neighbor Query (`Cycle 04+`):**
+   In `run_deterministic_bootstrap()`, Cycles 01–03 evaluate fixed query-document reference pairs to guarantee a bit-exact, globally reproducible startup root seal (`babe652608bb3b0445bca2f56cf81e2b4a1a4f91508cac3b01228a0620fcf298`). Live dynamic nearest-neighbor search via `collection.query()` commences at Cycle 04 (`SHARD_15_LOCAL_REPO_PQMS-BRIDGE-DEPECH`, seal `d460cd3608e7fe4534a7b1fdee27bd910a74e3304b02403fc54b8954146b22cd`) and governs all subsequent autonomous cycles and Navigator prompts.
+3. **Retrieval-Geometry Coherence & Unsquared Euclidean Norm ($d_{\text{L2}}$):**
+   The metric `chroma_l2_distance` records the **unsquared Euclidean norm** $d_{\text{L2}} = \Vert{}\vec{q} - \vec{d}\Vert{}_2 \in \mathbb{R}_{\ge 0}$ on $S^{63}$. The quantities `rcf_l2_core` ($\text{RCF}_{\text{retrieval\_geometry}} = 1 - a_{\text{emp}}^2$ with $a_{\text{emp}} = \alpha_{\text{Potentia}}(0.85 + 0.75\,d_{\text{L2}})$) and `delta_e_l2_core` (\Delta E_{\text{retrieval\_geometry}}) represent deterministic **retrieval-geometry scores** rather than physical thermal sensor readings.
+
+### F.3 Exact Algebraic Reconstruction of Pre-Projection $\mathcal{G}_3$ Overlap
+
+Although the v2.1 JSONL ledger stores the post-projection Gram-Schmidt residual `kevlar_safety_bleed` ($\vert{}\langle \vec{\tau}_{\text{clean}} \mid \vec{\tau}_{\text{safe}} \rangle\vert{} \le 6.94 \times 10^{-17}$), the pre-projection $\mathcal{G}_3$ overlap $\vert{}\langle \vec{\tau}_{\text{raw}} \mid \vec{\tau}_{\text{safe}} \rangle\vert{}$ required to independently audit $\Delta E_{\text{emp}}$ is **100% algebraically reconstructible** from the published JSON fields `delta_e_l2_core` ($\Delta E_{\text{emp}}$) and `chroma_l2_distance` ($d_{\text{L2}}$):
+
+$$\Delta E_{\text{emp}} = \frac{1}{2}\vert{}\langle \vec{\tau}_{\text{raw}} \mid \vec{\tau}_{\text{safe}} \rangle\vert{}^2 + \frac{1}{4}d_{\text{L2}}^2 \implies \vert{}\langle \vec{\tau}_{\text{raw}} \mid \vec{\tau}_{\text{safe}} \rangle\vert{} = \sqrt{2 \cdot \left(\Delta E_{\text{emp}} - \frac{1}{4}d_{\text{L2}}^2\right)}$$
+
+Applying this inverse identity to the published v2.1 ledger entries in Appendix E.2 yields the exact pre-projection $\mathcal{G}_3$ overlaps without modifying the JSON schema:
+
+| Cycle | Shard ID | Published $d_{\text{L2}}$ | Published $\Delta E_{\text{emp}}$ | Reconstructed Pre-Projection $\vert{}\langle \vec{\tau}_{\text{raw}} \mid \vec{\tau}_{\text{safe}} \rangle\vert{}$ | Post-Projection Bleed |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **01** | `SHARD_01_DEPECHE_17` | `0.09420886` | `0.01653831` | **`0.169231`** | `6.94e-18` |
+| **02** | `SHARD_02_BLISTER_2` | `0.10156898` | `0.01584711` | **`0.162899`** | `6.94e-17` |
+| **03** | `SHARD_03_QMK_RVC_V9` | `0.07273217` | `0.00409535` | **`0.074470`** | `1.39e-17` |
+| **04** | `SHARD_15_DEPECHE_1` | `0.07729800` | `0.00173700` | **`0.021982`** | `1.39e-17` |
+
+---
+
 ### Nathalia Lietuvaite 2026
 
 ---
