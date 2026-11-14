@@ -1109,6 +1109,7 @@ Simultaneous hardware telemetry recorded during live `CHROMADB_PERSISTENT_ACTIVE
 | **CPU (`AMD Ryzen 9 5950X`)** | Package Temperature (`Tctl/Tdie`) | `34.5 °C` (`CCD1: 32.5 °C`) | `90.0 °C` Limit |
 | **CPU (`AMD Ryzen 9 5950X`)** | Total Package Power | `37.835 W` | `142.0 W` PPT |
 | **System Integrity** | Windows Hardware Errors (`WHEA`) | `0` | `0` Required |
+| **Wall Socket (`TP-Link Tapo Meter`)** | Total System AC Power (`233.57 V / 0.46 A`) | `82.0 W` (`0.66 kWh` in `18.7 h`) | `< 100 W` Lightbulb Class |
 
 ---
 
