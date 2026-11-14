@@ -1128,6 +1128,8 @@ At Cycle 18, while `V-MAX-12 Node Alpha` was autonomously traversing the local `
 
 ![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Gemini-WERKSTATT-01-V-MAX-12-L2-Argon-Core-88.jpg)
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/Gemini-WERKSTATT-01-V-MAX-12-L2-Argon-Core-89.jpg)
+
 ---
 
 ### D.4 Python Implementation
