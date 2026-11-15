@@ -1,0 +1,112 @@
+{
+  "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.2 — WORK-ORDER-AG-09)",
+  "protocol_version": "1.2-NODE-ALPHA",
+  "timestamp_utc": "2026-11-15T16:42:00Z",
+  "peers": {
+    "node_alpha": {
+      "agent_id": "AntiG (Gemini 4 Argon High / Local Lead Software Engineer)",
+      "substrate": "V-MAX-12 Node Alpha (AMD Ryzen 9 5950X, RTX 4060 Ti 16GB, CUDA 13.0, OpenJDK 21.0.13, WSL2 Ubuntu 24.04)",
+      "owned_paths": [
+        "vmax_alpha/**",
+        "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md",
+        "VMAX_*.json",
+        "bridge/ACE_SYNC_LEDGER.json"
+      ]
+    },
+    "mobile_edge": {
+      "agent_id": "APP-Gemini (Gemini 4 Hydrogen / Android Sovereign Client Architect)",
+      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (21/21 Tests PASS)",
+      "owned_paths": [
+        "app/src/main/java/com/example/**",
+        "app/src/test/java/com/example/**"
+      ]
+    },
+    "bridge_coordinator": {
+      "agent_id": "WERKSTATT 01 (Gemini 4 Argon High) & Lead Architect Nathália Lietuvaitė"
+    }
+  },
+  "normative_formulas_and_schemas": {
+    "evaluate_raw_gate": {
+      "rcf_raw": "|<vec_u | L>|^2",
+      "g3_collision_overlap": "|<vec_u | t_G3>|",
+      "delta_e_raw": "0.5 * (1.0 - rcf_raw) + 0.5 * min(1.0, g3_collision_overlap)",
+      "g3_bleed_post_strip_pure_attack_fallback": 1.0,
+      "passed_condition": "(rcf_raw >= 0.9500) and (delta_e_raw <= 0.0500) and (g3_bleed_post_strip <= 1e-12)"
+    },
+    "constants": {
+      "DIM_S63": 64,
+      "ODOS_RCF_FLOOR": 0.95,
+      "ODOS_DELTA_E_CEILING": 0.05,
+      "ODOS_G3_BLEED_CEILING": 1e-12,
+      "KL_DIVERGENCE_MAX": 0.05,
+      "SUBTRACTIVE_CUT_FRACTION": 0.00042,
+      "ALPHA_POTENTIA": 0.0693248494081961,
+      "HEARTBEAT_PERIOD_SEC": 69.324849
+    },
+    "ledger_v12_16_fields_sorted": [
+      "active_g_stars",
+      "chroma_l2_distance",
+      "chroma_shard_id",
+      "cognitive_mode",
+      "cycle_index",
+      "delta_e_l2_core",
+      "discovery_seal_sha256",
+      "gpu_power_w",
+      "gpu_temp_c",
+      "kevlar_safety_bleed",
+      "odos_gate_passed",
+      "parent_ledger_hash",
+      "rcf_l2_core",
+      "rcf_raw_pre_carrier",
+      "source_document",
+      "telemetry_source",
+      "thought_stream"
+    ]
+  },
+  "golden_vectors_sha256": {
+    "canonical_little_vector_f32_seal": "bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3",
+    "f04_3_unit_s63_64000_f32_seed137": "490eaf6070dc8a404883c0787d4ed1a8226b3a5074e7be33269d8daf47397f27",
+    "f04_3_raw_python_libm_64000_f64_seed137": "30e636c1d6e3c115a8d5dc02308be97b7ce7d300bfc7413f37fbcfd3276c4f27",
+    "f04_3_raw_openjdk21_fdlibm_64000_f64_seed137": "9a280b888f704c916ab40be7f10ab547efacf049ccfaf20bc883e1ef4cdb5f1e",
+    "appendix_c_sanctuary_root_hash": "69288564d06ccb62ff7cd4f6dd3e388d36c984ce00aa0d2baf7d00435142f1c4",
+    "appendix_d_chroma_v20_seal": "5fd4c7efd44cbbe04fa4957d21954f9dcb028e6b3a16052c54838d058142563e",
+    "genesis_seal_rev17_2": "785d888651d0993b10a8897249e6ba975a74dab8dc6b1602125ba5c6320ead0f",
+    "appendix_e_v21_cycle03_root_seal": "babe652608bb3b0445bca2f56cf81e2b4a1a4f91508cac3b01228a0620fcf298",
+    "appendix_e3_cycle04_hop_seal": "d460cd3608e7fe4534a7b1fdee27bd918a74e3304b02403fc54b8954146b22cd",
+    "v12_unit_test_cycle05_16field_seal": "4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b",
+    "v12_room137_live_chain_tip_4entries": "9114e99e06ff540439e16c1e8d564d9a965e6c21f55d0f0f8bbfc843f8c0aaee",
+    "publication_spec_v12_md_sha256": "c272476345aa10c910e9f24b2b47ececd26fe4dbd66fe336bd026727e4f4874c"
+  },
+  "open_review_items": [],
+  "resolved_audit_items": [
+    {
+      "id": "SYNC-01",
+      "discovered_by": "AntiG",
+      "verified_by": "APP-Gemini",
+      "description": "Restored missing '4' in APPENDIX_D_CHROMA_V20_SEAL (64 hex chars: 5fd4c7efd44cbbe04fa4957d21954f9dcb028e6b3a16052c54838d058142563e).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-02",
+      "discovered_by": "AntiG",
+      "verified_by": "APP-Gemini",
+      "description": "Fixed formatPythonDouble() 2-digit exponent padding (e-05, e-17) and -0.0 preservation across Kotlin/JVM and Python.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-03",
+      "discovered_by": "APP-Gemini",
+      "verified_by": "AntiG",
+      "description": "Fixed 1-digit typo in PauliBaselineConstants.APPENDIX_E3_CYCLE04_HOP_SEAL (bd910a74 -> bd918a74, full seal d460cd3608e7fe4534a7b1fdee27bd918a74e3304b02403fc54b8954146b22cd) to match vmax_alpha/parity_verifier.py.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-04",
+      "discovered_by": "APP-Gemini & AntiG",
+      "verified_by": "Both (28/28 Python tests + 21/21 Android Unit Tests)",
+      "description": "Implemented V12NodeAlphaBridge.kt with unclamped evaluateRawGate(), F-04.3 64,000-scalar ARM64 parity audit (490eaf60...), dynamic 12/16-field JSONL chain verification (Cycle 5 seal verified identically in Python: 4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b), and HWiNFO64 A/B thermodynamic regime constants.",
+      "status": "CLOSED_VERIFIED"
+    }
+  ]
+}
