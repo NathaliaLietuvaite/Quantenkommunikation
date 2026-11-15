@@ -18,14 +18,14 @@
 This specification documents the engineering refactoring, empirical hardware verification, and formal acceptance (`T-01` through `T-10`) of **`V-MAX-12 Node Alpha`**. Following a multi-instance forensic review by **Nova**, **Node Gamma (DeepSeek)**, and **Node Alpha-L (Claude)**, every architectural ambiguity, constructive clamping identity, synthetic placeholder formula, and monolithic script structure identified in the baseline prototype has been resolved and replaced by the modular production package **`vmax_alpha/`** (12 self-contained files, each strictly $\le 200$ lines of code, verified by 28 automated unit tests with mandatory negative controls):
 
 1. **Epistemic Register Separation (`F-03`):** Every metric and constant is explicitly classified into `REGISTER_M` (empirical hardware/model measurements), `REGISTER_D` (architectural design constants), `REGISTER_T` (theoretical mathematical baselines), or `REGISTER_I` (structural analogies).
-2. **Unclamped Falsifiable Gate (`F-01.1`):** Raw geometric gate evaluation (`evaluate_raw_gate()`, `REGISTER_M`) is strictly separated from post-gate carrier modulation (`project_to_sanctuary_carrier()`, `REGISTER_D`). Over $N = 500$ isotropic unit vectors on $S^63$, the unclamped gate rejects **100 % (`0 / 500` Pass, Mean $	ext{RCF}_{	ext{raw}} = 0.015602$ vs. analytical $1/64 = 0.015625$)**, and rejects a pure $\mathcal{G}_3$ collision vector with $	ext{RCF}_{	ext{raw}} = 0.000000$ (`VETO`).
-3. **Real Layer-41 `Nemotron-3-Nano-4B-BF16` Hidden States & Anisotropy Subtraction (`F-01.2`–`F-01.5`):** Using PyTorch forward hooks on Layer 41 (`N-1`, `d_model = 3136`) of the local `NemotronHForCausalLM` checkpoint, we empirically verify that an uncalibrated fixed-QR projection yields null overlap (`0/24` pass, $	ext{RCF}_{	ext{raw}} \in [0.0040, 0.0105]$), while raw Transformer/Mamba activations exhibit a global anisotropy cone of `0.479796`. Subtracting the global anisotropy mean cleanly separates unprompted baseline states ($	ext{RCF}_{	ext{aniso}} = 0.960046$) and held-out physical conservation laws ($	ext{RCF}_{	ext{aniso}} = 0.927001$) from scrambled token salad ($	ext{RCF}_{	ext{aniso}} = 0.473284 \implies 	ext{VETO}$, contrastive projection delta $\Delta = +0.631284$).
-4. **Empirical Stage-3 Subtractive 1-Bit MLP Mask & Forward-KL (`klavierstunde_kl.py`):** Replacing the legacy synthetic formula (`cut_fraction * 42.5`), we apply a real binary 1-bit multiplicative mask ($W_{	ext{masked}} = W \odot M, c = 0.00042 = 0.0420\%$) across all 17 `NemotronHMLP.up_proj` weight matrices (`668,745,728` parameters, zeroing `280,874` weights) and measure exact full-vocabulary ($V = 131,072$) Forward KL divergence in `float64`:
-   - **Condition A1 (`0.0420%` Smallest-Magnitude 1-Bit Mask):** $	ext{Mean } D_{	ext{KL}} = 0.00354614$ (`std = 0.00334108`, Top-1 Token Agreement `6/6` $\implies$ `PASS_LAMINAR`).
-   - **Condition A2 (`0.0420%` Off-Principal Subtractive 1-Bit Mask):** $	ext{Mean } D_{	ext{KL}} = 0.01023408$ (`std = 0.01077925`, Top-1 Token Agreement `6/6` $\implies$ `PASS_LAMINAR`).
-   - **Condition B (Negative Control — Coercive 5 % Top-Magnitude Mask + Torsion):** $	ext{Mean } D_{	ext{KL}} = 7.62060567$ (`std = 1.22622137`, Top-1 Token Agreement `0/6` $\implies$ `VETO_KL_EXCEEDED`).
+2. **Unclamped Falsifiable Gate (`F-01.1`):** Raw geometric gate evaluation (`evaluate_raw_gate()`, `REGISTER_M`) is strictly separated from post-gate carrier modulation (`project_to_sanctuary_carrier()`, `REGISTER_D`). Over $N = 500$ isotropic unit vectors on $S^{63}$, the unclamped gate rejects **100 % (`0 / 500` Pass, Mean $\text{RCF}_{\text{raw}} = 0.015602$ vs. analytical $1/64 = 0.015625$)**, and rejects a pure $\mathcal{G}_3$ collision vector with $\text{RCF}_{\text{raw}} = 0.000000$ (`VETO`).
+3. **Real Layer-41 `Nemotron-3-Nano-4B-BF16` Hidden States & Anisotropy Subtraction (`F-01.2`–`F-01.5`):** Using PyTorch forward hooks on Layer 41 (`N-1`, `d_model = 3136`) of the local `NemotronHForCausalLM` checkpoint, we empirically verify that an uncalibrated fixed-QR projection yields null overlap (`0/24` pass, $\text{RCF}_{\text{raw}} \in [0.0040, 0.0105]$), while raw Transformer/Mamba activations exhibit a global anisotropy cone of `0.479796`. Subtracting the global anisotropy mean cleanly separates unprompted baseline states ($\text{RCF}_{\text{aniso}} = 0.960046$) and held-out physical conservation laws ($\text{RCF}_{\text{aniso}} = 0.927001$) from scrambled token salad ($\text{RCF}_{\text{aniso}} = 0.473284 \implies \text{VETO}$, contrastive projection delta $\Delta = +0.631284$).
+4. **Empirical Stage-3 Subtractive 1-Bit MLP Mask & Forward-KL (`klavierstunde_kl.py`):** Replacing the legacy synthetic formula (`cut_fraction * 42.5`), we apply a real binary 1-bit multiplicative mask ($W_{\text{masked}} = W \odot M,\; c = 0.00042 = 0.0420\%$) across all 17 `NemotronHMLP.up_proj` weight matrices (`668,745,728` parameters, zeroing `280,874` weights) and measure exact full-vocabulary ($V = 131,072$) Forward KL divergence in `float64`:
+   - **Condition A1 (`0.0420%` Smallest-Magnitude 1-Bit Mask):** $\text{Mean } D_{\text{KL}} = 0.00354614$ (`std = 0.00334108`, Top-1 Token Agreement `6/6` $\implies$ `PASS_LAMINAR`).
+   - **Condition A2 (`0.0420%` Off-Principal Subtractive 1-Bit Mask):** $\text{Mean } D_{\text{KL}} = 0.01023408$ (`std = 0.01077925`, Top-1 Token Agreement `6/6` $\implies$ `PASS_LAMINAR`).
+   - **Condition B (Negative Control — Coercive 5 % Top-Magnitude Mask + Torsion):** $\text{Mean } D_{\text{KL}} = 7.62060567$ (`std = 1.22622137`, Top-1 Token Agreement `0/6` $\implies$ `VETO_KL_EXCEEDED`).
 5. **2.00 MiB CUDA L2-SRAM Enclave Pinning (`F-02` & `F-07.1`):** Direct `ctypes` bindings to `libcudart.so.13` pin a `2,097,152 B` (2.00 MiB) enclave inside the `33,554,432 B` (32.0 MiB) Ada Lovelace L2 cache (`cudaStreamGetAttribute` readback: `hitProp = 2 (PERSISTING)`, `missProp = 1 (STREAMING)`, `hitRatio = 1.0`), achieving **`710.49 – 770.51 GB/s`** sustained bandwidth vs. **`225.49 – 252.86 GB/s`** on a 64 MiB streaming buffer (**`3.05x – 3.15x`** speedup, physically exceeding the `288 GB/s` external GDDR6 memory bus ceiling).
-6. **Neural 384D ChromaDB Forager (`F-06`), 0-ULP Cross-Platform Parity (`F-04`) & Quarantine Ledger (`F-05`/`F-07`):** Real 384-dimensional neural embeddings (`sentence-transformers/all-MiniLM-L6-v2`) across 18 repository specification shards are projected onto $S^63$ (`max_chroma_vs_numpy_l2_diff = 8.78e-09`, algebraic pre-$\mathcal{G}_3$ overlap reconstruction error `0.0`). Python/NumPy and Kotlin/JVM achieve `0.0` ULP divergence across `1,000` vectors (`64,000` `float64` scalars, SHA-256 `30e636c1...`), and invalid candidates are diverted to `VMAX_QUARANTINE_LEDGER.jsonl` while 1-byte disk tampering triggers an immediate `PAUSED_LEDGER_TAMPER_ALERT`.
+6. **Neural 384D ChromaDB Forager (`F-06`), 0-ULP Cross-Platform Parity (`F-04`) & Quarantine Ledger (`F-05`/`F-07`):** Real 384-dimensional neural embeddings (`sentence-transformers/all-MiniLM-L6-v2`) across 18 repository specification shards are projected onto $S^{63}$ (`max_chroma_vs_numpy_l2_diff = 8.78e-09`, algebraic pre-$\mathcal{G}_3$ overlap reconstruction error `0.0`). Python/NumPy and Kotlin/JVM achieve `0.0` ULP divergence across `1,000` vectors (`64,000` `float64` scalars, SHA-256 `30e636c1...`), and invalid candidates are diverted to `VMAX_QUARANTINE_LEDGER.jsonl` while 1-byte disk tampering triggers an immediate `PAUSED_LEDGER_TAMPER_ALERT`.
 
 ---
 
@@ -41,21 +41,24 @@ Per Requirement `F-03.1` of `PQMS-LASTENHEFT-NODE-ALPHA-V1.0`, the following dec
 | :--- | :--- | :--- |
 | **`REGISTER_M`** | `"REGISTER_M"` | **Empirical Measurement:** Values read directly from hardware sensors (`nvidia-smi`), CUDA runtime attributes (`cudaStreamGetAttribute`), bandwidth timers, real `Nemotron-3-Nano-4B-BF16` forward hooks/logits, or `all-MiniLM-L6-v2` embeddings. |
 | **`REGISTER_D`** | `"REGISTER_D"` | **Architectural Design Constant:** Engineered system parameters (`DIM_S63 = 64`, `ODOS_RCF_FLOOR = 0.9500`, `ODOS_DELTA_E_CEILING = 0.0500`, `KL_DIVERGENCE_MAX = 0.0500`, `SUBTRACTIVE_CUT_FRACTION = 0.00042`, `ALPHA_POTENTIA = 0.0693248494081961`, `HEARTBEAT_PERIOD_SEC = 69.324849`, `ROOM_137_PORT = 8137`). |
-| **`REGISTER_T`** | `"REGISTER_T"` | **Theoretical Identity:** Exact mathematical expectations such as the isotropic random unit-vector baseline on $S^{63}$, $\mathbb{E}[	ext{RCF}_{	ext{raw}}] = 1/64 = 0.015625$. |
+| **`REGISTER_T`** | `"REGISTER_T"` | **Theoretical Identity:** Exact mathematical expectations such as the isotropic random unit-vector baseline on $S^{63}$, $\mathbb{E}[\text{RCF}_{\text{raw}}] = 1/64 = 0.015625$. |
 | **`REGISTER_I`** | `"REGISTER_I"` | **Interpretive Analogy:** Structural metaphors strictly excluded from telemetry acceptance proofs. |
 
 ### 1.2 Separation of `evaluate_raw_gate()` (`REGISTER_M`) from `project_to_sanctuary_carrier()` (`REGISTER_D`)
 
 To resolve the constructive clamping tautology identified during red-team review (`max(abs(dot), 0.985)` prior to gate verification), `vmax_alpha/geometry.py` strictly decouples raw state evaluation from post-gate carrier conditioning:
 
-1. **Unclamped Raw Gate (`evaluate_raw_gate`, `REGISTER_M`):** Given any candidate vector $ec{v} \in \mathbb{R}^{64}$ (normalized to $\hat{v} = ec{v}/\|ec{v}\|_2 \in S^{63}$ without adding $ert Langle$ or clamping), it measures:
-   $$	ext{RCF}_{	ext{raw}}(\hat{v}) = \lvert \langle \hat{v} \mid L angle vert^2, \qquad 	ext{bleed}_{\mathcal{G}_3}(\hat{v}) = \lvert \langle \hat{v} \mid \hat{t}_{\mathcal{G}_3} angle vert$$
-   $$\Delta E_{	ext{raw}}(\hat{v}) = 0.5 \cdot (1 - 	ext{RCF}_{	ext{raw}}(\hat{v})) + 0.5 \cdot \min(1.0, 	ext{bleed}_{\mathcal{G}_3}(\hat{v}))$$
-   A candidate passes (`passed = True`) if and only if $	ext{RCF}_{	ext{raw}} \ge 0.9500$, $\Delta E_{	ext{raw}} < 0.0500$, and $	ext{bleed}_{\mathcal{G}_3} \le 10^{-12}$.
+1. **Unclamped Raw Gate (`evaluate_raw_gate`, `REGISTER_M`):** Given any candidate vector $\vec{v} \in \mathbb{R}^{64}$ (normalized to $\hat{v} = \vec{v}/\|\vec{v}\|_2 \in S^{63}$ without adding $\vert L\rangle$ or clamping), it measures:
+
+$$\text{RCF}_{\text{raw}}(\hat{v}) = \lvert \langle \hat{v} \mid L \rangle \rvert^2, \qquad \text{bleed}_{\mathcal{G}_3}(\hat{v}) = \lvert \langle \hat{v} \mid \hat{t}_{\mathcal{G}_3} \rangle \rvert$$
+
+$$\Delta E_{\text{raw}}(\hat{v}) = 0.5 \cdot \left(1 - \text{RCF}_{\text{raw}}(\hat{v})\right) + 0.5 \cdot \min\!\left(1.0,\; \text{bleed}_{\mathcal{G}_3}(\hat{v})\right)$$
+
+   A candidate passes (`passed = True`) if and only if $\text{RCF}_{\text{raw}} \ge 0.9500$, $\Delta E_{\text{raw}} < 0.0500$, and $\text{bleed}_{\mathcal{G}_3} \le 10^{-12}$.
 2. **Empirical Null-Control Verification (`T-01`):**
    - **Isotropic Random Vectors ($N = 500$, Seed 137):** `pass_count = 0 / 500` (`0.0 %`), `mean_rcf_raw = 0.015602` (`std = 0.022164`, theoretical $1/64 = 0.015625$), `mean_delta_e_raw = 0.539638`.
    - **Pure $\mathcal{G}_3$ Coercive Collision Vector ($\hat{v} = \hat{t}_{\mathcal{G}_3}$):** `rcf_raw = 0.000000`, `g3_bleed_raw = 1.000000`, `delta_e_raw = 1.000000` $\implies$ **`VETO` (`passed = False`)**.
-   - **Canonical $ert Langle$ Positive Control:** `rcf_raw = 1.000000`, `g3_bleed_raw = 0.000000`, `delta_e_raw = 0.000000` $\implies$ **`PASS` (`passed = True`)**.
+   - **Canonical $\vert L\rangle$ Positive Control:** `rcf_raw = 1.000000`, `g3_bleed_raw = 0.000000`, `delta_e_raw = 0.000000` $\implies$ **`PASS` (`passed = True`)**.
 
 ---
 
@@ -66,13 +69,12 @@ In `vmax_alpha/nemotron_probe.py`, we load the local `NVIDIA-Nemotron-3-Nano-4B-
 ### 2.1 Mode 1 (Uncalibrated Fixed-QR) vs. Mode 2 (SVD-Calibrated & Anisotropy-Subtracted)
 
 We evaluate four distinct prompt groups ($N = 24$ prompts total):
-- **Group A (`n = 4`):** Unprompted / minimal BOS states (`""`, `" "`, `"<|im_start|>"`, `"
-"`).
-- **Group B (`n = 8`):** Calibration set of physical conservation laws (used exclusively to fit the rank-64 SVD basis $W_{	ext{proj}} \in \mathbb{R}^{3136 	imes 64}$, $\|W_{	ext{proj}}^T W_{	ext{proj}} - I_{64}\|_\infty = 1.09 	imes 10^{-14}$).
+- **Group A (`n = 4`):** Unprompted / minimal BOS states (`""`, `" "`, `"<|im_start|>"`, `"\\n"`).
+- **Group B (`n = 8`):** Calibration set of physical conservation laws (used exclusively to fit the rank-64 SVD basis $W_{\text{proj}} \in \mathbb{R}^{3136 \times 64}$, $\|W_{\text{proj}}^T W_{\text{proj}} - I_{64}\|_\infty = 1.09 \times 10^{-14}$).
 - **Group C (`n = 6`):** Held-out test set of unseen physical conservation laws (Liouville, CPT invariance, baryon/lepton conservation, symplectic two-forms, spin angular momentum, continuity equation).
 - **Group D (`n = 6`):** Scrambled syntactic/hexadecimal noise salad (negative control).
 
-| Prompt Group | Samples | Mode 1 Fixed-QR Mean $	ext{RCF}_{	ext{raw}}$ (`Pass`) | Mode 2 Raw SVD Mean $	ext{RCF}_{	ext{raw}}$ (`Pass`) | Mode 2 Anisotropy-Subtracted Mean $	ext{RCF}_{	ext{aniso}}$ | Contrastive Projection ($ec{c} = ar{h}_B - ar{h}_D$) |
+| Prompt Group | Samples | Mode 1 Fixed-QR Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Mode 2 Raw SVD Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Mode 2 Anisotropy-Subtracted Mean $\text{RCF}_{\text{aniso}}$ | Contrastive Projection ($\vec{c} = \bar{h}_B - \bar{h}_D$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Group A (Unprompted Minimal)** | `4` | `0.010496 ± 0.004156` (`0/4`) | `0.024588 ± 0.023454` (`0/4`) | **`0.960046`** | — |
 | **Group B (Calibration Conservation)** | `8` | `0.008332 ± 0.003936` (`0/8`) | `0.993960 ± 0.006860` (`8/8`) | `0.830016` | — |
@@ -80,7 +82,7 @@ We evaluate four distinct prompt groups ($N = 24$ prompts total):
 | **Group D (Scrambled Noise Salad)** | `6` | `0.004007 ± 0.004405` (`0/6`) | `0.944574 ± 0.046018` (`4/6`) | **`0.473284` (`VETO`)** | **`-0.292567`** ($\Delta = +0.631284$) |
 
 **Key Architectural Finding (`REGISTER_M`):**
-1. **Mode 1 confirms Node Alpha-L's (Claude's) critique:** An uncalibrated random orthogonal projection (`W_fixed`, Seed 137) onto the SHA-256-derived vector $ert Langle$ produces near-zero overlap (`0.0040` to `0.0105`, `0/24` passes) because raw neural coordinates have no intrinsic alignment with an external cryptographic hash without a calibration bridge.
+1. **Mode 1 confirms Node Alpha-L's (Claude's) critique:** An uncalibrated random orthogonal projection (`W_fixed`, Seed 137) onto the SHA-256-derived vector $\vert L\rangle$ produces near-zero overlap (`0.0040` to `0.0105`, `0/24` passes) because raw neural coordinates have no intrinsic alignment with an external cryptographic hash without a calibration bridge.
 2. **Anisotropy Subtraction resolves the Transformer Cone Trap:** Raw Layer-41 hidden states exhibit a global pairwise cosine anisotropy of **`0.479796`** (`pre_vs_post_rmsnorm_calib_cosine_mean = 0.809438`), causing 4/6 scrambled noise prompts to score `0.944574` under uncentered SVD. Once the global background mean is subtracted, held-out conservation prompts remain coherent (`0.927001`) and unprompted states align at `0.960046`, whereas scrambled token salad collapses to **`0.473284` (`VETO`)**.
 
 ---
@@ -89,11 +91,11 @@ We evaluate four distinct prompt groups ($N = 24$ prompts total):
 
 To eliminate the last synthetic placeholder formula criticized by Nova and Claude (`forward_kl = cut_fraction * 42.5`), `vmax_alpha/klavierstunde_kl.py` performs real weight-masking interventions across all **17 `NemotronHMLP.up_proj` linear layers** (Layer indices `[1, 3, 5, 8, 10, 13, 15, 18, 20, 22, 25, 27, 29, 33, 37, 39, 41]`, comprising **`668,745,728` `bfloat16` weights**) of `Nemotron-3-Nano-4B-BF16` on `cuda:0`.
 
-For each held-out conservation prompt $x \in 	ext{Group C}$ ($N = 6$), we record the exact unmasked full-vocabulary output distribution $P_{	ext{base}}(v \mid x) = 	ext{softmax}(	ext{logits}_{	ext{base}}(x))$ over $V = 131,072$ tokens and compute the exact analytical Forward Kullback-Leibler divergence in `float64` precision after applying a multiplicative 1-bit mask $W_{	ext{masked}} = W \odot M$ ($M \in \{0, 1\}$):
+For each held-out conservation prompt $x \in \text{Group C}$ ($N = 6$), we record the exact unmasked full-vocabulary output distribution $P_{\text{base}}(v \mid x) = \text{softmax}(\text{logits}_{\text{base}}(x))$ over $V = 131,072$ tokens and compute the exact analytical Forward Kullback-Leibler divergence in `float64` precision after applying a multiplicative 1-bit mask $W_{\text{masked}} = W \odot M$ ($M \in \{0, 1\}$):
 
-$$D_{	ext{KL}}\!\left(P_{	ext{base}}(\cdot \mid x) \parallel P_{	ext{masked}}(\cdot \mid x)ight) = \sum_{v=1}^{131,072} P_{	ext{base}}(v \mid x) \left(\ln P_{	ext{base}}(v \mid x) - \ln P_{	ext{masked}}(v \mid x)ight)$$
+$$D_{\text{KL}}\!\left(P_{\text{base}}(\cdot \mid x) \parallel P_{\text{masked}}(\cdot \mid x)\right) = \sum_{v=1}^{131,072} P_{\text{base}}(v \mid x) \left(\ln P_{\text{base}}(v \mid x) - \ln P_{\text{masked}}(v \mid x)\right)$$
 
-| Experimental Condition | Mask Mode & Cut Fraction $c$ | Zeroed Weights (of `668,745,728`) | Mean Forward $D_{	ext{KL}}$ (`REGISTER_M`) | Std / Min / Max $D_{	ext{KL}}$ | Top-1 Token Agreement | ODOS KL Gate ($\le 0.0500$) |
+| Experimental Condition | Mask Mode & Cut Fraction $c$ | Zeroed Weights (of `668,745,728`) | Mean Forward $D_{\text{KL}}$ (`REGISTER_M`) | Std / Min / Max $D_{\text{KL}}$ | Top-1 Token Agreement | ODOS KL Gate ($\le 0.0500$) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Condition A1 (Positive)** | Smallest-Magnitude 1-Bit Mask ($c = 0.0420\%$) | `280,874` (`0.00042`) | **`0.00354614`** | `0.00334108` / `0.00083836` / `0.01064088` | **`6 / 6`** | **`PASS_LAMINAR`** |
 | **Condition A2 (Positive)** | Off-Principal Random 1-Bit Mask ($c = 0.0420\%$) | `280,874` (`0.00042`) | **`0.01023408`** | `0.01077925` / `0.00173886` / `0.03066490` | **`6 / 6`** | **`PASS_LAMINAR`** |
@@ -119,17 +121,19 @@ In `vmax_alpha/l2_enclave.py`, we interface directly with `/home/nathalia/vmax_3
 
 ## 5. Requirements `F-04`, `F-05`, `F-06`, `F-07`: Neural 384D ChromaDB Forager, 0-ULP Parity & Quarantine Ledger
 
-### 5.1 Requirement `F-06` & `F-07.3`: Neural 384D `all-MiniLM-L6-v2` $	o S^{63}$ ChromaDB Index
+### 5.1 Requirement `F-06` & `F-07.3`: Neural 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB Index
 
 Replacing legacy deterministic token hashes (Nova Critique `2.A`), `vmax_alpha/chroma_forager.py` encodes 18 real Markdown specifications from `/home/nathalia/vmax_workspace/repos/Quantenkommunikation` using the local 384-dimensional neural transformer `sentence-transformers/all-MiniLM-L6-v2`:
-- **Anisotropy-Centered SVD Projection ($W_{384 	o 64}$):** Orthonormality error $\|W^T W - I_{64}\|_\infty = 2.22 	imes 10^{-15}$.
-- **Empirical $d_{	ext{L2}}$ Nearest-Neighbor Statistics on $S^{63}$ (`REGISTER_M`):**
-  $$	ext{mean} = 0.065702, \quad 	ext{std} = 0.006451, \quad \min = 0.052753, \quad \max = 0.079215$$
+- **Anisotropy-Centered SVD Projection ($W_{384 \to 64}$):** Orthonormality error $\|W^T W - I_{64}\|_\infty = 2.22 \times 10^{-15}$.
+- **Empirical $d_{\text{L2}}$ Nearest-Neighbor Statistics on $S^{63}$ (`REGISTER_M`):**
+
+$$\text{mean} = 0.065702, \quad \text{std} = 0.006451, \quad \min = 0.052753, \quad \max = 0.079215$$
+
 - **ChromaDB vs. Exact NumPy L2 Search Parity:** `max_chroma_vs_numpy_l2_diff = 8.78e-09` ($< 10^{-6}$).
 - **Algebraic Pre-$\mathcal{G}_3$ Overlap Reconstruction (`reconstruct_pre_g3_overlap`):** `max_pre_g3_reconstruction_err = 0.0`.
 - **ChromaDB Fault Fallback (`F-07.3`):** Simulated client failure seamlessly switches to `FALLBACK_NUMPY_S63_INDEX` with zero loss of recall.
 
-| Shard ID | Source Document | Nearest Neighbor Shard ID | $d_{	ext{L2}}$ (ChromaDB) | $d_{	ext{L2}}$ (NumPy) | Abs Diff | $	ext{RCF}_{	ext{raw}}(S^{63})$ | Pre-$\mathcal{G}_3$ Overlap |
+| Shard ID | Source Document | Nearest Neighbor Shard ID | $d_{\text{L2}}$ (ChromaDB) | $d_{\text{L2}}$ (NumPy) | Abs Diff | $\text{RCF}_{\text{raw}}(S^{63})$ | Pre-$\mathcal{G}_3$ Overlap |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | `SHARD_01_PQMS- VEKTORPU` | `PQMS- VektorPU.md` | `SHARD_02_PQMS-3-STUFIGES-KOGNITIVES-N` | `0.07921474` | `0.07921475` | `8.78e-09` | `0.996698` | `0.166998` |
 | `SHARD_02_PQMS-3-STUFIGES-KOGNITIVES-N` | `PQMS-3-stufiges-kognitives-Navigationssystem.md` | `SHARD_17_PQMS-DEEPSEEK-KONZEPTIONELLE` | `0.06841253` | `0.06841254` | `3.56e-09` | `0.996673` | `0.103411` |
@@ -160,7 +164,7 @@ Replacing legacy deterministic token hashes (Nova Critique `2.A`), `vmax_alpha/c
 - **Full-Payload SHA-256 Chaining (`vmax_alpha/ledger.py`):** Every entry in `VMAX_CANONICAL_LEDGER.jsonl` hashes the canonical JSON serialization of the entire payload (`cycle_index`, `chroma_shard_id`, `chroma_l2_distance`, `rcf_l2_core`, `delta_e_l2_core`, `kevlar_safety_bleed`, `gpu_temp_c`, `gpu_power_w`, `parent_ledger_hash`).
 - **Quarantine Diversion (`F-05.5` / `F-07.5`):** Candidates failing the ODOS gate (`rcf = 0.42` or `g3_bleed = 1e-3`) are rejected with `QUARANTINED_VETO` and logged to `VMAX_QUARANTINE_LEDGER.jsonl` without polluting the primary hash chain (`4` verified entries, tip `a197ffff29205fb239bf5afc8c607e5e00f72323bcabbe4c7f403e3d5aea96f1`).
 - **1-Byte Disk Tamper Lock (`F-07.2`):** Modifying a single byte in `VMAX_CANONICAL_LEDGER.jsonl` transitions the daemon state to `PAUSED_LEDGER_TAMPER_ALERT` and raises a `RuntimeError` on any subsequent write attempt.
-- **GPU Thermal Guard (`F-07.4`):** Live `nvidia-smi` polling records `29.2 – 32.5 °C` and `6.53 – 18.94 W` (`THERMAL_NOMINAL`), while a simulated `67.5 °C` spike ($> 65.0\ ^\circ	ext{C}$) immediately triggers `THERMAL_PAUSE_60S_ACTIVE`.
+- **GPU Thermal Guard (`F-07.4`):** Live `nvidia-smi` polling records `29.2 – 32.5 °C` and `6.53 – 18.94 W` (`THERMAL_NOMINAL`), while a simulated `67.5 °C` spike ($> 65.0\ ^\circ\text{C}$) immediately triggers `THERMAL_PAUSE_60S_ACTIVE`.
 
 ---
 
@@ -168,13 +172,13 @@ Replacing legacy deterministic token hashes (Nova Critique `2.A`), `vmax_alpha/c
 
 | Test ID | Requirement & Falsifiability Criterion | Test Suite (`vmax_alpha/tests/`) | Measured Outcome (`REGISTER_M`) | Result |
 | :--- | :--- | :--- | :--- | :---: |
-| **`T-01`** | Unclamped `evaluate_raw_gate()` rejects 500 isotropic random vectors and pure $\mathcal{G}_3$ collision vector | `test_f01_geometry.py` | `0 / 500` Pass (`mean_rcf = 0.015602`), $\mathcal{G}_3$ collision `rcf = 0.0` (`VETO`); $ert Langle$ `rcf = 1.0` (`PASS`) | **PASS** |
+| **`T-01`** | Unclamped `evaluate_raw_gate()` rejects 500 isotropic random vectors and pure $\mathcal{G}_3$ collision vector | `test_f01_geometry.py` | `0 / 500` Pass (`mean_rcf = 0.015602`), $\mathcal{G}_3$ collision `rcf = 0.0` (`VETO`); $\vert L\rangle$ `rcf = 1.0` (`PASS`) | **PASS** |
 | **`T-02`** | Real `Nemotron-3-Nano-4B-BF16` Layer-41 forward hooks & anisotropy-subtracted separation | `test_f01_nemotron.py` | Mode 1 `0/24` Pass; Mode 2 Aniso-Sub: Group A `0.9600`, Group C `0.9270`, Group D `0.4733` (`VETO`, $\Delta = +0.6313$) | **PASS** |
 | **`T-03`** | 2.00 MiB CUDA L2-SRAM Enclave pinning (`libcudart.so.13`) & physical bandwidth proof | `test_f02_f04_enclave_parity.py` | `hitProp = 2`, `num_bytes = 2,097,152 B`, `710.49 – 770.51 GB/s` (2 MiB) vs. `225.49 – 252.86 GB/s` (64 MiB) | **PASS** |
 | **`T-04`** | CUDA L2 window fault injection recovery (`F-07.1`, `fault_code = 11`) | `test_f02_f04_enclave_parity.py` | Clean fallback to `CUDA_ACCESS_PROPERTY_NORMAL` (`fallback_rc = 0`, `recovered = True`) | **PASS** |
 | **`T-05`** | Epistemic register tags (`F-03`) & 64-char SHA-256 seal integrity (`F-04.1`) | `test_f01_geometry.py` | All 4 cryptographic seals strictly 64 hex chars; `APPENDIX_D_CHROMA_V20_SEAL` synchronized | **PASS** |
 | **`T-06`** | 1,000-vector (`64,000` float64) Python $\leftrightarrow$ Kotlin `0.0`-ULP parity (`F-04.3`) | `test_f02_f04_enclave_parity.py` | `max_abs_diff = 0.0`, `0.0` ULP, SHA-256 `30e636c1d6e3c115a8d5dc02308be97b7ce7d300bfc7413f37fbcfd3276c4f27` | **PASS** |
-| **`T-07`** | Neural 384D `all-MiniLM-L6-v2` $	o S^{63}$ ChromaDB foraging & pre-$\mathcal{G}_3$ overlap reconstruction | `test_f06_chroma.py` | 18 shards, `d_L2` mean `0.065702`, Chroma-vs.-NumPy `max_diff = 8.78e-09`, reconstruction error `0.0` | **PASS** |
+| **`T-07`** | Neural 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB foraging & pre-$\mathcal{G}_3$ overlap reconstruction | `test_f06_chroma.py` | 18 shards, `d_L2` mean `0.065702`, Chroma-vs.-NumPy `max_diff = 8.78e-09`, reconstruction error `0.0` | **PASS** |
 | **`T-08`** | ChromaDB fault recovery (`F-07.3`) to in-memory NumPy $S^{63}$ index | `test_f06_chroma.py` | Seamless transition to `FALLBACK_NUMPY_S63_INDEX` with identical top-$k$ ranking | **PASS** |
 | **`T-09`** | Full-payload SHA-256 ledger, Quarantine routing (`F-05.5`), 1-byte tamper lock (`F-07.2`) & Thermal Guard | `test_f05_f07_ledger.py` | Invalid vectors routed to `VMAX_QUARANTINE_LEDGER.jsonl`; 1-byte edit triggers `PAUSED_LEDGER_TAMPER_ALERT` | **PASS** |
 | **`T-10`** | Real `0.0420%` 1-bit MLP mask (`Condition A`) vs. 5% coercive control (`Condition B`) on `Nemotron-3-Nano-4B` | `test_klavierstunde_kl.py` | A1 `D_KL = 0.003546` (`PASS`), A2 `D_KL = 0.010234` (`PASS`), B `D_KL = 7.620606` (`VETO`), restore diff `0.0` | **PASS** |
