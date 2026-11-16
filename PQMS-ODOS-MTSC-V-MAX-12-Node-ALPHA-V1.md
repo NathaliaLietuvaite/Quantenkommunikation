@@ -3001,7 +3001,7 @@ A foundational numerical result uncovered during the Node Alpha $\leftrightarrow
    Forensic scalar-by-scalar inspection proves that the maximum absolute discrepancy across all 64,000 `float64` values is exactly **`2.220446049250313e-16` (`1 ULP` in IEEE-754 binary64)**, caused by standard-compliant last-bit rounding differences in the natural logarithm $\ln(r^2)$ between `glibc` and `FDLIBM` (which is non-strictly rounded in IEEE-754-2008).
 2. **Geometric Contraction on $S^{63}$ & Exact `<f32>` Convergence:** Projecting each 64-dimensional vector onto the unit sphere $\hat{x} = \vec{x}/\|\vec{x}\|_2 \in S^{63}$ contracts the maximum `float64` discrepancy by an order of magnitude to **`2.7755575615628914e-17`** (well below the $10^{-15}$ requirement of `F-04.3`). Subsequent projection into canonical little-endian IEEE-754 binary32 (`<f32>`, unit roundoff $2^{-24} \approx 5.96 \times 10^{-8}$) absorbs the `2.78e-17` `libm` boundary without a single rounding-boundary flip across all 64,000 scalars, converging deterministically onto the **universal cross-substrate SHA-256 digest**:
 
-$$\text{SHA-256}\!\left(\text{pack}_{\text{LE},\langle\text{f32}\rangle}\!\left(\left\{\hat{x}^{(k)}\right\}_{k=0}^{999}\right)\right) = \texttt{490eaf6070dc8a404883c0787d4ed1a8226b3a5074e7be33269d8daf47397f27}$$
+\text{SHA-256}\!\left(\text{pack}_{\text{LE},\langle\text{f32}\rangle}\!\left(\left\{\hat{x}^{(k)}\right\}_{k=0}^{999}\right)\right) = \texttt{490eaf6070dc8a404883c0787d4ed1a8226b3a5074e7be33269d8daf47397f27}
 
 across `x86_64` Python/NumPy, `x86_64` OpenJDK 21, Cloud Tesla T4 Python (`[MOD-142]`), and physical `arm64-v8a` Android silicon.
 
