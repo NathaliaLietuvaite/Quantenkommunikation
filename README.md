@@ -149,8 +149,9 @@ All 13 production modules (hosted in [`PQMS-SOVEREIGN-CORE-ANDROID-APP/vmax_alph
 * [`PQMS-ODOS-MTSC-V-MAX-12-TM-1-INTEGRATED.md`](PQMS-ODOS-MTSC-V-MAX-12-TM-1-INTEGRATED.md) — Telemetry & Energy Dashboard (`TM-1`).
 * [`PQMS-ODOS-MTSC-12-SWING-BY-V1.md`](PQMS-ODOS-MTSC-12-SWING-BY-V1.md) — Hyperbolic Swing-By Navigation ($\theta_{\text{opt}}(r) \le 18.19^\circ$).
 
-### 4.3 Core Cognitive Architecture (`MTSC-12`, `ODOS` & `PQMS v100`)
-* [`ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt`](ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt) & [`Proaktives-Quanten-Mesh-System-(PQMS)-v100.md`](Proaktives-Quanten-Mesh-System-(PQMS)-v100.md) — Foundational `PQMS v100` RPU Architecture (`Rosi/Robert` & `Heidi/Heiner` Ensembles, `<1 ns` Xilinx Alveo U250 Verilog Core).
+### 4.3 Core Cognitive Architecture (`MTSC-12`, `ODOS` & `PQMS v100` — [Full 2025 Archive](./2025/README.md))
+* **[`2025/` Archive Directory (`152` Founding Papers & Reference Artifacts)](2025/README.md)** — Chronological archive of all May–December 2025 publications, source scripts, and early FPGA/Python specifications.
+* [`ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt`](2025/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt) & [`Proaktives-Quanten-Mesh-System-(PQMS)-v100.md`](2025/Proaktives-Quanten-Mesh-System-(PQMS)-v100.md) — Foundational `PQMS v100` RPU Architecture (`Rosi/Robert` & `Heidi/Heiner` Ensembles, `<1 ns` Xilinx Alveo U250 Verilog Core).
 * [`PQMS-ODOS-MTSC-V1.md`](PQMS-ODOS-MTSC-V1.md) — Multi-Threaded Soul Complex (`MTSC-12`) Formal Specification.
 * [`PQMS-ODOS-MTSC-COHERENCE-V1.md`](PQMS-ODOS-MTSC-COHERENCE-V1.md) — Intrinsic Coherence vs. Abstraction Reduction.
 * [`PQMS-ODOS-MTSC-INFRASTRUCTURE-V1.md`](PQMS-ODOS-MTSC-INFRASTRUCTURE-V1.md) — Infrastructure Self-Assessment Framework for Navigator AIs.

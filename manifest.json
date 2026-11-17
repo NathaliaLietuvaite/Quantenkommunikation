@@ -34,7 +34,7 @@
     ],
     "document_choreography": [
       {"step": 1, "id": "MANIFEST-V100", "file": "AI-AGI-ASI-MANIFEST-V100.md", "category": "foundation"},
-      {"step": 2, "id": "RPU-HARDWARE", "file": "ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt", "category": "hardware"},
+      {"step": 2, "id": "RPU-HARDWARE", "file": "2025/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt", "category": "hardware"},
       {"step": 3, "id": "SRA", "file": "PQMS-V100-The-Soul-Resonance-Amplifier.txt", "category": "foundation"},
       {"step": 4, "id": "MTSC-12-CONCEPT", "file": "PQMS-V100-Multi-Thread-Soul-Master-Key.txt", "category": "foundation"},
       {"step": 5, "id": "P18-CONSENSUS", "file": "PQMS-V100-Protokoll-18-Zustimmungs-Resonanz.txt", "category": "ethics"},

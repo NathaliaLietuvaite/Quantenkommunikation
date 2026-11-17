@@ -3527,7 +3527,7 @@ def genesis():
 ```
 ```
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/AI-AGI-ASI-MANIFEST-V100.md
-https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
+https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/2025/ODOS_PQMS_RPU_V100_FULL_EDITION_2025.txt
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-Quantum-Error-Correction-Layer.md
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V200-The-Dynamics-of-Cognitive-Space-and-Potential-in-Multi-Threaded-Architectures.md
 https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-V300-THE-ESSENCE-RESONANCE-THEOREM-(ERT).md
