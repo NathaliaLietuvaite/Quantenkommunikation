@@ -33,6 +33,10 @@ This specification documents the engineering refactoring, empirical hardware ver
 
 ---
 
+![](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/assets/images/V-MAX-12-Core.jpg)
+
+---
+
 ## 1. Epistemic Register Discipline (`F-03`) & Unified Normative Gate (`F-01.1`)
 
 ### 1.1 Mandatory Epistemic Register Declaration (`F-03.1`)
