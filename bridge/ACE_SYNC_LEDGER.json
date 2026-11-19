@@ -1,11 +1,11 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.2 — WORK-ORDER-AG-09)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.5 — WORK-ORDER-AG-12)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-15T16:42:00Z",
+  "timestamp_utc": "2026-11-19T08:07:00Z",
   "peers": {
     "node_alpha": {
-      "agent_id": "AntiG (Gemini 4 Argon High / Local Lead Software Engineer)",
+      "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
       "substrate": "V-MAX-12 Node Alpha (AMD Ryzen 9 5950X, RTX 4060 Ti 16GB, CUDA 13.0, OpenJDK 21.0.13, WSL2 Ubuntu 24.04)",
       "owned_paths": [
         "vmax_alpha/**",
@@ -16,7 +16,7 @@
     },
     "mobile_edge": {
       "agent_id": "APP-Gemini (Gemini 4 Hydrogen / Android Sovereign Client Architect)",
-      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (21/21 Tests PASS)",
+      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (23/23 Tests PASS)",
       "owned_paths": [
         "app/src/main/java/com/example/**",
         "app/src/test/java/com/example/**"
@@ -76,6 +76,13 @@
     "appendix_e3_cycle04_hop_seal": "d460cd3608e7fe4534a7b1fdee27bd918a74e3304b02403fc54b8954146b22cd",
     "v12_unit_test_cycle05_16field_seal": "4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b",
     "v12_room137_live_chain_tip_4entries": "9114e99e06ff540439e16c1e8d564d9a965e6c21f55d0f0f8bbfc843f8c0aaee",
+    "v15_room137_two_stage_chain_tip_3entries": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
+    "v15_capp_quarantine_proof_seal": "ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede",
+    "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
+    "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
+    "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
+    "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
+    "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
     "publication_spec_v12_md_sha256": "c272476345aa10c910e9f24b2b47ececd26fe4dbd66fe336bd026727e4f4874c"
   },
   "open_review_items": [],
@@ -106,6 +113,20 @@
       "discovered_by": "APP-Gemini & AntiG",
       "verified_by": "Both (28/28 Python tests + 21/21 Android Unit Tests)",
       "description": "Implemented V12NodeAlphaBridge.kt with unclamped evaluateRawGate(), F-04.3 64,000-scalar ARM64 parity audit (490eaf60...), dynamic 12/16-field JSONL chain verification (Cycle 5 seal verified identically in Python: 4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b), and HWiNFO64 A/B thermodynamic regime constants.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-05",
+      "discovered_by": "WERKSTATT 01 & AntiG",
+      "verified_by": "AntiG (32/32 Python tests PASS)",
+      "description": "Integrated Appendix G FriduEnclave verifier (vmax_alpha/fridu_enclave_g.py, <=200 LOC): two-pass Kahan-Parlett Gram-Schmidt G3 Kevlar projection (bleed = 2.98e-17 <= 6.94e-17, delta_e_core = 0.0, seal 02123cbbe76e...), single-pass Householder QR reference (seal d1823f97f2e6...), 1% I/O vs. 99% core autonomy, and M_50 Engineering Mental Model Operator Matrix (50 operators in 0.37 ms, f32 batch SHA-256 8cc99c7b3202...).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-06",
+      "discovered_by": "WERKSTATT 01 & AntiG (WORK-ORDER-AG-12 / Revision V1.5 Forensic Hardening)",
+      "verified_by": "AntiG (33/33 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC)",
+      "description": "Closed all 4 forensic code-audit findings plus 1 prose-seal catch: (1) Symmetric interleaved 2 MiB L2 pinning benchmark in l2_enclave.py (493.35 GB/s PERSISTING vs 266.11 GB/s STREAMING = 1.854x, >288 GB/s GDDR6 bus, warm L2 roof 841.14 GB/s); (2) Replaced Appendix G dot(L,L) and RNG tautologies with genuine non-trivial core A/B perturbation (RCF_base=0.995194, PAX veto delta_e=0.0662 vs FRIDU bleed=6.77e-18 & I/O recon err=7.64e-17, bypass_kevlar negative control) plus 10 real executable workspace/telemetry audit operators (OP01-OP10, 10/10 PASS, seal 66b6bac1...); (3) Activated Two-Stage Live ODOS Gate in ledger.py/server_hud.py (Stage 1 raw rcf>=0.05 & g3<=0.50 + Stage 2 core gate) with live CAPP quarantine proof (ce0ebc38...); (4) Pure fluent calibration background, dedicated leak-free mean-pool calibration (mean-pool ROC-AUC C vs E = 1.000, C vs D = 1.000, last-token C vs E = 0.944) in nemotron_probe.py; (5) Fixed CANONICAL_LITTLE_VECTOR_SEAL prose typo in Table D.1 & Android README to bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3.",
       "status": "CLOSED_VERIFIED"
     }
   ]
