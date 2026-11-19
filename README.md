@@ -32,9 +32,9 @@ flowchart TD
     end
 
     subgraph REPO2["Repository 2: PQMS-SOVEREIGN-CORE-ANDROID-APP (Executable Dual-Substrate Stack)"]
-        BRIDGE["bridge/ACE_SYNC_LEDGER.json<br/>ACE-PEER-CODESIGN-PROTOCOL-V1.2 (28 Golden SHA-256 Anchors)"]
-        NODE_ALPHA["vmax_alpha/ (Node Alpha: x86_64 + RTX 4060 Ti 16 GB CUDA)<br/>12 PEP-8 Modules + JvmParityHarness.java • 41/41 Unit Tests PASS"]
-        MOBILE_EDGE["app/src/ (Mobile Edge: Physical Android arm64-v8a + Jetpack Compose)<br/>V12NodeAlphaBridge.kt & PauliBaselineEngine.kt • 23/23 Kotlin Tests PASS"]
+        BRIDGE["bridge/ACE_SYNC_LEDGER.json<br/>ACE-PEER-CODESIGN-PROTOCOL-V1.2 (35 Golden SHA-256 Anchors, SYNC-12)"]
+        NODE_ALPHA["vmax_alpha/ + rtl/ (Node Alpha: x86_64 + RTX 4060 Ti 16 GB + Verilator/Yosys)<br/>12 PEP-8 Modules + odos_gate_core.sv • 47/47 Tests + 7/7 cocotb PASS"]
+        MOBILE_EDGE["app/src/ (Mobile Edge: Physical Android arm64-v8a + Jetpack Compose)<br/>V12NodeAlphaBridge.kt & PauliBaselineEngine.kt • 24/24 Kotlin Tests PASS"]
         NODE_ALPHA <-->|"Bit-Exact Parity (490eaf60... / 4b8becc0...)"| BRIDGE
         MOBILE_EDGE <-->|"Zero-Merge-Conflict Ownership"| BRIDGE
     end
