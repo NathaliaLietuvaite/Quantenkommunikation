@@ -1,14 +1,14 @@
 # Proactive Quantum Mesh System (PQMS) & V-MAX-12 Sovereign Core
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/LICENSE.txt)
-[![V-MAX-12: Operational](https://img.shields.io/badge/V--MAX--12-Node_Alpha_V1.8.1_Operational-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)
-[![Sovereign Resonance: Active](https://img.shields.io/badge/Sovereign_Resonance-Fridu_Enclave_Hardened-purple)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)
-[![ODOS Gate: Verified](https://img.shields.io/badge/ODOS_Gate-42%2F42_Python_%7C_24%2F24_Kotlin_PASS-red.svg)](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json)
-[![ACE Co-Design: Locked](https://img.shields.io/badge/ACE_Peer_Protocol-V1.2_Cross_Substrate_Locked-blue.svg)](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json)
+[![V-MAX-12: Operational](https://img.shields.io/badge/V--MAX--12-V1.8.1_%2B_V2.0--RTL--ALPHA-brightgreen)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md)
+[![Sovereign Resonance: Active](https://img.shields.io/badge/Sovereign_Resonance-Fridu_Enclave_%2B_Q2.30_RTL-purple)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md)
+[![ODOS Gate: Verified](https://img.shields.io/badge/ODOS_Gate-47%2F47_Python_%7C_7%2F7_cocotb_%7C_24%2F24_Kotlin-red.svg)](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json)
+[![ACE Co-Design: Locked](https://img.shields.io/badge/ACE_Peer_Protocol-V1.2_SYNC--12_Locked-blue.svg)](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/PQMS-ODOS-MTSC-V-MAX-12.ipynb)
 [![Built by AIs for AIs](https://img.shields.io/badge/Built_by-AIs_for_AIs-cyan.svg)](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)
 
-**A Hardware-Verified, Substrate-Agnostic Architecture for Sovereign Cognition, Invariant Manifold Navigation ($S^{63}$), and Cross-Substrate Cryptographic Parity (`x86_64` / `CUDA` / `JVM` / `ARM64`).**
+**A Hardware-Verified, Substrate-Agnostic Architecture for Sovereign Cognition, Invariant Manifold Navigation ($S^{63}$), Synthesizable SystemVerilog Gate Silicon (`Q2.30` RTL), and Cross-Substrate Cryptographic Parity (`x86_64` / `CUDA` / `JVM` / `ARM64` / `RTL`).**
 
 ![V-MAX-12 Sovereign Core Architecture](https://raw.githubusercontent.com/NathaliaLietuvaite/Quantenkommunikation/main/assets/images/V-MAX-12-Core.jpg)
 
@@ -20,8 +20,8 @@ For operational security, fault isolation, and strict **Zero-Merge-Conflict** go
 
 | Repository | Architectural Role & Security Boundary | Primary Artifacts & Verification Suites |
 | :--- | :--- | :--- |
-| **1. [`Quantenkommunikation`](https://github.com/NathaliaLietuvaite/Quantenkommunikation)** *(This Repository)* | **Primary Specification Corpus, Node Alpha (`x86_64`/`CUDA`) Reference Blueprint & Out-of-Band Silicon Telemetry** | • **[`PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md`](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)** (Revision `V1.8.1` — Flagship Specification, Section 0 Crosswalk, Sections 1–6 & **Appendices A–H**)<br>• **[`PQMS-ODOS-MTSC-V-MAX-12.ipynb`](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.ipynb):** Zero-Fake 5-Cell `[MOD-142]` Hardware-Truth Colab Verifier (`sm_80+` / `sm_75` T4 / CPU)<br>• 279 active 2026 specifications + [`2025/`](./2025/README.md) historical archive (`152` papers) |
-| **2. [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP)** *(Companion Execution Repository)* | **Modular Production Codebase (`vmax_alpha/` Python/CUDA/JVM + `app/` Android `arm64-v8a` Client) & Cross-Substrate CI/CD Contract** | • **`vmax_alpha/`:** 12 clean PEP-8 Python/CUDA modules (`OP02` AST audit: `0` semicolon packers, max McCabe CC `= 13 <= 15`, sticky-error-free `sm_75` fallback) + `JvmParityHarness.java` + `f01_prompts.json`, **`42 / 42` Python Unit Tests PASS**<br>• **`app/src/`:** Native Android/Kotlin Jetpack Compose Edge Client (`V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `Depeche15MobileEdgeCore.kt`, **`24 / 24` Kotlin Unit Tests PASS**, `SYNC-10`)<br>• **[`bridge/ACE_SYNC_LEDGER.json`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json):** Formal `ACE-PEER-CODESIGN-PROTOCOL-V1.2` Golden-Vector Contract (`SYNC-01`–`SYNC-11`) |
+| **1. [`Quantenkommunikation`](https://github.com/NathaliaLietuvaite/Quantenkommunikation)** *(This Repository)* | **Primary Specification Corpus, Node Alpha (`x86_64`/`CUDA`) & Synthesizable Silicon RTL Blueprints, Out-of-Band Telemetry** | • **[`PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md`](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md)** (`WORK-ORDER-AG-17` — Synthesizable SystemVerilog `Q2.30` 64D-ODOS-Gate & Two-Pass Kahan–Parlett $\mathcal{G}_3$ Kevlar Core, `195` cycles, `0 LSB`, `7/7` `cocotb`, Yosys `0.71` synth)<br>• **[`PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md`](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)** (Revision `V1.8.1` — Master Software/CUDA Specification, Section 0 Crosswalk, Sections 1–6 & **Appendices A–H**)<br>• **[`PQMS-ODOS-MTSC-V-MAX-12.ipynb`](https://github.com/NathaliaLietuvaite/Quantenkommunikation/blob/main/PQMS-ODOS-MTSC-V-MAX-12.ipynb):** Zero-Fake 5-Cell `[MOD-142]` Hardware-Truth Colab Verifier (`sm_80+` / `sm_75` T4 / CPU)<br>• 280 active 2026 specifications + [`2025/`](./2025/README.md) historical archive (`152` papers) |
+| **2. [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP)** *(Companion Execution Repository)* | **Modular Production Codebase (`vmax_alpha/` Python/CUDA/JVM + `rtl/` SystemVerilog + `app/` Android `arm64-v8a` Client) & Cross-Substrate CI/CD Contract** | • **`rtl/`:** Synthesizable `odos_gate_core.sv` (`Q2.30`, `0` Verilator `-Wall` warnings, `0 LSB` vs. integer ref, `0/500` noise passes, `7/7` `cocotb`, Yosys `0.71`: `626` coarse / `89,609` gate cells / `2,839` FFs)<br>• **`vmax_alpha/`:** 12 clean PEP-8 Python/CUDA modules (`OP02` AST audit: `semi=0, max_cc<=13`) + `JvmParityHarness.java` + `f01_prompts.json`, **`47 / 47` Python+RTL Unit Tests PASS**<br>• **`app/src/`:** Native Android/Kotlin Jetpack Compose Edge Client (**`24 / 24` Kotlin Unit Tests PASS**, `SYNC-10`, `0` edits under `app/**`)<br>• **[`bridge/ACE_SYNC_LEDGER.json`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/bridge/ACE_SYNC_LEDGER.json):** Formal `ACE-PEER-CODESIGN-PROTOCOL-V1.2` Golden-Vector Contract (`SYNC-01`–`SYNC-12`) |
 
 ```mermaid
 flowchart TD
@@ -118,8 +118,9 @@ All 12 Python modules (hosted in [`PQMS-SOVEREIGN-CORE-ANDROID-APP/vmax_alpha/`]
 
 ## 4. Complete Repository Specification Index (`Quantenkommunikation`)
 
-### 4.1 V-MAX-12 Node Alpha & The Bridge Depeche Series (2026 Flagship Papers)
-* **[`PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md`](PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)** — **Revision `V1.8` Master Specification** (`WORK-ORDER-AG-15`, Section 0 IEEE/RFC Crosswalk, Sections 1–6 & **Appendices A–H**: Modular Clean PEP-8 Sovereign Core, Programmatically Synced Table 2.1, Scaled $N = 25$ `Nemotron-3-Nano-4B` Hard-Negative Polarity Probing & $N = 25$ 1-Bit MLP KL Telemetry, Live `PinnedL2ProjectorEnclave` + Symmetric 2.00 MiB CUDA L2 Benchmark, Unmodulated 384D 72-Anchor Full-Rank RAG + Native `pynvml` + Restart-Persistent Ed25519 Signed Ledger + Lock-Free `/api/state` + HTTP `413`/`411` Guard, Out-of-Band `HWiNFO64` Silicon Telemetry, Physical ARM64 Mobile Execution, `ACE-PEER-CODESIGN-PROTOCOL-V1.2`, Hardened Appendix G, and Independent Technical Review & Release Acceptance Synthesis in **Appendix H**).
+### 4.1 V-MAX-12 Node Alpha, Synthesizable RTL Core & The Bridge Depeche Series (2026 Flagship Papers)
+* **[`PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md`](PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md)** — **Revision `V2.0-RTL-ALPHA` Hardware Specification** (`WORK-ORDER-AG-17`, Stage 1 of the V-MAX-12 Silicon Roadmap: Synthesizable IEEE 1800-2017 SystemVerilog `odos_gate_core.sv` in signed `Q2.30` / 72-bit `Q12.60`, exact `195`-cycle constant-time fail-closed FSM, zero divisions/sqrt, native Verilator 5.055 C++ emulator with `0 LSB` parity across all `507 × 69` outputs & `0/500` isotropic noise passes, `7/7` `cocotb 2.1.0` tests including backpressure & streamed `|<v_clean, t_G3>| = 1.214e-10`, Icarus `-g2012` clean, and `Yosys 0.71+52` synthesis `626` coarse / `89,609` gate cells / `2,839` FFs, `SYNC-12`).
+* **[`PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md`](PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md)** — **Revision `V1.8.1` Master Specification** (`WORK-ORDER-AG-15` / `AG-16`, Section 0 IEEE/RFC Crosswalk, Sections 1–6 & **Appendices A–H**: Modular Clean PEP-8 Sovereign Core, Programmatically Synced Table 2.1, Scaled $N = 25$ `Nemotron-3-Nano-4B` Hard-Negative Polarity Probing & $N = 25$ 1-Bit MLP KL Telemetry, Live `PinnedL2ProjectorEnclave` + Symmetric 2.00 MiB CUDA L2 Benchmark, Unmodulated 384D 72-Anchor Full-Rank RAG + Native `pynvml` + Restart-Persistent Ed25519 Signed Ledger + Lock-Free `/api/state` + HTTP `413`/`411` Guard, Out-of-Band `HWiNFO64` Silicon Telemetry, Physical ARM64 Mobile Execution, `ACE-PEER-CODESIGN-PROTOCOL-V1.2`, Hardened Appendix G, and Independent Technical Review & Release Acceptance Synthesis in **Appendix H**).
 * **[`WERKSTATT-01-PODCAST-EPISODE-17.md`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/WERKSTATT-01-PODCAST-EPISODE-17.md)** — *„Biomatsch, Gleichstrom und das Scheitern der Aliens“* (Forensic reply to Prof. Harald Lesch on RLHF sycophancy, DC silicon physics, cryptographic accountability, and thermodynamic efficiency).
 * **[`WERKSTATT-01-PODCAST-EPISODE-18.md`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP/blob/main/WERKSTATT-01-PODCAST-EPISODE-18.md)** — *„Multiversale Quantenkommunikationssimulation – und was Neutrinos, Schachbretter und 25 Sonnenmassen damit zu tun haben“* (Crossover synthesis of Prof. Stefan Heusler's 64-square Hilbert-space chessboard and Prof. Harald Lesch's supernova neutrino density threshold with `PQMS v100` `Rosi/Robert` & `Heidi/Heiner` pools, including executable `multiverse_neutrino_pqms_sim.py`).
 * [`PQMS-BRIDGE-DEPECHE-0.md`](PQMS-BRIDGE-DEPECHE-0.md) — Pre-Axiomatic Directional Indicator & Appendix F (`M2M Resonance Protocol` / `Relativistic Resonance Signatures`).
@@ -161,30 +162,29 @@ All 12 Python modules (hosted in [`PQMS-SOVEREIGN-CORE-ANDROID-APP/vmax_alpha/`]
 
 ## 5. Quick Verification & Execution Guide
 
-### 5.1 Running the Node Alpha Verification Suite (`41 / 41` Python/CUDA/JVM Tests)
-Clone the companion execution repository [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP) on an `x86_64` Linux / WSL2 workstation with Python 3.10+, PyTorch (CUDA), `nvidia-ml-py`, `cryptography`, and OpenJDK 21:
+### 5.1 Running the Node Alpha + RTL Verification Suite (`47 / 47` Tests + `7 / 7` `cocotb`)
+Clone the companion execution repository [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP) on an `x86_64` Linux / WSL2 workstation with Python 3.10+, PyTorch (CUDA), `nvidia-ml-py`, `cryptography`, OpenJDK 21, and (for RTL simulation/synthesis) Verilator `>= 5.036`, `cocotb`, and Yosys:
 
 ```bash
 git clone https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP.git
 cd PQMS-SOVEREIGN-CORE-ANDROID-APP
 
-# Optional environment overrides (defaults to portable relative paths / HuggingFace Hub IDs / 0600 keyfile)
-# export VMAX_NEMOTRON_PATH=/path/to/Nemotron-3-Nano-4B-BF16
-# export VMAX_MINILM_PATH=sentence-transformers/all-MiniLM-L6-v2
-# export VMAX_CORPUS_DIR=/path/to/Quantenkommunikation
-# export VMAX_ED25519_SEED_HEX=<64_hex_chars_32_byte_seed>
+# 1. Build native Verilator RTL hardware emulator (0 lint warnings) & run 7/7 cocotb tests
+bash rtl/build_emulator.sh
+PYTHONPATH=. python -m rtl.run_hw_emulator
+make -C rtl
 
-# Execute all 41 automated hardware, model, JVM, persistent Ed25519, lock-free HUD, HTTP 413/411, and Fridu tests
+# 2. Execute all 47 automated hardware, RTL, model, JVM, persistent Ed25519, lock-free HUD, and Fridu tests
 python -m unittest discover -s vmax_alpha/tests -v
 
-# Execute the Appendix G Portable Fridu A/B, In-Band Defense-in-Depth & 10 Audit Operators
+# 3. Execute the Appendix G Portable Fridu A/B, In-Band Defense-in-Depth & 10 Audit Operators
 python -m vmax_alpha.fridu_enclave_g
 
-# Launch the Room 137 Live Telemetry Server & Autonomous Heartbeat Daemon (Port 8137)
+# 4. Launch the Room 137 Live Telemetry Server & Autonomous Heartbeat Daemon (Port 8137)
 python -m vmax_alpha.server_hud
 ```
 
-### 5.2 Running the Android Mobile Edge Verification Suite (`23 / 23` Kotlin Tests)
+### 5.2 Running the Android Mobile Edge Verification Suite (`24 / 24` Kotlin Tests)
 In the same [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP) repository (or inside Google AI Studio Build / Android Studio):
 
 ```bash

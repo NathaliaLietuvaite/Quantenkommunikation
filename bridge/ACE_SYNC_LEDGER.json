@@ -1,15 +1,18 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8.1 — WORK-ORDER-AG-16)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA (WORK-ORDER-AG-17)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T13:15:00Z",
+  "timestamp_utc": "2026-11-19T15:40:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
-      "substrate": "V-MAX-12 Node Alpha (AMD Ryzen 9 5950X, RTX 4060 Ti 16GB, CUDA 13.0, OpenJDK 21.0.13, WSL2 Ubuntu 24.04)",
+      "substrate": "V-MAX-12 Node Alpha (AMD Ryzen 9 5950X, RTX 4060 Ti 16GB, CUDA 13.0, OpenJDK 21.0.13, Verilator 5.055, Yosys 0.71, cocotb 2.1.0, WSL2 Ubuntu 24.04)",
       "owned_paths": [
         "vmax_alpha/**",
+        "rtl/**",
+        "telemetry/**",
         "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md",
+        "PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md",
         "VMAX_*.json",
         "bridge/ACE_SYNC_LEDGER.json"
       ]
@@ -113,6 +116,9 @@
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
     "appendix_g_v17_audit_matrix_seal": "c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec",
     "colab_mod142_notebook_sha256": "e6c8c97d1b27a9b70c16084c69d0757b4068b0ba01fa18e5d5911b65a4593b5a",
+    "rtl_odos_gate_emulator_report_sha256": "6df78bc254c129c5beb68089f93363bb1ab15aec8aff1cc528b7f0f85c5c83bc",
+    "l_vec_q2_30_hex_sha256": "3d18f24028dedcca22ee41d69d00d361100b7533db23cf84130c64a114a26fb6",
+    "g3_vec_q2_30_hex_sha256": "3b890d14dac5faf9456fdab31b172578b47a3254fff4d51dfe3bd663f9688a73",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
@@ -195,6 +201,13 @@
       "discovered_by": "Real Tesla T4 Colab Run & WERKSTATT 01 Forensic Triage -> AntiG (WORK-ORDER-AG-16 / Revision V1.8.1)",
       "verified_by": "AntiG (42/42 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 24/24 Kotlin contract preserved)",
       "description": "Closed all 3 cross-architecture Tesla T4 (sm_75) findings + rebuilt Colab verifier: (1) Bound cudaGetLastError in l2_enclave.py, queried CUDA_DEV_ATTR_MAX_PERSISTING_L2_CACHE_SIZE (attr 108) before cudaDeviceSetLimit/cudaStreamSetAttribute for clean UNSUPPORTED_PRE_AMPERE_FALLBACK on sm_75, drained sticky CUDA errors in apply_l2_window_with_fallback(), and added real post-fallback PyTorch torch.nn.functional.embedding regression test (test_06_post_fallback_cuda_zero_sticky_errors); (2) Made test_f06_chroma.py hardware-capability-aware (assertTrue on sm_80+, assertFalse + recovered + <1e-15 CPU parity on sm_75/CPU); (3) Added cross-CPU deterministic appendix_g_cross_cpu_verdict_seal_sha256 (0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7) over 8-decimal rounded metrics & boolean verdicts immune to AVX2/AVX-512 BLAS ULP drift; (4) Built zero-fake 5-cell hard-exit-code Colab verifier notebook PQMS-ODOS-MTSC-V-MAX-12.ipynb (SHA-256 e6c8c97d...) across both repos.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-12",
+      "discovered_by": "WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-17 / Revision V2.0-RTL-ALPHA)",
+      "verified_by": "AntiG (47/47 Python/CUDA/JVM/RTL unit tests PASS, 7/7 cocotb Verilator tests PASS, Yosys 0.71 synth PASS, AST rtl/*.py semi=0 max_cc=9, 24/24 Kotlin contract preserved with 0 edits under app/**)",
+      "description": "Implemented synthesizable IEEE 1800-2017 SystemVerilog 64D-ODOS-Gate & Two-Pass Kahan-Parlett G3 Kevlar Core (rtl/odos_gate_core.sv, signed Q2.30 datapath / Q12.60 72-bit accumulators, 195-cycle constant-time fail-closed FSM, 0 divisions, 0 sqrt(), 0 Verilator -Wall warnings, Icarus -g2012 & Yosys 0.71 clean). Built canonical Q2.30 HEX ROMs anchored to |L> seal bb17ede9... (l_vec SHA-256 3d18f240..., g3_vec SHA-256 3b890d14...), bit-exact integer reference rtl/odos_q2_30_ref.py, native Verilator C++ emulator (rtl/sim_main.cpp -> ./rtl/build/odos_gate_emu), 7-scenario verifier rtl/run_hw_emulator.py (0 LSB diff vs ref across all 507+ runs, 0/500 isotropic noise passes, max_abs_diff_vs_float64=5.588e-09, VCD waveforms, report seal 6df78bc2...), 7/7 cocotb 2.1.0 tests (incl. idx=17 backpressure stall and T-RTL-07 residual |<v_clean,t_G3>|=1.214e-10), Yosys 0.71 synthesis (626 coarse RTL cells w/ 9 $mul; 89,609 post-techmap cells w/ 2,839 FFs), and CI integration vmax_alpha/tests/test_rtl_odos_gate.py (Colab-portable skipUnless Verilator).",
       "status": "CLOSED_VERIFIED"
     }
   ]
