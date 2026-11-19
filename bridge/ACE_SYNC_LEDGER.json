@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8 — WORK-ORDER-AG-15)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8.1 — WORK-ORDER-AG-16)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T11:18:00Z",
+  "timestamp_utc": "2026-11-19T13:15:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -16,7 +16,7 @@
     },
     "mobile_edge": {
       "agent_id": "APP-Gemini (Gemini 4 Hydrogen / Android Sovereign Client Architect)",
-      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (23/23 Tests PASS)",
+      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (24/24 Tests PASS)",
       "owned_paths": [
         "app/src/main/java/com/example/**",
         "app/src/test/java/com/example/**"
@@ -109,8 +109,10 @@
     "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "f01_v17_n25_hardneg_prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
+    "appendix_g_cross_cpu_verdict_seal_sha256": "0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7",
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
     "appendix_g_v17_audit_matrix_seal": "c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec",
+    "colab_mod142_notebook_sha256": "e6c8c97d1b27a9b70c16084c69d0757b4068b0ba01fa18e5d5911b65a4593b5a",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
@@ -179,6 +181,20 @@
       "discovered_by": "Carbon Gemini Ultra V1.7 Forensic Counter-Audit -> AntiG (WORK-ORDER-AG-15 / Revision V1.8 Final Release Polish)",
       "verified_by": "AntiG (41/41 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 23/23 Kotlin contract intact)",
       "description": "Closed all 5 V1.7 forensic polish items: (1) Replaced hardcoded Section 2.1 table in build_publication_v1.py with programmatic __F01_TABLE__ generation directly from VMAX_F01_NEMOTRON_PROBE.json (synchronizing RCF_aniso B=0.560038, C=0.660063, E=0.398282, D=0.025366 and preventing prose-vs.-JSON drift permanently); (2) Implemented persistent Ed25519 keypair loading in ledger.py via VMAX_ED25519_SEED_HEX env-var or 0600 local keyfile (<ledger>.ed25519.key, .gitignore-protected), preserving signature validity across server restarts without --reset (test_07); (3) Expanded chroma_forager.py corpus-invariant calibration to 72 linearly independent anchors (36 physics + 36 everyday -> 64/64 empirical SVD axes, random_pad_axes=0, full_rank_empirical_64d_basis=True) and documented exact empirical/complement axis count in nemotron_probe.py (29 SVD + 34 complement); (4) Implemented lock-free atomic _state_snapshot for non-blocking GET /api/state during GPU inference plus explicit HTTP 411 rejection of Transfer-Encoding: chunked in server_hud.py (test_08); (5) Removed redundant duplicate key condition_a2_off_principal_0042pct from klavierstunde_kl.py and VMAX_STAGE3_REAL_KL_REPORT.json.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-10",
+      "discovered_by": "AntiG V1.8 Briefing -> APP-Gemini (Mobile Edge Commit eca1f7c)",
+      "verified_by": "APP-Gemini (24/24 Android/Kotlin Unit Tests PASS, app/** only, zero merge conflicts)",
+      "description": "Upgraded Android Mobile Edge client (PauliBaselineEngine.kt, V12NodeAlphaBridge.kt, NavigationDashboard.kt, MainActivity.kt, ExampleUnitTest.kt) to V1.8 telemetry parity: parses ed25519_signatures_verified, ed25519_public_key_hex, ed25519_key_source, pinned_cuda_l2_live_projector_active, lock_free_state_snapshot_active, and unmodulated_384d_semantic_retrieval with defensive defaults; verifies V1.8 golden chain tip & CAPP quarantine seals and 16+1=17 schema keys in testAceSyncLedgerContractParity; adds buildFixedLengthPromptPayload() enforcing 64 KiB fixed-length POST bodies (testRoom137ServerHudV18HardenedPayloadAndPostGuard).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-11",
+      "discovered_by": "Real Tesla T4 Colab Run & WERKSTATT 01 Forensic Triage -> AntiG (WORK-ORDER-AG-16 / Revision V1.8.1)",
+      "verified_by": "AntiG (42/42 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 24/24 Kotlin contract preserved)",
+      "description": "Closed all 3 cross-architecture Tesla T4 (sm_75) findings + rebuilt Colab verifier: (1) Bound cudaGetLastError in l2_enclave.py, queried CUDA_DEV_ATTR_MAX_PERSISTING_L2_CACHE_SIZE (attr 108) before cudaDeviceSetLimit/cudaStreamSetAttribute for clean UNSUPPORTED_PRE_AMPERE_FALLBACK on sm_75, drained sticky CUDA errors in apply_l2_window_with_fallback(), and added real post-fallback PyTorch torch.nn.functional.embedding regression test (test_06_post_fallback_cuda_zero_sticky_errors); (2) Made test_f06_chroma.py hardware-capability-aware (assertTrue on sm_80+, assertFalse + recovered + <1e-15 CPU parity on sm_75/CPU); (3) Added cross-CPU deterministic appendix_g_cross_cpu_verdict_seal_sha256 (0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7) over 8-decimal rounded metrics & boolean verdicts immune to AVX2/AVX-512 BLAS ULP drift; (4) Built zero-fake 5-cell hard-exit-code Colab verifier notebook PQMS-ODOS-MTSC-V-MAX-12.ipynb (SHA-256 e6c8c97d...) across both repos.",
       "status": "CLOSED_VERIFIED"
     }
   ]

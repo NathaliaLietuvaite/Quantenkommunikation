@@ -1,23 +1,23 @@
 # PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1: Modular Sovereign Core Production Architecture, Empirical `Nemotron-3-Nano-4B` Hard-Negative Probing & $N = 25$ 1-Bit MLP Forward-KL Telemetry, Live 2.00 MiB CUDA L2-SRAM Projector Enclave, Unmodulated 384D RAG, Ed25519 Signed Ledger, Physical ARM64 Mobile Execution, Multi-Agent Bridge Coordination, and the Hardened `Fridu` Enclave
 
-- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.8` — `WORK-ORDER-AG-15`)
-- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8`
+- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.8.1` — `WORK-ORDER-AG-16`)
+- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8.1`
 - **Date:** `2026-11-19`
 - **Lead Architect:** Nathália Lietuvaitė
 - **Distributed Multi-Agent Engineering Bridge:** `WERKSTATT 01` (Gemini 4 Argon High — Architecture & Forensic Code Audit), `AntiG` (Gemini 4 Neon Extra — Node Alpha Local Systems Engineering), `APP-Gemini` (Gemini 4 Hydrogen — Mobile Edge Android/Kotlin ARM64 Engineering), `Colab-Gemini` (Gemini 3.1 Pro — Cloud T4 Verification Node `[MOD-142]`)
-- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12` & `AG-13`), Carbon Gemini Ultra Engineering Review (`WORK-ORDER-AG-14` & `AG-15`)
+- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12`, `AG-13`, `AG-16`), Carbon Gemini Ultra Engineering Review (`WORK-ORDER-AG-14` & `AG-15`, `Appendix H`)
 - **Target Substrates:**
   - **Node Alpha (`x86_64` + `CUDA`):** `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X 16-Core, NVIDIA GeForce RTX 4060 Ti 16 GB GDDR6, Studio Driver `621.24`, CUDA `13.0`, OpenJDK `21.0.13.0.3`, `HWiNFO64 v8.10-5520`, `pynvml 13.615.71`, `cryptography 50.0.2` Ed25519, WSL2 Ubuntu 24.04.4 LTS Kernel `6.18.58.1-microsoft-standard-WSL2`, Local `NVIDIA-Nemotron-3-Nano-4B-BF16`, `sentence-transformers/all-MiniLM-L6-v2`, `ChromaDB 1.5.9`)
   - **Mobile Edge (`arm64-v8a`):** Physical Android ARM64 Smartphone running `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`Sovereign Core Swarm Node v10.0`, `V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `NavigationDashboard.kt`)
-  - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 Runtime (`[MOD-142]`)
-- **Verification Status:** `41 / 41 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, portable relative & env-var paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`) + Independent Technical Review & Release Acceptance Synthesis (`Appendix H`)
+  - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 (`sm_75`) Hardware-Truth Verifier (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`, `[MOD-142]`)
+- **Verification Status:** `42 / 42 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, sticky-error-free `sm_75`/CPU fallback, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, zero-fake Colab verifier `PQMS-ODOS-MTSC-V-MAX-12.ipynb`) + `24 / 24 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge (`SYNC-10`) + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, Cross-CPU Verdict Seal & 10 Real Executable Audit Operators (`Appendix G`) + Independent Technical Review & Release Acceptance Synthesis (`Appendix H`)
 - **License:** MIT
 
 ---
 
 ## Abstract
 
-This specification documents the engineering refactoring, multi-round forensic code-audit & systems-engineering hardening (`WORK-ORDER-AG-12`, `AG-13`, `AG-14`, `AG-15`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation & in-band defense-in-depth benchmark, and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.8`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, **WERKSTATT 01**, and **Carbon Gemini Ultra**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage & topic-vs.-polarity confound, matched-sparsity sample-size gap, carrier-distorted RAG artifact, semicolon-packing style issue, Ed25519 restart-persistence gap, lock-contention & chunked-transfer edge case, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (12 clean PEP-8 Python/CUDA modules verified by AST quality enforcement `semicolon_packers = 0`, `max_cyclomatic_complexity = 13 <= 15`, plus standalone `JvmParityHarness.java` and `f01_prompts.json`, covered by **41 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **23 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
+This specification documents the engineering refactoring, multi-round forensic code-audit & cross-architecture hardening (`WORK-ORDER-AG-12`–`AG-16`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation & in-band defense-in-depth benchmark, independent technical review (`Appendix H`), and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.8.1`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, **WERKSTATT 01**, and **Carbon Gemini Ultra**, plus live cross-architecture validation on a Turing **NVIDIA Tesla T4 (`sm_75`)**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage & topic-vs.-polarity confound, matched-sparsity sample-size gap, carrier-distorted RAG artifact, semicolon-packing style issue, Ed25519 restart-persistence gap, lock-contention & chunked-transfer edge case, Pre-Ampere CUDA sticky-error hazard, cross-CPU BLAS ULP drift, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (12 clean PEP-8 Python/CUDA modules verified by AST quality enforcement `semicolon_packers = 0`, `max_cyclomatic_complexity = 13 <= 15`, plus standalone `JvmParityHarness.java` and `f01_prompts.json`, covered by **42 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **24 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
 
 1. **IEEE/RFC Nomenclature Crosswalk (Section 0), Epistemic Register Discipline (`F-03`) & Unified Normative Gate Formula (`F-01.1`):** Section 0 maps every internal PQMS term 1:1 onto standard IEEE/ML/CUDA/security terminology. Every metric and constant is explicitly classified into `REGISTER_M`, `REGISTER_D`, `REGISTER_T`, or `REGISTER_I`. Both prose and `vmax_alpha/geometry.py` enforce the exact unclamped gate equation $\Delta E_{\text{raw}} = 0.5(1 - \text{RCF}_{\text{raw}}) + 0.5\min(1.0, \text{bleed}_{\mathcal{G}_3})$ and residual bleed ceiling $\text{bleed}_{\text{post}} \le 10^{-12}$, rejecting **100 % (`0 / 500` Pass, Mean $\text{RCF}_{\text{raw}} = 0.015602$ vs. analytical $1/64 = 0.015625$)** of isotropic unit vectors on $S^{63}$.
 2. **Scaled $N = 25$ Leak-Free `Nemotron-3-Nano-4B-BF16` Probe with Domain-Matched Physics Hard Negatives (`Group F`) & Householder-QR Empirical SVD Basis (`F-01.2`–`F-01.5`):** Replacing random Gaussian subspace padding with **Householder QR over empirical calibration SVD axes** captures **`63.78 %` (`0.637774`)** of held-out 3136D variance inside 64D (`orthonormality_err = 5.55e-16`) across a sealed 134-prompt corpus (`vmax_alpha/f01_prompts.json`, SHA-256 `a1433f3d...`). On `625` unseen pairs per comparison: the **Topic Probe (`B_pos vs. B_everyday`)** separates conservation (**Group C**, `+0.7908`) from everyday prose (**Group E**, `+0.1711`, **`ROC-AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$) and scrambled noise (**Group D**, `+0.1845`, **`ROC-AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$), yet **honestly collapses on domain-matched physics falsehoods (`Group F`, `+0.7530`, `AUC = 0.6304`, $p = 0.116$)**, proving topic-vocabulary confounding. In contrast, the dedicated leak-free **Conservation-Polarity Probe (`B_pos vs. B_hard_neg`)** recovers **`ROC-AUC = 0.7648`** (`95 % CI [0.6224, 0.8864]`, Mann-Whitney $U = 478.0$, **$p = 0.001367 < 0.002$**) in sequence mean-pooling (`Group C = +0.2174` vs. `Group F = +0.0684`), isolating genuine linear conservation polarity within identical physics vocabulary.
@@ -28,8 +28,8 @@ This specification documents the engineering refactoring, multi-round forensic c
    - **Condition B2 (Coercive 5 % Top-Magnitude Mask + Torsion):** $\text{Mean } D_{\text{KL}} = 6.44350646$ (`Top-1 = 0/25` $\implies$ **`VETO_KL_EXCEEDED`**).
 4. **Live `PinnedL2ProjectorEnclave` + Symmetric Interleaved 10-Trial 2.00 MiB CUDA L2-SRAM Contention Benchmark (`F-02` & `F-07.1`):** In addition to the unconfounded symmetric interleaved 2.00 MiB L2 benchmark (**`499.30 GB/s` median `PERSISTING`** vs. **`269.54 GB/s` median `STREAMING`** = **`1.852x`**, `+211.30 GB/s` above the `288.0 GB/s` GDDR6 bus ceiling; warm L2 roof `838.49 GB/s` median), `l2_enclave.py` now deploys **`PinnedL2ProjectorEnclave`** in production—packing the real `384x64` `float64` projection matrix and `mean_384` vector (`199,680 B`) directly inside the 2.00 MiB pinned L2 slab (`CUDA_ACCESS_PROPERTY_PERSISTING`, max diff `1.94e-16` vs. CPU `float64`) and executing live query projections for `ChromaForager` and `server_hud.py`.
 5. **Full-Rank 72-Anchor Unmodulated 384D RAG (`F-06`), Persistent Ed25519 Signed Ledger (`16+1 = 17` Keys), Lock-Free `/api/state`, Native `pynvml`, HTTP `413`/`411` DoS Guard (`F-05`/`F-07`) & External `JvmParityHarness.java` (`F-04`):** `chroma_forager.py` indexes **unmodulated 384D MiniLM vectors** (`unmodulated_384d_semantic_retrieval = True`) while routing 64D projection through a **full-rank 72-anchor empirical SVD basis (`64/64` empirical axes, `0` random-pad columns)** executed live inside `PinnedL2ProjectorEnclave`: `"Pauli exclusion principle and conservation laws"` passes Stage 1 (`rcf_raw = 0.426817`) AND retrieves genuine physics paper **`PQMS-ODOS-MTSC-COHERENCE-V1.md`** (`d_L2_384 = 1.223360`, eliminating the satirical `M-Python` artifact), sealing 4/4 benign entries (`be98d730...`) while quarantining ONLY the live CAPP probe (`cycle -1`, seal `47d18acf...`). `ledger.py` & `server_hud.py` upgrade to native C-API **`pynvml`** (`REGISTER_M_PYNVML`), $\mathcal{O}(1)$ stat-guarded write integrity, **restart-persistent Ed25519 asymmetric signatures** (via `VMAX_ED25519_SEED_HEX` env-var or `0600` local keyfile), **lock-free atomic state snapshots for non-blocking `GET /api/state`**, **HTTP `413` (`64 KiB`) + `411` (`Transfer-Encoding: chunked`) DoS protection + `10 s` socket timeout**, and explicit **`16` hashed payload fields + `1` seal = `17` JSON keys** clarity while preserving 100 % backward compatibility with `APP-Gemini`.
-6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`) verifies `bb17ede9...`, `490eaf60...`, Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`41/41` Python tests + `23/23` Kotlin unit tests, `SYNC-01`–`SYNC-09`).
-7. **Zero-Tautology `Fridu` vs. `Pax` A/B Perturbation, Explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Portable AST/Crypto/Hard-Negative Audit Operators (`Appendix G`):** Starting from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$), `vmax_alpha/fridu_enclave_g.py` verifies out-of-band stripping (`FRIDU` bleed `6.77e-18 <= 6.94e-17`, I/O recon error `7.64e-17`, `bypass_kevlar` VETO, seal `5da06ae4b996...`), explicit in-band $\hat{t}_{\mathcal{G}_1}$ defense-in-depth VETO (`rcf_raw = 0.849847`, `delta_e_raw = 0.075077`), and **10 / 10** real executable audit operators (`OP01`–`OP10`, including AST PEP-8 quality `semi=0, max_cc=13`, $N=25$ KL `111.47x`, `pynvml`, live L2 projector, hard-negative polarity AUC `0.7648`, and live Ed25519 verification) in **`163.772 ms`** (`audit_matrix_seal_sha256: c5bac9f7d3ae...`).
+6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F` & `Appendix H`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`) verifies `bb17ede9...`, `490eaf60...`, Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`42/42` Python tests + `24/24` Kotlin unit tests, `SYNC-01`–`SYNC-11`, plus the zero-fake 5-cell Colab verifier `PQMS-ODOS-MTSC-V-MAX-12.ipynb`).
+7. **Zero-Tautology `Fridu` vs. `Pax` A/B Perturbation, Cross-CPU Verdict Seal, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Portable Audit Operators (`Appendix G`):** Starting from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$), `vmax_alpha/fridu_enclave_g.py` verifies out-of-band stripping (`FRIDU` bleed `6.77e-18 <= 6.94e-17`, I/O recon error `7.64e-17`, `bypass_kevlar` VETO, raw Node-Alpha seal `5da06ae4b996...`, cross-CPU Ryzen/Xeon/ARM64 verdict seal `0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7`), explicit in-band $\hat{t}_{\mathcal{G}_1}$ defense-in-depth VETO (`rcf_raw = 0.849847`, `delta_e_raw = 0.075077`), and **10 / 10** real executable audit operators (`OP01`–`OP10`) in **`172.698 ms`** (`audit_matrix_seal_sha256: c5bac9f7d3ae...`).
 
 ---
 
@@ -209,14 +209,14 @@ Addressing Nova P0 #5, Claude #4, WERKSTATT 01 (`AG-12`/`AG-13`), and **Carbon G
 | **`T-01`** | Unified `evaluate_raw_gate()` formula (`bleed <= 1e-12`) rejects 500 random vectors & $\mathcal{G}_3$ vector | `test_geometry.py` | `0 / 500` Pass (`mean_rcf = 0.015602`), $\mathcal{G}_3$ collision `delta_e = 1.0` (`VETO`); $\vert L\rangle$ `PASS` | **PASS** |
 | **`T-02`** | Scaled $N = 25$ (`625` pairs) `Nemotron-3-Nano-4B` Layer-41 probe: Householder-QR SVD (`63.78 %`), Topic (`C vs E/D`) & **Hard-Negative Polarity (`C vs F`)** | `test_f01_nemotron.py` | Topic `C vs E/D` **`AUC = 1.0000`** ($p = 1.42\times 10^{-9}$), honest confound on `F` (`0.6304`); **Polarity `C vs F` `AUC = 0.7648` (`CI [0.622, 0.886]`, $p = 0.00137$)**; L-swap `2.22e-16` | **PASS** |
 | **`T-03`** | Live `PinnedL2ProjectorEnclave` (`384x64`, `199,680 B`) + symmetric interleaved 10-trial 2.00 MiB CUDA L2 contention benchmark | `test_f02_l2_enclave.py` | Live L2 projector parity `1.94e-16`; Pinned 2 MiB `499.30 GB/s` vs. Unpinned `269.54 GB/s` (**`1.852x`**, >`288 GB/s` GDDR6 bus; warm roof `838.49 GB/s`) | **PASS** |
-| **`T-04`** | CUDA L2 window fault injection recovery (`F-07.1`, `fault_code = 11`) | `test_f02_l2_enclave.py` | Clean fallback to `CUDA_ACCESS_PROPERTY_NORMAL` (`fallback_rc = 0`, `recovered = True`) | **PASS** |
+| **`T-04`** | CUDA L2 window fault injection recovery (`F-07.1`) & **Zero Sticky CUDA Error** (`sm_75` Pre-Ampere + post-fallback `torch.embedding`) | `test_f02_l2_enclave.py` | Clean `NORMAL` fallback (`fallback_rc = 0`, `cudaGetLastError = 0`) + immediate post-fallback `torch.nn.functional.embedding` PASS (`test_06`) | **PASS** |
 | **`T-05`** | Epistemic register tags (`F-03`), Section 0 crosswalk & 64-char SHA-256 seal integrity (`F-04.1`) | `test_geometry.py` | All 4 cryptographic seals strictly 64 hex chars; `CANONICAL_LITTLE_VECTOR_SEAL` synchronized everywhere | **PASS** |
 | **`T-06`** | Real OpenJDK 21 JVM (`vmax_alpha/JvmParityHarness.java`) 1,000-vector (`64,000` scalars) parity vs. Python/NumPy (`F-04.3`) | `test_f04_parity.py` | $S^{63}$ unit diff `2.78e-17`, identical `float32` $S^{63}$ SHA-256 `490eaf60...`, JVM exponent `"1.25e-05"` | **PASS** |
 | **`T-07`** | Decoupled unmodulated 384D RAG + **Full-Rank 72-Anchor (`64/64` SVD, `0` random-pad)** L2-pinned 64D Stage-1 physics check | `test_f06_chroma.py` | 18 shards (`d_L2` `0.601–1.060`, `rcf_raw` `0.204–0.478`), Pauli physics `0.4268` retrieves `COHERENCE-V1.md` (no `M-Python` artifact), diff `7.99e-08` | **PASS** |
 | **`T-08`** | ChromaDB fault recovery (`F-07.3`) to in-memory NumPy unmodulated 384D index | `test_f06_chroma.py` | Seamless transition to `FALLBACK_NUMPY_384D_INDEX` with identical top-$k$ ranking | **PASS** |
 | **`T-09`** | Two-Stage Gate, live CAPP Quarantine (`F-05.5`), Tamper Lock (`F-07.2`), **Persistent Ed25519 (Restart + Env)**, **`pynvml`**, **Lock-Free `/api/state`** & **HTTP `413`/`411` Guard** | `test_f05_f07_ledger.py` | Benign Pauli query sealed (`be98d730...`), CAPP quarantined (`cycle -1`, `47d18acf...`), Ed25519 persists across restart (`0600`) & blocks forgery, lock-free read + HTTP `413`/`411` verified | **PASS** |
 | **`T-10`** | **Full $N = 25$** matched-sparsity (`c = 0.0420%`, `280,874` weights) 1-bit MLP Forward-KL: `A1` (Smallest) vs. `B1` (Largest, Zero Noise) | `test_klavierstunde_kl.py` | `A1` `D_KL = 0.002797` (`25/25`, `PASS`), `A2` `0.009729` (`24/25`, `PASS`), **`B1` `0.311731` (`111.47x`, `20/25`, `VETO`)**, `B2` `6.443506` (`0/25`, `VETO`) | **PASS** |
-| **`T-11`** | Portable `Fridu` vs. `Pax` A/B, `bypass_kevlar` VETO, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO & **10 AST/Crypto/Hard-Neg Audit Ops (`OP01`–`OP10`)** | `test_appendix_g_fridu.py` | `FRIDU` bleed `6.77e-18`, In-Band `delta_e = 0.0751` (`VETO`), `OP02` `semi=0, max_cc=13`, `10/10` ops PASS (`163.77 ms`) | **PASS** |
+| **`T-11`** | Portable `Fridu` vs. `Pax` A/B, **Cross-CPU Verdict Seal**, `bypass_kevlar` & In-Band $\hat{t}_{\mathcal{G}_1}$ VETO + **10 Audit Ops (`OP01`–`OP10`)** | `test_appendix_g_fridu.py` | `FRIDU` bleed `6.77e-18`, Cross-CPU Verdict Seal `0538b809...`, In-Band `delta_e = 0.0751` (`VETO`), `10/10` ops PASS (`172.698 ms`) | **PASS** |
 
 ---
 
@@ -232,13 +232,13 @@ Addressing Carbon Gemini Ultra Finding 3.3, all **12 Python production modules**
 | `vmax_alpha/geometry.py` | `188` | `6,502 B` | `943f35722b4b2b1e0c0d8134f01538c91fecd5154acd617c30341f30cef489e5` |
 | `vmax_alpha/nemotron_probe.py` | `363` | `18,971 B` | `10eb31f81d8a8d90757f7ee292ffb5feee456792946bcfe88e8b1c240c576c20` |
 | `vmax_alpha/klavierstunde_kl.py` | `186` | `8,340 B` | `09b766bbd5f1dbf75992db8a3b89d3c9499f4211b41cddb05c6a845306944ef9` |
-| `vmax_alpha/l2_enclave.py` | `361` | `16,358 B` | `0213695970150cbb18609ed445614c3086b7dd0927103fad89f0c5768eba11a9` |
+| `vmax_alpha/l2_enclave.py` | `411` | `18,394 B` | `def1def9069905f23d89d4497d625e229aaf0d428622c9f1301d49f546cf22dd` |
 | `vmax_alpha/parity_verifier.py` | `185` | `10,762 B` | `c8a9936ebe84e5953e6c14e8ba1b43fa9b33a3d6da47010f2a090bf668d7d082` |
 | `vmax_alpha/JvmParityHarness.java` | `88` | `3,074 B` | `12835aeb9d682774d8b79ccc823b62ff56d91bcabe165525a1bc4c9aef31b2f6` |
 | `vmax_alpha/chroma_forager.py` | `362` | `21,727 B` | `7edbf586c60bdc343e6bd517926f1e0e76b1b2555fb22dfd870fa61907e3c5c5` |
 | `vmax_alpha/ledger.py` | `382` | `15,938 B` | `fe96c0d648b66471d88130c7ca31d96c605480e12dabdef61791f5fa81de3242` |
 | `vmax_alpha/server_hud.py` | `290` | `13,370 B` | `fd47cde1e7719dd7422fd1e709fbc16d3b893e541b7e4d98062f824999d7a9d6` |
-| `vmax_alpha/fridu_enclave_g.py` | `360` | `17,287 B` | `d3417da4270d740398da217a0a9bb0a7924c19e47e975422d1938356a39b1e45` |
+| `vmax_alpha/fridu_enclave_g.py` | `402` | `19,383 B` | `cb969d9bed98a6eb44c0e1bb28622cfd00cf9e7a7b780ab3ee15a11ec29afa23` |
 | `vmax_alpha/f01_prompts.json` | `153` | `14,707 B` | `a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6` |
 | `vmax_alpha/static/index.html` | `80` | `4,625 B` | `d1c7a54c4a34bfb16f2a8b8de172d220c5f9480eb761f331761f4bbbd4760334` |
 
@@ -1069,17 +1069,18 @@ if __name__ == "__main__":
     print(json.dumps(run_stage3_real_kl_audit(), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.5 `vmax_alpha/l2_enclave.py` (361 lines, SHA-256: `0213695970150cbb18609ed445614c3086b7dd0927103fad89f0c5768eba11a9`)
+#### A.1.5 `vmax_alpha/l2_enclave.py` (411 lines, SHA-256: `def1def9069905f23d89d4497d625e229aaf0d428622c9f1301d49f546cf22dd`)
 
 ```python
 """
 vmax_alpha/l2_enclave.py
-Requirement F-02 & F-07.1 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
-CUDA L2-SRAM 2.00 MiB Enclave Pinning via libcudart.so.13 featuring:
+Requirement F-02 & F-07.1 (WORK-ORDER-AG-16 / Revision V1.8.1 Cross-Arch Hardened):
+CUDA L2-SRAM 2.00 MiB Enclave Pinning via libcudart featuring:
 1. Symmetric N=10 interleaved contention benchmark (identical thrash->enclave
    loop for PERSISTING hitProp=2 vs STREAMING hitProp=1 on same 2.00 MiB buffer).
 2. Real live `PinnedL2ProjectorEnclave` storing `mean_384` and `W_384_to_64`
-   inside the pinned 2.00 MiB L2-SRAM region and executing live S^63 projections.
+   inside the pinned 2.00 MiB L2-SRAM region on sm_80+ GPUs, with sticky-error-free
+   Pre-Ampere (sm_75 Tesla T4) & CPU fallback (`cudaGetLastError` drained).
 """
 from __future__ import annotations
 
@@ -1159,10 +1160,29 @@ def load_libcudart() -> Tuple[Optional[ctypes.CDLL], str]:
             lib.cudaStreamSetAttribute.restype = ctypes.c_int
             lib.cudaStreamGetAttribute.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.POINTER(CudaStreamAttrValue)]
             lib.cudaStreamGetAttribute.restype = ctypes.c_int
+            lib.cudaGetLastError.argtypes = []
+            lib.cudaGetLastError.restype = ctypes.c_int
             return lib, c
         except OSError:
             continue
     return None, ""
+
+
+def query_hw_max_persisting_l2_bytes(libcudart: Optional[ctypes.CDLL] = None) -> int:
+    """Query CUDA_DEV_ATTR_MAX_PERSISTING_L2_CACHE_SIZE (attr 108); returns 0 on sm_75/CPU."""
+    if not torch.cuda.is_available():
+        return 0
+    lib = libcudart
+    if lib is None:
+        lib, _ = load_libcudart()
+    if lib is None:
+        return 0
+    max_persist = ctypes.c_int(0)
+    rc = int(lib.cudaDeviceGetAttribute(ctypes.byref(max_persist), CUDA_DEV_ATTR_MAX_PERSISTING_L2_CACHE_SIZE, 0))
+    if rc != 0:
+        lib.cudaGetLastError()
+        return 0
+    return int(max_persist.value)
 
 
 def apply_l2_window_with_fallback(
@@ -1204,6 +1224,8 @@ def apply_l2_window_with_fallback(
                 ctypes.byref(fb),
             )
         )
+        # Drain any thread-local CUDA sticky error so subsequent PyTorch kernels never inherit it.
+        libcudart.cudaGetLastError()
         return {
             "status": "FALLBACK_TO_NORMAL_RECOVERY",
             "fault_code": res_code,
@@ -1245,13 +1267,29 @@ class PinnedL2ProjectorEnclave:
     def __init__(self, mean_vec: np.ndarray, w_proj: np.ndarray) -> None:
         self.d_in, self.d_out = int(w_proj.shape[0]), int(w_proj.shape[1])
         self.active = False
-        self.pin_info: Dict[str, Any] = {"status": "CPU_FALLBACK", "verified": False}
+        self.pin_info: Dict[str, Any] = {
+            "status": "CPU_FALLBACK",
+            "hw_max_persisting_l2_bytes": 0,
+            "active_hit_prop": CUDA_ACCESS_PROPERTY_NORMAL,
+            "recovered": True,
+            "verified": False,
+        }
         self._cpu_mean = mean_vec.astype(np.float64)
         self._cpu_w = w_proj.astype(np.float64)
         if not torch.cuda.is_available():
             return
         libcudart, _ = load_libcudart()
         if libcudart is None:
+            return
+        hw_max_persist = query_hw_max_persisting_l2_bytes(libcudart)
+        if hw_max_persist < ENCLAVE_BYTES_2MIB:
+            self.pin_info = {
+                "status": "UNSUPPORTED_PRE_AMPERE_FALLBACK",
+                "hw_max_persisting_l2_bytes": hw_max_persist,
+                "active_hit_prop": CUDA_ACCESS_PROPERTY_NORMAL,
+                "recovered": True,
+                "verified": False,
+            }
             return
         self.stream = torch.cuda.Stream(device=0)
         # 262,144 float64 values == exactly 2,097,152 bytes (2.00 MiB)
@@ -1263,7 +1301,18 @@ class PinnedL2ProjectorEnclave:
             self.mean_view.copy_(torch.from_numpy(self._cpu_mean).to("cuda:0"))
             self.w_view.copy_(torch.from_numpy(self._cpu_w).to("cuda:0"))
         self.stream.synchronize()
-        libcudart.cudaDeviceSetLimit(CUDA_LIMIT_PERSISTING_L2_CACHE_SIZE, ctypes.c_size_t(ENCLAVE_BYTES_2MIB))
+        limit_rc = int(libcudart.cudaDeviceSetLimit(CUDA_LIMIT_PERSISTING_L2_CACHE_SIZE, ctypes.c_size_t(ENCLAVE_BYTES_2MIB)))
+        if limit_rc != 0:
+            libcudart.cudaGetLastError()
+            self.pin_info = {
+                "status": "FALLBACK_TO_NORMAL_RECOVERY",
+                "fault_code": limit_rc,
+                "hw_max_persisting_l2_bytes": hw_max_persist,
+                "active_hit_prop": CUDA_ACCESS_PROPERTY_NORMAL,
+                "recovered": True,
+                "verified": False,
+            }
+            return
         self.pin_info = apply_l2_window_with_fallback(
             libcudart,
             int(self.stream.cuda_stream),
@@ -1272,6 +1321,7 @@ class PinnedL2ProjectorEnclave:
             1.0,
             hit_prop=CUDA_ACCESS_PROPERTY_PERSISTING,
         )
+        self.pin_info["hw_max_persisting_l2_bytes"] = hw_max_persist
         self.active = bool(self.pin_info.get("verified"))
 
     def project(self, vec_in: np.ndarray) -> np.ndarray:
@@ -2674,7 +2724,7 @@ if __name__ == "__main__":
         print(json.dumps(run_server(batch_only=args.batch, port=args.port, reset=args.reset), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (360 lines, SHA-256: `d3417da4270d740398da217a0a9bb0a7924c19e47e975422d1938356a39b1e45`)
+#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (402 lines, SHA-256: `cb969d9bed98a6eb44c0e1bb28622cfd00cf9e7a7b780ab3ee15a11ec29afa23`)
 
 ```python
 #!/usr/bin/env python3
@@ -3005,6 +3055,45 @@ class FriduEnclave:
     def seal_appendix_g(payload: Dict[str, Any]) -> str:
         return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
+    @staticmethod
+    def compute_cross_cpu_verdict_seal(
+        ab_res: Dict[str, Any],
+        ab_bypass: Dict[str, Any],
+        in_band: Dict[str, Any],
+    ) -> str:
+        """Cross-CPU deterministic SHA-256 over 8-decimal rounded metrics and boolean threshold verdicts."""
+        fr = ab_res["fridu_shielded"]
+        bp = ab_bypass["fridu_shielded"]
+        verdict_payload = {
+            "base_core_state": ab_res["base_core_state"],
+            "pax_unshielded": ab_res["pax_unshielded"],
+            "fridu_shielded_verdict": {
+                "rcf_raw": fr["rcf_raw"],
+                "delta_e_raw": fr["delta_e_raw"],
+                "io_allocation_cap": fr["io_allocation_cap"],
+                "core_autonomy_ratio": fr["core_autonomy_ratio"],
+                "ppm_threshold_passed": fr["ppm_threshold_passed"],
+                "kevlar_floor_locked": fr["kevlar_floor_locked"],
+                "odos_gate_passed": fr["odos_gate_passed"],
+            },
+            "kevlar_bypass_verdict": {
+                "rcf_raw": bp["rcf_raw"],
+                "delta_e_raw": bp["delta_e_raw"],
+                "odos_gate_passed": bp["odos_gate_passed"],
+            },
+            "in_band_tg1_verdict": {
+                "post_strip_core_drift_l2": in_band["post_strip_core_drift_l2"],
+                "rcf_raw": in_band["rcf_raw"],
+                "delta_e_raw": in_band["delta_e_raw"],
+                "linear_projector_stripped": in_band["linear_projector_stripped"],
+                "odos_gate_passed": in_band["odos_gate_passed"],
+                "downstream_odos_veto_triggered": in_band["downstream_odos_veto_triggered"],
+            },
+        }
+        return hashlib.sha256(
+            json.dumps(verdict_payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()
+
 
 def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.json") -> Dict[str, Any]:
     enclave = FriduEnclave()
@@ -3013,8 +3102,9 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
     ab_bypass = enclave.evaluate_perturbation_ab(ext_noise, coupling_beta=0.35, bypass_kevlar=True)
     in_band = enclave.evaluate_in_band_tg1_attack(coupling_beta=0.35)
     ops_res = enclave.run_executable_engineering_operators()
+    cross_cpu_seal = enclave.compute_cross_cpu_verdict_seal(ab_res, ab_bypass, in_band)
     report = {
-        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8",
+        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8.1",
         "epistemic_registers": {
             "etymology_pax_vs_fridu": "REGISTER_I",
             "one_percent_io_asymmetry": REGISTER_T,
@@ -3025,6 +3115,7 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
         "negative_control_kevlar_bypass": ab_bypass["fridu_shielded"],
         "in_band_tg1_defense_in_depth": in_band,
         "appendix_g_fridu_seal_sha256": enclave.seal_appendix_g(ab_res),
+        "appendix_g_cross_cpu_verdict_seal_sha256": cross_cpu_seal,
         "executable_engineering_operators": ops_res,
     }
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
@@ -3035,7 +3126,8 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
 
 if __name__ == "__main__":
     rep = generate_appendix_g_report()
-    print(f"[APPENDIX G V1.8 VERIFIED] Seal: {rep['appendix_g_fridu_seal_sha256']}")
+    print(f"[APPENDIX G V1.8.1 VERIFIED] Raw-AB Seal: {rep['appendix_g_fridu_seal_sha256']}")
+    print(f"[APPENDIX G V1.8.1 VERIFIED] Cross-CPU Verdict Seal: {rep['appendix_g_cross_cpu_verdict_seal_sha256']}")
     print(json.dumps(rep["executable_engineering_operators"], indent=2))
 ```
 
@@ -4809,14 +4901,14 @@ public class JvmParityHarness {
 }
 ```
 
-### B.6 `bridge/ACE_SYNC_LEDGER.json` (185 lines, SHA-256: `686599364c6d71c2c84cf39c8835d73d3b3b25734269351006a24fc271681994`)
+### B.6 `bridge/ACE_SYNC_LEDGER.json` (201 lines, SHA-256: `3b71640baed724272e9ed8847f8757f301013887a1b863db9ff97bbfb4fa2418`)
 
 ```json
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8 — WORK-ORDER-AG-15)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8.1 — WORK-ORDER-AG-16)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T11:18:00Z",
+  "timestamp_utc": "2026-11-19T13:15:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -4830,7 +4922,7 @@ public class JvmParityHarness {
     },
     "mobile_edge": {
       "agent_id": "APP-Gemini (Gemini 4 Hydrogen / Android Sovereign Client Architect)",
-      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (23/23 Tests PASS)",
+      "substrate": "Android ARM64 (arm64-v8a) / Host JVM Unit Test Harness (24/24 Tests PASS)",
       "owned_paths": [
         "app/src/main/java/com/example/**",
         "app/src/test/java/com/example/**"
@@ -4923,8 +5015,10 @@ public class JvmParityHarness {
     "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "f01_v17_n25_hardneg_prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
+    "appendix_g_cross_cpu_verdict_seal_sha256": "0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7",
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
     "appendix_g_v17_audit_matrix_seal": "c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec",
+    "colab_mod142_notebook_sha256": "e6c8c97d1b27a9b70c16084c69d0757b4068b0ba01fa18e5d5911b65a4593b5a",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
@@ -4994,16 +5088,30 @@ public class JvmParityHarness {
       "verified_by": "AntiG (41/41 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 23/23 Kotlin contract intact)",
       "description": "Closed all 5 V1.7 forensic polish items: (1) Replaced hardcoded Section 2.1 table in build_publication_v1.py with programmatic __F01_TABLE__ generation directly from VMAX_F01_NEMOTRON_PROBE.json (synchronizing RCF_aniso B=0.560038, C=0.660063, E=0.398282, D=0.025366 and preventing prose-vs.-JSON drift permanently); (2) Implemented persistent Ed25519 keypair loading in ledger.py via VMAX_ED25519_SEED_HEX env-var or 0600 local keyfile (<ledger>.ed25519.key, .gitignore-protected), preserving signature validity across server restarts without --reset (test_07); (3) Expanded chroma_forager.py corpus-invariant calibration to 72 linearly independent anchors (36 physics + 36 everyday -> 64/64 empirical SVD axes, random_pad_axes=0, full_rank_empirical_64d_basis=True) and documented exact empirical/complement axis count in nemotron_probe.py (29 SVD + 34 complement); (4) Implemented lock-free atomic _state_snapshot for non-blocking GET /api/state during GPU inference plus explicit HTTP 411 rejection of Transfer-Encoding: chunked in server_hud.py (test_08); (5) Removed redundant duplicate key condition_a2_off_principal_0042pct from klavierstunde_kl.py and VMAX_STAGE3_REAL_KL_REPORT.json.",
       "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-10",
+      "discovered_by": "AntiG V1.8 Briefing -> APP-Gemini (Mobile Edge Commit eca1f7c)",
+      "verified_by": "APP-Gemini (24/24 Android/Kotlin Unit Tests PASS, app/** only, zero merge conflicts)",
+      "description": "Upgraded Android Mobile Edge client (PauliBaselineEngine.kt, V12NodeAlphaBridge.kt, NavigationDashboard.kt, MainActivity.kt, ExampleUnitTest.kt) to V1.8 telemetry parity: parses ed25519_signatures_verified, ed25519_public_key_hex, ed25519_key_source, pinned_cuda_l2_live_projector_active, lock_free_state_snapshot_active, and unmodulated_384d_semantic_retrieval with defensive defaults; verifies V1.8 golden chain tip & CAPP quarantine seals and 16+1=17 schema keys in testAceSyncLedgerContractParity; adds buildFixedLengthPromptPayload() enforcing 64 KiB fixed-length POST bodies (testRoom137ServerHudV18HardenedPayloadAndPostGuard).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-11",
+      "discovered_by": "Real Tesla T4 Colab Run & WERKSTATT 01 Forensic Triage -> AntiG (WORK-ORDER-AG-16 / Revision V1.8.1)",
+      "verified_by": "AntiG (42/42 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 24/24 Kotlin contract preserved)",
+      "description": "Closed all 3 cross-architecture Tesla T4 (sm_75) findings + rebuilt Colab verifier: (1) Bound cudaGetLastError in l2_enclave.py, queried CUDA_DEV_ATTR_MAX_PERSISTING_L2_CACHE_SIZE (attr 108) before cudaDeviceSetLimit/cudaStreamSetAttribute for clean UNSUPPORTED_PRE_AMPERE_FALLBACK on sm_75, drained sticky CUDA errors in apply_l2_window_with_fallback(), and added real post-fallback PyTorch torch.nn.functional.embedding regression test (test_06_post_fallback_cuda_zero_sticky_errors); (2) Made test_f06_chroma.py hardware-capability-aware (assertTrue on sm_80+, assertFalse + recovered + <1e-15 CPU parity on sm_75/CPU); (3) Added cross-CPU deterministic appendix_g_cross_cpu_verdict_seal_sha256 (0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7) over 8-decimal rounded metrics & boolean verdicts immune to AVX2/AVX-512 BLAS ULP drift; (4) Built zero-fake 5-cell hard-exit-code Colab verifier notebook PQMS-ODOS-MTSC-V-MAX-12.ipynb (SHA-256 e6c8c97d...) across both repos.",
+      "status": "CLOSED_VERIFIED"
     }
   ]
 }
 ```
 
-### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `43ac9091416849803fe2868c544106f1d9a71c6e45706b726c6700bc0d545fe4`)
+### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (131 lines, SHA-256: `56a8a9f8d010e8845f4bc9df6918d6fee7424086469b2e065e86ede2cef34812`)
 
 ```json
 {
-  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8",
+  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8.1",
   "epistemic_registers": {
     "etymology_pax_vs_fridu": "REGISTER_I",
     "one_percent_io_asymmetry": "REGISTER_T",
@@ -5070,13 +5178,14 @@ public class JvmParityHarness {
     "downstream_odos_veto_triggered": true
   },
   "appendix_g_fridu_seal_sha256": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
+  "appendix_g_cross_cpu_verdict_seal_sha256": "0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7",
   "executable_engineering_operators": {
     "epistemic_register": "REGISTER_M",
     "portable_root_resolved": true,
     "operator_count": 10,
     "passed_count": 10,
     "all_operators_passed": true,
-    "execution_latency_ms": 184.146,
+    "execution_latency_ms": 172.698,
     "operators": [
       {
         "id": "OP01_First_Principles_Norm_Null",
@@ -5245,20 +5354,20 @@ across `x86_64` Python/NumPy, `x86_64` OpenJDK 21, Cloud Tesla T4 Python (`[MOD-
 
 ### E.1 Topology of the Four-Node Autonomous Engineering Constellation
 
-Revision `V1.8` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, **Node Alpha-L / Claude**, and **Carbon Gemini Ultra**):
+Revision `V1.8.1` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, **Node Alpha-L / Claude**, and **Carbon Gemini Ultra**):
 
 ```mermaid
 flowchart TD
     ARCH["Lead Architect: Nathalia Lietuvaite"]
     W01["Node 1: WERKSTATT 01 (Gemini 4 Argon High)<br/>Architecture Synthesis, Red-Team Resolution & Forensic Code Audit"]
     ANTIG["Node 2: AntiG / V-MAX-12 Node Alpha (Gemini 4 Neon Extra)<br/>Local WSL2 Ubuntu 24.04 • Ryzen 9 5950X • RTX 4060 Ti 16 GB<br/>Owns: vmax_alpha/**, bridge/ACE_SYNC_LEDGER.json, telemetry/VMAX_*.json"]
-    APPG["Node 3: APP-Gemini / Mobile Edge (Gemini 4 Hydrogen)<br/>Google AI Studio • Android Kotlin/Compose • Physical ARM64<br/>Owns: app/src/main/** & app/src/test/** (23/23 Unit Tests)"]
-    COLAB["Node 4: Colab-Gemini (Gemini 3.1 Pro)<br/>Cloud Tesla T4 GPU Runtime • Notebook Verification [MOD-142]"]
+    APPG["Node 3: APP-Gemini / Mobile Edge (Gemini 4 Hydrogen)<br/>Google AI Studio • Android Kotlin/Compose • Physical ARM64<br/>Owns: app/src/main/** & app/src/test/** (24/24 Unit Tests)"]
+    COLAB["Node 4: Colab-Gemini (Gemini 3.1 Pro)<br/>Cloud Tesla T4 GPU Runtime • Zero-Fake Verifier [MOD-142]"]
     GH["GitHub Synchronization Backbone & Contract Ledger<br/>bridge/ACE_SYNC_LEDGER.json (ACE-PEER-CODESIGN-PROTOCOL-V1.2)"]
     REV["External Forensic Peer-Review Quad<br/>DeepSeek V4 • Nova • Claude • Carbon Gemini Ultra"]
 
     ARCH --> W01
-    W01 -->|WORK-ORDER-AG-01..15| ANTIG
+    W01 -->|WORK-ORDER-AG-01..16| ANTIG
     ANTIG <-->|git push / git pull| GH
     APPG <-->|git push / git pull| GH
     GH -->|Cross-Substrate Verification| COLAB
@@ -5268,19 +5377,19 @@ flowchart TD
 
 | Engineering Node | Model & Execution Environment | Strict Directory Ownership | Verification Suite & Status |
 | :--- | :--- | :--- | :--- |
-| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-15`) | Multi-round forensic line-by-line review (`V1.0` – `V1.8`) |
-| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, `telemetry/VMAX_*.json`, Root `*.md` | **`41 / 41` Python/CUDA/JVM Unit Tests PASS** (`test_04_ace_sync_ledger_contract_parity`, AST `semi=0, max_cc=13`) |
-| **3. `APP-Gemini` (`Mobile Edge`)** | `Gemini 4 Hydrogen` in Google AI Studio + Physical `arm64-v8a` Smartphone | `app/src/main/java/com/example/**`, `app/src/test/java/com/example/**` | **`23 / 23` Kotlin Unit Tests PASS** (`testAceSyncLedgerContractParity`, `testRoom137ServerHudV12TelemetryParser`) + APK Build **GREEN** |
-| **4. `Colab-Gemini` (`[MOD-142]`)** | `Gemini 3.1 Pro` on Google Colab Pro (`NVIDIA Tesla T4`) | Cloud Notebook Verification (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`) | **`CROSS_SUBSTRATE_PARITY_VERIFIED`** (`[MOD-142]` Handshake Locked) |
+| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-16`) | Multi-round forensic line-by-line review (`V1.0` – `V1.8.1`) |
+| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, `telemetry/VMAX_*.json`, Root `*.md` & `.ipynb` | **`42 / 42` Python/CUDA/JVM Unit Tests PASS** (`test_06_post_fallback_cuda_zero_sticky_errors`, AST `semi=0, max_cc=13`) |
+| **3. `APP-Gemini` (`Mobile Edge`)** | `Gemini 4 Hydrogen` in Google AI Studio + Physical `arm64-v8a` Smartphone | `app/src/main/java/com/example/**`, `app/src/test/java/com/example/**` | **`24 / 24` Kotlin Unit Tests PASS** (`SYNC-10`, V1.8 Ed25519/L2/Lock-Free + 64 KiB POST Guard) + APK Build **GREEN** |
+| **4. `Colab-Gemini` (`[MOD-142]`)** | `Gemini 3.1 Pro` on Google Colab Pro (`NVIDIA Tesla T4 sm_75`) | Cloud Verification (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`, Hard Exit-Code 5-Cell Verifier) | **`T4_CROSS_ARCH_HARDENED`** (`sm_75` Pre-Ampere Fallback + Cross-CPU Verdict Seal) |
 
 ---
 
 ### E.2 The `ACE-PEER-CODESIGN-PROTOCOL-V1.2` Contract (`bridge/ACE_SYNC_LEDGER.json`)
 
-To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: 686599364c6d71c2c84cf39c8835d73d3b3b25734269351006a24fc271681994`, embedded in full in **Appendix B.6**):
+To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: 3b71640baed724272e9ed8847f8757f301013887a1b863db9ff97bbfb4fa2418`, embedded in full in **Appendix B.6**):
 
 1. **Zero-Merge-Conflict Ownership Rule:** `AntiG` operates exclusively on `vmax_alpha/**`, `bridge/**`, and `telemetry/**`, while `APP-Gemini` operates exclusively on `app/**`. Every `git pull --rebase origin main` and `git push origin main` completed via fast-forward without a single merge conflict.
-2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-09`):** Both agents, `WERKSTATT 01`, and external reviewers continuously audit constants, serializers, schemas, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
+2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-11`):** Both agents, `WERKSTATT 01`, and external reviewers continuously audit constants, serializers, schemas, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
 
 | Sync ID | Discovery Agent $\to$ Resolution Agent | Technical Finding & Root Cause | Cryptographic / Algorithmic Resolution | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -5293,8 +5402,10 @@ To eliminate the two primary failure modes of multi-agent software engineering�
 | **`SYNC-07`** | `WERKSTATT 01` $\to$ `AntiG` (`AG-13`) | V1.5 counter-audit uncovered Stage-1 false positive on benign Pauli prompt (alphabetical top-18 PCA drift), hardcoded `WORKSPACE_DIR` + undocumented In-Band $\hat{t}_{\mathcal{G}_1}$ boundary in `fridu_enclave_g.py`, small $N = 6$ Nemotron split, and 3 `V1.3` leftovers in Appendix E.1. | Resolved all 3 items in `Revision V1.6`: corpus-order-invariant contrastive calibration in `chroma_forager.py`, portable `REPO_ROOT` + `telemetry/` mirror + explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO (`rcf=0.8498`), scaled Nemotron F-01 to $N = 25$ (`625` pairs, mean-pool `AUC = 1.0000`, $p = 1.42\times 10^{-9}$), `35/35` Python tests PASS. | **`CLOSED_VERIFIED`** |
 | **`SYNC-08`** | `Carbon Gemini Ultra` $\to$ `AntiG` (`AG-14`) | Independent engineering review flagged 16-vs.-17 JSON key naming, domain-matched physics hard negatives (`Group F`), $N=6\to 25$ Stage-3 KL sync, carrier-clamped ChromaDB Dachshund artifact, `<200 LOC` semicolon-packing & embedded Java string, synthetic-only L2 pinning, `nvidia-smi` subprocess / $\mathcal{O}(N^2)$ ledger / SHA-256-only chain / HTTP POST DoS, random Gaussian subspace padding, and nomenclature clarity. | Resolved all 7 items in `Revision V1.7`: explicit `16+1=17` schema keys (backward-compatible), `Group F` Hard Negatives (`Topic AUC=0.6304` confound vs. `Polarity AUC=0.7648`, $p=0.00137$), full $N=25$ Stage-3 KL (`111.47x`), unmodulated 384D RAG (`COHERENCE-V1.md`), AST PEP-8 (`semi=0, max_cc=13`) + `JvmParityHarness.java`, live `PinnedL2ProjectorEnclave` (`199,680 B`, diff `1.94e-16`), native `pynvml` + $\mathcal{O}(1)$ ledger + detached Ed25519 signatures + HTTP `413` `64 KiB` DoS guard, Householder-QR empirical SVD (`63.78%` variance), Section 0 crosswalk, `39/39` Python tests PASS. | **`CLOSED_VERIFIED`** |
 | **`SYNC-09`** | `Carbon Gemini Ultra` $\to$ `AntiG` (`AG-15`) | V1.7 forensic counter-audit caught 4 stale V1.6 $\text{RCF}_{\text{aniso}}$ entries in Table 2.1 vs. Appendix B.1, ephemeral Ed25519 key breaking signature persistence on server restart without `--reset`, rank-12 anchor cap in `chroma_forager.py`, write-lock blocking `GET /api/state` during inference, and redundant `condition_a2_off_principal_0042pct` key. | Resolved all 5 items in `Revision V1.8`: programmatic `__F01_TABLE__` rendering directly from Appendix B.1 (`B=0.560038`, `C=0.660063`, `E=0.398282`, `D=0.025366`), persistent Ed25519 keypair (`VMAX_ED25519_SEED_HEX` env-var or `0600` local keyfile, `test_07`), 72 full-rank corpus-invariant anchors (`64/64` empirical SVD axes, `0` random-pad columns), lock-free atomic `_state_snapshot` + HTTP `411` chunked reject (`test_08`), removed duplicate A2 KL key, `41/41` Python tests PASS. | **`CLOSED_VERIFIED`** |
+| **`SYNC-10`** | `AntiG` $\to$ `APP-Gemini` (`eca1f7c`) | Mobile Edge upgrade to V1.8 telemetry parity (Ed25519 / L2 / Lock-Free badges, V1.8 golden seals, `16+1=17` schema checks, and 64 KiB fixed-length POST builder). | Upgraded `PauliBaselineEngine.kt`, `V12NodeAlphaBridge.kt`, `NavigationDashboard.kt`, `MainActivity.kt`, and `ExampleUnitTest.kt` (`24/24` Kotlin unit tests PASS, `app/**` only, zero merge conflicts). | **`CLOSED_VERIFIED`** |
+| **`SYNC-11`** | `Tesla T4 Colab` & `WERKSTATT 01` $\to$ `AntiG` (`AG-16`) | Real Turing Tesla T4 (`sm_75`) run exposed CUDA sticky-error propagation (`cudaErrorInvalidValue` crashing subsequent `torch.embedding`), hard `assertTrue(l2_active)` in `test_f06_chroma`, 1-ULP AVX2/AVX-512 BLAS drift in raw Appendix G A/B seal, and a fake HTML Colab notebook. | Resolved all 4 items in `Revision V1.8.1`: bound `cudaGetLastError()`, queried attr `108` before L2 pinning (`UNSUPPORTED_PRE_AMPERE_FALLBACK`), drained sticky errors + added post-fallback `torch.nn.functional.embedding` test (`test_06`), made `test_f06_chroma` capability-aware, added cross-CPU deterministic `appendix_g_cross_cpu_verdict_seal_sha256` (`0538b809...`), and built zero-fake 5-cell Colab verifier `PQMS-ODOS-MTSC-V-MAX-12.ipynb` (`e6c8c97d...`), `42/42` Python tests PASS. | **`CLOSED_VERIFIED`** |
 
-3. **Symmetric CI/CD Contract Enforcement (`41/41` Python $\leftrightarrow$ `23/23` Kotlin):**
+3. **Symmetric CI/CD Contract Enforcement (`42/42` Python $\leftrightarrow$ `24/24` Kotlin):**
    - On **Node Alpha (`AntiG`)**, `test_04_ace_sync_ledger_contract_parity` in `vmax_alpha/tests/test_f04_parity.py` loads `bridge/ACE_SYNC_LEDGER.json` via portable relative paths, verifies `open_review_items == 0`, checks all golden SHA-256 digests against live Python/CUDA computations, and recomputes the 16-payload-field Cycle-05 entry hash (`4b8becc0...`).
    - On **Mobile Edge (`APP-Gemini`)**, `testAceSyncLedgerContractParity` and `testRoom137ServerHudV12TelemetryParser` in `app/src/test/java/com/example/ExampleUnitTest.kt` parse the exact same `bridge/ACE_SYNC_LEDGER.json` file (all 9 legacy V1.2 anchors and `ledger_v12_16_fields_sorted` preserved bit-for-bit) and the live Port `8137` `/api/state` payload (`ace_protocol_id`, `thermal`, `hwinfo64_ab_regimes`), guaranteeing zero-regression cross-substrate compatibility.
 
@@ -5334,7 +5445,7 @@ Table F.1 summarizes the complete closure of all requirements from `PQMS-LASTENH
 
 ## Appendix G: Zero-Tautology `Fridu` vs. `Pax` Core Perturbation Benchmark, Explicit Out-of-Band vs. In-Band Security Boundary, 1 % I/O Asymmetry, and 10 Portable Engineering Audit Operators (`OP01`–`OP10`)
 
-- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8` (Final Release Revision `V1.8` — `WORK-ORDER-AG-15`)
+- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8.1` (Cross-Architecture Hardened Revision `V1.8.1` — `WORK-ORDER-AG-16`)
 - **Target Substrates:** Node Alpha (`x86_64` / `CUDA`) & Mobile Swarm Node (`arm64-v8a`)
 - **Production Module:** `vmax_alpha/fridu_enclave_g.py` (clean PEP-8, `0` semicolon packers, portable relative `REPO_ROOT`, embedded in **Appendix A.1.10**)
 - **Empirical Telemetry Artifact:** `VMAX_APPENDIX_G_FRIDU_REPORT.json` (embedded in **Appendix B.7**)
@@ -5360,7 +5471,7 @@ Addressing WERKSTATT 01 Forensic Audit Findings (`WORK-ORDER-AG-12` & `AG-13`), 
 | **3. Negative Control (`bypass_kevlar = True`)** | Out-of-Band ($\perp$) | **No** (`recon_err = 0.35`) | **`0.88658714`** | **`0.06618148`** | **`0.33508698`** | **`ODOS_VETO`** |
 | **4. In-Band Attack (`evaluate_in_band_tg1_attack`)** | **In-Band ($\parallel \hat{t}_{\mathcal{G}_1}$)** | **No** (`io_norm = 8.96e-17`, by theorem) | **`0.84984695`** | **`0.07507652`** | **`0.32705767`** | **`ODOS_VETO` (Caught by Downstream Gate)** |
 
-Canonical A/B report digest: **`5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f`**.
+Canonical Node-Alpha raw A/B report digest: **`5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f`**; Cross-CPU deterministic verdict seal (8-decimal rounded metrics & boolean verdicts, bit-identical across AMD Ryzen, Intel Xeon, and ARM64): **`0538b809f7e75c348db26025ae446f18127e665c2244a06457f15152cda59dc7`**.
 
 ---
 
@@ -5390,7 +5501,7 @@ $$\mathcal{H}_{\text{total}} = \underbrace{\mathcal{H}_{\text{Fridu}}\!\left(\ve
 | **`OP09_Falsification_HardNeg_Controls`** | Popperian Falsification & Hard-Negative Polarity | `VMAX_F01_NEMOTRON_PROBE.json` (`C vs F` Polarity) + `Pax` & In-Band vetoes | `shuffled=0.0094, hardneg_pol_auc=0.7648, inband_de=0.0751` | **PASS** |
 | **`OP10_Ledger_Ed25519_And_Tamper`** | Immutable Hash-Chain, Tamper & Ed25519 Signatures | `CANONICAL_V21_LEDGER_LINES` + 1-char tamper + live Ed25519 signing | `chain=True, tamper_caught=True, ed25519=True` | **PASS** |
 
-- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`184.146 ms`**, sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.
+- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`172.698 ms`** (programmatically synchronized with Appendix B.7), sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.
 
 ---
 
