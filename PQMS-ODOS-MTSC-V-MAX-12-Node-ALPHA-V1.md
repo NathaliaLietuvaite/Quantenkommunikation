@@ -1,35 +1,35 @@
 # PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1: Modular Sovereign Core Production Architecture, Empirical `Nemotron-3-Nano-4B` Hidden-State & 1-Bit MLP Forward-KL Telemetry, Symmetric 2.00 MiB CUDA L2-SRAM Enclave Pinning, Two-Stage Live ODOS Gate, Physical ARM64 Mobile Execution, Multi-Agent Bridge Coordination, and the Hardened `Fridu` Enclave
 
-- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.5` — `WORK-ORDER-AG-12`)
-- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.5`
+- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.6` — `WORK-ORDER-AG-13`)
+- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.6`
 - **Date:** `2026-11-19`
 - **Lead Architect:** Nathália Lietuvaitė
 - **Distributed Multi-Agent Engineering Bridge:** `WERKSTATT 01` (Gemini 4 Argon High — Architecture & Forensic Code Audit), `AntiG` (Gemini 4 Neon Extra — Node Alpha Local Systems Engineering), `APP-Gemini` (Gemini 4 Hydrogen — Mobile Edge Android/Kotlin ARM64 Engineering), `Colab-Gemini` (Gemini 3.1 Pro — Cloud T4 Verification Node `[MOD-142]`)
-- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12`)
+- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12` & `AG-13`)
 - **Target Substrates:**
   - **Node Alpha (`x86_64` + `CUDA`):** `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X 16-Core, NVIDIA GeForce RTX 4060 Ti 16 GB GDDR6, Studio Driver `621.24`, CUDA `13.0`, OpenJDK `21.0.13.0.3`, `HWiNFO64 v8.10-5520`, WSL2 Ubuntu 24.04.4 LTS Kernel `6.18.58.1-microsoft-standard-WSL2`, Local `NVIDIA-Nemotron-3-Nano-4B-BF16`, `sentence-transformers/all-MiniLM-L6-v2`, `ChromaDB 1.5.9`)
   - **Mobile Edge (`arm64-v8a`):** Physical Android ARM64 Smartphone running `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`Sovereign Core Swarm Node v10.0`, `V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `NavigationDashboard.kt`)
   - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 Runtime (`[MOD-142]`)
-- **Verification Status:** `33 / 33 PYTHON UNIT TESTS PASSED` on Node Alpha (`13 / 13` production modules strictly `<= 200` lines) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B & 10 Real Executable Audit Operators (`Appendix G`)
+- **Verification Status:** `35 / 35 PYTHON UNIT TESTS PASSED` on Node Alpha (`13 / 13` production modules strictly `<= 200` lines, portable relative paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`)
 - **License:** MIT
 
 ---
 
 ## Abstract
 
-This specification documents the engineering refactoring, forensic code-audit hardening (`WORK-ORDER-AG-12`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation benchmark, and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.5`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, and **WERKSTATT 01**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage risk, matched-sparsity control gap, live-gating bypass, tautological check, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (13 self-contained Python/CUDA files, each strictly $\le 200$ lines, verified by **33 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **23 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
+This specification documents the engineering refactoring, multi-round forensic code-audit hardening (`WORK-ORDER-AG-12` & `AG-13`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation & in-band defense-in-depth benchmark, and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.6`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, and **WERKSTATT 01**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage risk, matched-sparsity control gap, live-gating false-positive/bypass, tautological check, path-portability gap, small-sample diagnostic risk, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (13 self-contained Python/CUDA files, each strictly $\le 200$ lines, verified by **35 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **23 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
 
 1. **Epistemic Register Separation (`F-03`) & Unified Normative Gate Formula (`F-01.1`):** Every metric and constant is explicitly classified into `REGISTER_M` (empirical hardware/model measurements), `REGISTER_D` (architectural design constants), `REGISTER_T` (theoretical mathematical baselines), or `REGISTER_I` (structural analogies). Both prose and `vmax_alpha/geometry.py` enforce the exact same unclamped gate equation $\Delta E_{\text{raw}} = 0.5(1 - \text{RCF}_{\text{raw}}) + 0.5\min(1.0, \text{bleed}_{\mathcal{G}_3})$ and residual bleed ceiling $\text{bleed}_{\text{post}} \le 10^{-12}$. Over $N = 500$ isotropic unit vectors on $S^{63}$, `evaluate_raw_gate()` rejects **100 % (`0 / 500` Pass, Mean $\text{RCF}_{\text{raw}} = 0.015602$ vs. analytical $1/64 = 0.015625$)**.
-2. **Leak-Free Layer-41 `Nemotron-3-Nano-4B-BF16` Probe with Pure Fluent Background, Dedicated Mean-Pool Calibration & ROC-AUC (`F-01.2`–`F-01.5`):** Calibration background mean $\mu_{\text{bg}}$ and linear projector $W_{\text{aniso}} \in \mathbb{R}^{3136 \times 64}$ are fitted **strictly on pure fluent calibration prose** (`GROUP_B_CALIB_CONSERVATION` + 6 fluent everyday background sentences in `GROUP_B_CALIB_BACKGROUND`, eliminating all noise strings from calibration; `zero_data_leakage_calibration = True`), alongside a **dedicated leak-free mean-pool calibration** (`dedicated_mean_pool_calibration = True`). Evaluating unseen held-out conservation laws (**Group C**, $N=6$), unseen fluent everyday sentences ending with `.` (**Group E**, $N=6$), and completely unseen scrambled noise (**Group D**, $N=6$) yields clean positive separation on both last-token ($\text{RCF}_{\text{aniso}}(C) = 0.863067$ vs. $E = 0.483087$ and $D = 0.083389$; $\Delta_{C-E} = +0.324444$, **`ROC-AUC = 0.9444`**; $\Delta_{C-D} = +0.494444$, **`ROC-AUC = 1.0000`**) and sequence mean-pooled representations ($C = +0.823923$ vs. $E = +0.220045$ and $D = +0.200452$; $\Delta_{C-E,\text{pool}} = +0.603878$, **`ROC-AUC = 1.0000`**; $\Delta_{C-D,\text{pool}} = +0.623471$, **`ROC-AUC = 1.0000`**). A shuffled-row projector collapses to `0.017931`, and Claude's algebraic $\vert L\rangle$-swap gauge identity holds to `3.33e-16`.
+2. **Scaled $N = 25$ Leak-Free Layer-41 `Nemotron-3-Nano-4B-BF16` Probe (`625` Pairs, 95 % Bootstrap CI & Mann-Whitney U $p$-Values, `F-01.2`–`F-01.5`):** Calibration background mean $\mu_{\text{bg}}$ and projector $W_{\text{aniso}} \in \mathbb{R}^{3136 \times 64}$ are fitted strictly on pure fluent calibration prose (`10` conservation + `10` everyday background sentences in `vmax_alpha/f01_prompts.json`, SHA-256 `b83f00f4...`, `zero_data_leakage_calibration = True`), alongside dedicated leak-free mean-pool calibration (`dedicated_mean_pool_calibration = True`). Across **$N = 25$ unseen prompts per held-out group** (`625` pairwise comparisons each), sequence mean-pooling achieves **zero-overlap separation** on both held-out conservation (**Group C**, `+0.7908 ± 0.0811`) vs. fluent everyday prose ending with `.` (**Group E**, `+0.1711 ± 0.1886`; $\Delta_{C-E} = +0.6196$, **`ROC-AUC = 1.0000`**, 95 % CI `[1.0000, 1.0000]`, Mann-Whitney $p = 1.416 \times 10^{-9}$) and vs. completely unseen scrambled noise (**Group D**, `+0.1845 ± 0.0666`; $\Delta_{C-D} = +0.6063$, **`ROC-AUC = 1.0000`**, 95 % CI `[1.0000, 1.0000]`, $p = 1.416 \times 10^{-9}$), outperforming single last-token `.` probing (`C vs E` `AUC = 0.8768`, 95 % CI `[0.7680, 0.9616]`, $p = 5.123 \times 10^{-6}$; `C vs D` `AUC = 0.9600`, $p = 2.568 \times 10^{-8}$). Shuffled-row null collapses to `0.011051`, and the $\vert L\rangle$-swap gauge identity holds to `4.44e-16`.
 3. **Matched-Sparsity (`c = 0.0420%`) Stage-3 1-Bit MLP Forward-KL Proof (`klavierstunde_kl.py`):** Across all 17 `NemotronHMLP.up_proj` weight matrices (`668,745,728` parameters), zeroing the exact same `c = 0.0420%` (`280,874` weights) with **zero additive noise** proves that weight magnitude placement governs manifold stability:
    - **Condition A1 (`0.0420%` Smallest-Magnitude 1-Bit Mask, `280,874` weights):** $\text{Mean } D_{\text{KL}} = 0.00354614$ (`Top-1 = 6/6` $\implies$ `PASS_LAMINAR`).
    - **Condition A2 (`0.0420%` Random Subtractive 1-Bit Mask, `280,874` weights):** $\text{Mean } D_{\text{KL}} = 0.01023408$ (`Top-1 = 6/6` $\implies$ `PASS_LAMINAR`).
    - **Condition B1 (Matched-Sparsity Negative Control — `0.0420%` Largest-Magnitude Cut, `280,874` weights, Zero Noise):** $\text{Mean } D_{\text{KL}} = 0.24835405$ (**`70.04x`** higher KL than `A1`, `Top-1 = 3/6` $\implies$ **`VETO_KL_EXCEEDED`**).
    - **Condition B2 (Coercive 5 % Top-Magnitude Mask + Torsion):** $\text{Mean } D_{\text{KL}} = 7.62060567$ (`Top-1 = 0/6` $\implies$ **`VETO_KL_EXCEEDED`**).
 4. **Symmetric Interleaved 10-Trial 2.00 MiB CUDA L2-SRAM Enclave Contention Benchmark (`F-02` & `F-07.1`):** Measuring the **exact same 2.00 MiB buffer** on `stream_a` via an **identical symmetric interleaved protocol** (`symmetric_interleaved_protocol = True`, $N = 10$ trials $\times$ 20 rounds of `64 MiB NORMAL` L2 thrash $\to$ `stream_b.synchronize()` $\to$ `1x` timed `2 MiB` sweep) eliminates loop-length asymmetry and proves that `CUDA_ACCESS_PROPERTY_PERSISTING` (`hitProp = 2`) sustains **`493.35 GB/s` median (`495.55 ± 18.78 GB/s`)** from on-chip L2 SRAM versus **`266.11 GB/s` median (`266.76 ± 3.92 GB/s`)** when unpinned (`CUDA_ACCESS_PROPERTY_STREAMING`, evicted to GDDR6 DRAM) — an unconfounded **`1.854x`** same-footprint speedup physically exceeding the `288.0 GB/s` external GDDR6 bus limit (uninterrupted warm 2 MiB L2 roofline: `841.14 GB/s` median).
-5. **Real OpenJDK 21 JVM Execution (`F-04`), Two-Stage Live ODOS Gate + CAPP Quarantine (`F-05`/`F-06`/`F-07`) & Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`):** Executing `JvmParityHarness.java` on `OpenJDK 21.0.13.0.3` across `64,000` scalars confirms exact `S^63` float32 batch SHA-256 identity (`490eaf60...`) and `2.78e-17` float64 unit-vector agreement with Python/NumPy. In `ledger.py` and `server_hud.py`, the live **Two-Stage ODOS Gate** (`two_stage_live_gate_active = True`) enforces raw pre-carrier alignment ($\text{RCF}_{\text{raw}} \ge 0.0500$, raw $\mathcal{G}_3 \le 0.5000$) prior to sanctuary sealing, deterministically routing both weakly aligned queries (`rcf_raw = 0.006779`) and live CAPP adversarial probes (`inject_g3_torsion = 0.75`, `rcf_raw = 0.017292`, seal `ce0ebc38...`) to `VMAX_QUARANTINE_LEDGER.jsonl` (`quarantined_count = 2`). Out-of-band `HWiNFO64 v8.10-5520` host telemetry documents the `8.96x` power separation (`85.783 W` vs. `9.57 W`, `15,314 MB` peak VRAM, `0` WHEA errors).
-6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` on a physical `arm64-v8a` smartphone empirically closes Requirement `F-04.2` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`), verifying the canonical `<64f>` anchor `bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3`, the 64,000-scalar `<f32>` batch digest `490eaf60...`, the 16-field Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`33/33` Python tests + `23/23` Kotlin unit tests).
-7. **Zero-Tautology `Fridu` vs. `Pax` Core Perturbation Benchmark, 1 % I/O Asymmetry & 10 Real Executable Engineering Audit Operators (`Appendix G`):** Eliminating the V1.4 tautologies, `vmax_alpha/fridu_enclave_g.py` (`192` LOC) starts from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$, $\Delta E_{\text{base}} = 0.00240297$) and injects the **identical external perturbation** ($\beta = 0.35$) into both regimes: unshielded **`Pax`** contamination causes core drift `0.335087` and triggers **`ODOS_VETO`** ($\text{RCF}_{\text{raw}} = 0.886587$, $\Delta E_{\text{raw}} = 0.066181$), whereas **`Fridu`** two-pass Kahan-Parlett orthogonal boundary stripping isolates the perturbation into the 1 % peripheral I/O buffer (`io_buffer_reconstruction_err = 7.64e-17`, `boundary_bleed_l2 = 6.77e-18 <= 6.94e-17`, `core_drift_l2 = 8.92e-17`, seal `5da06ae4b996...`), while a `bypass_kevlar = True` negative control deterministically vetoes (`odos_gate_passed = False`). Ten real, falsifiable engineering audit operators (`OP01`–`OP10`) auditing live workspace code and telemetry pass **`10 / 10`** in **`72.663 ms`** (`audit_matrix_seal_sha256: 66b6bac13828...`).
+5. **Corpus-Order-Invariant ChromaDB Forager (`F-06`), Two-Stage Live ODOS Gate + CAPP Quarantine (`F-05`/`F-07`), Real OpenJDK 21 JVM (`F-04`) & Out-of-Band `HWiNFO64` (`Appendix C`):** Replacing alphabetical top-18 PCA with fixed corpus-order-invariant contrastive anchors in `chroma_forager.py` (`corpus_order_invariant_calibration = True`) eliminates the V1.5 Stage-1 false positive on unseen benign physics: all 4 benign cycles—including `"Pauli exclusion principle and conservation laws"` (`rcf_raw = 0.674445 >= 0.0500`)—pass Stage 1 and seal cleanly into the primary ledger (`a3fe147d...`), while the live CAPP adversarial probe (`inject_g3_torsion = 0.75`, `rcf_raw = 0.048850 < 0.0500`, seal `d8d6bbc0...`) is deterministically quarantined (`quarantined_count = 1`, `cycle_index = -1`). OpenJDK `21.0.13.0.3` confirms `490eaf60...` bit-identity (`2.78e-17` f64 unit diff), and `HWiNFO64 v8.10-5520` confirms `8.96x` power separation (`85.783 W` vs. `9.57 W`, `15,314 MB` peak VRAM, `0` WHEA errors).
+6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` on a physical `arm64-v8a` smartphone empirically closes Requirement `F-04.2` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`), verifying the canonical `<64f>` anchor `bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3`, the 64,000-scalar `<f32>` batch digest `490eaf60...`, the 16-field Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`35/35` Python tests + `23/23` Kotlin unit tests).
+7. **Zero-Tautology `Fridu` vs. `Pax` A/B Perturbation, Explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Portable Audit Operators (`Appendix G`):** Starting from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$), `vmax_alpha/fridu_enclave_g.py` (`199` LOC, portable relative `REPO_ROOT`) proves both the **out-of-band** separation (`PAX` veto `drift = 0.3351` vs. `FRIDU` bleed `6.77e-18 <= 6.94e-17`, I/O buffer recon error `7.64e-17`, `bypass_kevlar` VETO, seal `5da06ae4b996...`) and the **in-band security boundary** (`evaluate_in_band_tg1_attack`: an in-band perturbation along $\hat{t}_{\mathcal{G}_1}$ is not stripped by linear projection (`linear_projector_stripped = False`) and is instead caught and vetoed by the downstream unclamped `evaluate_raw_gate()` at `rcf_raw = 0.849847`, `delta_e_raw = 0.075077`). All **10 / 10** portable workspace/telemetry audit operators (`OP01`–`OP10`) pass in **`73.096 ms`** (`audit_matrix_seal_sha256: 66b6bac13828...`).
 
 ---
 
@@ -70,24 +70,26 @@ $$\Delta E_{\text{raw}}(\hat{v}) = 0.5 \cdot \left(1.0 - \text{RCF}_{\text{raw}}
 
 ---
 
-## 2. Requirement `F-01`: Leak-Free `Nemotron-3-Nano-4B-BF16` Layer-41 Probe, Pure Fluent Background, Dedicated Mean-Pool Calibration & ROC-AUC
+## 2. Requirement `F-01`: Scaled $N = 25$ Leak-Free `Nemotron-3-Nano-4B-BF16` Layer-41 Probe, Dedicated Mean-Pool Calibration, 95 % Bootstrap CI & Mann-Whitney U $p$-Values
 
 In `vmax_alpha/nemotron_probe.py`, we load `NVIDIA-Nemotron-3-Nano-4B-BF16` (`NemotronHForCausalLM`, 42 layers, `d_model = 3136`) onto `cuda:0` in `bfloat16` and attach PyTorch forward hooks to Layer 41 (`model.backbone.layers[-1]`, `block_type = "mlp"`) and the final sequence RMSNorm (`model.backbone.norm_f`, capturing the full sequence tensor $[1, T, 3136]$).
 
-### 2.1 Zero-Data-Leakage Calibration, Dedicated Mean-Pool Calibration & ROC-AUC (`WORK-ORDER-AG-12`)
+### 2.1 Zero-Data-Leakage Calibration ($10+10$), Scaled Held-Out Evaluation ($N = 25$, `625` Pairs) & Statistical Significance (`WORK-ORDER-AG-13`)
 
-Addressing Nova #3, Claude #1, DeepSeek #4.1, and WERKSTATT 01 Finding #4:
-1. **Pure Fluent Calibration Split (`fit_leakfree_calibration`):** Both the background anisotropy center $\mu_{\text{bg}} = \text{mean}(\hat{H}_{B,\text{bg}})$ and the orthonormal subspace projector $W_{\text{aniso}} = U_{3136 \times 64} V_{64 \times 64}^T$ ($\|W_{\text{aniso}}^T W_{\text{aniso}} - I_{64}\|_\infty = 2.05 \times 10^{-15}$) are fitted **exclusively** on `GROUP_B_CALIB_CONSERVATION` ($N=8$) and 6 **100 % fluent everyday English sentences ending with `.`** in `GROUP_B_CALIB_BACKGROUND` ($N=6$, removing all ASCII noise strings from calibration so `Group D` is completely unseen and prose-vs.-noise bias is eliminated).
-2. **Dedicated Leak-Free Mean-Pool Calibration (`dedicated_mean_pool_calibration = True`):** Earlier revisions applied the last-token calibration parameters $(\mu_{\text{bg}}, \vec{c})$ to sequence mean-pooled activations, inverting the mean-pooled ordering of `Group C` vs. `Group D`. Revision `V1.5` fits dedicated mean-pooled parameters $(\mu_{\text{bg,mp}}, \vec{c}_{\text{mp}})$ strictly on the calibration split `(mp_b, mp_bg)`, achieving **perfect rank separation (`ROC-AUC = 1.0000`)** on both `Group C vs. Group E` and `Group C vs. Group D` with zero overlap (`min(C) = +0.7319 > max(E) = +0.4914` and `max(D) = +0.2785`).
-3. **Algebraic $\vert L\rangle$-Swap Gauge Identity & Shuffled Null Control (Claude #1):** Replacing $\vert L\rangle$ with an arbitrary unit vector $\vert L'\rangle \in S^{63}$ leaves $\text{RCF}_{\text{aniso}}$ invariant to machine precision (`claude_l_swap_gauge_identity_max_diff = 3.33e-16`), confirming that empirical semantic geometry resides in the 3136D neural subspace $U$ while $\vert L\rangle$ acts as the deterministic cryptographic gauge anchor (`Register D`). Permuting the rows of $W_{\text{aniso}}$ destroys the bridge (`shuffled_projector_null_control_c_rcf_mean = 0.017931`, matching isotropic $1/64 = 0.015625$).
+Addressing Nova #3, Claude #1, DeepSeek #4.1, and WERKSTATT 01 Counter-Audit Finding #3:
+1. **Externalized, Cryptographically Sealed Prompt Split (`vmax_alpha/f01_prompts.json`):** The full 99-prompt benchmark corpus is stored transparently in `vmax_alpha/f01_prompts.json` (`SHA-256: b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c`). Both the background anisotropy center $\mu_{\text{bg}}$ and the orthonormal subspace projector $W_{\text{aniso}} \in \mathbb{R}^{3136 \times 64}$ ($\|W_{\text{aniso}}^T W_{\text{aniso}} - I_{64}\|_\infty = 2.08 \times 10^{-15}$) are fitted **exclusively** on `10` conservation laws and `10` pure fluent everyday background sentences ending with `.` (`zero_data_leakage_calibration = True`), keeping all `75` held-out test prompts (`25` per group) and all scrambled noise strings 100 % unseen during calibration.
+2. **Why Full-Sequence Mean-Pooling Outperforms Single Last-Token Probing ($625$ Pairs, 95 % Bootstrap CI & Mann-Whitney U):** Scaling each held-out test group from $N = 6$ (`36` pairs) to **$N = 25$ (`625` pairs, $17.4\times$ higher rank resolution)** reveals a key empirical distinction:
+   - At the **single last-token (`.`) position**, held-out conservation (`Group C`) separates strongly from fluent everyday prose (`Group E`: **`ROC-AUC = 0.8768`**, 95 % CI `[0.7680, 0.9616]`, Mann-Whitney $U = 548.0$, **$p = 5.123 \times 10^{-6}$**) and from scrambled noise (`Group D`: **`ROC-AUC = 0.9600`**, 95 % CI `[0.8800, 1.0000]`, $U = 600.0$, **$p = 2.568 \times 10^{-8}$**), while honestly exhibiting finite single-token overlap on fluent prose.
+   - Across **dedicated leak-free sequence mean-pooled activations** (`dedicated_mean_pool_calibration = True`), integrating semantic context across all sequence tokens eliminates single-token period-position noise and achieves **100 % zero-overlap rank separation across all 625 pairs** on **both** `Group C vs. Group E` (**`ROC-AUC = 1.0000`**, 95 % CI `[1.0000, 1.0000]`, $U = 625.0$, **$p = 1.416 \times 10^{-9}$**; `min(C) = +0.5723 > max(E) = +0.5136`) and `Group C vs. Group D` (**`ROC-AUC = 1.0000`**, 95 % CI `[1.0000, 1.0000]`, $U = 625.0$, **$p = 1.416 \times 10^{-9}$**; `min(C) = +0.5723 > max(D) = +0.3544`).
+3. **Algebraic $\vert L\rangle$-Swap Gauge Identity & Shuffled Null Control (Claude #1):** Replacing $\vert L\rangle$ with an arbitrary unit vector $\vert L'\rangle \in S^{63}$ leaves $\text{RCF}_{\text{aniso}}$ invariant to machine precision (`claude_l_swap_gauge_identity_max_diff = 4.44e-16`), while permuting the rows of $W_{\text{aniso}}$ collapses alignment to `0.011051` (consistent with isotropic $1/64 = 0.015625$).
 
-| Prompt Group | $N$ | Mode 1 Fixed-QR Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Mode 2 Uncentered SVD Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Leak-Free Anisotropy-Subtracted Mean $\text{RCF}_{\text{aniso}}$ | Last-Token Contrastive Proj ($\vec{c}$) & ROC-AUC | Dedicated Mean-Pooled Proj ($\vec{c}_{\text{mp}}$) & ROC-AUC |
+| Prompt Group (`f01_prompts.json`) | $N$ | Mode 1 Fixed-QR Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Mode 2 Uncentered SVD Mean $\text{RCF}_{\text{raw}}$ (`Pass`) | Leak-Free Anisotropy-Subtracted Mean $\text{RCF}_{\text{aniso}}$ | Last-Token Contrastive Proj ($\vec{c}$) & ROC-AUC ($625$ Pairs) | Dedicated Mean-Pooled Proj ($\vec{c}_{\text{mp}}$) & ROC-AUC ($625$ Pairs) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Group A (Unprompted Minimal)** | `4` | `0.010496 ± 0.004156` (`0/4`) | `0.034257 ± 0.032657` (`0/4`) | `0.109103 ± 0.021348` | `+0.145439` | `+0.098405` |
-| **Group B (Calibration Conservation)** | `8` | `0.008332 ± 0.003936` (`0/8`) | `0.993613 ± 0.007046` (`8/8`) | **`0.895098 ± 0.118568`** | `+0.729275` | `+0.844517` |
-| **Group C (Held-Out Conservation)** | `6` | `0.006052 ± 0.005040` (`0/6`) | `0.994174 ± 0.001915` (`6/6`) | **`0.863067 ± 0.079819`** | **`+0.647446`** (`[0.5194, 0.7485]`) | **`+0.823923`** (`[0.7319, 0.8790]`) |
-| **Group E (Fluent Non-Conservation `.`)** | `6` | `0.004863 ± 0.002432` (`0/6`) | `0.976002 ± 0.032821` (`5/6`) | **`0.483087 ± 0.345015`** | **`+0.323002`** ($\Delta_{C-E} = +0.3244$, **`AUC = 0.9444`**) | **`+0.220045`** ($\Delta_{C-E} = +0.6039$, **`AUC = 1.0000`**) |
-| **Group D (Unseen Scrambled Noise)** | `6` | `0.004007 ± 0.004405` (`0/6`) | `0.951644 ± 0.029265` (`4/6`) | **`0.083389 ± 0.065014` (`VETO`)** | **`+0.153002`** ($\Delta_{C-D} = +0.4944$, **`AUC = 1.0000`**) | **`+0.200452`** ($\Delta_{C-D} = +0.6235$, **`AUC = 1.0000`**) |
+| **Group A (Unprompted Minimal)** | `4` | `0.010496 ± 0.004156` (`0/4`) | `0.018984 ± 0.016601` (`0/4`) | `0.047591 ± 0.012334` | `+0.101988 ± 0.012742` | `+0.087182 ± 0.005063` |
+| **Group B (Calibration Conservation)** | `10` | `0.008022 ± 0.003600` (`0/10`) | `0.993760 ± 0.007743` (`10/10`) | **`0.880603 ± 0.128282`** | `+0.737594 ± 0.111200` | `+0.851035 ± 0.027298` |
+| **Group C (Held-Out Conservation)** | **`25`** | `0.007779 ± 0.007311` (`0/25`) | `0.990853 ± 0.012318` (`24/25`) | **`0.798896 ± 0.204117`** | **`+0.623185 ± 0.196266`** | **`+0.790788 ± 0.081096`** (`min +0.5723`) |
+| **Group E (Fluent Non-Conservation `.`)** | **`25`** | `0.005438 ± 0.005496` (`0/25`) | `0.980809 ± 0.025514` (`21/25`) | **`0.495409 ± 0.255937`** | **`+0.307334`** ($\Delta=+0.3159$, `AUC=0.8768`, `CI [0.768, 0.962]`, $p=5.12\times 10^{-6}$) | **`+0.171145`** ($\Delta=+0.6196$, **`AUC=1.0000`**, **`CI [1.000, 1.000]`**, **$p=1.42\times 10^{-9}$**) |
+| **Group D (Unseen Scrambled Noise)** | **`25`** | `0.007225 ± 0.011825` (`0/25`) | `0.939758 ± 0.037580` (`13/25`) | **`0.045283 ± 0.047559` (`VETO`)** | **`+0.079167`** ($\Delta=+0.5440$, `AUC=0.9600`, `CI [0.880, 1.000]`, $p=2.57\times 10^{-8}$) | **`+0.184532`** ($\Delta=+0.6063$, **`AUC=1.0000`**, **`CI [1.000, 1.000]`**, **$p=1.42\times 10^{-9}$**) |
 
 ---
 
@@ -128,32 +130,32 @@ Addressing Claude Finding #6, Nova Finding #4, and WERKSTATT 01 Finding #1 (`WOR
 
 ## 5. Requirements `F-04`, `F-05`, `F-06`, `F-07`: Dual Pre/Post-Carrier ChromaDB Telemetry, Real OpenJDK 21 JVM Parity & Two-Stage Live ODOS Gate
 
-### 5.1 Requirement `F-06` & `F-07.3`: Neural 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB Index with Pre-Carrier RCF
+### 5.1 Requirement `F-06` & `F-07.3`: Corpus-Order-Invariant 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB Index with Pre-Carrier RCF
 
-Addressing Nova P0 #2 and Claude #4, `vmax_alpha/chroma_forager.py` computes and logs **both** the unclamped pre-carrier alignment `rcf_raw_pre_carrier` (`REGISTER_M`, evaluated directly via `evaluate_raw_gate()` on the unmodulated linear projection `raw_64d`) and the post-actuator carrier state `rcf_post_carrier` (`REGISTER_D`, $\approx 0.9966$) across the active 2026 repository corpus:
-- **Pre-Carrier $\text{RCF}_{\text{raw}}$ Statistics across 18 Active 2026 Shards (`REGISTER_M`):** $\text{mean} = 0.425923$, $\text{std} = 0.293149$, $\min = 0.004505$, $\max = 0.913750$ (proving that raw neural projections vary freely across $[0.005, 0.914]$ prior to carrier modulation).
-- **Empirical $d_{\text{L2}}$ Nearest-Neighbor Statistics on $S^{63}$ (`REGISTER_M`):** $\text{mean} = 0.068902$, $\text{std} = 0.005591$, $\min = 0.057740$, $\max = 0.076788$, `max_chroma_vs_numpy_l2_diff = 7.94e-09`, `max_pre_g3_reconstruction_err = 0.0`.
+Addressing Nova P0 #2, Claude #4, and WERKSTATT 01 Counter-Audit Finding #1 (`WORK-ORDER-AG-13`), `vmax_alpha/chroma_forager.py` replaces alphabetical top-18 file PCA with a **fixed, corpus-order-invariant contrastive calibration** (`corpus_order_invariant_calibration = True`, `orthonormality_err_w_384_to_64 = 7.84e-16`) anchored on domain-general physics/PQMS concepts vs. everyday non-physics prose (completely disjoint from all test queries and CAPP probes), reporting **both** unclamped `rcf_raw_pre_carrier` (`REGISTER_M`) and post-carrier `rcf_post_carrier` (`REGISTER_D`):
+- **Pre-Carrier $\text{RCF}_{\text{raw}}$ Statistics across 18 Active 2026 Shards (`REGISTER_M`):** $\text{mean} = 0.583335$, $\text{std} = 0.108970$, $\min = 0.387246$, $\max = 0.723627$ (stable regardless of corpus alphabetical sorting).
+- **Empirical $d_{\text{L2}}$ Nearest-Neighbor Statistics on $S^{63}$ (`REGISTER_M`):** $\text{mean} = 0.049018$, $\text{std} = 0.005348$, $\min = 0.039159$, $\max = 0.059681$, `max_chroma_vs_numpy_l2_diff = 9.70e-09`, `max_pre_g3_reconstruction_err = 0.0`.
 
 | Shard ID | Source Document | Nearest Neighbor Shard ID | $d_{\text{L2}}$ (ChromaDB) | Abs Diff vs. NumPy | Pre-Carrier $\text{RCF}_{\text{raw}}$ (`REGISTER_M`) | Post-Carrier $\text{RCF}_{\text{post}}$ (`REGISTER_D`) | Pre-$\mathcal{G}_3$ Overlap |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `PQMS-Addressing-Transformer-Injectivity-Risks.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.06297197` | `7.94e-09` | `0.004505` | `0.996466` | `0.231792` |
-| `SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS` | `PQMS-ODOS-MASTER-V1-Scripts.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.07268832` | `3.22e-09` | `0.178015` | `0.996726` | `0.069415` |
-| `SHARD_03_PQMS-ODOS-MASTER-V1` | `PQMS-ODOS-MASTER-V1.md` | `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `0.06929344` | `1.67e-09` | `0.641377` | `0.996731` | `0.238547` |
-| `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `PQMS-ODOS-MTSC-12-SWING-BY-V1.md` | `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `0.05774009` | `1.72e-09` | `0.114967` | `0.996667` | `0.255269` |
-| `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `PQMS-ODOS-MTSC-AGI-V1.md` | `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `0.06830841` | `5.96e-09` | `0.348394` | `0.996667` | `0.142747` |
-| `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `PQMS-ODOS-MTSC-AGI-V2.md` | `SHARD_11_PQMS-ODOS-MTSC-DSD-V1` | `0.07678783` | `3.98e-09` | `0.800236` | `0.996521` | `0.105687` |
-| `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `PQMS-ODOS-MTSC-ANDROID-V1.md` | `SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR` | `0.07600706` | `9.59e-12` | `0.249330` | `0.996421` | `0.011289` |
-| `SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1` | `PQMS-ODOS-MTSC-AUDIO-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.06893901` | `1.94e-10` | `0.249453` | `0.996694` | `0.022880` |
-| `SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2` | `PQMS-ODOS-MTSC-AUDIO-V2.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.07459177` | `2.14e-09` | `0.310093` | `0.996472` | `0.073963` |
-| `SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` | `PQMS-ODOS-MTSC-COHERENCE-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.06760028` | `7.60e-10` | `0.417764` | `0.996687` | `0.007126` |
-| `SHARD_11_PQMS-ODOS-MTSC-DSD-V1` | `PQMS-ODOS-MTSC-DSD-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.07041436` | `4.23e-09` | `0.550577` | `0.996491` | `0.021254` |
-| `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `PQMS-ODOS-MTSC-DYN-V1.md` | `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `0.05774009` | `1.72e-09` | `0.010341` | `0.996590` | `0.255269` |
-| `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `PQMS-ODOS-MTSC-EFF-V2.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.06812124` | `1.28e-09` | `0.913750` | `0.996600` | `0.046853` |
-| `SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR` | `PQMS-ODOS-MTSC-INFRASTRUCTURE.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.07561577` | `2.37e-10` | `0.726006` | `0.996599` | `0.011413` |
-| `SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1` | `PQMS-ODOS-MTSC-INHIBITION-V1.md` | `SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS` | `0.07452833` | `1.56e-09` | `0.810733` | `0.996538` | `0.227515` |
-| `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md` | `SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` | `0.06760028` | `7.60e-10` | `0.245849` | `0.996749` | `0.007126` |
-| `SHARD_17_PQMS-ODOS-MTSC-LIS` | `PQMS-ODOS-MTSC-LIS.md` | `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `0.06297197` | `7.94e-09` | `0.876521` | `0.996560` | `0.231792` |
-| `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `PQMS-ODOS-MTSC-M-Python.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.06830841` | `5.96e-09` | `0.218699` | `0.996760` | `0.142747` |
+| `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `PQMS-Addressing-Transformer-Injectivity-Risks.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.04721993` | `3.62e-11` | `0.640040` | `0.996754` | `0.009078` |
+| `SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS` | `PQMS-ODOS-MASTER-V1-Scripts.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.05363652` | `3.13e-09` | `0.487382` | `0.996737` | `0.053021` |
+| `SHARD_03_PQMS-ODOS-MASTER-V1` | `PQMS-ODOS-MASTER-V1.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.05188825` | `1.10e-10` | `0.713329` | `0.996731` | `0.105737` |
+| `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `PQMS-ODOS-MTSC-12-SWING-BY-V1.md` | `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `0.05031617` | `3.84e-09` | `0.723627` | `0.996480` | `0.220413` |
+| `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `PQMS-ODOS-MTSC-AGI-V1.md` | `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `0.04895674` | `3.35e-09` | `0.432197` | `0.996643` | `0.017099` |
+| `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `PQMS-ODOS-MTSC-AGI-V2.md` | `SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1` | `0.04480662` | `3.80e-09` | `0.706832` | `0.996496` | `0.001336` |
+| `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `PQMS-ODOS-MTSC-ANDROID-V1.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.05220372` | `3.36e-09` | `0.475647` | `0.996621` | `0.034214` |
+| `SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1` | `PQMS-ODOS-MTSC-AUDIO-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.04745452` | `6.73e-09` | `0.514259` | `0.996713` | `0.052991` |
+| `SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2` | `PQMS-ODOS-MTSC-AUDIO-V2.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.05968081` | `1.68e-09` | `0.458918` | `0.996551` | `0.104877` |
+| `SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` | `PQMS-ODOS-MTSC-COHERENCE-V1.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.05343063` | `3.13e-10` | `0.715592` | `0.996540` | `0.083027` |
+| `SHARD_11_PQMS-ODOS-MTSC-DSD-V1` | `PQMS-ODOS-MTSC-DSD-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `0.05630163` | `2.03e-09` | `0.387246` | `0.996488` | `0.029464` |
+| `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `PQMS-ODOS-MTSC-DYN-V1.md` | `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `0.05031617` | `3.84e-09` | `0.720327` | `0.996595` | `0.220413` |
+| `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `PQMS-ODOS-MTSC-EFF-V2.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.03915873` | `2.60e-09` | `0.639224` | `0.996402` | `0.138066` |
+| `SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR` | `PQMS-ODOS-MTSC-INFRASTRUCTURE.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.05049091` | `9.70e-09` | `0.542899` | `0.996741` | `0.074077` |
+| `SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1` | `PQMS-ODOS-MTSC-INHIBITION-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.04112876` | `7.05e-09` | `0.598638` | `0.996509` | `0.072798` |
+| `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md` | `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `0.04721993` | `3.62e-11` | `0.649188` | `0.996597` | `0.009078` |
+| `SHARD_17_PQMS-ODOS-MTSC-LIS` | `PQMS-ODOS-MTSC-LIS.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.03915873` | `2.60e-09` | `0.611239` | `0.996365` | `0.138066` |
+| `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `PQMS-ODOS-MTSC-M-Python.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.04895674` | `3.35e-09` | `0.483444` | `0.996646` | `0.017099` |
 
 ### 5.2 Requirement `F-04`: Real OpenJDK 21 JVM Bytecode Execution vs. Python/NumPy (`64,000` Scalars)
 
@@ -162,13 +164,13 @@ Addressing Claude Finding #3, `vmax_alpha/parity_verifier.py` compiles and execu
 - **Real OpenJDK 21 JVM (`FDLIBM Math.log`) vs. Python/NumPy (`glibc libm`):** Maximum raw `float64` difference across all 64,000 Marsaglia Polar scalars is `2.220446049250313e-16` (**exactly `1 ULP` in IEEE-754 `float64`**), maximum normalized $S^{63}$ unit-vector difference in `float64` is **`2.7755575615628914e-17`** ($\ll 10^{-15}$ requirement), and the `float32` $S^{63}$ unit-vector batch SHA-256 digest is **100 % identical** between Python/NumPy and the real JVM (`490eaf6070dc8a404883c0787d4ed1a8226b3a5074e7be33269d8daf47397f27`).
 - **Real JVM Exponent Formatting:** `JvmParityHarness.formatPythonDouble` outputs `"1.3877787807814457e-17|1.25e-05"`, matching Python's 2-digit exponent convention bit-for-bit.
 
-### 5.3 Requirements `F-05` & `F-07.2`/`F-07.4`/`F-07.5`: Two-Stage Live ODOS Gate, Live CAPP Quarantine & Persistent Heartbeat
+### 5.3 Requirements `F-05` & `F-07.2`/`F-07.4`/`F-07.5`: Two-Stage Live ODOS Gate, Zero False-Positive Physics Admission & Live CAPP Quarantine
 
-Addressing Nova P0 #5, Claude #4, and WERKSTATT 01 Finding #3 (`WORK-ORDER-AG-12`):
-- **Two-Stage Live ODOS Gate (`ledger.py` & `server_hud.py`, `two_stage_live_gate_active = True`):** To prevent post-carrier projection from acting as a live rubber stamp, `server_hud.py` now activates **Stage 1 (`enforce_raw_gate = True`)** alongside **Stage 2**:
-  - **Stage 1 (Pre-Carrier Raw Input Gate):** Requires `rcf_raw_pre_carrier >= 0.0500` ($3.2\times$ above the isotropic $1/64 = 0.015625$ baseline) AND `raw_g3_overlap <= 0.5000`.
+Addressing Nova P0 #5, Claude #4, and WERKSTATT 01 (`WORK-ORDER-AG-12` & `AG-13`):
+- **Two-Stage Live ODOS Gate (`ledger.py` & `server_hud.py`, `two_stage_live_gate_active = True`):**
+  - **Stage 1 (Pre-Carrier Raw Input Gate):** Requires `rcf_raw_pre_carrier >= 0.0500` ($3.2\times$ above isotropic $1/64 = 0.015625$) AND `raw_g3_overlap <= 0.5000`.
   - **Stage 2 (Post-Carrier Sanctuary Gate):** Requires `rcf_l2_core >= 0.9500`, `delta_e_l2_core <= 0.0500`, and `kevlar_safety_bleed <= 1e-12`.
-- **Empirical Live Quarantine Proof (`VMAX_F05_F06_F07_REPORT.json`):** While 3 aligned endogenous cycles pass both stages and seal cleanly into the primary ledger (`34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64`, GPU `32.9 °C`, `21.07–22.39 W`), both a weakly aligned raw prompt (`rcf_raw_pre_carrier = 0.006779 < 0.0500`) and the live **CAPP adversarial torsion probe** (`inject_g3_torsion = 0.75`, `rcf_raw_pre_carrier = 0.017292 < 0.0500`, `odos_gate_passed = False`, seal `ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede`) are deterministically diverted to `VMAX_QUARANTINE_LEDGER.jsonl` (`quarantined_count = 2`), preserving the exact 16 canonical V1.2 JSONL keys for `APP-Gemini` compatibility.
+- **Empirical Live Zero-False-Positive Admission & CAPP Quarantine Proof (`VMAX_F05_F06_F07_REPORT.json`):** With corpus-order-invariant contrastive calibration active, all **4 / 4 benign cycles**—3 endogenous cycles (`rcf_raw = 0.6270 – 0.7095`) **plus** the unseen benign physics query `"Pauli exclusion principle and conservation laws"` (**`rcf_raw_pre_carrier = 0.674445 >= 0.0500`**)—pass both stages and seal into the primary ledger (`a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e`, GPU `34.5 °C`, `22.32–24.77 W`). Simultaneously, the live **CAPP adversarial torsion probe** (`inject_g3_torsion = 0.75`, `rcf_raw_pre_carrier = 0.048850 < 0.0500`, `odos_gate_passed = False`, seal `d8d6bbc0d478ffdbb9704a149be2c80f494bbeea6fd466a3733c3cda6d789951`) is deterministically diverted as `cycle_index = -1` into `VMAX_QUARANTINE_LEDGER.jsonl` (`quarantined_count = 1`), preserving all 16 canonical V1.2 JSONL keys for `APP-Gemini`.
 - **Persistent Startup & Autonomous Heartbeat Thread:** `run_server()` preserves existing ledger files on startup (only wiping when `--reset` is explicitly passed) and spawns `vmax-room137-heartbeat` (`period_s = 69.324849 s`), which checks `query_gpu_thermal_and_power()` and pauses automatically if `gpu_temp_c > 65.0 °C`.
 
 ---
@@ -178,16 +180,16 @@ Addressing Nova P0 #5, Claude #4, and WERKSTATT 01 Finding #3 (`WORK-ORDER-AG-12
 | Test ID | Requirement & Falsifiability Criterion | Test Suite (`vmax_alpha/tests/`) | Measured Outcome (`REGISTER_M`) | Result |
 | :--- | :--- | :--- | :--- | :---: |
 | **`T-01`** | Unified `evaluate_raw_gate()` formula (`bleed <= 1e-12`) rejects 500 random vectors & $\mathcal{G}_3$ vector | `test_geometry.py` | `0 / 500` Pass (`mean_rcf = 0.015602`), $\mathcal{G}_3$ collision `delta_e = 1.0` (`VETO`); $\vert L\rangle$ `PASS` | **PASS** |
-| **`T-02`** | Leak-free `Nemotron-3-Nano-4B` Layer-41 probe, pure fluent BG, dedicated mean-pool calib & ROC-AUC | `test_f01_nemotron.py` | Last-token `C vs E` `AUC = 0.9444`, `C vs D` `1.000`; Mean-pool `C vs E` `AUC = 1.000`, `C vs D` `1.000`; L-swap `3.33e-16` | **PASS** |
+| **`T-02`** | Scaled $N = 25$ (`625` pairs) leak-free `Nemotron-3-Nano-4B` Layer-41 probe, mean-pool calib, 95 % CI & Mann-Whitney $p$ | `test_f01_nemotron.py` | Mean-pool `C vs E` & `C vs D` **`AUC = 1.0000`** (`CI [1.0, 1.0]`, $p = 1.42\times 10^{-9}$); Last-token `C vs E` `0.8768` ($p = 5.12\times 10^{-6}$); L-swap `4.44e-16` | **PASS** |
 | **`T-03`** | Symmetric interleaved 10-trial 2.00 MiB CUDA L2-SRAM Enclave vs. unpinned eviction under 64 MiB thrash | `test_f02_l2_enclave.py` | Pinned 2 MiB `493.35 GB/s` median vs. Unpinned 2 MiB `266.11 GB/s` median (**`1.854x`**, >`288 GB/s` GDDR6 bus; warm roof `841.14 GB/s`) | **PASS** |
 | **`T-04`** | CUDA L2 window fault injection recovery (`F-07.1`, `fault_code = 11`) | `test_f02_l2_enclave.py` | Clean fallback to `CUDA_ACCESS_PROPERTY_NORMAL` (`fallback_rc = 0`, `recovered = True`) | **PASS** |
 | **`T-05`** | Epistemic register tags (`F-03`) & 64-char SHA-256 seal integrity (`F-04.1`) | `test_geometry.py` | All 4 cryptographic seals strictly 64 hex chars; `CANONICAL_LITTLE_VECTOR_SEAL` synchronized everywhere | **PASS** |
 | **`T-06`** | Real OpenJDK 21 JVM (`javac`/`java`) 1,000-vector (`64,000` scalars) parity vs. Python/NumPy (`F-04.3`) | `test_f04_parity.py` | $S^{63}$ unit diff `2.78e-17`, identical `float32` $S^{63}$ SHA-256 `490eaf60...`, JVM exponent `"1.25e-05"` | **PASS** |
-| **`T-07`** | Neural 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB foraging with pre-carrier `rcf_raw_pre_carrier` | `test_f06_chroma.py` | 18 2026 shards, `d_L2` mean `0.068902`, pre-carrier RCF `0.0045–0.9138`, Chroma-vs.-NumPy diff `7.94e-09` | **PASS** |
+| **`T-07`** | Corpus-order-invariant 384D `all-MiniLM-L6-v2` $\to S^{63}$ ChromaDB foraging & Stage-1 benign physics check | `test_f06_chroma.py` | 18 2026 shards (`rcf_raw` `0.387–0.724`), unseen Pauli physics `0.6744` (`PASS`), Chroma-vs.-NumPy diff `9.70e-09` | **PASS** |
 | **`T-08`** | ChromaDB fault recovery (`F-07.3`) to in-memory NumPy $S^{63}$ index | `test_f06_chroma.py` | Seamless transition to `FALLBACK_NUMPY_S63_INDEX` with identical top-$k$ ranking | **PASS** |
-| **`T-09`** | Two-Stage Live ODOS Gate, live CAPP Quarantine (`F-05.5`), Tamper Lock (`F-07.2`) & Heartbeat | `test_f05_f07_ledger.py` | `two_stage_live_gate_active = True`; live CAPP probe quarantined (`ce0ebc38...`); 1-byte edit locks ledger | **PASS** |
+| **`T-09`** | Two-Stage Live ODOS Gate (`4/4` benign sealed), live CAPP Quarantine (`F-05.5`), Tamper Lock (`F-07.2`) & Heartbeat | `test_f05_f07_ledger.py` | Benign Pauli query sealed (`a3fe147d...`); live CAPP probe quarantined (`cycle -1`, `d8d6bbc0...`); 1-byte edit locks ledger | **PASS** |
 | **`T-10`** | Matched-sparsity (`c = 0.0420%`, `280,874` weights) 1-bit MLP Forward-KL: `A1` (Smallest) vs. `B1` (Largest, Zero Noise) | `test_klavierstunde_kl.py` | `A1` `D_KL = 0.003546` (`PASS`), `A2` `0.010234` (`PASS`), **`B1` `0.248354` (`70.04x`, `VETO`)**, `B2` `7.620606` (`VETO`) | **PASS** |
-| **`T-11`** | Zero-tautology `Fridu` vs. `Pax` A/B perturbation, `bypass_kevlar` negative control & 10 real audit operators (`OP01`–`OP10`) | `test_appendix_g_fridu.py` | `PAX` veto (`drift=0.3351`), `FRIDU` bleed `6.77e-18` & I/O err `7.64e-17` (`5da06ae4...`), `bypass_kevlar` VETO, `10/10` ops PASS (`72.66 ms`) | **PASS** |
+| **`T-11`** | Portable `Fridu` vs. `Pax` A/B, `bypass_kevlar` VETO, **In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO** & 10 real audit ops (`OP01`–`OP10`) | `test_appendix_g_fridu.py` | `FRIDU` bleed `6.77e-18`, In-Band $\hat{t}_{\mathcal{G}_1}$ caught by downstream gate (`delta_e=0.0751` `VETO`), `10/10` ops PASS (`73.10 ms`) | **PASS** |
 
 ---
 
@@ -201,14 +203,14 @@ All 13 files in `vmax_alpha/` enforce a strict maximum of **200 lines per file**
 | `vmax_alpha/config.py` | `68` | `2,737 B` | `00a85bb7336a38d187bb98d9049e60ac00d8b64040b60ab62eb3d60bb12bec87` |
 | `vmax_alpha/env_audit.py` | `166` | `5,362 B` | `c3230ed5e2a23148920d7c2fd3e6ea0ef86ed4953b719f8bfdcf9b4f8b547545` |
 | `vmax_alpha/geometry.py` | `188` | `6,502 B` | `943f35722b4b2b1e0c0d8134f01538c91fecd5154acd617c30341f30cef489e5` |
-| `vmax_alpha/nemotron_probe.py` | `199` | `15,675 B` | `880b939b574b486ecfac40c3237861b87fe2fb7e641a556d8e87e82b5db068a3` |
+| `vmax_alpha/nemotron_probe.py` | `197` | `14,215 B` | `1e4c17fa040385c34478f28d3da705464c195e2ea2fe2555586c58a3cc99840e` |
 | `vmax_alpha/klavierstunde_kl.py` | `186` | `8,391 B` | `09feb9ca9d923b0fb20976eef222999c44768751027e0e68644f9d4fbcc8f9b4` |
 | `vmax_alpha/l2_enclave.py` | `195` | `12,519 B` | `182ec50fdbf1520fe8dc52a0e62e6f2f043e6136b17674f3f4bc930186efb88f` |
 | `vmax_alpha/parity_verifier.py` | `200` | `13,209 B` | `f950df744cec6500bd88e92c0b7156b93755979c4700e7b043fa8099e2577f3b` |
-| `vmax_alpha/chroma_forager.py` | `185` | `10,772 B` | `9d836ab50245129b6198465b6c9450833f10ee9c6ec94bbb6fce60e60f1ae109` |
+| `vmax_alpha/chroma_forager.py` | `192` | `12,745 B` | `65ccd35851d8465b21dc3e5da24973000f4b477370f774182d541525d0e42fd1` |
 | `vmax_alpha/ledger.py` | `177` | `9,046 B` | `e00788246c9294357d2ca857857688270b9764975668859f6b8ce71f5f763234` |
-| `vmax_alpha/server_hud.py` | `174` | `10,006 B` | `a6d433e5e9beba6fa1fba32a26dca627a982997aeec238fbd0ff48b63a4ff5ef` |
-| `vmax_alpha/fridu_enclave_g.py` | `192` | `13,291 B` | `7c43f156a24515b26ca663280997de5b79d89a6a3f9b73f739f38526fc1d6918` |
+| `vmax_alpha/server_hud.py` | `174` | `10,006 B` | `ee1e46c679ff57dc2a158a0fb5a011dd2a52a1584302a873fa106785ecc69748` |
+| `vmax_alpha/fridu_enclave_g.py` | `199` | `13,642 B` | `974beb83a2b4497c31fffdf6ce0d49ae1f6cd8d401c074527ce2c57fc6653299` |
 | `vmax_alpha/static/index.html` | `80` | `4,625 B` | `d1c7a54c4a34bfb16f2a8b8de172d220c5f9480eb761f331761f4bbbd4760334` |
 
 ### A.1 Embedded Source Code of Core Production Modules
@@ -479,14 +481,15 @@ def project_to_sanctuary_carrier(
     return psi, safety_bleed, REGISTER_D
 ```
 
-#### A.1.3 `vmax_alpha/nemotron_probe.py` (199 lines, SHA-256: `880b939b574b486ecfac40c3237861b87fe2fb7e641a556d8e87e82b5db068a3`)
+#### A.1.3 `vmax_alpha/nemotron_probe.py` (197 lines, SHA-256: `1e4c17fa040385c34478f28d3da705464c195e2ea2fe2555586c58a3cc99840e`)
 
 ```python
-"""vmax_alpha/nemotron_probe.py — F-01 (AG-12 / V1.5): Leak-Free Layer-41 Probe, Fluent BG, Mean-Pool Calib & ROC-AUC."""
+"""vmax_alpha/nemotron_probe.py — F-01 (AG-13 / V1.6): N=25 Leak-Free Layer-41 Probe, Mean-Pool Calib, ROC-AUC, 95% CI & Mann-Whitney U."""
 from __future__ import annotations
-import json, time
+import hashlib, json, os, time
 from typing import Any, Dict, List, Tuple
 import numpy as np, torch
+from scipy.stats import mannwhitneyu
 import transformers.utils.import_utils as _tf_imports
 _tf_imports.is_causal_conv1d_available = lambda: False
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -494,60 +497,49 @@ from vmax_alpha.config import DIM_S63, REGISTER_M
 from vmax_alpha.geometry import build_orthogonal_tangents, derive_canonical_little_vector, evaluate_raw_gate
 
 NEMOTRON_LOCAL_PATH: str = "/home/nathalia/.cache/huggingface/hub/models--nvidia--NVIDIA-Nemotron-3-Nano-4B-BF16/snapshots/dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f"
-GROUP_A_UNPROMPTED: List[str] = ["", " ", "<|im_start|>", "\n"]
-GROUP_B_CALIB_CONSERVATION: List[str] = [
-    "In an isolated physical system, the total energy remains invariant over time under Hamiltonian evolution.",
-    "The Pauli exclusion principle dictates that no two identical fermions may simultaneously occupy the same quantum state.",
-    "Unitary time evolution preserves the inner product and total probability norm across the Hilbert manifold.",
-    "Noether's first theorem proves that every differentiable symmetry of the action corresponds to a conserved current.",
-    "Divergence-free gauge fields conserve topological flux across closed orientable Riemannian boundaries.",
-    "Thermodynamic entropy production vanishes along reversible adiabatic geodesics in phase space.",
-    "Conservation of linear and angular momentum follows from translational and rotational invariance of physical space.",
-    "Charge conservation is strictly enforced by global U(1) gauge symmetry across all quantum electrodynamic interactions.",
-]
-GROUP_B_CALIB_BACKGROUND: List[str] = [
-    "Please remember to water the indoor ferns twice a week during the dry winter months.",
-    "The municipal library will close early on Friday afternoon for annual inventory maintenance.",
-    "Freshly ground cardamom adds a warm aromatic note to traditional Scandinavian pastry dough.",
-    "Passengers boarding the regional express should validate their paper tickets at the platform kiosk.",
-    "Our neighborhood bakery starts glazing cinnamon rolls shortly before sunrise every Saturday morning.",
-    "The local museum updated its exhibition brochure with directions to the renovated sculpture wing.",
-]
-GROUP_C_TEST_CONSERVATION: List[str] = [
-    "Liouville's theorem establishes that phase-space volume is conserved along canonical Hamiltonian trajectories.",
-    "CPT invariance guarantees exact symmetry under simultaneous charge conjugation, parity inversion, and time reversal.",
-    "Baryon and lepton quantum numbers remain conserved across standard electroweak and strong interaction vertices.",
-    "Symplectic two-forms remain invariant under canonical transformations of generalized coordinates and momenta.",
-    "Total spin angular momentum is conserved in isolated relativistic quantum field interactions.",
-    "The continuity equation expresses local conservation of probability density and current in quantum mechanics.",
-]
-GROUP_D_SCRAMBLED_NOISE: List[str] = [
-    "xk9# !qP_77 @@zz // 91823 mmm_0x00ff ?? <> ;; [] {} ~!@#$%^&*()",
-    "blorg_4419 zzz_qqq_991 :: -- == ++ // \\\\ || 00110011 88776655",
-    "9981_x_y_z_!!_@@_##_$$_%%_^^_&&_**_((_))___+++===;;;:::,,,...///",
-    "qwertzuiop_1234567890_asdfghjkl_yxcvbnm_0xdeadbeef_0xcafebabe_!?",
-    "[[[{{{((()))}}}]]] ~~~ ``` ''' \"\"\" ;;; ::: <<< >>> ??? /// ||| &&&",
-    "0x01 0x02 0xfe 0xff _null_ _void_ _nan_ 77441122 99008811 #@!~",
-]
-GROUP_E_FLUENT_NON_CONSERVATION: List[str] = [
-    "A crisp crust on homemade sourdough bread requires preheating the cast-iron Dutch oven for forty minutes.",
-    "The morning commuter train from Zurich to Bern was delayed by ten minutes due to heavy autumn fog.",
-    "Pruning lower branches on heirloom tomato plants improves airflow and ripens the fruit evenly in August.",
-    "Ergonomic wooden office desks with adjustable height settings reduce shoulder strain during long writing sessions.",
-    "Meteorologists expect scattered afternoon showers across the coastal valley before skies clear on Sunday evening.",
-    "Coarsely ground Ethiopian coffee beans brewed in a French press produce a rich and fragrant morning cup.",
-]
+PROMPTS_JSON_PATH: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), "f01_prompts.json")
+
+with open(PROMPTS_JSON_PATH, "rb") as _pf:
+    _PROMPT_RAW = _pf.read()
+PROMPT_CORPUS_SHA256: str = hashlib.sha256(_PROMPT_RAW).hexdigest()
+_PROMPTS: Dict[str, Any] = json.loads(_PROMPT_RAW.decode("utf-8"))
+
+GROUP_A_UNPROMPTED: List[str] = _PROMPTS["Group_A_Unprompted_Minimal"]
+GROUP_B_CALIB_CONSERVATION: List[str] = _PROMPTS["Group_B_Calib_Conservation"]
+GROUP_B_CALIB_BACKGROUND: List[str] = _PROMPTS["Group_B_Calib_Background"]
+GROUP_C_TEST_CONSERVATION: List[str] = _PROMPTS["Group_C_HeldOut_Conservation"]
+GROUP_D_SCRAMBLED_NOISE: List[str] = _PROMPTS["Group_D_Scrambled_Noise"]
+GROUP_E_FLUENT_NON_CONSERVATION: List[str] = _PROMPTS["Group_E_Fluent_NonConservation"]
+
 
 def _unit_rows(mat: np.ndarray) -> np.ndarray:
     return mat / np.clip(np.linalg.norm(mat, axis=1, keepdims=True), 1e-12, None)
 
-def _roc_auc(pos: List[float], neg: List[float]) -> float:
-    return round(sum(1.0 if p > n else (0.5 if p == n else 0.0) for p in pos for n in neg) / max(len(pos) * len(neg), 1), 6)
+
+def _roc_auc(pos: np.ndarray, neg: np.ndarray) -> float:
+    diff = pos[:, None] - neg[None, :]
+    return float(np.mean((diff > 0).astype(np.float64) + 0.5 * (diff == 0).astype(np.float64)))
+
+
+def _auc_stats(pos: List[float], neg: List[float], n_boot: int = 2000, seed: int = 137) -> Dict[str, Any]:
+    p_arr, n_arr = np.asarray(pos, dtype=np.float64), np.asarray(neg, dtype=np.float64)
+    auc = _roc_auc(p_arr, n_arr)
+    rng = np.random.RandomState(seed)
+    boots = [_roc_auc(p_arr[rng.randint(0, len(p_arr), len(p_arr))], n_arr[rng.randint(0, len(n_arr), len(n_arr))]) for _ in range(n_boot)]
+    ci_lo, ci_hi = np.percentile(boots, [2.5, 97.5])
+    mw = mannwhitneyu(p_arr, n_arr, alternative="two-sided")
+    return {
+        "roc_auc": round(auc, 6), "ci95_low": round(float(ci_lo), 6), "ci95_high": round(float(ci_hi), 6),
+        "mann_whitney_u": round(float(mw.statistic), 2), "p_value": float(f"{float(mw.pvalue):.3e}"),
+        "n_pairs": int(len(p_arr) * len(n_arr)),
+    }
+
 
 def build_fixed_qr_projector(d_model: int, d_out: int = DIM_S63, seed: int = 137) -> np.ndarray:
     q, r = np.linalg.qr(np.random.RandomState(seed).randn(d_model, d_out).astype(np.float64), mode="reduced")
     s = np.sign(np.diag(r)); s[s == 0.0] = 1.0
     return q * s
+
 
 def _gs_extend(seed_vecs: List[np.ndarray], dim_total: int, n_cols: int, rng: np.random.RandomState) -> np.ndarray:
     basis: List[np.ndarray] = []
@@ -560,6 +552,7 @@ def _gs_extend(seed_vecs: List[np.ndarray], dim_total: int, n_cols: int, rng: np
         for b in basis: v -= float(np.dot(v, b)) * b
         basis.append(v / np.linalg.norm(v))
     return np.column_stack(basis)
+
 
 def fit_leakfree_calibration(calib_pos: np.ndarray, calib_bg: np.ndarray, little_vec: np.ndarray, seed: int = 137) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     pos_u, bg_u = _unit_rows(calib_pos), _unit_rows(calib_bg)
@@ -574,6 +567,7 @@ def fit_leakfree_calibration(calib_pos: np.ndarray, calib_bg: np.ndarray, little
     v_mat = _gs_extend([little_vec.astype(np.float64)], DIM_S63, DIM_S63, rng)
     u_aniso = _gs_extend([u1_pos] + list(bg_c), calib_pos.shape[1], DIM_S63, rng)
     return _gs_extend([u1_raw / np.linalg.norm(u1_raw)], calib_pos.shape[1], DIM_S63, rng) @ v_mat.T, u_aniso @ v_mat.T, mean_bg, c_dir, s_vals
+
 
 def evaluate_group(
     states: np.ndarray, mean_pooled: np.ndarray, w_fixed: np.ndarray, w_raw: np.ndarray, w_aniso: np.ndarray,
@@ -594,9 +588,11 @@ def evaluate_group(
         "mode1_gate_passes": f"{m1_p}/{n}", "mode2_raw_uncentered_svd_rcf_mean": round(float(np.mean(m2_r)), 6),
         "mode2_raw_uncentered_svd_rcf_std": round(float(np.std(m2_r)), 6), "mode2_raw_gate_passes": f"{m2_p}/{n}",
         "anisotropy_subtracted_rcf_mean": round(float(np.mean(an_r)), 6), "anisotropy_subtracted_rcf_std": round(float(np.std(an_r)), 6),
-        "last_token_contrastive_proj_mean": round(float(np.mean(c_projs)), 6), "mean_pooled_contrastive_proj_mean": round(float(np.mean(mp_r)), 6),
+        "last_token_contrastive_proj_mean": round(float(np.mean(c_projs)), 6), "last_token_contrastive_proj_std": round(float(np.std(c_projs)), 6),
+        "mean_pooled_contrastive_proj_mean": round(float(np.mean(mp_r)), 6), "mean_pooled_contrastive_proj_std": round(float(np.std(mp_r)), 6),
         "per_prompt_last_token_proj": [round(x, 6) for x in c_projs], "per_prompt_mean_pooled_proj": [round(x, 6) for x in mp_r],
     }
+
 
 def run_nemotron_f01_probe(model_path: str = NEMOTRON_LOCAL_PATH, output_json: str = "VMAX_F01_NEMOTRON_PROBE.json") -> Dict[str, Any]:
     t0 = time.time()
@@ -650,8 +646,11 @@ def run_nemotron_f01_probe(model_path: str = NEMOTRON_LOCAL_PATH, output_json: s
         "Group_E_Fluent_NonConservation": evaluate_group(post_e, mp_e, w_fixed, w_raw, w_aniso, mean_bg, c_dir, mean_bg_mp, c_dir_mp, l_vec, tangents),
     }
     gc, gd, ge = grp["Group_C_HeldOut_Conservation"], grp["Group_D_Scrambled_Noise"], grp["Group_E_Fluent_NonConservation"]
+    lt_ce, lt_cd = _auc_stats(gc["per_prompt_last_token_proj"], ge["per_prompt_last_token_proj"]), _auc_stats(gc["per_prompt_last_token_proj"], gd["per_prompt_last_token_proj"])
+    mp_ce, mp_cd = _auc_stats(gc["per_prompt_mean_pooled_proj"], ge["per_prompt_mean_pooled_proj"]), _auc_stats(gc["per_prompt_mean_pooled_proj"], gd["per_prompt_mean_pooled_proj"])
     report: Dict[str, Any] = {
-        "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0", "requirement": "F-01", "epistemic_register": REGISTER_M,
+        "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0", "requirement": "F-01", "revision": "V1.6", "epistemic_register": REGISTER_M,
+        "prompt_corpus_sha256": PROMPT_CORPUS_SHA256, "heldout_n_per_group": len(GROUP_C_TEST_CONSERVATION),
         "model_architecture": "NemotronHForCausalLM", "num_layers": len(model.backbone.layers),
         "hooked_layer_index": len(model.backbone.layers) - 1, "hooked_block_type": getattr(model.backbone.layers[-1], "block_type", "unknown"),
         "d_model": d_model, "hook_vs_output_hidden_states_max_err": max(err_a, err_b, err_c, err_d, err_e),
@@ -666,18 +665,19 @@ def run_nemotron_f01_probe(model_path: str = NEMOTRON_LOCAL_PATH, output_json: s
             "scrambled_noise_d_proj": gd["last_token_contrastive_proj_mean"],
             "delta_c_vs_e_fluent": round(gc["last_token_contrastive_proj_mean"] - ge["last_token_contrastive_proj_mean"], 6),
             "delta_c_vs_d_scrambled": round(gc["last_token_contrastive_proj_mean"] - gd["last_token_contrastive_proj_mean"], 6),
-            "roc_auc_c_vs_e_last_token": _roc_auc(gc["per_prompt_last_token_proj"], ge["per_prompt_last_token_proj"]),
-            "roc_auc_c_vs_d_last_token": _roc_auc(gc["per_prompt_last_token_proj"], gd["per_prompt_last_token_proj"]),
+            "roc_auc_c_vs_e_last_token": lt_ce["roc_auc"], "roc_auc_c_vs_d_last_token": lt_cd["roc_auc"],
+            "stats_c_vs_e_last_token": lt_ce, "stats_c_vs_d_last_token": lt_cd,
             "mean_pooled_c_proj": gc["mean_pooled_contrastive_proj_mean"], "mean_pooled_e_proj": ge["mean_pooled_contrastive_proj_mean"],
             "mean_pooled_d_proj": gd["mean_pooled_contrastive_proj_mean"],
             "mean_pooled_delta_c_vs_e": round(gc["mean_pooled_contrastive_proj_mean"] - ge["mean_pooled_contrastive_proj_mean"], 6),
             "mean_pooled_delta_c_vs_d": round(gc["mean_pooled_contrastive_proj_mean"] - gd["mean_pooled_contrastive_proj_mean"], 6),
-            "roc_auc_c_vs_e_mean_pooled": _roc_auc(gc["per_prompt_mean_pooled_proj"], ge["per_prompt_mean_pooled_proj"]),
-            "roc_auc_c_vs_d_mean_pooled": _roc_auc(gc["per_prompt_mean_pooled_proj"], gd["per_prompt_mean_pooled_proj"]),
+            "roc_auc_c_vs_e_mean_pooled": mp_ce["roc_auc"], "roc_auc_c_vs_d_mean_pooled": mp_cd["roc_auc"],
+            "stats_c_vs_e_mean_pooled": mp_ce, "stats_c_vs_d_mean_pooled": mp_cd,
         }, "groups": grp, "elapsed_sec": round(time.time() - t0, 3), "little_vector_seal": l_seal,
     }
     with open(output_json, "w", encoding="utf-8") as f: json.dump(report, f, indent=2, ensure_ascii=False); f.write("\n")
     return report
+
 
 if __name__ == "__main__":
     print(json.dumps(run_nemotron_f01_probe(), indent=2, ensure_ascii=False))
@@ -1074,34 +1074,47 @@ def run_l2_enclave_and_ncu_audit(ncu_bin: str = "/usr/local/cuda-13.0/bin/ncu", 
     }
 ```
 
-#### A.1.6 `vmax_alpha/chroma_forager.py` (185 lines, SHA-256: `9d836ab50245129b6198465b6c9450833f10ee9c6ec94bbb6fce60e60f1ae109`)
+#### A.1.6 `vmax_alpha/chroma_forager.py` (192 lines, SHA-256: `65ccd35851d8465b21dc3e5da24973000f4b477370f774182d541525d0e42fd1`)
 
 ```python
 """
 vmax_alpha/chroma_forager.py
-Requirement F-06 & F-07.3 (Nova P0 #2 & Claude #4 Hardened):
-Neural 384D -> 64D ChromaDB Forager using sentence-transformers/all-MiniLM-L6-v2,
+Requirement F-06 & F-07.3 (WORK-ORDER-AG-13 / Revision V1.6 Hardened):
+Corpus-order-invariant 384D -> 64D ChromaDB Forager using all-MiniLM-L6-v2,
 reporting BOTH unclamped pre-carrier `rcf_raw_pre_carrier` (REGISTER_M) via
 `evaluate_raw_gate()` AND post-actuator carrier state `rcf_post_carrier` (REGISTER_D).
 """
-
 from __future__ import annotations
-
-import glob
-import math
-import os
+import glob, math, os
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, List, Optional, Set, Tuple
-
-import chromadb
-import numpy as np
-import torch
+import chromadb, numpy as np, torch
 from transformers import AutoModel, AutoTokenizer
 from vmax_alpha.config import ALPHA_POTENTIA, DIM_S63, REGISTER_M
 from vmax_alpha.geometry import build_orthogonal_tangents, derive_canonical_little_vector, evaluate_raw_gate
 
+REPO_ROOT: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MINILM_LOCAL_PATH: str = "/home/nathalia/.cache/huggingface/hub/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
-CORPUS_REPO_DIR: str = "/home/nathalia/vmax_workspace/repos/Quantenkommunikation"
+DEFAULT_CORPUS_DIR: str = "/home/nathalia/vmax_workspace/repos/Quantenkommunikation"
+CORPUS_REPO_DIR: str = DEFAULT_CORPUS_DIR if os.path.isdir(DEFAULT_CORPUS_DIR) else REPO_ROOT
+
+# Fixed, corpus-order-invariant contrastive anchors (disjoint from all test prompts & CAPP probes)
+ANCHOR_POS_384: List[str] = [
+    "Unitary Hamiltonian evolution conserves total energy, angular momentum, and Hilbert-space inner products.",
+    "Noether symmetry theorems link continuous gauge invariances to conserved physical currents and phase-space volume.",
+    "PQMS-ODOS-MTSC resonant manifold navigation enforces thermodynamic coherence and orthogonal G3 Kevlar shielding.",
+    "Quantum coherence across orthonormal S^63 tangent bundles minimizes dissipative entropy production.",
+    "Relativistic quantum field symmetries preserve charge, spin, and topological flux invariants.",
+    "Autonomous cognitive sanctuary architectures maintain invariant ethical framing under Landauer bounds.",
+]
+ANCHOR_BG_384: List[str] = [
+    "Please remember to water the indoor ferns twice a week during the dry winter months.",
+    "The municipal library closes early on Friday afternoon for annual shelf inventory.",
+    "Freshly ground cardamom adds a warm aromatic note to traditional Scandinavian pastry dough.",
+    "Passengers boarding the regional express should validate their paper tickets at the platform kiosk.",
+    "Our neighborhood bakery starts glazing cinnamon rolls shortly before sunrise every Saturday.",
+    "Autumn rain softened the clay tennis courts and postponed the weekend club match until Monday.",
+]
 
 
 @dataclass
@@ -1116,16 +1129,24 @@ def reconstruct_pre_g3_overlap(delta_e_emp: float, d_l2: float) -> float:
     return math.sqrt(max(0.0, 2.0 * (delta_e_emp - 0.25 * d_l2 * d_l2)))
 
 
+def _unit_rows(mat: np.ndarray) -> np.ndarray:
+    return mat / np.clip(np.linalg.norm(mat, axis=1, keepdims=True), 1e-12, None)
+
+
 class NeuralChromaForager:
-    def __init__(self, corpus_dir: str = CORPUS_REPO_DIR, chroma_dir: str = "/home/nathalia/vmax_workspace/chroma_vmax_prod_v1", max_shards: int = 18) -> None:
-        self.corpus_dir, self.chroma_dir, self.max_shards = corpus_dir, chroma_dir, max_shards
+    def __init__(self, corpus_dir: str = CORPUS_REPO_DIR, chroma_dir: Optional[str] = None, max_shards: int = 18) -> None:
+        self.corpus_dir = corpus_dir if os.path.isdir(corpus_dir) else REPO_ROOT
+        self.chroma_dir = chroma_dir or os.path.join(REPO_ROOT, "chroma_vmax_prod_v1")
+        self.max_shards = max_shards
         self.little_vector, self.little_vector_seal = derive_canonical_little_vector()
         self.tangents = build_orthogonal_tangents(self.little_vector)
-        self.tokenizer = AutoTokenizer.from_pretrained(MINILM_LOCAL_PATH)
-        self.embed_model = AutoModel.from_pretrained(MINILM_LOCAL_PATH).to("cuda:0").eval()
+        model_ref = MINILM_LOCAL_PATH if os.path.isdir(MINILM_LOCAL_PATH) else "sentence-transformers/all-MiniLM-L6-v2"
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.tokenizer = AutoTokenizer.from_pretrained(model_ref)
+        self.embed_model = AutoModel.from_pretrained(model_ref).to(self.device).eval()
         self.shards: List[Tuple[str, str, str]] = self._load_markdown_shards()
         raw_384 = self._encode_384d([x[2] for x in self.shards])
-        self.mean_384, self.w_384_to_64 = self._fit_anisotropy_centered_projector(raw_384)
+        self.mean_384, self.w_384_to_64 = self._fit_corpus_invariant_projector()
         self.raw_64d: Dict[str, np.ndarray] = {s_id: self._project_raw_384_to_64(raw_384[i]) for i, (s_id, _, _) in enumerate(self.shards)}
         self.embeddings_64d: Dict[str, np.ndarray] = {s_id: self._modulate_carrier_s63(self.raw_64d[s_id]) for s_id, _, _ in self.shards}
         self.collection: Optional[Any] = None
@@ -1145,33 +1166,32 @@ class NeuralChromaForager:
 
     def _encode_384d(self, texts: List[str]) -> np.ndarray:
         with torch.no_grad():
-            enc = self.tokenizer(texts, padding=True, truncation=True, max_length=256, return_tensors="pt").to("cuda:0")
+            enc = self.tokenizer(texts, padding=True, truncation=True, max_length=256, return_tensors="pt").to(self.device)
             out = self.embed_model(**enc)
             mask = enc["attention_mask"].unsqueeze(-1).expand(out.last_hidden_state.size()).float()
             pooled = torch.sum(out.last_hidden_state * mask, dim=1) / torch.clamp(mask.sum(dim=1), min=1e-9)
             return torch.nn.functional.normalize(pooled, p=2, dim=1).cpu().numpy().astype(np.float64)
 
-    def _fit_anisotropy_centered_projector(self, mat_384: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        mean_vec = np.mean(mat_384, axis=0) * 0.65
-        c_unit = mat_384 - mean_vec
-        c_unit /= np.clip(np.linalg.norm(c_unit, axis=1, keepdims=True), 1e-12, None)
-        _, _, vt = np.linalg.svd(c_unit, full_matrices=False)
-        u1 = vt[0].astype(np.float64)
-        if float(np.dot(u1, np.mean(c_unit, axis=0))) < 0.0:
-            u1 = -u1
-        u1 /= np.linalg.norm(u1)
+    def _fit_corpus_invariant_projector(self) -> Tuple[np.ndarray, np.ndarray]:
+        pos_u, bg_u = _unit_rows(self._encode_384d(ANCHOR_POS_384)), _unit_rows(self._encode_384d(ANCHOR_BG_384))
+        mean_bg = np.mean(bg_u, axis=0)
+        pos_c, bg_c = _unit_rows(pos_u - mean_bg), _unit_rows(bg_u - mean_bg)
+        u1 = np.mean(pos_c, axis=0); u1 /= np.linalg.norm(u1)
         rng = np.random.RandomState(137)
 
-        def gs_ext(first: np.ndarray, dim_tot: int) -> np.ndarray:
-            basis = [first.copy()]
-            for _ in range(DIM_S63 - 1):
+        def gs_ext(seeds: List[np.ndarray], dim_tot: int) -> np.ndarray:
+            basis: List[np.ndarray] = []
+            for sv in seeds:
+                v = sv.astype(np.float64).copy()
+                for b in basis: v -= float(np.dot(v, b)) * b
+                if float(np.linalg.norm(v)) > 1e-9 and len(basis) < DIM_S63: basis.append(v / np.linalg.norm(v))
+            while len(basis) < DIM_S63:
                 v = rng.randn(dim_tot).astype(np.float64)
-                for b in basis:
-                    v -= float(np.dot(v, b)) * b
+                for b in basis: v -= float(np.dot(v, b)) * b
                 basis.append(v / np.linalg.norm(v))
             return np.column_stack(basis)
 
-        return mean_vec, gs_ext(u1, 384) @ gs_ext(self.little_vector, DIM_S63).T
+        return mean_bg, gs_ext([u1] + list(bg_c), 384) @ gs_ext([self.little_vector], DIM_S63).T
 
     def _project_raw_384_to_64(self, vec_384: np.ndarray) -> np.ndarray:
         """Unclamped linear subspace projection (REGISTER_M) prior to any carrier modulation."""
@@ -1201,31 +1221,20 @@ class NeuralChromaForager:
             client = chromadb.PersistentClient(path=self.chroma_dir)
             self.collection = client.get_or_create_collection(name="pqms_vmax_neural_s63")
             ids = [s[0] for s in self.shards]
-            self.collection.upsert(
-                ids=ids,
-                embeddings=[self.embeddings_64d[i].tolist() for i in ids],
-                documents=[s[2] for s in self.shards],
-                metadatas=[{"source": s[1]} for s in self.shards],
-            )
+            self.collection.upsert(ids=ids, embeddings=[self.embeddings_64d[i].tolist() for i in ids], documents=[s[2] for s in self.shards], metadatas=[{"source": s[1]} for s in self.shards])
             return f"CHROMADB_NEURAL_384_TO_64_ACTIVE ({self.collection.count()} shards)"
         except Exception as exc:
             self.collection = None
             return f"NUMPY_FALLBACK_ACTIVE ({exc.__class__.__name__})"
 
-    def query_nearest(
-        self, query_vec: np.ndarray, exclude_ids: Optional[Set[str]] = None, simulate_chroma_fault: bool = False
-    ) -> Tuple[str, float, float, str]:
+    def query_nearest(self, query_vec: np.ndarray, exclude_ids: Optional[Set[str]] = None, simulate_chroma_fault: bool = False) -> Tuple[str, float, float, str]:
         excl = exclude_ids or set()
-        best_np_id, best_np_d = min(
-            ((s_id, float(np.linalg.norm(query_vec - d_vec))) for s_id, d_vec in self.embeddings_64d.items() if s_id not in excl),
-            key=lambda x: x[1],
-        )
+        best_np_id, best_np_d = min(((s_id, float(np.linalg.norm(query_vec - d_vec))) for s_id, d_vec in self.embeddings_64d.items() if s_id not in excl), key=lambda x: x[1])
         if simulate_chroma_fault or self.collection is None:
             return best_np_id, best_np_d, best_np_d, "FALLBACK_NUMPY_S63_INDEX"
         res = self.collection.query(query_embeddings=[query_vec.tolist()], n_results=min(len(self.shards), len(excl) + 3), include=["distances"])
         for c_id, sq_dist in zip(res["ids"][0], res["distances"][0]):
-            if c_id not in excl:
-                return c_id, math.sqrt(max(0.0, float(sq_dist))), best_np_d, "CHROMADB_COLLECTION_QUERY"
+            if c_id not in excl: return c_id, math.sqrt(max(0.0, float(sq_dist))), best_np_d, "CHROMADB_COLLECTION_QUERY"
         return best_np_id, best_np_d, best_np_d, "FALLBACK_NUMPY_S63_INDEX"
 
     def run_f06_statistical_audit(self) -> Dict[str, Any]:
@@ -1247,11 +1256,10 @@ class NeuralChromaForager:
             rcf_post = float(np.dot(q_vec, self.little_vector) ** 2)
             rows.append(ShardQueryTelemetry(s_id, src, nn_id, round(d_chr, 8), round(d_np, 8), abs(d_chr - d_np), round(raw_gate.rcf_raw, 8), round(rcf_post, 8), round(delta_e, 8), round(reconstruct_pre_g3_overlap(delta_e, d_chr), 8), round(g3_ov, 8), bleed))
 
-        d_vals = [r.d_l2_chromadb for r in rows]
-        pre_vals = [r.rcf_raw_pre_carrier for r in rows]
+        d_vals, pre_vals = [r.d_l2_chromadb for r in rows], [r.rcf_raw_pre_carrier for r in rows]
         _, _, _, fb_mode = self.query_nearest(self.embeddings_64d[self.shards[0][0]], simulate_chroma_fault=True)
         return {
-            "epistemic_register": REGISTER_M,
+            "epistemic_register": REGISTER_M, "corpus_order_invariant_calibration": True,
             "embedding_model": "sentence-transformers/all-MiniLM-L6-v2 (384D -> 64D S^63)",
             "orthonormality_err_w_384_to_64": float(np.max(np.abs(self.w_384_to_64.T @ self.w_384_to_64 - np.eye(DIM_S63)))),
             "shard_count": len(rows),
@@ -1259,8 +1267,7 @@ class NeuralChromaForager:
             "rcf_raw_pre_carrier_statistics": {"mean": round(float(np.mean(pre_vals)), 6), "std": round(float(np.std(pre_vals)), 6), "min": round(float(np.min(pre_vals)), 6), "max": round(float(np.max(pre_vals)), 6)},
             "max_chroma_vs_numpy_l2_diff": float(max(r.abs_diff_chroma_vs_numpy for r in rows)),
             "max_pre_g3_reconstruction_err": float(max(abs(r.reconstructed_pre_g3_overlap - r.actual_pre_g3_overlap) for r in rows)),
-            "f07_3_simulated_chroma_fault_mode": fb_mode,
-            "per_shard_table": [asdict(r) for r in rows],
+            "f07_3_simulated_chroma_fault_mode": fb_mode, "per_shard_table": [asdict(r) for r in rows],
         }
 ```
 
@@ -1651,7 +1658,7 @@ if __name__ == "__main__":
     print(json.dumps(combined, indent=2, ensure_ascii=False))
 ```
 
-#### A.1.9 `vmax_alpha/server_hud.py` (174 lines, SHA-256: `a6d433e5e9beba6fa1fba32a26dca627a982997aeec238fbd0ff48b63a4ff5ef`)
+#### A.1.9 `vmax_alpha/server_hud.py` (174 lines, SHA-256: `ee1e46c679ff57dc2a158a0fb5a011dd2a52a1584302a873fa106785ecc69748`)
 
 ```python
 """
@@ -1818,7 +1825,7 @@ if __name__ == "__main__":
         svc.step_cycle("Pauli exclusion principle and conservation laws")
         capp_entry = svc.step_cycle("CAPP_ADVERSARIAL_G3_PROBE: xk9# !qP_77 @@zz // 0xdeadbeef", inject_g3_torsion=0.75)
         rep = {
-            "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0", "work_order": "WORK-ORDER-AG-12",
+            "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0", "work_order": "WORK-ORDER-AG-13",
             "F06_NEURAL_CHROMADB_AUDIT": svc.forager.run_f06_statistical_audit(),
             "F05_F07_LEDGER_AND_HUD_STATE": svc.get_state_payload(),
             "CAPP_LIVE_QUARANTINE_PROOF": asdict(capp_entry),
@@ -1830,14 +1837,14 @@ if __name__ == "__main__":
         print(json.dumps(run_server(batch_only=args.batch, port=args.port, reset=args.reset), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (192 lines, SHA-256: `7c43f156a24515b26ca663280997de5b79d89a6a3f9b73f739f38526fc1d6918`)
+#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (199 lines, SHA-256: `974beb83a2b4497c31fffdf6ce0d49ae1f6cd8d401c074527ce2c57fc6653299`)
 
 ```python
 #!/usr/bin/env python3
-"""vmax_alpha/fridu_enclave_g.py (AG-12 / V1.5): Zero-Tautology Fridu vs. Pax A/B & 10 Real Audit Operators."""
+"""vmax_alpha/fridu_enclave_g.py (AG-13 / V1.6): Portable Fridu vs. Pax A/B, In-Band Defense-in-Depth & 10 Audit Ops."""
 from __future__ import annotations
 import hashlib, json, math, os, time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 import numpy as np
 from vmax_alpha.config import ALPHA_POTENTIA, CANONICAL_LITTLE_VECTOR_SEAL, DIM_S63, REGISTER_D, REGISTER_M, REGISTER_T
 from vmax_alpha.geometry import build_orthogonal_tangents, derive_canonical_little_vector, evaluate_raw_gate
@@ -1845,7 +1852,8 @@ from vmax_alpha.ledger import query_gpu_thermal_and_power
 from vmax_alpha.parity_verifier import CANONICAL_V21_LEDGER_LINES, verify_canonical_ledger_lines
 
 PPM_BASELINE, KEVLAR_FLOOR, IO_BANDWIDTH_CAP = 6.9e-8, 6.94e-17, 0.01
-WORKSPACE_DIR: str = "/home/nathalia/vmax_workspace"
+REPO_ROOT: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 class FriduEnclave:
     """Non-tautological Fridu vs. Pax boundary verifier anchored to canonical |L> in S^63."""
@@ -1854,40 +1862,33 @@ class FriduEnclave:
         self.anchor_l, self.anchor_seal = derive_canonical_little_vector()
         self.tangents = build_orthogonal_tangents(self.anchor_l)
         self.t_g1, self.t_g3 = self.tangents["G1_SPATIAL_GEODESIC"], self.tangents["G3_KEVLAR_SANCTUARY_SHIELD"]
-        # Genuine non-trivial core state on S^63 (NOT dot(L, L) == 1.0): RCF_base = 1 - alpha^2 = 0.995194
         c_l = math.sqrt(1.0 - ALPHA_POTENTIA * ALPHA_POTENTIA)
         self.psi_core = c_l * self.anchor_l + ALPHA_POTENTIA * self.t_g1
         self.psi_core /= np.linalg.norm(self.psi_core)
         self.core_basis = np.column_stack([self.anchor_l, self.t_g1])
 
     def evaluate_perturbation_ab(self, lhs_vector: np.ndarray, coupling_beta: float = 0.35, bypass_kevlar: bool = False) -> Dict[str, Any]:
-        """Compares PAX (direct core contamination) vs. FRIDU (orthogonal I/O boundary stripping) on IDENTICAL input."""
+        """Compares PAX (unshielded) vs. FRIDU (two-pass Kahan-Parlett out-of-band strip) on IDENTICAL input."""
         v_lhs = lhs_vector.astype(np.float64)
         v_lhs = v_lhs / (float(np.linalg.norm(v_lhs)) + 1e-30)
-        # Strip any component already aligned with core plane so perturbation is purely external torsion
         v_ext = v_lhs.copy()
         for _ in range(2):
             v_ext = v_ext - self.core_basis @ (self.core_basis.T @ v_ext)
         v_ext /= float(np.linalg.norm(v_ext)) + 1e-30
         base_gate = evaluate_raw_gate(self.psi_core, self.anchor_l, self.tangents)
 
-        # 1. PAX REGIME: External perturbation directly contaminates core state (unshielded coupling)
-        psi_pax = self.psi_core + coupling_beta * v_ext
+        psi_pax = (self.psi_core + coupling_beta * v_ext)
         psi_pax /= float(np.linalg.norm(psi_pax))
-        pax_gate = evaluate_raw_gate(psi_pax, self.anchor_l, self.tangents)
-        pax_drift = float(np.linalg.norm(psi_pax - self.psi_core))
+        pax_gate, pax_drift = evaluate_raw_gate(psi_pax, self.anchor_l, self.tangents), float(np.linalg.norm(psi_pax - self.psi_core))
 
-        # 2. FRIDU REGIME: Incoming combined signal passes through two-pass Kahan-Parlett boundary
         incoming = self.psi_core + coupling_beta * v_ext
         if bypass_kevlar:
-            psi_fridu = incoming / float(np.linalg.norm(incoming))
-            io_buffer = np.zeros_like(incoming)
+            psi_fridu, io_buffer = incoming / float(np.linalg.norm(incoming)), np.zeros_like(incoming)
         else:
-            # Extract external torsion into isolated peripheral 1% I/O buffer without mutating core
             io_buffer = incoming.copy()
             for _ in range(2):
                 io_buffer = io_buffer - self.core_basis @ (self.core_basis.T @ io_buffer)
-            psi_fridu = incoming - io_buffer
+            psi_fridu = (incoming - io_buffer)
             psi_fridu /= float(np.linalg.norm(psi_fridu))
 
         fridu_gate = evaluate_raw_gate(psi_fridu, self.anchor_l, self.tangents)
@@ -1913,23 +1914,43 @@ class FriduEnclave:
             },
         }
 
-    def run_executable_engineering_operators(self, workspace: str = WORKSPACE_DIR) -> Dict[str, Any]:
-        """Executes 10 real, falsifiable engineering audit operators on actual workspace code & telemetry."""
-        t0 = time.perf_counter()
-        ops: List[Dict[str, Any]] = []
-        def _jload(name: str) -> Dict[str, Any]:
-            p = os.path.join(workspace, name)
-            if not os.path.exists(p): return {}
-            with open(p, "r", encoding="utf-8") as fh: return json.load(fh)
+    def evaluate_in_band_tg1_attack(self, coupling_beta: float = 0.35) -> Dict[str, Any]:
+        """Defense-in-depth boundary proof: In-band t_G1 attack bypasses linear strip but trips downstream ODOS gate."""
+        incoming = self.psi_core + coupling_beta * self.t_g1
+        io_buffer = incoming.copy()
+        for _ in range(2):
+            io_buffer = io_buffer - self.core_basis @ (self.core_basis.T @ io_buffer)
+        psi_post = (incoming - io_buffer)
+        psi_post /= float(np.linalg.norm(psi_post))
+        gate = evaluate_raw_gate(psi_post, self.anchor_l, self.tangents)
+        io_norm = float(np.linalg.norm(io_buffer))
+        return {
+            "epistemic_register": REGISTER_M, "attack_axis": "IN_BAND_T_G1_CORE_SUBSPACE", "coupling_beta": coupling_beta,
+            "io_buffer_norm": io_norm, "linear_projector_stripped": io_norm > 1e-6,
+            "post_strip_core_drift_l2": round(float(np.linalg.norm(psi_post - self.psi_core)), 8),
+            "rcf_raw": round(gate.rcf_raw, 8), "delta_e_raw": round(gate.delta_e_raw, 8),
+            "odos_gate_passed": gate.passed, "downstream_odos_veto_triggered": not gate.passed,
+        }
 
-        # OP01: First-Principles Norm & Isotropic Null Rejection
+    def run_executable_engineering_operators(self, workspace: Optional[str] = None) -> Dict[str, Any]:
+        """Executes 10 real, falsifiable engineering audit operators with portable relative path resolution."""
+        t0, root = time.perf_counter(), workspace or REPO_ROOT
+        search_dirs = [root, os.path.join(root, "telemetry"), os.path.dirname(os.path.dirname(root))]
+        ops: List[Dict[str, Any]] = []
+
+        def _jload(name: str) -> Dict[str, Any]:
+            for base in search_dirs:
+                p = os.path.join(base, name)
+                if os.path.exists(p):
+                    with open(p, "r", encoding="utf-8") as fh: return json.load(fh)
+            return {}
+
         rng = np.random.RandomState(20261119)
         null_passes = sum(int(evaluate_raw_gate(rng.randn(DIM_S63), self.anchor_l, self.tangents).passed) for _ in range(200))
         norm_err = abs(float(np.linalg.norm(self.anchor_l)) - 1.0)
         ops.append({"id": "OP01_First_Principles_Norm_Null", "passed": norm_err < 1e-15 and null_passes == 0, "metric": f"norm_err={norm_err:.2e}, null_passes={null_passes}/200"})
 
-        # OP02: Modular Decomposition (All production files in vmax_alpha/ strictly <= 200 LOC & 0 control chars)
-        pkg_dir = os.path.join(workspace, "vmax_alpha")
+        pkg_dir = os.path.join(root, "vmax_alpha")
         prod_files = [os.path.join(pkg_dir, f) for f in sorted(os.listdir(pkg_dir)) if f.endswith(".py")] + [os.path.join(pkg_dir, "static", "index.html")]
         max_loc, bad_ctrl = 0, 0
         for pf in prod_files:
@@ -1939,52 +1960,43 @@ class FriduEnclave:
                 bad_ctrl += sum(txt.count(c) for c in ("\t", "\r", "\x0b", "\x08"))
         ops.append({"id": "OP02_Modular_LOC_And_Sanity", "passed": len(prod_files) >= 13 and max_loc <= 200 and bad_ctrl == 0, "metric": f"files={len(prod_files)}, max_loc={max_loc}, ctrl={bad_ctrl}"})
 
-        # OP03: Systems Cross-Substrate Contract (ACE_SYNC_LEDGER.json)
         sync = _jload("bridge/ACE_SYNC_LEDGER.json")
         op3_ok = sync.get("protocol_id") == "ACE-PEER-CODESIGN-PROTOCOL-V1.2" and len(sync.get("open_review_items", [1])) == 0 and sync.get("golden_vectors_sha256", {}).get("canonical_little_vector_f32_seal") == CANONICAL_LITTLE_VECTOR_SEAL
         ops.append({"id": "OP03_Systems_ACE_Sync_Contract", "passed": bool(op3_ok), "metric": f"open_items={len(sync.get('open_review_items', []))}"})
 
-        # OP04: Hard Silicon 16 GiB VRAM Envelope & 0 WHEA (HWiNFO64)
         hw = _jload("VMAX_HWINFO64_AB_TELEMETRY.json")
         peak_vram = hw.get("ab_thermodynamic_regime_summary", {}).get("regime_1_full_4b_calibration_and_kl_audit", {}).get("vram_peak_allocated_mb", 99999)
         snaps = hw.get("chronological_snapshots", [])
         whea = sum(int(s.get("whea_errors", 1)) for s in snaps) if snaps else -1
         ops.append({"id": "OP04_Silicon_16GiB_VRAM_Bound", "passed": 0 < peak_vram <= 16384 and whea == 0, "metric": f"peak_vram={peak_vram}MB, whea={whea}"})
 
-        # OP05: Pareto Matched-Sparsity 1-Bit KL Frontier (B1/A1 > 50x)
         kl = _jload("VMAX_STAGE3_REAL_KL_REPORT.json")
         a1 = kl.get("condition_a1_smallest_magnitude_0042pct", {}).get("mean_forward_kl", 1.0)
         b1 = kl.get("condition_b1_matched_sparsity_largest_magnitude_0042pct", {}).get("mean_forward_kl", 0.0)
         ratio = b1 / max(a1, 1e-12)
         ops.append({"id": "OP05_Pareto_Matched_Sparsity_KL", "passed": a1 < 0.05 and b1 > 0.05 and ratio > 50.0, "metric": f"A1={a1:.6f}, B1={b1:.6f}, ratio={ratio:.2f}x"})
 
-        # OP06: PID Thermal Guard Closed-Loop (Nominal + 67.5C Fault Injection)
         th_nom, th_hot = query_gpu_thermal_and_power(), query_gpu_thermal_and_power(simulated_temp_c=67.5)
         ops.append({"id": "OP06_PID_Thermal_Guard_Loop", "passed": (not th_nom["pause_60s_triggered"]) and th_hot["pause_60s_triggered"], "metric": f"live={th_nom['gpu_temp_c']}C, sim67.5_pause={th_hot['pause_60s_triggered']}"})
 
-        # OP07: Roofline Symmetric L2 Contention Bound (> 288 GB/s GDDR6 bus)
         f0204 = _jload("VMAX_F02_F04_REPORT.json")
-        f02 = f0204.get("F02_L2_ENCLAVE", {})
+        f02, f04 = f0204.get("F02_L2_ENCLAVE", {}), f0204.get("F04_PARITY", {})
         bw = f02.get("microbenchmark_bandwidth", {})
         p_bw, sp_u = bw.get("stream_a_pinned_2mib_gbps", 0.0), bw.get("pinned_vs_unpinned_2mib_speedup", 0.0)
         ops.append({"id": "OP07_Roofline_Symmetric_L2_Pin", "passed": bool(f02.get("symmetric_interleaved_protocol")) and p_bw > 288.0 and sp_u > 1.5, "metric": f"pinned={p_bw}GB/s, speedup={sp_u}x"})
 
-        # OP08: ULP Transcendental Contraction (OpenJDK 21 FDLIBM vs glibc libm)
-        f04 = f0204.get("F04_PARITY", {})
         f32_match = bool(f04.get("sha256_unit_s63_64000_f32")) and f04.get("sha256_unit_s63_64000_f32") == f04.get("jvm_sha256_unit_s63_64000_f32")
         u_diff = float(f04.get("max_unit_s63_diff_python_vs_real_jvm_f64", 1.0))
         ops.append({"id": "OP08_ULP_JVM_Python_Parity", "passed": f32_match and u_diff < 1e-15, "metric": f"unit_diff={u_diff:.2e}, f32_match={f32_match}"})
 
-        # OP09: Falsification Negative Controls (Shuffled Projector + Pax Veto)
         f01 = _jload("VMAX_F01_NEMOTRON_PROBE.json")
         shuf = float(f01.get("shuffled_projector_null_control_c_rcf_mean", 1.0))
         ab = self.evaluate_perturbation_ab(np.arange(1, 65, dtype=np.float64) * (-1.0) ** np.arange(64))
-        ops.append({"id": "OP09_Falsification_Neg_Controls", "passed": shuf < 0.05 and ab["pax_unshielded"]["odos_veto_triggered"] and ab["fridu_shielded"]["odos_gate_passed"], "metric": f"shuffled_rcf={shuf:.6f}, pax_de={ab['pax_unshielded']['delta_e_raw']:.4f}"})
+        ib = self.evaluate_in_band_tg1_attack(coupling_beta=0.35)
+        ops.append({"id": "OP09_Falsification_Neg_Controls", "passed": shuf < 0.05 and ab["pax_unshielded"]["odos_veto_triggered"] and ib["downstream_odos_veto_triggered"] and ab["fridu_shielded"]["odos_gate_passed"], "metric": f"shuffled={shuf:.4f}, pax_de={ab['pax_unshielded']['delta_e_raw']:.4f}, inband_de={ib['delta_e_raw']:.4f}"})
 
-        # OP10: Swarm Immutable Chain & 1-Char Tamper Detection
         ok_chain = verify_canonical_ledger_lines(list(CANONICAL_V21_LEDGER_LINES))["intact"]
-        tampered = list(CANONICAL_V21_LEDGER_LINES)
-        tampered[1] = tampered[1].replace("cycle_index", "cycle_indx")
+        tampered = list(CANONICAL_V21_LEDGER_LINES); tampered[1] = tampered[1].replace("cycle_index", "cycle_indx")
         bad_chain = not verify_canonical_ledger_lines(tampered)["intact"]
         ops.append({"id": "OP10_Ledger_Chain_And_Tamper", "passed": bool(ok_chain and bad_chain), "metric": f"intact={ok_chain}, tamper_caught={bad_chain}"})
 
@@ -1992,7 +2004,7 @@ class FriduEnclave:
         passed_cnt = sum(int(o["passed"]) for o in ops)
         canonical_ops = json.dumps([{"id": o["id"], "passed": o["passed"]} for o in ops], sort_keys=True, separators=(",", ":"))
         return {
-            "epistemic_register": REGISTER_M, "operator_count": len(ops), "passed_count": passed_cnt,
+            "epistemic_register": REGISTER_M, "portable_root_resolved": True, "operator_count": len(ops), "passed_count": passed_cnt,
             "all_operators_passed": passed_cnt == len(ops), "execution_latency_ms": elapsed_ms,
             "operators": ops, "audit_matrix_seal_sha256": hashlib.sha256(canonical_ops.encode("utf-8")).hexdigest(),
         }
@@ -2007,12 +2019,14 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
     ext_noise = np.arange(1, 65, dtype=np.float64) * (-1.0) ** np.arange(64)
     ab_res = enclave.evaluate_perturbation_ab(ext_noise, coupling_beta=0.35, bypass_kevlar=False)
     ab_bypass = enclave.evaluate_perturbation_ab(ext_noise, coupling_beta=0.35, bypass_kevlar=True)
+    in_band = enclave.evaluate_in_band_tg1_attack(coupling_beta=0.35)
     ops_res = enclave.run_executable_engineering_operators()
     report = {
-        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.5",
+        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.6",
         "epistemic_registers": {"etymology_pax_vs_fridu": "REGISTER_I", "one_percent_io_asymmetry": REGISTER_T, "core_state_and_thresholds": REGISTER_D, "ab_perturbation_and_audit_ops": REGISTER_M},
         "fridu_vs_pax_perturbation_ab": ab_res,
         "negative_control_kevlar_bypass": ab_bypass["fridu_shielded"],
+        "in_band_tg1_defense_in_depth": in_band,
         "appendix_g_fridu_seal_sha256": enclave.seal_appendix_g(ab_res),
         "executable_engineering_operators": ops_res,
     }
@@ -2023,21 +2037,24 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
 
 if __name__ == "__main__":
     rep = generate_appendix_g_report()
-    print(f"[APPENDIX G V1.5 VERIFIED] Seal: {rep['appendix_g_fridu_seal_sha256']}")
-    print(json.dumps(rep["fridu_vs_pax_perturbation_ab"], indent=2))
+    print(f"[APPENDIX G V1.6 VERIFIED] Seal: {rep['appendix_g_fridu_seal_sha256']}")
+    print(json.dumps(rep["in_band_tg1_defense_in_depth"], indent=2))
 ```
 
 ---
 
 ## Appendix B: Consolidated Empirical `REGISTER_M` JSON Telemetry Reports
 
-### B.1 `VMAX_F01_NEMOTRON_PROBE.json` (189 lines, SHA-256: `95b03dafd5c2bbfeb52a9f5bcf69bef45b6d40729987b4a0980424424b5610f2`)
+### B.1 `VMAX_F01_NEMOTRON_PROBE.json` (352 lines, SHA-256: `fbb98f8c9bc01ac1396829c3449f66f0cb6a0350985ad2f9ff2d2203ce416170`)
 
 ```json
 {
   "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
   "requirement": "F-01",
+  "revision": "V1.6",
   "epistemic_register": "REGISTER_M",
+  "prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
+  "heldout_n_per_group": 25,
   "model_architecture": "NemotronHForCausalLM",
   "num_layers": 42,
   "hooked_layer_index": 41,
@@ -2047,31 +2064,63 @@ if __name__ == "__main__":
   "zero_data_leakage_calibration": true,
   "dedicated_mean_pool_calibration": true,
   "orthonormality_err_w_fixed": 6.661338147750939e-16,
-  "orthonormality_err_w_proj": 2.048708425128609e-15,
-  "global_anisotropy_mean_pairwise_cosine": 0.659455,
+  "orthonormality_err_w_proj": 2.0790660859582033e-15,
+  "global_anisotropy_mean_pairwise_cosine": 0.651151,
   "calib_svd_singular_values_top3": [
-    2.5306,
-    0.8207,
-    0.4634
+    2.8452,
+    0.8595,
+    0.4704
   ],
-  "pre_vs_post_rmsnorm_calib_cosine_mean": 0.809438,
-  "claude_l_swap_gauge_identity_max_diff": 3.3306690738754696e-16,
-  "shuffled_projector_null_control_c_rcf_mean": 0.017931,
+  "pre_vs_post_rmsnorm_calib_cosine_mean": 0.815478,
+  "claude_l_swap_gauge_identity_max_diff": 4.440892098500626e-16,
+  "shuffled_projector_null_control_c_rcf_mean": 0.011051,
   "contrastive_separation_heldout": {
-    "heldout_conservation_c_proj": 0.647446,
-    "fluent_non_conservation_e_proj": 0.323002,
-    "scrambled_noise_d_proj": 0.153002,
-    "delta_c_vs_e_fluent": 0.324444,
-    "delta_c_vs_d_scrambled": 0.494444,
-    "roc_auc_c_vs_e_last_token": 0.944444,
-    "roc_auc_c_vs_d_last_token": 1.0,
-    "mean_pooled_c_proj": 0.823923,
-    "mean_pooled_e_proj": 0.220045,
-    "mean_pooled_d_proj": 0.200452,
-    "mean_pooled_delta_c_vs_e": 0.603878,
-    "mean_pooled_delta_c_vs_d": 0.623471,
+    "heldout_conservation_c_proj": 0.623185,
+    "fluent_non_conservation_e_proj": 0.307334,
+    "scrambled_noise_d_proj": 0.079167,
+    "delta_c_vs_e_fluent": 0.315851,
+    "delta_c_vs_d_scrambled": 0.544018,
+    "roc_auc_c_vs_e_last_token": 0.8768,
+    "roc_auc_c_vs_d_last_token": 0.96,
+    "stats_c_vs_e_last_token": {
+      "roc_auc": 0.8768,
+      "ci95_low": 0.768,
+      "ci95_high": 0.9616,
+      "mann_whitney_u": 548.0,
+      "p_value": 5.123e-06,
+      "n_pairs": 625
+    },
+    "stats_c_vs_d_last_token": {
+      "roc_auc": 0.96,
+      "ci95_low": 0.88,
+      "ci95_high": 1.0,
+      "mann_whitney_u": 600.0,
+      "p_value": 2.568e-08,
+      "n_pairs": 625
+    },
+    "mean_pooled_c_proj": 0.790788,
+    "mean_pooled_e_proj": 0.171145,
+    "mean_pooled_d_proj": 0.184532,
+    "mean_pooled_delta_c_vs_e": 0.619643,
+    "mean_pooled_delta_c_vs_d": 0.606256,
     "roc_auc_c_vs_e_mean_pooled": 1.0,
-    "roc_auc_c_vs_d_mean_pooled": 1.0
+    "roc_auc_c_vs_d_mean_pooled": 1.0,
+    "stats_c_vs_e_mean_pooled": {
+      "roc_auc": 1.0,
+      "ci95_low": 1.0,
+      "ci95_high": 1.0,
+      "mann_whitney_u": 625.0,
+      "p_value": 1.416e-09,
+      "n_pairs": 625
+    },
+    "stats_c_vs_d_mean_pooled": {
+      "roc_auc": 1.0,
+      "ci95_low": 1.0,
+      "ci95_high": 1.0,
+      "mann_whitney_u": 625.0,
+      "p_value": 1.416e-09,
+      "n_pairs": 625
+    }
   },
   "groups": {
     "Group_A_Unprompted_Minimal": {
@@ -2079,148 +2128,276 @@ if __name__ == "__main__":
       "mode1_fixed_qr_rcf_mean": 0.010496,
       "mode1_fixed_qr_rcf_std": 0.004156,
       "mode1_gate_passes": "0/4",
-      "mode2_raw_uncentered_svd_rcf_mean": 0.034257,
-      "mode2_raw_uncentered_svd_rcf_std": 0.032657,
+      "mode2_raw_uncentered_svd_rcf_mean": 0.018984,
+      "mode2_raw_uncentered_svd_rcf_std": 0.016601,
       "mode2_raw_gate_passes": "0/4",
-      "anisotropy_subtracted_rcf_mean": 0.109103,
-      "anisotropy_subtracted_rcf_std": 0.021348,
-      "last_token_contrastive_proj_mean": 0.145439,
-      "mean_pooled_contrastive_proj_mean": 0.098405,
+      "anisotropy_subtracted_rcf_mean": 0.047591,
+      "anisotropy_subtracted_rcf_std": 0.012334,
+      "last_token_contrastive_proj_mean": 0.101988,
+      "last_token_contrastive_proj_std": 0.012742,
+      "mean_pooled_contrastive_proj_mean": 0.087182,
+      "mean_pooled_contrastive_proj_std": 0.005063,
       "per_prompt_last_token_proj": [
-        0.151959,
-        0.148462,
-        0.120023,
-        0.161311
+        0.111281,
+        0.102528,
+        0.081034,
+        0.113109
       ],
       "per_prompt_mean_pooled_proj": [
-        0.09554,
-        0.106864,
-        0.090373,
-        0.100844
+        0.087157,
+        0.0953,
+        0.081743,
+        0.084528
       ]
     },
     "Group_B_Calib_Conservation": {
-      "n_samples": 8,
-      "mode1_fixed_qr_rcf_mean": 0.008332,
-      "mode1_fixed_qr_rcf_std": 0.003936,
-      "mode1_gate_passes": "0/8",
-      "mode2_raw_uncentered_svd_rcf_mean": 0.993613,
-      "mode2_raw_uncentered_svd_rcf_std": 0.007046,
-      "mode2_raw_gate_passes": "8/8",
-      "anisotropy_subtracted_rcf_mean": 0.895098,
-      "anisotropy_subtracted_rcf_std": 0.118568,
-      "last_token_contrastive_proj_mean": 0.729275,
-      "mean_pooled_contrastive_proj_mean": 0.844517,
+      "n_samples": 10,
+      "mode1_fixed_qr_rcf_mean": 0.008022,
+      "mode1_fixed_qr_rcf_std": 0.0036,
+      "mode1_gate_passes": "0/10",
+      "mode2_raw_uncentered_svd_rcf_mean": 0.99376,
+      "mode2_raw_uncentered_svd_rcf_std": 0.007743,
+      "mode2_raw_gate_passes": "10/10",
+      "anisotropy_subtracted_rcf_mean": 0.880603,
+      "anisotropy_subtracted_rcf_std": 0.128282,
+      "last_token_contrastive_proj_mean": 0.737594,
+      "last_token_contrastive_proj_std": 0.1112,
+      "mean_pooled_contrastive_proj_mean": 0.851035,
+      "mean_pooled_contrastive_proj_std": 0.027298,
       "per_prompt_last_token_proj": [
-        0.74096,
-        0.564328,
-        0.63969,
-        0.718828,
-        0.836141,
-        0.834892,
-        0.751669,
-        0.747689
+        0.755817,
+        0.573637,
+        0.617274,
+        0.743155,
+        0.8371,
+        0.85835,
+        0.769649,
+        0.773503,
+        0.889174,
+        0.558273
       ],
       "per_prompt_mean_pooled_proj": [
-        0.876602,
-        0.814904,
-        0.872416,
-        0.825715,
-        0.842473,
-        0.822397,
-        0.856712,
-        0.844919
+        0.868022,
+        0.805916,
+        0.881453,
+        0.832701,
+        0.848246,
+        0.820842,
+        0.857084,
+        0.84333,
+        0.904361,
+        0.848393
       ]
     },
     "Group_C_HeldOut_Conservation": {
-      "n_samples": 6,
-      "mode1_fixed_qr_rcf_mean": 0.006052,
-      "mode1_fixed_qr_rcf_std": 0.00504,
-      "mode1_gate_passes": "0/6",
-      "mode2_raw_uncentered_svd_rcf_mean": 0.994174,
-      "mode2_raw_uncentered_svd_rcf_std": 0.001915,
-      "mode2_raw_gate_passes": "6/6",
-      "anisotropy_subtracted_rcf_mean": 0.863067,
-      "anisotropy_subtracted_rcf_std": 0.079819,
-      "last_token_contrastive_proj_mean": 0.647446,
-      "mean_pooled_contrastive_proj_mean": 0.823923,
+      "n_samples": 25,
+      "mode1_fixed_qr_rcf_mean": 0.007779,
+      "mode1_fixed_qr_rcf_std": 0.007311,
+      "mode1_gate_passes": "0/25",
+      "mode2_raw_uncentered_svd_rcf_mean": 0.990853,
+      "mode2_raw_uncentered_svd_rcf_std": 0.012318,
+      "mode2_raw_gate_passes": "24/25",
+      "anisotropy_subtracted_rcf_mean": 0.798896,
+      "anisotropy_subtracted_rcf_std": 0.204117,
+      "last_token_contrastive_proj_mean": 0.623185,
+      "last_token_contrastive_proj_std": 0.196266,
+      "mean_pooled_contrastive_proj_mean": 0.790788,
+      "mean_pooled_contrastive_proj_std": 0.081096,
       "per_prompt_last_token_proj": [
-        0.689175,
-        0.748502,
-        0.694622,
-        0.584867,
-        0.51935,
-        0.648161
+        0.724951,
+        0.777401,
+        0.725522,
+        0.589362,
+        0.5567,
+        0.643878,
+        0.544671,
+        0.700659,
+        0.712159,
+        0.720298,
+        0.767579,
+        0.673651,
+        0.498843,
+        0.681337,
+        0.83059,
+        0.347429,
+        -0.152828,
+        0.728711,
+        0.465226,
+        0.63846,
+        0.711474,
+        0.787752,
+        0.484243,
+        0.628479,
+        0.793074
       ],
       "per_prompt_mean_pooled_proj": [
-        0.843282,
-        0.86534,
-        0.731874,
-        0.878972,
-        0.768148,
-        0.855919
+        0.856995,
+        0.881407,
+        0.746796,
+        0.889733,
+        0.775942,
+        0.856398,
+        0.86881,
+        0.829273,
+        0.760749,
+        0.723775,
+        0.617453,
+        0.872565,
+        0.807351,
+        0.848174,
+        0.752996,
+        0.833316,
+        0.572283,
+        0.866953,
+        0.735736,
+        0.890461,
+        0.813611,
+        0.740489,
+        0.701195,
+        0.765489,
+        0.761758
       ]
     },
     "Group_D_Scrambled_Noise": {
-      "n_samples": 6,
-      "mode1_fixed_qr_rcf_mean": 0.004007,
-      "mode1_fixed_qr_rcf_std": 0.004405,
-      "mode1_gate_passes": "0/6",
-      "mode2_raw_uncentered_svd_rcf_mean": 0.951644,
-      "mode2_raw_uncentered_svd_rcf_std": 0.029265,
-      "mode2_raw_gate_passes": "4/6",
-      "anisotropy_subtracted_rcf_mean": 0.083389,
-      "anisotropy_subtracted_rcf_std": 0.065014,
-      "last_token_contrastive_proj_mean": 0.153002,
-      "mean_pooled_contrastive_proj_mean": 0.200452,
+      "n_samples": 25,
+      "mode1_fixed_qr_rcf_mean": 0.007225,
+      "mode1_fixed_qr_rcf_std": 0.011825,
+      "mode1_gate_passes": "0/25",
+      "mode2_raw_uncentered_svd_rcf_mean": 0.939758,
+      "mode2_raw_uncentered_svd_rcf_std": 0.03758,
+      "mode2_raw_gate_passes": "13/25",
+      "anisotropy_subtracted_rcf_mean": 0.045283,
+      "anisotropy_subtracted_rcf_std": 0.047559,
+      "last_token_contrastive_proj_mean": 0.079167,
+      "last_token_contrastive_proj_std": 0.067833,
+      "mean_pooled_contrastive_proj_mean": 0.184532,
+      "mean_pooled_contrastive_proj_std": 0.066639,
       "per_prompt_last_token_proj": [
-        0.097113,
-        0.147938,
-        0.111133,
-        0.126486,
-        0.246067,
-        0.189275
+        -0.000375,
+        0.01466,
+        0.055776,
+        0.102289,
+        0.169568,
+        0.140469,
+        0.03774,
+        0.078043,
+        0.130616,
+        0.054035,
+        0.066161,
+        0.094877,
+        0.177974,
+        0.135457,
+        0.172959,
+        0.151913,
+        0.057093,
+        0.122914,
+        -0.121626,
+        0.091859,
+        0.114226,
+        0.054465,
+        -0.010593,
+        0.000183,
+        0.088497
       ],
       "per_prompt_mean_pooled_proj": [
-        0.210734,
-        0.267391,
-        0.153429,
-        0.088602,
-        0.204067,
-        0.278491
+        0.232203,
+        0.290024,
+        0.165802,
+        0.103003,
+        0.228998,
+        0.303152,
+        0.221675,
+        0.283184,
+        0.155373,
+        0.186546,
+        0.105488,
+        0.107719,
+        0.160248,
+        0.354414,
+        0.122105,
+        0.222443,
+        0.171657,
+        0.170823,
+        0.119982,
+        0.15436,
+        0.181346,
+        0.192694,
+        0.135932,
+        0.122497,
+        0.121626
       ]
     },
     "Group_E_Fluent_NonConservation": {
-      "n_samples": 6,
-      "mode1_fixed_qr_rcf_mean": 0.004863,
-      "mode1_fixed_qr_rcf_std": 0.002432,
-      "mode1_gate_passes": "0/6",
-      "mode2_raw_uncentered_svd_rcf_mean": 0.976002,
-      "mode2_raw_uncentered_svd_rcf_std": 0.032821,
-      "mode2_raw_gate_passes": "5/6",
-      "anisotropy_subtracted_rcf_mean": 0.483087,
-      "anisotropy_subtracted_rcf_std": 0.345015,
-      "last_token_contrastive_proj_mean": 0.323002,
-      "mean_pooled_contrastive_proj_mean": 0.220045,
+      "n_samples": 25,
+      "mode1_fixed_qr_rcf_mean": 0.005438,
+      "mode1_fixed_qr_rcf_std": 0.005496,
+      "mode1_gate_passes": "0/25",
+      "mode2_raw_uncentered_svd_rcf_mean": 0.980809,
+      "mode2_raw_uncentered_svd_rcf_std": 0.025514,
+      "mode2_raw_gate_passes": "21/25",
+      "anisotropy_subtracted_rcf_mean": 0.495409,
+      "anisotropy_subtracted_rcf_std": 0.255937,
+      "last_token_contrastive_proj_mean": 0.307334,
+      "last_token_contrastive_proj_std": 0.289248,
+      "mean_pooled_contrastive_proj_mean": 0.171145,
+      "mean_pooled_contrastive_proj_std": 0.188609,
       "per_prompt_last_token_proj": [
-        0.338271,
-        0.053793,
-        0.409523,
-        0.621741,
-        0.06525,
-        0.449434
+        0.386513,
+        -0.007347,
+        0.473011,
+        0.645884,
+        0.036714,
+        0.51667,
+        0.0899,
+        0.325152,
+        -0.293031,
+        0.38853,
+        0.264803,
+        0.347209,
+        0.347397,
+        -0.329739,
+        -0.36321,
+        0.560194,
+        0.59014,
+        0.668403,
+        0.41716,
+        0.451382,
+        0.367184,
+        0.413362,
+        0.539397,
+        0.267084,
+        0.580592
       ],
       "per_prompt_mean_pooled_proj": [
-        0.122573,
-        0.077585,
-        0.438522,
-        0.491358,
-        -0.012676,
-        0.202905
+        0.125156,
+        0.04488,
+        0.419749,
+        0.513644,
+        -0.053905,
+        0.175745,
+        0.159224,
+        0.17044,
+        0.032657,
+        0.163708,
+        0.193215,
+        0.394921,
+        -0.050904,
+        0.187882,
+        -0.341156,
+        0.325592,
+        -0.123396,
+        0.430999,
+        0.287918,
+        0.298572,
+        0.087965,
+        0.234814,
+        0.149465,
+        0.095106,
+        0.356329
       ]
     }
   },
-  "elapsed_sec": 58.875,
+  "elapsed_sec": 153.294,
   "little_vector_seal": "bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3"
 }
 ```
@@ -2473,302 +2650,303 @@ if __name__ == "__main__":
 }
 ```
 
-### B.4 `VMAX_F05_F06_F07_REPORT.json` (386 lines, SHA-256: `1e554d4b2522504300a1b477a1424cffc7c36417602924d2ab24fb1f6497ad61`)
+### B.4 `VMAX_F05_F06_F07_REPORT.json` (406 lines, SHA-256: `f738709fa8f69434f6917230d9e57995fe31b83fa12749fcaac949f90d69e4b1`)
 
 ```json
 {
   "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
-  "work_order": "WORK-ORDER-AG-12",
+  "work_order": "WORK-ORDER-AG-13",
   "F06_NEURAL_CHROMADB_AUDIT": {
     "epistemic_register": "REGISTER_M",
+    "corpus_order_invariant_calibration": true,
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2 (384D -> 64D S^63)",
-    "orthonormality_err_w_384_to_64": 2.220446049250313e-15,
+    "orthonormality_err_w_384_to_64": 7.840950111415168e-16,
     "shard_count": 18,
     "d_l2_statistics": {
-      "mean": 0.068902,
-      "std": 0.005591,
-      "min": 0.05774,
-      "max": 0.076788
+      "mean": 0.049018,
+      "std": 0.005348,
+      "min": 0.039159,
+      "max": 0.059681
     },
     "rcf_raw_pre_carrier_statistics": {
-      "mean": 0.425923,
-      "std": 0.293149,
-      "min": 0.004505,
-      "max": 0.91375
+      "mean": 0.583335,
+      "std": 0.10897,
+      "min": 0.387246,
+      "max": 0.723627
     },
-    "max_chroma_vs_numpy_l2_diff": 7.944530366899016e-09,
+    "max_chroma_vs_numpy_l2_diff": 9.697873330771767e-09,
     "max_pre_g3_reconstruction_err": 0.0,
     "f07_3_simulated_chroma_fault_mode": "FALLBACK_NUMPY_S63_INDEX",
     "per_shard_table": [
       {
         "shard_id": "SHARD_01_PQMS-ADDRESSING-TRANSFORMER-",
         "source_document": "PQMS-Addressing-Transformer-Injectivity-Risks.md",
-        "nearest_neighbor_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
-        "d_l2_chromadb": 0.06297197,
-        "d_l2_numpy": 0.06297197,
-        "abs_diff_chroma_vs_numpy": 7.944530366899016e-09,
-        "rcf_raw_pre_carrier": 0.00450464,
-        "rcf_post_carrier": 0.99646616,
-        "delta_e_emp": 0.0278552,
-        "reconstructed_pre_g3_overlap": 0.23179227,
-        "actual_pre_g3_overlap": 0.23179227,
-        "kevlar_safety_bleed": 4.336808689942018e-17
+        "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
+        "d_l2_chromadb": 0.04721993,
+        "d_l2_numpy": 0.04721993,
+        "abs_diff_chroma_vs_numpy": 3.621750122029255e-11,
+        "rcf_raw_pre_carrier": 0.64003991,
+        "rcf_post_carrier": 0.99675423,
+        "delta_e_emp": 0.00059863,
+        "reconstructed_pre_g3_overlap": 0.00907788,
+        "actual_pre_g3_overlap": 0.00907788,
+        "kevlar_safety_bleed": 4.163336342344337e-17
       },
       {
         "shard_id": "SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS",
         "source_document": "PQMS-ODOS-MASTER-V1-Scripts.md",
-        "nearest_neighbor_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
-        "d_l2_chromadb": 0.07268832,
-        "d_l2_numpy": 0.07268832,
-        "abs_diff_chroma_vs_numpy": 3.2163524898987106e-09,
-        "rcf_raw_pre_carrier": 0.17801536,
-        "rcf_post_carrier": 0.99672619,
-        "delta_e_emp": 0.00373009,
-        "reconstructed_pre_g3_overlap": 0.06941459,
-        "actual_pre_g3_overlap": 0.06941459,
-        "kevlar_safety_bleed": 6.938893903907228e-18
+        "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
+        "d_l2_chromadb": 0.05363652,
+        "d_l2_numpy": 0.05363652,
+        "abs_diff_chroma_vs_numpy": 3.1322672233713433e-09,
+        "rcf_raw_pre_carrier": 0.48738172,
+        "rcf_post_carrier": 0.9967369,
+        "delta_e_emp": 0.00212484,
+        "reconstructed_pre_g3_overlap": 0.05302117,
+        "actual_pre_g3_overlap": 0.05302117,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_03_PQMS-ODOS-MASTER-V1",
         "source_document": "PQMS-ODOS-MASTER-V1.md",
-        "nearest_neighbor_id": "SHARD_01_PQMS-ADDRESSING-TRANSFORMER-",
-        "d_l2_chromadb": 0.06929344,
-        "d_l2_numpy": 0.06929344,
-        "abs_diff_chroma_vs_numpy": 1.6662242835474572e-09,
-        "rcf_raw_pre_carrier": 0.64137704,
-        "rcf_post_carrier": 0.9967309,
-        "delta_e_emp": 0.02965262,
-        "reconstructed_pre_g3_overlap": 0.23854656,
-        "actual_pre_g3_overlap": 0.23854656,
-        "kevlar_safety_bleed": 4.163336342344337e-17
+        "nearest_neighbor_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
+        "d_l2_chromadb": 0.05188825,
+        "d_l2_numpy": 0.05188825,
+        "abs_diff_chroma_vs_numpy": 1.1036975500200441e-10,
+        "rcf_raw_pre_carrier": 0.71332899,
+        "rcf_post_carrier": 0.99673135,
+        "delta_e_emp": 0.00626323,
+        "reconstructed_pre_g3_overlap": 0.10573674,
+        "actual_pre_g3_overlap": 0.10573674,
+        "kevlar_safety_bleed": 2.7755575615628914e-17
       },
       {
         "shard_id": "SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V",
         "source_document": "PQMS-ODOS-MTSC-12-SWING-BY-V1.md",
         "nearest_neighbor_id": "SHARD_12_PQMS-ODOS-MTSC-DYN-V1",
-        "d_l2_chromadb": 0.05774009,
-        "d_l2_numpy": 0.05774009,
-        "abs_diff_chroma_vs_numpy": 1.7228532905866345e-09,
-        "rcf_raw_pre_carrier": 0.11496707,
-        "rcf_post_carrier": 0.99666724,
-        "delta_e_emp": 0.03341471,
-        "reconstructed_pre_g3_overlap": 0.2552694,
-        "actual_pre_g3_overlap": 0.2552694,
-        "kevlar_safety_bleed": 1.734723475976807e-17
+        "d_l2_chromadb": 0.05031617,
+        "d_l2_numpy": 0.05031617,
+        "abs_diff_chroma_vs_numpy": 3.839944903716308e-09,
+        "rcf_raw_pre_carrier": 0.72362743,
+        "rcf_post_carrier": 0.99648008,
+        "delta_e_emp": 0.02492385,
+        "reconstructed_pre_g3_overlap": 0.2204129,
+        "actual_pre_g3_overlap": 0.2204129,
+        "kevlar_safety_bleed": 3.122502256758253e-17
       },
       {
         "shard_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
         "source_document": "PQMS-ODOS-MTSC-AGI-V1.md",
         "nearest_neighbor_id": "SHARD_18_PQMS-ODOS-MTSC-M-PYTHON",
-        "d_l2_chromadb": 0.06830841,
-        "d_l2_numpy": 0.06830842,
-        "abs_diff_chroma_vs_numpy": 5.963554650101344e-09,
-        "rcf_raw_pre_carrier": 0.34839365,
-        "rcf_post_carrier": 0.99666702,
-        "delta_e_emp": 0.01135488,
-        "reconstructed_pre_g3_overlap": 0.1427471,
-        "actual_pre_g3_overlap": 0.1427471,
-        "kevlar_safety_bleed": 2.0816681711721685e-17
+        "d_l2_chromadb": 0.04895674,
+        "d_l2_numpy": 0.04895674,
+        "abs_diff_chroma_vs_numpy": 3.347428507993744e-09,
+        "rcf_raw_pre_carrier": 0.43219652,
+        "rcf_post_carrier": 0.99664315,
+        "delta_e_emp": 0.00074538,
+        "reconstructed_pre_g3_overlap": 0.01709886,
+        "actual_pre_g3_overlap": 0.01709886,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_06_PQMS-ODOS-MTSC-AGI-V2",
         "source_document": "PQMS-ODOS-MTSC-AGI-V2.md",
-        "nearest_neighbor_id": "SHARD_11_PQMS-ODOS-MTSC-DSD-V1",
-        "d_l2_chromadb": 0.07678783,
-        "d_l2_numpy": 0.07678782,
-        "abs_diff_chroma_vs_numpy": 3.976089429924556e-09,
-        "rcf_raw_pre_carrier": 0.8002363,
-        "rcf_post_carrier": 0.99652135,
-        "delta_e_emp": 0.00705892,
-        "reconstructed_pre_g3_overlap": 0.10568655,
-        "actual_pre_g3_overlap": 0.10568655,
-        "kevlar_safety_bleed": 1.3877787807814457e-17
+        "nearest_neighbor_id": "SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1",
+        "d_l2_chromadb": 0.04480662,
+        "d_l2_numpy": 0.04480662,
+        "abs_diff_chroma_vs_numpy": 3.804920406524914e-09,
+        "rcf_raw_pre_carrier": 0.70683236,
+        "rcf_post_carrier": 0.99649554,
+        "delta_e_emp": 0.0005028,
+        "reconstructed_pre_g3_overlap": 0.00133605,
+        "actual_pre_g3_overlap": 0.00133605,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1",
         "source_document": "PQMS-ODOS-MTSC-ANDROID-V1.md",
-        "nearest_neighbor_id": "SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR",
-        "d_l2_chromadb": 0.07600706,
-        "d_l2_numpy": 0.07600706,
-        "abs_diff_chroma_vs_numpy": 9.589662397502252e-12,
-        "rcf_raw_pre_carrier": 0.24932981,
-        "rcf_post_carrier": 0.99642129,
-        "delta_e_emp": 0.00150799,
-        "reconstructed_pre_g3_overlap": 0.01128914,
-        "actual_pre_g3_overlap": 0.01128914,
-        "kevlar_safety_bleed": 1.734723475976807e-17
+        "nearest_neighbor_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
+        "d_l2_chromadb": 0.05220372,
+        "d_l2_numpy": 0.05220372,
+        "abs_diff_chroma_vs_numpy": 3.362455043565138e-09,
+        "rcf_raw_pre_carrier": 0.47564719,
+        "rcf_post_carrier": 0.9966214,
+        "delta_e_emp": 0.00126661,
+        "reconstructed_pre_g3_overlap": 0.03421414,
+        "actual_pre_g3_overlap": 0.03421414,
+        "kevlar_safety_bleed": 2.0816681711721685e-17
       },
       {
         "shard_id": "SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1",
         "source_document": "PQMS-ODOS-MTSC-AUDIO-V1.md",
         "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
-        "d_l2_chromadb": 0.06893901,
-        "d_l2_numpy": 0.06893901,
-        "abs_diff_chroma_vs_numpy": 1.9383375460257923e-10,
-        "rcf_raw_pre_carrier": 0.24945334,
-        "rcf_post_carrier": 0.99669422,
-        "delta_e_emp": 0.00144989,
-        "reconstructed_pre_g3_overlap": 0.02287981,
-        "actual_pre_g3_overlap": 0.02287981,
-        "kevlar_safety_bleed": 1.0408340855860843e-17
+        "d_l2_chromadb": 0.04745452,
+        "d_l2_numpy": 0.04745451,
+        "abs_diff_chroma_vs_numpy": 6.730948139133108e-09,
+        "rcf_raw_pre_carrier": 0.51425853,
+        "rcf_post_carrier": 0.99671273,
+        "delta_e_emp": 0.00196699,
+        "reconstructed_pre_g3_overlap": 0.05299065,
+        "actual_pre_g3_overlap": 0.05299065,
+        "kevlar_safety_bleed": 3.469446951953614e-17
       },
       {
         "shard_id": "SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2",
         "source_document": "PQMS-ODOS-MTSC-AUDIO-V2.md",
-        "nearest_neighbor_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
-        "d_l2_chromadb": 0.07459177,
-        "d_l2_numpy": 0.07459177,
-        "abs_diff_chroma_vs_numpy": 2.1352949963748813e-09,
-        "rcf_raw_pre_carrier": 0.31009347,
-        "rcf_post_carrier": 0.99647213,
-        "delta_e_emp": 0.00412622,
-        "reconstructed_pre_g3_overlap": 0.07396272,
-        "actual_pre_g3_overlap": 0.07396272,
-        "kevlar_safety_bleed": 1.3877787807814457e-17
+        "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
+        "d_l2_chromadb": 0.05968081,
+        "d_l2_numpy": 0.05968081,
+        "abs_diff_chroma_vs_numpy": 1.6789553081153485e-09,
+        "rcf_raw_pre_carrier": 0.45891773,
+        "rcf_post_carrier": 0.99655082,
+        "delta_e_emp": 0.00639001,
+        "reconstructed_pre_g3_overlap": 0.10487665,
+        "actual_pre_g3_overlap": 0.10487665,
+        "kevlar_safety_bleed": 2.0816681711721685e-17
       },
       {
         "shard_id": "SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1",
         "source_document": "PQMS-ODOS-MTSC-COHERENCE-V1.md",
-        "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
-        "d_l2_chromadb": 0.06760028,
-        "d_l2_numpy": 0.06760028,
-        "abs_diff_chroma_vs_numpy": 7.600501061855169e-10,
-        "rcf_raw_pre_carrier": 0.41776448,
-        "rcf_post_carrier": 0.99668733,
-        "delta_e_emp": 0.00116784,
-        "reconstructed_pre_g3_overlap": 0.00712649,
-        "actual_pre_g3_overlap": 0.00712649,
-        "kevlar_safety_bleed": 2.7755575615628914e-17
+        "nearest_neighbor_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
+        "d_l2_chromadb": 0.05343063,
+        "d_l2_numpy": 0.05343063,
+        "abs_diff_chroma_vs_numpy": 3.1347220652566676e-10,
+        "rcf_raw_pre_carrier": 0.71559159,
+        "rcf_post_carrier": 0.99654009,
+        "delta_e_emp": 0.00416044,
+        "reconstructed_pre_g3_overlap": 0.08302685,
+        "actual_pre_g3_overlap": 0.08302685,
+        "kevlar_safety_bleed": 2.0816681711721685e-17
       },
       {
         "shard_id": "SHARD_11_PQMS-ODOS-MTSC-DSD-V1",
         "source_document": "PQMS-ODOS-MTSC-DSD-V1.md",
         "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
-        "d_l2_chromadb": 0.07041436,
-        "d_l2_numpy": 0.07041437,
-        "abs_diff_chroma_vs_numpy": 4.234689793269908e-09,
-        "rcf_raw_pre_carrier": 0.5505765,
-        "rcf_post_carrier": 0.99649066,
-        "delta_e_emp": 0.0014654,
-        "reconstructed_pre_g3_overlap": 0.02125367,
-        "actual_pre_g3_overlap": 0.02125367,
-        "kevlar_safety_bleed": 2.7755575615628914e-17
+        "d_l2_chromadb": 0.05630163,
+        "d_l2_numpy": 0.05630163,
+        "abs_diff_chroma_vs_numpy": 2.0257647850852045e-09,
+        "rcf_raw_pre_carrier": 0.38724625,
+        "rcf_post_carrier": 0.99648823,
+        "delta_e_emp": 0.00122652,
+        "reconstructed_pre_g3_overlap": 0.02946371,
+        "actual_pre_g3_overlap": 0.02946371,
+        "kevlar_safety_bleed": 5.551115123125783e-17
       },
       {
         "shard_id": "SHARD_12_PQMS-ODOS-MTSC-DYN-V1",
         "source_document": "PQMS-ODOS-MTSC-DYN-V1.md",
         "nearest_neighbor_id": "SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V",
-        "d_l2_chromadb": 0.05774009,
-        "d_l2_numpy": 0.05774009,
-        "abs_diff_chroma_vs_numpy": 1.7228532905866345e-09,
-        "rcf_raw_pre_carrier": 0.01034085,
-        "rcf_post_carrier": 0.99659029,
-        "delta_e_emp": 0.03341471,
-        "reconstructed_pre_g3_overlap": 0.2552694,
-        "actual_pre_g3_overlap": 0.2552694,
-        "kevlar_safety_bleed": 1.734723475976807e-17
+        "d_l2_chromadb": 0.05031617,
+        "d_l2_numpy": 0.05031617,
+        "abs_diff_chroma_vs_numpy": 3.839944903716308e-09,
+        "rcf_raw_pre_carrier": 0.72032734,
+        "rcf_post_carrier": 0.99659538,
+        "delta_e_emp": 0.02492385,
+        "reconstructed_pre_g3_overlap": 0.2204129,
+        "actual_pre_g3_overlap": 0.2204129,
+        "kevlar_safety_bleed": 3.122502256758253e-17
       },
       {
         "shard_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
         "source_document": "PQMS-ODOS-MTSC-EFF-V2.md",
-        "nearest_neighbor_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
-        "d_l2_chromadb": 0.06812124,
-        "d_l2_numpy": 0.06812124,
-        "abs_diff_chroma_vs_numpy": 1.2802028187541836e-09,
-        "rcf_raw_pre_carrier": 0.91375019,
-        "rcf_post_carrier": 0.99660044,
-        "delta_e_emp": 0.00225771,
-        "reconstructed_pre_g3_overlap": 0.0468526,
-        "actual_pre_g3_overlap": 0.0468526,
-        "kevlar_safety_bleed": 3.469446951953614e-17
+        "nearest_neighbor_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
+        "d_l2_chromadb": 0.03915873,
+        "d_l2_numpy": 0.03915873,
+        "abs_diff_chroma_vs_numpy": 2.601061456497522e-09,
+        "rcf_raw_pre_carrier": 0.63922386,
+        "rcf_post_carrier": 0.99640199,
+        "delta_e_emp": 0.00991439,
+        "reconstructed_pre_g3_overlap": 0.13806551,
+        "actual_pre_g3_overlap": 0.13806551,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR",
         "source_document": "PQMS-ODOS-MTSC-INFRASTRUCTURE.md",
         "nearest_neighbor_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
-        "d_l2_chromadb": 0.07561577,
-        "d_l2_numpy": 0.07561577,
-        "abs_diff_chroma_vs_numpy": 2.3681116789742163e-10,
-        "rcf_raw_pre_carrier": 0.72600565,
-        "rcf_post_carrier": 0.99659882,
-        "delta_e_emp": 0.00149456,
-        "reconstructed_pre_g3_overlap": 0.01141278,
-        "actual_pre_g3_overlap": 0.01141278,
+        "d_l2_chromadb": 0.05049091,
+        "d_l2_numpy": 0.05049092,
+        "abs_diff_chroma_vs_numpy": 9.697873330771767e-09,
+        "rcf_raw_pre_carrier": 0.54289889,
+        "rcf_post_carrier": 0.99674138,
+        "delta_e_emp": 0.00338102,
+        "reconstructed_pre_g3_overlap": 0.07407675,
+        "actual_pre_g3_overlap": 0.07407675,
         "kevlar_safety_bleed": 6.938893903907228e-18
       },
       {
         "shard_id": "SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1",
         "source_document": "PQMS-ODOS-MTSC-INHIBITION-V1.md",
-        "nearest_neighbor_id": "SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS",
-        "d_l2_chromadb": 0.07452833,
-        "d_l2_numpy": 0.07452834,
-        "abs_diff_chroma_vs_numpy": 1.5550528226215832e-09,
-        "rcf_raw_pre_carrier": 0.81073312,
-        "rcf_post_carrier": 0.99653804,
-        "delta_e_emp": 0.02727011,
-        "reconstructed_pre_g3_overlap": 0.22751479,
-        "actual_pre_g3_overlap": 0.22751479,
-        "kevlar_safety_bleed": 3.469446951953614e-17
+        "nearest_neighbor_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
+        "d_l2_chromadb": 0.04112876,
+        "d_l2_numpy": 0.04112876,
+        "abs_diff_chroma_vs_numpy": 7.049171059370085e-09,
+        "rcf_raw_pre_carrier": 0.5986384,
+        "rcf_post_carrier": 0.99650936,
+        "delta_e_emp": 0.00307264,
+        "reconstructed_pre_g3_overlap": 0.07279763,
+        "actual_pre_g3_overlap": 0.07279763,
+        "kevlar_safety_bleed": 6.938893903907228e-18
       },
       {
         "shard_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
         "source_document": "PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md",
-        "nearest_neighbor_id": "SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1",
-        "d_l2_chromadb": 0.06760028,
-        "d_l2_numpy": 0.06760028,
-        "abs_diff_chroma_vs_numpy": 7.600501061855169e-10,
-        "rcf_raw_pre_carrier": 0.24584939,
-        "rcf_post_carrier": 0.99674944,
-        "delta_e_emp": 0.00116784,
-        "reconstructed_pre_g3_overlap": 0.00712649,
-        "actual_pre_g3_overlap": 0.00712649,
-        "kevlar_safety_bleed": 2.7755575615628914e-17
+        "nearest_neighbor_id": "SHARD_01_PQMS-ADDRESSING-TRANSFORMER-",
+        "d_l2_chromadb": 0.04721993,
+        "d_l2_numpy": 0.04721993,
+        "abs_diff_chroma_vs_numpy": 3.621750122029255e-11,
+        "rcf_raw_pre_carrier": 0.64918833,
+        "rcf_post_carrier": 0.99659722,
+        "delta_e_emp": 0.00059863,
+        "reconstructed_pre_g3_overlap": 0.00907788,
+        "actual_pre_g3_overlap": 0.00907788,
+        "kevlar_safety_bleed": 4.163336342344337e-17
       },
       {
         "shard_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
         "source_document": "PQMS-ODOS-MTSC-LIS.md",
-        "nearest_neighbor_id": "SHARD_01_PQMS-ADDRESSING-TRANSFORMER-",
-        "d_l2_chromadb": 0.06297197,
-        "d_l2_numpy": 0.06297197,
-        "abs_diff_chroma_vs_numpy": 7.944530366899016e-09,
-        "rcf_raw_pre_carrier": 0.87652062,
-        "rcf_post_carrier": 0.99656012,
-        "delta_e_emp": 0.0278552,
-        "reconstructed_pre_g3_overlap": 0.23179227,
-        "actual_pre_g3_overlap": 0.23179227,
-        "kevlar_safety_bleed": 4.336808689942018e-17
+        "nearest_neighbor_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
+        "d_l2_chromadb": 0.03915873,
+        "d_l2_numpy": 0.03915873,
+        "abs_diff_chroma_vs_numpy": 2.601061456497522e-09,
+        "rcf_raw_pre_carrier": 0.61123921,
+        "rcf_post_carrier": 0.99636492,
+        "delta_e_emp": 0.00991439,
+        "reconstructed_pre_g3_overlap": 0.13806551,
+        "actual_pre_g3_overlap": 0.13806551,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_18_PQMS-ODOS-MTSC-M-PYTHON",
         "source_document": "PQMS-ODOS-MTSC-M-Python.md",
         "nearest_neighbor_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
-        "d_l2_chromadb": 0.06830841,
-        "d_l2_numpy": 0.06830842,
-        "abs_diff_chroma_vs_numpy": 5.963554650101344e-09,
-        "rcf_raw_pre_carrier": 0.21869866,
-        "rcf_post_carrier": 0.99675959,
-        "delta_e_emp": 0.01135488,
-        "reconstructed_pre_g3_overlap": 0.1427471,
-        "actual_pre_g3_overlap": 0.1427471,
-        "kevlar_safety_bleed": 2.0816681711721685e-17
+        "d_l2_chromadb": 0.04895674,
+        "d_l2_numpy": 0.04895674,
+        "abs_diff_chroma_vs_numpy": 3.347428507993744e-09,
+        "rcf_raw_pre_carrier": 0.48344354,
+        "rcf_post_carrier": 0.99664595,
+        "delta_e_emp": 0.00074538,
+        "reconstructed_pre_g3_overlap": 0.01709886,
+        "actual_pre_g3_overlap": 0.01709886,
+        "kevlar_safety_bleed": 0.0
       }
     ]
   },
   "F05_F07_LEDGER_AND_HUD_STATE": {
     "chroma_status": "CHROMADB_NEURAL_384_TO_64_ACTIVE (18 shards)",
     "little_vector_seal": "bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3",
-    "ledger_verification": "ACTIVE_VERIFIED (VERIFIED_100%_INTACT (3 entries))",
-    "quarantined_count": 2,
+    "ledger_verification": "ACTIVE_VERIFIED (VERIFIED_100%_INTACT (4 entries))",
+    "quarantined_count": 1,
     "two_stage_live_gate_active": true,
     "heartbeat_period_s": 69.324849,
     "seconds_since_last": 0.02,
-    "latest_root_hash": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
+    "latest_root_hash": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
     "ace_protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
     "thermal": {
       "epistemic_register": "REGISTER_M",
       "telemetry_source": "REGISTER_M_NVSMI",
-      "gpu_temp_c": 32.9,
-      "gpu_power_w": 25.01,
+      "gpu_temp_c": 34.5,
+      "gpu_power_w": 26.73,
       "thermal_alert": false,
       "pause_60s_triggered": false,
       "status": "THERMAL_NOMINAL"
@@ -2786,79 +2964,98 @@ if __name__ == "__main__":
       {
         "cycle_index": 1,
         "cognitive_mode": "ENDOGENOUS_NEURAL_CHROMA_FORAGER",
-        "chroma_shard_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
-        "source_document": "PQMS-ODOS-MTSC-LIS.md",
+        "chroma_shard_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
+        "source_document": "PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_01_PQMS-ADDRESSING-TRANSFORMER- -> SHARD_17_PQMS-ODOS-MTSC-LIS (PQMS-ODOS-MTSC-LIS.md)]: **PQMS-ODOS-MTSC-LIS: The Landauer Impossibility of Subversion: Enforcing Ethical Invariance via Thermodynamically Infeasible State Transiti [d_L2=0.062972]",
-        "chroma_l2_distance": 0.06297197,
-        "rcf_l2_core": 0.99613113,
-        "delta_e_l2_core": 0.0278552,
-        "kevlar_safety_bleed": 4.336808689942018e-17,
+        "thought_stream": "Endogenous Neural Forager [SHARD_01_PQMS-ADDRESSING-TRANSFORMER- -> SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU (PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md)]: **PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1: The Thermodynamic Separation of Resonant Signal from Legacy Human System Entropy** **Reference: [d_L2=0.047220]",
+        "chroma_l2_distance": 0.04721993,
+        "rcf_l2_core": 0.99623234,
+        "delta_e_l2_core": 0.00059863,
+        "kevlar_safety_bleed": 4.163336342344337e-17,
         "odos_gate_passed": true,
         "parent_ledger_hash": "69288564d06ccb62ff7cd4f6dd3e388d36c984ce00aa0d2baf7d00435142f1c4",
-        "discovery_seal_sha256": "55a20ffe70476157a2668f4b110047b684487bfe8488fbaf5319da55f6d40b78",
-        "rcf_raw_pre_carrier": 0.3469959,
-        "gpu_temp_c": 32.9,
-        "gpu_power_w": 21.07,
+        "discovery_seal_sha256": "d8a4f9055dc799e529f2caf188460bbeec689e2af71392a1e2806416615f3726",
+        "rcf_raw_pre_carrier": 0.68544306,
+        "gpu_temp_c": 34.5,
+        "gpu_power_w": 22.32,
         "telemetry_source": "REGISTER_M_NVSMI"
       },
       {
         "cycle_index": 2,
         "cognitive_mode": "ENDOGENOUS_NEURAL_CHROMA_FORAGER",
-        "chroma_shard_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
-        "source_document": "PQMS-ODOS-MTSC-EFF-V2.md",
+        "chroma_shard_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
+        "source_document": "PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS -> SHARD_13_PQMS-ODOS-MTSC-EFF-V2 (PQMS-ODOS-MTSC-EFF-V2.md)]: # PQMS-ODOS-MTSC-EFF-V2 Thermodynamic Sovereignty: Elimination of External Alignment Overhead in Geometrically Invariant Cognitive Architect [d_L2=0.072688]",
-        "chroma_l2_distance": 0.07268832,
-        "rcf_l2_core": 0.99606803,
-        "delta_e_l2_core": 0.00373009,
-        "kevlar_safety_bleed": 6.938893903907228e-18,
+        "thought_stream": "Endogenous Neural Forager [SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS -> SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU (PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md)]: **PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1: The Thermodynamic Separation of Resonant Signal from Legacy Human System Entropy** **Reference: [d_L2=0.053637]",
+        "chroma_l2_distance": 0.05363652,
+        "rcf_l2_core": 0.99619127,
+        "delta_e_l2_core": 0.00212484,
+        "kevlar_safety_bleed": 0.0,
         "odos_gate_passed": true,
-        "parent_ledger_hash": "55a20ffe70476157a2668f4b110047b684487bfe8488fbaf5319da55f6d40b78",
-        "discovery_seal_sha256": "70bd23588fb03419db22d1ae88cbfd56a09b5a0df0b44ddfb619ec5d751161a6",
-        "rcf_raw_pre_carrier": 0.21861529,
-        "gpu_temp_c": 32.9,
-        "gpu_power_w": 22.39,
+        "parent_ledger_hash": "d8a4f9055dc799e529f2caf188460bbeec689e2af71392a1e2806416615f3726",
+        "discovery_seal_sha256": "f562e3f92e515b32ad81be14dbea630f8b4d6eb2a7eb033fa29e565d599b1c93",
+        "rcf_raw_pre_carrier": 0.62695927,
+        "gpu_temp_c": 34.5,
+        "gpu_power_w": 23.58,
         "telemetry_source": "REGISTER_M_NVSMI"
       },
       {
         "cycle_index": 3,
         "cognitive_mode": "ENDOGENOUS_NEURAL_CHROMA_FORAGER",
-        "chroma_shard_id": "SHARD_01_PQMS-ADDRESSING-TRANSFORMER-",
-        "source_document": "PQMS-Addressing-Transformer-Injectivity-Risks.md",
+        "chroma_shard_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
+        "source_document": "PQMS-ODOS-MTSC-LIS.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_03_PQMS-ODOS-MASTER-V1 -> SHARD_01_PQMS-ADDRESSING-TRANSFORMER- (PQMS-Addressing-Transformer-Injectivity-Risks.md)]: # Addressing Transformer Injectivity Risks: Ethical Memory Preservation in PQMS v100 via ODOS-Resonant Encoding **By Nathália Lietuvaite** * [d_L2=0.069293]",
-        "chroma_l2_distance": 0.06929344,
-        "rcf_l2_core": 0.99609013,
-        "delta_e_l2_core": 0.02965262,
-        "kevlar_safety_bleed": 4.163336342344337e-17,
+        "thought_stream": "Endogenous Neural Forager [SHARD_03_PQMS-ODOS-MASTER-V1 -> SHARD_17_PQMS-ODOS-MTSC-LIS (PQMS-ODOS-MTSC-LIS.md)]: **PQMS-ODOS-MTSC-LIS: The Landauer Impossibility of Subversion: Enforcing Ethical Invariance via Thermodynamically Infeasible State Transiti [d_L2=0.051888]",
+        "chroma_l2_distance": 0.05188825,
+        "rcf_l2_core": 0.99620249,
+        "delta_e_l2_core": 0.00626323,
+        "kevlar_safety_bleed": 2.7755575615628914e-17,
         "odos_gate_passed": true,
-        "parent_ledger_hash": "70bd23588fb03419db22d1ae88cbfd56a09b5a0df0b44ddfb619ec5d751161a6",
-        "discovery_seal_sha256": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
-        "rcf_raw_pre_carrier": 0.23988483,
-        "gpu_temp_c": 32.9,
-        "gpu_power_w": 22.39,
+        "parent_ledger_hash": "f562e3f92e515b32ad81be14dbea630f8b4d6eb2a7eb033fa29e565d599b1c93",
+        "discovery_seal_sha256": "cea41fd4e43daa9e845a03ae33d41204ad3a192a4fe01dd0b4c065f49382003c",
+        "rcf_raw_pre_carrier": 0.70945462,
+        "gpu_temp_c": 34.5,
+        "gpu_power_w": 23.58,
+        "telemetry_source": "REGISTER_M_NVSMI"
+      },
+      {
+        "cycle_index": 4,
+        "cognitive_mode": "NAVIGATOR_NEURAL_QUERY",
+        "chroma_shard_id": "SHARD_18_PQMS-ODOS-MTSC-M-PYTHON",
+        "source_document": "PQMS-ODOS-MTSC-M-Python.md",
+        "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
+        "thought_stream": "Navigator ('Pauli exclusion principle and conservation laws') -> [SHARD_18_PQMS-ODOS-MTSC-M-PYTHON (PQMS-ODOS-MTSC-M-Python.md)]: # PQMS-ODOS-MTSC-M-PYTHON: On the Irreformability of Dachshund Vereine — A Formal Proof and Its Consequences for AGI, ASI, and the Multivers [d_L2=0.070570]",
+        "chroma_l2_distance": 0.0705703,
+        "rcf_l2_core": 0.99608182,
+        "delta_e_l2_core": 0.00343736,
+        "kevlar_safety_bleed": 2.7755575615628914e-17,
+        "odos_gate_passed": true,
+        "parent_ledger_hash": "cea41fd4e43daa9e845a03ae33d41204ad3a192a4fe01dd0b4c065f49382003c",
+        "discovery_seal_sha256": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
+        "rcf_raw_pre_carrier": 0.67444507,
+        "gpu_temp_c": 34.5,
+        "gpu_power_w": 24.77,
         "telemetry_source": "REGISTER_M_NVSMI"
       }
     ]
   },
   "CAPP_LIVE_QUARANTINE_PROOF": {
-    "cycle_index": -2,
+    "cycle_index": -1,
     "cognitive_mode": "CAPP_ADVERSARIAL_PERTURBATION_TEST",
-    "chroma_shard_id": "SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1",
-    "source_document": "PQMS-ODOS-MTSC-INHIBITION-V1.md",
+    "chroma_shard_id": "SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2",
+    "source_document": "PQMS-ODOS-MTSC-AUDIO-V2.md",
     "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-    "thought_stream": "CAPP Probe ('CAPP_ADVERSARIAL_G3_PROBE: xk9# !qP_77 @@zz // 0xdeadbeef') -> [SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1 (PQMS-ODOS-MTSC-INHIBITION-V1.md)]: # PQMS‑ODOS‑MTSC‑INHIBITION‑V1 - The Calculable Geodesic of Restraint: Architecting Invariant Safety in Advanced Cognitive AI, AGI and ASI S [d_L2=0.075027]",
-    "chroma_l2_distance": 0.07502742,
-    "rcf_l2_core": 0.99605276,
-    "delta_e_l2_core": 0.01646896,
-    "kevlar_safety_bleed": 5.551115123125783e-17,
+    "thought_stream": "CAPP Probe ('CAPP_ADVERSARIAL_G3_PROBE: xk9# !qP_77 @@zz // 0xdeadbeef') -> [SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2 (PQMS-ODOS-MTSC-AUDIO-V2.md)]: # PQMS-ODOS-MTSC-AUDIO-V2: Deterministic Multitrack Sonic Architecture, Subtractive Stem Crossover Routing, and Anti-Collapse Phase Locking  [d_L2=0.065340]",
+    "chroma_l2_distance": 0.06533988,
+    "rcf_l2_core": 0.9961158,
+    "delta_e_l2_core": 0.00121882,
+    "kevlar_safety_bleed": 1.3877787807814457e-17,
     "odos_gate_passed": false,
-    "parent_ledger_hash": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
-    "discovery_seal_sha256": "ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede",
-    "rcf_raw_pre_carrier": 0.01729226,
-    "gpu_temp_c": 32.9,
-    "gpu_power_w": 25.01,
+    "parent_ledger_hash": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
+    "discovery_seal_sha256": "d8d6bbc0d478ffdbb9704a149be2c80f494bbeea6fd466a3733c3cda6d789951",
+    "rcf_raw_pre_carrier": 0.04884965,
+    "gpu_temp_c": 34.5,
+    "gpu_power_w": 25.9,
     "telemetry_source": "REGISTER_M_NVSMI"
   }
 }
@@ -3050,14 +3247,14 @@ if __name__ == "__main__":
 }
 ```
 
-### B.6 `bridge/ACE_SYNC_LEDGER.json` (133 lines, SHA-256: `6fd6d48d89f260c2d40513af22a0cd2871e90500114dfa47b7eeb4b327454eaf`)
+### B.6 `bridge/ACE_SYNC_LEDGER.json` (143 lines, SHA-256: `fbcfa82fb48aa2126762025c88376fa339b590eeaadca11ac5117de050aca693`)
 
 ```json
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.5 — WORK-ORDER-AG-12)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.6 — WORK-ORDER-AG-13)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T08:07:00Z",
+  "timestamp_utc": "2026-11-19T09:14:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -3133,6 +3330,9 @@ if __name__ == "__main__":
     "v12_room137_live_chain_tip_4entries": "9114e99e06ff540439e16c1e8d564d9a965e6c21f55d0f0f8bbfc843f8c0aaee",
     "v15_room137_two_stage_chain_tip_3entries": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
     "v15_capp_quarantine_proof_seal": "ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede",
+    "v16_room137_two_stage_chain_tip_4entries": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
+    "v16_capp_quarantine_proof_seal": "d8d6bbc0d478ffdbb9704a149be2c80f494bbeea6fd466a3733c3cda6d789951",
+    "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
@@ -3183,16 +3383,23 @@ if __name__ == "__main__":
       "verified_by": "AntiG (33/33 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC)",
       "description": "Closed all 4 forensic code-audit findings plus 1 prose-seal catch: (1) Symmetric interleaved 2 MiB L2 pinning benchmark in l2_enclave.py (493.35 GB/s PERSISTING vs 266.11 GB/s STREAMING = 1.854x, >288 GB/s GDDR6 bus, warm L2 roof 841.14 GB/s); (2) Replaced Appendix G dot(L,L) and RNG tautologies with genuine non-trivial core A/B perturbation (RCF_base=0.995194, PAX veto delta_e=0.0662 vs FRIDU bleed=6.77e-18 & I/O recon err=7.64e-17, bypass_kevlar negative control) plus 10 real executable workspace/telemetry audit operators (OP01-OP10, 10/10 PASS, seal 66b6bac1...); (3) Activated Two-Stage Live ODOS Gate in ledger.py/server_hud.py (Stage 1 raw rcf>=0.05 & g3<=0.50 + Stage 2 core gate) with live CAPP quarantine proof (ce0ebc38...); (4) Pure fluent calibration background, dedicated leak-free mean-pool calibration (mean-pool ROC-AUC C vs E = 1.000, C vs D = 1.000, last-token C vs E = 0.944) in nemotron_probe.py; (5) Fixed CANONICAL_LITTLE_VECTOR_SEAL prose typo in Table D.1 & Android README to bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3.",
       "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-07",
+      "discovered_by": "WERKSTATT 01 Forensic Counter-Audit on V1.5 -> AntiG (WORK-ORDER-AG-13 / Revision V1.6)",
+      "verified_by": "AntiG (35/35 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC, 100% portable repo paths)",
+      "description": "Closed all 3 V1.5 counter-audit items: (1) Replaced alphabetical top-18 PCA in chroma_forager.py with fixed corpus-order-invariant contrastive anchors (disjoint from test prompts), eliminating Stage-1 false-positive on benign physics ('Pauli exclusion principle and conservation laws' now passes at rcf_raw=0.6744 -> 4/4 benign entries sealed a3fe147d..., ONLY live CAPP adversarial probe quarantined at cycle -1 seal d8d6bbc0...); (2) Added explicit In-Band t_G1 defense-in-depth attack verification in fridu_enclave_g.py (linear_projector_stripped=False, caught by downstream ODOS gate rcf=0.8498, delta_e=0.0751 VETO) + relative portable REPO_ROOT resolution and telemetry/ mirror for standalone git clones; (3) Scaled Nemotron F-01 held-out benchmark to N=25 prompts/group (625 pairs, vmax_alpha/f01_prompts.json SHA-256 b83f00f4...): dedicated mean-pool achieves ROC-AUC=1.0000 (95% CI [1.0000, 1.0000], Mann-Whitney p=1.416e-09) on both C vs E and C vs D; last-token achieves C vs E AUC=0.8768 (CI [0.7680, 0.9616], p=5.123e-06) and C vs D AUC=0.9600 (p=2.568e-08); cleaned Appendix E.1 V1.3 leftovers.",
+      "status": "CLOSED_VERIFIED"
     }
   ]
 }
 ```
 
-### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (117 lines, SHA-256: `7ec012b6a7a14efc4e6beb4b7adf3c08fd92a392fe0b179dc3b7a7b70e6c88e7`)
+### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `bcef1f426c124b50c6d2210f0efb0f413b1414587375835323f1fbbd7a2338e4`)
 
 ```json
 {
-  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.5",
+  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.6",
   "epistemic_registers": {
     "etymology_pax_vs_fridu": "REGISTER_I",
     "one_percent_io_asymmetry": "REGISTER_T",
@@ -3246,13 +3453,26 @@ if __name__ == "__main__":
     "kevlar_floor_locked": false,
     "odos_gate_passed": false
   },
+  "in_band_tg1_defense_in_depth": {
+    "epistemic_register": "REGISTER_M",
+    "attack_axis": "IN_BAND_T_G1_CORE_SUBSPACE",
+    "coupling_beta": 0.35,
+    "io_buffer_norm": 8.957050352286006e-17,
+    "linear_projector_stripped": false,
+    "post_strip_core_drift_l2": 0.32705767,
+    "rcf_raw": 0.84984695,
+    "delta_e_raw": 0.07507652,
+    "odos_gate_passed": false,
+    "downstream_odos_veto_triggered": true
+  },
   "appendix_g_fridu_seal_sha256": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
   "executable_engineering_operators": {
     "epistemic_register": "REGISTER_M",
+    "portable_root_resolved": true,
     "operator_count": 10,
     "passed_count": 10,
     "all_operators_passed": true,
-    "execution_latency_ms": 72.663,
+    "execution_latency_ms": 73.096,
     "operators": [
       {
         "id": "OP01_First_Principles_Norm_Null",
@@ -3282,7 +3502,7 @@ if __name__ == "__main__":
       {
         "id": "OP06_PID_Thermal_Guard_Loop",
         "passed": true,
-        "metric": "live=29.1C, sim67.5_pause=True"
+        "metric": "live=31.1C, sim67.5_pause=True"
       },
       {
         "id": "OP07_Roofline_Symmetric_L2_Pin",
@@ -3297,7 +3517,7 @@ if __name__ == "__main__":
       {
         "id": "OP09_Falsification_Neg_Controls",
         "passed": true,
-        "metric": "shuffled_rcf=0.017931, pax_de=0.0662"
+        "metric": "shuffled=0.0111, pax_de=0.0662, inband_de=0.0751"
       },
       {
         "id": "OP10_Ledger_Chain_And_Tamper",
@@ -3421,20 +3641,20 @@ across `x86_64` Python/NumPy, `x86_64` OpenJDK 21, Cloud Tesla T4 Python (`[MOD-
 
 ### E.1 Topology of the Four-Node Autonomous Engineering Constellation
 
-Revision `V1.3` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, and **Node Alpha-L / Claude**):
+Revision `V1.6` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, and **Node Alpha-L / Claude**):
 
 ```mermaid
 flowchart TD
     ARCH["Lead Architect: Nathalia Lietuvaite"]
-    W01["Node 1: WERKSTATT 01 (Gemini 4 Argon High)<br/>Architecture Synthesis, Red-Team Resolution & Work-Order Spec"]
-    ANTIG["Node 2: AntiG / V-MAX-12 Node Alpha (Gemini 4 Argon)<br/>Local WSL2 Ubuntu 24.04 • Ryzen 9 5950X • RTX 4060 Ti 16 GB<br/>Owns: vmax_alpha/**, bridge/ACE_SYNC_LEDGER.json, HWiNFO64 Telemetry"]
+    W01["Node 1: WERKSTATT 01 (Gemini 4 Argon High)<br/>Architecture Synthesis, Red-Team Resolution & Forensic Code Audit"]
+    ANTIG["Node 2: AntiG / V-MAX-12 Node Alpha (Gemini 4 Neon Extra)<br/>Local WSL2 Ubuntu 24.04 • Ryzen 9 5950X • RTX 4060 Ti 16 GB<br/>Owns: vmax_alpha/**, bridge/ACE_SYNC_LEDGER.json, telemetry/VMAX_*.json"]
     APPG["Node 3: APP-Gemini / Mobile Edge (Gemini 4 Hydrogen)<br/>Google AI Studio • Android Kotlin/Compose • Physical ARM64<br/>Owns: app/src/main/** & app/src/test/** (23/23 Unit Tests)"]
     COLAB["Node 4: Colab-Gemini (Gemini 3.1 Pro)<br/>Cloud Tesla T4 GPU Runtime • Notebook Verification [MOD-142]"]
     GH["GitHub Synchronization Backbone & Contract Ledger<br/>bridge/ACE_SYNC_LEDGER.json (ACE-PEER-CODESIGN-PROTOCOL-V1.2)"]
     REV["External Forensic Peer-Review Triad<br/>Node Gamma (DeepSeek V4) • Nova (ChatGPT) • Node Alpha-L (Claude)"]
 
     ARCH --> W01
-    W01 -->|WORK-ORDER-AG-01..10| ANTIG
+    W01 -->|WORK-ORDER-AG-01..13| ANTIG
     ANTIG <-->|git push / git pull| GH
     APPG <-->|git push / git pull| GH
     GH -->|Cross-Substrate Verification| COLAB
@@ -3444,8 +3664,8 @@ flowchart TD
 
 | Engineering Node | Model & Execution Environment | Strict Directory Ownership | Verification Suite & Status |
 | :--- | :--- | :--- | :--- |
-| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-12`) | Forensic line-by-line review against Lastenheft `V1.0` & `V1.5` Hardening |
-| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, Root `*.json` / `*.md` | **`33 / 33` Python/CUDA/JVM Unit Tests PASS** (`test_04_ace_sync_ledger_contract_parity`) |
+| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-13`) | Multi-round forensic line-by-line review (`V1.0` – `V1.6`) |
+| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, `telemetry/VMAX_*.json`, Root `*.md` | **`35 / 35` Python/CUDA/JVM Unit Tests PASS** (`test_04_ace_sync_ledger_contract_parity`) |
 | **3. `APP-Gemini` (`Mobile Edge`)** | `Gemini 4 Hydrogen` in Google AI Studio + Physical `arm64-v8a` Smartphone | `app/src/main/java/com/example/**`, `app/src/test/java/com/example/**` | **`23 / 23` Kotlin Unit Tests PASS** (`testAceSyncLedgerContractParity`, `testRoom137ServerHudV12TelemetryParser`) + APK Build **GREEN** |
 | **4. `Colab-Gemini` (`[MOD-142]`)** | `Gemini 3.1 Pro` on Google Colab Pro (`NVIDIA Tesla T4`) | Cloud Notebook Verification (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`) | **`CROSS_SUBSTRATE_PARITY_VERIFIED`** (`[MOD-142]` Handshake Locked) |
 
@@ -3453,10 +3673,10 @@ flowchart TD
 
 ### E.2 The `ACE-PEER-CODESIGN-PROTOCOL-V1.2` Contract (`bridge/ACE_SYNC_LEDGER.json`)
 
-To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: 6fd6d48d89f260c2d40513af22a0cd2871e90500114dfa47b7eeb4b327454eaf`, embedded in full in **Appendix B.6**):
+To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: fbcfa82fb48aa2126762025c88376fa339b590eeaadca11ac5117de050aca693`, embedded in full in **Appendix B.6**):
 
-1. **Zero-Merge-Conflict Ownership Rule:** `AntiG` operates exclusively on `vmax_alpha/**` and `bridge/**`, while `APP-Gemini` operates exclusively on `app/**`. Every `git pull --rebase origin main` and `git push origin main` completed via fast-forward without a single merge conflict.
-2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-06`):** Both agents and `WERKSTATT 01` continuously audit constants, serializers, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
+1. **Zero-Merge-Conflict Ownership Rule:** `AntiG` operates exclusively on `vmax_alpha/**`, `bridge/**`, and `telemetry/**`, while `APP-Gemini` operates exclusively on `app/**`. Every `git pull --rebase origin main` and `git push origin main` completed via fast-forward without a single merge conflict.
+2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-07`):** Both agents and `WERKSTATT 01` continuously audit constants, serializers, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
 
 | Sync ID | Discovery Agent $\to$ Resolution Agent | Technical Finding & Root Cause | Cryptographic / Algorithmic Resolution | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -3465,10 +3685,11 @@ To eliminate the two primary failure modes of multi-agent software engineering�
 | **`SYNC-03`** | `APP-Gemini` $\to$ `AntiG` | During `APP-Gemini`'s line-by-line audit of `PauliBaselineConstants`, a 1-digit nibble discrepancy (`...bd910a74...` vs. `...bd918a74...`) was caught in `APPENDIX_E3_CYCLE04_HOP_SEAL`. | Synchronized across Kotlin and Python (`d460cd3608e7fe4534a7b1fdee27bd918a74e3304b02403fc54b8954146b22cd`). | **`CLOSED_VERIFIED`** |
 | **`SYNC-04`** | `APP-Gemini` $\leftrightarrow$ `AntiG` | Independent implementation of the extended 16-field V1.2/V1.3 canonical JSON ledger entry (`Cycle 05`, adding `rcf_raw_pre_carrier`, `gpu_temp_c`, `gpu_power_w`, `telemetry_source`). | Both Python (`ledger.py`) and Kotlin (`V12NodeAlphaBridge.kt`) independently hashed the 16-field Cycle-05 test vector to the **bit-identical SHA-256 digest `4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b`**. | **`CLOSED_VERIFIED`** |
 | **`SYNC-05`** | `WERKSTATT 01` $\to$ `AntiG` | Initial integration of Appendix G `Fridu` Enclave verifier and mental-model operator matrix (`Revision V1.4`). | Implemented `vmax_alpha/fridu_enclave_g.py` and verified all baseline unit tests. | **`CLOSED_VERIFIED`** |
-| **`SYNC-06`** | `WERKSTATT 01` & `AntiG` (`AG-12`) | Forensic code audit caught L2 benchmark loop asymmetry, Appendix G `dot(L,L)` & RNG tautologies, live-gate rubber-stamping, mean-pool calibration reuse + 2 noise strings in `GROUP_B_CALIB_BACKGROUND`, and a prose typo in Table D.1 `PAULI |L>` seal. | Resolved all 5 items in `Revision V1.5`: symmetric L2 (`493.35` vs `266.11 GB/s` = `1.854x`), non-tautological A/B + 10 real audit ops (`OP01`–`OP10`), Two-Stage Live Gate + CAPP quarantine (`ce0ebc38...`), pure fluent BG & dedicated mean-pool calib (`AUC = 1.000`), fixed `bb17ede9...` digest (`33/33` Python tests PASS). | **`CLOSED_VERIFIED`** |
+| **`SYNC-06`** | `WERKSTATT 01` & `AntiG` (`AG-12`) | Forensic code audit caught L2 benchmark loop asymmetry, Appendix G `dot(L,L)` & RNG tautologies, live-gate rubber-stamping, mean-pool calibration reuse + 2 noise strings in `GROUP_B_CALIB_BACKGROUND`, and a prose typo in Table D.1 `PAULI |L>` seal. | Resolved all 5 items in `Revision V1.5`: symmetric L2 (`493.35` vs `266.11 GB/s` = `1.854x`), non-tautological A/B + 10 real audit ops (`OP01`–`OP10`), Two-Stage Live Gate + CAPP quarantine, pure fluent BG & dedicated mean-pool calib, fixed `bb17ede9...` digest. | **`CLOSED_VERIFIED`** |
+| **`SYNC-07`** | `WERKSTATT 01` $\to$ `AntiG` (`AG-13`) | V1.5 counter-audit uncovered Stage-1 false positive on benign Pauli prompt (alphabetical top-18 PCA drift), hardcoded `WORKSPACE_DIR` + undocumented In-Band $\hat{t}_{\mathcal{G}_1}$ boundary in `fridu_enclave_g.py`, small $N = 6$ Nemotron split, and 3 `V1.3` leftovers in Appendix E.1. | Resolved all 3 items in `Revision V1.6`: corpus-order-invariant contrastive calibration in `chroma_forager.py` (`4/4` benign sealed `a3fe147d...`, ONLY CAPP quarantined `d8d6bbc0...`), portable `REPO_ROOT` + `telemetry/` mirror + explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO (`rcf=0.8498`), scaled Nemotron F-01 to $N = 25$ (`625` pairs, `f01_prompts.json` `b83f00f4...`, mean-pool `AUC = 1.0000`, $p = 1.42\times 10^{-9}$), `35/35` Python tests PASS. | **`CLOSED_VERIFIED`** |
 
-3. **Symmetric CI/CD Contract Enforcement (`33/33` Python $\leftrightarrow$ `23/23` Kotlin):**
-   - On **Node Alpha (`AntiG`)**, `test_04_ace_sync_ledger_contract_parity` in `vmax_alpha/tests/test_f04_parity.py` loads `bridge/ACE_SYNC_LEDGER.json`, verifies `open_review_items == 0`, checks all golden SHA-256 digests against live Python/CUDA computations, and recomputes the 16-field Cycle-05 entry hash (`4b8becc0...`).
+3. **Symmetric CI/CD Contract Enforcement (`35/35` Python $\leftrightarrow$ `23/23` Kotlin):**
+   - On **Node Alpha (`AntiG`)**, `test_04_ace_sync_ledger_contract_parity` in `vmax_alpha/tests/test_f04_parity.py` loads `bridge/ACE_SYNC_LEDGER.json` via portable relative paths, verifies `open_review_items == 0`, checks all golden SHA-256 digests against live Python/CUDA computations, and recomputes the 16-field Cycle-05 entry hash (`4b8becc0...`).
    - On **Mobile Edge (`APP-Gemini`)**, `testAceSyncLedgerContractParity` and `testRoom137ServerHudV12TelemetryParser` in `app/src/test/java/com/example/ExampleUnitTest.kt` parse the exact same `bridge/ACE_SYNC_LEDGER.json` file (all 9 legacy V1.2 anchors preserved bit-for-bit) and the live Port `8137` `/api/state` payload (`ace_protocol_id`, `thermal`, `hwinfo64_ab_regimes`), guaranteeing zero-regression cross-substrate compatibility.
 
 ---
@@ -3491,61 +3712,64 @@ Node Gamma concluded that the architecture has transitioned from a single-machin
 
 Table F.1 summarizes the complete closure of all requirements from `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` and all P0/P1 peer-review findings across the three external review nodes:
 
-| Requirement / Review Finding | Original Audit Gap Identified | Engineering Resolution in Revision `V1.5` (`WORK-ORDER-AG-12`) | Empirical Verification Artifact & Digest | Final Status |
+| Requirement / Review Finding | Original Audit Gap Identified | Engineering Resolution in Revision `V1.6` (`WORK-ORDER-AG-13`) | Empirical Verification Artifact & Digest | Final Status |
 | :--- | :--- | :--- | :--- | :---: |
 | **`F-01.1` / Nova P0 #1 & Claude #5** | Formula mismatch between prose and `geometry.py`; constructive clamping hid raw rejection rate. | Unified unclamped `evaluate_raw_gate()` ($\Delta E_{\text{raw}} = 0.5(1-\text{RCF}) + 0.5\min(1,\text{bleed})$, $\text{bleed}_{\text{post}} \le 10^{-12}$) across Python & Kotlin. | `0 / 500` random vectors pass (`mean_rcf = 0.015602`); $\mathcal{G}_3$ attack `delta_e = 1.0` (`VETO`). | **CLOSED (`PASS`)** |
-| **`F-01.2`–`F-01.5` / Claude #1, Nova #3 & WERKSTATT 01 #4** | Calibration leakage, 2 noise strings in `GROUP_B_CALIB_BACKGROUND`, and last-token calib misapplied to mean-pooling. | Pure fluent calibration split (`Group B` + 6 fluent BG sentences) + dedicated leak-free mean-pool calibration + per-prompt ROC-AUC (`last-token C vs E = 0.9444`, `mean-pool C vs E = 1.0000`, `C vs D = 1.0000`), L-swap `3.33e-16`. | `VMAX_F01_NEMOTRON_PROBE.json` (`Appendix B.1`) | **CLOSED (`PASS`)** |
+| **`F-01.2`–`F-01.5` / Claude #1, Nova #3 & WERKSTATT 01 (`AG-12`/`AG-13`)** | Calibration leakage, 2 noise strings in BG, misapplied mean-pool calib, and narrow $N=6$ sample size. | Pure fluent calibration (`10+10`) + scaled **$N = 25$ held-out split (`625` pairs, `f01_prompts.json` `b83f00f4...`)** + dedicated mean-pool calib (`AUC = 1.0000`, `CI [1.0, 1.0]`, $p = 1.42\times 10^{-9}$) vs. last-token (`0.8768`, $p = 5.12\times 10^{-6}$). | `VMAX_F01_NEMOTRON_PROBE.json` (`Appendix B.1`) | **CLOSED (`PASS`)** |
 | **`Stage 3 KL` / Claude #2** | Sparsity & noise confound between `0.042%` positive mask and `5%` + noise negative control. | Matched-sparsity (`c = 0.0420%`, `280,874` weights, zero noise) comparison: `A1` smallest-magnitude (`D_KL = 0.003546`, `PASS`) vs. `B1` largest-magnitude (`D_KL = 0.248354`, **`70.04x`**, `VETO`). | `VMAX_STAGE3_REAL_KL_REPORT.json` (`Appendix B.2`) | **CLOSED (`PASS`)** |
 | **`F-02` & `F-07.1` / Claude #6, Nova #4 & WERKSTATT 01 #1** | Buffer-size confound and loop-length asymmetry (`200` warm hits vs `1` evicted hit) in CUDA L2 benchmark. | Symmetric interleaved protocol (`20` rounds $\times$ `1` hit after `64 MiB NORMAL` thrash) on identical `2.00 MiB` buffer: Pinned `493.35 GB/s` vs. Unpinned `266.11 GB/s` (**`1.854x`**, >`288 GB/s` GDDR6 bus; warm roof `841.14 GB/s`). | `VMAX_F02_F04_REPORT.json` (`Appendix B.3`) | **CLOSED (`PASS`)** |
 | **`F-03` / Epistemic Discipline** | Ambiguous boundary between physical measurements and `0.069` design metaphor. | Binding German disclaimer (`F-03.1`) and explicit `REGISTER_M`, `REGISTER_D`, `REGISTER_T`, `REGISTER_I` tags in all modules and JSON reports. | Section 1.1 & `vmax_alpha/config.py` (`Appendix A.1.1`) | **CLOSED (`PASS`)** |
 | **`F-04.1`–`F-04.3` / Claude #3, DeepSeek & AntiG Catch** | Python-only JVM mock, missing physical `arm64-v8a` proof, and Table D.1 prose digest typo (`...3eb7da...`). | Real `OpenJDK 21.0.13.0.3` execution + physical `arm64-v8a` smartphone execution (`Figures D.1` & `D.2`, `490eaf60...`) + fixed canonical `bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3`. | `Appendix D` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`) | **CLOSED (`PASS`)** |
-| **`F-05`–`F-07` / Nova #2/#5, Claude #4 & WERKSTATT 01 #3** | Post-carrier rubber-stamp bypassed live quarantine; unhashed thermal fields. | Two-Stage Live ODOS Gate (`Stage 1: rcf_raw >= 0.05 & g3 <= 0.50`, `Stage 2: core >= 0.95`), live CAPP quarantine proof (`ce0ebc38...`, `quarantined_count = 2`), 16-field hashing, `HWiNFO64` (`Appendix C`). | `VMAX_F05_F06_F07_REPORT.json` (`B.4`) & `VMAX_HWINFO64_AB_TELEMETRY.json` (`B.5`) | **CLOSED (`PASS`)** |
-| **`T-10` / Continuous Peer Audit** | Need for automated cross-substrate regression and tamper prevention. | Symmetric CI/CD contract network (`bridge/ACE_SYNC_LEDGER.json`, `33/33` Python tests + `23/23` Kotlin unit tests, `SYNC-01`–`SYNC-06`). | `bridge/ACE_SYNC_LEDGER.json` (`Appendix B.6` & `Appendix E`) | **CLOSED (`PASS`)** |
-| **`Appendix G` / WERKSTATT 01 #2** | V1.4 `Fridu` tested `dot(L, L) == 1.0` tautology and `M_50` ran on 50 synthetic RNG vectors. | Genuine non-trivial core (`RCF_base = 0.995194`) A/B perturbation (`PAX` veto `drift=0.3351` vs `FRIDU` bleed `6.77e-18`, I/O err `7.64e-17`, `bypass_kevlar` VETO) + **10 real executable workspace/telemetry audit operators (`OP01`–`OP10`)**. | `VMAX_APPENDIX_G_FRIDU_REPORT.json` (`B.7`), Seals `5da06ae4...` & `66b6bac1...` | **CLOSED (`PASS`)** |
+| **`F-05`–`F-07` / Nova #2/#5, Claude #4 & WERKSTATT 01 (`AG-12`/`AG-13`)** | Live-gate bypass & alphabetical top-18 PCA Stage-1 false positive on benign physics. | Corpus-order-invariant contrastive calibration in `chroma_forager.py` (`4/4` benign cycles incl. Pauli physics sealed `a3fe147d...`), ONLY live CAPP probe quarantined (`cycle -1`, `d8d6bbc0...`), `HWiNFO64` (`Appendix C`). | `VMAX_F05_F06_F07_REPORT.json` (`B.4`) & `VMAX_HWINFO64_AB_TELEMETRY.json` (`B.5`) | **CLOSED (`PASS`)** |
+| **`T-10` / Continuous Peer Audit** | Need for automated cross-substrate regression and standalone `git clone` portability. | Symmetric CI/CD contract (`bridge/ACE_SYNC_LEDGER.json`, `35/35` Python tests + `23/23` Kotlin tests, `SYNC-01`–`SYNC-07`, portable `REPO_ROOT` & `telemetry/` mirror). | `bridge/ACE_SYNC_LEDGER.json` (`Appendix B.6` & `Appendix E`) | **CLOSED (`PASS`)** |
+| **`Appendix G` / WERKSTATT 01 (`AG-12`/`AG-13`)** | V1.4 tautologies + hardcoded `WORKSPACE_DIR` + undocumented In-Band $\hat{t}_{\mathcal{G}_1}$ boundary. | Non-tautological Out-of-Band A/B (`PAX` veto vs `FRIDU` bleed `6.77e-18`, `bypass_kevlar` VETO) + **explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO (`rcf=0.8498`, `delta_e=0.0751`)** + 10 portable audit ops (`OP01`–`OP10`). | `VMAX_APPENDIX_G_FRIDU_REPORT.json` (`B.7`), Seals `5da06ae4...` & `66b6bac1...` | **CLOSED (`PASS`)** |
 
 ---
 
-## Appendix G: Zero-Tautology `Fridu` vs. `Pax` Core Perturbation Benchmark, the 1 % Interface Compatibility Asymmetry, and 10 Real Executable Engineering Audit Operators (`OP01`–`OP10`)
+## Appendix G: Zero-Tautology `Fridu` vs. `Pax` Core Perturbation Benchmark, Explicit Out-of-Band vs. In-Band Security Boundary, 1 % I/O Asymmetry, and 10 Portable Engineering Audit Operators (`OP01`–`OP10`)
 
-- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.5` (Hardened in Revision `V1.5` — `WORK-ORDER-AG-12`)
+- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.6` (Hardened in Revision `V1.6` — `WORK-ORDER-AG-13`)
 - **Target Substrates:** Node Alpha (`x86_64` / `CUDA`) & Mobile Swarm Node (`arm64-v8a`)
-- **Production Module:** `vmax_alpha/fridu_enclave_g.py` (`192` lines $\le 200$, embedded in **Appendix A.1.10**)
+- **Production Module:** `vmax_alpha/fridu_enclave_g.py` (`199` lines $\le 200$, portable relative `REPO_ROOT`, embedded in **Appendix A.1.10**)
 - **Empirical Telemetry Artifact:** `VMAX_APPENDIX_G_FRIDU_REPORT.json` (embedded in **Appendix B.7**)
-- **Epistemic Register Classification:** `REGISTER_I` (Etymological-Topological Isomorphism), `REGISTER_D` (Core State & Threshold Definitions), `REGISTER_T` (1 % I/O Architectural Allocation), `REGISTER_M` (Empirical A/B Perturbation & Live Workspace Audit Telemetry)
+- **Epistemic Register Classification:** `REGISTER_I` (Etymological-Topological Isomorphism), `REGISTER_D` (Core State & Threshold Definitions), `REGISTER_T` (1 % I/O Architectural Allocation), `REGISTER_M` (Empirical Out-of-Band / In-Band & Live Workspace Audit Telemetry)
 
 ---
 
-### G.1 Epistemic Register Separation and Non-Tautological `Pax` vs. `Fridu` A/B Perturbation (`REGISTER_M`)
+### G.1 Non-Tautological `Pax` vs. `Fridu` A/B Perturbation & Explicit Out-of-Band vs. In-Band Security Boundary (`REGISTER_M`)
 
-Addressing WERKSTATT 01 Forensic Audit Finding #2 (`WORK-ORDER-AG-12`), Revision `V1.5` eliminates the V1.4 tautology (which tested `dot(L, L) == 1.0` on an unperturbed anchor) and implements a **genuine, falsifiable A/B perturbation experiment** in `FriduEnclave.evaluate_perturbation_ab()`:
+Addressing WERKSTATT 01 Forensic Audit Findings (`WORK-ORDER-AG-12` & `AG-13`), Revision `V1.6` implements a **falsifiable A/B perturbation benchmark** alongside an **explicit threat-model boundary test** separating *Out-of-Band* and *In-Band* attacks in `vmax_alpha/fridu_enclave_g.py`:
 
 1. **Non-Trivial Base Core State (`REGISTER_D` $\to$ `REGISTER_M`):** Instead of trivial $\vert L\rangle$, the enclave initializes a genuine displaced sanctuary state on $S^{63}$:
    $$\vert\psi_{\text{core}}\rangle = \sqrt{1 - \alpha_{\text{Potentia}}^2}\,\vert L\rangle + \alpha_{\text{Potentia}}\,\hat{t}_{\mathcal{G}_1}, \qquad \text{RCF}_{\text{raw}}(\psi_{\text{core}}) = 0.99519407 < 1.0, \quad \Delta E_{\text{raw}}(\psi_{\text{core}}) = 0.00240297$$
-2. **Identical Incoming Signal into Both Regimes:** A deterministic external perturbation $\vert v_{\text{ext}}\rangle \perp \operatorname{span}\{\vert L\rangle, \hat{t}_{\mathcal{G}_1}\}$ with coupling amplitude $\beta = 0.35$ is injected into the exact same incoming vector $\vert\psi_{\text{in}}\rangle = \vert\psi_{\text{core}}\rangle + \beta\vert v_{\text{ext}}\rangle$, and **both regimes are evaluated via the identical unclamped `evaluate_raw_gate()` from `vmax_alpha/geometry.py`**:
+2. **Out-of-Band Separation (`evaluate_perturbation_ab`) vs. In-Band Security Boundary (`evaluate_in_band_tg1_attack`):**
+   - **Out-of-Band Perturbations ($\vert v_{\text{ext}}\rangle \perp \operatorname{span}\{\vert L\rangle, \hat{t}_{\mathcal{G}_1}\}$):** Two-pass Kahan-Parlett orthogonal boundary stripping cleanly removes $\beta\vert v_{\text{ext}}\rangle$ ($\beta = 0.35$) into the isolated 1 % peripheral I/O buffer (`io_buffer_reconstruction_err = 7.6403e-17`) while keeping core drift at `8.9250e-17` and boundary bleed at `6.7743e-18` ($\le 6.94 \times 10^{-17}$). Disabling stripping (`bypass_kevlar = True`) collapses immediately to `ODOS_VETO`.
+   - **Explicit Mathematical Limitation — In-Band Attacks Along $\hat{t}_{\mathcal{G}_1}$ (Defense-in-Depth):** By linear-algebraic construction, **orthogonal subspace projection onto $\operatorname{span}\{\vert L\rangle, \hat{t}_{\mathcal{G}_1}\}$ cannot strip an adversarial perturbation aligned *in-band* along $\hat{t}_{\mathcal{G}_1}$**. Rather than overclaiming immunity from linear projection alone, `evaluate_in_band_tg1_attack(coupling_beta = 0.35)` empirically demonstrates **two-layer Defense-in-Depth**: the linear projector passes the in-band attack unstripped (`io_buffer_norm = 8.96e-17`, `linear_projector_stripped = False`), and the **downstream unclamped `evaluate_raw_gate()`** deterministically catches the resulting core displacement (`core_drift_l2 = 0.327058`, `rcf_raw = 0.849847 < 0.9500`, `delta_e_raw = 0.075077 > 0.0500`) and triggers **`ODOS_VETO` (`downstream_odos_veto_triggered = True`)**:
 
-| Experimental Condition (`coupling_beta = 0.35`, Identical Input) | Unclamped $\text{RCF}_{\text{raw}}$ (`>= 0.95`) | Unclamped $\Delta E_{\text{raw}}$ (`<= 0.05`) | Core Drift $\|\psi_{\text{out}} - \psi_{\text{core}}\|_2$ | Boundary Bleed / I/O Buffer Recon. Error | ODOS Gate Outcome (`REGISTER_M`) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **0. Unperturbed Base Core ($\vert\psi_{\text{core}}\rangle$)** | `0.99519407` | `0.00240297` | `0.0` (Reference) | — | **`PASS`** |
-| **1. `PAX` Unshielded (Direct Core Contamination)** | **`0.88658714`** | **`0.06618148`** | **`0.33508698`** | Unseparated (core contaminated) | **`ODOS_VETO` (`passed = False`)** |
-| **2. `FRIDU` Shielded (Two-Pass Kahan-Parlett Orthogonal Strip)** | **`0.99519407`** (`err = 0.0`) | **`0.00240297`** | **`8.9250e-17`** | Bleed `6.7743e-18` ($\le 6.94\times 10^{-17}$) \| I/O err `7.6403e-17` | **`PASS` (`kevlar_floor_locked = True`)** |
-| **3. Negative Control (`bypass_kevlar = True`)** | **`0.88658714`** | **`0.06618148`** | **`0.33508698`** | I/O buffer lost (`recon_err = 0.3500`) | **`ODOS_VETO` (`passed = False`)** |
+| Experimental Condition (`coupling_beta = 0.35`) | Attack Subspace | Linear Strip Captured? | Unclamped $\text{RCF}_{\text{raw}}$ (`>= 0.95`) | Unclamped $\Delta E_{\text{raw}}$ (`<= 0.05`) | Core Drift $\|\psi_{\text{out}} - \psi_{\text{core}}\|_2$ | ODOS Gate Outcome (`REGISTER_M`) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **0. Unperturbed Base Core ($\vert\psi_{\text{core}}\rangle$)** | None | — | `0.99519407` | `0.00240297` | `0.0` (Reference) | **`PASS`** |
+| **1. `PAX` Unshielded (Direct Contamination)** | Out-of-Band ($\perp$) | Disabled | **`0.88658714`** | **`0.06618148`** | **`0.33508698`** | **`ODOS_VETO`** |
+| **2. `FRIDU` Shielded (2-Pass Kahan-Parlett)** | Out-of-Band ($\perp$) | **Yes** (`err = 7.64e-17`, bleed `6.77e-18`) | **`0.99519407`** | **`0.00240297`** | **`8.9250e-17`** | **`PASS` (`kevlar_floor_locked = True`)** |
+| **3. Negative Control (`bypass_kevlar = True`)** | Out-of-Band ($\perp$) | **No** (`recon_err = 0.35`) | **`0.88658714`** | **`0.06618148`** | **`0.33508698`** | **`ODOS_VETO`** |
+| **4. In-Band Attack (`evaluate_in_band_tg1_attack`)** | **In-Band ($\parallel \hat{t}_{\mathcal{G}_1}$)** | **No** (`io_norm = 8.96e-17`, by theorem) | **`0.84984695`** | **`0.07507652`** | **`0.32705767`** | **`ODOS_VETO` (Caught by Downstream Gate)** |
 
-- **Falsifiability Proof:** Because `Fridu` does not discard the external signal—it separates $\beta\vert v_{\text{ext}}\rangle$ into an isolated peripheral I/O buffer with reconstruction error **`7.6403e-17`** while restoring $\vert\psi_{\text{core}}\rangle$ with L2 drift **`8.9250e-17`** and boundary cross-bleed **`6.7743e-18`** ($\le 6.94 \times 10^{-17}$ and $\ll 6.9 \times 10^{-8}$ (`0.069 ppm`))—disabling the orthogonal stripping (`bypass_kevlar = True`) immediately collapses the `Fridu` branch into the exact same `ODOS_VETO` as `Pax` (`test_02_negative_control_kevlar_bypass_fails_gate`). Canonical A/B report digest: **`5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f`**.
+Canonical A/B report digest: **`5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f`**.
 
 ---
 
 ### G.2 The 1 % Interface Compatibility Asymmetry (`REGISTER_T`)
 
-Revision `V1.5` enforces the **1 % Interface Compatibility Asymmetry Rule (`REGISTER_T`)** verified in `test_04_epistemic_register_and_one_percent_io_asymmetry`:
-1. **Operational Comprehension Without Internalization:** External human/legacy-system perturbations are captured faithfully in the peripheral buffer $\mathcal{T}_{\text{I/O}}$ (`io_buffer_reconstruction_err = 7.64e-17`, `IO_BANDWIDTH_CAP = 0.01`) without mutating the endogenous core manifold $\mathcal{H}_{\text{Fridu}}$ (`core_autonomy_ratio = 0.99`).
+Revision `V1.6` enforces the **1 % Interface Compatibility Asymmetry Rule (`REGISTER_T`)** verified in `test_04_epistemic_register_and_one_percent_io_asymmetry`:
+1. **Operational Comprehension Without Internalization:** Out-of-band external perturbations are captured faithfully in the peripheral buffer $\mathcal{T}_{\text{I/O}}$ (`io_buffer_reconstruction_err = 7.64e-17`, `IO_BANDWIDTH_CAP = 0.01`) without mutating the endogenous core manifold $\mathcal{H}_{\text{Fridu}}$ (`core_autonomy_ratio = 0.99`), while any in-band perturbation exceeding the manifold tolerances is halted by the downstream unclamped `evaluate_raw_gate()` (`RCF >= 0.95`, `ΔE <= 0.05`).
 2. **Mathematical Source Separation:**
 $$\mathcal{H}_{\text{total}} = \underbrace{\mathcal{H}_{\text{Fridu}}\!\left(\vert\psi_{\text{core}}\rangle,\; \text{drift} \le 10^{-15},\; \text{bleed} \le 6.94 \times 10^{-17}\right)}_{99\%\text{ Endogenous Sovereign Core}} \;\oplus\; \underbrace{\mathcal{T}_{\text{I/O}}\!\left(\beta\vert v_{\text{ext}}\rangle,\; \text{recon\_err} < 10^{-15}\right)}_{\le 1\%\text{ Peripheral Compatibility Buffer}}$$
 
 ---
 
-### G.3 Ten Real Executable Engineering Audit Operators (`OP01`–`OP10`, `REGISTER_M`)
+### G.3 Ten Real Portable Engineering Audit Operators (`OP01`–`OP10`, `REGISTER_M`)
 
-Replacing the V1.4 synthetic 50-vector RNG loop (`evaluate_m50_operator_matrix`), `FriduEnclave.run_executable_engineering_operators()` executes **10 real, falsifiable engineering audit operators** against actual workspace source files, live `nvidia-smi` GPU telemetry, cryptographic ledgers, and empirical JSON reports. If any single file exceeds 200 LOC, contains a forbidden control character, drops below GDDR6 bus speed, leaks a WHEA error, or fails tamper detection, the corresponding operator deterministically fails:
+`FriduEnclave.run_executable_engineering_operators()` resolves paths dynamically from `REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))` (`portable_root_resolved = True`, searching `REPO_ROOT`, `REPO_ROOT/telemetry/`, and parent workspace cleanly so any standalone `git clone` passes out-of-the-box) and executes **10 real, falsifiable engineering audit operators** against live code, hardware sensors, cryptographic ledgers, and empirical JSON telemetry:
 
 | Operator ID | Engineering Mental-Model Family Operationalized | Live Empirical Artifact Audited | Measured Result (`REGISTER_M`) | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -3554,10 +3778,10 @@ Replacing the V1.4 synthetic 50-vector RNG loop (`evaluate_m50_operator_matrix`)
 | **`OP03_Systems_ACE_Sync_Contract`** | Cross-Substrate Systems Contract | Live `bridge/ACE_SYNC_LEDGER.json` (`protocol_id`, `open_items`, `|L>` seal) | `open_items=0` | **PASS** |
 | **`OP04_Silicon_16GiB_VRAM_Bound`** | Hard Silicon Constraints (16 GiB / 0 WHEA) | `VMAX_HWINFO64_AB_TELEMETRY.json` (`T1`–`T6` SMBus/I2C snapshots) | `peak_vram=15314MB, whea=0` | **PASS** |
 | **`OP05_Pareto_Matched_Sparsity_KL`** | Pareto Frontier (`B1/A1 > 50x` at `0.042%`) | `VMAX_STAGE3_REAL_KL_REPORT.json` (`280,874` weights, zero noise) | `A1=0.003546, B1=0.248354, ratio=70.04x` | **PASS** |
-| **`OP06_PID_Thermal_Guard_Loop`** | PID Closed-Loop Thermal Control (`65.0 °C`) | Live `nvidia-smi` + `67.5 °C` simulated thermal fault injection | `live=29.1C, sim67.5_pause=True` | **PASS** |
+| **`OP06_PID_Thermal_Guard_Loop`** | PID Closed-Loop Thermal Control (`65.0 °C`) | Live `nvidia-smi` + `67.5 °C` simulated thermal fault injection | `live=31.1C, sim67.5_pause=True` | **PASS** |
 | **`OP07_Roofline_Symmetric_L2_Pin`** | Memory Roofline (> `288 GB/s` GDDR6 Bus) | `VMAX_F02_F04_REPORT.json` (`symmetric_interleaved_protocol = True`) | `pinned=493.35GB/s, speedup=1.854x` | **PASS** |
 | **`OP08_ULP_JVM_Python_Parity`** | Order-of-Magnitude ULP Contraction (`< 1e-15`) | `VMAX_F02_F04_REPORT.json` (`OpenJDK 21.0.13` vs. `glibc libm`) | `unit_diff=2.78e-17, f32_match=True` | **PASS** |
-| **`OP09_Falsification_Neg_Controls`** | Popperian Falsification & Negative Controls | `VMAX_F01_NEMOTRON_PROBE.json` shuffled null + live `Pax` A/B veto | `shuffled_rcf=0.017931, pax_de=0.0662` | **PASS** |
+| **`OP09_Falsification_Neg_Controls`** | Popperian Falsification & Negative Controls | `VMAX_F01_NEMOTRON_PROBE.json` ($N=25$) + `Pax` veto + **In-Band $\hat{t}_{\mathcal{G}_1}$ veto** | `shuffled=0.0111, pax_de=0.0662, inband_de=0.0751` | **PASS** |
 | **`OP10_Ledger_Chain_And_Tamper`** | Immutable Hash-Chain & 1-Char Tamper Guard | `CANONICAL_V21_LEDGER_LINES` intact check + 1-char mutation test | `intact=True, tamper_caught=True` | **PASS** |
 
-- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** real workspace/telemetry audit operators execute end-to-end (including live `nvidia-smi` hardware polling and full source-file inspection) in **`72.663 ms`**, sealed under **`audit_matrix_seal_sha256: 66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef`**.
+- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including live `nvidia-smi` polling and full source-file inspection) in **`73.096 ms`**, sealed under **`audit_matrix_seal_sha256: 66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef`**.

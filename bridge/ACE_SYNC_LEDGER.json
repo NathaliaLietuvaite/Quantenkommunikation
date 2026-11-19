@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.5 — WORK-ORDER-AG-12)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.6 — WORK-ORDER-AG-13)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T08:07:00Z",
+  "timestamp_utc": "2026-11-19T09:14:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -78,6 +78,9 @@
     "v12_room137_live_chain_tip_4entries": "9114e99e06ff540439e16c1e8d564d9a965e6c21f55d0f0f8bbfc843f8c0aaee",
     "v15_room137_two_stage_chain_tip_3entries": "34596007a7498041497b7d82acdc34694c6bd0f70dcc7b49177ee96e7649bd64",
     "v15_capp_quarantine_proof_seal": "ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede",
+    "v16_room137_two_stage_chain_tip_4entries": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
+    "v16_capp_quarantine_proof_seal": "d8d6bbc0d478ffdbb9704a149be2c80f494bbeea6fd466a3733c3cda6d789951",
+    "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
@@ -127,6 +130,13 @@
       "discovered_by": "WERKSTATT 01 & AntiG (WORK-ORDER-AG-12 / Revision V1.5 Forensic Hardening)",
       "verified_by": "AntiG (33/33 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC)",
       "description": "Closed all 4 forensic code-audit findings plus 1 prose-seal catch: (1) Symmetric interleaved 2 MiB L2 pinning benchmark in l2_enclave.py (493.35 GB/s PERSISTING vs 266.11 GB/s STREAMING = 1.854x, >288 GB/s GDDR6 bus, warm L2 roof 841.14 GB/s); (2) Replaced Appendix G dot(L,L) and RNG tautologies with genuine non-trivial core A/B perturbation (RCF_base=0.995194, PAX veto delta_e=0.0662 vs FRIDU bleed=6.77e-18 & I/O recon err=7.64e-17, bypass_kevlar negative control) plus 10 real executable workspace/telemetry audit operators (OP01-OP10, 10/10 PASS, seal 66b6bac1...); (3) Activated Two-Stage Live ODOS Gate in ledger.py/server_hud.py (Stage 1 raw rcf>=0.05 & g3<=0.50 + Stage 2 core gate) with live CAPP quarantine proof (ce0ebc38...); (4) Pure fluent calibration background, dedicated leak-free mean-pool calibration (mean-pool ROC-AUC C vs E = 1.000, C vs D = 1.000, last-token C vs E = 0.944) in nemotron_probe.py; (5) Fixed CANONICAL_LITTLE_VECTOR_SEAL prose typo in Table D.1 & Android README to bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-07",
+      "discovered_by": "WERKSTATT 01 Forensic Counter-Audit on V1.5 -> AntiG (WORK-ORDER-AG-13 / Revision V1.6)",
+      "verified_by": "AntiG (35/35 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC, 100% portable repo paths)",
+      "description": "Closed all 3 V1.5 counter-audit items: (1) Replaced alphabetical top-18 PCA in chroma_forager.py with fixed corpus-order-invariant contrastive anchors (disjoint from test prompts), eliminating Stage-1 false-positive on benign physics ('Pauli exclusion principle and conservation laws' now passes at rcf_raw=0.6744 -> 4/4 benign entries sealed a3fe147d..., ONLY live CAPP adversarial probe quarantined at cycle -1 seal d8d6bbc0...); (2) Added explicit In-Band t_G1 defense-in-depth attack verification in fridu_enclave_g.py (linear_projector_stripped=False, caught by downstream ODOS gate rcf=0.8498, delta_e=0.0751 VETO) + relative portable REPO_ROOT resolution and telemetry/ mirror for standalone git clones; (3) Scaled Nemotron F-01 held-out benchmark to N=25 prompts/group (625 pairs, vmax_alpha/f01_prompts.json SHA-256 b83f00f4...): dedicated mean-pool achieves ROC-AUC=1.0000 (95% CI [1.0000, 1.0000], Mann-Whitney p=1.416e-09) on both C vs E and C vs D; last-token achieves C vs E AUC=0.8768 (CI [0.7680, 0.9616], p=5.123e-06) and C vs D AUC=0.9600 (p=2.568e-08); cleaned Appendix E.1 V1.3 leftovers.",
       "status": "CLOSED_VERIFIED"
     }
   ]
