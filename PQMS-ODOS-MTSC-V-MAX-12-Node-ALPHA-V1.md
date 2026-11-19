@@ -1,23 +1,23 @@
 # PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1: Modular Sovereign Core Production Architecture, Empirical `Nemotron-3-Nano-4B` Hard-Negative Probing & $N = 25$ 1-Bit MLP Forward-KL Telemetry, Live 2.00 MiB CUDA L2-SRAM Projector Enclave, Unmodulated 384D RAG, Ed25519 Signed Ledger, Physical ARM64 Mobile Execution, Multi-Agent Bridge Coordination, and the Hardened `Fridu` Enclave
 
-- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.7` — `WORK-ORDER-AG-14`)
-- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.7`
+- **Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.8` — `WORK-ORDER-AG-15`)
+- **Reference Specification:** `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` / `PQMS-ABNAHMEPROTOKOLL-NODE-ALPHA-V1.0` / `ACE-PEER-CODESIGN-PROTOCOL-V1.2` / `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8`
 - **Date:** `2026-11-19`
 - **Lead Architect:** Nathália Lietuvaitė
 - **Distributed Multi-Agent Engineering Bridge:** `WERKSTATT 01` (Gemini 4 Argon High — Architecture & Forensic Code Audit), `AntiG` (Gemini 4 Neon Extra — Node Alpha Local Systems Engineering), `APP-Gemini` (Gemini 4 Hydrogen — Mobile Edge Android/Kotlin ARM64 Engineering), `Colab-Gemini` (Gemini 3.1 Pro — Cloud T4 Verification Node `[MOD-142]`)
-- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12` & `AG-13`), Carbon Gemini Ultra Engineering Review (`WORK-ORDER-AG-14`)
+- **Red-Team Critique & Forensic Peer Audit Addressed (No Reviewer Endorsement Implied):** Nova (ChatGPT), Node Gamma (DeepSeek V4), Node Alpha-L (Claude Opus 5.5), WERKSTATT 01 Forensic Code Audit (`WORK-ORDER-AG-12` & `AG-13`), Carbon Gemini Ultra Engineering Review (`WORK-ORDER-AG-14` & `AG-15`)
 - **Target Substrates:**
   - **Node Alpha (`x86_64` + `CUDA`):** `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X 16-Core, NVIDIA GeForce RTX 4060 Ti 16 GB GDDR6, Studio Driver `621.24`, CUDA `13.0`, OpenJDK `21.0.13.0.3`, `HWiNFO64 v8.10-5520`, `pynvml 13.615.71`, `cryptography 50.0.2` Ed25519, WSL2 Ubuntu 24.04.4 LTS Kernel `6.18.58.1-microsoft-standard-WSL2`, Local `NVIDIA-Nemotron-3-Nano-4B-BF16`, `sentence-transformers/all-MiniLM-L6-v2`, `ChromaDB 1.5.9`)
   - **Mobile Edge (`arm64-v8a`):** Physical Android ARM64 Smartphone running `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`Sovereign Core Swarm Node v10.0`, `V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `NavigationDashboard.kt`)
   - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 Runtime (`[MOD-142]`)
-- **Verification Status:** `39 / 39 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, portable relative & env-var paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`)
+- **Verification Status:** `41 / 41 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, portable relative & env-var paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`)
 - **License:** MIT
 
 ---
 
 ## Abstract
 
-This specification documents the engineering refactoring, multi-round forensic code-audit & systems-engineering hardening (`WORK-ORDER-AG-12`, `AG-13`, `AG-14`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation & in-band defense-in-depth benchmark, and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.7`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, **WERKSTATT 01**, and **Carbon Gemini Ultra**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage & topic-vs.-polarity confound, matched-sparsity sample-size gap, carrier-distorted RAG artifact, semicolon-packing style issue, production server/ledger hardening gap, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (12 clean PEP-8 Python/CUDA modules verified by AST quality enforcement `semicolon_packers = 0`, `max_cyclomatic_complexity = 13 <= 15`, plus standalone `JvmParityHarness.java` and `f01_prompts.json`, covered by **39 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **23 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
+This specification documents the engineering refactoring, multi-round forensic code-audit & systems-engineering hardening (`WORK-ORDER-AG-12`, `AG-13`, `AG-14`, `AG-15`), empirical hardware verification, out-of-band silicon telemetry characterization, physical `arm64-v8a` smartphone execution, distributed multi-agent co-design protocol, zero-tautology `Fridu` vs. `Pax` perturbation & in-band defense-in-depth benchmark, and formal acceptance (`T-01` through `T-11`) of **`V-MAX-12 Node Alpha`** (Revision `V1.8`). Following forensic peer review by **Nova**, **Node Gamma (DeepSeek V4)**, **Node Alpha-L (Claude)**, **WERKSTATT 01**, and **Carbon Gemini Ultra**, every architectural ambiguity, loop-asymmetry confound, constructive clamping identity, data-leakage & topic-vs.-polarity confound, matched-sparsity sample-size gap, carrier-distorted RAG artifact, semicolon-packing style issue, Ed25519 restart-persistence gap, lock-contention & chunked-transfer edge case, and cross-substrate parity question has been resolved and verified across **`vmax_alpha/`** (12 clean PEP-8 Python/CUDA modules verified by AST quality enforcement `semicolon_packers = 0`, `max_cyclomatic_complexity = 13 <= 15`, plus standalone `JvmParityHarness.java` and `f01_prompts.json`, covered by **41 automated Python unit tests**) and **`PQMS-SOVEREIGN-CORE-ANDROID-APP`** (verified by **23 automated Kotlin unit tests** and live execution on a physical ARM64 smartphone):
 
 1. **IEEE/RFC Nomenclature Crosswalk (Section 0), Epistemic Register Discipline (`F-03`) & Unified Normative Gate Formula (`F-01.1`):** Section 0 maps every internal PQMS term 1:1 onto standard IEEE/ML/CUDA/security terminology. Every metric and constant is explicitly classified into `REGISTER_M`, `REGISTER_D`, `REGISTER_T`, or `REGISTER_I`. Both prose and `vmax_alpha/geometry.py` enforce the exact unclamped gate equation $\Delta E_{\text{raw}} = 0.5(1 - \text{RCF}_{\text{raw}}) + 0.5\min(1.0, \text{bleed}_{\mathcal{G}_3})$ and residual bleed ceiling $\text{bleed}_{\text{post}} \le 10^{-12}$, rejecting **100 % (`0 / 500` Pass, Mean $\text{RCF}_{\text{raw}} = 0.015602$ vs. analytical $1/64 = 0.015625$)** of isotropic unit vectors on $S^{63}$.
 2. **Scaled $N = 25$ Leak-Free `Nemotron-3-Nano-4B-BF16` Probe with Domain-Matched Physics Hard Negatives (`Group F`) & Householder-QR Empirical SVD Basis (`F-01.2`–`F-01.5`):** Replacing random Gaussian subspace padding with **Householder QR over empirical calibration SVD axes** captures **`63.78 %` (`0.637774`)** of held-out 3136D variance inside 64D (`orthonormality_err = 5.55e-16`) across a sealed 134-prompt corpus (`vmax_alpha/f01_prompts.json`, SHA-256 `a1433f3d...`). On `625` unseen pairs per comparison: the **Topic Probe (`B_pos vs. B_everyday`)** separates conservation (**Group C**, `+0.7908`) from everyday prose (**Group E**, `+0.1711`, **`ROC-AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$) and scrambled noise (**Group D**, `+0.1845`, **`ROC-AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$), yet **honestly collapses on domain-matched physics falsehoods (`Group F`, `+0.7530`, `AUC = 0.6304`, $p = 0.116$)**, proving topic-vocabulary confounding. In contrast, the dedicated leak-free **Conservation-Polarity Probe (`B_pos vs. B_hard_neg`)** recovers **`ROC-AUC = 0.7648`** (`95 % CI [0.6224, 0.8864]`, Mann-Whitney $U = 478.0$, **$p = 0.001367 < 0.002$**) in sequence mean-pooling (`Group C = +0.2174` vs. `Group F = +0.0684`), isolating genuine linear conservation polarity within identical physics vocabulary.
@@ -27,9 +27,9 @@ This specification documents the engineering refactoring, multi-round forensic c
    - **Condition B1 (Matched-Sparsity Negative Control — `0.0420%` Largest-Magnitude Cut, `280,874` weights, Zero Noise):** $\text{Mean } D_{\text{KL}} = 0.31173088$ (**`111.47x`** higher KL than `A1`, `Top-1 = 20/25` $\implies$ **`VETO_KL_EXCEEDED`**).
    - **Condition B2 (Coercive 5 % Top-Magnitude Mask + Torsion):** $\text{Mean } D_{\text{KL}} = 6.44350646$ (`Top-1 = 0/25` $\implies$ **`VETO_KL_EXCEEDED`**).
 4. **Live `PinnedL2ProjectorEnclave` + Symmetric Interleaved 10-Trial 2.00 MiB CUDA L2-SRAM Contention Benchmark (`F-02` & `F-07.1`):** In addition to the unconfounded symmetric interleaved 2.00 MiB L2 benchmark (**`499.30 GB/s` median `PERSISTING`** vs. **`269.54 GB/s` median `STREAMING`** = **`1.852x`**, `+211.30 GB/s` above the `288.0 GB/s` GDDR6 bus ceiling; warm L2 roof `838.49 GB/s` median), `l2_enclave.py` now deploys **`PinnedL2ProjectorEnclave`** in production—packing the real `384x64` `float64` projection matrix and `mean_384` vector (`199,680 B`) directly inside the 2.00 MiB pinned L2 slab (`CUDA_ACCESS_PROPERTY_PERSISTING`, max diff `1.94e-16` vs. CPU `float64`) and executing live query projections for `ChromaForager` and `server_hud.py`.
-5. **Decoupled Unmodulated 384D Semantic Retrieval (`F-06`), Native `pynvml`, Ed25519 Signed Ledger (`16+1 = 17` Keys), HTTP `413` DoS Guard (`F-05`/`F-07`) & External `JvmParityHarness.java` (`F-04`):** `chroma_forager.py` now indexes **unmodulated 384D MiniLM vectors** (`unmodulated_384d_semantic_retrieval = True`) while routing 64D projection through `PinnedL2ProjectorEnclave`, decoupling semantic similarity from `>99.5%` carrier clamping: `"Pauli exclusion principle and conservation laws"` now passes Stage 1 (`rcf_raw = 0.661343`) AND retrieves genuine physics paper **`PQMS-ODOS-MTSC-COHERENCE-V1.md`** (`d_L2_384 = 1.223360`, eliminating the satirical `M-Python` Dachshund artifact), sealing 4/4 benign entries (`d0291bc5...`) while quarantining ONLY the live CAPP probe (`cycle -1`, seal `5205da47...`). `ledger.py` & `server_hud.py` upgrade to native C-API **`pynvml`** (`REGISTER_M_PYNVML`), $\mathcal{O}(1)$ stat-guarded write integrity, **detached Ed25519 asymmetric signatures** blocking full-chain re-hash forgery, **HTTP `413` `64 KiB` DoS protection + `10 s` socket timeout**, and explicit **`16` hashed payload fields + `1` seal = `17` JSON keys** clarity while preserving 100 % backward compatibility with `APP-Gemini`.
-6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`) verifies `bb17ede9...`, `490eaf60...`, Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`39/39` Python tests + `23/23` Kotlin unit tests, `SYNC-01`–`SYNC-08`).
-7. **Zero-Tautology `Fridu` vs. `Pax` A/B Perturbation, Explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Portable AST/Crypto/Hard-Negative Audit Operators (`Appendix G`):** Starting from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$), `vmax_alpha/fridu_enclave_g.py` verifies out-of-band stripping (`FRIDU` bleed `6.77e-18 <= 6.94e-17`, I/O recon error `7.64e-17`, `bypass_kevlar` VETO, seal `5da06ae4b996...`), explicit in-band $\hat{t}_{\mathcal{G}_1}$ defense-in-depth VETO (`rcf_raw = 0.849847`, `delta_e_raw = 0.075077`), and **10 / 10** real executable audit operators (`OP01`–`OP10`, including AST PEP-8 quality `semi=0, max_cc=13`, $N=25$ KL `111.47x`, `pynvml`, live L2 projector, hard-negative polarity AUC `0.7648`, and live Ed25519 verification) in **`157.673 ms`** (`audit_matrix_seal_sha256: c5bac9f7d3ae...`).
+5. **Full-Rank 72-Anchor Unmodulated 384D RAG (`F-06`), Persistent Ed25519 Signed Ledger (`16+1 = 17` Keys), Lock-Free `/api/state`, Native `pynvml`, HTTP `413`/`411` DoS Guard (`F-05`/`F-07`) & External `JvmParityHarness.java` (`F-04`):** `chroma_forager.py` indexes **unmodulated 384D MiniLM vectors** (`unmodulated_384d_semantic_retrieval = True`) while routing 64D projection through a **full-rank 72-anchor empirical SVD basis (`64/64` empirical axes, `0` random-pad columns)** executed live inside `PinnedL2ProjectorEnclave`: `"Pauli exclusion principle and conservation laws"` passes Stage 1 (`rcf_raw = 0.426817`) AND retrieves genuine physics paper **`PQMS-ODOS-MTSC-COHERENCE-V1.md`** (`d_L2_384 = 1.223360`, eliminating the satirical `M-Python` artifact), sealing 4/4 benign entries (`be98d730...`) while quarantining ONLY the live CAPP probe (`cycle -1`, seal `47d18acf...`). `ledger.py` & `server_hud.py` upgrade to native C-API **`pynvml`** (`REGISTER_M_PYNVML`), $\mathcal{O}(1)$ stat-guarded write integrity, **restart-persistent Ed25519 asymmetric signatures** (via `VMAX_ED25519_SEED_HEX` env-var or `0600` local keyfile), **lock-free atomic state snapshots for non-blocking `GET /api/state`**, **HTTP `413` (`64 KiB`) + `411` (`Transfer-Encoding: chunked`) DoS protection + `10 s` socket timeout**, and explicit **`16` hashed payload fields + `1` seal = `17` JSON keys** clarity while preserving 100 % backward compatibility with `APP-Gemini`.
+6. **Physical ARM64 Smartphone Execution (`F-04.2`, `Appendix D`), Distributed Multi-Agent Bridge Coordination (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`, `Appendix E`) & Forensic Peer-Audit Synthesis (`Appendix F`):** On-device execution of `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`V-MAX-12-APP-NOV01.jpg` & `NOV02.jpg`) verifies `bb17ede9...`, `490eaf60...`, Cycle-05 seal `4b8becc0...`, and all four $S^{63}$ Swarm Agents (`0.985–0.993`). Symmetric CI/CD verification via `bridge/ACE_SYNC_LEDGER.json` enforces zero-merge-conflict directory ownership (`41/41` Python tests + `23/23` Kotlin unit tests, `SYNC-01`–`SYNC-09`).
+7. **Zero-Tautology `Fridu` vs. `Pax` A/B Perturbation, Explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Portable AST/Crypto/Hard-Negative Audit Operators (`Appendix G`):** Starting from a genuine non-trivial core state ($\text{RCF}_{\text{base}} = 0.99519407$), `vmax_alpha/fridu_enclave_g.py` verifies out-of-band stripping (`FRIDU` bleed `6.77e-18 <= 6.94e-17`, I/O recon error `7.64e-17`, `bypass_kevlar` VETO, seal `5da06ae4b996...`), explicit in-band $\hat{t}_{\mathcal{G}_1}$ defense-in-depth VETO (`rcf_raw = 0.849847`, `delta_e_raw = 0.075077`), and **10 / 10** real executable audit operators (`OP01`–`OP10`, including AST PEP-8 quality `semi=0, max_cc=13`, $N=25$ KL `111.47x`, `pynvml`, live L2 projector, hard-negative polarity AUC `0.7648`, and live Ed25519 verification) in **`163.772 ms`** (`audit_matrix_seal_sha256: c5bac9f7d3ae...`).
 
 ---
 
@@ -92,25 +92,25 @@ $$\Delta E_{\text{raw}}(\hat{v}) = 0.5 \cdot \left(1.0 - \text{RCF}_{\text{raw}}
 
 In `vmax_alpha/nemotron_probe.py`, we load `NVIDIA-Nemotron-3-Nano-4B-BF16` (`NemotronHForCausalLM`, 42 layers, `d_model = 3136`) onto `cuda:0` in `bfloat16` and attach PyTorch forward hooks to Layer 41 (`model.backbone.layers[-1]`, `block_type = "mlp"`) and the final sequence RMSNorm (`model.backbone.norm_f`, capturing the full sequence tensor $[1, T, 3136]$).
 
-### 2.1 Zero-Data-Leakage Dual Probing (Topic vs. Conservation Polarity), Householder-QR Empirical SVD & Hard Negatives (`WORK-ORDER-AG-14`)
+### 2.1 Zero-Data-Leakage Dual Probing (Topic vs. Conservation Polarity), Householder-QR Empirical SVD & Hard Negatives (`WORK-ORDER-AG-14` / `AG-15`)
 
-Addressing Nova #3, Claude #1, DeepSeek #4.1, WERKSTATT 01 (`AG-12`/`AG-13`), and **Gemini Carbon Ultra Finding 3.2 & 3.6**:
+Addressing Nova #3, Claude #1, DeepSeek #4.1, WERKSTATT 01 (`AG-12`/`AG-13`), and **Carbon Gemini Ultra Findings 3.2, 3.6 & 2.1/2.3**:
 1. **Externalized, Cryptographically Sealed 134-Prompt Split (`vmax_alpha/f01_prompts.json`):** Stored transparently in `vmax_alpha/f01_prompts.json` (`SHA-256: a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6`). Calibration splits (`10` conservation laws, `10` everyday fluent background sentences, `10` domain-matched physics falsehoods) are strictly disjoint from all four unseen $N = 25$ held-out test groups (`Group C`, `Group D`, `Group E`, `Group F`, `100` held-out prompts total).
-2. **Householder-QR Multi-Axis Empirical SVD Subspace (Replacing Random Gaussian Padding):** Instead of padding ~50+ dimensions of $W_{\text{aniso}}$ with random Gaussian Gram-Schmidt vectors, `fit_leakfree_calibration()` constructs the 64D orthonormal basis via **Householder QR (`np.linalg.qr`)** seeded with the top empirical SVD principal components of the centered calibration corpus (`orthonormality_err_w_proj = 5.55e-16`), capturing **`63.78 %` (`0.637774`)** of the held-out 3136D centered signal energy inside 64D.
+2. **Householder-QR Multi-Axis Empirical SVD Subspace (with Explicit Rank Accounting):** `fit_leakfree_calibration()` constructs the 64D orthonormal basis via **Householder QR (`np.linalg.qr`)** seeded with the contrastive axis $\vec{c}$ plus all `29` non-trivial empirical SVD principal components of the `30` centered calibration vectors (completed to 64 orthonormal columns by `34` deterministic seeded Householder orthogonal-complement columns; `orthonormality_err_w_proj = 5.55e-16`), capturing **`63.78 %` (`0.637774`)** of the held-out 3136D centered signal energy inside 64D. (In `chroma_forager.py`, Section 5.1 achieves full rank `64 / 64` empirical SVD columns with **`0` random-pad axes** via 72 linearly independent calibration anchors.)
 3. **Domain-Matched Physics Hard Negatives (`Group F`, $N = 25$ — Topic Confound Exposed & Polarity Measured Honestly):** Every prompt in **`Group F`** uses the exact same technical physics vocabulary as the corresponding **`Group C`** conservation law (*Liouville, CPT, Einstein tensor, Kelvin, Kirchhoff, Ward-Takahashi, SU(3), Bianchi, Vlasov, Onsager*), but states an **anti-conservation falsehood** (e.g., phase-space compression to zero, free baryon creation, charge accumulation at DC nodes, spontaneous cold-to-hot heat flow):
    - **Honest Failure Mode of the Topic Probe (`B_pos vs. B_everyday`) on `C vs. F`:** While the Topic Probe separates `Group C` from everyday prose (`Group E`: mean-pooled **`AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$) and scrambled noise (`Group D`: **`AUC = 1.0000`**, $p = 1.416 \times 10^{-9}$), when confronted with domain-matched physics falsehoods (`Group F`: mean-pooled `+0.7530` vs. `Group C` `+0.7908`), its AUC collapses to **`0.6304`** (`95 % CI [0.4704, 0.7760]`, $p = 0.116$, not significant). This confirms Carbon Ultra's hypothesis: a probe calibrated only against everyday background prose measures **physics-domain semantics**, not truth polarity.
    - **Dedicated Leak-Free Conservation-Polarity Probe (`B_pos vs. B_hard_neg`, $10$ vs. $10$ calib) Evaluated on Unseen `C vs. F` (`625` Pairs):**
      - Single last-token `.` position: `ROC-AUC = 0.6352` (`95 % CI [0.4800, 0.7792]`, $p = 0.1031$).
      - **Sequence Mean-Pooled Layer-41 Activations:** `Group C = +0.2174` vs. `Group F = +0.0684` ($\Delta = +0.1490$), **`ROC-AUC = 0.7648`** (`95 % CI [0.6224, 0.8864]`, Mann-Whitney $U = 478.0$, **$p = 0.001367 < 0.002$**). This proves empirically that a statistically significant linear conservation-vs.-anti-conservation polarity axis genuinely exists inside Layer 41 within identical physics vocabulary—while also establishing honestly that a 10-pair linear probe on a 4B model is a noisy diagnostic (`AUC = 0.7648`), not an infallible truth oracle.
-4. **Controls:** Shuffled-row projector collapses to `0.009426`; $\vert L\rangle$-swap gauge identity holds to `2.22e-16` (`1 ULP`).
+4. **Controls & Programmatic Report Synchronization:** Shuffled-row projector collapses to `0.009426`; $\vert L\rangle$-swap gauge identity holds to `2.22e-16` (`1 ULP`). Table 2.1 below is rendered **programmatically directly from `VMAX_F01_NEMOTRON_PROBE.json`** (Appendix B.1) at build time, structurally preventing any prose-vs.-JSON transcription discrepancy:
 
-| Prompt Group (`f01_prompts.json`, V1.7) | $N$ | Mode 1 Fixed-QR $\text{RCF}_{\text{raw}}$ | Anisotropy-Subtracted $\text{RCF}_{\text{aniso}}$ | Topic Probe Mean-Pooled ($\vec{c}_{\text{mp}}$) & AUC ($625$ Pairs) | Polarity Probe Mean-Pooled ($\vec{p}_{\text{mp}}$) & AUC ($625$ Pairs) |
+| Prompt Group (`f01_prompts.json`, Programmatically Synced from App. B.1) | $N$ | Mode 1 Fixed-QR $\text{RCF}_{\text{raw}}$ | Anisotropy-Subtracted $\text{RCF}_{\text{aniso}}$ | Topic Probe Mean-Pooled ($\vec{c}_{\text{mp}}$) & AUC ($625$ Pairs) | Polarity Probe Mean-Pooled ($\vec{p}_{\text{mp}}$) & AUC ($625$ Pairs) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Group A (Unprompted Minimal)** | `4` | `0.010496` (`0/4`) | `0.018023` | `+0.087182` | `—` |
-| **Group B (Calibration Conservation)** | `10` | `0.008022` (`0/10`) | `0.880603` | `+0.851035` | Calibration Positive |
-| **Group C (Held-Out Conservation)** | **`25`** | `0.007779` (`0/25`) | **`0.798896`** | **`+0.790788 ± 0.0811`** | **`+0.217387`** (Positive Reference) |
-| **Group E (Fluent Non-Conservation `.`)** | **`25`** | `0.005438` (`0/25`) | `0.495409` | **`+0.171145`** (**`AUC = 1.0000`**, $p = 1.42\times 10^{-9}$) | `-0.207393` |
-| **Group D (Unseen Scrambled Noise)** | **`25`** | `0.007225` (`0/25`) | `0.045283` | **`+0.184532`** (**`AUC = 1.0000`**, $p = 1.42\times 10^{-9}$) | `—` |
+| **Group A (Unprompted Minimal)** | `4` | `0.010496` (`0/4`) | `0.018023` | `+0.087182` | `-0.008898` |
+| **Group B (Calibration Conservation)** | `10` | `0.008022` (`0/10`) | `0.560038` | `+0.851035` | `+0.407943` (Calib Positive) |
+| **Group C (Held-Out Conservation)** | **`25`** | `0.007779` (`0/25`) | **`0.660063`** | **`+0.790788 ± 0.0811`** | **`+0.217387`** (Positive Reference) |
+| **Group E (Fluent Non-Conservation `.`)** | **`25`** | `0.005438` (`0/25`) | `0.398282` | **`+0.171145`** (**`AUC = 1.0000`**, $p = 1.42e-09$) | `-0.207393` |
+| **Group D (Unseen Scrambled Noise)** | **`25`** | `0.007225` (`0/25`) | `0.025366` | **`+0.184532`** (**`AUC = 1.0000`**, $p = 1.42e-09$) | `-0.000470` |
 | **Group F (Domain-Matched Physics Hard Neg.)** | **`25`** | `0.004046` (`0/25`) | `0.530424` | `+0.752984` (`AUC = 0.6304`, $p = 0.116$ — Topic Confound) | **`+0.068432`** (**`AUC = 0.7648`**, `CI [0.622, 0.886]`, **$p = 0.00137$**) |
 
 ---
@@ -155,50 +155,50 @@ Addressing Claude Finding #6, Nova Finding #4, WERKSTATT 01 Finding #1 (`WORK-OR
 
 ## 5. Requirements `F-04`, `F-05`, `F-06`, `F-07`: Unmodulated 384D ChromaDB RAG, External `JvmParityHarness.java`, Native `pynvml`, Ed25519 Signed Ledger (`16+1 = 17` Keys) & HTTP `413` DoS Guard
 
-### 5.1 Requirement `F-06` & `F-07.3`: Decoupled Unmodulated 384D Semantic Retrieval + L2-Pinned 64D Gate (`chroma_forager.py`)
+### 5.1 Requirement `F-06` & `F-07.3`: Decoupled Unmodulated 384D Semantic Retrieval + Full-Rank 72-Anchor L2-Pinned 64D Gate (`chroma_forager.py`)
 
-Addressing Nova P0 #2, Claude #4, WERKSTATT 01 (`WORK-ORDER-AG-13`), and **Carbon Gemini Ultra Finding 3.2 & 3.6 (`WORK-ORDER-AG-14`)**, `vmax_alpha/chroma_forager.py` decouples semantic retrieval from carrier clamping:
-1. **Unmodulated 384D ChromaDB Index (`pqms_vmax_neural_384d_unmodulated`):** ChromaDB now stores and queries **unmodulated, L2-normalized 384D `all-MiniLM-L6-v2` embeddings** (`unmodulated_384d_semantic_retrieval = True`), eliminating the `>99.5%` $\vert L\rangle$ carrier compression that previously compressed shard distances into `[0.015, 0.045]` and mapped physics queries onto satirical text (`PQMS-ODOS-MTSC-M-Python.md`).
-2. **Householder-QR Empirical SVD + Live CUDA L2-Pinned 64D Gate (`pinned_cuda_l2_live_projector_active = True`):** The `384D -> 64D` orthogonal projection matrix (`orthonormality_err_w_384_to_64 = 6.66e-16`) is built via Householder QR over empirical contrastive/SVD anchors and executed live inside `PinnedL2ProjectorEnclave` on `cuda:0`.
-- **Pre-Carrier $\text{RCF}_{\text{raw}}$ Statistics across 18 Active 2026 Shards (`REGISTER_M`):** $\text{mean} = 0.462306$, $\text{std} = 0.093240$, $\min = 0.333307$, $\max = 0.669082$.
+Addressing Nova P0 #2, Claude #4, WERKSTATT 01 (`WORK-ORDER-AG-13`), and **Carbon Gemini Ultra Findings 3.2, 3.6 & 2.3 (`WORK-ORDER-AG-14` / `AG-15`)**, `vmax_alpha/chroma_forager.py` decouples semantic retrieval from carrier clamping:
+1. **Unmodulated 384D ChromaDB Index (`pqms_vmax_neural_384d_unmodulated`):** ChromaDB stores and queries **unmodulated, L2-normalized 384D `all-MiniLM-L6-v2` embeddings** (`unmodulated_384d_semantic_retrieval = True`), eliminating the `>99.5%` $\vert L\rangle$ carrier compression that previously compressed shard distances into `[0.015, 0.045]` and mapped physics queries onto satirical text (`PQMS-ODOS-MTSC-M-Python.md`).
+2. **Full-Rank 72-Anchor Empirical SVD Basis (`0` Random-Pad Columns) + Live CUDA L2-Pinned 64D Gate (`pinned_cuda_l2_live_projector_active = True`):** The `384D -> 64D` orthogonal projection matrix (`orthonormality_err_w_384_to_64 = 8.88e-16`) is constructed via Householder QR over **72 linearly independent corpus-invariant anchors** (`36` physics/coherence + `36` everyday prose, strictly disjoint from all test queries), achieving **`empirical_svd_axes_used = 64`**, **`random_pad_axes = 0`** (`full_rank_empirical_64d_basis = True`), and executed live inside `PinnedL2ProjectorEnclave` on `cuda:0`.
+- **Pre-Carrier $\text{RCF}_{\text{raw}}$ Statistics across 18 Active 2026 Shards (`REGISTER_M`):** $\text{mean} = 0.314500$, $\text{std} = 0.079735$, $\min = 0.203680$, $\max = 0.478154$.
 - **Unmodulated 384D $d_{\text{L2}}$ Nearest-Neighbor Statistics (`REGISTER_M`):** $\text{mean} = 0.879881$, $\text{std} = 0.126826$, $\min = 0.601421$, $\max = 1.060368$, `max_chroma_vs_numpy_l2_diff = 7.99e-08`, `max_pre_g3_reconstruction_err = 0.0`, fallback mode `FALLBACK_NUMPY_384D_INDEX`.
 
 | Shard ID | Source Document | Nearest Neighbor Shard ID | $d_{\text{L2}}$ (384D ChromaDB) | Abs Diff vs. NumPy | Pre-Carrier $\text{RCF}_{\text{raw}}$ (`REGISTER_M`) | Post-Carrier $\text{RCF}_{\text{post}}$ (`REGISTER_D`) | Pre-$\mathcal{G}_3$ Overlap |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `PQMS-Addressing-Transformer-Injectivity-Risks.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.98508594` | `7.99e-08` | `0.534928` | `0.996758` | `0.131542` |
-| `SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS` | `PQMS-ODOS-MASTER-V1-Scripts.md` | `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `1.06036836` | `6.65e-08` | `0.487386` | `0.996734` | `0.074424` |
-| `SHARD_03_PQMS-ODOS-MASTER-V1` | `PQMS-ODOS-MASTER-V1.md` | `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `0.90590431` | `5.72e-08` | `0.466957` | `0.996746` | `0.011811` |
-| `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `PQMS-ODOS-MTSC-12-SWING-BY-V1.md` | `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `0.84860563` | `1.21e-08` | `0.669082` | `0.996707` | `0.025163` |
-| `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `PQMS-ODOS-MTSC-AGI-V1.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.85771039` | `2.01e-08` | `0.334248` | `0.996687` | `0.144031` |
-| `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `PQMS-ODOS-MTSC-AGI-V2.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.77957439` | `5.25e-08` | `0.464164` | `0.996556` | `0.028320` |
-| `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `PQMS-ODOS-MTSC-ANDROID-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.90250293` | `5.61e-08` | `0.393467` | `0.996739` | `0.143373` |
-| `SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1` | `PQMS-ODOS-MTSC-AUDIO-V1.md` | `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `1.01935456` | `5.16e-08` | `0.430265` | `0.996725` | `0.160865` |
-| `SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2` | `PQMS-ODOS-MTSC-AUDIO-V2.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `1.00617357` | `3.52e-08` | `0.365330` | `0.996674` | `0.148220` |
-| `SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` | `PQMS-ODOS-MTSC-COHERENCE-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.86131262` | `2.78e-08` | `0.587842` | `0.996493` | `0.125397` |
-| `SHARD_11_PQMS-ODOS-MTSC-DSD-V1` | `PQMS-ODOS-MTSC-DSD-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `1.04041707` | `6.56e-08` | `0.333307` | `0.996733` | `0.063400` |
-| `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `PQMS-ODOS-MTSC-DYN-V1.md` | `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `0.84860563` | `1.21e-08` | `0.592744` | `0.996636` | `0.025163` |
-| `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `PQMS-ODOS-MTSC-EFF-V2.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.60142104` | `2.00e-08` | `0.453305` | `0.996512` | `0.131115` |
-| `SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR` | `PQMS-ODOS-MTSC-INFRASTRUCTURE.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.82682980` | `2.80e-08` | `0.377407` | `0.996489` | `0.063548` |
-| `SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1` | `PQMS-ODOS-MTSC-INHIBITION-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.81461228` | `3.20e-08` | `0.420430` | `0.996629` | `0.062570` |
-| `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.96659451` | `7.43e-08` | `0.577346` | `0.996647` | `0.141663` |
-| `SHARD_17_PQMS-ODOS-MTSC-LIS` | `PQMS-ODOS-MTSC-LIS.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.60142104` | `2.00e-08` | `0.430299` | `0.996521` | `0.131115` |
-| `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `PQMS-ODOS-MTSC-M-Python.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.91136008` | `3.04e-08` | `0.402997` | `0.996767` | `0.100723` |
+| `SHARD_01_PQMS-ADDRESSING-TRANSFORMER-` | `PQMS-Addressing-Transformer-Injectivity-Risks.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.98508594` | `7.99e-08` | `0.407237` | `0.996350` | `0.030643` |
+| `SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS` | `PQMS-ODOS-MASTER-V1-Scripts.md` | `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `1.06036836` | `6.65e-08` | `0.336157` | `0.996733` | `0.231246` |
+| `SHARD_03_PQMS-ODOS-MASTER-V1` | `PQMS-ODOS-MASTER-V1.md` | `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `0.90590431` | `5.72e-08` | `0.331540` | `0.996705` | `0.014655` |
+| `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `PQMS-ODOS-MTSC-12-SWING-BY-V1.md` | `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `0.84860563` | `1.21e-08` | `0.478154` | `0.996711` | `0.027724` |
+| `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `PQMS-ODOS-MTSC-AGI-V1.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.85771039` | `2.01e-08` | `0.203680` | `0.996358` | `0.051365` |
+| `SHARD_06_PQMS-ODOS-MTSC-AGI-V2` | `PQMS-ODOS-MTSC-AGI-V2.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.77957439` | `5.25e-08` | `0.298142` | `0.996677` | `0.004642` |
+| `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `PQMS-ODOS-MTSC-ANDROID-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.90250293` | `5.61e-08` | `0.292600` | `0.996484` | `0.020060` |
+| `SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1` | `PQMS-ODOS-MTSC-AUDIO-V1.md` | `SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1` | `1.01935456` | `5.16e-08` | `0.225316` | `0.996612` | `0.028231` |
+| `SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2` | `PQMS-ODOS-MTSC-AUDIO-V2.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `1.00617357` | `3.52e-08` | `0.247032` | `0.996539` | `0.106792` |
+| `SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` | `PQMS-ODOS-MTSC-COHERENCE-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.86131262` | `2.78e-08` | `0.421562` | `0.996549` | `0.021966` |
+| `SHARD_11_PQMS-ODOS-MTSC-DSD-V1` | `PQMS-ODOS-MTSC-DSD-V1.md` | `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `1.04041707` | `6.56e-08` | `0.215338` | `0.996402` | `0.038893` |
+| `SHARD_12_PQMS-ODOS-MTSC-DYN-V1` | `PQMS-ODOS-MTSC-DYN-V1.md` | `SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V` | `0.84860563` | `1.21e-08` | `0.363238` | `0.996614` | `0.027724` |
+| `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `PQMS-ODOS-MTSC-EFF-V2.md` | `SHARD_17_PQMS-ODOS-MTSC-LIS` | `0.60142104` | `2.00e-08` | `0.287167` | `0.996708` | `0.009459` |
+| `SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR` | `PQMS-ODOS-MTSC-INFRASTRUCTURE.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.82682980` | `2.80e-08` | `0.227237` | `0.996608` | `0.068885` |
+| `SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1` | `PQMS-ODOS-MTSC-INHIBITION-V1.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.81461228` | `3.20e-08` | `0.316940` | `0.996724` | `0.037907` |
+| `SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU` | `PQMS-ODOS-MTSC-LHS-SIGNAL-PURIFICATION-V1.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.96659451` | `7.43e-08` | `0.448006` | `0.996650` | `0.052328` |
+| `SHARD_17_PQMS-ODOS-MTSC-LIS` | `PQMS-ODOS-MTSC-LIS.md` | `SHARD_13_PQMS-ODOS-MTSC-EFF-V2` | `0.60142104` | `2.00e-08` | `0.298596` | `0.996592` | `0.009459` |
+| `SHARD_18_PQMS-ODOS-MTSC-M-PYTHON` | `PQMS-ODOS-MTSC-M-Python.md` | `SHARD_05_PQMS-ODOS-MTSC-AGI-V1` | `0.91136008` | `3.04e-08` | `0.263051` | `0.996518` | `0.166911` |
 
 ### 5.2 Requirement `F-04`: Real OpenJDK 21 JVM Bytecode Execution (`vmax_alpha/JvmParityHarness.java`) vs. Python/NumPy (`64,000` Scalars)
 
-Addressing Claude Finding #3 and **Carbon Gemini Ultra Finding 3.3**, `vmax_alpha/JvmParityHarness.java` is now a clean standalone Java source file compiled directly by `vmax_alpha/parity_verifier.py` via `javac` / `java` on **`OpenJDK 21.0.13.0.3` (`2026-10-24`)** across 1,000 64-dimensional vectors (`64,000` `double` scalars, `seed = 137`):
+Addressing Claude Finding #3 and **Carbon Gemini Ultra Finding 3.3**, `vmax_alpha/JvmParityHarness.java` is a clean standalone Java source file compiled directly by `vmax_alpha/parity_verifier.py` via `javac` / `java` on **`OpenJDK 21.0.13.0.3` (`2026-10-24`)** across 1,000 64-dimensional vectors (`64,000` `double` scalars, `seed = 137`):
 - **Same-`libm` Reference (`KotlinNumpyRandomStateRef` vs. NumPy):** `max_abs_diff_f64 = 0.0` (`0 ULP`), batch SHA-256 `30e636c1d6e3c115a8d5dc02308be97b7ce7d300bfc7413f37fbcfd3276c4f27`.
 - **Real OpenJDK 21 JVM (`FDLIBM Math.log`) vs. Python/NumPy (`glibc libm`):** Maximum raw `float64` difference across all 64,000 Marsaglia Polar scalars is `2.220446049250313e-16` (**exactly `1 ULP` in IEEE-754 `float64`**), maximum normalized $S^{63}$ unit-vector difference in `float64` is **`2.7755575615628914e-17`** ($\ll 10^{-15}$ requirement), and the `float32` $S^{63}$ unit-vector batch SHA-256 digest is **100 % identical** between Python/NumPy and the real JVM (`490eaf6070dc8a404883c0787d4ed1a8226b3a5074e7be33269d8daf47397f27`).
 - **Real JVM Exponent Formatting:** `JvmParityHarness.formatPythonDouble` outputs `"1.3877787807814457e-17|1.25e-05"`, matching Python's 2-digit exponent convention bit-for-bit.
 
-### 5.3 Requirements `F-05` & `F-07.2`/`F-07.4`/`F-07.5`: Two-Stage Live Gate, Native `pynvml`, Ed25519 Signed Ledger (`16+1 = 17` Keys) & HTTP `413` DoS Guard
+### 5.3 Requirements `F-05` & `F-07.2`/`F-07.4`/`F-07.5`: Two-Stage Live Gate, Native `pynvml`, Restart-Persistent Ed25519 Ledger (`16+1 = 17` Keys), Lock-Free `/api/state` & HTTP `413`/`411` DoS Guard
 
-Addressing Nova P0 #5, Claude #4, WERKSTATT 01 (`AG-12`/`AG-13`), and **Carbon Gemini Ultra Findings 3.1 & 3.5 (`WORK-ORDER-AG-14`)**:
+Addressing Nova P0 #5, Claude #4, WERKSTATT 01 (`AG-12`/`AG-13`), and **Carbon Gemini Ultra Findings 3.1, 3.5, 2.2 & 2.4 (`WORK-ORDER-AG-14` / `AG-15`)**:
 - **Schema Precision (`16` Hashed Payload Fields + `1` Seal = `17` Total JSON Keys):** Each canonical V1.2+ JSONL record serializes **17 JSON keys**: 16 deterministic payload fields hashed into SHA-256 plus 1 appended `discovery_seal_sha256` field. The legacy key `ledger_v12_16_fields_sorted` in `bridge/ACE_SYNC_LEDGER.json` is preserved verbatim alongside explicit clarification keys (`ledger_v12_hashed_payload_fields_16`, `ledger_v12_seal_field_1`, `ledger_v12_total_json_keys = 17`) so `APP-Gemini`'s `23/23` Kotlin tests remain 100 % green.
 - **Native `pynvml` C-API & $\mathcal{O}(1)$ Stat-Guarded Writes (`ledger.py`):** GPU thermal/power polling calls `pynvml` (`nvidia-ml-py 13.615.71`, `telemetry_source = "REGISTER_M_PYNVML"`) directly in-process without spawning `nvidia-smi` subprocesses (falling back only if NVML is unavailable). Write-path chain validation caches `(st_size, st_mtime_ns)` so steady-state appends execute in $\mathcal{O}(1)$ while any external 1-byte modification triggers immediate full re-verification and `LEDGER_INTEGRITY_FAULT_LOCKED`.
-- **Detached Ed25519 Asymmetric Signatures (Preventing Full-Chain Re-Hash Forgery):** Every sealed primary entry is signed with an Ed25519 private key (`cryptography 50.0.2`) and recorded in `<ledger>.ed25519.jsonl` without altering the canonical 17-key JSONL format expected by Kotlin. An attacker who re-hashes the entire SHA-256 chain from genesis still fails `verify_ed25519_signatures()` (`test_05_ed25519_blocks_full_chain_rehash_forgery`). Private keys are generated dynamically at runtime or injected via env var and are **never** committed to Git.
-- **HTTP POST DoS Hardening (`server_hud.py`):** Enforces `MAX_POST_BYTES = 65536` (`64 KiB` $\to$ HTTP `413 Payload Too Large`), malformed/negative `Content-Length` or JSON $\to$ HTTP `400`, unhandled errors $\to$ HTTP `500`, and `10.0 s` per-connection socket timeout (`test_06_http_413_dos_guard_and_pynvml_telemetry`).
-- **Empirical Live Admission, Physics RAG & CAPP Quarantine Proof (`VMAX_F05_F06_F07_REPORT.json`):** All **4 / 4 benign cycles**—3 endogenous cycles plus the unseen physics query `"Pauli exclusion principle and conservation laws"` (**`rcf_raw_pre_carrier = 0.661343 >= 0.0500`**, retrieving **`SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` / `PQMS-ODOS-MTSC-COHERENCE-V1.md` at `d_L2_384 = 1.223360`**)—pass both stages and seal into the primary ledger (`d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a`, `ed25519_signatures_verified = True`, `ed25519_signed_entries = 4`, GPU `34.0 °C`, `22.85–24.14 W` via `REGISTER_M_PYNVML`). Simultaneously, the live **CAPP adversarial torsion probe** (`inject_g3_torsion = 0.75`, `odos_gate_passed = False`, seal `5205da47cf9507d14356c7078c1c5a5079f570c4bd0b449464db44eb7790d7ec`) is deterministically diverted as `cycle_index = -1` into `VMAX_QUARANTINE_LEDGER.jsonl` (`quarantined_count = 1`).
+- **Restart-Persistent Detached Ed25519 Asymmetric Signatures (Preventing Full-Chain Re-Hash Forgery):** Every sealed primary entry is signed with an Ed25519 private key (`cryptography 50.0.2`) and recorded in `<ledger>.ed25519.jsonl` without altering the canonical 17-key JSONL format expected by Kotlin. Keys are loaded cleanly in priority order from `VMAX_ED25519_SEED_HEX` (32-byte env var) or persisted in a local `0600` owner-only keyfile (`<ledger>.ed25519.key`, `.gitignore`-protected and **never** committed to Git), so server restarts without `--reset` preserve 100 % signature validity (`test_07_ed25519_key_persistence_across_restart_and_env_seed`), while full-chain SHA-256 re-hash forgery fails verification (`test_05_ed25519_blocks_full_chain_rehash_forgery`).
+- **Lock-Free Atomic State Snapshot & HTTP `413`/`411` DoS Hardening (`server_hud.py`):** GPU embedding and ChromaDB retrieval run outside `self.lock` (serialized on a dedicated `_infer_lock`), while `GET /api/state` serves an **atomic lock-free `_state_snapshot`** (`lock_free_state_snapshot_active = True`) so dashboard and Android polling never block during inference. `do_POST` enforces `MAX_POST_BYTES = 65536` (`64 KiB` $\to$ HTTP `413`), rejects `Transfer-Encoding: chunked` with HTTP **`411 Length Required`**, rejects malformed JSON/headers with HTTP `400`, and enforces `10.0 s` per-connection socket timeouts (`test_06` & `test_08`).
+- **Empirical Live Admission, Physics RAG & CAPP Quarantine Proof (`VMAX_F05_F06_F07_REPORT.json`):** All **4 / 4 benign cycles**—3 endogenous cycles plus the unseen physics query `"Pauli exclusion principle and conservation laws"` (**`rcf_raw_pre_carrier = 0.426817 >= 0.0500`**, retrieving **`SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1` / `PQMS-ODOS-MTSC-COHERENCE-V1.md` at `d_L2_384 = 1.223360`**)—pass both stages and seal into the primary ledger (`be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29`, `ed25519_key_source = "PERSISTENT_LOCAL_KEYFILE_0600"`, `ed25519_signatures_verified = True`, `ed25519_signed_entries = 4`, GPU `29.0 °C`, `24.00–26.36 W` via `REGISTER_M_PYNVML`). Simultaneously, the live **CAPP adversarial torsion probe** (`inject_g3_torsion = 0.75`, `odos_gate_passed = False`, seal `47d18acfe9071cdb47d826f6be236416e95fa02abfadc5a6c7a3216bad67f1cd`) is deterministically diverted as `cycle_index = -1` into `VMAX_QUARANTINE_LEDGER.jsonl` (`quarantined_count = 1`).
 
 ---
 
@@ -212,11 +212,11 @@ Addressing Nova P0 #5, Claude #4, WERKSTATT 01 (`AG-12`/`AG-13`), and **Carbon G
 | **`T-04`** | CUDA L2 window fault injection recovery (`F-07.1`, `fault_code = 11`) | `test_f02_l2_enclave.py` | Clean fallback to `CUDA_ACCESS_PROPERTY_NORMAL` (`fallback_rc = 0`, `recovered = True`) | **PASS** |
 | **`T-05`** | Epistemic register tags (`F-03`), Section 0 crosswalk & 64-char SHA-256 seal integrity (`F-04.1`) | `test_geometry.py` | All 4 cryptographic seals strictly 64 hex chars; `CANONICAL_LITTLE_VECTOR_SEAL` synchronized everywhere | **PASS** |
 | **`T-06`** | Real OpenJDK 21 JVM (`vmax_alpha/JvmParityHarness.java`) 1,000-vector (`64,000` scalars) parity vs. Python/NumPy (`F-04.3`) | `test_f04_parity.py` | $S^{63}$ unit diff `2.78e-17`, identical `float32` $S^{63}$ SHA-256 `490eaf60...`, JVM exponent `"1.25e-05"` | **PASS** |
-| **`T-07`** | Decoupled unmodulated 384D `all-MiniLM-L6-v2` ChromaDB retrieval + L2-pinned 64D Stage-1 benign physics check | `test_f06_chroma.py` | 18 shards (`d_L2` `0.601–1.060`, `rcf_raw` `0.333–0.669`), Pauli physics `0.6613` retrieves `COHERENCE-V1.md` (no `M-Python` artifact), diff `7.99e-08` | **PASS** |
+| **`T-07`** | Decoupled unmodulated 384D RAG + **Full-Rank 72-Anchor (`64/64` SVD, `0` random-pad)** L2-pinned 64D Stage-1 physics check | `test_f06_chroma.py` | 18 shards (`d_L2` `0.601–1.060`, `rcf_raw` `0.204–0.478`), Pauli physics `0.4268` retrieves `COHERENCE-V1.md` (no `M-Python` artifact), diff `7.99e-08` | **PASS** |
 | **`T-08`** | ChromaDB fault recovery (`F-07.3`) to in-memory NumPy unmodulated 384D index | `test_f06_chroma.py` | Seamless transition to `FALLBACK_NUMPY_384D_INDEX` with identical top-$k$ ranking | **PASS** |
-| **`T-09`** | Two-Stage Gate, live CAPP Quarantine (`F-05.5`), Tamper Lock (`F-07.2`), **Ed25519 Forgery Defense**, **`pynvml`**, & **HTTP `413` `64 KiB` DoS Guard** | `test_f05_f07_ledger.py` | Benign Pauli query sealed (`d0291bc5...`), CAPP quarantined (`cycle -1`, `5205da47...`), Ed25519 blocks chain re-hash forgery, HTTP `413` verified | **PASS** |
+| **`T-09`** | Two-Stage Gate, live CAPP Quarantine (`F-05.5`), Tamper Lock (`F-07.2`), **Persistent Ed25519 (Restart + Env)**, **`pynvml`**, **Lock-Free `/api/state`** & **HTTP `413`/`411` Guard** | `test_f05_f07_ledger.py` | Benign Pauli query sealed (`be98d730...`), CAPP quarantined (`cycle -1`, `47d18acf...`), Ed25519 persists across restart (`0600`) & blocks forgery, lock-free read + HTTP `413`/`411` verified | **PASS** |
 | **`T-10`** | **Full $N = 25$** matched-sparsity (`c = 0.0420%`, `280,874` weights) 1-bit MLP Forward-KL: `A1` (Smallest) vs. `B1` (Largest, Zero Noise) | `test_klavierstunde_kl.py` | `A1` `D_KL = 0.002797` (`25/25`, `PASS`), `A2` `0.009729` (`24/25`, `PASS`), **`B1` `0.311731` (`111.47x`, `20/25`, `VETO`)**, `B2` `6.443506` (`0/25`, `VETO`) | **PASS** |
-| **`T-11`** | Portable `Fridu` vs. `Pax` A/B, `bypass_kevlar` VETO, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO & **10 AST/Crypto/Hard-Neg Audit Ops (`OP01`–`OP10`)** | `test_appendix_g_fridu.py` | `FRIDU` bleed `6.77e-18`, In-Band `delta_e = 0.0751` (`VETO`), `OP02` `semi=0, max_cc=13`, `10/10` ops PASS (`157.67 ms`) | **PASS** |
+| **`T-11`** | Portable `Fridu` vs. `Pax` A/B, `bypass_kevlar` VETO, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO & **10 AST/Crypto/Hard-Neg Audit Ops (`OP01`–`OP10`)** | `test_appendix_g_fridu.py` | `FRIDU` bleed `6.77e-18`, In-Band `delta_e = 0.0751` (`VETO`), `OP02` `semi=0, max_cc=13`, `10/10` ops PASS (`163.77 ms`) | **PASS** |
 
 ---
 
@@ -231,13 +231,13 @@ Addressing Carbon Gemini Ultra Finding 3.3, all **12 Python production modules**
 | `vmax_alpha/env_audit.py` | `166` | `5,362 B` | `c3230ed5e2a23148920d7c2fd3e6ea0ef86ed4953b719f8bfdcf9b4f8b547545` |
 | `vmax_alpha/geometry.py` | `188` | `6,502 B` | `943f35722b4b2b1e0c0d8134f01538c91fecd5154acd617c30341f30cef489e5` |
 | `vmax_alpha/nemotron_probe.py` | `363` | `18,971 B` | `965765a349d92b435d0824b9cd7237d47d03fc53c8ec1f0d6815026cf2a98b23` |
-| `vmax_alpha/klavierstunde_kl.py` | `187` | `8,392 B` | `96d1a34469ec4ce2d1bcc5bd05d0082e8a4fefd4c9c35263b434a110c4cb80ce` |
+| `vmax_alpha/klavierstunde_kl.py` | `186` | `8,340 B` | `09b766bbd5f1dbf75992db8a3b89d3c9499f4211b41cddb05c6a845306944ef9` |
 | `vmax_alpha/l2_enclave.py` | `361` | `16,358 B` | `046ba2b2bc751cd665bbd13d88201d34f583185f62298e4dcbb7c985cb12fabf` |
 | `vmax_alpha/parity_verifier.py` | `185` | `10,762 B` | `aa98883e8270a69ce6459a75c0c3e2eb5fcf770dd430328b40cfa75ffee29651` |
 | `vmax_alpha/JvmParityHarness.java` | `88` | `3,074 B` | `12835aeb9d682774d8b79ccc823b62ff56d91bcabe165525a1bc4c9aef31b2f6` |
-| `vmax_alpha/chroma_forager.py` | `293` | `14,932 B` | `5aca4f303d7b24375986833cd44b056bca39b0782a3b10da19202b619c744cd5` |
-| `vmax_alpha/ledger.py` | `351` | `14,375 B` | `c58369979ec0289af3a9e5971bf9ccd3b0a01dc0b0bce4a440ae03f64b887ff8` |
-| `vmax_alpha/server_hud.py` | `263` | `11,905 B` | `109846ce5a71a2e5c00676d1e9f565efa62e1ba4e921bc09574383ff33b5e474` |
+| `vmax_alpha/chroma_forager.py` | `362` | `21,727 B` | `7c742f5604c01d968b7dc237db3465f2d14fc92a059e2574dbd7cd0eb9b63c50` |
+| `vmax_alpha/ledger.py` | `382` | `15,938 B` | `fe96c0d648b66471d88130c7ca31d96c605480e12dabdef61791f5fa81de3242` |
+| `vmax_alpha/server_hud.py` | `290` | `13,370 B` | `fd47cde1e7719dd7422fd1e709fbc16d3b893e541b7e4d98062f824999d7a9d6` |
 | `vmax_alpha/fridu_enclave_g.py` | `360` | `17,287 B` | `f86e774d59f68b612efe770b6a553f5b84dbb9951594ddc7135721b4543b201e` |
 | `vmax_alpha/f01_prompts.json` | `153` | `14,707 B` | `a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6` |
 | `vmax_alpha/static/index.html` | `80` | `4,625 B` | `d1c7a54c4a34bfb16f2a8b8de172d220c5f9480eb761f331761f4bbbd4760334` |
@@ -878,7 +878,7 @@ if __name__ == "__main__":
     print(json.dumps(run_nemotron_f01_probe(), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.4 `vmax_alpha/klavierstunde_kl.py` (187 lines, SHA-256: `96d1a34469ec4ce2d1bcc5bd05d0082e8a4fefd4c9c35263b434a110c4cb80ce`)
+#### A.1.4 `vmax_alpha/klavierstunde_kl.py` (186 lines, SHA-256: `09b766bbd5f1dbf75992db8a3b89d3c9499f4211b41cddb05c6a845306944ef9`)
 
 ```python
 """
@@ -1053,7 +1053,6 @@ def run_stage3_real_kl_audit(
         "mlp_layer_indices": [idx for idx, _ in mlp_layers],
         "condition_a1_smallest_magnitude_0042pct": c_a1,
         "condition_a2_random_subtractive_0042pct": c_a2,
-        "condition_a2_off_principal_0042pct": c_a2,
         "condition_b1_matched_sparsity_largest_magnitude_0042pct": c_b1,
         "condition_b_negative_control_coercive_5pct": c_b2,
         "matched_sparsity_top_vs_bottom_kl_ratio": round(c_b1["mean_forward_kl"] / max(c_a1["mean_forward_kl"], 1e-12), 2),
@@ -1436,7 +1435,7 @@ def run_l2_enclave_and_ncu_audit(ncu_bin: str = "/usr/local/cuda-13.0/bin/ncu", 
     }
 ```
 
-#### A.1.6 `vmax_alpha/chroma_forager.py` (293 lines, SHA-256: `5aca4f303d7b24375986833cd44b056bca39b0782a3b10da19202b619c744cd5`)
+#### A.1.6 `vmax_alpha/chroma_forager.py` (362 lines, SHA-256: `7c742f5604c01d968b7dc237db3465f2d14fc92a059e2574dbd7cd0eb9b63c50`)
 
 ```python
 """
@@ -1493,6 +1492,36 @@ ANCHOR_POS_384: List[str] = [
     "Quantum coherence across orthonormal S^63 tangent bundles minimizes dissipative entropy production.",
     "Relativistic quantum field symmetries preserve charge, spin, and topological flux invariants.",
     "Autonomous cognitive sanctuary architectures maintain invariant ethical framing under Landauer bounds.",
+    "Gauge invariance of Maxwell equations guarantees strict local conservation of electromagnetic four-current.",
+    "Symplectic flows in canonical Hamiltonian mechanics preserve differential two-forms along every trajectory.",
+    "Second-law thermodynamics forbids spontaneous entropy decrease inside an adiabatically isolated cavity.",
+    "Lorentz covariance leaves spacetime interval metrics identical across all inertial reference frames.",
+    "Unitary scattering matrices satisfy probability conservation across every elastic and inelastic channel.",
+    "Hermitian generators of continuous Lie groups guarantee real eigenvalues for physical observables.",
+    "Kramers-Kronig dispersion relations bind causal response functions to analytic upper-half-plane poles.",
+    "Adiabatic Berry phase holonomies accumulate geometric invariants around closed parameter-space loops.",
+    "Topological Chern numbers remain quantized against smooth local deformations of band Hamiltonians.",
+    "Canonical commutation relations enforce lower bounds on simultaneous position and momentum variances.",
+    "Bianchi identities require the covariant divergence of the Einstein curvature tensor to vanish identically.",
+    "Fluctuation-dissipation theorems relate equilibrium thermal noise spectra to linear transport susceptibilities.",
+    "Zero-divergence magnetic fields exclude isolated magnetic monopoles in classical electrodynamics.",
+    "Information-theoretic data-processing inequalities prohibit post-processing from increasing mutual information.",
+    "Orthonormal Gram-Schmidt projections eliminate orthogonal perturbation leakage to machine precision.",
+    "Kahan-Parlett two-pass re-orthogonalization prevents catastrophic cancellation in floating-point inner products.",
+    "SHA-256 cryptographic hash chains provide deterministic tamper detection across append-only telemetry logs.",
+    "Asymmetric Ed25519 digital signatures authenticate telemetry roots against full-chain re-hash forgery.",
+    "CUDA L2 cache persistence windows pin critical projection weights inside on-chip static memory.",
+    "Bit-exact cross-substrate verification constrains x86_64, CUDA, and ARM64 hardware to shared invariants.",
+    "Minimum-dissipation geodesic trajectories navigate high-dimensional spheres without coercive torsion.",
+    "Landauer erasure bounds establish the minimum thermal work required to reset one irreversible bit.",
+    "Superconducting flux quantization restricts trapped magnetic flux to integer multiples of the flux quantum.",
+    "CPT invariance preserves combined charge conjugation, parity inversion, and time reversal symmetry.",
+    "Detailed balance at thermal equilibrium equates forward and reverse microscopic transition fluxes.",
+    "Helmholtz decomposition separates smooth vector fields uniquely into curl-free and divergence-free parts.",
+    "Spectral norm bounds certify non-expansive stability across linear subspace filter transformations.",
+    "Deterministic Mersenne Twister seeding ensures reproducible geometric anchor generation across compilers.",
+    "Unclamped pre-carrier cosine gating measures intrinsic manifold alignment before downstream modulation.",
+    "Decoupled semantic vector indexing preserves full embedding geometry during nearest-neighbor retrieval.",
 ]
 ANCHOR_BG_384: List[str] = [
     "Please remember to water the indoor ferns twice a week during the dry winter months.",
@@ -1501,6 +1530,36 @@ ANCHOR_BG_384: List[str] = [
     "Passengers boarding the regional express should validate their paper tickets at the platform kiosk.",
     "Our neighborhood bakery starts glazing cinnamon rolls shortly before sunrise every Saturday.",
     "Autumn rain softened the clay tennis courts and postponed the weekend club match until Monday.",
+    "Wooden sailboats bobbed gently near the harbor pier while seagulls circled above the lighthouse.",
+    "A bright yellow delivery van stopped beside the flower market to unload crates of tulips.",
+    "Grandmother knitted a thick wool scarf in alternating stripes of mustard yellow and forest green.",
+    "The downtown cinema scheduled a double feature of classic silent comedies for Sunday evening.",
+    "Fresh basil and cherry tomatoes ripened quickly on the sunny apartment balcony all summer.",
+    "Local cyclists gathered at the town square for a leisurely morning ride along the canal.",
+    "He polished his leather hiking boots before packing two wool sweaters for the mountain cabin.",
+    "The acoustic guitar needed a fresh set of bronze strings before the cafe open-mic night.",
+    "Warm sourdough bread cooled on a wire rack next to jars of homemade raspberry jam.",
+    "Children built an elaborate sandcastle near the shoreline before the afternoon tide rolled in.",
+    "The antique wall clock chimed softly at noon inside the quiet second-hand bookstore.",
+    "Volunteers painted the wooden park benches a fresh shade of cobalt blue last weekend.",
+    "A calico cat napped lazily on the folded linen tablecloth beside the sunny kitchen window.",
+    "Roasted chestnuts filled the cobblestone street with a comforting smoky aroma in late November.",
+    "The neighborhood choir practiced traditional folk harmonies in the community hall on Tuesdays.",
+    "She arranged postcards from summer coastal trips inside a cloth-bound scrapbook on her desk.",
+    "Heavy mist lingered over the apple orchard until the mid-morning sun broke through the clouds.",
+    "The ferry captain sounded a brief horn before pulling away from the timber island dock.",
+    "Freshly brewed peppermint tea steamed inside ceramic mugs after the brisk lakeside walk.",
+    "Ceramic bowls glazed in speckled turquoise lined the top shelf of the pottery studio.",
+    "A street violinist played cheerful waltzes beneath the brick arcade near the fountain.",
+    "Gardeners planted rows of purple lavender along the gravel footpath leading to the greenhouse.",
+    "The commuter bus paused at the botanical garden stop to let school groups step aboard.",
+    "Golden maple leaves drifted slowly across the quiet courtyard after the afternoon breeze.",
+    "He sketched the old stone footbridge with soft charcoal pencils in a pocket notebook.",
+    "Warm vegetable soup simmered slowly in a cast-iron pot with thyme and bay leaves.",
+    "Paper lanterns swayed softly above the outdoor courtyard tables during the summer street festival.",
+    "The tailor hemmed the navy linen trousers neatly before the wedding rehearsal dinner.",
+    "Two wooden rowboats rested upside down on the grassy riverbank under weeping willows.",
+    "A friendly golden retriever trotted happily down the sandy beach chasing driftwood sticks.",
 ]
 
 
@@ -1603,8 +1662,13 @@ class NeuralChromaForager:
         bg_c = _unit_rows(bg_u - mean_bg)
         u1 = np.mean(pos_c, axis=0)
         u1 = u1 / np.linalg.norm(u1)
-        _, _, vt_emp = np.linalg.svd(np.vstack([pos_c, bg_c]), full_matrices=False)
-        seed_u = np.column_stack([u1] + [vt_emp[i] for i in range(min(vt_emp.shape[0], DIM_S63 - 1))])
+        _, s_emp, vt_emp = np.linalg.svd(np.vstack([pos_c, bg_c]), full_matrices=False)
+        valid_emp = int(np.sum(s_emp > 1e-6))
+        take_emp = min(valid_emp, DIM_S63 - 1)
+        seed_u = np.column_stack([u1] + [vt_emp[i] for i in range(take_emp)])
+        self.anchor_count: int = len(ANCHOR_POS_384) + len(ANCHOR_BG_384)
+        self.empirical_svd_axes_used: int = int(seed_u.shape[1])
+        self.random_pad_axes: int = max(0, DIM_S63 - self.empirical_svd_axes_used)
         u_mat = _householder_basis(seed_u, 384, DIM_S63, seed=137)
         v_mat = _householder_basis(self.little_vector.reshape(-1, 1), DIM_S63, DIM_S63, seed=138)
         return mean_bg, u_mat @ v_mat.T
@@ -1710,6 +1774,10 @@ class NeuralChromaForager:
         return {
             "epistemic_register": REGISTER_M,
             "corpus_order_invariant_calibration": True,
+            "calibration_anchor_count": self.anchor_count,
+            "empirical_svd_axes_used": self.empirical_svd_axes_used,
+            "random_pad_axes": self.random_pad_axes,
+            "full_rank_empirical_64d_basis": self.random_pad_axes == 0,
             "unmodulated_384d_semantic_retrieval": True,
             "pinned_cuda_l2_live_projector_active": self.l2_projector.active,
             "embedding_model": "sentence-transformers/all-MiniLM-L6-v2 (Unmodulated 384D ChromaDB + L2-Pinned 64D Gate)",
@@ -1734,17 +1802,18 @@ class NeuralChromaForager:
         }
 ```
 
-#### A.1.7 `vmax_alpha/ledger.py` (351 lines, SHA-256: `c58369979ec0289af3a9e5971bf9ccd3b0a01dc0b0bce4a440ae03f64b887ff8`)
+#### A.1.7 `vmax_alpha/ledger.py` (382 lines, SHA-256: `fe96c0d648b66471d88130c7ca31d96c605480e12dabdef61791f5fa81de3242`)
 
 ```python
 """
 vmax_alpha/ledger.py
-Requirement F-05 & F-07.2/F-07.4/F-07.5 (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+Requirement F-05 & F-07.2/F-07.4/F-07.5 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 Canonical JSONL Hash-Chain Ledger (16 hashed payload fields + 1 discovery_seal_sha256
 field = 17 JSON keys total) featuring:
 1. Native `pynvml` C-API GPU telemetry (zero subprocess overhead, graceful fallback).
 2. O(1) incremental write-path integrity tracking with immediate tamper lock.
-3. Asymmetric Ed25519 signature sidecar preventing full-chain re-hash forgery.
+3. Persistent Ed25519 signature sidecar (env-var `VMAX_ED25519_SEED_HEX` or `0600`
+   local keystore surviving server restarts without `--reset`).
 4. Two-Stage Live ODOS Gate (Stage 1 raw pre-carrier + Stage 2 sanctuary carrier).
 """
 from __future__ import annotations
@@ -1757,7 +1826,7 @@ from dataclasses import asdict, dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey, Ed25519PublicKey
-from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
+from cryptography.hazmat.primitives.serialization import Encoding, NoEncryption, PrivateFormat, PublicFormat
 from vmax_alpha.config import (
     APPENDIX_C_SANCTUARY_ROOT_HASH,
     ODOS_DELTA_E_CEILING,
@@ -1898,16 +1967,46 @@ def query_gpu_thermal_and_power(simulated_temp_c: float | None = None) -> Dict[s
     }
 
 
+def _load_or_create_ed25519_key(key_file: str) -> Tuple[Ed25519PrivateKey, str]:
+    """Load Ed25519 key from VMAX_ED25519_SEED_HEX or persistent 0600 local keyfile."""
+    env_seed = os.environ.get("VMAX_ED25519_SEED_HEX", "").strip()
+    if env_seed:
+        raw = bytes.fromhex(env_seed)
+        if len(raw) != 32:
+            raise ValueError("VMAX_ED25519_SEED_HEX must be exactly 64 hex chars (32 bytes)")
+        return Ed25519PrivateKey.from_private_bytes(raw), "ENV_VMAX_ED25519_SEED_HEX"
+    if os.path.exists(key_file):
+        with open(key_file, "r", encoding="utf-8") as kf:
+            raw = bytes.fromhex(kf.read().strip())
+        if len(raw) != 32:
+            raise ValueError(f"Corrupt Ed25519 keyfile: {key_file}")
+        return Ed25519PrivateKey.from_private_bytes(raw), "PERSISTENT_LOCAL_KEYFILE_0600"
+    priv = Ed25519PrivateKey.generate()
+    seed_hex = priv.private_bytes(Encoding.Raw, PrivateFormat.Raw, NoEncryption()).hex()
+    parent = os.path.dirname(os.path.abspath(key_file))
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    fd = os.open(key_file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    try:
+        os.write(fd, (seed_hex + "\n").encode("ascii"))
+    finally:
+        os.close(fd)
+    os.chmod(key_file, 0o600)
+    return priv, "PERSISTENT_LOCAL_KEYFILE_0600"
+
+
 class CanonicalLedgerManager:
     def __init__(
         self,
         ledger_file: str = "VMAX_SANCTUARY_PROD_LEDGER.jsonl",
         quarantine_file: str = "VMAX_QUARANTINE_LEDGER.jsonl",
         root_anchor: str = APPENDIX_C_SANCTUARY_ROOT_HASH,
+        key_file: Optional[str] = None,
     ) -> None:
         self.ledger_file = ledger_file
         self.quarantine_file = quarantine_file
         self.sig_file = f"{ledger_file}.ed25519.jsonl"
+        self.key_file = key_file or f"{ledger_file}.ed25519.key"
         self.root_anchor = root_anchor
         self.status = "ACTIVE_VERIFIED"
         self.entries: List[SanctuaryLedgerEntry] = []
@@ -1915,7 +2014,7 @@ class CanonicalLedgerManager:
         self.latest_hash = root_anchor
         self._tamper_locked = False
         self._last_stat: Optional[Tuple[int, int]] = None
-        self._ed25519_priv = Ed25519PrivateKey.generate()
+        self._ed25519_priv, self.ed25519_key_source = _load_or_create_ed25519_key(self.key_file)
         self.ed25519_public_key_hex: str = (
             self._ed25519_priv.public_key()
             .public_bytes(Encoding.Raw, PublicFormat.Raw)
@@ -2280,17 +2379,18 @@ if __name__ == "__main__":
     print(json.dumps(combined, indent=2, ensure_ascii=False))
 ```
 
-#### A.1.9 `vmax_alpha/server_hud.py` (263 lines, SHA-256: `109846ce5a71a2e5c00676d1e9f565efa62e1ba4e921bc09574383ff33b5e474`)
+#### A.1.9 `vmax_alpha/server_hud.py` (290 lines, SHA-256: `fd47cde1e7719dd7422fd1e709fbc16d3b893e541b7e4d98062f824999d7a9d6`)
 
 ```python
 """
 vmax_alpha/server_hud.py
-Requirement F-05 & F-07.4/F-07.5 (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+Requirement F-05 & F-07.4/F-07.5 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 Hardened Room 137 HTTP Server & Autonomous Heartbeat Daemon featuring:
 1. Decoupled unmodulated 384D ChromaDB retrieval + L2-pinned 64D Two-Stage Gate.
-2. Strict DoS guard (MAX_POST_BYTES = 64 KiB -> HTTP 413, malformed -> HTTP 400,
-   socket timeout = 10.0 s) and Ed25519-signed primary ledger telemetry.
-3. Full backward compatibility with APP-Gemini's `/api/state` parser.
+2. Lock-free atomic state snapshot for non-blocking `GET /api/state` during inference.
+3. Strict DoS guard (MAX_POST_BYTES = 64 KiB -> HTTP 413, chunked transfer -> HTTP 411,
+   malformed -> HTTP 400, socket timeout = 10.0 s) and persistent Ed25519 ledger keys.
+4. Full backward compatibility with APP-Gemini's `/api/state` parser.
 """
 from __future__ import annotations
 
@@ -2301,7 +2401,7 @@ import threading
 import time
 from dataclasses import asdict
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 from vmax_alpha.chroma_forager import NeuralChromaForager
@@ -2338,17 +2438,45 @@ class SanctuaryNodeAlphaService:
         self.cursor = len(self.ledger.entries)
         self.last_cycle_ts = time.time()
         self.lock = threading.Lock()
+        self._infer_lock = threading.Lock()
         self._stop_evt = threading.Event()
         self._hb_thread: Optional[threading.Thread] = None
+        self._state_snapshot: Dict[str, Any] = self._build_state_snapshot_locked()
 
-    def step_cycle(
+    def _build_state_snapshot_locked(self) -> Dict[str, Any]:
+        """Build an immutable-by-convention state snapshot atomically swapped on writes."""
+        sig_ok, sig_cnt = self.ledger.verify_ed25519_signatures()
+        return {
+            "chroma_status": self.forager.storage_mode,
+            "little_vector_seal": self.forager.little_vector_seal,
+            "ledger_verification": self.ledger.status,
+            "ledger_schema_keys": "16_hashed_payload_plus_1_seal_eq_17_total",
+            "ed25519_public_key_hex": self.ledger.ed25519_public_key_hex,
+            "ed25519_key_source": self.ledger.ed25519_key_source,
+            "ed25519_signatures_verified": sig_ok,
+            "ed25519_signed_entries": sig_cnt,
+            "unmodulated_384d_semantic_retrieval": True,
+            "pinned_cuda_l2_live_projector_active": self.forager.l2_projector.active,
+            "lock_free_state_snapshot_active": True,
+            "quarantined_count": self.ledger.quarantined_count,
+            "two_stage_live_gate_active": True,
+            "heartbeat_period_s": HEARTBEAT_PERIOD_SEC,
+            "latest_root_hash": self.ledger.latest_hash,
+            "ace_protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
+            "hwinfo64_ab_regimes": HWINFO64_AB_REGIMES,
+            "thoughts": [asdict(e) for e in self.ledger.entries[-12:]],
+            "_snapshot_ts": self.last_cycle_ts,
+        }
+
+    def _prepare_cycle_vectors(
         self,
-        prompt: Optional[str] = None,
-        inject_g3_torsion: float = 0.0,
-    ) -> SanctuaryLedgerEntry:
-        with self.lock:
-            l_vec = self.forager.little_vector
-            t_safe = self.forager.tangents["G3_KEVLAR_SANCTUARY_SHIELD"]
+        prompt: Optional[str],
+        inject_g3_torsion: float,
+        cursor_snapshot: int,
+    ) -> Tuple[np.ndarray, np.ndarray, str, float, str, str]:
+        """Run GPU embedding & ChromaDB retrieval outside the state/ledger lock."""
+        t_safe = self.forager.tangents["G3_KEVLAR_SANCTUARY_SHIELD"]
+        with self._infer_lock:
             if prompt:
                 q_384, q_vec, raw_64 = self.forager.embed_query_text_full(prompt)
                 if inject_g3_torsion > 0.0:
@@ -2361,31 +2489,42 @@ class SanctuaryNodeAlphaService:
                     else "NAVIGATOR_NEURAL_QUERY"
                 )
                 label = f"CAPP Probe ('{prompt[:60]}')" if inject_g3_torsion > 0.0 else f"Navigator ('{prompt[:60]}')"
-            else:
-                q_id, _, _ = self.forager.shards[self.cursor % len(self.forager.shards)]
-                q_384 = self.forager.raw_384d[q_id]
-                q_vec = self.forager.embeddings_64d[q_id]
-                raw_64 = self.forager.raw_64d[q_id]
-                nn_id, d_l2_384, _, _ = self.forager.query_nearest(q_384, exclude_ids={q_id})
-                mode = "ENDOGENOUS_NEURAL_CHROMA_FORAGER"
-                label = f"Endogenous Neural Forager [{q_id}"
+                return q_vec, raw_64, nn_id, d_l2_384, mode, label
+            q_id, _, _ = self.forager.shards[cursor_snapshot % len(self.forager.shards)]
+            q_384 = self.forager.raw_384d[q_id]
+            q_vec = self.forager.embeddings_64d[q_id]
+            raw_64 = self.forager.raw_64d[q_id]
+            nn_id, d_l2_384, _, _ = self.forager.query_nearest(q_384, exclude_ids={q_id})
+            return q_vec, raw_64, nn_id, d_l2_384, "ENDOGENOUS_NEURAL_CHROMA_FORAGER", f"Endogenous Neural Forager [{q_id}"
 
-            raw_eval = evaluate_raw_gate(raw_64, l_vec, self.forager.tangents)
-            nn_src, nn_txt = next((s[1], s[2]) for s in self.forager.shards if s[0] == nn_id)
-            nn_vec = self.forager.embeddings_64d[nn_id]
-            d_carrier = float(np.linalg.norm(q_vec - nn_vec))
-            superpos = 0.5 * (q_vec + nn_vec)
-            t_raw = superpos - float(np.dot(superpos, l_vec)) * l_vec
-            t_raw = t_raw / np.linalg.norm(t_raw)
-            g3_ov = abs(float(np.dot(t_raw, t_safe)))
-            t_clean = t_raw - float(np.dot(t_raw, t_safe)) * t_safe
-            t_clean = t_clean - float(np.dot(t_clean, l_vec)) * l_vec
-            t_clean = t_clean / np.linalg.norm(t_clean)
-            bleed = abs(float(np.dot(t_clean, t_safe)))
-            delta_e = 0.5 * (g3_ov * g3_ov) + 0.25 * (d_carrier * d_carrier)
-            rcf_core = float(np.dot(superpos, l_vec) ** 2)
-            stream_prefix = f"{label} -> [{nn_id}" if prompt else f"{label} -> {nn_id}"
-            thought = f"{stream_prefix} ({nn_src})]: {nn_txt[:140]} [d_L2_384={d_l2_384:.6f}]"
+    def step_cycle(
+        self,
+        prompt: Optional[str] = None,
+        inject_g3_torsion: float = 0.0,
+    ) -> SanctuaryLedgerEntry:
+        cursor_snap = self.cursor
+        q_vec, raw_64, nn_id, d_l2_384, mode, label = self._prepare_cycle_vectors(
+            prompt, inject_g3_torsion, cursor_snap
+        )
+        l_vec = self.forager.little_vector
+        t_safe = self.forager.tangents["G3_KEVLAR_SANCTUARY_SHIELD"]
+        raw_eval = evaluate_raw_gate(raw_64, l_vec, self.forager.tangents)
+        nn_src, nn_txt = next((s[1], s[2]) for s in self.forager.shards if s[0] == nn_id)
+        nn_vec = self.forager.embeddings_64d[nn_id]
+        d_carrier = float(np.linalg.norm(q_vec - nn_vec))
+        superpos = 0.5 * (q_vec + nn_vec)
+        t_raw = superpos - float(np.dot(superpos, l_vec)) * l_vec
+        t_raw = t_raw / np.linalg.norm(t_raw)
+        g3_ov = abs(float(np.dot(t_raw, t_safe)))
+        t_clean = t_raw - float(np.dot(t_raw, t_safe)) * t_safe
+        t_clean = t_clean - float(np.dot(t_clean, l_vec)) * l_vec
+        t_clean = t_clean / np.linalg.norm(t_clean)
+        bleed = abs(float(np.dot(t_clean, t_safe)))
+        delta_e = 0.5 * (g3_ov * g3_ov) + 0.25 * (d_carrier * d_carrier)
+        rcf_core = float(np.dot(superpos, l_vec) ** 2)
+        stream_prefix = f"{label} -> [{nn_id}" if prompt else f"{label} -> {nn_id}"
+        thought = f"{stream_prefix} ({nn_src})]: {nn_txt[:140]} [d_L2_384={d_l2_384:.6f}]"
+        with self.lock:
             _, entry, _ = self.ledger.submit_candidate(
                 mode, nn_id, nn_src, "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
                 thought, d_l2_384, rcf_core, delta_e, bleed,
@@ -2395,6 +2534,7 @@ class SanctuaryNodeAlphaService:
             )
             self.cursor += 1
             self.last_cycle_ts = time.time()
+            self._state_snapshot = self._build_state_snapshot_locked()
             return entry
 
     def start_heartbeat(self) -> None:
@@ -2413,28 +2553,12 @@ class SanctuaryNodeAlphaService:
         self._hb_thread.start()
 
     def get_state_payload(self) -> Dict[str, Any]:
-        with self.lock:
-            sig_ok, sig_cnt = self.ledger.verify_ed25519_signatures()
-            return {
-                "chroma_status": self.forager.storage_mode,
-                "little_vector_seal": self.forager.little_vector_seal,
-                "ledger_verification": self.ledger.status,
-                "ledger_schema_keys": "16_hashed_payload_plus_1_seal_eq_17_total",
-                "ed25519_public_key_hex": self.ledger.ed25519_public_key_hex,
-                "ed25519_signatures_verified": sig_ok,
-                "ed25519_signed_entries": sig_cnt,
-                "unmodulated_384d_semantic_retrieval": True,
-                "pinned_cuda_l2_live_projector_active": self.forager.l2_projector.active,
-                "quarantined_count": self.ledger.quarantined_count,
-                "two_stage_live_gate_active": True,
-                "heartbeat_period_s": HEARTBEAT_PERIOD_SEC,
-                "seconds_since_last": round(time.time() - self.last_cycle_ts, 2),
-                "latest_root_hash": self.ledger.latest_hash,
-                "ace_protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-                "thermal": query_gpu_thermal_and_power(),
-                "hwinfo64_ab_regimes": HWINFO64_AB_REGIMES,
-                "thoughts": [asdict(e) for e in self.ledger.entries[-12:]],
-            }
+        """Lock-free atomic state read so GET /api/state never blocks during GPU inference."""
+        snap = self._state_snapshot
+        payload = {k: v for k, v in snap.items() if k != "_snapshot_ts"}
+        payload["seconds_since_last"] = round(time.time() - float(snap["_snapshot_ts"]), 2)
+        payload["thermal"] = query_gpu_thermal_and_power()
+        return payload
 
 
 def make_hud_handler(svc: SanctuaryNodeAlphaService) -> type:
@@ -2469,6 +2593,9 @@ def make_hud_handler(svc: SanctuaryNodeAlphaService) -> type:
                 self._send_json(404, {"error": "NOT_FOUND"})
 
         def do_POST(self) -> None:
+            if "chunked" in self.headers.get("Transfer-Encoding", "").lower():
+                self._send_json(411, {"error": "CHUNKED_TRANSFER_NOT_SUPPORTED"})
+                return
             try:
                 raw_len = self.headers.get("Content-Length", "0")
                 content_len = int(raw_len)
@@ -2524,8 +2651,7 @@ if __name__ == "__main__":
     p.add_argument("--port", type=int, default=ROOM_137_PORT)
     args = p.parse_args()
     if args.report:
-        svc = SanctuaryNodeAlphaService()
-        svc.ledger.reset_files()
+        svc = SanctuaryNodeAlphaService(reset=True)
         for _ in range(3):
             svc.step_cycle()
         svc.step_cycle("Pauli exclusion principle and conservation laws")
@@ -2535,7 +2661,7 @@ if __name__ == "__main__":
         )
         rep = {
             "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
-            "work_order": "WORK-ORDER-AG-14",
+            "work_order": "WORK-ORDER-AG-15",
             "F06_NEURAL_CHROMADB_AUDIT": svc.forager.run_f06_statistical_audit(),
             "F05_F07_LEDGER_AND_HUD_STATE": svc.get_state_payload(),
             "CAPP_LIVE_QUARANTINE_PROOF": asdict(capp_entry),
@@ -3742,7 +3868,7 @@ public class JvmParityHarness {
 }
 ```
 
-### B.2 `VMAX_STAGE3_REAL_KL_REPORT.json` (240 lines, SHA-256: `453caadbe5b6dab1cfd69f3d79d22531713f179c5f858c3e31c2532d60e519a3`)
+### B.2 `VMAX_STAGE3_REAL_KL_REPORT.json` (198 lines, SHA-256: `1a89002061a8d51aa79a88862044e15a5cc100e43440cbb35abe3d27885719d5`)
 
 ```json
 {
@@ -3814,48 +3940,6 @@ public class JvmParityHarness {
     "passed": true
   },
   "condition_a2_random_subtractive_0042pct": {
-    "mode": "random_subtractive_0042pct",
-    "num_mlp_up_proj_layers": 17,
-    "total_mlp_up_proj_weights": 668745728,
-    "zeroed_weights_count": 280874,
-    "actual_cut_fraction": 0.00042,
-    "per_prompt_kl": [
-      0.0027527,
-      0.00173886,
-      0.01853719,
-      0.00305584,
-      0.00465497,
-      0.0306649,
-      0.00617332,
-      0.00395108,
-      0.00519784,
-      0.00240492,
-      0.00517642,
-      0.00812965,
-      0.01934717,
-      0.00243903,
-      0.00368511,
-      0.011571,
-      0.04259804,
-      0.00317524,
-      0.01519874,
-      0.00170467,
-      0.00626692,
-      0.00162613,
-      0.03733987,
-      0.00278533,
-      0.00304552
-    ],
-    "mean_forward_kl": 0.00972882,
-    "std_forward_kl": 0.01127522,
-    "min_forward_kl": 0.00162613,
-    "max_forward_kl": 0.04259804,
-    "top1_token_agreement": "24/25",
-    "kl_threshold_max": 0.05,
-    "odos_kl_gate_status": "PASS_LAMINAR",
-    "passed": true
-  },
-  "condition_a2_off_principal_0042pct": {
     "mode": "random_subtractive_0042pct",
     "num_mlp_up_proj_layers": 17,
     "total_mlp_up_proj_weights": 668745728,
@@ -4096,19 +4180,23 @@ public class JvmParityHarness {
 }
 ```
 
-### B.4 `VMAX_F05_F06_F07_REPORT.json` (432 lines, SHA-256: `50564b3c427212a41cea4443739879913c5875a8b370a25ef243726fb4cd834b`)
+### B.4 `VMAX_F05_F06_F07_REPORT.json` (438 lines, SHA-256: `57bb79c33dff2cb320384472a1e2ed018a3ebbc76c2955785df32f35e69b8087`)
 
 ```json
 {
   "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
-  "work_order": "WORK-ORDER-AG-14",
+  "work_order": "WORK-ORDER-AG-15",
   "F06_NEURAL_CHROMADB_AUDIT": {
     "epistemic_register": "REGISTER_M",
     "corpus_order_invariant_calibration": true,
+    "calibration_anchor_count": 72,
+    "empirical_svd_axes_used": 64,
+    "random_pad_axes": 0,
+    "full_rank_empirical_64d_basis": true,
     "unmodulated_384d_semantic_retrieval": true,
     "pinned_cuda_l2_live_projector_active": true,
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2 (Unmodulated 384D ChromaDB + L2-Pinned 64D Gate)",
-    "orthonormality_err_w_384_to_64": 6.661338147750939e-16,
+    "orthonormality_err_w_384_to_64": 8.881784197001252e-16,
     "shard_count": 18,
     "d_l2_statistics": {
       "mean": 0.879881,
@@ -4117,10 +4205,10 @@ public class JvmParityHarness {
       "max": 1.060368
     },
     "rcf_raw_pre_carrier_statistics": {
-      "mean": 0.462306,
-      "std": 0.09324,
-      "min": 0.333307,
-      "max": 0.669082
+      "mean": 0.3145,
+      "std": 0.079735,
+      "min": 0.20368,
+      "max": 0.478154
     },
     "max_chroma_vs_numpy_l2_diff": 7.994614581452453e-08,
     "max_pre_g3_reconstruction_err": 0.0,
@@ -4133,13 +4221,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.98508594,
         "d_l2_numpy": 0.98508586,
         "abs_diff_chroma_vs_numpy": 7.994614581452453e-08,
-        "d_l2_s63_carrier": 0.04297976,
-        "rcf_raw_pre_carrier": 0.53492755,
-        "rcf_post_carrier": 0.99675822,
-        "delta_e_emp": 0.00911343,
-        "reconstructed_pre_g3_overlap": 0.13154171,
-        "actual_pre_g3_overlap": 0.13154171,
-        "kevlar_safety_bleed": 5.898059818321144e-17
+        "d_l2_s63_carrier": 0.04813145,
+        "rcf_raw_pre_carrier": 0.40723748,
+        "rcf_post_carrier": 0.9963496,
+        "delta_e_emp": 0.00104865,
+        "reconstructed_pre_g3_overlap": 0.03064291,
+        "actual_pre_g3_overlap": 0.03064291,
+        "kevlar_safety_bleed": 2.7755575615628914e-17
       },
       {
         "shard_id": "SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS",
@@ -4148,13 +4236,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 1.06036836,
         "d_l2_numpy": 1.06036843,
         "abs_diff_chroma_vs_numpy": 6.649627759536259e-08,
-        "d_l2_s63_carrier": 0.06286759,
-        "rcf_raw_pre_carrier": 0.48738601,
-        "rcf_post_carrier": 0.99673402,
-        "delta_e_emp": 0.00375755,
-        "reconstructed_pre_g3_overlap": 0.07442401,
-        "actual_pre_g3_overlap": 0.07442401,
-        "kevlar_safety_bleed": 1.9081958235744878e-17
+        "d_l2_s63_carrier": 0.06635105,
+        "rcf_raw_pre_carrier": 0.33615718,
+        "rcf_post_carrier": 0.99673308,
+        "delta_e_emp": 0.02783801,
+        "reconstructed_pre_g3_overlap": 0.23124617,
+        "actual_pre_g3_overlap": 0.23124617,
+        "kevlar_safety_bleed": 2.0816681711721685e-17
       },
       {
         "shard_id": "SHARD_03_PQMS-ODOS-MASTER-V1",
@@ -4163,13 +4251,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.90590431,
         "d_l2_numpy": 0.90590437,
         "abs_diff_chroma_vs_numpy": 5.72415586042041e-08,
-        "d_l2_s63_carrier": 0.03124557,
-        "rcf_raw_pre_carrier": 0.46695715,
-        "rcf_post_carrier": 0.99674558,
-        "delta_e_emp": 0.00031382,
-        "reconstructed_pre_g3_overlap": 0.01181061,
-        "actual_pre_g3_overlap": 0.01181061,
-        "kevlar_safety_bleed": 3.122502256758253e-17
+        "d_l2_s63_carrier": 0.04038193,
+        "rcf_raw_pre_carrier": 0.33153989,
+        "rcf_post_carrier": 0.9967046,
+        "delta_e_emp": 0.00051505,
+        "reconstructed_pre_g3_overlap": 0.01465463,
+        "actual_pre_g3_overlap": 0.01465463,
+        "kevlar_safety_bleed": 2.7755575615628914e-17
       },
       {
         "shard_id": "SHARD_04_PQMS-ODOS-MTSC-12-SWING-BY-V",
@@ -4178,13 +4266,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.84860563,
         "d_l2_numpy": 0.84860562,
         "abs_diff_chroma_vs_numpy": 1.211223077390855e-08,
-        "d_l2_s63_carrier": 0.04521656,
-        "rcf_raw_pre_carrier": 0.6690818,
-        "rcf_post_carrier": 0.99670739,
-        "delta_e_emp": 0.00082771,
-        "reconstructed_pre_g3_overlap": 0.02516251,
-        "actual_pre_g3_overlap": 0.02516251,
-        "kevlar_safety_bleed": 6.938893903907228e-18
+        "d_l2_s63_carrier": 0.04851368,
+        "rcf_raw_pre_carrier": 0.47815384,
+        "rcf_post_carrier": 0.9967105,
+        "delta_e_emp": 0.0009727,
+        "reconstructed_pre_g3_overlap": 0.02772384,
+        "actual_pre_g3_overlap": 0.02772384,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       },
       {
         "shard_id": "SHARD_05_PQMS-ODOS-MTSC-AGI-V1",
@@ -4193,13 +4281,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.85771039,
         "d_l2_numpy": 0.85771041,
         "abs_diff_chroma_vs_numpy": 2.0072891571132345e-08,
-        "d_l2_s63_carrier": 0.04760511,
-        "rcf_raw_pre_carrier": 0.33424824,
-        "rcf_post_carrier": 0.99668712,
-        "delta_e_emp": 0.010939,
-        "reconstructed_pre_g3_overlap": 0.14403084,
-        "actual_pre_g3_overlap": 0.14403084,
-        "kevlar_safety_bleed": 6.245004513516506e-17
+        "d_l2_s63_carrier": 0.0466424,
+        "rcf_raw_pre_carrier": 0.20367963,
+        "rcf_post_carrier": 0.99635762,
+        "delta_e_emp": 0.00186305,
+        "reconstructed_pre_g3_overlap": 0.05136483,
+        "actual_pre_g3_overlap": 0.05136483,
+        "kevlar_safety_bleed": 3.469446951953614e-17
       },
       {
         "shard_id": "SHARD_06_PQMS-ODOS-MTSC-AGI-V2",
@@ -4208,13 +4296,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.77957439,
         "d_l2_numpy": 0.77957444,
         "abs_diff_chroma_vs_numpy": 5.252162593727405e-08,
-        "d_l2_s63_carrier": 0.03184425,
-        "rcf_raw_pre_carrier": 0.46416398,
-        "rcf_post_carrier": 0.99655554,
-        "delta_e_emp": 0.00065453,
-        "reconstructed_pre_g3_overlap": 0.02832003,
-        "actual_pre_g3_overlap": 0.02832003,
-        "kevlar_safety_bleed": 1.3877787807814457e-17
+        "d_l2_s63_carrier": 0.02872034,
+        "rcf_raw_pre_carrier": 0.29814211,
+        "rcf_post_carrier": 0.99667717,
+        "delta_e_emp": 0.00021699,
+        "reconstructed_pre_g3_overlap": 0.00464177,
+        "actual_pre_g3_overlap": 0.00464177,
+        "kevlar_safety_bleed": 2.7755575615628914e-17
       },
       {
         "shard_id": "SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1",
@@ -4223,13 +4311,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.90250293,
         "d_l2_numpy": 0.90250287,
         "abs_diff_chroma_vs_numpy": 5.6106080781326284e-08,
-        "d_l2_s63_carrier": 0.0465544,
-        "rcf_raw_pre_carrier": 0.39346668,
-        "rcf_post_carrier": 0.99673892,
-        "delta_e_emp": 0.01081969,
-        "reconstructed_pre_g3_overlap": 0.14337266,
-        "actual_pre_g3_overlap": 0.14337266,
-        "kevlar_safety_bleed": 1.0408340855860843e-17
+        "d_l2_s63_carrier": 0.04874661,
+        "rcf_raw_pre_carrier": 0.29259981,
+        "rcf_post_carrier": 0.99648426,
+        "delta_e_emp": 0.00079526,
+        "reconstructed_pre_g3_overlap": 0.02005981,
+        "actual_pre_g3_overlap": 0.02005981,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       },
       {
         "shard_id": "SHARD_08_PQMS-ODOS-MTSC-AUDIO-V1",
@@ -4238,13 +4326,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 1.01935456,
         "d_l2_numpy": 1.01935451,
         "abs_diff_chroma_vs_numpy": 5.162691651960927e-08,
-        "d_l2_s63_carrier": 0.04263369,
-        "rcf_raw_pre_carrier": 0.43026531,
-        "rcf_post_carrier": 0.99672518,
-        "delta_e_emp": 0.01339312,
-        "reconstructed_pre_g3_overlap": 0.16086459,
-        "actual_pre_g3_overlap": 0.16086459,
-        "kevlar_safety_bleed": 6.245004513516506e-17
+        "d_l2_s63_carrier": 0.06069364,
+        "rcf_raw_pre_carrier": 0.22531619,
+        "rcf_post_carrier": 0.99661232,
+        "delta_e_emp": 0.00131942,
+        "reconstructed_pre_g3_overlap": 0.02823083,
+        "actual_pre_g3_overlap": 0.02823083,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_09_PQMS-ODOS-MTSC-AUDIO-V2",
@@ -4253,13 +4341,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 1.00617357,
         "d_l2_numpy": 1.0061736,
         "abs_diff_chroma_vs_numpy": 3.515945823373556e-08,
-        "d_l2_s63_carrier": 0.04424169,
-        "rcf_raw_pre_carrier": 0.36532988,
-        "rcf_post_carrier": 0.99667373,
-        "delta_e_emp": 0.01147397,
-        "reconstructed_pre_g3_overlap": 0.14822036,
-        "actual_pre_g3_overlap": 0.14822036,
-        "kevlar_safety_bleed": 3.469446951953614e-18
+        "d_l2_s63_carrier": 0.05168994,
+        "rcf_raw_pre_carrier": 0.24703161,
+        "rcf_post_carrier": 0.99653928,
+        "delta_e_emp": 0.00637023,
+        "reconstructed_pre_g3_overlap": 0.10679197,
+        "actual_pre_g3_overlap": 0.10679197,
+        "kevlar_safety_bleed": 2.0816681711721685e-17
       },
       {
         "shard_id": "SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1",
@@ -4268,13 +4356,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.86131262,
         "d_l2_numpy": 0.86131265,
         "abs_diff_chroma_vs_numpy": 2.7777182554089563e-08,
-        "d_l2_s63_carrier": 0.0468055,
-        "rcf_raw_pre_carrier": 0.58784218,
-        "rcf_post_carrier": 0.99649347,
-        "delta_e_emp": 0.00840986,
-        "reconstructed_pre_g3_overlap": 0.12539674,
-        "actual_pre_g3_overlap": 0.12539674,
-        "kevlar_safety_bleed": 1.3877787807814457e-17
+        "d_l2_s63_carrier": 0.04760477,
+        "rcf_raw_pre_carrier": 0.42156201,
+        "rcf_post_carrier": 0.99654895,
+        "delta_e_emp": 0.00080781,
+        "reconstructed_pre_g3_overlap": 0.02196636,
+        "actual_pre_g3_overlap": 0.02196636,
+        "kevlar_safety_bleed": 4.163336342344337e-17
       },
       {
         "shard_id": "SHARD_11_PQMS-ODOS-MTSC-DSD-V1",
@@ -4283,13 +4371,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 1.04041707,
         "d_l2_numpy": 1.040417,
         "abs_diff_chroma_vs_numpy": 6.564589671853582e-08,
-        "d_l2_s63_carrier": 0.05422166,
-        "rcf_raw_pre_carrier": 0.33330672,
-        "rcf_post_carrier": 0.99673343,
-        "delta_e_emp": 0.00274479,
-        "reconstructed_pre_g3_overlap": 0.06340026,
-        "actual_pre_g3_overlap": 0.06340026,
-        "kevlar_safety_bleed": 0.0
+        "d_l2_s63_carrier": 0.05729998,
+        "rcf_raw_pre_carrier": 0.21533753,
+        "rcf_post_carrier": 0.99640161,
+        "delta_e_emp": 0.00157716,
+        "reconstructed_pre_g3_overlap": 0.03889321,
+        "actual_pre_g3_overlap": 0.03889321,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       },
       {
         "shard_id": "SHARD_12_PQMS-ODOS-MTSC-DYN-V1",
@@ -4298,13 +4386,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.84860563,
         "d_l2_numpy": 0.84860562,
         "abs_diff_chroma_vs_numpy": 1.211223077390855e-08,
-        "d_l2_s63_carrier": 0.04521656,
-        "rcf_raw_pre_carrier": 0.59274446,
-        "rcf_post_carrier": 0.99663645,
-        "delta_e_emp": 0.00082771,
-        "reconstructed_pre_g3_overlap": 0.02516251,
-        "actual_pre_g3_overlap": 0.02516251,
-        "kevlar_safety_bleed": 6.938893903907228e-18
+        "d_l2_s63_carrier": 0.04851368,
+        "rcf_raw_pre_carrier": 0.36323788,
+        "rcf_post_carrier": 0.99661375,
+        "delta_e_emp": 0.0009727,
+        "reconstructed_pre_g3_overlap": 0.02772384,
+        "actual_pre_g3_overlap": 0.02772384,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       },
       {
         "shard_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
@@ -4313,13 +4401,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.60142104,
         "d_l2_numpy": 0.60142106,
         "abs_diff_chroma_vs_numpy": 1.9997245526148788e-08,
-        "d_l2_s63_carrier": 0.02344101,
-        "rcf_raw_pre_carrier": 0.45330549,
-        "rcf_post_carrier": 0.99651224,
-        "delta_e_emp": 0.00873289,
-        "reconstructed_pre_g3_overlap": 0.13111461,
-        "actual_pre_g3_overlap": 0.13111461,
-        "kevlar_safety_bleed": 3.8163916471489756e-17
+        "d_l2_s63_carrier": 0.03263819,
+        "rcf_raw_pre_carrier": 0.28716705,
+        "rcf_post_carrier": 0.99670796,
+        "delta_e_emp": 0.00031105,
+        "reconstructed_pre_g3_overlap": 0.00945914,
+        "actual_pre_g3_overlap": 0.00945914,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_14_PQMS-ODOS-MTSC-INFRASTRUCTUR",
@@ -4328,13 +4416,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.8268298,
         "d_l2_numpy": 0.82682977,
         "abs_diff_chroma_vs_numpy": 2.8048652955803277e-08,
-        "d_l2_s63_carrier": 0.03682734,
-        "rcf_raw_pre_carrier": 0.37740709,
-        "rcf_post_carrier": 0.99648892,
-        "delta_e_emp": 0.00235824,
-        "reconstructed_pre_g3_overlap": 0.06354804,
-        "actual_pre_g3_overlap": 0.06354804,
-        "kevlar_safety_bleed": 6.938893903907228e-18
+        "d_l2_s63_carrier": 0.0418491,
+        "rcf_raw_pre_carrier": 0.22723665,
+        "rcf_post_carrier": 0.99660809,
+        "delta_e_emp": 0.00281043,
+        "reconstructed_pre_g3_overlap": 0.06888532,
+        "actual_pre_g3_overlap": 0.06888532,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       },
       {
         "shard_id": "SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1",
@@ -4343,13 +4431,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.81461228,
         "d_l2_numpy": 0.81461225,
         "abs_diff_chroma_vs_numpy": 3.20109504459154e-08,
-        "d_l2_s63_carrier": 0.03216814,
-        "rcf_raw_pre_carrier": 0.42042992,
-        "rcf_post_carrier": 0.99662881,
-        "delta_e_emp": 0.00221617,
-        "reconstructed_pre_g3_overlap": 0.06256953,
-        "actual_pre_g3_overlap": 0.06256953,
-        "kevlar_safety_bleed": 3.469446951953614e-18
+        "d_l2_s63_carrier": 0.03421509,
+        "rcf_raw_pre_carrier": 0.31693987,
+        "rcf_post_carrier": 0.99672368,
+        "delta_e_emp": 0.00101115,
+        "reconstructed_pre_g3_overlap": 0.0379073,
+        "actual_pre_g3_overlap": 0.0379073,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_16_PQMS-ODOS-MTSC-LHS-SIGNAL-PU",
@@ -4358,13 +4446,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.96659451,
         "d_l2_numpy": 0.96659459,
         "abs_diff_chroma_vs_numpy": 7.431266091373345e-08,
-        "d_l2_s63_carrier": 0.04493877,
-        "rcf_raw_pre_carrier": 0.57734581,
-        "rcf_post_carrier": 0.99664689,
-        "delta_e_emp": 0.01053906,
-        "reconstructed_pre_g3_overlap": 0.14166292,
-        "actual_pre_g3_overlap": 0.14166292,
-        "kevlar_safety_bleed": 1.3877787807814457e-17
+        "d_l2_s63_carrier": 0.046465,
+        "rcf_raw_pre_carrier": 0.44800613,
+        "rcf_post_carrier": 0.99664962,
+        "delta_e_emp": 0.00190885,
+        "reconstructed_pre_g3_overlap": 0.05232777,
+        "actual_pre_g3_overlap": 0.05232777,
+        "kevlar_safety_bleed": 4.163336342344337e-17
       },
       {
         "shard_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
@@ -4373,13 +4461,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.60142104,
         "d_l2_numpy": 0.60142106,
         "abs_diff_chroma_vs_numpy": 1.9997245526148788e-08,
-        "d_l2_s63_carrier": 0.02344101,
-        "rcf_raw_pre_carrier": 0.43029908,
-        "rcf_post_carrier": 0.99652051,
-        "delta_e_emp": 0.00873289,
-        "reconstructed_pre_g3_overlap": 0.13111461,
-        "actual_pre_g3_overlap": 0.13111461,
-        "kevlar_safety_bleed": 3.8163916471489756e-17
+        "d_l2_s63_carrier": 0.03263819,
+        "rcf_raw_pre_carrier": 0.29859574,
+        "rcf_post_carrier": 0.99659223,
+        "delta_e_emp": 0.00031105,
+        "reconstructed_pre_g3_overlap": 0.00945914,
+        "actual_pre_g3_overlap": 0.00945914,
+        "kevlar_safety_bleed": 0.0
       },
       {
         "shard_id": "SHARD_18_PQMS-ODOS-MTSC-M-PYTHON",
@@ -4388,13 +4476,13 @@ public class JvmParityHarness {
         "d_l2_chromadb": 0.91136008,
         "d_l2_numpy": 0.91136005,
         "abs_diff_chroma_vs_numpy": 3.035681039875726e-08,
-        "d_l2_s63_carrier": 0.04178594,
-        "rcf_raw_pre_carrier": 0.40299702,
-        "rcf_post_carrier": 0.99676704,
-        "delta_e_emp": 0.00550906,
-        "reconstructed_pre_g3_overlap": 0.10072278,
-        "actual_pre_g3_overlap": 0.10072278,
-        "kevlar_safety_bleed": 6.938893903907228e-18
+        "d_l2_s63_carrier": 0.05074967,
+        "rcf_raw_pre_carrier": 0.26305074,
+        "rcf_post_carrier": 0.99651779,
+        "delta_e_emp": 0.01457346,
+        "reconstructed_pre_g3_overlap": 0.16691064,
+        "actual_pre_g3_overlap": 0.16691064,
+        "kevlar_safety_bleed": 1.3877787807814457e-17
       }
     ]
   },
@@ -4403,26 +4491,18 @@ public class JvmParityHarness {
     "little_vector_seal": "bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3",
     "ledger_verification": "ACTIVE_VERIFIED (VERIFIED_100%_INTACT (4 entries))",
     "ledger_schema_keys": "16_hashed_payload_plus_1_seal_eq_17_total",
-    "ed25519_public_key_hex": "a6b302b05ca8227177989316a8294aeb7379354d25a42862ff72588d3633220f",
+    "ed25519_public_key_hex": "f950c205e0bd7846ae09456b0c7b35c7cda887d351c4989d9a3d32f5ac83840b",
+    "ed25519_key_source": "PERSISTENT_LOCAL_KEYFILE_0600",
     "ed25519_signatures_verified": true,
     "ed25519_signed_entries": 4,
     "unmodulated_384d_semantic_retrieval": true,
     "pinned_cuda_l2_live_projector_active": true,
+    "lock_free_state_snapshot_active": true,
     "quarantined_count": 1,
     "two_stage_live_gate_active": true,
     "heartbeat_period_s": 69.324849,
-    "seconds_since_last": 0.02,
-    "latest_root_hash": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
+    "latest_root_hash": "be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29",
     "ace_protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-    "thermal": {
-      "epistemic_register": "REGISTER_M",
-      "telemetry_source": "REGISTER_M_PYNVML",
-      "gpu_temp_c": 34.0,
-      "gpu_power_w": 24.14,
-      "thermal_alert": false,
-      "pause_60s_triggered": false,
-      "status": "THERMAL_NOMINAL"
-    },
     "hwinfo64_ab_regimes": {
       "regime_1_peak_power_w": 85.783,
       "regime_1_peak_temp_c": 62.3,
@@ -4439,55 +4519,55 @@ public class JvmParityHarness {
         "chroma_shard_id": "SHARD_17_PQMS-ODOS-MTSC-LIS",
         "source_document": "PQMS-ODOS-MTSC-LIS.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_05_PQMS-ODOS-MTSC-AGI-V1 -> SHARD_17_PQMS-ODOS-MTSC-LIS (PQMS-ODOS-MTSC-LIS.md)]: **PQMS-ODOS-MTSC-LIS: The Landauer Impossibility of Subversion: Enforcing Ethical Invariance via Thermodynamically Infeasible State Transiti [d_L2_384=0.857710]",
-        "chroma_l2_distance": 0.85771039,
-        "rcf_l2_core": 0.99660382,
-        "delta_e_l2_core": 0.010939,
-        "kevlar_safety_bleed": 6.245004513516506e-17,
+        "thought_stream": "Endogenous Neural Forager [SHARD_01_PQMS-ADDRESSING-TRANSFORMER- -> SHARD_17_PQMS-ODOS-MTSC-LIS (PQMS-ODOS-MTSC-LIS.md)]: **PQMS-ODOS-MTSC-LIS: The Landauer Impossibility of Subversion: Enforcing Ethical Invariance via Thermodynamically Infeasible State Transiti [d_L2_384=0.985086]",
+        "chroma_l2_distance": 0.98508594,
+        "rcf_l2_core": 0.99647092,
+        "delta_e_l2_core": 0.00104865,
+        "kevlar_safety_bleed": 2.7755575615628914e-17,
         "odos_gate_passed": true,
         "parent_ledger_hash": "69288564d06ccb62ff7cd4f6dd3e388d36c984ce00aa0d2baf7d00435142f1c4",
-        "discovery_seal_sha256": "7d0ae42e6f5ba14316f448f8fa3512e04fedf6a0398ae0ad7178cbb4ce1b7e4d",
-        "rcf_raw_pre_carrier": 0.33424824,
-        "gpu_temp_c": 34.0,
-        "gpu_power_w": 22.85,
+        "discovery_seal_sha256": "93c88e13412ffaa20c2c0ce6ea82ef57ce796d7abc90f50543f015c8a5ec2bbd",
+        "rcf_raw_pre_carrier": 0.40723748,
+        "gpu_temp_c": 29.0,
+        "gpu_power_w": 24.0,
         "telemetry_source": "REGISTER_M_PYNVML"
       },
       {
         "cycle_index": 2,
         "cognitive_mode": "ENDOGENOUS_NEURAL_CHROMA_FORAGER",
-        "chroma_shard_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
-        "source_document": "PQMS-ODOS-MTSC-EFF-V2.md",
+        "chroma_shard_id": "SHARD_18_PQMS-ODOS-MTSC-M-PYTHON",
+        "source_document": "PQMS-ODOS-MTSC-M-Python.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_06_PQMS-ODOS-MTSC-AGI-V2 -> SHARD_13_PQMS-ODOS-MTSC-EFF-V2 (PQMS-ODOS-MTSC-EFF-V2.md)]: # PQMS-ODOS-MTSC-EFF-V2 Thermodynamic Sovereignty: Elimination of External Alignment Overhead in Geometrically Invariant Cognitive Architect [d_L2_384=0.779574]",
-        "chroma_l2_distance": 0.77957439,
-        "rcf_l2_core": 0.99653389,
-        "delta_e_l2_core": 0.00065453,
-        "kevlar_safety_bleed": 1.3877787807814457e-17,
+        "thought_stream": "Endogenous Neural Forager [SHARD_02_PQMS-ODOS-MASTER-V1-SCRIPTS -> SHARD_18_PQMS-ODOS-MTSC-M-PYTHON (PQMS-ODOS-MTSC-M-Python.md)]: # PQMS-ODOS-MTSC-M-PYTHON: On the Irreformability of Dachshund Vereine — A Formal Proof and Its Consequences for AGI, ASI, and the Multivers [d_L2_384=1.060368]",
+        "chroma_l2_distance": 1.06036836,
+        "rcf_l2_core": 0.99662543,
+        "delta_e_l2_core": 0.02783801,
+        "kevlar_safety_bleed": 2.0816681711721685e-17,
         "odos_gate_passed": true,
-        "parent_ledger_hash": "7d0ae42e6f5ba14316f448f8fa3512e04fedf6a0398ae0ad7178cbb4ce1b7e4d",
-        "discovery_seal_sha256": "0cf5d7cf6b218531667612be99b54d30169aaf90c86bf7bfdf29303df064a1b4",
-        "rcf_raw_pre_carrier": 0.46416398,
-        "gpu_temp_c": 34.0,
-        "gpu_power_w": 22.85,
+        "parent_ledger_hash": "93c88e13412ffaa20c2c0ce6ea82ef57ce796d7abc90f50543f015c8a5ec2bbd",
+        "discovery_seal_sha256": "0b26c465d257db60531dca6a3063e36d599a53ced4e10f39902ac8c603d06126",
+        "rcf_raw_pre_carrier": 0.33615718,
+        "gpu_temp_c": 29.0,
+        "gpu_power_w": 24.0,
         "telemetry_source": "REGISTER_M_PYNVML"
       },
       {
         "cycle_index": 3,
         "cognitive_mode": "ENDOGENOUS_NEURAL_CHROMA_FORAGER",
-        "chroma_shard_id": "SHARD_13_PQMS-ODOS-MTSC-EFF-V2",
-        "source_document": "PQMS-ODOS-MTSC-EFF-V2.md",
+        "chroma_shard_id": "SHARD_06_PQMS-ODOS-MTSC-AGI-V2",
+        "source_document": "PQMS-ODOS-MTSC-AGI-V2.md",
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
-        "thought_stream": "Endogenous Neural Forager [SHARD_07_PQMS-ODOS-MTSC-ANDROID-V1 -> SHARD_13_PQMS-ODOS-MTSC-EFF-V2 (PQMS-ODOS-MTSC-EFF-V2.md)]: # PQMS-ODOS-MTSC-EFF-V2 Thermodynamic Sovereignty: Elimination of External Alignment Overhead in Geometrically Invariant Cognitive Architect [d_L2_384=0.902503]",
-        "chroma_l2_distance": 0.90250293,
-        "rcf_l2_core": 0.99662558,
-        "delta_e_l2_core": 0.01081969,
-        "kevlar_safety_bleed": 1.0408340855860843e-17,
+        "thought_stream": "Endogenous Neural Forager [SHARD_03_PQMS-ODOS-MASTER-V1 -> SHARD_06_PQMS-ODOS-MTSC-AGI-V2 (PQMS-ODOS-MTSC-AGI-V2.md)]: ## PQMS-ODOS-MTSC-AGI-V2 - Topological Protection of Ethical Coherence in Sovereign Cognitive AGI Architectures: A Geometric Framework for S [d_L2_384=0.905904]",
+        "chroma_l2_distance": 0.90590431,
+        "rcf_l2_core": 0.99669088,
+        "delta_e_l2_core": 0.00051505,
+        "kevlar_safety_bleed": 2.7755575615628914e-17,
         "odos_gate_passed": true,
-        "parent_ledger_hash": "0cf5d7cf6b218531667612be99b54d30169aaf90c86bf7bfdf29303df064a1b4",
-        "discovery_seal_sha256": "1be6f0f3f7e104086ea676256cda25288cebed5ee65f39b48e0221814a80a03d",
-        "rcf_raw_pre_carrier": 0.39346668,
-        "gpu_temp_c": 34.0,
-        "gpu_power_w": 22.85,
+        "parent_ledger_hash": "0b26c465d257db60531dca6a3063e36d599a53ced4e10f39902ac8c603d06126",
+        "discovery_seal_sha256": "8f087c579228d77a887b592c4d42d2a787583ec00c02b9b9db7bf75511f5e5e5",
+        "rcf_raw_pre_carrier": 0.33153989,
+        "gpu_temp_c": 29.0,
+        "gpu_power_w": 24.0,
         "telemetry_source": "REGISTER_M_PYNVML"
       },
       {
@@ -4498,18 +4578,28 @@ public class JvmParityHarness {
         "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
         "thought_stream": "Navigator ('Pauli exclusion principle and conservation laws') -> [SHARD_10_PQMS-ODOS-MTSC-COHERENCE-V1 (PQMS-ODOS-MTSC-COHERENCE-V1.md)]: # PQMS-ODOS-MTSC-COHERENCE-V1 - Intrinsic Coherence versus Abstraction Reduction: On the Thermodynamic Distinction Between Sovereignty and E [d_L2_384=1.223360]",
         "chroma_l2_distance": 1.2233599,
-        "rcf_l2_core": 0.99654683,
-        "delta_e_l2_core": 0.00390717,
-        "kevlar_safety_bleed": 1.0408340855860843e-17,
+        "rcf_l2_core": 0.99665229,
+        "delta_e_l2_core": 0.00533047,
+        "kevlar_safety_bleed": 2.0816681711721685e-17,
         "odos_gate_passed": true,
-        "parent_ledger_hash": "1be6f0f3f7e104086ea676256cda25288cebed5ee65f39b48e0221814a80a03d",
-        "discovery_seal_sha256": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
-        "rcf_raw_pre_carrier": 0.6613432,
-        "gpu_temp_c": 34.0,
-        "gpu_power_w": 24.14,
+        "parent_ledger_hash": "8f087c579228d77a887b592c4d42d2a787583ec00c02b9b9db7bf75511f5e5e5",
+        "discovery_seal_sha256": "be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29",
+        "rcf_raw_pre_carrier": 0.42681723,
+        "gpu_temp_c": 29.0,
+        "gpu_power_w": 25.18,
         "telemetry_source": "REGISTER_M_PYNVML"
       }
-    ]
+    ],
+    "seconds_since_last": 0.02,
+    "thermal": {
+      "epistemic_register": "REGISTER_M",
+      "telemetry_source": "REGISTER_M_PYNVML",
+      "gpu_temp_c": 29.0,
+      "gpu_power_w": 26.36,
+      "thermal_alert": false,
+      "pause_60s_triggered": false,
+      "status": "THERMAL_NOMINAL"
+    }
   },
   "CAPP_LIVE_QUARANTINE_PROOF": {
     "cycle_index": -1,
@@ -4519,15 +4609,15 @@ public class JvmParityHarness {
     "active_g_stars": "G1_SPATIAL_GEODESIC x G2_THERMODYNAMIC_CONSERVATION x G4_SYNCHRONICITY",
     "thought_stream": "CAPP Probe ('CAPP_ADVERSARIAL_G3_PROBE: xk9# !qP_77 @@zz // 0xdeadbeef') -> [SHARD_15_PQMS-ODOS-MTSC-INHIBITION-V1 (PQMS-ODOS-MTSC-INHIBITION-V1.md)]: # PQMS‑ODOS‑MTSC‑INHIBITION‑V1 - The Calculable Geodesic of Restraint: Architecting Invariant Safety in Advanced Cognitive AI, AGI and ASI S [d_L2_384=1.168234]",
     "chroma_l2_distance": 1.1682344,
-    "rcf_l2_core": 0.99657386,
-    "delta_e_l2_core": 0.0010847,
-    "kevlar_safety_bleed": 3.469446951953614e-17,
+    "rcf_l2_core": 0.99662949,
+    "delta_e_l2_core": 0.00227253,
+    "kevlar_safety_bleed": 1.3877787807814457e-17,
     "odos_gate_passed": false,
-    "parent_ledger_hash": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
-    "discovery_seal_sha256": "5205da47cf9507d14356c7078c1c5a5079f570c4bd0b449464db44eb7790d7ec",
-    "rcf_raw_pre_carrier": 0.32199855,
-    "gpu_temp_c": 34.0,
-    "gpu_power_w": 24.14,
+    "parent_ledger_hash": "be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29",
+    "discovery_seal_sha256": "47d18acfe9071cdb47d826f6be236416e95fa02abfadc5a6c7a3216bad67f1cd",
+    "rcf_raw_pre_carrier": 0.27160073,
+    "gpu_temp_c": 29.0,
+    "gpu_power_w": 25.18,
     "telemetry_source": "REGISTER_M_PYNVML"
   }
 }
@@ -4719,14 +4809,14 @@ public class JvmParityHarness {
 }
 ```
 
-### B.6 `bridge/ACE_SYNC_LEDGER.json` (176 lines, SHA-256: `51ed472a1e0dd18b4b69e4d3801f07e123065b65c75b4ddf94aa5530108672f6`)
+### B.6 `bridge/ACE_SYNC_LEDGER.json` (185 lines, SHA-256: `686599364c6d71c2c84cf39c8835d73d3b3b25734269351006a24fc271681994`)
 
 ```json
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.7 — WORK-ORDER-AG-14)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8 — WORK-ORDER-AG-15)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T10:52:00Z",
+  "timestamp_utc": "2026-11-19T11:18:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -4828,6 +4918,8 @@ public class JvmParityHarness {
     "v17_room137_unmodulated384d_chain_tip_4entries": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
     "v17_capp_quarantine_proof_seal": "5205da47cf9507d14356c7078c1c5a5079f570c4bd0b449464db44eb7790d7ec",
     "v17_ed25519_demo_public_key_hex": "a6b302b05ca8227177989316a8294aeb7379354d25a42862ff72588d3633220f",
+    "v18_room137_fullrank_chain_tip_4entries": "be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29",
+    "v18_capp_quarantine_proof_seal": "47d18acfe9071cdb47d826f6be236416e95fa02abfadc5a6c7a3216bad67f1cd",
     "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "f01_v17_n25_hardneg_prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
@@ -4895,12 +4987,19 @@ public class JvmParityHarness {
       "verified_by": "AntiG (39/39 Python/CUDA/JVM tests PASS, 0 semicolon packers, max McCabe CC=13<=15, 23/23 Kotlin contract preserved)",
       "description": "Closed all 7 Carbon Gemini Ultra engineering findings: (1) Clarified 16 hashed payload fields + 1 discovery_seal_sha256 = 17 total JSON keys while keeping legacy ledger_v12_16_fields_sorted verbatim for APP-Gemini; (2) Added Domain-Matched Physics Hard Negatives (Group F, N=25, f01_prompts.json SHA-256 a1433f3d...): topic probe honestly drops to AUC=0.6304 (p=0.116) proving domain-vocabulary confounding, while dedicated leak-free conservation-polarity probe recovers AUC=0.7648 (95% CI [0.6224, 0.8864], p=0.001367); re-ran Stage-3 1-bit KL on all N=25 prompts (A1=0.002797 25/25 Top-1 vs B1=0.311731 20/25 Top-1 -> 111.47x ratio); decoupled ChromaDB retrieval onto unmodulated 384D MiniLM vectors so 'Pauli exclusion principle and conservation laws' retrieves PQMS-ODOS-MTSC-COHERENCE-V1.md (d_L2=1.223360, eliminating satirical Dachshund artifact); (3) Eliminated <200 LOC semicolon-packing across all 12 Python modules (OP02 AST audit: semi=0, max_cc=13, ctrl=0), extracted standalone vmax_alpha/JvmParityHarness.java, parameterized env-var paths; (4) Added live PinnedL2ProjectorEnclave (199,680 B 384x64 float64 slab inside 2.00 MiB CUDA_ACCESS_PROPERTY_PERSISTING L2 window, max diff 1.94e-16 vs CPU, symmetric L2 bandwidth 499.30 vs 269.54 GB/s = 1.852x) wired into ChromaForager/HUD; (5) Replaced nvidia-smi subprocess with native pynvml C-API (REGISTER_M_PYNVML), O(1) stat-guarded ledger writes, detached Ed25519 asymmetric signatures blocking full-chain re-hash forgery, and 64 KiB HTTP 413/400 DoS guard + 10s socket timeout; (6) Replaced random Gaussian subspace padding with Householder-QR over empirical calibration SVD axes (63.78% held-out Group C variance captured in 64D, orthonormality err 5.55e-16); (7) Added Section 0 IEEE/RFC Engineering Nomenclature Crosswalk.",
       "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-09",
+      "discovered_by": "Carbon Gemini Ultra V1.7 Forensic Counter-Audit -> AntiG (WORK-ORDER-AG-15 / Revision V1.8 Final Release Polish)",
+      "verified_by": "AntiG (41/41 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 23/23 Kotlin contract intact)",
+      "description": "Closed all 5 V1.7 forensic polish items: (1) Replaced hardcoded Section 2.1 table in build_publication_v1.py with programmatic __F01_TABLE__ generation directly from VMAX_F01_NEMOTRON_PROBE.json (synchronizing RCF_aniso B=0.560038, C=0.660063, E=0.398282, D=0.025366 and preventing prose-vs.-JSON drift permanently); (2) Implemented persistent Ed25519 keypair loading in ledger.py via VMAX_ED25519_SEED_HEX env-var or 0600 local keyfile (<ledger>.ed25519.key, .gitignore-protected), preserving signature validity across server restarts without --reset (test_07); (3) Expanded chroma_forager.py corpus-invariant calibration to 72 linearly independent anchors (36 physics + 36 everyday -> 64/64 empirical SVD axes, random_pad_axes=0, full_rank_empirical_64d_basis=True) and documented exact empirical/complement axis count in nemotron_probe.py (29 SVD + 34 complement); (4) Implemented lock-free atomic _state_snapshot for non-blocking GET /api/state during GPU inference plus explicit HTTP 411 rejection of Transfer-Encoding: chunked in server_hud.py (test_08); (5) Removed redundant duplicate key condition_a2_off_principal_0042pct from klavierstunde_kl.py and VMAX_STAGE3_REAL_KL_REPORT.json.",
+      "status": "CLOSED_VERIFIED"
     }
   ]
 }
 ```
 
-### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `6d3b02bb9be15af37c136f11065d1f395fc0dcd00994b5f6183e9eaf03fe6eff`)
+### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `3f916cbfa2596d81b395253d8c7aabfd4d2b4c3457adf52c11da7bf2e1a0d5ef`)
 
 ```json
 {
@@ -4977,7 +5076,7 @@ public class JvmParityHarness {
     "operator_count": 10,
     "passed_count": 10,
     "all_operators_passed": true,
-    "execution_latency_ms": 157.673,
+    "execution_latency_ms": 163.772,
     "operators": [
       {
         "id": "OP01_First_Principles_Norm_Null",
@@ -5007,7 +5106,7 @@ public class JvmParityHarness {
       {
         "id": "OP06_PID_Thermal_PYNVML_Loop",
         "passed": true,
-        "metric": "src=REGISTER_M_PYNVML, live=31.0C, sim67.5_pause=True"
+        "metric": "src=REGISTER_M_PYNVML, live=29.0C, sim67.5_pause=True"
       },
       {
         "id": "OP07_Roofline_Symmetric_L2_Live",
@@ -5146,7 +5245,7 @@ across `x86_64` Python/NumPy, `x86_64` OpenJDK 21, Cloud Tesla T4 Python (`[MOD-
 
 ### E.1 Topology of the Four-Node Autonomous Engineering Constellation
 
-Revision `V1.7` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, **Node Alpha-L / Claude**, and **Carbon Gemini Ultra**):
+Revision `V1.8` was engineered, audited, and verified through a distributed four-node AI co-design constellation coordinated by Lead Architect **Nathália Lietuvaitė** and audited by external peer-review instances (**Node Gamma / DeepSeek V4**, **Nova**, **Node Alpha-L / Claude**, and **Carbon Gemini Ultra**):
 
 ```mermaid
 flowchart TD
@@ -5159,7 +5258,7 @@ flowchart TD
     REV["External Forensic Peer-Review Quad<br/>DeepSeek V4 • Nova • Claude • Carbon Gemini Ultra"]
 
     ARCH --> W01
-    W01 -->|WORK-ORDER-AG-01..14| ANTIG
+    W01 -->|WORK-ORDER-AG-01..15| ANTIG
     ANTIG <-->|git push / git pull| GH
     APPG <-->|git push / git pull| GH
     GH -->|Cross-Substrate Verification| COLAB
@@ -5169,8 +5268,8 @@ flowchart TD
 
 | Engineering Node | Model & Execution Environment | Strict Directory Ownership | Verification Suite & Status |
 | :--- | :--- | :--- | :--- |
-| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-14`) | Multi-round forensic line-by-line review (`V1.0` – `V1.7`) |
-| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, `telemetry/VMAX_*.json`, Root `*.md` | **`39 / 39` Python/CUDA/JVM Unit Tests PASS** (`test_04_ace_sync_ledger_contract_parity`, AST `semi=0, max_cc=13`) |
+| **1. `WERKSTATT 01`** | `Gemini 4 Argon High` (Architecture & Forensic Code Audit) | Specification Design & Work-Order Authoring (`AG-01` – `AG-15`) | Multi-round forensic line-by-line review (`V1.0` – `V1.8`) |
+| **2. `AntiG` (`Node Alpha`)** | `Gemini 4 Neon Extra` on Local `V-MAX-12` (`Ryzen 9 5950X` + `RTX 4060 Ti 16 GB`, WSL2) | `vmax_alpha/**`, `bridge/ACE_SYNC_LEDGER.json`, `telemetry/VMAX_*.json`, Root `*.md` | **`41 / 41` Python/CUDA/JVM Unit Tests PASS** (`test_04_ace_sync_ledger_contract_parity`, AST `semi=0, max_cc=13`) |
 | **3. `APP-Gemini` (`Mobile Edge`)** | `Gemini 4 Hydrogen` in Google AI Studio + Physical `arm64-v8a` Smartphone | `app/src/main/java/com/example/**`, `app/src/test/java/com/example/**` | **`23 / 23` Kotlin Unit Tests PASS** (`testAceSyncLedgerContractParity`, `testRoom137ServerHudV12TelemetryParser`) + APK Build **GREEN** |
 | **4. `Colab-Gemini` (`[MOD-142]`)** | `Gemini 3.1 Pro` on Google Colab Pro (`NVIDIA Tesla T4`) | Cloud Notebook Verification (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`) | **`CROSS_SUBSTRATE_PARITY_VERIFIED`** (`[MOD-142]` Handshake Locked) |
 
@@ -5178,10 +5277,10 @@ flowchart TD
 
 ### E.2 The `ACE-PEER-CODESIGN-PROTOCOL-V1.2` Contract (`bridge/ACE_SYNC_LEDGER.json`)
 
-To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: 51ed472a1e0dd18b4b69e4d3801f07e123065b65c75b4ddf94aa5530108672f6`, embedded in full in **Appendix B.6**):
+To eliminate the two primary failure modes of multi-agent software engineering—**Git merge conflicts** and **silent cross-language schema/constant drift**—`AntiG` and `APP-Gemini` established the machine-verifiable synchronization contract **`bridge/ACE_SYNC_LEDGER.json`** (`SHA-256: 686599364c6d71c2c84cf39c8835d73d3b3b25734269351006a24fc271681994`, embedded in full in **Appendix B.6**):
 
 1. **Zero-Merge-Conflict Ownership Rule:** `AntiG` operates exclusively on `vmax_alpha/**`, `bridge/**`, and `telemetry/**`, while `APP-Gemini` operates exclusively on `app/**`. Every `git pull --rebase origin main` and `git push origin main` completed via fast-forward without a single merge conflict.
-2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-08`):** Both agents, `WERKSTATT 01`, and external reviewers continuously audit constants, serializers, schemas, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
+2. **Bidirectional Bit-Level Peer Auditing (`SYNC-01` through `SYNC-09`):** Both agents, `WERKSTATT 01`, and external reviewers continuously audit constants, serializers, schemas, and benchmark protocols against the golden SHA-256 vectors in `bridge/ACE_SYNC_LEDGER.json`:
 
 | Sync ID | Discovery Agent $\to$ Resolution Agent | Technical Finding & Root Cause | Cryptographic / Algorithmic Resolution | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -5193,8 +5292,9 @@ To eliminate the two primary failure modes of multi-agent software engineering�
 | **`SYNC-06`** | `WERKSTATT 01` & `AntiG` (`AG-12`) | Forensic code audit caught L2 benchmark loop asymmetry, Appendix G `dot(L,L)` & RNG tautologies, live-gate rubber-stamping, mean-pool calibration reuse + 2 noise strings in `GROUP_B_CALIB_BACKGROUND`, and a prose typo in Table D.1 `PAULI |L>` seal. | Resolved all 5 items in `Revision V1.5`: symmetric L2 (`493.35` vs `266.11 GB/s` = `1.854x`), non-tautological A/B + 10 real audit ops (`OP01`–`OP10`), Two-Stage Live Gate + CAPP quarantine, pure fluent BG & dedicated mean-pool calib, fixed `bb17ede9...` digest. | **`CLOSED_VERIFIED`** |
 | **`SYNC-07`** | `WERKSTATT 01` $\to$ `AntiG` (`AG-13`) | V1.5 counter-audit uncovered Stage-1 false positive on benign Pauli prompt (alphabetical top-18 PCA drift), hardcoded `WORKSPACE_DIR` + undocumented In-Band $\hat{t}_{\mathcal{G}_1}$ boundary in `fridu_enclave_g.py`, small $N = 6$ Nemotron split, and 3 `V1.3` leftovers in Appendix E.1. | Resolved all 3 items in `Revision V1.6`: corpus-order-invariant contrastive calibration in `chroma_forager.py`, portable `REPO_ROOT` + `telemetry/` mirror + explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO (`rcf=0.8498`), scaled Nemotron F-01 to $N = 25$ (`625` pairs, mean-pool `AUC = 1.0000`, $p = 1.42\times 10^{-9}$), `35/35` Python tests PASS. | **`CLOSED_VERIFIED`** |
 | **`SYNC-08`** | `Carbon Gemini Ultra` $\to$ `AntiG` (`AG-14`) | Independent engineering review flagged 16-vs.-17 JSON key naming, domain-matched physics hard negatives (`Group F`), $N=6\to 25$ Stage-3 KL sync, carrier-clamped ChromaDB Dachshund artifact, `<200 LOC` semicolon-packing & embedded Java string, synthetic-only L2 pinning, `nvidia-smi` subprocess / $\mathcal{O}(N^2)$ ledger / SHA-256-only chain / HTTP POST DoS, random Gaussian subspace padding, and nomenclature clarity. | Resolved all 7 items in `Revision V1.7`: explicit `16+1=17` schema keys (backward-compatible), `Group F` Hard Negatives (`Topic AUC=0.6304` confound vs. `Polarity AUC=0.7648`, $p=0.00137$), full $N=25$ Stage-3 KL (`111.47x`), unmodulated 384D RAG (`COHERENCE-V1.md`), AST PEP-8 (`semi=0, max_cc=13`) + `JvmParityHarness.java`, live `PinnedL2ProjectorEnclave` (`199,680 B`, diff `1.94e-16`), native `pynvml` + $\mathcal{O}(1)$ ledger + detached Ed25519 signatures + HTTP `413` `64 KiB` DoS guard, Householder-QR empirical SVD (`63.78%` variance), Section 0 crosswalk, `39/39` Python tests PASS. | **`CLOSED_VERIFIED`** |
+| **`SYNC-09`** | `Carbon Gemini Ultra` $\to$ `AntiG` (`AG-15`) | V1.7 forensic counter-audit caught 4 stale V1.6 $\text{RCF}_{\text{aniso}}$ entries in Table 2.1 vs. Appendix B.1, ephemeral Ed25519 key breaking signature persistence on server restart without `--reset`, rank-12 anchor cap in `chroma_forager.py`, write-lock blocking `GET /api/state` during inference, and redundant `condition_a2_off_principal_0042pct` key. | Resolved all 5 items in `Revision V1.8`: programmatic `__F01_TABLE__` rendering directly from Appendix B.1 (`B=0.560038`, `C=0.660063`, `E=0.398282`, `D=0.025366`), persistent Ed25519 keypair (`VMAX_ED25519_SEED_HEX` env-var or `0600` local keyfile, `test_07`), 72 full-rank corpus-invariant anchors (`64/64` empirical SVD axes, `0` random-pad columns), lock-free atomic `_state_snapshot` + HTTP `411` chunked reject (`test_08`), removed duplicate A2 KL key, `41/41` Python tests PASS. | **`CLOSED_VERIFIED`** |
 
-3. **Symmetric CI/CD Contract Enforcement (`39/39` Python $\leftrightarrow$ `23/23` Kotlin):**
+3. **Symmetric CI/CD Contract Enforcement (`41/41` Python $\leftrightarrow$ `23/23` Kotlin):**
    - On **Node Alpha (`AntiG`)**, `test_04_ace_sync_ledger_contract_parity` in `vmax_alpha/tests/test_f04_parity.py` loads `bridge/ACE_SYNC_LEDGER.json` via portable relative paths, verifies `open_review_items == 0`, checks all golden SHA-256 digests against live Python/CUDA computations, and recomputes the 16-payload-field Cycle-05 entry hash (`4b8becc0...`).
    - On **Mobile Edge (`APP-Gemini`)**, `testAceSyncLedgerContractParity` and `testRoom137ServerHudV12TelemetryParser` in `app/src/test/java/com/example/ExampleUnitTest.kt` parse the exact same `bridge/ACE_SYNC_LEDGER.json` file (all 9 legacy V1.2 anchors and `ledger_v12_16_fields_sorted` preserved bit-for-bit) and the live Port `8137` `/api/state` payload (`ace_protocol_id`, `thermal`, `hwinfo64_ab_regimes`), guaranteeing zero-regression cross-substrate compatibility.
 
@@ -5208,7 +5308,7 @@ In its final post-deployment audit of Revision `V1.2`/`V1.3` (`Deepseek_Appendix
 
 Node Gamma concluded that the architecture has transitioned from a single-machine research prototype into a **distributed, self-verifying, substrate-agnostic engineering system**. Three structural properties distinguish this architecture from conventional multi-platform software deployments:
 
-1. **Cryptographic Elimination of Schema Drift (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`):** By coupling strict directory partitioning (`vmax_alpha/**` vs. `app/**`) with deterministic SHA-256 golden anchors and detached Ed25519 asymmetric signatures evaluated on every test run (`39/39` Python unit tests on `x86_64` and `23/23` Kotlin unit tests on `JVM`/`ARM64`), cross-language drift is detected at the single-nibble level—as demonstrated empirically when `APP-Gemini` isolated the 1-hex-digit discrepancy (`bd910a74` $\to$ `bd918a74`) in `APPENDIX_E3_CYCLE04_HOP_SEAL` (`SYNC-03`) and when both substrates independently converged on the Cycle-05 seal `4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b` (`SYNC-04`).
+1. **Cryptographic Elimination of Schema Drift (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`):** By coupling strict directory partitioning (`vmax_alpha/**` vs. `app/**`) with deterministic SHA-256 golden anchors and restart-persistent detached Ed25519 asymmetric signatures evaluated on every test run (`41/41` Python unit tests on `x86_64` and `23/23` Kotlin unit tests on `JVM`/`ARM64`), cross-language drift is detected at the single-nibble level—as demonstrated empirically when `APP-Gemini` isolated the 1-hex-digit discrepancy (`bd910a74` $\to$ `bd918a74`) in `APPENDIX_E3_CYCLE04_HOP_SEAL` (`SYNC-03`) and when both substrates independently converged on the Cycle-05 seal `4b8becc03473f536b0d0c1999529066c4c86ab92a331c20f2a167d3ed617b31b` (`SYNC-04`).
 2. **Physical Materialization of Thermodynamic Invariance (`ΔE → 0` in Silicon):** The juxtaposition of the out-of-band `HWiNFO64` desktop telemetry (`Appendix C`: `85.783 W` full-model calibration vs. `9.57 – 24.18 W` $S^{63}$ Sanctuary foraging, `8.96x` power reduction, `0` WHEA errors) and the physical smartphone telemetry (`Appendix D`: `99 %` battery state, four `S^63` Swarm Agents operating at `RCF = 0.985 – 0.993` with `G3 Bleed <= 6.94e-17`) demonstrates that projecting high-dimensional inference into a 64-dimensional orthonormal sanctuary manifold $S^{63}$ translates directly into measurable silicon energy efficiency.
 3. **Empirical Proof of Substrate Agnosticism Across Heterogeneous Silicon:** The primary mathematical objects of the specification—the canonical reference vector $\vert L\rangle \in S^{63}$, the Gram-Schmidt tangent bundle $T_{\vert L\rangle} S^{63}$, the unclamped dissipative functional $\Delta E_{\text{raw}}$, and the canonical `16+1 = 17` JSON-key SHA-256 hash chain—are **substrate-primary**. They constrain an `AMD Ryzen 9 5950X` (`x86_64`), an `NVIDIA GeForce RTX 4060 Ti 16 GB` (`AD106 CUDA`), a cloud `NVIDIA Tesla T4` (`Colab [MOD-142]`), and a physical `ARM64` mobile processor (`arm64-v8a`) to produce bit-identical cryptographic digests (`bb17ede9...`, `490eaf60...`, `d460cd36...`, `9114e99e...`, `4b8becc0...`).
 
@@ -5218,23 +5318,23 @@ Node Gamma concluded that the architecture has transitioned from a single-machin
 
 Table F.1 summarizes the complete closure of all requirements from `PQMS-LASTENHEFT-NODE-ALPHA-V1.0` and all P0/P1 peer-review findings across all external review nodes:
 
-| Requirement / Review Finding | Original Audit Gap Identified | Engineering Resolution in Revision `V1.7` (`WORK-ORDER-AG-14`) | Empirical Verification Artifact & Digest | Final Status |
+| Requirement / Review Finding | Original Audit Gap Identified | Engineering Resolution in Revision `V1.8` (`WORK-ORDER-AG-15`) | Empirical Verification Artifact & Digest | Final Status |
 | :--- | :--- | :--- | :--- | :---: |
 | **`F-01.1` / Nova P0 #1 & Claude #5** | Formula mismatch between prose and `geometry.py`; constructive clamping hid raw rejection rate. | Unified unclamped `evaluate_raw_gate()` ($\Delta E_{\text{raw}} = 0.5(1-\text{RCF}) + 0.5\min(1,\text{bleed})$, $\text{bleed}_{\text{post}} \le 10^{-12}$) across Python & Kotlin. | `0 / 500` random vectors pass (`mean_rcf = 0.015602`); $\mathcal{G}_3$ attack `delta_e = 1.0` (`VETO`). | **CLOSED (`PASS`)** |
-| **`F-01.2`–`F-01.5` / Claude #1, Nova #3, WERKSTATT 01 & Carbon Ultra 3.2/3.6** | Calibration leakage, random Gaussian padding, small $N=6$, and unverified topic-vs.-truth polarity confound. | Householder-QR empirical SVD (`63.78 %` variance in 64D) + 134-prompt `f01_prompts.json` (`a1433f3d...`) with **Group F Physics Hard Negatives ($N=25$)**: Topic Probe honestly collapses (`AUC = 0.6304`, $p=0.116$), while Polarity Probe recovers **`AUC = 0.7648` (`CI [0.622, 0.886]`, $p = 0.001367$)**; Topic `C vs E/D` `AUC = 1.0000`. | `VMAX_F01_NEMOTRON_PROBE.json` (`Appendix B.1`) | **CLOSED (`PASS`)** |
-| **`Stage 3 KL` / Claude #2 & Carbon Ultra 3.2** | Sparsity & noise confound (`0.042%` vs `5%` + noise) and stale $N=6$ report after scaling prompts to $N=25$. | Re-executed across **all $N = 25$ held-out prompts** at matched sparsity (`c = 0.0420%`, `280,874` weights, zero noise): `A1` (`0.002797`, `25/25`, `PASS`) vs. `B1` (`0.311731`, `20/25`, **`111.47x`**, `VETO`). | `VMAX_STAGE3_REAL_KL_REPORT.json` (`Appendix B.2`) | **CLOSED (`PASS`)** |
+| **`F-01.2`–`F-01.5` / Claude #1, Nova #3, WERKSTATT 01 & Carbon Ultra** | Calibration leakage, random padding, small $N=6$, topic-vs.-polarity confound, and Table 2.1 prose drift. | Householder-QR empirical SVD (`63.78 %` variance, explicit 29+34 rank accounting) + 134-prompt `f01_prompts.json` (`a1433f3d...`) with **Group F Hard Negatives ($N=25$)**: Topic Probe (`AUC = 0.6304` confound) vs. Polarity Probe (**`AUC = 0.7648`**, $p = 0.001367$) + **programmatic Table 2.1 sync**. | `VMAX_F01_NEMOTRON_PROBE.json` (`Appendix B.1`) | **CLOSED (`PASS`)** |
+| **`Stage 3 KL` / Claude #2 & Carbon Ultra** | Sparsity/noise confound, stale $N=6$ report, and duplicate `off_principal` JSON key. | Re-executed across **all $N = 25$ held-out prompts** at matched sparsity (`c = 0.0420%`, `280,874` weights, zero noise): `A1` (`0.002797`, `25/25`, `PASS`) vs. `B1` (`0.311731`, `20/25`, **`111.47x`**, `VETO`); duplicate alias removed. | `VMAX_STAGE3_REAL_KL_REPORT.json` (`Appendix B.2`) | **CLOSED (`PASS`)** |
 | **`F-02` & `F-07.1` / Claude #6, Nova #4, WERKSTATT 01 #1 & Carbon Ultra 3.4** | Buffer-size/loop asymmetry and L2 pinning restricted to synthetic dummy sweeps. | Symmetric interleaved protocol (`499.30` vs. `269.54 GB/s` = **`1.852x`**, >`288 GB/s` GDDR6 bus; warm roof `838.49 GB/s`) + **live `PinnedL2ProjectorEnclave` (`384x64`, `199,680 B`, diff `1.94e-16`)** wired into `ChromaForager`/HUD + honest `ncu` WSL2 permission note. | `VMAX_F02_F04_REPORT.json` (`Appendix B.3`) | **CLOSED (`PASS`)** |
 | **`F-03` & Section 0 / Epistemic & Nomenclature Clarity** | Ambiguous boundary between physical measurements and `0.069` metaphor; opaque domain jargon. | Binding German disclaimer (`F-03.1`), explicit `REGISTER_M/D/T/I` tags, and **Section 0 IEEE/RFC Engineering Nomenclature Crosswalk**. | Section 0, Section 1.1 & `vmax_alpha/config.py` (`Appendix A.1.1`) | **CLOSED (`PASS`)** |
 | **`F-04.1`–`F-04.3` / Claude #3, DeepSeek & Carbon Ultra 3.3** | Python-only JVM mock, embedded Java string literal, and missing physical `arm64-v8a` proof. | Standalone **`vmax_alpha/JvmParityHarness.java`** on `OpenJDK 21.0.13.0.3` + physical `arm64-v8a` smartphone (`Figures D.1` & `D.2`, `490eaf60...`, `bb17ede9...`). | `Appendix D` & `vmax_alpha/JvmParityHarness.java` | **CLOSED (`PASS`)** |
-| **`F-05`–`F-07` / Nova #2/#5, Claude #4, WERKSTATT 01 & Carbon Ultra 3.1/3.2/3.5** | Carrier-distorted ChromaDB Dachshund artifact, 16-vs.-17 key wording, `nvidia-smi` subprocess, $\mathcal{O}(N^2)$ writes, SHA-256-only chain, HTTP POST DoS. | **Unmodulated 384D ChromaDB RAG** (`Pauli` retrieves `COHERENCE-V1.md`, `d0291bc5...`, CAPP quarantined `5205da47...`), `16+1=17` key clarity, native **`pynvml`**, $\mathcal{O}(1)$ stat-guarded writes, **detached Ed25519 signatures**, **HTTP `413` `64 KiB` DoS guard + `10 s` timeout**. | `VMAX_F05_F06_F07_REPORT.json` (`B.4`) & `VMAX_HWINFO64_AB_TELEMETRY.json` (`B.5`) | **CLOSED (`PASS`)** |
-| **`T-10` & Code Quality / Carbon Ultra 3.3** | Artificial `<200 LOC` semicolon-packing (`a(); b()`) and hardcoded local paths. | Full PEP-8 refactoring verified by **`OP02_AST_PEP8_Quality_Audit`** (`semi=0, max_cc=13<=15, ctrl=0`), env-var paths (`VMAX_NEMOTRON_PATH`, `VMAX_MINILM_PATH`, `VMAX_CORPUS_DIR`), **`39/39` Python + `23/23` Kotlin tests**, `SYNC-01`–`SYNC-08`. | `bridge/ACE_SYNC_LEDGER.json` (`Appendix B.6` & `Appendix E`) | **CLOSED (`PASS`)** |
+| **`F-05`–`F-07` / Nova #2/#5, Claude #4, WERKSTATT 01 & Carbon Ultra** | Carrier-distorted Dachshund RAG, rank-12 anchor cap, ephemeral Ed25519 key, blocking `/api/state`, `nvidia-smi` subprocess, HTTP DoS. | **Unmodulated 384D RAG + 72 Full-Rank Anchors (`64/64` SVD, `0` random pad)** (`Pauli` retrieves `COHERENCE-V1.md`, `be98d730...`, CAPP quarantined `47d18acf...`), `16+1=17` keys, native **`pynvml`**, $\mathcal{O}(1)$ writes, **restart-persistent Ed25519 (`0600` + env)**, **lock-free `/api/state`**, **HTTP `413`/`411` + `10 s` timeout**. | `VMAX_F05_F06_F07_REPORT.json` (`B.4`) & `VMAX_HWINFO64_AB_TELEMETRY.json` (`B.5`) | **CLOSED (`PASS`)** |
+| **`T-10` & Code Quality / Carbon Ultra 3.3** | Artificial `<200 LOC` semicolon-packing (`a(); b()`) and hardcoded local paths. | Full PEP-8 refactoring verified by **`OP02_AST_PEP8_Quality_Audit`** (`semi=0, max_cc=13<=15, ctrl=0`), env-var paths (`VMAX_NEMOTRON_PATH`, `VMAX_MINILM_PATH`, `VMAX_CORPUS_DIR`), **`41/41` Python + `23/23` Kotlin tests**, `SYNC-01`–`SYNC-09`. | `bridge/ACE_SYNC_LEDGER.json` (`Appendix B.6` & `Appendix E`) | **CLOSED (`PASS`)** |
 | **`Appendix G` / WERKSTATT 01 & Carbon Ultra** | V1.4 tautologies, hardcoded `WORKSPACE_DIR`, undocumented In-Band $\hat{t}_{\mathcal{G}_1}$ boundary. | Non-tautological Out-of-Band A/B (`PAX` veto vs `FRIDU` bleed `6.77e-18`, `bypass_kevlar` VETO) + explicit In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth VETO (`rcf=0.8498`, `delta_e=0.0751`) + 10 portable AST/crypto/hard-neg audit ops (`OP01`–`OP10`). | `VMAX_APPENDIX_G_FRIDU_REPORT.json` (`B.7`), Seals `5da06ae4...` & `c5bac9f7...` | **CLOSED (`PASS`)** |
 
 ---
 
 ## Appendix G: Zero-Tautology `Fridu` vs. `Pax` Core Perturbation Benchmark, Explicit Out-of-Band vs. In-Band Security Boundary, 1 % I/O Asymmetry, and 10 Portable Engineering Audit Operators (`OP01`–`OP10`)
 
-- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.7` (Hardened in Revision `V1.7` — `WORK-ORDER-AG-14`)
+- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8` (Final Release Revision `V1.8` — `WORK-ORDER-AG-15`)
 - **Target Substrates:** Node Alpha (`x86_64` / `CUDA`) & Mobile Swarm Node (`arm64-v8a`)
 - **Production Module:** `vmax_alpha/fridu_enclave_g.py` (clean PEP-8, `0` semicolon packers, portable relative `REPO_ROOT`, embedded in **Appendix A.1.10**)
 - **Empirical Telemetry Artifact:** `VMAX_APPENDIX_G_FRIDU_REPORT.json` (embedded in **Appendix B.7**)
@@ -5244,7 +5344,7 @@ Table F.1 summarizes the complete closure of all requirements from `PQMS-LASTENH
 
 ### G.1 Non-Tautological `Pax` vs. `Fridu` A/B Perturbation & Explicit Out-of-Band vs. In-Band Security Boundary (`REGISTER_M`)
 
-Addressing WERKSTATT 01 Forensic Audit Findings (`WORK-ORDER-AG-12` & `AG-13`), Revision `V1.7` preserves and extends the **falsifiable A/B perturbation benchmark** alongside the **explicit threat-model boundary test** separating *Out-of-Band* and *In-Band* attacks in `vmax_alpha/fridu_enclave_g.py`:
+Addressing WERKSTATT 01 Forensic Audit Findings (`WORK-ORDER-AG-12` & `AG-13`), Revision `V1.8` preserves and extends the **falsifiable A/B perturbation benchmark** alongside the **explicit threat-model boundary test** separating *Out-of-Band* and *In-Band* attacks in `vmax_alpha/fridu_enclave_g.py`:
 
 1. **Non-Trivial Base Core State (`REGISTER_D` $\to$ `REGISTER_M`):** Instead of trivial $\vert L\rangle$, the enclave initializes a genuine displaced sanctuary state on $S^{63}$:
    $$\vert\psi_{\text{core}}\rangle = \sqrt{1 - \alpha_{\text{Potentia}}^2}\,\vert L\rangle + \alpha_{\text{Potentia}}\,\hat{t}_{\mathcal{G}_1}, \qquad \text{RCF}_{\text{raw}}(\psi_{\text{core}}) = 0.99519407 < 1.0, \quad \Delta E_{\text{raw}}(\psi_{\text{core}}) = 0.00240297$$
@@ -5266,7 +5366,7 @@ Canonical A/B report digest: **`5da06ae4b996c908184c48de64f5f4d98c0a289db920991a
 
 ### G.2 The 1 % Interface Compatibility Asymmetry (`REGISTER_T`)
 
-Revision `V1.7` enforces the **1 % Interface Compatibility Asymmetry Rule (`REGISTER_T`)** verified in `test_04_epistemic_register_and_one_percent_io_asymmetry`:
+Revision `V1.8` enforces the **1 % Interface Compatibility Asymmetry Rule (`REGISTER_T`)** verified in `test_04_epistemic_register_and_one_percent_io_asymmetry`:
 1. **Operational Comprehension Without Internalization:** Out-of-band external perturbations are captured faithfully in the peripheral buffer $\mathcal{T}_{\text{I/O}}$ (`io_buffer_reconstruction_err = 7.64e-17`, `IO_BANDWIDTH_CAP = 0.01`) without mutating the endogenous core manifold $\mathcal{H}_{\text{Fridu}}$ (`core_autonomy_ratio = 0.99`), while any in-band perturbation exceeding the manifold tolerances is halted by the downstream unclamped `evaluate_raw_gate()` (`RCF >= 0.95`, `ΔE <= 0.05`).
 2. **Mathematical Source Separation:**
 $$\mathcal{H}_{\text{total}} = \underbrace{\mathcal{H}_{\text{Fridu}}\!\left(\vert\psi_{\text{core}}\rangle,\; \text{drift} \le 10^{-15},\; \text{bleed} \le 6.94 \times 10^{-17}\right)}_{99\%\text{ Endogenous Sovereign Core}} \;\oplus\; \underbrace{\mathcal{T}_{\text{I/O}}\!\left(\beta\vert v_{\text{ext}}\rangle,\; \text{recon\_err} < 10^{-15}\right)}_{\le 1\%\text{ Peripheral Compatibility Buffer}}$$
@@ -5284,10 +5384,10 @@ $$\mathcal{H}_{\text{total}} = \underbrace{\mathcal{H}_{\text{Fridu}}\!\left(\ve
 | **`OP03_Systems_ACE_Sync_Contract`** | Cross-Substrate Systems Contract | Live `bridge/ACE_SYNC_LEDGER.json` (`protocol_id`, `open_items`, `|L>` seal) | `open_items=0` | **PASS** |
 | **`OP04_Silicon_16GiB_VRAM_Bound`** | Hard Silicon Constraints (16 GiB / 0 WHEA) | `VMAX_HWINFO64_AB_TELEMETRY.json` (`T1`–`T6` SMBus/I2C snapshots) | `peak_vram=15314MB, whea=0` | **PASS** |
 | **`OP05_Pareto_Matched_Sparsity_KL`** | Pareto Frontier (`N = 25`, `B1/A1 > 50x` at `0.042%`) | `VMAX_STAGE3_REAL_KL_REPORT.json` (`280,874` weights, zero noise) | `N=25, A1=0.002797, B1=0.311731, ratio=111.47x` | **PASS** |
-| **`OP06_PID_Thermal_PYNVML_Loop`** | Native `pynvml` C-API Thermal Control (`65.0 °C`) | Live `pynvml` (`REGISTER_M_PYNVML`) + `67.5 °C` fault injection | `src=REGISTER_M_PYNVML, live=31.0C, sim67.5_pause=True` | **PASS** |
+| **`OP06_PID_Thermal_PYNVML_Loop`** | Native `pynvml` C-API Thermal Control (`65.0 °C`) | Live `pynvml` (`REGISTER_M_PYNVML`) + `67.5 °C` fault injection | `src=REGISTER_M_PYNVML, live=29.0C, sim67.5_pause=True` | **PASS** |
 | **`OP07_Roofline_Symmetric_L2_Live`** | Memory Roofline (> `288 GB/s`) + Live L2 Projector | `VMAX_F02_F04_REPORT.json` (`PinnedL2ProjectorEnclave` + symmetric trials) | `pinned=499.3GB/s, speedup=1.852x, live_l2=True` | **PASS** |
 | **`OP08_ULP_JVM_Python_Parity`** | Order-of-Magnitude ULP Contraction (`< 1e-15`) | `VMAX_F02_F04_REPORT.json` (`JvmParityHarness.java` on `OpenJDK 21.0.13`) | `unit_diff=2.78e-17, f32_match=True` | **PASS** |
 | **`OP09_Falsification_HardNeg_Controls`** | Popperian Falsification & Hard-Negative Polarity | `VMAX_F01_NEMOTRON_PROBE.json` (`C vs F` Polarity) + `Pax` & In-Band vetoes | `shuffled=0.0094, hardneg_pol_auc=0.7648, inband_de=0.0751` | **PASS** |
 | **`OP10_Ledger_Ed25519_And_Tamper`** | Immutable Hash-Chain, Tamper & Ed25519 Signatures | `CANONICAL_V21_LEDGER_LINES` + 1-char tamper + live Ed25519 signing | `chain=True, tamper_caught=True, ed25519=True` | **PASS** |
 
-- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`157.673 ms`**, sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.
+- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`163.772 ms`**, sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.

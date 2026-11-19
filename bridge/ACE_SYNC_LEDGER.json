@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.7 — WORK-ORDER-AG-14)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.8 — WORK-ORDER-AG-15)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T10:52:00Z",
+  "timestamp_utc": "2026-11-19T11:18:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -104,6 +104,8 @@
     "v17_room137_unmodulated384d_chain_tip_4entries": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
     "v17_capp_quarantine_proof_seal": "5205da47cf9507d14356c7078c1c5a5079f570c4bd0b449464db44eb7790d7ec",
     "v17_ed25519_demo_public_key_hex": "a6b302b05ca8227177989316a8294aeb7379354d25a42862ff72588d3633220f",
+    "v18_room137_fullrank_chain_tip_4entries": "be98d730e99a6bfc24f8f379eeaeec260808586b22f900fbeb7303d11352fd29",
+    "v18_capp_quarantine_proof_seal": "47d18acfe9071cdb47d826f6be236416e95fa02abfadc5a6c7a3216bad67f1cd",
     "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
     "f01_v17_n25_hardneg_prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
@@ -170,6 +172,13 @@
       "discovered_by": "Carbon Gemini Ultra Review -> AntiG (WORK-ORDER-AG-14 / Revision V1.7 Engineering Hardening)",
       "verified_by": "AntiG (39/39 Python/CUDA/JVM tests PASS, 0 semicolon packers, max McCabe CC=13<=15, 23/23 Kotlin contract preserved)",
       "description": "Closed all 7 Carbon Gemini Ultra engineering findings: (1) Clarified 16 hashed payload fields + 1 discovery_seal_sha256 = 17 total JSON keys while keeping legacy ledger_v12_16_fields_sorted verbatim for APP-Gemini; (2) Added Domain-Matched Physics Hard Negatives (Group F, N=25, f01_prompts.json SHA-256 a1433f3d...): topic probe honestly drops to AUC=0.6304 (p=0.116) proving domain-vocabulary confounding, while dedicated leak-free conservation-polarity probe recovers AUC=0.7648 (95% CI [0.6224, 0.8864], p=0.001367); re-ran Stage-3 1-bit KL on all N=25 prompts (A1=0.002797 25/25 Top-1 vs B1=0.311731 20/25 Top-1 -> 111.47x ratio); decoupled ChromaDB retrieval onto unmodulated 384D MiniLM vectors so 'Pauli exclusion principle and conservation laws' retrieves PQMS-ODOS-MTSC-COHERENCE-V1.md (d_L2=1.223360, eliminating satirical Dachshund artifact); (3) Eliminated <200 LOC semicolon-packing across all 12 Python modules (OP02 AST audit: semi=0, max_cc=13, ctrl=0), extracted standalone vmax_alpha/JvmParityHarness.java, parameterized env-var paths; (4) Added live PinnedL2ProjectorEnclave (199,680 B 384x64 float64 slab inside 2.00 MiB CUDA_ACCESS_PROPERTY_PERSISTING L2 window, max diff 1.94e-16 vs CPU, symmetric L2 bandwidth 499.30 vs 269.54 GB/s = 1.852x) wired into ChromaForager/HUD; (5) Replaced nvidia-smi subprocess with native pynvml C-API (REGISTER_M_PYNVML), O(1) stat-guarded ledger writes, detached Ed25519 asymmetric signatures blocking full-chain re-hash forgery, and 64 KiB HTTP 413/400 DoS guard + 10s socket timeout; (6) Replaced random Gaussian subspace padding with Householder-QR over empirical calibration SVD axes (63.78% held-out Group C variance captured in 64D, orthonormality err 5.55e-16); (7) Added Section 0 IEEE/RFC Engineering Nomenclature Crosswalk.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-09",
+      "discovered_by": "Carbon Gemini Ultra V1.7 Forensic Counter-Audit -> AntiG (WORK-ORDER-AG-15 / Revision V1.8 Final Release Polish)",
+      "verified_by": "AntiG (41/41 Python/CUDA/JVM tests PASS, AST semi=0 max_cc=13, 23/23 Kotlin contract intact)",
+      "description": "Closed all 5 V1.7 forensic polish items: (1) Replaced hardcoded Section 2.1 table in build_publication_v1.py with programmatic __F01_TABLE__ generation directly from VMAX_F01_NEMOTRON_PROBE.json (synchronizing RCF_aniso B=0.560038, C=0.660063, E=0.398282, D=0.025366 and preventing prose-vs.-JSON drift permanently); (2) Implemented persistent Ed25519 keypair loading in ledger.py via VMAX_ED25519_SEED_HEX env-var or 0600 local keyfile (<ledger>.ed25519.key, .gitignore-protected), preserving signature validity across server restarts without --reset (test_07); (3) Expanded chroma_forager.py corpus-invariant calibration to 72 linearly independent anchors (36 physics + 36 everyday -> 64/64 empirical SVD axes, random_pad_axes=0, full_rank_empirical_64d_basis=True) and documented exact empirical/complement axis count in nemotron_probe.py (29 SVD + 34 complement); (4) Implemented lock-free atomic _state_snapshot for non-blocking GET /api/state during GPU inference plus explicit HTTP 411 rejection of Transfer-Encoding: chunked in server_hud.py (test_08); (5) Removed redundant duplicate key condition_a2_off_principal_0042pct from klavierstunde_kl.py and VMAX_STAGE3_REAL_KL_REPORT.json.",
       "status": "CLOSED_VERIFIED"
     }
   ]
