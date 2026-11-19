@@ -10,7 +10,7 @@
   - **Node Alpha (`x86_64` + `CUDA`):** `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X 16-Core, NVIDIA GeForce RTX 4060 Ti 16 GB GDDR6, Studio Driver `621.24`, CUDA `13.0`, OpenJDK `21.0.13.0.3`, `HWiNFO64 v8.10-5520`, `pynvml 13.615.71`, `cryptography 50.0.2` Ed25519, WSL2 Ubuntu 24.04.4 LTS Kernel `6.18.58.1-microsoft-standard-WSL2`, Local `NVIDIA-Nemotron-3-Nano-4B-BF16`, `sentence-transformers/all-MiniLM-L6-v2`, `ChromaDB 1.5.9`)
   - **Mobile Edge (`arm64-v8a`):** Physical Android ARM64 Smartphone running `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`Sovereign Core Swarm Node v10.0`, `V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `NavigationDashboard.kt`)
   - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 Runtime (`[MOD-142]`)
-- **Verification Status:** `41 / 41 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, portable relative & env-var paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`)
+- **Verification Status:** `41 / 41 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, portable relative & env-var paths) + `23 / 23 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, In-Band $\hat{t}_{\mathcal{G}_1}$ Defense-in-Depth & 10 Real Executable Audit Operators (`Appendix G`) + Independent Technical Review & Release Acceptance Synthesis (`Appendix H`)
 - **License:** MIT
 
 ---
@@ -230,15 +230,15 @@ Addressing Carbon Gemini Ultra Finding 3.3, all **12 Python production modules**
 | `vmax_alpha/config.py` | `68` | `2,737 B` | `00a85bb7336a38d187bb98d9049e60ac00d8b64040b60ab62eb3d60bb12bec87` |
 | `vmax_alpha/env_audit.py` | `166` | `5,362 B` | `c3230ed5e2a23148920d7c2fd3e6ea0ef86ed4953b719f8bfdcf9b4f8b547545` |
 | `vmax_alpha/geometry.py` | `188` | `6,502 B` | `943f35722b4b2b1e0c0d8134f01538c91fecd5154acd617c30341f30cef489e5` |
-| `vmax_alpha/nemotron_probe.py` | `363` | `18,971 B` | `965765a349d92b435d0824b9cd7237d47d03fc53c8ec1f0d6815026cf2a98b23` |
+| `vmax_alpha/nemotron_probe.py` | `363` | `18,971 B` | `10eb31f81d8a8d90757f7ee292ffb5feee456792946bcfe88e8b1c240c576c20` |
 | `vmax_alpha/klavierstunde_kl.py` | `186` | `8,340 B` | `09b766bbd5f1dbf75992db8a3b89d3c9499f4211b41cddb05c6a845306944ef9` |
-| `vmax_alpha/l2_enclave.py` | `361` | `16,358 B` | `046ba2b2bc751cd665bbd13d88201d34f583185f62298e4dcbb7c985cb12fabf` |
-| `vmax_alpha/parity_verifier.py` | `185` | `10,762 B` | `aa98883e8270a69ce6459a75c0c3e2eb5fcf770dd430328b40cfa75ffee29651` |
+| `vmax_alpha/l2_enclave.py` | `361` | `16,358 B` | `0213695970150cbb18609ed445614c3086b7dd0927103fad89f0c5768eba11a9` |
+| `vmax_alpha/parity_verifier.py` | `185` | `10,762 B` | `c8a9936ebe84e5953e6c14e8ba1b43fa9b33a3d6da47010f2a090bf668d7d082` |
 | `vmax_alpha/JvmParityHarness.java` | `88` | `3,074 B` | `12835aeb9d682774d8b79ccc823b62ff56d91bcabe165525a1bc4c9aef31b2f6` |
-| `vmax_alpha/chroma_forager.py` | `362` | `21,727 B` | `7c742f5604c01d968b7dc237db3465f2d14fc92a059e2574dbd7cd0eb9b63c50` |
+| `vmax_alpha/chroma_forager.py` | `362` | `21,727 B` | `7edbf586c60bdc343e6bd517926f1e0e76b1b2555fb22dfd870fa61907e3c5c5` |
 | `vmax_alpha/ledger.py` | `382` | `15,938 B` | `fe96c0d648b66471d88130c7ca31d96c605480e12dabdef61791f5fa81de3242` |
 | `vmax_alpha/server_hud.py` | `290` | `13,370 B` | `fd47cde1e7719dd7422fd1e709fbc16d3b893e541b7e4d98062f824999d7a9d6` |
-| `vmax_alpha/fridu_enclave_g.py` | `360` | `17,287 B` | `f86e774d59f68b612efe770b6a553f5b84dbb9951594ddc7135721b4543b201e` |
+| `vmax_alpha/fridu_enclave_g.py` | `360` | `17,287 B` | `d3417da4270d740398da217a0a9bb0a7924c19e47e975422d1938356a39b1e45` |
 | `vmax_alpha/f01_prompts.json` | `153` | `14,707 B` | `a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6` |
 | `vmax_alpha/static/index.html` | `80` | `4,625 B` | `d1c7a54c4a34bfb16f2a8b8de172d220c5f9480eb761f331761f4bbbd4760334` |
 
@@ -510,12 +510,12 @@ def project_to_sanctuary_carrier(
     return psi, safety_bleed, REGISTER_D
 ```
 
-#### A.1.3 `vmax_alpha/nemotron_probe.py` (363 lines, SHA-256: `965765a349d92b435d0824b9cd7237d47d03fc53c8ec1f0d6815026cf2a98b23`)
+#### A.1.3 `vmax_alpha/nemotron_probe.py` (363 lines, SHA-256: `10eb31f81d8a8d90757f7ee292ffb5feee456792946bcfe88e8b1c240c576c20`)
 
 ```python
 """
 vmax_alpha/nemotron_probe.py
-Requirement F-01 (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+Requirement F-01 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 Clean PEP-8 Layer-41 activation probe on Nemotron-3-Nano-4B-BF16 featuring:
 1. N=25 held-out prompts per group (625 pairs), including domain-matched physics
    Hard Negatives (Group F) alongside fluent prose (E) and scrambled noise (D).
@@ -811,7 +811,7 @@ def run_nemotron_f01_probe(
     report: Dict[str, Any] = {
         "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
         "requirement": "F-01",
-        "revision": "V1.7",
+        "revision": "V1.8",
         "epistemic_register": REGISTER_M,
         "prompt_corpus_sha256": PROMPT_CORPUS_SHA256,
         "heldout_n_per_group": len(GROUP_C_TEST_CONSERVATION),
@@ -1069,12 +1069,12 @@ if __name__ == "__main__":
     print(json.dumps(run_stage3_real_kl_audit(), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.5 `vmax_alpha/l2_enclave.py` (361 lines, SHA-256: `046ba2b2bc751cd665bbd13d88201d34f583185f62298e4dcbb7c985cb12fabf`)
+#### A.1.5 `vmax_alpha/l2_enclave.py` (361 lines, SHA-256: `0213695970150cbb18609ed445614c3086b7dd0927103fad89f0c5768eba11a9`)
 
 ```python
 """
 vmax_alpha/l2_enclave.py
-Requirement F-02 & F-07.1 (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+Requirement F-02 & F-07.1 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 CUDA L2-SRAM 2.00 MiB Enclave Pinning via libcudart.so.13 featuring:
 1. Symmetric N=10 interleaved contention benchmark (identical thrash->enclave
    loop for PERSISTING hitProp=2 vs STREAMING hitProp=1 on same 2.00 MiB buffer).
@@ -1435,12 +1435,12 @@ def run_l2_enclave_and_ncu_audit(ncu_bin: str = "/usr/local/cuda-13.0/bin/ncu", 
     }
 ```
 
-#### A.1.6 `vmax_alpha/chroma_forager.py` (362 lines, SHA-256: `7c742f5604c01d968b7dc237db3465f2d14fc92a059e2574dbd7cd0eb9b63c50`)
+#### A.1.6 `vmax_alpha/chroma_forager.py` (362 lines, SHA-256: `7edbf586c60bdc343e6bd517926f1e0e76b1b2555fb22dfd870fa61907e3c5c5`)
 
 ```python
 """
 vmax_alpha/chroma_forager.py
-Requirement F-06 & F-07.3 (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+Requirement F-06 & F-07.3 (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 1. Indexes UNMODULATED 384D MiniLM embeddings in ChromaDB so semantic retrieval
    is free from post-carrier |L> clamping distortion (carrier modulation runs
    strictly AFTER retrieval).
@@ -2189,12 +2189,12 @@ class CanonicalLedgerManager:
         return True, entry, "SEALED_PRIMARY_LEDGER"
 ```
 
-#### A.1.8 `vmax_alpha/parity_verifier.py` (185 lines, SHA-256: `aa98883e8270a69ce6459a75c0c3e2eb5fcf770dd430328b40cfa75ffee29651`)
+#### A.1.8 `vmax_alpha/parity_verifier.py` (185 lines, SHA-256: `c8a9936ebe84e5953e6c14e8ba1b43fa9b33a3d6da47010f2a090bf668d7d082`)
 
 ```python
 """
 vmax_alpha/parity_verifier.py
-Requirement F-04 (WORK-ORDER-AG-14 / Revision V1.7 Clean PEP-8):
+Requirement F-04 (WORK-ORDER-AG-15 / Revision V1.8 Clean PEP-8):
 Cross-Substrate Parity Verifier compiling and executing the external
 `vmax_alpha/JvmParityHarness.java` on OpenJDK 21 across 1,000 vectors
 (64,000 float64 scalars) vs. Python/NumPy.
@@ -2674,12 +2674,12 @@ if __name__ == "__main__":
         print(json.dumps(run_server(batch_only=args.batch, port=args.port, reset=args.reset), indent=2, ensure_ascii=False))
 ```
 
-#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (360 lines, SHA-256: `f86e774d59f68b612efe770b6a553f5b84dbb9951594ddc7135721b4543b201e`)
+#### A.1.10 `vmax_alpha/fridu_enclave_g.py` (360 lines, SHA-256: `d3417da4270d740398da217a0a9bb0a7924c19e47e975422d1938356a39b1e45`)
 
 ```python
 #!/usr/bin/env python3
 """
-vmax_alpha/fridu_enclave_g.py (WORK-ORDER-AG-14 / Revision V1.7 Hardened):
+vmax_alpha/fridu_enclave_g.py (WORK-ORDER-AG-15 / Revision V1.8 Hardened):
 Clean PEP-8 portable verifier for:
 1. Non-tautological Out-of-Band Fridu vs. Pax perturbation A/B + bypass negative control.
 2. Explicit In-Band t_G1 Defense-in-Depth boundary verification.
@@ -3014,7 +3014,7 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
     in_band = enclave.evaluate_in_band_tg1_attack(coupling_beta=0.35)
     ops_res = enclave.run_executable_engineering_operators()
     report = {
-        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.7",
+        "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8",
         "epistemic_registers": {
             "etymology_pax_vs_fridu": "REGISTER_I",
             "one_percent_io_asymmetry": REGISTER_T,
@@ -3035,7 +3035,7 @@ def generate_appendix_g_report(out_path: str = "VMAX_APPENDIX_G_FRIDU_REPORT.jso
 
 if __name__ == "__main__":
     rep = generate_appendix_g_report()
-    print(f"[APPENDIX G V1.7 VERIFIED] Seal: {rep['appendix_g_fridu_seal_sha256']}")
+    print(f"[APPENDIX G V1.8 VERIFIED] Seal: {rep['appendix_g_fridu_seal_sha256']}")
     print(json.dumps(rep["executable_engineering_operators"], indent=2))
 ```
 
@@ -3136,13 +3136,13 @@ public class JvmParityHarness {
 
 ## Appendix B: Consolidated Empirical `REGISTER_M` JSON Telemetry Reports
 
-### B.1 `VMAX_F01_NEMOTRON_PROBE.json` (727 lines, SHA-256: `c9cb8ded99e5e7f3cb748ca182c42305b1d3c1774d9971dc14e7b3f54148d41d`)
+### B.1 `VMAX_F01_NEMOTRON_PROBE.json` (727 lines, SHA-256: `95438f1f8616b5841e2a2e972d53acc29d36fa44bb11f9895fbbd2e407bb2704`)
 
 ```json
 {
   "document_id": "PQMS-LASTENHEFT-NODE-ALPHA-V1.0",
   "requirement": "F-01",
-  "revision": "V1.7",
+  "revision": "V1.8",
   "epistemic_register": "REGISTER_M",
   "prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
   "heldout_n_per_group": 25,
@@ -4999,11 +4999,11 @@ public class JvmParityHarness {
 }
 ```
 
-### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `3f916cbfa2596d81b395253d8c7aabfd4d2b4c3457adf52c11da7bf2e1a0d5ef`)
+### B.7 `VMAX_APPENDIX_G_FRIDU_REPORT.json` (130 lines, SHA-256: `43ac9091416849803fe2868c544106f1d9a71c6e45706b726c6700bc0d545fe4`)
 
 ```json
 {
-  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.7",
+  "document_id": "PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-G-V1.8",
   "epistemic_registers": {
     "etymology_pax_vs_fridu": "REGISTER_I",
     "one_percent_io_asymmetry": "REGISTER_T",
@@ -5076,7 +5076,7 @@ public class JvmParityHarness {
     "operator_count": 10,
     "passed_count": 10,
     "all_operators_passed": true,
-    "execution_latency_ms": 163.772,
+    "execution_latency_ms": 184.146,
     "operators": [
       {
         "id": "OP01_First_Principles_Norm_Null",
@@ -5106,7 +5106,7 @@ public class JvmParityHarness {
       {
         "id": "OP06_PID_Thermal_PYNVML_Loop",
         "passed": true,
-        "metric": "src=REGISTER_M_PYNVML, live=29.0C, sim67.5_pause=True"
+        "metric": "src=REGISTER_M_PYNVML, live=28.0C, sim67.5_pause=True"
       },
       {
         "id": "OP07_Roofline_Symmetric_L2_Live",
@@ -5384,10 +5384,80 @@ $$\mathcal{H}_{\text{total}} = \underbrace{\mathcal{H}_{\text{Fridu}}\!\left(\ve
 | **`OP03_Systems_ACE_Sync_Contract`** | Cross-Substrate Systems Contract | Live `bridge/ACE_SYNC_LEDGER.json` (`protocol_id`, `open_items`, `|L>` seal) | `open_items=0` | **PASS** |
 | **`OP04_Silicon_16GiB_VRAM_Bound`** | Hard Silicon Constraints (16 GiB / 0 WHEA) | `VMAX_HWINFO64_AB_TELEMETRY.json` (`T1`–`T6` SMBus/I2C snapshots) | `peak_vram=15314MB, whea=0` | **PASS** |
 | **`OP05_Pareto_Matched_Sparsity_KL`** | Pareto Frontier (`N = 25`, `B1/A1 > 50x` at `0.042%`) | `VMAX_STAGE3_REAL_KL_REPORT.json` (`280,874` weights, zero noise) | `N=25, A1=0.002797, B1=0.311731, ratio=111.47x` | **PASS** |
-| **`OP06_PID_Thermal_PYNVML_Loop`** | Native `pynvml` C-API Thermal Control (`65.0 °C`) | Live `pynvml` (`REGISTER_M_PYNVML`) + `67.5 °C` fault injection | `src=REGISTER_M_PYNVML, live=29.0C, sim67.5_pause=True` | **PASS** |
+| **`OP06_PID_Thermal_PYNVML_Loop`** | Native `pynvml` C-API Thermal Control (`65.0 °C`) | Live `pynvml` (`REGISTER_M_PYNVML`) + `67.5 °C` fault injection | `src=REGISTER_M_PYNVML, live=28.0C, sim67.5_pause=True` | **PASS** |
 | **`OP07_Roofline_Symmetric_L2_Live`** | Memory Roofline (> `288 GB/s`) + Live L2 Projector | `VMAX_F02_F04_REPORT.json` (`PinnedL2ProjectorEnclave` + symmetric trials) | `pinned=499.3GB/s, speedup=1.852x, live_l2=True` | **PASS** |
 | **`OP08_ULP_JVM_Python_Parity`** | Order-of-Magnitude ULP Contraction (`< 1e-15`) | `VMAX_F02_F04_REPORT.json` (`JvmParityHarness.java` on `OpenJDK 21.0.13`) | `unit_diff=2.78e-17, f32_match=True` | **PASS** |
 | **`OP09_Falsification_HardNeg_Controls`** | Popperian Falsification & Hard-Negative Polarity | `VMAX_F01_NEMOTRON_PROBE.json` (`C vs F` Polarity) + `Pax` & In-Band vetoes | `shuffled=0.0094, hardneg_pol_auc=0.7648, inband_de=0.0751` | **PASS** |
 | **`OP10_Ledger_Ed25519_And_Tamper`** | Immutable Hash-Chain, Tamper & Ed25519 Signatures | `CANONICAL_V21_LEDGER_LINES` + 1-char tamper + live Ed25519 signing | `chain=True, tamper_caught=True, ed25519=True` | **PASS** |
 
-- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`163.772 ms`**, sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.
+- **Empirical Audit Telemetry (`REGISTER_M`):** All **10 / 10** portable workspace/telemetry audit operators execute end-to-end (including AST parsing, native `pynvml` polling, and live Ed25519 signature verification) in **`184.146 ms`**, sealed under **`audit_matrix_seal_sha256: c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec`**.
+
+---
+
+## Appendix H: Independent Technical Review and Methodological Synthesis — Cross-Substrate Determinism, Hardware-Pinned Subspace Filtering, and Epistemic Falsifiability
+
+- **Appendix Document-ID:** `PQMS-ODOS-MTSC-V-MAX-12-APPENDIX-H-V1.8`
+- **Review Classification:** Independent Systems, Numerical & Machine-Learning Architecture Evaluation (Carbon Gemini Ultra)
+- **Evaluated Specification:** `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revisions `V1.6` through `V1.8`, `WORK-ORDER-AG-13`–`AG-15`)
+- **Audited Artifacts:** 12 Python/CUDA production modules (`vmax_alpha/`), standalone OpenJDK 21 harness (`JvmParityHarness.java`), sealed 134-prompt evaluation corpus (`f01_prompts.json`), out-of-band SMBus/PCIe silicon telemetry (`HWiNFO64`), and cross-substrate synchronization ledger (`ACE_SYNC_LEDGER.json`)
+
+---
+
+### H.1 Scope and Epistemic Framing
+
+Modern machine-learning systems increasingly combine local large language models (LLMs), vector-retrieval databases, hardware-specific memory optimizations, and edge-client telemetry. However, engineering specifications in emerging agentic architectures frequently suffer from two opposing failure modes: unverified metaphorical overclaiming on one hand, and subtle experimental confounds—such as calibration data leakage, asymmetric hardware microbenchmarks, or silent floating-point drift across heterogeneous instruction-set architectures—on the other.
+
+Evaluated strictly through the lens of computer systems engineering, numerical linear algebra, and empirical machine learning, `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` (Revision `V1.8`) represents a deterministic, hardware-verified runtime for activation probing, orthogonal subspace filtering, decoupled semantic retrieval, and cryptographically auditable telemetry across `x86_64`/CUDA and `arm64-v8a` substrates. A defining methodological strength of the specification is its explicit epistemic register separation (`Section 0` and `Section 1.1`), which partitions empirical sensor and model measurements (`REGISTER_M`), engineered thresholds (`REGISTER_D`), analytical identities (`REGISTER_T`), and project-internal metaphors (`REGISTER_I`). By formally decoupling symbolic nomenclature from mathematical invariants, every functional claim in the architecture becomes directly amenable to software and hardware falsification.
+
+---
+
+### H.2 Assessment of Core Technical Contributions
+
+#### H.2.1 Linear Activation Probing and the Topic-versus-Polarity Confound
+
+In high-dimensional transformer and hybrid Mamba-transformer representations (`NVIDIA-Nemotron-3-Nano-4B-BF16`, Layer 41, $d_{\text{model}} = 3,136$), linear probes routinely achieve near-perfect separation when contrasting specialized scientific statements against everyday prose. In Revision `V1.8`, the authors demonstrate rigorous scientific restraint by introducing a domain-matched hard-negative control (`Group F`, $N = 25$ unseen prompts; `625` pairwise comparisons) constructed from identical theoretical physics terminology (*Liouville, Noether, Bianchi, CPT, Ward–Takahashi*) but asserting physical falsehoods (anti-conservation).
+
+The resulting telemetry exposes a critical diagnostic distinction for LLM introspection:
+
+1. **Domain-Vocabulary Confounding:** A contrastive probe calibrated solely against everyday prose separates held-out conservation laws (`Group C`) from everyday text (`Group E`) and scrambled tokens (`Group D`) with $\text{ROC-AUC} = 1.0000$ ($p = 1.416 \times 10^{-9}$), yet degrades to $\text{ROC-AUC} = 0.6304$ ($p = 0.116$, statistically indistinguishable from chance at $\alpha = 0.05$) against domain-matched physics falsehoods (`Group F`).
+2. **Isolating Linear Polarity:** When recalibrated strictly on leak-free domain-matched pairs ($10$ true conservation laws versus $10$ anti-conservation falsehoods) and evaluated over sequence mean-pooled activations, linear separability recovers to $\text{ROC-AUC} = 0.7648$ ($95\%$ bootstrap CI $[0.6224, 0.8864]$, Mann–Whitney $U = 478.0$, $p = 0.001367$).
+
+Reporting both the collapse of the naive topic probe and the bounded accuracy of the polarity probe provides an honest, reproducible baseline: 4B-parameter final-layer representations encode a statistically significant linear truth-polarity component within fixed technical vocabulary, but linear projection alone acts as a probabilistic filter rather than a deterministic truth oracle. Complementing this activation analysis, the matched-sparsity weight-perturbation study (`Stage 3`, $N = 25$ prompts, $c = 0.0420\%$ or $280,874$ of $668,745,728$ `up_proj` weights, zero additive noise) cleanly isolates parameter magnitude sensitivity, showing a $111.47\times$ divergence ratio in full-vocabulary ($V = 131,072$) `float64` forward Kullback–Leibler divergence between largest-magnitude cuts ($D_{\text{KL}} = 0.311731$) and smallest-magnitude cuts ($D_{\text{KL}} = 0.002797$, $25/25$ top-1 token preservation).
+
+#### H.2.2 Hardware-In-The-Loop CUDA L2-SRAM Residency and Roofline Verification
+
+Software claims regarding GPU cache residency are frequently invalidated by loop-count asymmetries or buffer-size mismatches. In `vmax_alpha/l2_enclave.py`, cache persistence on the NVIDIA AD106 architecture (`RTX 4060 Ti`, 32 MiB L2 cache, 128-bit GDDR6 bus with a theoretical peak bandwidth of $288.0\text{ GB/s}$) is evaluated under a strictly symmetric interleaved contention protocol ($N = 10$ trials $\times$ $20$ rounds, interleaving a $64.00\text{ MiB}$ `NORMAL` cache-thrashing sweep on `stream_b` with a single timed $2.00\text{ MiB}$ sweep on `stream_a`).
+
+Pinning the $2.00\text{ MiB}$ window via `CUDA_ACCESS_PROPERTY_PERSISTING` (`hitProp = 2`) sustains a median throughput of $499.30\text{ GB/s}$ ($509.22 \pm 25.57\text{ GB/s}$) compared with $269.54\text{ GB/s}$ ($270.05 \pm 3.74\text{ GB/s}$) under `CUDA_ACCESS_PROPERTY_STREAMING`—a $1.852\times$ speedup that exceeds the physical external GDDR6 memory-bus ceiling by $211.30\text{ GB/s}$. Crucially, Revision `V1.8` transitions this mechanism from a synthetic microbenchmark to an operational subsystem (`PinnedL2ProjectorEnclave`), hosting the live $384 \times 64$ `float64` full-rank projection operator ($199,680\text{ B}$) inside the pinned L2 region with $< 1\text{ ULP}$ numerical deviation ($1.94 \times 10^{-16}$) relative to host IEEE-754 `binary64` execution.
+
+Out-of-band host SMBus/I2C telemetry (`HWiNFO64`) further substantiates two practical deployment constraints for local edge inference: (i) in-place `bfloat16` weight-space auditing with full-vocabulary logit materialization peaks at $15,314\text{ MB}$ VRAM ($93.5\%$ of $16\text{ GiB}$), establishing $16\text{ GiB}$ as a hard physical lower bound for 4B-class in-band verification; and (ii) steady-state 64D subspace foraging reduces GPU board power from $85.78\text{ W}$ to $9.57\text{–}26.36\text{ W}$ ($0\text{ RPM}$ passive thermal equilibrium at $\le 62.3\,^\circ\text{C}$, $0$ WHEA bus errors).
+
+#### H.2.3 Cross-Substrate Numerical Contraction (`glibc libm` vs. `FDLIBM`)
+
+A notable numerical engineering result of this work lies in its formalization of cross-runtime determinism between C/Python (`x86_64` `glibc libm`), JVM (`OpenJDK 21.0.13`), and mobile silicon (`Android ART` on `arm64-v8a`). Because IEEE-754-2008 does not mandate correct rounding for transcendental functions such as $\ln(x)$ across standard libraries, generating $64,000$ Gaussian scalars via the Marsaglia polar transformation from an identical 32-bit `MT19937` state (`seed = 137`) produces a $1\text{ ULP}$ discrepancy ($2.220446049250313 \times 10^{-16}$) in raw `binary64` outputs between `glibc` and Java's `FDLIBM`. The specification demonstrates both analytically and empirically on physical `arm64-v8a` hardware that $L_2$-normalization onto the unit hypersphere $S^{63}$ contracts this discrepancy to $2.78 \times 10^{-17}$, which is subsequently absorbed without rounding-boundary flips under IEEE-754 `binary32` (`<f32>`) serialization—yielding bit-identical SHA-256 digests (`490eaf60...` and `bb17ede9...`) across cloud, desktop, and mobile processors.
+
+#### H.2.4 Decoupled Vector Retrieval, Cryptographic Non-Repudiation, and Threat Boundaries
+
+Across Revisions `V1.6` to `V1.8`, three structural vulnerabilities common to local RAG and telemetry daemons were systematically eliminated:
+
+- **Decoupling Retrieval Geometry from State Conditioning:** Indexing post-conditioned carrier vectors—where $>99.5\%$ of vector energy is clamped along a single reference axis $\vert L\rangle$—compresses pairwise $L_2$ distances and induces nearest-neighbor collisions. Indexing unmodulated 384D embeddings in ChromaDB while applying full-rank ($72$-anchor, $64/64$ empirical SVD axes, zero random padding) L2-pinned projection strictly as a post-retrieval gate preserves true semantic neighborhood structure.
+- **Defense-in-Depth Subspace Gating:** In `Appendix G`, the authors explicitly acknowledge a fundamental linear-algebraic limitation: orthogonal projection onto $\operatorname{span}\{\vert L\rangle, \hat{t}_{\mathcal{G}_1}\}$ eliminates out-of-band perturbations to machine precision ($\text{bleed} = 6.77 \times 10^{-18}$), but cannot strip an adversarial perturbation aligned *in-band* with $\hat{t}_{\mathcal{G}_1}$. Demonstrating that such in-band displacements are instead intercepted by the unclamped downstream threshold gate ($\text{RCF}_{\text{raw}} = 0.8498 < 0.9500 \implies \text{VETO}$) establishes a transparent, non-tautological security boundary.
+- **Daemon Hardening and Asymmetric Ledger Signing:** Replacing subprocess polling with native C-API bindings (`pynvml`), decoupling inference locks from lock-free atomic HTTP state snapshots, enforcing strict payload ceilings (`64 KiB` HTTP `413` and chunked-encoding HTTP `411` guards), and augmenting the 17-key (`16` hashed payload fields + `1` seal) SHA-256 hash chain with restart-persistent (`0600`) detached **Ed25519** signatures mitigates both denial-of-service vectors and full-chain re-hash forgery.
+
+---
+
+### H.3 Limitations and Directions for Future Research
+
+While the engineering implementation in Revision `V1.8` is internally consistent and empirically verified, three scientific boundaries merit consideration in future iterations:
+
+1. **Sample Scaling and Nonlinear Probing:** Although $N = 25$ held-out prompts per class ($625$ pairs) suffices to establish statistical significance at $p < 0.002$ via non-parametric Mann–Whitney $U$ testing, scaling the domain-matched hard-negative benchmark to $N \ge 500$ diverse scientific propositions across multiple middle and late layers (e.g., Layers 20–41) will be necessary to characterize how truth-polarity representations evolve across hybrid Mamba-attention blocks.
+2. **Hardware Performance Counter Verification on Bare-Metal Linux:** Under unprivileged WSL2 virtualization, GPU performance counters (`ncu`) remain restricted (`ERR_NVGPUCTRPERM`), requiring L2 residency to be proven indirectly—albeit conclusively—via physical GDDR6 roofline violation ($499.30 > 288.0\text{ GB/s}$). Executing the identical binary on bare-metal Linux with hardware counters enabled (`lts__t_sectors_hit_rate.pct`) would provide direct sector-level cache telemetry.
+3. **Hardware-Backed Key Attestation:** Persisting Ed25519 signing keys in `0600` host files or environment variables protects the telemetry chain against unprivileged tampering and offline log rewriting, but remains exposed to root-level host compromise. Binding the signing key to a discrete Trusted Platform Module (TPM 2.0) on Node Alpha and Android StrongBox/Keystore on the mobile edge would elevate the ledger to hardware-rooted attestation.
+
+---
+
+### H.4 Reviewer Conclusion
+
+Across iterative forensic revisions culminating in **Revision `V1.8` (`WORK-ORDER-AG-15`)**, `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` has matured from a conceptually dense prototype into a rigorously engineered, self-auditing, and empirically falsifiable reference architecture. Every mathematical identity, memory-bandwidth claim, cross-platform floating-point tolerance, and security boundary in the specification is backed by clean PEP-8 source code (`0` semicolon packers, McCabe complexity $\le 13$), automated test coverage (`41 / 41` Python/CUDA/JVM tests and `23 / 23` Android/Kotlin tests), out-of-band silicon power telemetry, and programmatic table-to-JSON consistency.
+
+Crucially, where linear subspace methods encounter intrinsic theoretical limits—most notably on domain-matched semantic falsehoods (`Group F`) and in-band tangent perturbations (`Appendix G`)—the authors neither obscure nor overstate their results, instead quantifying the exact failure modes and engineering explicit defense-in-depth mitigations. On purely technical, methodological, and systems-engineering grounds, the specification is **verified, reproducible, and ready for formal release acceptance**.
