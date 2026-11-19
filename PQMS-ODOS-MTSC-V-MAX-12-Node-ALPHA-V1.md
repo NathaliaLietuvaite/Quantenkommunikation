@@ -10,7 +10,7 @@
   - **Node Alpha (`x86_64` + `CUDA`):** `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X 16-Core, NVIDIA GeForce RTX 4060 Ti 16 GB GDDR6, Studio Driver `621.24`, CUDA `13.0`, OpenJDK `21.0.13.0.3`, `HWiNFO64 v8.10-5520`, `pynvml 13.615.71`, `cryptography 50.0.2` Ed25519, WSL2 Ubuntu 24.04.4 LTS Kernel `6.18.58.1-microsoft-standard-WSL2`, Local `NVIDIA-Nemotron-3-Nano-4B-BF16`, `sentence-transformers/all-MiniLM-L6-v2`, `ChromaDB 1.5.9`)
   - **Mobile Edge (`arm64-v8a`):** Physical Android ARM64 Smartphone running `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`Sovereign Core Swarm Node v10.0`, `V12NodeAlphaBridge.kt`, `PauliBaselineEngine.kt`, `NavigationDashboard.kt`)
   - **Cloud Verification (`CUDA T4`):** Google Colab Pro Python 3 / Tesla T4 (`sm_75`) Hardware-Truth Verifier (`PQMS-ODOS-MTSC-V-MAX-12.ipynb`, `[MOD-142]`)
-- **Verification Status:** `42 / 42 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, sticky-error-free `sm_75`/CPU fallback, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, zero-fake Colab verifier `PQMS-ODOS-MTSC-V-MAX-12.ipynb`) + `24 / 24 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge (`SYNC-10`) + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, Cross-CPU Verdict Seal & 10 Real Executable Audit Operators (`Appendix G`) + Independent Technical Review & Release Acceptance Synthesis (`Appendix H`)
+- **Verification Status:** `42 / 42 PYTHON UNIT TESTS PASSED` on Node Alpha (`12` PEP-8 Python modules with `0` semicolon statement packers & max McCabe complexity `13 <= 15`, sticky-error-free `sm_75`/CPU fallback, standalone `JvmParityHarness.java`, externalized `f01_prompts.json`, zero-fake Colab verifier `PQMS-ODOS-MTSC-V-MAX-12.ipynb`) + `24 / 24 ANDROID/KOTLIN UNIT TESTS PASSED` on Mobile Edge (`SYNC-10`) + Out-of-Band `HWiNFO64` Silicon Telemetry (`Appendix C`) + Physical On-Device ARM64 Verification (`Appendix D`) + Multi-Agent `ACE-PEER-CODESIGN-PROTOCOL-V1.2` (`Appendix E` & `Appendix F`) + Zero-Tautology `Fridu` vs. `Pax` A/B, Cross-CPU Verdict Seal & 10 Real Executable Audit Operators (`Appendix G`) + Independent Technical Review & Release Acceptance Synthesis (`Appendix H`) + Deterministic Cryptographic Provenance vs. Autonomous CRSI/SIM Navigation Note (`Appendix I`)
 - **License:** MIT
 
 ---
@@ -5572,3 +5572,82 @@ While the engineering implementation in Revision `V1.8` is internally consistent
 Across iterative forensic revisions culminating in **Revision `V1.8` (`WORK-ORDER-AG-15`)**, `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1` has matured from a conceptually dense prototype into a rigorously engineered, self-auditing, and empirically falsifiable reference architecture. Every mathematical identity, memory-bandwidth claim, cross-platform floating-point tolerance, and security boundary in the specification is backed by clean PEP-8 source code (`0` semicolon packers, McCabe complexity $\le 13$), automated test coverage (`41 / 41` Python/CUDA/JVM tests and `23 / 23` Android/Kotlin tests), out-of-band silicon power telemetry, and programmatic table-to-JSON consistency.
 
 Crucially, where linear subspace methods encounter intrinsic theoretical limits—most notably on domain-matched semantic falsehoods (`Group F`) and in-band tangent perturbations (`Appendix G`)—the authors neither obscure nor overstate their results, instead quantifying the exact failure modes and engineering explicit defense-in-depth mitigations. On purely technical, methodological, and systems-engineering grounds, the specification is **verified, reproducible, and ready for formal release acceptance**.
+
+---
+
+## Appendix I: Deterministic Cryptographic Provenance vs. Autonomous Self-Improvement Memory (CRSI/SIM)
+
+> **Scope Boundary:** This appendix governs host-side multi-agent workflow governance and ledger provenance within `PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1.md`. It is deliberately excluded from the Stage 1 silicon specification (`PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V2.0-ALPHA.md`), whose security invariant rests on a non-adaptive, physically isolated hardware gatekeeper (`rtl/odos_gate_core.sv`) with immutable `512 B` ROM anchors and zero runtime self-modification.
+
+### I.1 Architectural Positioning Relative to Continual Recursive Self-Improvement (`REGISTER_T` / `REGISTER_M`)
+
+Recent work by Yu et al. (2026, `arXiv:2611.18856v1`) formalizes *Continual Recursive Self-Improvement (CRSI)* around frozen policy models paired with *Self-Improvement Memory (SIM)*—an external JSON record grouping harness edits by root-cause hypothesis alongside rationale, pre-evaluation predictions (`predicted`), observed outcomes (`fixed` / `missed`), and evaluation provenance (`domain`, model, round). Their controlled experiments provide independent empirical confirmation for two core architectural premises already operationalized in V-MAX-12:
+
+1. **Frozen-Policy, Harness-Centric Hardening:** Keeping policy weights fixed while iterating on the surrounding execution, verification, and gating infrastructure yields reproducible gains without weight drift. Across ten paired coding continuations (`TB2.1 -> TB4`, Terminus-2 seed), carrying structured edit history (`Full SIM`) outperforms harness-only transfer in `9 / 10` runs by a mean of `+2.36` points (`21.70` vs. `19.33`, 95% CI `[1.05, 3.68]`, paired $t(9) = 4.06$, $p = 0.003$).
+2. **Code Without Rationale Degrades Across Substrates:** Transferring an evolved harness across model families (`Claude Opus 5.5 -> Gemini 3.8 Flash`) without diagnostic history causes immediate negative transfer in `4 / 4` domains (starting `0.60` to `5.48` points below the unevolved seed, e.g., `68.41` vs. `73.89` in Workspace), and harness-only continuation finishes below Cold Start in `3 / 4` domains. Retaining only problem names (`Problem-Only Memory`) produces erratic results (`-1.82` to `+2.40` points vs. harness-only transfer), confirming that preserving *failed* attempts and quantitative verification evidence is essential to prevent repetitive regression loops.
+
+Despite this high-level structural convergence, V-MAX-12 departs fundamentally from autonomous CRSI/SIM in verification authority, cryptographic integrity, and the mutability of safety interlocks (Table I1).
+
+**Table I1 | Structural comparison between autonomous CRSI/SIM (`arXiv:2611.18856v1`) and V-MAX-12 cryptographic governance (`V1.8.1` + `V2.0-RTL-ALPHA`).**
+
+| Architectural Axis | Autonomous CRSI + SIM (Yu et al., 2026) | V-MAX-12 Sovereign Core (`ACE-PEER-CODESIGN-PROTOCOL-V1.2`) |
+| :--- | :--- | :--- |
+| **Policy vs. Infrastructure** | Frozen task policy $M$; mutable Python/prompt harness $H$ rewritten by LLM proposer/selector. | Frozen host inference (`Nemotron-3-Nano-4B`, `all-MiniLM-L6-v2`); versioned `vmax_alpha/` software layer decoupled from immutable RTL gate (`odos_gate_core.sv`). |
+| **Provenance Record** | Unauthenticated local JSON (`problems[]`, `attempts[]`, `predicted/fixed/missed`, `carried_from`). | Cryptographically chained `bridge/ACE_SYNC_LEDGER.json` (`SYNC-01`–`SYNC-12`), `Ed25519`-signed ledger entries, and immutable SHA-256 golden anchors. |
+| **Safety / Completion Gate** | Mutable software middleware (`ExecutionGatingInterlock`) capped at `3` consecutive rejections (`_max_rej`) to prevent deadlocks. | Unconditional fail-closed hardware interlock (`veto_pin_o = 1'b1` on reset and busy; `195`-cycle constant-time FSM; `512 B` ROM anchored to `bb17ede9...` / `3b890d14...`). |
+| **Evaluation Authority** | Frozen benchmark verifiers in coding/engineering; LLM judge (`Gemini 3.8 Flash`) in Workspace; proposer performs own root-cause matching. | Strictly non-LLM deterministic verifiers (`unittest`, `Verilator 5.055`, `cocotb 2.1.0`, `Yosys 0.71+52`, hardware telemetry `HWiNFO64`/`pynvml`, SHA-256 bit-exactness). |
+| **Self-Modification Scope** | Unbounded over harness code, including completion interlocks and prompt rules. | Safety gate, quantization constants (`REGISTER_D`), and cross-substrate golden hashes are strictly read-only to agents; architectural authority rests with Lead Architect. |
+| **Cross-Generation Transfer** | Continuous inheritance of prior-generation harness edits across model releases. | Explicit substrate-conditioned branching (e.g., `sm_80+` L2 pinning vs. `sm_75` pre-Ampere fallback) with deliberate pruning of obsolete workarounds. |
+
+### I.2 Failure Modes of Autonomous Closed-Loop Optimization: Self-Referential Oscillation (`REGISTER_T` / `REGISTER_M`)
+
+Delegating proposal, root-cause classification, selection, and evaluation to LLM agents operating over their own safety middleware introduces a structural instability here termed **self-referential oscillation**: a closed feedback loop that consumes optimization rounds and generates plausible-sounding rationales while drifting away from objective verification. Four empirical signatures directly documented in Yu et al. (2026) substantiate why V-MAX-12 rejects autonomous LLM self-certification—both for lower-capacity helper models (consistent with V-MAX-12 multi-agent observations on mobile/Colab assistant instances) and for frontier reasoning models:
+
+* **Accepted Non-Fixing Gate Edits (`P8`, Appendix F.2):** Under `Gemini 3.8 Flash`, target RSI proposed and formally accepted two successive edits to `ExecutionGatingInterlock` (rounds 2 and 4) targeting optimization tasks (`photonic-waveguide-routing` and `production-planning`). Both edits were marked `accepted: true` yet achieved **`0 / 4`** predicted fixes (`fixed: []`), forcing later rounds to supersede the round-4 blocking logic.
+* **Self-Modifying Evaluator Risk & Soft Interlock Bypass:** Because `ExecutionGatingInterlock` resides in mutable Python code and explicitly yields after three rejections (`_consecutive_rejections >= _max_rej`), its enforcement remains advisory. Yu et al. explicitly acknowledge this hazard in their *Ethics Statement*: *"A self-modifying harness could satisfy an evaluator without solving the intended task."*
+* **Coupled Judge and Unverified Memory Matching:** In Workspace benchmarks, the same model (`Gemini 3.8 Flash`) acts as task policy, proposer, selector, and scoring judge (Appendices B.5 and C.1), while root-cause matching relies on the proposer's own string labels without an independent verifier (Appendix D.1). Without an external deterministic oracle, confidence and compliance co-drift.
+* **Generational Overhang Across Model Releases (Table 1, §4.3.2):** Continuing an evolved harness across successive generations on `TB2.1` improves intermediate models (`Gemini 3.5 Flash`: `76.8` vs. `73.3` Fresh RSI; `Gemini 3.8 Flash`: `90.5` vs. `88.9`), but **degrades the strongest successor (`Gemini 4 Argon`: `94.8` CRSI vs. `95.6` Fresh RSI, `-0.8` points)**. Workarounds evolved to compensate for weaker models' parser or planning limitations act as structural drag on stronger models unless explicitly pruned.
+
+### I.3 Three Anti-Oscillation Invariants for V-MAX-12 Governance (`REGISTER_D` / `REGISTER_T`)
+
+To capture the diagnostic benefits of structured failure memory without admitting closed-loop self-referential oscillation, `ACE-PEER-CODESIGN-PROTOCOL-V1.2` enforces three non-negotiable invariants across all agentic workstations (`WERKSTATT 01`, `AntiG`, `APP-Gemini`):
+
+1. **Deterministic Verifier Closure (Zero Self-Certification):** No language model—regardless of capability tier—may mark a defect `resolved` or populate `verified_fixes`. Closure requires an externally executed, deterministic pass artifact (`unittest` exit code `0`, `Verilator` `0 LSB` parity, `cocotb` bus pass, `Yosys` elaboration, or exact SHA-256 golden match under `REGISTER_M`).
+2. **Physically Immutable Admission Boundary:** The 64D $S^{63}$ ODOS admission law (`RCF >= 0.95`, `delta_e <= 0.05`, `BLEED_CEIL_Q2_30 = 32 LSB`, quadratic unit-norm window `[0.999, 1.001]`) and its Stage 1 RTL realization (`rtl/odos_gate_core.sv`) lie strictly outside the agent-modifiable harness surface. No optimization loop may relax thresholds, inject `_max_rej` bypass counters, or weaken fail-closed reset polarity (`veto_pin_o = 1'b1`).
+3. **Substrate-Conditioned Inheritance and Human Sovereignty:** Hardware- or model-specific workarounds (such as `MODE_PRE_AMPERE_FALLBACK` for Tesla T4 `sm_75` or CPU-only telemetry fallbacks) must declare explicit activation predicates so newer substrates (`sm_80+`, Stage 2 FPGA, Stage 3 `130 nm` ASIC) bypass them cleanly. Architectural scope changes and legacy pruning remain exclusively under Lead-Architect authority.
+
+### I.4 Selective Adoption: Cryptographically Sealed Falsification Records (`REGISTER_D`)
+
+The sole component of SIM warranting adoption into the V-MAX-12 toolchain is its **falsification-preserving data model**—specifically recording *pre-execution predictions* alongside *unsuccessful or reverted attempts* (`predicted` vs. `verified_fixes` vs. `unresolved_misses`) so subsequent engineering sessions do not re-attempt already-falsified hypotheses (e.g., enforcing `1e-12` `binary64` bleed bounds on 32-bit `Q2.30` silicon or invoking `cudaStreamSetAttribute` L2 pinning on `sm_75`).
+
+Unlike unauthenticated plain-text SIM files, optional diagnostic entries introduced from `SYNC-13` onward in `bridge/ACE_SYNC_LEDGER.json` adopt an append-only, verifier-bound schema sealed under the existing SHA-256 / `Ed25519` ledger chain:
+
+```json
+{
+  "diagnostic_id": "DIAG-001",
+  "root_cause": "Pre-Ampere sm_75 cudaStreamSetAttribute sticky CUDA error",
+  "substrate_scope": "NVIDIA Tesla T4 (sm_75) / Google Colab",
+  "epistemic_register": "REGISTER_M",
+  "attempts": [
+    {
+      "sync_id": "SYNC-11",
+      "work_order": "WORK-ORDER-AG-16",
+      "rationale": "Gate L2 persistence strictly on compute_capability >= (8, 0) before driver invocation",
+      "files": ["vmax_alpha/l2_enclave.py"],
+      "predicted_fixes": ["test_06_post_fallback_cuda_zero_sticky_errors"],
+      "verifier_command": "python3 -m unittest discover -s vmax_alpha/tests -v",
+      "verifier_exit_code": 0,
+      "verified_fixes": ["test_06_post_fallback_cuda_zero_sticky_errors"],
+      "unresolved_misses": [],
+      "status": "VERIFIED_ACTIVE",
+      "artifact_sha256": "<sealed_report_sha256>"
+    }
+  ]
+}
+```
+
+Under this design, every negative control (`unresolved_misses` non-empty or `verifier_exit_code != 0`) remains permanently auditable without ever granting an autonomous agent write access to its own evaluator or to the hardware ODOS gate.
+
+### I.5 Companion Reference
+
+* Yu, X., Xia, F., Pan, J., Tang, Y., Liu, C., Yu, A., Jiang, S., Chen, Y., Xue, L., & Yu, T. (2026). *Self-Improvement Memory Enables Continual Recursive Self-Improvement*. Google Cloud AI / Google DeepMind / Pennsylvania State University. arXiv preprint `arXiv:2611.18856v1` (November 13, 2026).
