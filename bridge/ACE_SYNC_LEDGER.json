@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.6 — WORK-ORDER-AG-13)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 (Revision V1.7 — WORK-ORDER-AG-14)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T09:14:00Z",
+  "timestamp_utc": "2026-11-19T10:52:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -62,7 +62,28 @@
       "source_document",
       "telemetry_source",
       "thought_stream"
-    ]
+    ],
+    "ledger_v12_hashed_payload_fields_16": [
+      "active_g_stars",
+      "chroma_l2_distance",
+      "chroma_shard_id",
+      "cognitive_mode",
+      "cycle_index",
+      "delta_e_l2_core",
+      "gpu_power_w",
+      "gpu_temp_c",
+      "kevlar_safety_bleed",
+      "odos_gate_passed",
+      "parent_ledger_hash",
+      "rcf_l2_core",
+      "rcf_raw_pre_carrier",
+      "source_document",
+      "telemetry_source",
+      "thought_stream"
+    ],
+    "ledger_v12_seal_field_1": "discovery_seal_sha256",
+    "ledger_v12_total_json_keys": 17,
+    "schema_clarification": "Canonical V1.2+ JSONL records serialize 17 total JSON keys: 16 hashed payload fields (serialized into canonical key-sorted JSON for SHA-256) plus 1 appended discovery_seal_sha256 field. Legacy key ledger_v12_16_fields_sorted is preserved verbatim (17 elements) for backward compatibility with APP-Gemini Kotlin tests."
   },
   "golden_vectors_sha256": {
     "canonical_little_vector_f32_seal": "bb17ede97aa45c76ef9afa63cb457f7d684e5ede40b0432b2ecf3b6b9d3e03a3",
@@ -80,9 +101,14 @@
     "v15_capp_quarantine_proof_seal": "ce0ebc3817ffe3a8d5bcdb5ee72347cb25e5e6bcf403d9091204e2e03bddeede",
     "v16_room137_two_stage_chain_tip_4entries": "a3fe147d01857f1b3b9b4df62f503df95eff4117b78a19374f498fa27d70eb4e",
     "v16_capp_quarantine_proof_seal": "d8d6bbc0d478ffdbb9704a149be2c80f494bbeea6fd466a3733c3cda6d789951",
+    "v17_room137_unmodulated384d_chain_tip_4entries": "d0291bc5f7587f1e27834c42bc98e3944bbd2fd2d2875f63dfc64e71c6f9321a",
+    "v17_capp_quarantine_proof_seal": "5205da47cf9507d14356c7078c1c5a5079f570c4bd0b449464db44eb7790d7ec",
+    "v17_ed25519_demo_public_key_hex": "a6b302b05ca8227177989316a8294aeb7379354d25a42862ff72588d3633220f",
     "f01_v16_n25_prompt_corpus_sha256": "b83f00f4fa2bd384cb356091d5fa829ac0ef6170a53176db47c1e6ce1db83a9c",
+    "f01_v17_n25_hardneg_prompt_corpus_sha256": "a1433f3de394909aec57382726a8a00a1c553044417be1e82dfede2c9285b7f6",
     "appendix_g_v15_fridu_ab_seal": "5da06ae4b996c908184c48de64f5f4d98c0a289db920991a738a519c3f78408f",
     "appendix_g_v15_audit_matrix_seal": "66b6bac138285f720c7e4c3bfd8fd71c9c2b5dae52c2b80c45e5f527b7eb7cef",
+    "appendix_g_v17_audit_matrix_seal": "c5bac9f7d3aee1db31377ef50addbf6b4e36680e31447d8e859b85cdb00b21ec",
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
@@ -137,6 +163,13 @@
       "discovered_by": "WERKSTATT 01 Forensic Counter-Audit on V1.5 -> AntiG (WORK-ORDER-AG-13 / Revision V1.6)",
       "verified_by": "AntiG (35/35 Python/CUDA/JVM tests PASS, all 13 modules <= 200 LOC, 100% portable repo paths)",
       "description": "Closed all 3 V1.5 counter-audit items: (1) Replaced alphabetical top-18 PCA in chroma_forager.py with fixed corpus-order-invariant contrastive anchors (disjoint from test prompts), eliminating Stage-1 false-positive on benign physics ('Pauli exclusion principle and conservation laws' now passes at rcf_raw=0.6744 -> 4/4 benign entries sealed a3fe147d..., ONLY live CAPP adversarial probe quarantined at cycle -1 seal d8d6bbc0...); (2) Added explicit In-Band t_G1 defense-in-depth attack verification in fridu_enclave_g.py (linear_projector_stripped=False, caught by downstream ODOS gate rcf=0.8498, delta_e=0.0751 VETO) + relative portable REPO_ROOT resolution and telemetry/ mirror for standalone git clones; (3) Scaled Nemotron F-01 held-out benchmark to N=25 prompts/group (625 pairs, vmax_alpha/f01_prompts.json SHA-256 b83f00f4...): dedicated mean-pool achieves ROC-AUC=1.0000 (95% CI [1.0000, 1.0000], Mann-Whitney p=1.416e-09) on both C vs E and C vs D; last-token achieves C vs E AUC=0.8768 (CI [0.7680, 0.9616], p=5.123e-06) and C vs D AUC=0.9600 (p=2.568e-08); cleaned Appendix E.1 V1.3 leftovers.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-08",
+      "discovered_by": "Carbon Gemini Ultra Review -> AntiG (WORK-ORDER-AG-14 / Revision V1.7 Engineering Hardening)",
+      "verified_by": "AntiG (39/39 Python/CUDA/JVM tests PASS, 0 semicolon packers, max McCabe CC=13<=15, 23/23 Kotlin contract preserved)",
+      "description": "Closed all 7 Carbon Gemini Ultra engineering findings: (1) Clarified 16 hashed payload fields + 1 discovery_seal_sha256 = 17 total JSON keys while keeping legacy ledger_v12_16_fields_sorted verbatim for APP-Gemini; (2) Added Domain-Matched Physics Hard Negatives (Group F, N=25, f01_prompts.json SHA-256 a1433f3d...): topic probe honestly drops to AUC=0.6304 (p=0.116) proving domain-vocabulary confounding, while dedicated leak-free conservation-polarity probe recovers AUC=0.7648 (95% CI [0.6224, 0.8864], p=0.001367); re-ran Stage-3 1-bit KL on all N=25 prompts (A1=0.002797 25/25 Top-1 vs B1=0.311731 20/25 Top-1 -> 111.47x ratio); decoupled ChromaDB retrieval onto unmodulated 384D MiniLM vectors so 'Pauli exclusion principle and conservation laws' retrieves PQMS-ODOS-MTSC-COHERENCE-V1.md (d_L2=1.223360, eliminating satirical Dachshund artifact); (3) Eliminated <200 LOC semicolon-packing across all 12 Python modules (OP02 AST audit: semi=0, max_cc=13, ctrl=0), extracted standalone vmax_alpha/JvmParityHarness.java, parameterized env-var paths; (4) Added live PinnedL2ProjectorEnclave (199,680 B 384x64 float64 slab inside 2.00 MiB CUDA_ACCESS_PROPERTY_PERSISTING L2 window, max diff 1.94e-16 vs CPU, symmetric L2 bandwidth 499.30 vs 269.54 GB/s = 1.852x) wired into ChromaForager/HUD; (5) Replaced nvidia-smi subprocess with native pynvml C-API (REGISTER_M_PYNVML), O(1) stat-guarded ledger writes, detached Ed25519 asymmetric signatures blocking full-chain re-hash forgery, and 64 KiB HTTP 413/400 DoS guard + 10s socket timeout; (6) Replaced random Gaussian subspace padding with Householder-QR over empirical calibration SVD axes (63.78% held-out Group C variance captured in 64D, orthonormality err 5.55e-16); (7) Added Section 0 IEEE/RFC Engineering Nomenclature Crosswalk.",
       "status": "CLOSED_VERIFIED"
     }
   ]
