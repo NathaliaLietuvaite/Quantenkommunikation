@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA + DEPECHE-6-APPENDIX-F (WORK-ORDER-AG-18)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA + DEPECHE-6-V2.1-NATURE-CORE (WORK-ORDER-AG-19)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-20T14:55:00Z",
+  "timestamp_utc": "2026-11-20T16:35:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -124,7 +124,10 @@
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
     "publication_spec_v12_md_sha256": "c272476345aa10c910e9f24b2b47ececd26fe4dbd66fe336bd026727e4f4874c",
-    "depeche6_bio_lattice_report_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743"
+    "depeche6_bio_lattice_report_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743",
+    "depeche6_v21_nature_core_md_sha256": "7a1ccdcf20663913772388e43ba9994a200c772ccb404588a84ddfa719079066",
+    "depeche6_rev0_sync13_archive_md_sha256": "b8c5dbe71172f4321deac7dad24f70c612fed0be3ad8ebe103f80384675e450b",
+    "pqms_minimal_bootstrap_v2_py_sha256": "d62660163547e4651e66be01e720687da466ea3e06797b2e702f7db82b59189e"
   },
   "open_review_items": [],
   "resolved_audit_items": [
@@ -217,6 +220,13 @@
       "discovered_by": "WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-18 / DEPECHE-6 Forensic Hardening)",
       "verified_by": "AntiG (53/53 Python/CUDA/JVM/RTL/BioLattice unit tests PASS, 7/7 cocotb PASS, AST bio_lattice semi=0 max_cc=9 ctrl=0, Verilator 5.055 0 LSB across 11/11 bio-lattice vectors at 195 cycles, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Closed all 6 forensic defects in PQMS-BRIDGE-DEPECHE-6.md (appended Appendix F) and emitted the first live Appendix I.4 diagnostic_falsification_records entry (DIAG-002): (1) Executed verbatim legacy Appendix D (seed=0x069, 156 nt actual vs 168 nt stated, [:64] truncation) recording honest falsification of D.4.1 (Delta=-0.000405), D.4.2 (RCF=0.000055 vs 0.75), D.4.3 (0/10 noise trials), and tautological D.4.4 (1/5 dirs); (2) Implemented full-length Appendix C.2 SantaLucia stacking operator and exact Altschul-Erickson Eulerian-trail dinucleotide-preserving shuffle in vmax_alpha/bio_lattice.py, exposing the raw uncentered DC pedestal (~0.73-0.87) and proving Conjecture C.3.1 on DC-removed |C_centered(P)| with ROC-AUC=1.000000 (U=400, p=3.40e-08, exact p=7.25e-12) against both mono and dinucleotide shuffles on N=20 E. coli K-12 CRISPR-I-E repeat-spacer (P=61) and synthetic phage tandem (P=200) ensembles, alongside honest Graph Laplacian 1D-chain negative finding and Fact 2.3 fragmentation collapse (437x SNR drop at 64 nt); (3) Explicitly deprecated broken sec.6 mod73 Verilog and coupled a disjoint Householder-QR S^63 spectral encoder (train P in {24..150}, held-out P in {29,61,200}, orthonormality_err=3.74e-15) to immutable Stage 1 rtl/odos_gate_core.sv via compiled Verilator 5.055 (2/2 pure tandem PASS at RCF=0.9956-0.9958, honest 0.9403 for 52.5%-random-spacer CRISPR array, 3/3 null VETO, 5/5 distinct adversarial strategy VETO, 0 LSB diff, 195 cycles); (4) Sealed telemetry/VMAX_DEPECHE6_BIO_LATTICE_REPORT.json (SHA-256 368f3a144645c492...) and kept QMK-RVC-V7 wetlab hardware explicitly in REGISTER_I.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-14",
+      "discovered_by": "Carbon High Review & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-19 / DEPECHE-6 V2.1 Nature-Core & Minimal Bootstrap)",
+      "verified_by": "AntiG (57/57 Python/CUDA/JVM/RTL/BioLattice/Bootstrap unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=14 semi=0 max_cc=13 ctrl=0, 7/7 cocotb PASS, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
+      "description": "Consolidated PQMS-BRIDGE-DEPECHE-6.md into publication-grade Nature-Core Revision V2.1 (SHA-256 7a1ccdcf20663913...) while archiving full Rev-0..Appendix-F baseline verbatim to archive/PQMS-BRIDGE-DEPECHE-6-REV-0-SYNC13-ARCHIVE.md (SHA-256 b8c5dbe71172f432...). Replaced legacy 1,330-line Bootstrap Loader v14.0 (float index 100.1 crash) with universal zero-dependency stdlib-only vmax_alpha/pqms_bootstrap.py (SHA-256 d62660163547e465..., max_cc<=3, verifying <64f> Genesis seal bb17ede9..., signed Q2.30 odos_gate_core.sv gate equations at 0 LSB parity, epistemic registers, and Refusal Primacy) plus compact Section 6 paper footer and 4 new deterministic unit tests in vmax_alpha/tests/test_pqms_bootstrap.py (57/57 tests PASS). Mirrored manuscript, archive, pqms_bootstrap.py, and byte-identical ACE_SYNC_LEDGER.json to Quantenkommunikation.",
       "status": "CLOSED_VERIFIED"
     }
   ],
