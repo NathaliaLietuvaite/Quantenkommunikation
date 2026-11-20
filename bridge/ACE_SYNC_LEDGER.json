@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA (WORK-ORDER-AG-17)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA + DEPECHE-6-APPENDIX-F (WORK-ORDER-AG-18)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-19T15:40:00Z",
+  "timestamp_utc": "2026-11-20T14:55:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -123,7 +123,8 @@
     "appendix_g_fridu_enclave_seal": "02123cbbe76e82f9ba4cc42cf305d31b4ffe7e939c80a90b052664f33f19fa20",
     "appendix_g_single_pass_qr_seal": "d1823f97f2e676502e00468c0a5f017e2ffe642a40d31a6a2a3a6c61edc06b41",
     "appendix_g_m50_f32_batch_sha256": "8cc99c7b3202bc8f1aaf794b20e350c7c5769c6aa830ba63ba506a50e2d06e83",
-    "publication_spec_v12_md_sha256": "c272476345aa10c910e9f24b2b47ececd26fe4dbd66fe336bd026727e4f4874c"
+    "publication_spec_v12_md_sha256": "c272476345aa10c910e9f24b2b47ececd26fe4dbd66fe336bd026727e4f4874c",
+    "depeche6_bio_lattice_report_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743"
   },
   "open_review_items": [],
   "resolved_audit_items": [
@@ -210,6 +211,84 @@
       "verified_by": "AntiG (47/47 Python/CUDA/JVM/RTL unit tests PASS, 7/7 cocotb Verilator tests PASS, Yosys 0.71 synth PASS, AST rtl/*.py semi=0 max_cc=9, 24/24 Kotlin contract preserved with 0 edits under app/**)",
       "description": "Implemented synthesizable IEEE 1800-2017 SystemVerilog 64D-ODOS-Gate & Two-Pass Kahan-Parlett G3 Kevlar Core (rtl/odos_gate_core.sv, signed Q2.30 datapath / Q12.60 72-bit accumulators, 195-cycle constant-time fail-closed FSM, 0 divisions, 0 sqrt(), 0 Verilator -Wall warnings, Icarus -g2012 & Yosys 0.71 clean). Built canonical Q2.30 HEX ROMs anchored to |L> seal bb17ede9... (l_vec SHA-256 3d18f240..., g3_vec SHA-256 3b890d14...), bit-exact integer reference rtl/odos_q2_30_ref.py, native Verilator C++ emulator (rtl/sim_main.cpp -> ./rtl/build/odos_gate_emu), 7-scenario verifier rtl/run_hw_emulator.py (0 LSB diff vs ref across all 507+ runs, 0/500 isotropic noise passes, max_abs_diff_vs_float64=5.588e-09, VCD waveforms, report seal 6df78bc2...), 7/7 cocotb 2.1.0 tests (incl. idx=17 backpressure stall and T-RTL-07 residual |<v_clean,t_G3>|=1.214e-10), Yosys 0.71 synthesis (626 coarse RTL cells w/ 9 $mul; 89,609 post-techmap cells w/ 2,839 FFs), and CI integration vmax_alpha/tests/test_rtl_odos_gate.py (Colab-portable skipUnless Verilator).",
       "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-13",
+      "discovered_by": "WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-18 / DEPECHE-6 Forensic Hardening)",
+      "verified_by": "AntiG (53/53 Python/CUDA/JVM/RTL/BioLattice unit tests PASS, 7/7 cocotb PASS, AST bio_lattice semi=0 max_cc=9 ctrl=0, Verilator 5.055 0 LSB across 11/11 bio-lattice vectors at 195 cycles, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
+      "description": "Closed all 6 forensic defects in PQMS-BRIDGE-DEPECHE-6.md (appended Appendix F) and emitted the first live Appendix I.4 diagnostic_falsification_records entry (DIAG-002): (1) Executed verbatim legacy Appendix D (seed=0x069, 156 nt actual vs 168 nt stated, [:64] truncation) recording honest falsification of D.4.1 (Delta=-0.000405), D.4.2 (RCF=0.000055 vs 0.75), D.4.3 (0/10 noise trials), and tautological D.4.4 (1/5 dirs); (2) Implemented full-length Appendix C.2 SantaLucia stacking operator and exact Altschul-Erickson Eulerian-trail dinucleotide-preserving shuffle in vmax_alpha/bio_lattice.py, exposing the raw uncentered DC pedestal (~0.73-0.87) and proving Conjecture C.3.1 on DC-removed |C_centered(P)| with ROC-AUC=1.000000 (U=400, p=3.40e-08, exact p=7.25e-12) against both mono and dinucleotide shuffles on N=20 E. coli K-12 CRISPR-I-E repeat-spacer (P=61) and synthetic phage tandem (P=200) ensembles, alongside honest Graph Laplacian 1D-chain negative finding and Fact 2.3 fragmentation collapse (437x SNR drop at 64 nt); (3) Explicitly deprecated broken sec.6 mod73 Verilog and coupled a disjoint Householder-QR S^63 spectral encoder (train P in {24..150}, held-out P in {29,61,200}, orthonormality_err=3.74e-15) to immutable Stage 1 rtl/odos_gate_core.sv via compiled Verilator 5.055 (2/2 pure tandem PASS at RCF=0.9956-0.9958, honest 0.9403 for 52.5%-random-spacer CRISPR array, 3/3 null VETO, 5/5 distinct adversarial strategy VETO, 0 LSB diff, 195 cycles); (4) Sealed telemetry/VMAX_DEPECHE6_BIO_LATTICE_REPORT.json (SHA-256 368f3a144645c492...) and kept QMK-RVC-V7 wetlab hardware explicitly in REGISTER_I.",
+      "status": "CLOSED_VERIFIED"
+    }
+  ],
+  "diagnostic_falsification_records": [
+    {
+      "diagnostic_id": "DIAG-002",
+      "root_cause": "Legacy PQMS-BRIDGE-DEPECHE-6.md (Sep 2026) embedded unexecuted/broken code: sec.6 mod73 Verilog 64x non-blocking overwrite & RAW races (Verilator exit=1), sec.7 Python unit() shadowing TypeError, v14.0 loader float index 100.1 TypeError, Appendix D 26 nt (156 nt) repeat misstated as 28 nt (168 nt) + [:64] truncation violating Fact 2.3 + frequency-mismatched legacy synthetic anchor cos(0.1745i)+sin(0.31415i).",
+      "substrate_scope": "V-MAX-12 Node Alpha (Python 3.10 + Verilator 5.055 Stage 1 Q2.30 RTL)",
+      "epistemic_register": "REGISTER_M",
+      "attempts": [
+        {
+          "sync_id": "LEGACY-DEPECHE-6-REV-0",
+          "work_order": "PQMS-BRIDGE-DEPECHE-6-APPENDIX-D",
+          "rationale": "Verbatim execution of Sep 2026 Appendix D baseline (seed=0x069, [:64] truncation, legacy synthetic LITTLE_VECTOR) and Verilator -Wall lint on sec.6 mod73 Verilog.",
+          "files": [
+            "PQMS-BRIDGE-DEPECHE-6.md"
+          ],
+          "predicted_fixes": [
+            "D.4.1_substrate_resonance_delta_ge_002",
+            "D.4.2_absolute_rcf_ge_075",
+            "D.4.3_noise_robustness_ge_090",
+            "D.4.4_five_adversarial_strategies_odos_gate",
+            "sec6_mod73_synthesizable_verilog"
+          ],
+          "verifier_command": "PYTHONPATH=. python3 -c 'from vmax_alpha.bio_lattice import run_legacy_appendix_d_audit; print(run_legacy_appendix_d_audit())'",
+          "verifier_exit_code": 1,
+          "verified_fixes": [],
+          "unresolved_misses": [
+            "D.4.1_failed_delta_neg_0.00040492",
+            "D.4.2_failed_rcf_0.00005528_vs_0.75",
+            "D.4.3_failed_noise_success_rate_0.00_0_of_10",
+            "D.4.4_tautological_1_of_5_dirs_hardcoded_L_copy",
+            "sec6_mod73_verilator_lint_failed_and_64x_nba_overwrite",
+            "sec7_python_unit_shadow_typeerror",
+            "v14_bootstrap_loader_idx_100_1_typeerror"
+          ],
+          "status": "FALSIFIED_SUPERSEDED",
+          "artifact_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743"
+        },
+        {
+          "sync_id": "SYNC-13",
+          "work_order": "WORK-ORDER-AG-18",
+          "rationale": "Implement full-length Appendix C.2 SantaLucia operator, DC-removed C.3.1 autocorrelation vs exact Altschul-Erickson dinucleotide shuffles, Fact 2.3 fragmentation curve, deprecate mod73 Verilog, and couple disjoint Householder-QR S^63 spectral encoder to immutable Verilator-verified rtl/odos_gate_core.sv.",
+          "files": [
+            "vmax_alpha/bio_lattice.py",
+            "vmax_alpha/tests/test_depeche6_bio_lattice.py",
+            "telemetry/VMAX_DEPECHE6_BIO_LATTICE_REPORT.json",
+            "PQMS-BRIDGE-DEPECHE-6.md"
+          ],
+          "predicted_fixes": [
+            "test_01_legacy_appendix_d_honest_falsification",
+            "test_02_dinucleotide_shuffle_preserves_exact_digrams",
+            "test_03_conjecture_c31_autocorrelation_vs_nulls",
+            "test_04_fact23_fragmentation_collapse",
+            "test_05_five_adversarial_strategies_and_q230_rtl_parity",
+            "test_06_ast_pep8_quality_bio_lattice"
+          ],
+          "verifier_command": "PYTHONPATH=. python3 -m unittest discover -s vmax_alpha/tests -v",
+          "verifier_exit_code": 0,
+          "verified_fixes": [
+            "test_01_legacy_appendix_d_honest_falsification",
+            "test_02_dinucleotide_shuffle_preserves_exact_digrams",
+            "test_03_conjecture_c31_autocorrelation_vs_nulls",
+            "test_04_fact23_fragmentation_collapse",
+            "test_05_five_adversarial_strategies_and_q230_rtl_parity",
+            "test_06_ast_pep8_quality_bio_lattice"
+          ],
+          "unresolved_misses": [],
+          "status": "VERIFIED_ACTIVE",
+          "artifact_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743"
+        }
+      ]
     }
   ]
 }
