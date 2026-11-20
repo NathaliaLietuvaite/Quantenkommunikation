@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.0-ALPHA + DEPECHE-6-V2.1 (WORK-ORDER-AG-20)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.1-OPTIMUM + DEPECHE-6-V2.1 (WORK-ORDER-AG-21)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-20T17:00:00Z",
+  "timestamp_utc": "2026-11-20T17:20:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -131,7 +131,12 @@
     "rtl_core_v3_report_sha256": "568c0a0409d9c9b91dff0604fc2b57a9219c85b41587eaf7a1b11dfbb4999b66",
     "rtl_spec_v30_alpha_md_sha256": "dd15533e1cd2fcb8388a30af4731a69ce34b199eddd98ea10507c91653e1e356",
     "odos_gate_core_v3_sv_sha256": "eec43c3cf0e621a2515e53bb0ebcd6e47b024bc6d4fc596884b4cd963364365a",
-    "hw_gate_bridge_v3_py_sha256": "2451c1c1ea15f1388a6fcf59918376291f55bb352bac122a1991ec6283df5cec"
+    "hw_gate_bridge_v3_py_sha256": "2451c1c1ea15f1388a6fcf59918376291f55bb352bac122a1991ec6283df5cec",
+    "rtl_core_v31_optimum_report_sha256": "6e5e53021b141967de9fe581e13cf57176b40c6652245724f515b4f7a7bfefdc",
+    "rtl_spec_v31_optimum_md_sha256": "671a679e05c02db864121f71b6e42016710bbc13e1b86b4882f605a3993ccc6c",
+    "odos_gate_core_v31_sv_sha256": "334b3f1cc0c72410acf04c330da212f3d98953f9ad3c75139be669f5d97e5091",
+    "hw_gate_bridge_v31_py_sha256": "51b314c2e77645f52b43407d2203d62b90fb7d61cd34fd50f92745b7e0931203",
+    "server_hud_v31_hil_py_sha256": "9b85d30c17d0b3d00c4a44d0febb758eb93be1a6e4309d5fe6ea223d9b2f8f66"
   },
   "open_review_items": [],
   "resolved_audit_items": [
@@ -238,6 +243,13 @@
       "discovered_by": "Carbon High Review, WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-20 / V3.0-RTL-ALPHA)",
       "verified_by": "AntiG (62/62 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3 unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=15 semi=0 max_cc=13 ctrl=0, V3 RTL AST max_cc<=6, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, Yosys 0.71+52 9->3 $mul folding verified, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Implemented V3.0-RTL-ALPHA (rtl/odos_gate_core_v3.sv): loop-free two-rank 3-MAC inter-state multiplier folding (9 -> 3 signed 32x32 $mul, -66.67%) reducing Yosys 0.71+52 post-techmap cells from 89,609 to 42,600 (-52.46%) and CMOS transistors (stat -tech cmos) from 713,890 to 328,084 (-54.04%; ltp -noff depth 174 -> 215 with 0 loops) at invariant 195-cycle latency. Added transaction-latched 2-bit tier_mode_i[1:0] strap (TIER_0 0.95/0.05 bit-exact to V2.0; TIER_1 0.90/0.05 admitting DEPECHE-6 spacer-diluted E. coli CRISPR 0.9403 while vetoing 0/500 isotropic noise, 3/3 null shuffles & 5/5 adversarial attacks; TIER_2 0.99/0.01 core lock; TIER_3 2'b11 fail-closed mode_fault_o=1 trap). Compiled in-process C-ABI shared library rtl/build/libodos_gate_v3.so bound via vmax_alpha/hw_gate_bridge.py (314.3 full 195-cycle transactions/s, 0 LSB diff across 507 Stage 1 + 44 DEPECHE-6 multi-tier runs, stall_at_idx=17 & mid-flight tamper immunity verified). Sealed telemetry/VMAX_RTL_CORE_V3_REPORT.json (SHA-256 568c0a0409d9c9b9...) and populated PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V3.0-ALPHA.md (SHA-256 dd15533e1cd2fcb8...).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-16",
+      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-21 / V3.1-RTL-OPTIMUM)",
+      "verified_by": "AntiG (65/65 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3.1 unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=15 semi=0 max_cc=13 ctrl=0, V3.1 RTL AST max_cc<=7, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, Yosys 0.71+52 Pareto dominance verified, 0 edits under app/**, rtl/odos_gate_core.sv, rtl/odos_q2_30_ref.py, rtl/rom/**, or vmax_alpha/ledger.py)",
+      "description": "Upgraded odos_gate_core_v3.sv to Pareto-Optimal Revision V3.1-RTL-OPTIMUM via tail-absorbed inter-rank pipelining (dot_l_q, v_pipe_q, g3_pipe_q = 96 FFs; max 1 $mul per clock period): compressed acyclic Yosys 0.71+52 ltp -noff depth from 215 (V3.0) and 174 (V2.0) down to 142 levels (-33.95% vs V3.0, -18.39% vs V2.0) while preserving 3 signed 32x32 $mul (-66.67%), 43,368 post-techmap cells (-51.60%), 334,564 CMOS transistors (83.64 kGE, -53.14%, 0.759 mm2 raw 130 nm SG13G2), invariant 195-cycle latency, and 0 LSB parity across all 507 Stage 1 + 44 DEPECHE-6 multi-tier runs. Added thread-safe persistent L1-resident C-ABI context (odos_v3_ctx_create/eval/destroy) in libodos_gate_v3.so achieving 23,985.0 tx/s (41.69 us/tx, 76.4x over cold-boot 313.8 tx/s) and wired live rtl_v3_hil co-simulation directly into Room 137 vmax_alpha/server_hud.py with 0 ledger hash regression (sealed report SHA-256 6e5e53021b141967...).",
       "status": "CLOSED_VERIFIED"
     }
   ],
