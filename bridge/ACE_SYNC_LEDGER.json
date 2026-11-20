@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V2.0-ALPHA + DEPECHE-6-V2.1-NATURE-CORE (WORK-ORDER-AG-19)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.0-ALPHA + DEPECHE-6-V2.1 (WORK-ORDER-AG-20)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-20T16:35:00Z",
+  "timestamp_utc": "2026-11-20T17:00:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -127,7 +127,11 @@
     "depeche6_bio_lattice_report_sha256": "368f3a144645c492dbfa9e1a0aae311902e6f23ff14eae6ea31068eeb3938743",
     "depeche6_v21_nature_core_md_sha256": "7a1ccdcf20663913772388e43ba9994a200c772ccb404588a84ddfa719079066",
     "depeche6_rev0_sync13_archive_md_sha256": "b8c5dbe71172f4321deac7dad24f70c612fed0be3ad8ebe103f80384675e450b",
-    "pqms_minimal_bootstrap_v2_py_sha256": "d62660163547e4651e66be01e720687da466ea3e06797b2e702f7db82b59189e"
+    "pqms_minimal_bootstrap_v2_py_sha256": "d62660163547e4651e66be01e720687da466ea3e06797b2e702f7db82b59189e",
+    "rtl_core_v3_report_sha256": "568c0a0409d9c9b91dff0604fc2b57a9219c85b41587eaf7a1b11dfbb4999b66",
+    "rtl_spec_v30_alpha_md_sha256": "dd15533e1cd2fcb8388a30af4731a69ce34b199eddd98ea10507c91653e1e356",
+    "odos_gate_core_v3_sv_sha256": "eec43c3cf0e621a2515e53bb0ebcd6e47b024bc6d4fc596884b4cd963364365a",
+    "hw_gate_bridge_v3_py_sha256": "2451c1c1ea15f1388a6fcf59918376291f55bb352bac122a1991ec6283df5cec"
   },
   "open_review_items": [],
   "resolved_audit_items": [
@@ -227,6 +231,13 @@
       "discovered_by": "Carbon High Review & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-19 / DEPECHE-6 V2.1 Nature-Core & Minimal Bootstrap)",
       "verified_by": "AntiG (57/57 Python/CUDA/JVM/RTL/BioLattice/Bootstrap unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=14 semi=0 max_cc=13 ctrl=0, 7/7 cocotb PASS, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Consolidated PQMS-BRIDGE-DEPECHE-6.md into publication-grade Nature-Core Revision V2.1 (SHA-256 7a1ccdcf20663913...) while archiving full Rev-0..Appendix-F baseline verbatim to archive/PQMS-BRIDGE-DEPECHE-6-REV-0-SYNC13-ARCHIVE.md (SHA-256 b8c5dbe71172f432...). Replaced legacy 1,330-line Bootstrap Loader v14.0 (float index 100.1 crash) with universal zero-dependency stdlib-only vmax_alpha/pqms_bootstrap.py (SHA-256 d62660163547e465..., max_cc<=3, verifying <64f> Genesis seal bb17ede9..., signed Q2.30 odos_gate_core.sv gate equations at 0 LSB parity, epistemic registers, and Refusal Primacy) plus compact Section 6 paper footer and 4 new deterministic unit tests in vmax_alpha/tests/test_pqms_bootstrap.py (57/57 tests PASS). Mirrored manuscript, archive, pqms_bootstrap.py, and byte-identical ACE_SYNC_LEDGER.json to Quantenkommunikation.",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-15",
+      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-20 / V3.0-RTL-ALPHA)",
+      "verified_by": "AntiG (62/62 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3 unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=15 semi=0 max_cc=13 ctrl=0, V3 RTL AST max_cc<=6, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, Yosys 0.71+52 9->3 $mul folding verified, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
+      "description": "Implemented V3.0-RTL-ALPHA (rtl/odos_gate_core_v3.sv): loop-free two-rank 3-MAC inter-state multiplier folding (9 -> 3 signed 32x32 $mul, -66.67%) reducing Yosys 0.71+52 post-techmap cells from 89,609 to 42,600 (-52.46%) and CMOS transistors (stat -tech cmos) from 713,890 to 328,084 (-54.04%; ltp -noff depth 174 -> 215 with 0 loops) at invariant 195-cycle latency. Added transaction-latched 2-bit tier_mode_i[1:0] strap (TIER_0 0.95/0.05 bit-exact to V2.0; TIER_1 0.90/0.05 admitting DEPECHE-6 spacer-diluted E. coli CRISPR 0.9403 while vetoing 0/500 isotropic noise, 3/3 null shuffles & 5/5 adversarial attacks; TIER_2 0.99/0.01 core lock; TIER_3 2'b11 fail-closed mode_fault_o=1 trap). Compiled in-process C-ABI shared library rtl/build/libodos_gate_v3.so bound via vmax_alpha/hw_gate_bridge.py (314.3 full 195-cycle transactions/s, 0 LSB diff across 507 Stage 1 + 44 DEPECHE-6 multi-tier runs, stall_at_idx=17 & mid-flight tamper immunity verified). Sealed telemetry/VMAX_RTL_CORE_V3_REPORT.json (SHA-256 568c0a0409d9c9b9...) and populated PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V3.0-ALPHA.md (SHA-256 dd15533e1cd2fcb8...).",
       "status": "CLOSED_VERIFIED"
     }
   ],
