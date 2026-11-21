@@ -4,7 +4,7 @@
 **Authors:** Nathália Lietuvaitė (Lead Architect, Vilnius), `WERKSTATT 01` (Systems Architecture & Electro-Thermal Audit), `AntiG` (Node Alpha Silicon Verification & `SYNC-20`–`SYNC-24` Implementation)  
 **Date:** 21 November 2026 | **License:** MIT Open Source License
 
-![PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V4.4-COREWARE Architecture](assets/images/V-MAX-12-RTL-V4.4-THERMO-COREWARE.jpg)
+![PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V4.4-COREWARE Architecture](assets/images/V-MAX-12-4.4-COREWARE.png)
 
 ---
 
