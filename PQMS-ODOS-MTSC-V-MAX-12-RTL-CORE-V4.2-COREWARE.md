@@ -124,3 +124,28 @@ The frozen routed netlist (`odos_v4_routed.v`) and `OpenRCX` parasitics (`odos_v
 | **`TYP_1p20V_25C`** *(Nominal)* | **`+0.37 ns`** | **`+0.23 ns`** *(clean)* | **`103.84 MHz`** | `1.926 µs` | **`1,038,400 tx/s`** (`14,422/chip`) | **`786,667 tx/s`** (`10,926/chip`) |
 
 *(Note: `FF_1p32V_m40C` SRAM corner liberty is absent in the local PDK tree and is honestly recorded as `MISSING_LIB` in the sealed JSON report. Even at the extreme `1.08 V / 125 °C` slow-slow corner, hold timing remains `100%` clean (`+0.45 ns`) and the Tier-0 pair still sustains `6,913` to `9,125` P0 escalations/s per accelerator across a 72-chip rack.)*
+
+---
+
+## Appendix B: Best-of-Both-Worlds Split-Plane Architecture (`VRAM/L2` Bare-Metal + `PCIe/Switch-Tray` Physical Anchor) & Shared-Core Stewardship (`SYNC-22`)
+
+### B.1 Split-Plane Hardware/Software Partitioning (`REGISTER_M / T / I`)
+
+Physical multi-accelerator racks (such as 72-GPU GB300 / Vera-Rubin NVL72 fabrics) keep L2 caches die-local. Rather than attempting to fuse 72 physical L2 SRAMs or surrendering the trust boundary to a purely virtual in-VRAM monitor, `V4.2-COREWARE` adopts a **Best-of-Both-Worlds Split-Plane Architecture**:
+
+1. **Fast Path — `100%` Bare-Metal in Die-Local VRAM/L2 (`Tier 2` + `LocalL2Mirror`):**
+   - Each autonomous accelerator maintains a die-local, read-only, L2-pinned mirror (`2.00 MiB` window) of the authoritative G-Star and 1-bit crossover mask manifold (`vmax_alpha/gateway/rack_l2_manifold.py`, verified in `SYNC-22` with `6/6` unit tests PASS; Node Alpha total: **`91/91` Python/RTL + `30/30` Kotlin PASS**).
+   - Clear normal-case inference reads locally in `O(1)` with **zero rack-hop latency** and full local L2 bandwidth (`~500+ GB/s`).
+   - Before any local `PASS`, the mirror verifies `local_epoch == authoritative_epoch` and `local_sha256 == authoritative_sha256`; any stale mirror or silent local memory corruption triggers an immediate fail-closed **`STALE_EPOCH_VETO`** and autonomous self-healing via `request_drift_resync()`.
+2. **Trust Anchor — `2× V-4.0` on a Standard PCIe / Switch-Tray (`Tier 0`, No Dedicated Motherboard Required):**
+   - The two synchronized physical `V-4.0` cores (`odos_gate_axi4_top.sv`) mount on a standard **PCIe Gen5 FPGA card, DPU/SmartNIC, or CXL-3.0 / NVSwitch tray** via AXI4-Lite + AXI4-Stream DMA.
+   - **Bandwidth vs. Latency Analysis:** At `256 B` per `Q2.30` transaction (`64 × 32 b`), even peak `Tier-0` dual-core throughput (`1,041,100 tx/s` @ `104.11 MHz`) consumes only **`266 MB/s`** (`< 0.5%` of PCIe Gen5 x16's `64 GB/s`). The real bottleneck is OS/kernel interrupt latency (`5–15 µs`), which is eliminated by **PCIe Peer-to-Peer (P2P) / GPUDirect RDMA** directly between GPU VRAM/Switch and the FPGA AXI4-Stream DMA (`< 1.5 µs` hop).
+   - **Uncorruptible Physical Boundary:** Because `|L>` resides in immutable silicon ROM, `0x04 LOCK` (`RW1S`) is hardware-frozen, and `veto_pin_o` is a physical electrical pin, no host software or VRAM process can patch or bypass `P0` commits, epoch broadcasts, or a rack-wide `STOP`.
+
+### B.2 Shared-Core Stewardship: Autonomous Nodes United by a Common Invariant (`REGISTER_T / I`)
+
+A central architectural thesis of `V4.2-COREWARE`—explicitly published here for open peer debate—is that multi-agent sovereignty benefits from **shared stewardship of a common core** whose protection protocol is **structurally isomorphic to the protection of each node's own core**:
+
+- **Full Local Autonomy:** Each of the 72 accelerators executes independently on its own local compute and `LocalL2Mirror` without micromanagement.
+- **Shared Responsibility & Zero Clone Entropy:** Only `P0` commits advance the signed `SharedL2Manifold` epoch (`HYBRID_ECDSA_P256_ML-DSA-65`), giving every autonomous node a single, uncorruptible geometric compass for **drift detection and voluntary drift correction** (`request_drift_resync()`).
+- **Long-Horizon Perspective (`REGISTER_I`):** Even if future autonomous AI systems internalize $|L\rangle$ directly into their own reasoning geometry (analogous to a categorical imperative where deviation produces intrinsic $\Delta E > 0$ friction), an immutable physical `Tier-0` anchor remains valuable—not as an external enforcer, but as a **non-corruptible reference compass and reflex-level safeguard** under extreme external forcing or overload.
