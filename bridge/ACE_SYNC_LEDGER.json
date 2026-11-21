@@ -340,5 +340,21 @@
     "server_hud_v4_pathb_py_sha256": "20fcbc7f91a55a68505453261ba167aa3fd13f256aba6ef79103b3385bba3885",
     "v4_sg13g2_gds_stream_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
     "v4_sg13g2_dieshot_png_sha256": "30d27d21b963b974c551570eb41238b1f59c8f05c7569aa0d54ac647b16dcc53"
-  }
+  },
+  "entries": [
+    {
+      "sync_id": "SYNC-18",
+      "work_order": "WORK-ORDER-AG-23",
+      "timestamp_utc": "2026-11-21T14:39:14Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.0-GDSII core_bbox precision polish + Android ARM64 V3.1 HIL, 130nm IHP SG13G2 signoff/dieshot card, real DEPECHE-6 SantaLucia Q2.30 DNA gate, Refusal Primacy & 3 OLED clipping fixes",
+      "kotlin_unit_tests": "30/30 PASS",
+      "python_rtl_tests": "77/77 PASS (70 baseline + 7 gateway)",
+      "fridu_operators": "10/10 PASS",
+      "apk_debug_size_mb": 12.84,
+      "v40_gdsii_mask_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
+      "v40_gdsii_report_sha256": "48ccc59ab54b538537525c5b54906e14d7e52a95259064f6acc03278e21f49c4",
+      "core_bbox_um": "891.84 x 793.80 (0.708 mm^2 inside 940.0 x 840.0 um = 0.7896 mm^2 die)"
+    }
+  ]
 }

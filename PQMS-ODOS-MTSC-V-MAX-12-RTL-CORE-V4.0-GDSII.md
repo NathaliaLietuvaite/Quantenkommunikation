@@ -100,7 +100,7 @@ Synthesized against `IHP-Open-PDK` Liberty views (`sg13g2_stdcell_typ_1p20V_25C.
 | Physical ASIC Signoff Metric (`OpenROAD` / `OpenSTA`) | Measured Post-Route Value (`REGISTER_M`) | Physical / Architectural Significance |
 | :--- | :--- | :--- |
 | **Target Foundry Process & Corner** | `IHP SG13G2 130 nm CMOS` (`1.20 V`, `25 °C` typ) | Open-source European silicon PDK (`sg13g2_stdcell` + `sg13g2_sram`). |
-| **Die Bounding Box / Core Placement Area** | **`940.0 × 840.0 µm`** (**`0.7896 mm²` die**) / **`0.708 mm²` core** | Core excludes perimeter PDN ring/margin; instance area **`0.419 mm²`** (**`59.0%` core utilization**, `53.1%` die occupancy). |
+| **Die Bounding Box / Core Placement Area** | **`940.0 × 840.0 µm`** (**`0.7896 mm²` die**) / **`0.708 mm²` core** (`891.84 × 793.80 µm` `core_bbox`) | Core excludes perimeter PDN ring/margin; instance area **`0.419 mm²`** (**`59.0%` core utilization**, `53.1%` die occupancy). |
 | **Mapped Standard Cells & Hard Macro** | **`29,494`** stdcells + **`1`** `RM_IHPSG13_1P_64x64` SRAM | Eliminates 64-to-1 FF mux sprawl; total routed wirelength **`1,274,717 µm`**. |
 | **Post-Route Critical-Path Arrival / $f_{\max}$** | **`9.605 ns`** (**`104.11 MHz`** max clock) | Setup WNS **`+0.3945 ns`** at `100.0 MHz` signoff clock, Hold WNS **`+0.1410 ns`** (`TNS = 0.0 ns`). |
 | **Physical `200`-Cycle Transaction Latency** | **`2.000 µs`** @ `100.0 MHz` (**`1.921 µs`** @ `104.11 MHz` $f_{\max}$) | **`1.02x` faster** at $f_{\max}$ than `100 MHz` `V3.1` (`1.95 µs`). |
