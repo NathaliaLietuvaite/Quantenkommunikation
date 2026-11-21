@@ -355,6 +355,20 @@
       "v40_gdsii_mask_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
       "v40_gdsii_report_sha256": "48ccc59ab54b538537525c5b54906e14d7e52a95259064f6acc03278e21f49c4",
       "core_bbox_um": "891.84 x 793.80 (0.708 mm^2 inside 940.0 x 840.0 um = 0.7896 mm^2 die)"
+    },
+    {
+      "sync_id": "SYNC-19",
+      "work_order": "WORK-ORDER-AG-24-SLIM",
+      "timestamp_utc": "2026-11-21T15:44:03Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.1 System Gateway: VCD-annotated OpenSTA power signoff (17.029 mW / 34.058 nJ/tx, -98.0% vs vectorless), Verilator -Wall 0-warning AXI4-Lite/Stream wrapper + 5/5 TB, GET /api/gateway/metrics, 551-vector 0 LSB + N=100,000 7nm vs 130nm benchmark",
+      "vcd_power_report_sha256": "ba9ff80b49215cb44a3172456217a6e400268860cb0cea5aad0274e4b2bc5bf4",
+      "stage4_benchmark_sha256": "ace39ad870bffda0d694544c2d69ef5b7cb1ee0e2bf21b8cb47108f1ed9132b5",
+      "axi4_wrapper_stdcells": 0,
+      "axi4_wrapper_overhead_pct": 0.0,
+      "rapl_status": "RAPL_UNAVAILABLE_IN_WSL2",
+      "python_rtl_tests": "77/77 PASS",
+      "fridu_operators": "10/10 PASS"
     }
   ]
 }
