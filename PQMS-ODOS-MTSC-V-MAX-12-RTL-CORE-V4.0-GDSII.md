@@ -93,7 +93,7 @@ Evaluating `odos_gate_core_v4.sv` first under identical generic `Yosys 0.71+52` 
 
 ### 3.2 Post-Route `IHP SG13G2` (`130 nm`) Physical Layout, Timing Closure, and Power Profile (`REGISTER_M`)
 
-Mapped onto `IHP-Open-PDK` (`sg13g2_stdcell_typ_1p20V_25C.lib` + `RM_IHPSG13_1P_64x64_c2_bm_bist_typ_1p20V_25C.lib`) and routed end-to-end through `OpenROAD` (`2.0-12381-g01bba3695` — floorplanning with SRAM macro halo & PDN straps, global/detailed timing-driven placement, `TritonCTS` clock-tree synthesis, global/detailed routing on `Metal2`–`Metal5` with `0` DRC violations, `OpenRCX` detailed SPEF extraction, and `OpenSTA` multi-metric signoff), `odos_gate_core_v4` closes physical timing cleanly (Table 4, Figure 1).
+Mapped onto `IHP-Open-PDK` (`sg13g2_stdcell_typ_1p20V_25C.lib` + `RM_IHPSG13_1P_64x64_c2_bm_bist_typ_1p20V_25C.lib`) and routed end-to-end through `OpenROAD` (`2.0-12381-g01bba3695` — floorplanning with SRAM macro halo & PDN straps, global/detailed timing-driven placement, `TritonCTS` clock-tree synthesis, global/detailed routing on `Metal2`–`Metal5` with 0 OpenROAD detailed-route DRC violations, `OpenRCX` detailed SPEF extraction, and `OpenSTA` multi-metric signoff), `odos_gate_core_v4` closes physical timing cleanly (Table 4, Figure 1).
 
 ![Figure 1 | Post-route physical GDSII die layout of `odos_gate_core_v4` in `130 nm` IHP `SG13G2` CMOS (`RM_IHPSG13_1P_64x64_c2_bm_bist` hard macro + 3-MAC pipelined standard-cell sea + `Metal1`–`TopMetal2` routing).](./assets/images/V-MAX-12-RTL-V4-SG13G2-DIESHOT.png)
 
