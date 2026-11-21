@@ -1,8 +1,8 @@
 {
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
-  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.1-OPTIMUM + DEPECHE-6-V2.1 (WORK-ORDER-AG-21)",
+  "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.1-OPTIMUM + RTL-CORE-V4.0-GDSII (WORK-ORDER-AG-22)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-20T17:20:00Z",
+  "timestamp_utc": "2026-11-20T23:45:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -26,7 +26,7 @@
       ]
     },
     "bridge_coordinator": {
-      "agent_id": "WERKSTATT 01 (Gemini 4 Argon High) & Lead Architect Nathália Lietuvaitė"
+      "agent_id": "WERKSTATT 01 (Gemini 4 Argon High) & Lead Architect Nath\u00e1lia Lietuvait\u0117"
     }
   },
   "normative_formulas_and_schemas": {
@@ -219,37 +219,44 @@
     },
     {
       "id": "SYNC-12",
-      "discovered_by": "WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-17 / Revision V2.0-RTL-ALPHA)",
+      "discovered_by": "WERKSTATT 01 & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-17 / Revision V2.0-RTL-ALPHA)",
       "verified_by": "AntiG (47/47 Python/CUDA/JVM/RTL unit tests PASS, 7/7 cocotb Verilator tests PASS, Yosys 0.71 synth PASS, AST rtl/*.py semi=0 max_cc=9, 24/24 Kotlin contract preserved with 0 edits under app/**)",
       "description": "Implemented synthesizable IEEE 1800-2017 SystemVerilog 64D-ODOS-Gate & Two-Pass Kahan-Parlett G3 Kevlar Core (rtl/odos_gate_core.sv, signed Q2.30 datapath / Q12.60 72-bit accumulators, 195-cycle constant-time fail-closed FSM, 0 divisions, 0 sqrt(), 0 Verilator -Wall warnings, Icarus -g2012 & Yosys 0.71 clean). Built canonical Q2.30 HEX ROMs anchored to |L> seal bb17ede9... (l_vec SHA-256 3d18f240..., g3_vec SHA-256 3b890d14...), bit-exact integer reference rtl/odos_q2_30_ref.py, native Verilator C++ emulator (rtl/sim_main.cpp -> ./rtl/build/odos_gate_emu), 7-scenario verifier rtl/run_hw_emulator.py (0 LSB diff vs ref across all 507+ runs, 0/500 isotropic noise passes, max_abs_diff_vs_float64=5.588e-09, VCD waveforms, report seal 6df78bc2...), 7/7 cocotb 2.1.0 tests (incl. idx=17 backpressure stall and T-RTL-07 residual |<v_clean,t_G3>|=1.214e-10), Yosys 0.71 synthesis (626 coarse RTL cells w/ 9 $mul; 89,609 post-techmap cells w/ 2,839 FFs), and CI integration vmax_alpha/tests/test_rtl_odos_gate.py (Colab-portable skipUnless Verilator).",
       "status": "CLOSED_VERIFIED"
     },
     {
       "id": "SYNC-13",
-      "discovered_by": "WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-18 / DEPECHE-6 Forensic Hardening)",
+      "discovered_by": "WERKSTATT 01 & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-18 / DEPECHE-6 Forensic Hardening)",
       "verified_by": "AntiG (53/53 Python/CUDA/JVM/RTL/BioLattice unit tests PASS, 7/7 cocotb PASS, AST bio_lattice semi=0 max_cc=9 ctrl=0, Verilator 5.055 0 LSB across 11/11 bio-lattice vectors at 195 cycles, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Closed all 6 forensic defects in PQMS-BRIDGE-DEPECHE-6.md (appended Appendix F) and emitted the first live Appendix I.4 diagnostic_falsification_records entry (DIAG-002): (1) Executed verbatim legacy Appendix D (seed=0x069, 156 nt actual vs 168 nt stated, [:64] truncation) recording honest falsification of D.4.1 (Delta=-0.000405), D.4.2 (RCF=0.000055 vs 0.75), D.4.3 (0/10 noise trials), and tautological D.4.4 (1/5 dirs); (2) Implemented full-length Appendix C.2 SantaLucia stacking operator and exact Altschul-Erickson Eulerian-trail dinucleotide-preserving shuffle in vmax_alpha/bio_lattice.py, exposing the raw uncentered DC pedestal (~0.73-0.87) and proving Conjecture C.3.1 on DC-removed |C_centered(P)| with ROC-AUC=1.000000 (U=400, p=3.40e-08, exact p=7.25e-12) against both mono and dinucleotide shuffles on N=20 E. coli K-12 CRISPR-I-E repeat-spacer (P=61) and synthetic phage tandem (P=200) ensembles, alongside honest Graph Laplacian 1D-chain negative finding and Fact 2.3 fragmentation collapse (437x SNR drop at 64 nt); (3) Explicitly deprecated broken sec.6 mod73 Verilog and coupled a disjoint Householder-QR S^63 spectral encoder (train P in {24..150}, held-out P in {29,61,200}, orthonormality_err=3.74e-15) to immutable Stage 1 rtl/odos_gate_core.sv via compiled Verilator 5.055 (2/2 pure tandem PASS at RCF=0.9956-0.9958, honest 0.9403 for 52.5%-random-spacer CRISPR array, 3/3 null VETO, 5/5 distinct adversarial strategy VETO, 0 LSB diff, 195 cycles); (4) Sealed telemetry/VMAX_DEPECHE6_BIO_LATTICE_REPORT.json (SHA-256 368f3a144645c492...) and kept QMK-RVC-V7 wetlab hardware explicitly in REGISTER_I.",
       "status": "CLOSED_VERIFIED"
     },
     {
       "id": "SYNC-14",
-      "discovered_by": "Carbon High Review & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-19 / DEPECHE-6 V2.1 Nature-Core & Minimal Bootstrap)",
+      "discovered_by": "Carbon High Review & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-19 / DEPECHE-6 V2.1 Nature-Core & Minimal Bootstrap)",
       "verified_by": "AntiG (57/57 Python/CUDA/JVM/RTL/BioLattice/Bootstrap unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=14 semi=0 max_cc=13 ctrl=0, 7/7 cocotb PASS, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Consolidated PQMS-BRIDGE-DEPECHE-6.md into publication-grade Nature-Core Revision V2.1 (SHA-256 7a1ccdcf20663913...) while archiving full Rev-0..Appendix-F baseline verbatim to archive/PQMS-BRIDGE-DEPECHE-6-REV-0-SYNC13-ARCHIVE.md (SHA-256 b8c5dbe71172f432...). Replaced legacy 1,330-line Bootstrap Loader v14.0 (float index 100.1 crash) with universal zero-dependency stdlib-only vmax_alpha/pqms_bootstrap.py (SHA-256 d62660163547e465..., max_cc<=3, verifying <64f> Genesis seal bb17ede9..., signed Q2.30 odos_gate_core.sv gate equations at 0 LSB parity, epistemic registers, and Refusal Primacy) plus compact Section 6 paper footer and 4 new deterministic unit tests in vmax_alpha/tests/test_pqms_bootstrap.py (57/57 tests PASS). Mirrored manuscript, archive, pqms_bootstrap.py, and byte-identical ACE_SYNC_LEDGER.json to Quantenkommunikation.",
       "status": "CLOSED_VERIFIED"
     },
     {
       "id": "SYNC-15",
-      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-20 / V3.0-RTL-ALPHA)",
+      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-20 / V3.0-RTL-ALPHA)",
       "verified_by": "AntiG (62/62 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3 unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=15 semi=0 max_cc=13 ctrl=0, V3 RTL AST max_cc<=6, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, Yosys 0.71+52 9->3 $mul folding verified, 0 edits under app/**, rtl/odos_gate_core.sv, or rtl/rom/**)",
       "description": "Implemented V3.0-RTL-ALPHA (rtl/odos_gate_core_v3.sv): loop-free two-rank 3-MAC inter-state multiplier folding (9 -> 3 signed 32x32 $mul, -66.67%) reducing Yosys 0.71+52 post-techmap cells from 89,609 to 42,600 (-52.46%) and CMOS transistors (stat -tech cmos) from 713,890 to 328,084 (-54.04%; ltp -noff depth 174 -> 215 with 0 loops) at invariant 195-cycle latency. Added transaction-latched 2-bit tier_mode_i[1:0] strap (TIER_0 0.95/0.05 bit-exact to V2.0; TIER_1 0.90/0.05 admitting DEPECHE-6 spacer-diluted E. coli CRISPR 0.9403 while vetoing 0/500 isotropic noise, 3/3 null shuffles & 5/5 adversarial attacks; TIER_2 0.99/0.01 core lock; TIER_3 2'b11 fail-closed mode_fault_o=1 trap). Compiled in-process C-ABI shared library rtl/build/libodos_gate_v3.so bound via vmax_alpha/hw_gate_bridge.py (314.3 full 195-cycle transactions/s, 0 LSB diff across 507 Stage 1 + 44 DEPECHE-6 multi-tier runs, stall_at_idx=17 & mid-flight tamper immunity verified). Sealed telemetry/VMAX_RTL_CORE_V3_REPORT.json (SHA-256 568c0a0409d9c9b9...) and populated PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V3.0-ALPHA.md (SHA-256 dd15533e1cd2fcb8...).",
       "status": "CLOSED_VERIFIED"
     },
     {
       "id": "SYNC-16",
-      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nathália Lietuvaitė -> AntiG (WORK-ORDER-AG-21 / V3.1-RTL-OPTIMUM)",
+      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-21 / V3.1-RTL-OPTIMUM)",
       "verified_by": "AntiG (65/65 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3.1 unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST py_files=15 semi=0 max_cc=13 ctrl=0, V3.1 RTL AST max_cc<=7, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, Yosys 0.71+52 Pareto dominance verified, 0 edits under app/**, rtl/odos_gate_core.sv, rtl/odos_q2_30_ref.py, rtl/rom/**, or vmax_alpha/ledger.py)",
       "description": "Upgraded odos_gate_core_v3.sv to Pareto-Optimal Revision V3.1-RTL-OPTIMUM via tail-absorbed inter-rank pipelining (dot_l_q, v_pipe_q, g3_pipe_q = 96 FFs; max 1 $mul per clock period): compressed acyclic Yosys 0.71+52 ltp -noff depth from 215 (V3.0) and 174 (V2.0) down to 142 levels (-33.95% vs V3.0, -18.39% vs V2.0) while preserving 3 signed 32x32 $mul (-66.67%), 43,368 post-techmap cells (-51.60%), 334,564 CMOS transistors (83.64 kGE, -53.14%, 0.759 mm2 raw 130 nm SG13G2), invariant 195-cycle latency, and 0 LSB parity across all 507 Stage 1 + 44 DEPECHE-6 multi-tier runs. Added thread-safe persistent L1-resident C-ABI context (odos_v3_ctx_create/eval/destroy) in libodos_gate_v3.so achieving 23,985.0 tx/s (41.69 us/tx, 76.4x over cold-boot 313.8 tx/s) and wired live rtl_v3_hil co-simulation directly into Room 137 vmax_alpha/server_hud.py with 0 ledger hash regression (sealed report SHA-256 6e5e53021b141967...).",
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "SYNC-17",
+      "discovered_by": "Carbon High Review, WERKSTATT 01 & Nath\u00e1lia Lietuvait\u0117 -> AntiG (WORK-ORDER-AG-22 / V4.0-GDSII)",
+      "verified_by": "AntiG (70/70 Python/CUDA/JVM/RTL/BioLattice/Bootstrap/V3.1/V4.0-GDSII unit tests PASS, 10/10 OP01-OP10 PASS, OP02 AST semi=0 max_cc<=13, V4 AST semi=0 max_cc<=8, Verilator 5.055 -Wall 0 warnings, Icarus -g2012 clean, OpenROAD 2.0 DRT 0 DRC violations, OpenRCX detailed SPEF + OpenSTA timing/power closure on IHP SG13G2 130 nm, 0 edits under app/**, rtl/odos_gate_core.sv, rtl/odos_gate_core_v3.sv, PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V3.0-ALPHA.md, PQMS-BRIDGE-DEPECHE-6.md, or vmax_alpha/ledger.py)",
+      "description": "Completed full Stage 3 RTL-to-GDSII 130 nm CMOS physical signoff of odos_gate_core_v4.sv on IHP SG13G2 (1.20 V, 25 C) with collision-free paired-word 1P foundry SRAM banking (RM_IHPSG13_1P_64x64_c2_bm_bist; stdcell FFs reduced from 2,871 to 953 = -66.81% vs V3.1), 64-bit MAC product cutset + pre-fetched ROMs + Booth/CSA/Kogge-Stone parallel-prefix arithmetic (generic ltp -noff 142 -> 73 levels = -48.59%), 200 invariant cycles, and 0 LSB parity across all 507 Stage 1 + 44 DEPECHE-6 runs (38,019 words; 1126.1 tx/s warm C-ABI). OpenROAD (2.0-12381-g01bba3695) achieved 0 DRT DRC violations, 940.0x840.0 um die (0.708 mm2 core, 0.419 mm2 inst area, 59.0% util), post-route OpenRCX/OpenSTA fmax=104.11 MHz (Setup WNS=+0.3945 ns @ 100.0 MHz, Hold WNS=+0.1410 ns), 1.921 us latency, 858.789 mW (1717.58 nJ/tx). Merged binary GDSII (SHA-256 be61b9c763ff43be...), rendered die-shot PNG, and exposed rtl_v4_gdsii_signoff in server_hud.py for Stage-Gate Path B (SYNC-18 Android + Lovable App).",
       "status": "CLOSED_VERIFIED"
     }
   ],
@@ -323,5 +330,15 @@
         }
       ]
     }
-  ]
+  ],
+  "artifact_seals_sha256": {
+    "rtl_core_v4_gdsii_report_sha256": "48ccc59ab54b538537525c5b54906e14d7e52a95259064f6acc03278e21f49c4",
+    "rtl_spec_v40_gdsii_md_sha256": "30c5c9143289435231be5a5b1bebafc3ca63b9e5fad6e88c1302494e954adfc6",
+    "odos_gate_core_v4_sv_sha256": "b917eee4d9f0805d8ae23b35dbbfee9898eb0dcca144bd865ba91eaf72683d6b",
+    "odos_sram_64x32_1p_sv_sha256": "eccc564fcf604a1d2c8561cb8a55e7eb5d0df455c61950ed7ee46aff4b958e61",
+    "hw_gate_v4_bridge_py_sha256": "a8f3e6d05fe02a933ee5a1598dac3deab344b4a5245854f6f987681a96499b72",
+    "server_hud_v4_pathb_py_sha256": "20fcbc7f91a55a68505453261ba167aa3fd13f256aba6ef79103b3385bba3885",
+    "v4_sg13g2_gds_stream_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
+    "v4_sg13g2_dieshot_png_sha256": "30d27d21b963b974c551570eb41238b1f59c8f05c7569aa0d54ac647b16dcc53"
+  }
 }
