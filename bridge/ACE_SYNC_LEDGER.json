@@ -369,6 +369,17 @@
       "rapl_status": "RAPL_UNAVAILABLE_IN_WSL2",
       "python_rtl_tests": "77/77 PASS",
       "fridu_operators": "10/10 PASS"
+    },
+    {
+      "sync_id": "SYNC-20",
+      "spec_id": "PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V4.2-COREWARE",
+      "timestamp_utc": "2026-11-21T15:58:12Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "Stage 5 V4.2-COREWARE: policy_engine.py, chain_signer.py (ECDSA P-256 + honest liboqs probe), 8/8 Coreware unit tests, 72-worker rack zero-drop failover sim, published flaw-fixed V4.2-COREWARE paper in both repos",
+      "rack_sim_report_sha256": "8d68894ba20f34d13acb1ff4fe4378a31be6bfb27d8edc7528e16eb11101da8a",
+      "signature_mode": "CLASSICAL_ECDSA_P256_ONLY",
+      "python_rtl_tests": "85/85 PASS",
+      "fridu_operators": "10/10 PASS"
     }
   ]
 }
