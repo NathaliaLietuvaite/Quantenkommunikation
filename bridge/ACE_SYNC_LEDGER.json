@@ -380,6 +380,26 @@
       "signature_mode": "CLASSICAL_ECDSA_P256_ONLY",
       "python_rtl_tests": "85/85 PASS",
       "fridu_operators": "10/10 PASS"
+    },
+    {
+      "diag_id": "DIAG-003",
+      "sync_id": "SYNC-25",
+      "date": "2026-11-22",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "superseding_document": "PQMS-ODOS-MTSC-The-Geometry-of-the-Riemann-Sphere-2.1.md",
+      "superseding_sha256": "f08604053c56ea5416288252440a74d8c6f6dfa009a40254edcc434908ab2d5d",
+      "deprecated_artifacts": [
+        "PQMS-ODOS-MTSC-The-Geometry-of-the-Riemann-Sphere.md",
+        "vmax_add_module_36_riemann_sphere.py"
+      ],
+      "retired_defects": [
+        "D3.1",
+        "D3.2",
+        "D3.3",
+        "D3.4"
+      ],
+      "anchor_audit_summary": "9/9 MATCH",
+      "entry_hash": "282fe06ca38c049ea61e4c317d75309913006a2e9a8488bdb3d3e8d11e8b7cbd"
     }
   ]
 }
