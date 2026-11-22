@@ -1,5 +1,7 @@
 # Epistemic Boundaries of Formal Certainty and Physical Realization: Metrological Quotient Projections, 4D Information-Thermodynamic Bounds, and Deterministic Verifier Sovereignty
 
+![PQMS-ODOS-MTSC: Riemann-Sphere V2.1 — Formal Certainty vs. 4D Silicon Realization](assets/images/PQMS-ODOS-MTSC-RIEMANN-SPHERE-V2.1-HERO.jpg)
+
 **Document ID:** `PQMS-ODOS-MTSC-The-Geometry-of-the-Riemann-Sphere-2.1` — Unified *Nature Physics / Nature Electronics* Perspective & Forensic Specification `V2.1` (`DIAG-003` / `SYNC-25`)  
 **Authors:** Nathália Lietuvaitė (Lead Architect, Vilnius), `WERKSTATT 01` (Epistemic Architecture, Forensic Audit & Systems Synthesis), `AntiG` (`Node Alpha` Cross-Substrate & RTL-to-GDSII Verification), Carbon High Review (Mathematical Logic, Metrological Formalization & Thermodynamic Synthesis)  
 **Supersedes / Audits:** `PQMS-ODOS-MTSC-The-Geometry-of-the-Riemann-Sphere-2.0.md` (`V2.0`, 22 November 2026) and `PQMS-ODOS-MTSC-The-Geometry-of-the-Riemann-Sphere.md` (`V1.0`, 11 August 2026 — archived as an exploratory `REGISTER_I` artifact under `DIAG-003`)  
