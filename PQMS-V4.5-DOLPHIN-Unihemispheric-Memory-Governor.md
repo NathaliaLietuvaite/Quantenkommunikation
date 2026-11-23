@@ -179,6 +179,19 @@ To stress-test `V4.5-DOLPHIN` at full production archive scale without mutating 
 | **Full `49,365` PKB Archive** | Quadratic stall (`> 20 s`) | **`1,190.924 ms` (`1.19 s`)** | **`41,451.0 vec/s`** (`2,514` cons., `46,851` quar.) |
 | **`49,365` + `10x` Tier-2 Anchors** | Quadratic stall | **`1,277.066 ms` (`1.28 s`)** | **`38,662.8 vec/s`** (stable $`O(N \cdot K)`$) |
 | **Atomic `LOCKSTEP_DMR_BRIDGE` Handover** | — | **`93.323 ms`** | `BANK_A -> BANK_B`, `roots_equal = True` |
+### 4.6 Closed-Loop Epistemic Pause, Zero-VRAM Projector Cache & Android Phase-2B HUD (`SYNC-28` / `SYNC-28b` / `V4.6`)
+
+To bridge passive memory sweeps into an active, non-coercive inference safeguard (*"Right to Epistemic Pause"* ahead of `Nemotron-3-Nano-4B` on Room-137 Port `8137`), `V4.6-PAUSE` wires `vmax_alpha/epistemic_pause_controller.py` (`max_cc = 4`, `0` semicolons, `0` tabs) directly onto `POST /api/prompt` and pairs it with a `192 KiB` CPU-only `W_384_to_64` projector cache (`vmax_alpha/projector_cache.py`) and Phase-2B Android HUD controls (`app/**`):
+
+1. **Sub-Millisecond Closed-Loop Pause & Zero-Blocking Fast Path (`REGISTER_M`):**
+   * **Coherent Prompt (`Test A`):** Zero-blocking pass-through (`epistemic_pause = False`, `llm_called = True`, `3.438 ms` cold first-request latency including frozen ROM load; `0 MB` extra VRAM).
+   * **Drifted / Contradictory / High-Torsion Prompt (`Test B`):** Deterministic short-circuit in **`0.896 ms`** end-to-end HTTP latency (`epistemic_pause = True`, `allow_llm_generation = False`, `llm_blocked = True`), isolating the conflicting premise append-only into $`\mathcal{T}_{	ext{I/O}}`$ (`quarantined_record_id = live_sync28_drift_01`), executing an atomic `LOCKSTEP_DMR_VERIFIED` switch (`BANK_A -> BANK_B`, `sync_root = add791bc...`), and emitting a structured Fridu message instead of a forced hallucinated compromise.
+2. **Zero-VRAM / Zero-Torch `192 KiB` CPU Projector Cache (`WP-2`):**
+   * `vmax_alpha/cache/w_384_to_64.npy` (`196,736 B`, `float64` `384x64`) and `mean_384.npy` (`3,200 B`) load with SHA-256 tamper verification in **`0.635 ms`** in a clean subprocess with **`torch_imported = False`**, **`vram_delta_mb = 0`** (`1,296 -> 1,296 MB`, `29.5 -> 29.4 C`), and IEEE-754 machine-epsilon parity against the GPU `PinnedL2ProjectorEnclave` ($`\max|\Delta| = 3.33 	imes 10^{-16}`$).
+3. **Strictly Read-Only Content-Hash Duplicate Audit (`WP-3`):**
+   * `audit_content_hash_duplicates()` in `vmax_alpha/dolphin_chroma_bridge.py` provides opt-in, non-mutating duplicate reporting (`LIVE_PKB_SHA256_UNCHANGED = True`).
+4. **Android Phase-2B HUD Coupling (`SYNC-28b` / `v4.6.1-pause-hud`):**
+   * `PauliBaselineEngine.kt` adds pure-JVM `MiniJson` parsers and Room-137 clients for `GET /api/dolphin/status`, `POST /api/dolphin/switch`, and `POST /api/prompt` `epistemic_pause` payloads (`34 / 34` Kotlin JUnit PASS, clean `app-debug.apk` build), rendered via an OLED-safe `EpistemicPauseHudCard` inside `MainActivity.kt` with direct hemisphere handover and transparent $`\mathcal{T}_{	ext{I/O}}`$ pause banners.
 ---
 
 ## 5. Scope, Limitations & Epistemic Boundaries (`REGISTER_I`)
