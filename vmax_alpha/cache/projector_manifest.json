@@ -1,0 +1,18 @@
+{
+  "anchor_count": 72,
+  "dtype": "float64",
+  "mean_bytes": 3200,
+  "mean_file": "mean_384.npy",
+  "mean_sha256": "b202b3d136625915f5a82f3c1fdd3d36b605cf39694600065ba7443a1a7aec08",
+  "mean_shape": [
+    384
+  ],
+  "schema": "VMAX_PROJECTOR_CACHE_V1",
+  "w_bytes": 196736,
+  "w_file": "w_384_to_64.npy",
+  "w_sha256": "cb0048d3207fe7ddde13e051712461d161fe0486756842e889815b0ebaba8c88",
+  "w_shape": [
+    384,
+    64
+  ]
+}

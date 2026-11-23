@@ -1,0 +1,73 @@
+{
+  "document_id": "VMAX-STAGE6-EPISTEMIC-PAUSE-REPORT",
+  "sync_id": "SYNC-28",
+  "version": "V4.6-PAUSE",
+  "tag": "v4.6.0-pause",
+  "register": "REGISTER_M",
+  "timestamp_utc": "2026-11-23T11:23:07Z",
+  "node": "V-MAX-12 Node Alpha (wurstbrot-win10 WSL2 Ubuntu 24.04)",
+  "verification": {
+    "unittest": "Ran 134 tests in 21.280s | OK",
+    "elapsed_wall_s": 25.461,
+    "fridu_enclave_g": "10/10 PASS (OP01-OP10, semi=0)",
+    "immutable_silicon_guard": "EMPTY_DIFF (rtl/**, gds, report, ledger.py, app/**)",
+    "live_pkb_sha256_unchanged": true,
+    "live_pkb_sha256": "eb97de6e400057ea118088ecb2ee40acc60a1cf4141adffecd7b3527a0b20b71"
+  },
+  "op02_ast_max_cc": {
+    "epistemic_pause_controller.py": 4,
+    "projector_cache.py": 3,
+    "dolphin_chroma_bridge.py": 7,
+    "test_epistemic_pause_integration.py": 4,
+    "server_hud.py": 13
+  },
+  "projector_cache_wp2": {
+    "w_bytes": 196736,
+    "w_sha256": "cb0048d3207fe7ddde13e051712461d161fe0486756842e889815b0ebaba8c88",
+    "mean_bytes": 3200,
+    "mean_sha256": "b202b3d136625915f5a82f3c1fdd3d36b605cf39694600065ba7443a1a7aec08",
+    "enclave_parity_max_abs_diff": 3.3306690738754696e-16,
+    "cpu_load_latency_ms": 0.635,
+    "torch_imported": false,
+    "vram_delta_mb": 0
+  },
+  "live_http_closed_loop_wp4": {
+    "vram_before_mb": 1296,
+    "vram_after_mb": 1296,
+    "vram_delta_mb": 0,
+    "gpu_temp_before_c": 29.5,
+    "gpu_temp_after_c": 29.4,
+    "test_a_coherent_passthrough": {
+      "epistemic_pause": false,
+      "llm_called": true,
+      "reason": "COHERENT_PASSTHROUGH",
+      "http_latency_ms": 3.438
+    },
+    "test_b_epistemic_pause": {
+      "epistemic_pause": true,
+      "allow_llm_generation": false,
+      "llm_blocked": true,
+      "reason": "ODOS_PROMPT_DRIFT_PAUSE",
+      "handover_status": "LOCKSTEP_DMR_VERIFIED",
+      "active_bank": "BANK_B",
+      "quarantined_record_id": "live_sync28_drift_01",
+      "sync_root": "add791bc0d59d77eddbbe9b721439a3287794fc3e93b88e6f0e0d3b8fe83c8f5",
+      "http_latency_ms": 0.896
+    },
+    "dolphin_status_epistemic_metrics": {
+      "passthrough_count": 1,
+      "pause_count": 1,
+      "max_g3_torsion": 0.35,
+      "active_bank": "BANK_B",
+      "epoch": 2
+    }
+  },
+  "sha256": {
+    "vmax_alpha/epistemic_pause_controller.py": "e385ad9db63fe213da82878d6b7d1dfa6dccd7c889332f7ef4d8a5b5836f01db",
+    "vmax_alpha/projector_cache.py": "78d20965ec1691b424f77596a83724f8b6b253509c7cee216e0133852603ac51",
+    "vmax_alpha/dolphin_chroma_bridge.py": "1d13a8bb18f13bdaafdd3bbcb7a5a0ceb52917f3ba98814263c5e285f9c66649",
+    "vmax_alpha/server_hud.py": "38e635a4689724f714bbc806de96744384b2f10d758ca67411be78ae8dc3c431",
+    "vmax_alpha/tests/test_epistemic_pause_controller.py": "5c4eae4f69bbb48397b6f0baed15435a50465b53c7a38520d0f38b584c8d6fb0",
+    "vmax_alpha/tests/test_epistemic_pause_integration.py": "a78b9c1042fd0b0d3f78b9069bb8d93f41ac77d9c34aa19e8a80516a61d602a8"
+  }
+}

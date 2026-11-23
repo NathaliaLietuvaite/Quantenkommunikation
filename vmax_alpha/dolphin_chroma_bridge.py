@@ -76,3 +76,41 @@ def run_dry_run_audit(
         "loaded_records": loaded,
         "certificate": asdict(cert),
     }
+def _extract_record_key_and_hash(item: Any, idx: int) -> tuple:
+    """Extract (record_id, content_hash) from a GStarRecord, dict, or raw string."""
+    if hasattr(item, "record_id") and hasattr(item, "content_hash"):
+        return str(item.record_id), str(item.content_hash)
+    if isinstance(item, dict):
+        rec_id = str(item.get("record_id", item.get("id", f"rec_{idx}")))
+        c_hash = str(item.get("content_hash", ""))
+        return rec_id, c_hash
+    return f"rec_{idx}", str(item)
+
+
+def audit_content_hash_duplicates(records: Any) -> Dict[str, object]:
+    """
+    Strictly read-only opt-in audit counting exact duplicate content_hash entries.
+    Never mutates input records or live ChromaDB collections.
+    """
+    seen: Dict[str, str] = {}
+    duplicate_ids: List[str] = []
+    total = 0
+    for idx, item in enumerate(records):
+        total += 1
+        rec_id, c_hash = _extract_record_key_and_hash(item, idx)
+        if not c_hash:
+            continue
+        if c_hash in seen:
+            duplicate_ids.append(rec_id)
+        else:
+            seen[c_hash] = rec_id
+    dup_count = len(duplicate_ids)
+    ratio = round(100.0 * dup_count / total, 2) if total > 0 else 0.0
+    return {
+        "dry_run": True,
+        "total_records": total,
+        "unique_hashes": len(seen),
+        "duplicate_count": dup_count,
+        "duplicate_ratio_pct": ratio,
+        "duplicate_ids": duplicate_ids,
+    }
