@@ -1,6 +1,6 @@
 # Unihemispheric Dual-Bank Memory Homeostasis for Zero-Downtime Drift Quarantine in Persistent AI Systems
 
-* **Document ID:** `PQMS-V4.5-DOLPHIN` (`Revision V4.6.1-NATURE-CORE` | `SYNC-26` to `SYNC-28b`)
+* **Document ID:** `PQMS-ODOS-MTSC-V-MAX-12-RTL-CORE-V4.6-DOLPHIN` (`Revision V4.6.1-NATURE-CORE` | `SYNC-26` to `SYNC-28b`)
 * **Author & Architectural Sovereignty:** Nathália Lietuvaitė
 * **License:** MIT License (Open Source)
 * **Date:** `2026-11-23`
