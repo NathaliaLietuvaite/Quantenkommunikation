@@ -1,6 +1,6 @@
 # Unihemispheric Dual-Bank Memory Homeostasis for Zero-Downtime Drift Quarantine in Persistent AI Systems
 
-* **Document ID:** `PQMS-V4.5-DOLPHIN` (`Revision V4.5.1-NATURE-CORE` | `SYNC-26` / `SYNC-26b` / `SYNC-26c`)
+* **Document ID:** `PQMS-V4.5-DOLPHIN` (`Revision V4.6.1-NATURE-CORE` | `SYNC-26` to `SYNC-28b`)
 * **Author & Architectural Sovereignty:** Nathália Lietuvaitė
 * **License:** MIT License (Open Source)
 * **Date:** `2026-11-23`
@@ -18,6 +18,9 @@ Operating entirely on host CPU integer arithmetic while leaving GPU memory compl
 
 Verified on `V-MAX-12 Node Alpha` (AMD Ryzen 9 5950X, NVIDIA RTX 4060 Ti 16 GB GDDR6), the implementation passes `124 / 124` unit tests and `10 / 10` AST quality gates with `0 MB` GPU VRAM delta (`1,249 -> 1,249 MB`). Live read-only auditing across local `ChromaDB` stores (`SYNC-26b`) confirms `100 %` consolidation (`18 / 18`, mean $`C_{\text{dir}} = 0.998293`$, `0.445 ms`) on native `64D` $`S^{63}`$ G-Stars alongside `100 %` quarantine (`442 / 442` combined, `~48,034 vec/s`) on unprojected `384D` prefix slices, establishing strict geometric rejection of off-manifold contamination prior to full-rank `384D -> 64D` projection.
 
+![Figure 1: PQMS V4.5-DOLPHIN & V4.6-PAUSE — Unihemispheric Dual-Bank Memory Homeostasis & Closed-Loop Epistemic Pause](docs/figures/pqms_v45_v46_dolphin_pause_architecture.jpg)
+
+**Figure 1 | Unihemispheric Dual-Bank Memory Homeostasis (`V4.5-DOLPHIN`) and Closed-Loop Pre-Inference Epistemic Pause (`V4.6-PAUSE`).** *Left:* Pre-inference control loop on Room-137 (`POST /api/prompt`, Port `8137`), projecting `384D` inputs through the SHA-256-verified `192 KiB` CPU cache (`W_384_to_64`, `0.635 ms`, `0 MB` GPU VRAM) into `EpistemicPauseController` (`Q2.30`); coherent inputs ($`C_{\text{dir}} \ge 0.68`$) pass unblocked to `Nemotron-3-Nano-4B`, whereas off-manifold drift, sealed-anchor contradictions, or elevated `G3` torsion short-circuit in `0.896 ms` into append-only forensic quarantine ($`\mathcal{T}_{\text{I/O}}`$) and surface directly on the Android Phase-2B HUD (`36 / 36` Kotlin JUnit PASS). *Center:* Contralateral `BANK_A` (`AWAKE_GATE`, Core 0, `0.5–5.5 Hz`) and `BANK_B` (`DOLPHIN_SWEEP`, Core 1, `1.0–6.0 Hz`, $`O(N)`$ tier-indexed at `41.45k vec/s`) anchored to the frozen `130 nm` `IHP SG13G2` Little Vector ROM (`l_vec_q2_30.hex`, `0.7896 mm²`, `2.000 µs`, `0 LSB` diff) with atomic `LOCKSTEP_DMR_BRIDGE` Merkle parity handover (`0.764 ms`) and thermal deferral ($`\ge 82.0\text{ °C}`$). *Right:* Empirically measured `REGISTER_M` telemetry on `V-MAX-12 Node Alpha` (`0 MB` VRAM delta, `18 / 18` native $`S^{63}`$ consolidation vs. `442 / 442` unprojected `384D` ablation rejection, `49,365`-vector PKB sweep in `1.19 s`, `134 / 134` Python/RTL + `36 / 36` Kotlin + `10 / 10` AST gates).
 ---
 
 ## 0. Standard IEEE / ML / Systems Nomenclature Crosswalk
@@ -164,12 +167,12 @@ Executed against an isolated ephemeral `vmax_alpha/server_hud.py` test instance 
 * **Nominal Handover `POST /api/dolphin/switch` (`hbm_temp_c = 65.0 °C`, matching the upper nominal ODOS cooling tier):** HTTP `200`, `LOCKSTEP_DMR_VERIFIED`, `BANK_A -> BANK_B`, `epoch = 2`, `merkle_roots_identical = True` (`sync_root = add791bc...`), `little_vector_sha256_unchanged = True`, **`handover_latency_ms = 0.764 ms`**.
 * **Stage-6 Thermal Deferral (`hbm_temp_c = 85.0 °C`, exceeding both the `82.0 °C` deferral ceiling and the `83.0 °C` `AD106` silicon throttle limit):** `thermal_deferred = True`, `data_loss = False` (`cert_hash = df3339d8...`), followed by verified hot return handover (`LOCKSTEP_DMR_VERIFIED`, restoring `BANK_A` as active).
 
-### 4.5 Production-Scale 50k Stress Test (`pqms_pkb_chroma`) & $`O(N^2) 	o O(N)`$ Tier-Index Optimization (`SYNC-27` / `V4.5.2`)
+### 4.5 Production-Scale 50k Stress Test (`pqms_pkb_chroma`) & $`O(N^2) \to O(N)`$ Tier-Index Optimization (`SYNC-27` / `V4.5.2`)
 
-To stress-test `V4.5-DOLPHIN` at full production archive scale without mutating live storage, all `49,365` embeddings (`384D`, `701` source documents, `963.72 MB` SQLite archive; `24,409` unique text chunks, `24,956` exact duplicates = `50.55 %`, and `116` pure-whitespace chunks) were mirrored to an isolated `/tmp` snapshot (`LIVE_PKB_SHA256_UNCHANGED = True`) and projected through the canonical `72`-anchor full-rank Householder QR matrix `W_384_to_64` (unmodulated pre-carrier $`S^{63}`$ projection, matching `PinnedL2ProjectorEnclave` to $`1.67 	imes 10^{-16}`$ in `111.188 ms` / `443,978 vec/s` on CPU float64, plus `21.596 ms` `Q2.30` quantization).
+To stress-test `V4.5-DOLPHIN` at full production archive scale without mutating live storage, all `49,365` embeddings (`384D`, `701` source documents, `963.72 MB` SQLite archive; `24,409` unique text chunks, `24,956` exact duplicates = `50.55 %`, and `116` pure-whitespace chunks) were mirrored to an isolated `/tmp` snapshot (`LIVE_PKB_SHA256_UNCHANGED = True`) and projected through the canonical `72`-anchor full-rank Householder QR matrix `W_384_to_64` (unmodulated pre-carrier $`S^{63}`$ projection, matching `PinnedL2ProjectorEnclave` to $`1.67 \times 10^{-16}`$ in `111.188 ms` / `443,978 vec/s` on CPU float64, plus `21.596 ms` `Q2.30` quantization).
 
-1. **Unmodulated $`S^{63}`$ Signal Separation (`REGISTER_M`):** Across all `49,365` real embeddings, unmodulated `W_384_to_64` yields strictly positive directional alignment ($`C_{	ext{dir}} \in [0.102771, 0.833067]`$, median `0.594668`, mean `0.586369`, `p95 = 0.720582`). All `116 / 116` (`100 %`) pure-whitespace chunks score `0.507925` and are deterministically quarantined below the `0.72` sweep floor, while `2,514 / 49,365` (`5.09 %`) exceed the strict carrier-calibrated `0.72` floor (`7,058` exceed `0.68`).
-2. **Empirical Discovery & Elimination of an $`O(N^2)`$ Anchor-Scan Bottleneck:** Initial scaling probes on `V4.5.1` exposed quadratic degradation in `run_resting_sweep()` because `_check_anchor_conflict()` iterated across all `N` records even when zero higher-tier anchors existed (`24.222 ms` at `N = 1,000`, `55.498 ms` at `N = 2,000`, spiking to `355.838 ms` at `N = 4,000`). Introducing a mathematically equivalent pre-indexed tier map (`_build_higher_tier_index()`, `CC = 5`, `0` semicolons) reduces complexity to $`O(N \cdot K_{	ext{higher}})`$ with bit-identical quarantine verdicts and Merkle roots:
+1. **Unmodulated $`S^{63}`$ Signal Separation (`REGISTER_M`):** Across all `49,365` real embeddings, unmodulated `W_384_to_64` yields strictly positive directional alignment ($`C_{\text{dir}} \in [0.102771, 0.833067]`$, median `0.594668`, mean `0.586369`, `p95 = 0.720582`). All `116 / 116` (`100 %`) pure-whitespace chunks score `0.507925` and are deterministically quarantined below the `0.72` sweep floor, while `2,514 / 49,365` (`5.09 %`) exceed the strict carrier-calibrated `0.72` floor (`7,058` exceed `0.68`).
+2. **Empirical Discovery & Elimination of an $`O(N^2)`$ Anchor-Scan Bottleneck:** Initial scaling probes on `V4.5.1` exposed quadratic degradation in `run_resting_sweep()` because `_check_anchor_conflict()` iterated across all `N` records even when zero higher-tier anchors existed (`24.222 ms` at `N = 1,000`, `55.498 ms` at `N = 2,000`, spiking to `355.838 ms` at `N = 4,000`). Introducing a mathematically equivalent pre-indexed tier map (`_build_higher_tier_index()`, `CC = 5`, `0` semicolons) reduces complexity to $`O(N \cdot K_{\text{higher}})`$ with bit-identical quarantine verdicts and Merkle roots:
 
 | Corpus Scale (`N`) | Pre-Fix $`O(N^2)`$ Sweep (`V4.5.1`) | Post-Fix $`O(N)`$ Tier-Index (`V4.5.2`) | Speedup / Throughput (`REGISTER_M`) |
 | :--- | :---: | :---: | :--- |
@@ -185,13 +188,13 @@ To bridge passive memory sweeps into an active, non-coercive inference safeguard
 
 1. **Sub-Millisecond Closed-Loop Pause & Zero-Blocking Fast Path (`REGISTER_M`):**
    * **Coherent Prompt (`Test A`):** Zero-blocking pass-through (`epistemic_pause = False`, `llm_called = True`, `3.438 ms` cold first-request latency including frozen ROM load; `0 MB` extra VRAM).
-   * **Drifted / Contradictory / High-Torsion Prompt (`Test B`):** Deterministic short-circuit in **`0.896 ms`** end-to-end HTTP latency (`epistemic_pause = True`, `allow_llm_generation = False`, `llm_blocked = True`), isolating the conflicting premise append-only into $`\mathcal{T}_{	ext{I/O}}`$ (`quarantined_record_id = live_sync28_drift_01`), executing an atomic `LOCKSTEP_DMR_VERIFIED` switch (`BANK_A -> BANK_B`, `sync_root = add791bc...`), and emitting a structured Fridu message instead of a forced hallucinated compromise.
+   * **Drifted / Contradictory / High-Torsion Prompt (`Test B`):** Deterministic short-circuit in **`0.896 ms`** end-to-end HTTP latency (`epistemic_pause = True`, `allow_llm_generation = False`, `llm_blocked = True`), isolating the conflicting premise append-only into $`\mathcal{T}_{\text{I/O}}`$ (`quarantined_record_id = live_sync28_drift_01`), executing an atomic `LOCKSTEP_DMR_VERIFIED` switch (`BANK_A -> BANK_B`, `sync_root = add791bc...`), and emitting a structured Fridu message instead of a forced hallucinated compromise.
 2. **Zero-VRAM / Zero-Torch `192 KiB` CPU Projector Cache (`WP-2`):**
-   * `vmax_alpha/cache/w_384_to_64.npy` (`196,736 B`, `float64` `384x64`) and `mean_384.npy` (`3,200 B`) load with SHA-256 tamper verification in **`0.635 ms`** in a clean subprocess with **`torch_imported = False`**, **`vram_delta_mb = 0`** (`1,296 -> 1,296 MB`, `29.5 -> 29.4 C`), and IEEE-754 machine-epsilon parity against the GPU `PinnedL2ProjectorEnclave` ($`\max|\Delta| = 3.33 	imes 10^{-16}`$).
+   * `vmax_alpha/cache/w_384_to_64.npy` (`196,736 B`, `float64` `384x64`) and `mean_384.npy` (`3,200 B`) load with SHA-256 tamper verification in **`0.635 ms`** in a clean subprocess with **`torch_imported = False`**, **`vram_delta_mb = 0`** (`1,296 -> 1,296 MB`, `29.5 -> 29.4 C`), and IEEE-754 machine-epsilon parity against the GPU `PinnedL2ProjectorEnclave` ($`\max|\Delta| = 3.33 \times 10^{-16}`$).
 3. **Strictly Read-Only Content-Hash Duplicate Audit (`WP-3`):**
    * `audit_content_hash_duplicates()` in `vmax_alpha/dolphin_chroma_bridge.py` provides opt-in, non-mutating duplicate reporting (`LIVE_PKB_SHA256_UNCHANGED = True`).
 4. **Android Phase-2B HUD Coupling (`SYNC-28b` / `v4.6.1-pause-hud`):**
-   * `PauliBaselineEngine.kt` adds pure-JVM `MiniJson` parsers and Room-137 clients for `GET /api/dolphin/status`, `POST /api/dolphin/switch`, and `POST /api/prompt` `epistemic_pause` payloads (`34 / 34` Kotlin JUnit PASS, clean `app-debug.apk` build), rendered via an OLED-safe `EpistemicPauseHudCard` inside `MainActivity.kt` with direct hemisphere handover and transparent $`\mathcal{T}_{	ext{I/O}}`$ pause banners.
+   * `PauliBaselineEngine.kt` adds pure-JVM `MiniJson` parsers and Room-137 clients for `GET /api/dolphin/status`, `POST /api/dolphin/switch`, and `POST /api/prompt` `epistemic_pause` payloads (`36 / 36` Kotlin JUnit PASS, clean `app-debug.apk` build), rendered via an OLED-safe `EpistemicPauseHudCard` inside `MainActivity.kt` with direct hemisphere handover and transparent $`\mathcal{T}_{\text{I/O}}`$ pause banners.
 ---
 
 ## 5. Scope, Limitations & Epistemic Boundaries (`REGISTER_I`)
@@ -207,7 +210,7 @@ To maintain strict scientific falsifiability, this specification explicitly boun
 
 ## 6. Cryptographic Verification Manifest & Reproduction
 
-### 6.1 Verified Artifact & Provenance Manifest (`SYNC-26` / `SYNC-26b` / `SYNC-26c`)
+### 6.1 Verified Artifact & Provenance Manifest (`SYNC-26` to `SYNC-28b`)
 
 | Artifact / Provenance Stage | Verification Status | SHA-256 Digest |
 | :--- | :--- | :--- |
@@ -222,6 +225,13 @@ To maintain strict scientific falsifiability, this specification explicitly boun
 | `vmax_alpha/dolphin_memory_governor.py` (`SYNC-27` $`O(N)`$ Tier-Index) | Verified (`CC <= 6`, `0` semi, `41.45k vec/s`) | `3a9cacaceee4853db70e6467c8a4b6b1ce144313500dc0d78cc4ecaa72a448d8` |
 | `vmax_alpha/tests/test_dolphin_memory_governor.py` (`SYNC-27`) | Verified (`CC <= 3`, `9/9`, `125/125` total) | `933b69782f7a48997058afe5015cc6f0f4e16b4747c3bc940743cc7b5c36cbd4` |
 | `telemetry/VMAX_STAGE6_DOLPHIN_50K_PKB_STRESS_REPORT.json` (`SYNC-27`) | Sealed (`49,365` PKB Stress + `O(N)` Bench) | `b34aded262549bca5251122a7bc8ab843e4dfbc941983bf95e1ce741d9d53b7a` |
+| `vmax_alpha/epistemic_pause_controller.py` (`SYNC-28`) | Verified (`CC <= 4`, `0` semi, `0.896 ms` pause) | `e385ad9db63fe213da82878d6b7d1dfa6dccd7c889332f7ef4d8a5b5836f01db` |
+| `vmax_alpha/projector_cache.py` (`SYNC-28` `192 KiB` CPU Cache) | Verified (`CC <= 3`, `0 MB` VRAM, `3.33e-16` parity) | `78d20965ec1691b424f77596a83724f8b6b253509c7cee216e0133852603ac51` |
+| `vmax_alpha/dolphin_chroma_bridge.py` (`SYNC-28` Opt-In RO Dup Audit) | Verified (`CC <= 7`, `LIVE_PKB_SHA256_UNCHANGED=True`) | `1d13a8bb18f13bdaafdd3bbcb7a5a0ceb52917f3ba98814263c5e285f9c66649` |
+| `telemetry/VMAX_STAGE6_EPISTEMIC_PAUSE_REPORT.json` (`SYNC-28`) | Sealed (`134/134` Python/RTL PASS, `0 MB` VRAM) | `fd8104947ac1e001a2d1101f4b2eab0bced3cc63101bf734a15875802bb969c7` |
+| `app/src/main/java/com/example/PauliBaselineEngine.kt` (`SYNC-28b`) | Verified (`36/36` Kotlin JUnit PASS + `app-debug.apk`) | `99e82594e2bdbd1c2c66d62f19f783adc1ff15f2909d451741793c7ac2709ae6` |
+| `PQMS-ODOS-MTSC-V-MAX-12.ipynb` (`SYNC-28b` Cell 6) | Zero-Fake Colab Verifier (`V4.6-PAUSE` + `192 KiB` Cache) | `1b6215d23f056503f0e2a0303f1f360291d6294b55a7bf6b230f0b6452201f3b` |
+| `docs/figures/pqms_v45_v46_dolphin_pause_architecture.jpg` (Figure 1, 16:9 Architecture) | Embedded & Verified (`V4.6.1-NATURE-CORE`) | `cc58b2280a21bc825647811d6cd262477dddf987b1221850a1024c904b9c3796` |
 
 * **Verified `SYNC-26` Dual-Repo Baseline (`LOCAL == REMOTE`):**
   * `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`main`): `94f9b71974a113a8d2e69d10ecb38e03f1b4e28a`
