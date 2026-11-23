@@ -1,0 +1,28 @@
+{
+  "document_id": "VMAX-STAGE6-DOLPHIN-MEMORY-REPORT",
+  "sync_id": "SYNC-26",
+  "version": "V4.5-DOLPHIN",
+  "register": "REGISTER_M",
+  "gpu_vram_delta_mb": 0,
+  "unittest_summary": "Ran 124 tests in 22.488s | OK",
+  "elapsed_wall_s": 26.903,
+  "fridu_enclave_g": "10/10 PASS",
+  "immutable_silicon_guard": "EMPTY_DIFF",
+  "silicon_rom_anchor_sha256": "3d18f24028dedcca22ee41d69d00d361100b7533db23cf84130c64a114a26fb6",
+  "handover_verification": {
+    "status": "LOCKSTEP_DMR_VERIFIED",
+    "previous_active": "BANK_A",
+    "new_active": "BANK_B",
+    "sync_root": "add791bc0d59d77eddbbe9b721439a3287794fc3e93b88e6f0e0d3b8fe83c8f5"
+  },
+  "op02_ast_max_cc": {
+    "dolphin_memory_governor.py": 6,
+    "dolphin_chroma_bridge.py": 7,
+    "test_dolphin_memory_governor.py": 3
+  },
+  "sha256": {
+    "vmax_alpha/dolphin_memory_governor.py": "18ba15d617b123af38b0864892b518ff5a6fdaa7783f38abef6112f61f0be3e9",
+    "vmax_alpha/dolphin_chroma_bridge.py": "177df9ce6eef1e555969416e7564e6316bbf300ff34fa07e92824291662849d7",
+    "vmax_alpha/tests/test_dolphin_memory_governor.py": "0cfe880e53b1ad51d5056884957b6fb5f5b2a918de4f3cc0912b625defdb929a"
+  }
+}
