@@ -1,0 +1,169 @@
+{
+  "document_id": "VMAX-STAGE6-DOLPHIN-LIVE-DRYRUN-REPORT",
+  "sync_id": "SYNC-26b",
+  "version": "V4.5-DOLPHIN",
+  "register": "REGISTER_M",
+  "timestamp_utc": "2026-11-23T09:07:18.214268+00:00",
+  "node": "V-MAX-12 Node Alpha (wurstbrot-win10 WSL2 Ubuntu 24.04)",
+  "strict_read_only_chromadb": true,
+  "immutable_silicon_guard": "EMPTY_DIFF",
+  "silicon_rom_anchor": {
+    "path": "rtl/rom/l_vec_q2_30.hex",
+    "dim": 64,
+    "sha256": "3d18f24028dedcca22ee41d69d00d361100b7533db23cf84130c64a114a26fb6",
+    "verified": true
+  },
+  "gpu_telemetry": {
+    "before": {
+      "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+      "vram_used_mb": 1249,
+      "vram_total_mb": 16380,
+      "gpu_temp_c": 28.4,
+      "vllm_active": false
+    },
+    "after": {
+      "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+      "vram_used_mb": 1249,
+      "vram_total_mb": 16380,
+      "gpu_temp_c": 28.5,
+      "vllm_active": false
+    },
+    "vram_delta_mb": 0
+  },
+  "chroma_dry_runs": {
+    "native_s63_v1": {
+      "chroma_path": "/home/nathalia/vmax_workspace/chroma_vmax_prod_v1",
+      "collection_count": 1,
+      "collection_names": [
+        "pqms_vmax_neural_s63"
+      ],
+      "live_sqlite_sha256_unchanged": true,
+      "live_sqlite_sha256": "610605476cd98687338e9ec97ae138c5b4ef740eb8746651829a12bcb604fe25",
+      "collections": [
+        {
+          "collection_name": "pqms_vmax_neural_s63",
+          "total_records_in_collection": 18,
+          "native_embedding_dim": 64,
+          "projection_method": "native_64d_identity_l2_normalize_q2_30",
+          "loaded_into_bank_b": 18,
+          "snapshot_load_latency_ms": 1.616,
+          "scanned_count": 18,
+          "consolidated_count": 18,
+          "quarantined_count": 0,
+          "mean_rcf_q30": 1071909251,
+          "mean_rcf_float": 0.998293,
+          "min_rcf_float": 0.998181,
+          "max_rcf_float": 0.998376,
+          "sweep_latency_ms": 0.445,
+          "merkle_root": "cfc68d532631d2e9e58bcf6f4815ab1e9f32b8581e01cbcf3d4bea5c7b86cda8",
+          "cert_hash": "d93289a742f17e066cb3dd13f6168423bab25e7a9d899025f8f817e34e71d213",
+          "thermal_deferred": false
+        }
+      ]
+    },
+    "repo_384d_v17": {
+      "chroma_path": "/home/nathalia/vmax_workspace/repos/PQMS-SOVEREIGN-CORE-ANDROID-APP/chroma_vmax_prod_v17",
+      "collection_count": 1,
+      "collection_names": [
+        "pqms_vmax_neural_384d_unmodulated"
+      ],
+      "live_sqlite_sha256_unchanged": true,
+      "live_sqlite_sha256": "9e1c0da0e35ba14c420ebe7f7825db7db2b94f7ecaf8b2a54c91496fee98f0ab",
+      "collections": [
+        {
+          "collection_name": "pqms_vmax_neural_384d_unmodulated",
+          "total_records_in_collection": 18,
+          "native_embedding_dim": 384,
+          "projection_method": "prefix_64d_slice_from_384d_then_l2_normalize_q2_30 (dolphin_chroma_bridge._pad_or_slice)",
+          "loaded_into_bank_b": 18,
+          "snapshot_load_latency_ms": 1.945,
+          "scanned_count": 18,
+          "consolidated_count": 0,
+          "quarantined_count": 18,
+          "mean_rcf_q30": -47348464,
+          "mean_rcf_float": -0.044097,
+          "min_rcf_float": -0.241224,
+          "max_rcf_float": 0.171392,
+          "sweep_latency_ms": 0.44,
+          "merkle_root": "add791bc0d59d77eddbbe9b721439a3287794fc3e93b88e6f0e0d3b8fe83c8f5",
+          "cert_hash": "2c2000334c09bee47a12547b019f249319951b1d7d02ff7350411cb9f0a1f167",
+          "thermal_deferred": false
+        }
+      ]
+    },
+    "vmax_corpus_424": {
+      "chroma_path": "/home/nathalia/.vmax_chroma",
+      "collection_count": 1,
+      "collection_names": [
+        "pqms_corpus"
+      ],
+      "live_sqlite_sha256_unchanged": true,
+      "live_sqlite_sha256": "6a8ba2e5a30975a47f84564606fc4743c20c7cc3dc44c865b83d21ab92de0378",
+      "collections": [
+        {
+          "collection_name": "pqms_corpus",
+          "total_records_in_collection": 424,
+          "native_embedding_dim": 384,
+          "projection_method": "prefix_64d_slice_from_384d_then_l2_normalize_q2_30 (dolphin_chroma_bridge._pad_or_slice)",
+          "loaded_into_bank_b": 424,
+          "snapshot_load_latency_ms": 34.008,
+          "scanned_count": 424,
+          "consolidated_count": 0,
+          "quarantined_count": 424,
+          "mean_rcf_q30": -132045398,
+          "mean_rcf_float": -0.122977,
+          "min_rcf_float": -0.408949,
+          "max_rcf_float": 0.132807,
+          "sweep_latency_ms": 8.827,
+          "merkle_root": "add791bc0d59d77eddbbe9b721439a3287794fc3e93b88e6f0e0d3b8fe83c8f5",
+          "cert_hash": "8b865e9acfc1f7cfb507a6898d79c0eff46fe8b61515467d55deb71506e62d82",
+          "thermal_deferred": false
+        }
+      ]
+    }
+  },
+  "additional_local_pkb_inventory": {
+    "chroma_path": "/home/nathalia/pqms_pkb_chroma",
+    "sqlite_bytes": 1010536448,
+    "inspection_mode": "sqlite3_uri_mode_ro_metadata_only (1.01 GB corpus untouched)",
+    "collection_count": 1,
+    "collections": [
+      {
+        "name": "pqms_corpus",
+        "native_embedding_dim": 384
+      }
+    ],
+    "record_count": 49365
+  },
+  "live_http_function_test": {
+    "ephemeral_endpoint": "http://127.0.0.1:35089",
+    "get_status_pre": {
+      "http_status": 200,
+      "active_bank": "BANK_A",
+      "resting_bank": "BANK_B",
+      "epoch": 1,
+      "little_vector_sha256": "4b78be9d51992795493a2177a2f9e5c0b4f1f7db72baaf227cfd15ea857a30c4"
+    },
+    "post_switch_65c": {
+      "http_status": 200,
+      "handover_status": "LOCKSTEP_DMR_VERIFIED",
+      "previous_active": "BANK_A",
+      "new_active": "BANK_B",
+      "epoch_after": 2,
+      "merkle_roots_identical": true,
+      "sync_root": "add791bc0d59d77eddbbe9b721439a3287794fc3e93b88e6f0e0d3b8fe83c8f5",
+      "little_vector_sha256_unchanged": true,
+      "handover_latency_ms": 0.764
+    },
+    "stage6_thermal_guard_85c": {
+      "hbm_temp_c": 85.0,
+      "thermal_deferred": true,
+      "records_before": 0,
+      "records_after": 0,
+      "data_loss": false,
+      "cert_hash": "df3339d88d0ef6ff9b8b282d0aa651db8eb1084974dc9759303a2bc7987f8a9f",
+      "hot_switch_status": "LOCKSTEP_DMR_VERIFIED",
+      "hot_switch_active_bank": "BANK_A"
+    }
+  }
+}

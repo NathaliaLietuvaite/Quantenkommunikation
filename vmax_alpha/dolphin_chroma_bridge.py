@@ -42,7 +42,8 @@ def snapshot_collection_to_resting_bank(
     """
     payload = collection.get(include=["embeddings", "metadatas"], limit=limit)
     ids = payload.get("ids") or []
-    embeddings = payload.get("embeddings") or []
+    raw_emb = payload.get("embeddings")
+    embeddings = [] if raw_emb is None else raw_emb
     resting = governor.resting_bank()
     loaded = 0
     for idx, rec_id in enumerate(ids):
