@@ -164,6 +164,21 @@ Executed against an isolated ephemeral `vmax_alpha/server_hud.py` test instance 
 * **Nominal Handover `POST /api/dolphin/switch` (`hbm_temp_c = 65.0 °C`, matching the upper nominal ODOS cooling tier):** HTTP `200`, `LOCKSTEP_DMR_VERIFIED`, `BANK_A -> BANK_B`, `epoch = 2`, `merkle_roots_identical = True` (`sync_root = add791bc...`), `little_vector_sha256_unchanged = True`, **`handover_latency_ms = 0.764 ms`**.
 * **Stage-6 Thermal Deferral (`hbm_temp_c = 85.0 °C`, exceeding both the `82.0 °C` deferral ceiling and the `83.0 °C` `AD106` silicon throttle limit):** `thermal_deferred = True`, `data_loss = False` (`cert_hash = df3339d8...`), followed by verified hot return handover (`LOCKSTEP_DMR_VERIFIED`, restoring `BANK_A` as active).
 
+### 4.5 Production-Scale 50k Stress Test (`pqms_pkb_chroma`) & $`O(N^2) 	o O(N)`$ Tier-Index Optimization (`SYNC-27` / `V4.5.2`)
+
+To stress-test `V4.5-DOLPHIN` at full production archive scale without mutating live storage, all `49,365` embeddings (`384D`, `701` source documents, `963.72 MB` SQLite archive; `24,409` unique text chunks, `24,956` exact duplicates = `50.55 %`, and `116` pure-whitespace chunks) were mirrored to an isolated `/tmp` snapshot (`LIVE_PKB_SHA256_UNCHANGED = True`) and projected through the canonical `72`-anchor full-rank Householder QR matrix `W_384_to_64` (unmodulated pre-carrier $`S^{63}`$ projection, matching `PinnedL2ProjectorEnclave` to $`1.67 	imes 10^{-16}`$ in `111.188 ms` / `443,978 vec/s` on CPU float64, plus `21.596 ms` `Q2.30` quantization).
+
+1. **Unmodulated $`S^{63}`$ Signal Separation (`REGISTER_M`):** Across all `49,365` real embeddings, unmodulated `W_384_to_64` yields strictly positive directional alignment ($`C_{	ext{dir}} \in [0.102771, 0.833067]`$, median `0.594668`, mean `0.586369`, `p95 = 0.720582`). All `116 / 116` (`100 %`) pure-whitespace chunks score `0.507925` and are deterministically quarantined below the `0.72` sweep floor, while `2,514 / 49,365` (`5.09 %`) exceed the strict carrier-calibrated `0.72` floor (`7,058` exceed `0.68`).
+2. **Empirical Discovery & Elimination of an $`O(N^2)`$ Anchor-Scan Bottleneck:** Initial scaling probes on `V4.5.1` exposed quadratic degradation in `run_resting_sweep()` because `_check_anchor_conflict()` iterated across all `N` records even when zero higher-tier anchors existed (`24.222 ms` at `N = 1,000`, `55.498 ms` at `N = 2,000`, spiking to `355.838 ms` at `N = 4,000`). Introducing a mathematically equivalent pre-indexed tier map (`_build_higher_tier_index()`, `CC = 5`, `0` semicolons) reduces complexity to $`O(N \cdot K_{	ext{higher}})`$ with bit-identical quarantine verdicts and Merkle roots:
+
+| Corpus Scale (`N`) | Pre-Fix $`O(N^2)`$ Sweep (`V4.5.1`) | Post-Fix $`O(N)`$ Tier-Index (`V4.5.2`) | Speedup / Throughput (`REGISTER_M`) |
+| :--- | :---: | :---: | :--- |
+| `N = 1,000` | `24.222 ms` | **`20.771 ms`** | `1.17x` (`48,144 vec/s`) |
+| `N = 2,000` | `55.498 ms` | **`40.979 ms`** | `1.35x` (`1.97x` time for `2x` N) |
+| `N = 4,000` | `355.838 ms` | **`81.877 ms`** | **`4.35x`** (`2.00x` time for `2x` N) |
+| **Full `49,365` PKB Archive** | Quadratic stall (`> 20 s`) | **`1,190.924 ms` (`1.19 s`)** | **`41,451.0 vec/s`** (`2,514` cons., `46,851` quar.) |
+| **`49,365` + `10x` Tier-2 Anchors** | Quadratic stall | **`1,277.066 ms` (`1.28 s`)** | **`38,662.8 vec/s`** (stable $`O(N \cdot K)`$) |
+| **Atomic `LOCKSTEP_DMR_BRIDGE` Handover** | — | **`93.323 ms`** | `BANK_A -> BANK_B`, `roots_equal = True` |
 ---
 
 ## 5. Scope, Limitations & Epistemic Boundaries (`REGISTER_I`)
@@ -191,6 +206,9 @@ To maintain strict scientific falsifiability, this specification explicitly boun
 | `vmax_alpha/dolphin_chroma_bridge.py` (`chromadb 1.5.9` NumPy fix) | Patched on Node Alpha (`CC <= 7`, pre-patch `SYNC-26`: `177df9ce...`) | `aeb5d6d959f7a19445e797af3a8916326fac38f9d798b81c319f0940c034f827` |
 | `telemetry/VMAX_STAGE6_DOLPHIN_MEMORY_REPORT.json` (`SYNC-26`) | Sealed (`124/124 PASS`) | `7465ebbfff98b4e0af3920bda03aacf031e77014bcd13e6677208f508792cc10` |
 | `telemetry/VMAX_STAGE6_DOLPHIN_LIVE_DRYRUN_REPORT.json` (`SYNC-26b`) | Sealed (Live Dry-Run) | `c11a962bc94fb61469c1718ac16c3925be5cd50ae02e1843ce04628bd3b69861` |
+| `vmax_alpha/dolphin_memory_governor.py` (`SYNC-27` $`O(N)`$ Tier-Index) | Verified (`CC <= 6`, `0` semi, `41.45k vec/s`) | `3a9cacaceee4853db70e6467c8a4b6b1ce144313500dc0d78cc4ecaa72a448d8` |
+| `vmax_alpha/tests/test_dolphin_memory_governor.py` (`SYNC-27`) | Verified (`CC <= 3`, `9/9`, `125/125` total) | `933b69782f7a48997058afe5015cc6f0f4e16b4747c3bc940743cc7b5c36cbd4` |
+| `telemetry/VMAX_STAGE6_DOLPHIN_50K_PKB_STRESS_REPORT.json` (`SYNC-27`) | Sealed (`49,365` PKB Stress + `O(N)` Bench) | `b34aded262549bca5251122a7bc8ab843e4dfbc941983bf95e1ce741d9d53b7a` |
 
 * **Verified `SYNC-26` Dual-Repo Baseline (`LOCAL == REMOTE`):**
   * `PQMS-SOVEREIGN-CORE-ANDROID-APP` (`main`): `94f9b71974a113a8d2e69d10ecb38e03f1b4e28a`

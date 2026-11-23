@@ -167,5 +167,30 @@ class TestDolphinMemoryGovernor(unittest.TestCase):
         self.assertEqual(res["certificate"]["quarantined"], 1)
 
 
+    def test_tier_index_conflict_and_linear_scaling(self) -> None:
+        """Verify higher-tier anchor contradiction still triggers under O(N) index."""
+        import time
+
+        v_hi = normalize_to_q2_30(_basis_vector(DEFAULT_VECTOR_DIM, 0.80, 0.60))
+        v_opp = normalize_to_q2_30(_basis_vector(DEFAULT_VECTOR_DIM, 0.80, -0.60))
+        v_ok = normalize_to_q2_30(_basis_vector(DEFAULT_VECTOR_DIM, 1.0, 0.0))
+        cfg = DolphinConfig(conflict_cos_q30=int(round(0.30 * Q2_30_SCALE)))
+        gov = DolphinMemoryGovernor(v_ok, config=cfg)
+        gov.inject_drifted_record_for_test("BANK_B", GStarRecord("anc_t2", 0, v_hi, anchor_tier=2))
+        gov.inject_drifted_record_for_test("BANK_B", GStarRecord("cand_t1", 0, v_opp, anchor_tier=1))
+        cert = gov.run_resting_sweep(hbm_temp_c=65.0)
+        self.assertEqual(cert.quarantined, 1)
+        self.assertEqual(gov.bank_b.quarantine[0].reason, "SEALED_ANCHOR_CONTRADICTION")
+
+        fast_gov = DolphinMemoryGovernor(v_ok)
+        for idx in range(2000):
+            fast_gov.bank_b.records[f"r_{idx}"] = GStarRecord(f"r_{idx}", 0, v_ok, anchor_tier=1)
+        t0 = time.perf_counter()
+        c2 = fast_gov.run_resting_sweep(hbm_temp_c=65.0)
+        elapsed_ms = (time.perf_counter() - t0) * 1000.0
+        self.assertEqual(c2.consolidated, 2000)
+        self.assertLess(elapsed_ms, 1500.0)
+
+
 if __name__ == "__main__":
     unittest.main()

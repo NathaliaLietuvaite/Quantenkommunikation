@@ -1,0 +1,76 @@
+{
+  "document_id": "VMAX-STAGE6-DOLPHIN-50K-PKB-STRESS-REPORT",
+  "sync_id": "SYNC-27-ON-FIX-50K-VERIFIED",
+  "register": "REGISTER_M",
+  "timestamp_utc": "2026-11-23T10:37:53.003052+00:00",
+  "code_hashes": {
+    "vmax_alpha/dolphin_memory_governor.py": "3a9cacaceee4853db70e6467c8a4b6b1ce144313500dc0d78cc4ecaa72a448d8",
+    "vmax_alpha/tests/test_dolphin_memory_governor.py": "933b69782f7a48997058afe5015cc6f0f4e16b4747c3bc940743cc7b5c36cbd4"
+  },
+  "verification": {
+    "unittest": "Ran 125 tests in 22.644s | OK",
+    "fridu_enclave_g": "10/10 PASS (semi=0)",
+    "immutable_silicon_guard": "EMPTY_DIFF",
+    "live_pkb_sha256_unchanged": true,
+    "live_pkb_sha256": "eb97de6e400057ea118088ecb2ee40acc60a1cf4141adffecd7b3527a0b20b71"
+  },
+  "scaling_comparison_before_vs_after_ms": {
+    "n_1000": {
+      "before_on2_ms": 24.222,
+      "after_on_ms": 20.771,
+      "speedup_x": 1.17
+    },
+    "n_2000": {
+      "before_on2_ms": 55.498,
+      "after_on_ms": 40.979,
+      "speedup_x": 1.35
+    },
+    "n_4000": {
+      "before_on2_ms": 355.838,
+      "after_on_ms": 81.877,
+      "speedup_x": 4.35
+    }
+  },
+  "full_49365_sweep": {
+    "proj_and_quant_49365_ms": 115.819,
+    "scanned": 49365,
+    "consolidated": 2514,
+    "quarantined": 46851,
+    "mean_rcf_q30": 629609337,
+    "mean_rcf_float": 0.586369,
+    "sweep_latency_ms": 1190.924,
+    "sweep_throughput_vec_per_s": 41451.0,
+    "merkle_root": "f60965c7163195b66852ac729551b7f6bb43cb7246004ccf72e9acbe544e24da",
+    "cert_hash": "8a967e1f69f41a03c83fc2443c56948550e97051074c1c2f88e499dd24f40b83"
+  },
+  "full_49365_lockstep_handover": {
+    "status": "LOCKSTEP_DMR_VERIFIED",
+    "previous_active": "BANK_A",
+    "new_active": "BANK_B",
+    "merkle_roots_identical": true,
+    "sync_root": "f60965c7163195b66852ac729551b7f6bb43cb7246004ccf72e9acbe544e24da",
+    "handover_latency_ms": 93.323
+  },
+  "full_49365_with_10_tier2_anchors": {
+    "scanned": 49375,
+    "consolidated": 2524,
+    "quarantined": 46851,
+    "sweep_latency_ms": 1277.066,
+    "sweep_throughput_vec_per_s": 38662.8
+  },
+  "system_telemetry": {
+    "gpu_before": {
+      "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+      "vram_used_mb": 1136,
+      "vram_total_mb": 16380,
+      "gpu_temp_c": 29.0
+    },
+    "gpu_after": {
+      "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+      "vram_used_mb": 1311,
+      "vram_total_mb": 16380,
+      "gpu_temp_c": 30.3
+    },
+    "peak_cpu_rss_mb": 2316.21
+  }
+}

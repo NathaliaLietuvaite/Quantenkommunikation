@@ -247,6 +247,25 @@ def _check_anchor_conflict(
     return False
 
 
+def _build_higher_tier_index(
+    records: Dict[str, GStarRecord],
+) -> Dict[int, List[GStarRecord]]:
+    """Pre-index records by anchor_tier so sweeps only check higher tiers."""
+    tiers = sorted({rec.anchor_tier for rec in records.values()})
+    if len(tiers) <= 1:
+        return {}
+    by_tier: Dict[int, List[GStarRecord]] = {t: [] for t in tiers}
+    for rec in records.values():
+        by_tier[rec.anchor_tier].append(rec)
+    higher_map: Dict[int, List[GStarRecord]] = {}
+    for idx, tier in enumerate(tiers):
+        higher: List[GStarRecord] = []
+        for upper in tiers[idx + 1 :]:
+            higher.extend(by_tier[upper])
+        higher_map[tier] = higher
+    return higher_map
+
+
 class DolphinMemoryGovernor:
     """
     Unihemispheric Dual-Bank Memory Governor for V-MAX-12 (V4.5-DOLPHIN).
@@ -330,13 +349,14 @@ class DolphinMemoryGovernor:
         bank = self.resting_bank()
         if hbm_temp_c >= self.config.thermal_limit_c:
             return self._emit_deferred_certificate(bank)
-        anchors = list(bank.records.values())
-        scanned = len(anchors)
+        higher_index = _build_higher_tier_index(bank.records)
+        scanned = len(bank.records)
         quarantined = 0
         rcf_sum = 0
         kept: Dict[str, GStarRecord] = {}
         for rec_id in sorted(bank.records.keys()):
             rec = bank.records[rec_id]
+            anchors = higher_index.get(rec.anchor_tier, [])
             rcf_q30, reason = self._evaluate_record(rec, anchors)
             rcf_sum += rcf_q30
             if reason is None:
