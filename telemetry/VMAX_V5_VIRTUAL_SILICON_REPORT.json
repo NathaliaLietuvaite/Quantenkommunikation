@@ -1,0 +1,78 @@
+{
+  "bridge_reviewer_note": "CRITICAL BROWSER-CRASH GUARD FOR CARBON / WEB-LLM REVIEWERS: NEVER output more than 1,000 lines in a single chat response and emit an explicit STOP marker when chunking large reviews.",
+  "cosim_60_vectors": {
+    "bit_exact_matches": 60,
+    "final_rtl_bank": "BANK_A",
+    "final_rtl_epoch": 11,
+    "log_path": "/tmp/sync32_cosim60.log",
+    "mismatches": [],
+    "parity_pct": 100.0,
+    "prompts_dataset_sha256": "c8c448a872ac93f5634957a9fd3d6be8a04ec601013091dd220521f05e104339",
+    "stage": "03_co_sim_60_vectors",
+    "vectors_tested": 60
+  },
+  "epistemic_register": "REGISTER_M",
+  "iverilog_15_assertion_tb": {
+    "assertions_failed": 0,
+    "assertions_passed": 15,
+    "compile_warnings": 0,
+    "log_path": "/tmp/sync32_sim.log",
+    "stage": "02_iverilog_tb",
+    "tb_status": "PASSED"
+  },
+  "report_sha256": "1cca76306162b69aa33cc8a276d933a81b92c99c2e861f56caa76c02b8cdc2ff",
+  "rtl_v5_sources": {
+    "cosim_tb_path": "rtl_v5/tb_vmax_v5_cosim_60.v",
+    "cosim_tb_sha256": "000ed44dad70f7e8af305032d113809a0fa8cbf9d3056ac5d9f2ba3be18787d4",
+    "tb_path": "rtl_v5/tb_vmax_v5_core_nano_wrapper.v",
+    "tb_sha256": "5b95f0efa8ec0d58ae6b50dff1fd1607c72bd4bc2a25a945ccf116a469066358",
+    "wrapper_path": "rtl_v5/vmax_v5_core_nano_wrapper.v",
+    "wrapper_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746"
+  },
+  "schema": "VMAX_V5_VIRTUAL_SILICON_REPORT_V1",
+  "sync_id": "SYNC-32",
+  "v40_gdsii_reference_area_mm2": 0.7896,
+  "verilator_lint": {
+    "errors": 0,
+    "log_path": "/tmp/sync32_verilator.log",
+    "returncode": 0,
+    "stage": "01_verilator_lint",
+    "status": "PASS",
+    "tool_version": "Verilator 5.055 devel rev v5.054-321-gf84382c2b (mod)",
+    "warnings": 0
+  },
+  "work_order": "WORK-ORDER-AG-32",
+  "yosys_sg13g2_130nm": {
+    "log_path": "/tmp/sync32_yosys.log",
+    "netlist_sha256": "76e1593d7683a29a3d760c13e2af05094c5cd837cebf8d83c6fdc98dc0031018",
+    "netlist_tmp_path": "/tmp/v5_core_nano_sg13g2_netlist.v",
+    "opensta_100mhz": {
+      "available": true,
+      "clock_period_ns": 10.0,
+      "clock_target_mhz": 100.0,
+      "estimated_fmax_mhz": 202.5,
+      "hold_slack_ns": 0.2688,
+      "log_path": "/tmp/sync32_opensta.log",
+      "returncode": 0,
+      "setup_slack_ns": 5.0618,
+      "timing_met_100mhz": true,
+      "tns_ns": 0.0,
+      "wns_ns": 0.0
+    },
+    "pdk_library_path": "/home/nathalia/vmax_workspace/pdk/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib",
+    "pdk_library_sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396",
+    "stage": "04_yosys_sg13g2_synth",
+    "synthesis_metrics": {
+      "area_overhead_pct_vs_v40_gdsii_0p7896mm2": 1.2114,
+      "chip_area_mm2": 0.009565,
+      "chip_area_um2": 9565.479,
+      "combinational_cells": 431,
+      "inferred_latches": 0,
+      "longest_topological_depth": 70,
+      "sequential_flip_flops": 107,
+      "total_cells": 538,
+      "unique_cell_types": 24
+    },
+    "yosys_version": "Yosys 0.71+52 (git sha1 e4a169b8f, Release, Clang /usr/bin/clang++ 21.1.8)"
+  }
+}
