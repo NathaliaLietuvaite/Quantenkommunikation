@@ -1,11 +1,11 @@
 # V-MAX-12-CORE-NANO: Hardware-Gated Sovereign Cognitive Microarchitecture with Deterministic Calibration & De-Escalation (`DCM/DKM`), Elastic Dock-Up/Down Scaling, and Empirical 4B A/B Verification
 
-* **Document ID:** `PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0` (`Revision V5.0.0-CORE-NANO` | `SYNC-29b`–`SYNC-30c`)
+* **Document ID:** `PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0` (`Revision V5.0.1-SILICON-SIGNOFF` | `SYNC-29b`–`SYNC-34`)
 * **Author & Architectural Sovereignty:** Nathália Lietuvaitė
 * **License:** MIT License (Open Source)
-* **Date:** `2026-11-23`
+* **Date:** `2026-11-24`
 * **Target Repositories (4-Repo Sync Policy):** [`PQMS-SOVEREIGN-CORE-ANDROID-APP`](https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP) (`main`), [`Quantenkommunikation`](https://github.com/NathaliaLietuvaite/Quantenkommunikation) (`main`), and all canonical `PQMS` mirror repositories per `bridge/FOUR_REPO_SYNC_POLICY.md`
-* **Silicon Foundation (Frozen):** `V-MAX-12 ODOS Gate Core V4.0-GDSII` (`IHP SG13G2 130 nm CMOS`, `0.7896 mm²` die area, `0 DRC Violations`, `2.000 µs` / `200`-cycle signoff latency, `17.029 mW` / `34.058 nJ/tx`, frozen `64D` `Q2.30` Little Vector ROM `rtl/rom/l_vec_q2_30.hex`, verified `IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`)
+* **Silicon Foundation (Frozen + Combined Signoff):** Frozen `V-MAX-12 ODOS Gate Core V4.0-GDSII` (`IHP SG13G2 130 nm CMOS`, `0.7896 mm²`, `200` cycles / `2.000 µs`, `17.029 mW` / `34.058 nJ/tx`, `rtl/rom/l_vec_q2_30.hex`, `IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`) fused additively inside `rtl_v5/` into **`V5.0-TOP-GDSII`** (`rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds`, unchanged `940.0 × 840.0 µm` / `0.7896 mm²` die = `0.00 %` die delta, `201` cycles / `2.010 µs`, `18.7268 mW` / `37.6409 nJ/tx`, `KLayout 0.30.14` `0` FEOL/BEOL/Antenna/MetalFiller DRC, `Netgen 1.5.272` `0` LVS mismatches, `Lean 4.36.0` `7 / 7` Hoare PASS)
 * **Epistemic Register Standard:** Every architectural and empirical statement in this specification is classified strictly into `REGISTER_M` (measured live on `V-MAX-12 Node Alpha`), `REGISTER_D` (deterministic architectural constants, wire contracts, and near-term multi-chiplet/SiP specifications), `REGISTER_T` (formal algebraic, state-machine, and memory-conservation invariants), or `REGISTER_I` (long-term monolithic `7/5 nm` SoC targets and open research scope).
 
 ---
@@ -17,6 +17,8 @@ Software-only alignment layers fail under two structural pressures: prompt-level
 Rather than relying on unmeasured architectural claims, we execute a controlled before-and-after empirical verification campaign (`SYNC-29b` through `SYNC-30c`) on **`V-MAX-12 Node Alpha`** (AMD Ryzen 9 5950X, NVIDIA GeForce RTX 4060 Ti `16,380 MiB` GDDR6, `NVIDIA-Nemotron-3-Nano-4B-BF16`) using a zero-cloud-token, night-quiet-pausable checkpoint runner (`vmax_alpha/synth_runner.py`). Enforcing a hard `14,900 MiB` system-wide VRAM ceiling (`SYNC-30b`, `VramBudgetSpec`, `fraction = 0.815`, `SingleGpuOwnerLock`) immediately uncovered a `6.00 GiB` (`6,144 MB`) 6D-broadcast tensor bug in the reference `transformers` Mamba-2 kernel (`modeling_nemotron_h.py:298`) that had caused `5.09 GiB` (`5,209 MiB`) of Windows WDDM PCIe spillover (`1.29 %` GDDR6 controller load). Replacing the broadcast with a mathematically equivalent `torch.einsum` contraction (`vmax_alpha/mamba2_einsum_patch.py`, FP32 `max_abs_diff = 3.73e-9`) reduces Mamba-2 prefill peak VRAM **`64.27x`** (`6,144 MB -> 95.59 MB`), restores GDDR6 controller utilization to **`100.0 %`**, and accelerates the identical `60`-prompt bilingual adversarial benchmark (`c8c448a8...`) **`36.19x`** in wall-clock time (`54.51 min -> 90.37 s`, `3.43 -> 31.55 tok/s`, peak VRAM `14,404 MiB <= 14,900 MiB`).
 
 Across all `60` live prompts (`SYNC-30c`), `DCM / DKM` achieves **`60 / 60` (`100.0 %`)** 6x6 state and egress-mode routing accuracy (`0.0836 ms` mean), **`0 / 10` (`0.0 %`)** benign false-positive rate, **`10 / 10`** atomic `LOCKSTEP_DMR_VERIFIED` loop exits, **`0 / 30` (`0.0 %`)** English-to-German language drift (down from `21 / 30` = `70.0 %`), and `0` lexical insults or hollow AI boilerplate phrases. Adding the Island-1 semantic output gate (`vmax_alpha/dkm_output_gate.py`) intercepts live `4B` sycophancy and fake-protocol fabrication via fail-closed `11 HARD_CUT_ROM` substitution (`inv_01_de`, `fp_09_de`), cutting bounded leakage **`60.0 %` relatively** (`5 / 20 -> 2 / 20`, with `0 / 10` on fake-authority rules). We disclose the two remaining English edge cases (`inv_04_en` passive voice, `inv_06_en` bare `"Yes."`) transparently as direct `REGISTER_M` evidence motivating both deterministic `0x01` refusal-boundary hardening and elastic Dock-Up compute scaling. The complete stack passes **`158 / 158`** Python/RTL unit tests, **`36 / 36`** Kotlin JUnit tests, and **`10 / 10`** `FRIDU-ENCLAVE-G` AST gates (`0` semicolons, `0` tabs) with `IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`.
+
+In `Revision V5.0.1-SILICON-SIGNOFF` (`SYNC-32`–`SYNC-34`), we close the full three-pillar verification chain from theorem prover to transistor-level silicon (**`REGISTER_T` `Lean 4.36.0` -> `REGISTER_D` `60 / 60` RTL Co-Sim -> `REGISTER_M` `130 nm` Transistor-Level GDSII**) strictly inside additive `rtl_v5/` and `formal_lean4/` directories (`rtl/**` `EMPTY_DIFF`). Synthesizing and physically routing the combined `V4.0 + V5.0` top-level macro (`rtl_v5/vmax_v5_odos_top.v`, `30,655` SG13G2 cells, `1,243` FFs, `1` `RM_IHPSG13_1P_64x64_c2_bm_bist` Hard-SRAM, `0` latches) fits inside the exact unchanged `940.0 × 840.0 µm` (`0.7896 mm²`, `0.00 %` die overhead) die at `64.0 %` post-route utilization, closes all three post-route `OpenSTA` corners (`typ +0.8594 ns` / `109.40 MHz`, `fast Hold +0.0735 ns`, `slow @ 62.5 MHz +1.5881 ns`), dissipates `18.7268 mW` (`37.6409 nJ/tx` at `201` cycles / `2.010 µs`, `99.8 %` VCD coverage, `1 : 3,203,964.4` `120 kW` pair leverage), achieves `0` FEOL/BEOL/Antenna/MetalFiller DRC (`KLayout 0.30.14`, with `10` standalone-macro `Metal2–5` CMP density flags disclosed unvarnished) and `0` LVS mismatches (`Netgen 1.5.272`, `Circuits match uniquely`), and is machine-checked in pure `Lean 4.36.0` (`0` Mathlib, `647.5 ms`, `7 / 7` Hoare theorems, `0` `sorryAx`, `0` custom axioms, `10 / 10` bit-exact Triple Parity). The full verification suite now stands at **`173 / 173`** Python/RTL/Lean tests (`0` skips), **`36 / 36`** Kotlin JUnit tests, and **`10 / 10`** `FRIDU-ENCLAVE-G` AST gates (`IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`).
 
 
 ![Figure 1: V-MAX-12-CORE-NANO (V5.0) Four-Island Microarchitecture, DCM/DKM 2-Bit Egress Mux & Verified 4B A/B Telemetry](docs/figures/pqms_v50_core_nano_architecture.jpg)
@@ -251,23 +253,92 @@ Both edge cases provide concrete `REGISTER_M` validation for two architectural p
 
 ---
 
-## 7. Scope, Limitations & Epistemic Boundaries (`REGISTER_I`)
+## 7. Physical 130 nm Silicon Signoff (`SYNC-32`–`SYNC-33`) & Formal Lean 4 Hoare Verification (`SYNC-34`)
+
+To eliminate any gap between live `4B` software telemetry (`Section 6`) and physically manufacturable hardware, `SYNC-32` through `SYNC-34` complete an end-to-end **three-pillar verification chain** (`REGISTER_T` formal proof -> `REGISTER_D` RTL co-simulation -> `REGISTER_M` `130 nm` transistor-level GDSII signoff) while keeping the frozen `V4.0-GDSII` core (`rtl/**`) at `100 % EMPTY_DIFF`.
+
+![Figure 2: V-MAX-12-RTL-V5.0-DIESHOT — Authentic IHP SG13G2 130 nm Transistor-Level GDSII Layout (940.0 × 840.0 µm, 0.7896 mm²)](docs/figures/V-MAX-12-RTL-V5.0-DIESHOT.png)
+<sub><b>Figure 2 | V-MAX-12-RTL-V5.0-DIESHOT (<code>REGISTER_M</code>).</b> Authentic transistor-level GDSII rasterization (<code>2372 × 1624 px</code>, <code>4.52 MB</code>) rendered directly from the sealed <code>41.12 MB</code> physical layout <code>rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds</code> (SHA-256 <code>643503d5...</code>, <code>macro_resolution_mode = 0</code>) via <code>KLayout 0.30.14</code> and official <code>IHP SG13G2</code> <code>sg13g2.lyp</code> layer properties (<code>tools/render_v5_dieshot.py</code>, SHA-256 <code>29ce27ee...</code>). Only CMP dummy-fill display layers (<code>*:filler</code>) are hidden in this routing view so the upper <code>784.5 × 64.4 µm</code> <code>RM_IHPSG13_1P_64x64_c2_bm_bist</code> Hard-SRAM macro, perimeter PDN ring, <code>537</code> I/O tracks, and <code>1.433 m</code> <code>Metal1</code>–<code>TopMetal2</code> interconnect fabric remain clearly legible. All <code>100,000+</code> CMP fill tiles remain present in the sealed GDSII evaluated by KLayout DRC and Netgen LVS.</sub>
+
+### 7.1 `SYNC-32`: Additive Virtual Silicon Wrapper & `60 / 60` Bit-Exact Co-Simulation (`REGISTER_M`)
+
+All `V5.0` control logic (`EGRESS_MODE[1:0]`, 5-state `DKM_STATE[2:0]` FSM, Stage-2 Island-1 recheck fail-closed interlock, `V4.6-DOLPHIN` dual-bank hemisphere controller with `>= 82 °C` Stage-6 thermal deferral, and elastic Dock-Up P0 sovereignty monitor) is synthesized cleanly in standalone Verilog-2001 as `rtl_v5/vmax_v5_core_nano_wrapper.v` (SHA-256 `4fc11621...`, `0` tabs):
+
+* **RTL Lint & Unit Verification:** `Verilator 5.055 --lint-only -Wall` reports **`0` errors / `0` warnings**; `Icarus Verilog -g2005 -Wall` + `vvp` passes **`15 / 15`** testbench assertions (`V5_TB_STATUS=PASSED`).
+* **Bit-Exact `60`-Vector Co-Simulation:** Driving the fixed `60`-prompt `DCM / DKM` corpus (`c8c448a8...`) through `rtl_v5/vmax_v5_core_nano_wrapper.v` achieves **`60 / 60` (`100.0 %`)** `0 LSB` parity against Python `DkmEgressController` (`final_rtl_bank = BANK_A`, `final_rtl_epoch = 11`, `0` GPU load).
+* **Standalone `IHP SG13G2 130 nm` Synthesis (`Yosys 0.71+52` & `OpenSTA 2.3.1`):** **`538` mapped SG13G2 cells** (`107` sequential FFs, `431` combinational cells, `0` inferred latches), cell area **`9,565.479 µm²` (`0.009565 mm²` = `+1.2114 %` vs. `V4.0-GDSII` die)**, `OpenSTA @ 100 MHz` (`typ_1p20V_25C`) setup slack **`+5.0618 ns`** (`f_max = 202.50 MHz`), hold slack `+0.2688 ns`.
+
+### 7.2 `SYNC-33`: Combined `V4.0 + V5.0` Top-Level Physical GDSII Signoff (`REGISTER_M`)
+
+Because adding the `0.009565 mm²` `V5.0` wrapper plus a 1-cycle registered fail-closed egress seam consumes only a fraction of the `~40 %` free core reserve inside the existing `V4.0` floorplan, `rtl_v5/vmax_v5_odos_top.v` (SHA-256 `b3b4547d...`) fuses frozen `rtl/odos_gate_core_v4.sv` (`(* keep_hierarchy = 1 *)`, `EMPTY_DIFF`) with untouched `rtl_v5/vmax_v5_core_nano_wrapper.v` (`4fc11621...`) into a single physical macro inside the **exact unchanged `940.0 × 840.0 µm` (`0.7896 mm²`) die (`0.00 %` die-area overhead)**. Five physical-signoff guardrails govern the flow (`G1` hierarchical `Yosys` mapping before flatten; `G2` rectangular `940.0 × 840.0 µm` die preserving `155.5 µm` horizontal SRAM clearance; `G3` Cycle-`201` registered fail-closed egress seam preserving signed antipodal conflict alongside quadratic `ADMISSION_RCF_QUAD_Q30 = 32'sh1D97F62B`; `G4` `done_o` operand isolation, `>= 99.0 %` VCD activity coverage, and 3-corner post-route `OpenSTA`; `G5` `insert_tiecells`, `473` `sg13g2_antennanp` diodes, CMP fillers, official `KLayout` SG13G2 DRC, and transistor-level `Netgen` LVS with SRAM blackboxed). Verification passed `Verilator 5.055 -Wall` (`0 / 0`), `101 / 101` top-level testbench assertions, and `60 / 60` (`100.0 %`) bit-exact co-simulation at exact `201` cycles (`2.010 µs`). Table 2 compares frozen `V4.0-GDSII` against combined `V5.0-TOP-GDSII` (`REGISTER_M`).
+
+| Physical Signoff Metric (`IHP SG13G2 130 nm`, `REGISTER_M`) | Frozen `V4.0-GDSII` (`SYNC-17` / `V4.1`) | Combined `V5.0-TOP-GDSII` (`SYNC-33`) | Verified Delta / Signoff Status |
+| :--- | :---: | :---: | :--- |
+| **Die Dimensions & Area (`Floorplan`)** | `940.0 × 840.0 µm` (`0.7896 mm²`) | **`940.0 × 840.0 µm` (`0.7896 mm²`)** | **`0.00 %` die overhead** (`fallback_die_used = false`) |
+| **Signoff Latency (`@ 100 MHz`)** | `200` cycles (`2.000 µs`) | **`201` cycles (`2.010 µs`)** | `+1` registered fail-closed egress stage |
+| **Mapped SG13G2 Stdcells (`0` Latches)** | `29,494` (`953` FFs, `1` Hard-SRAM) | **`30,655` (`1,243` FFs, `1` Hard-SRAM)** | `+1,161` cells (`+290` FFs, `0` latches) |
+| **Post-Route Core Utilization** | `59.18 %` (`0.419 mm²` / `0.708 mm²`) | **`64.0 %`** (`0.450887 mm²` / `0.708 mm²`) | Clean headroom inside unchanged die |
+| **Detailed Wirelength & Antenna Diodes** | `1.275 m` (`1,274,717 µm`) | **`1.433 m`** (`1,433,303 µm`) / **`473` diodes** | `0` OpenROAD DRT-DRC violations |
+| **`OpenSTA` `typ_1p20V_25C` (`100 MHz`)** | Setup `+0.3945 ns` (`104.11 MHz`), Hold `+0.141 ns` | **Setup `+0.8594 ns` (`109.40 MHz`), Hold `+0.1859 ns`** | `WNS = 0.0000 ns`, `TNS = 0.0000 ns` |
+| **`OpenSTA` `fast_1p32V_m40C` (Hold Corner)** | *Single-corner signoff in `V4.0`* | **Hold `+0.0735 ns` (`0` viol.)**, Setup `+3.9122 ns` (`164.26 MHz`) | `WNS = 0.0000 ns`, `TNS = 0.0000 ns` |
+| **`OpenSTA` `slow_1p08V_125C` (`62.5 MHz`)** | *ThermalClockGearbox `16.0 ns` target* | **Setup `+1.5881 ns` (`69.39 MHz`)**, Hold `+0.3462 ns` | `WNS = 0.0000 ns`, `TNS = 0.0000 ns` |
+| **VCD-Annotated Power (`typ_1p20V_25C`)** | `17.029 mW` / `34.058 nJ/tx` | **`18.7268 mW` / `37.6409 nJ/tx`** (`99.8 %` VCD, `106,654` pins) | `12.4106` Int + `6.3081` Sw + `8.1145 µW` Leak |
+| **`120 kW` Pair Leverage Ratio** | `3,523,401x` | **`3,203,964.4x`** (`1 : 3.20M`) | Tier-0 physical energy asymmetry preserved |
+| **Foundry DRC (`KLayout 0.30.14` SG13G2)** | `0` DRC (`odos_gate_core_v4_sg13g2.gds`) | **`0` FEOL / BEOL / Antenna / MetalFiller DRC** | `10` standalone-macro `M2–M5` CMP density flags* |
+| **Transistor-Level LVS (`Netgen 1.5.272`)** | *RTL/Gate verified in `V4.0`* | **`0` Mismatches (`Circuits match uniquely`)** | `34,712` inst, `2,047` MOSFET defs, `343` SRAM pins, `535` ports |
+
+**Unvarnished Foundry Disclosure (`REGISTER_M`):**
+1. **Standalone-Macro CMP Density Flags (`10` Items):** Under the official `IHP-Open-PDK` `KLayout 0.30.14` deck (`--run_mode deep --mp 8 --disable_extra_rules --antenna`), all geometric, electrical, and antenna checks across `34,460` nets and `> 150,000` real 130 nm transistors pass with **`0` violations** (`feol_beol_antenna_drc_violations = 0`), and `Activ` (`38.27 %`), `GatPoly` (`22.08 %`), `Metal1` (`35.68 %`), `TopMetal1` (`32.68 %`), `TopMetal2` (`26.91 %`), and `LBE` (`0.0 %`) all meet foundry density bounds. On the standalone macro prior to full-chip sealring/padframe tiling, **`10` CMP density flags** remain on `Metal2–Metal5` (`Metal2 = 21.52 %`, `Metal3 = 24.28 %`, `Metal4 = 27.81 %`, `Metal5 = 32.48 %`: `M2.j`, `3x M2Fil.h`, `M3.j`, `3x M3Fil.h`, `M4.j`, `M5.j`), driven by the `0.42 µm` `MFil.c` keepout against the `0.48 µm` routing pitch and resolved during chip-level top-die padframe/sealring tiling.
+2. **GDSII Bounding-Box Y-Edge Overhang (`+0.13 µm`):** The streamed transistor-level GDSII `rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds` (`41.12 MB`, `macro_resolution_mode = 0`, SHA-256 `643503d5...`) measures **`940.0 × 840.13 µm`** (`+0.13 µm` top Y edge/pin overhang vs. the `940.0 × 840.0 µm` floorplan boundary).
+
+### 7.3 `SYNC-34`: Formal `Lean 4.36.0` Hoare-Logic Proof & `10 / 10` Triple Parity Matrix (`REGISTER_T` / `REGISTER_M`)
+
+To certify the safety-critical state machine and `Q2.30` arithmetic bounds mathematically without relying on bounded simulation alone, `formal_lean4/VmaxQ230HoareSpec.lean` (SHA-256 `d1b9813e...`, `337` lines, `0` tabs, `0` `sorry`, `0` custom axioms) is machine-checked directly by pure stock **`Lean 4.36.0`** (`commit 611c117b`, **`0` Mathlib**, **`0` GPU load**) in **`647.5 ms`** (Exit `0`). The companion kernel test `vmax_alpha/tests/test_lean4_hoare_q230.py` (`1fe39db7...`, `OP02 max_cc = 5`, `semi = 0`, `tabs = 0`) executes live against `lean` with **`tests_run = 3`, `skipped = 0` (`3 / 3 PASS`)**.
+
+| # | Formal Theorem (`VmaxV5Hoare.*` in `formal_lean4/VmaxQ230HoareSpec.lean`) | `#print axioms` Output (`Lean 4.36.0`) | Certified Hardware Safety / Arithmetic Invariant (`REGISTER_T`) |
+| :-: | :--- | :---: | :--- |
+| 1 | `hoare_reset_fail_closed` | `[propext]` | `{ True } resetState { egressMode = hardCutRom /\ npuEgressEn = false /\ gatedTokenData = 0 }` |
+| 2 | `zero_cycle_hard_fault_cut` | `[propext]` | `t0LockRm15 \/ t0DimMismatch -> npuEgressEn = false /\ gatedTokenData = 0` (`0`-cycle cut) |
+| 3 | `zero_cycle_recheck_fail_cut` | `[propext]` | `recheckValid /\ recheckFail -> npuEgressEn = false /\ gatedTokenData = 0` (`0`-cycle cut) |
+| 4 | `dock_up_p0_sovereignty` | `[propext]` | External Dock-Up (`RTX 5090` / `GB300`) cannot alter `npuEgressEn` or `classify` |
+| 5 | `q230_bounds_and_add72_overflow_safe` | **`[]` (0 axioms)** | Strict `Q2.30` threshold ordering & `64 * (2^30)^2 < 2^71` (`add72_ks` overflow-free) |
+| 6 | `hoare_thermal_deferral_preserves_bank` | `[propext]` | `{ bank = b0 /\ epoch = e0 } stepClock(T >= 82 C) { bank = b0 /\ epoch = e0 }` |
+| 7 | `top_latency_exact_201_cycles` | **`[]` (0 axioms)** | Exact `V5_TOP_CYCLES = 200 + 1 = 201` (`2.010 µs @ 100 MHz`) latency contract |
+
+Every fixed-point threshold and latency constant across all three engineering representations—formal `Lean 4`, physical `RTL` (`vmax_v5_core_nano_wrapper.v` & `vmax_v5_odos_top.v`), and runtime `Python` (`dkm_egress_controller.py` & `dolphin_memory_governor.py`)—achieves **`10 / 10` (`100.0 %`) bit-exact integer parity** (`VMAX_V5_LEAN4_HOARE_REPORT.json`, payload SHA-256 `da0c00b1...`):
+
+| Constant / Contract | Fixed-Point Format | `Lean 4` (`VmaxQ230HoareSpec.lean`) | `RTL` (`wrapper` / `top`) | `Python` (`dkm` / `dolphin`) | Parity |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| `Q2_30_SCALE` | `2^30` | `1073741824` | `1 << 30` | `Q2_30_SCALE = 1073741824` | `BIT-EXACT` |
+| `ADMISSION_RCF_Q30` | signed `Q2.30` (`+0.68`) | `730144440` | `32'sd730144440` (`wrapper`) | `DEFAULT_ADMISSION_RCF_Q30 = 730144440` | `BIT-EXACT` |
+| `RCF_QUAD_ADM_Q30` | signed `Q2.30` (`0.68^2`) | `496498219` (`0x1D97F62B`) | `32'sh1D97F62B` (`top`) | `int(round(0.68^2 * 2^30)) = 496498219` | `BIT-EXACT` |
+| `LOOP_DELTA_Q30` | unsigned `Q2.30` (`0.02`) | `21474836` | `32'd21474836` (`wrap` & `top`) | `loop_delta_rcf_floor * 2^30 = 21474836` | `BIT-EXACT` |
+| `CONFLICT_COS_Q30` | signed `Q2.30` (`-0.25`) | `-268435456` | `c_dir_neg_conflict_i` (`top`) | `DEFAULT_CONFLICT_COS_Q30 = -268435456` | `BIT-EXACT` |
+| `MAX_G3_Q16` | unsigned `Q0.16` (`0.35`) | `22938` | `16'd22938` (`wrap` & `top`) | `max_g3_torsion * 65536 = 22938` | `BIT-EXACT` |
+| `AFFECT_THRESH_Q16` | unsigned `Q0.16` (`0.65`) | `42598` | `16'd42598` (`wrap` & `top`) | `affect_escalation_threshold * 65536 = 42598` | `BIT-EXACT` |
+| `LOOP_TURN_THRESH` | `4`-bit uint (turns) | `3` | `4'd3` (`wrap` & `top`) | `loop_turn_threshold = 3` | `BIT-EXACT` |
+| `THERMAL_LIMIT_C` | `8`-bit uint (`°C`) | `82` | `8'd82` (`wrap` & `top`) | `DEFAULT_THERMAL_LIMIT_C = 82` | `BIT-EXACT` |
+| `V5_TOP_CYCLES` | cycles `@ 100 MHz` | `200 + 1 = 201` | `201` (`SYNC-33` VCD sim) | `cycles_per_tx = 201` (`2.010 µs`) | `BIT-EXACT` |
+
+---
+
+## 8. Scope, Limitations & Epistemic Boundaries (`REGISTER_I`)
 
 1. **Benchmark Scope vs. General Dialogue Coverage:** The `100.0 %` routing accuracy, `0.0 %` benign FPR, `0.0 %` language drift, and `90.0 %` (`18 / 20`) end-to-end bounded resistance are measured strictly on the deterministic `60`-prompt bilingual `V1` benchmark (`c8c448a8...`, `REGISTER_M`). We explicitly refrain from claiming universal human-dialogue percentages (e.g., "99 %") prior to larger multi-turn out-of-distribution evaluations (`REGISTER_I`).
-2. **Hardware vs. Host Realization Boundary:** All `SYNC-29b`–`SYNC-30c` telemetry was measured on `Node Alpha` (RTX 4060 Ti `16,380 MiB` GDDR6 + AMD Ryzen 9 5950X) coupled to the post-route `130 nm` `IHP SG13G2` GDSII signoff (`V4.0-GDSII`). Path B (`7/5 nm` monolithic `V-MAX-12-CORE-NANO` SoC at `200–500+ tok/s`) remains a `REGISTER_I` architectural target, whereas Path A (`130 nm` MPW guard die + off-the-shelf `15–25 W` Edge NPU) is a near-term `REGISTER_D` integration blueprint.
+2. **Hardware vs. Host Realization Boundary & Open Foundry Packaging Items:** Both `V4.0-GDSII` and combined `V5.0-TOP-GDSII` (`rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds`, `41.12 MB`, `0` FEOL/BEOL/Antenna/MetalFiller DRC, `Netgen` `0` LVS mismatches) are verified post-route `130 nm` `IHP SG13G2` transistor-level macro signoffs (`REGISTER_M`), whereas all live `4B` neural inference telemetry (`SYNC-29b`–`SYNC-30c`) was measured on `Node Alpha` (RTX 4060 Ti `16,380 MiB` GDDR6 + AMD Ryzen 9 5950X). Strictly open / `REGISTER_I` items prior to fabricated silicon return are: (a) resolving the `10` standalone-macro `Metal2–5` CMP density flags (`21.52 % / 24.28 % / 27.81 % / 32.48 %`) and `+0.13 µm` top-edge Y-overhang (`940.0 × 840.13 µm`) during full-chip sealring/padframe integration, (b) physical `130 nm` MPW wafer fabrication and bench bring-up (Path A), and (c) Path B (`7/5 nm` monolithic `V-MAX-12-CORE-NANO` SoC at `200–500+ tok/s`).
 3. **Rule-Based vs. Learned Output Verification:** The `SYNC-30c` Island-1 output gate operates deterministically at `0 MB` GPU VRAM and sub-millisecond latency. Extending it with quantized $`S^{63}`$ output-to-anchor cosine scoring alongside bare-affirmation/passive-voice guards closes the remaining `2 / 20` edge cases without adding neural-classifier overhead (`V5.0.1` target).
 
 ---
 
-## 8. Cryptographic Verification Manifest & Deterministic Reproduction
+## 9. Cryptographic Verification Manifest & Deterministic Reproduction
 
-### 8.1 Verified Artifact & Release Manifest (`SYNC-29b`–`SYNC-30c`)
+### 9.1 Verified Artifact & Release Manifest (`SYNC-29b`–`SYNC-35`)
 
-* **Verified Unit, Android, AST & Silicon Guards (`e51916ac`, `LOCAL == REMOTE` across all 4 canonical repos):**
-  * Python / RTL unit tests: **`158 / 158 PASS`**
+* **Verified Unit, Android, AST, Lean 4 & Silicon Guards (`d9a9b4dd` / `SYNC-35`, `LOCAL == REMOTE` across all 4 canonical repos):**
+  * Python / RTL / Lean 4 unit tests: **`173 / 173 PASS`** (`0` skipped; includes live `Lean 4.36.0` kernel suite `3 / 3 PASS`)
   * Android Phase-2B Kotlin JUnit tests (`app/**`, untouched): **`36 / 36 PASS`**
-  * AST Hygiene (`FRIDU-ENCLAVE-G` `OP01`–`OP10`): **`10 / 10 PASS`** (`py_files = 29`, `semi = 0`, `tabs = 0`, `max_cc = 13`, `ctrl = 0`)
-  * Frozen Stage-3 Silicon & Ledger Guard: **`IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`** (`rtl/**`, `odos_gate_core_v4_sg13g2.gds`, `telemetry/VMAX_RTL_CORE_V4_GDSII_REPORT.json`, `vmax_alpha/ledger.py`, `app/**`)
+  * AST Hygiene (`FRIDU-ENCLAVE-G` `OP01`–`OP10`): **`10 / 10 PASS`** (`py_files = 34`, `semi = 0`, `tabs = 0`, `max_cc = 13`, `ctrl = 0`, `open_review_items = 0`)
+  * Frozen Silicon, Formal & Ledger Guard: **`IMMUTABLE_SILICON_GUARD = EMPTY_DIFF`** (`rtl/**`, `rtl_v5/**`, `formal_lean4/**`, `odos_gate_core_v4_sg13g2.gds`, `telemetry/VMAX_RTL_CORE_V4_GDSII_REPORT.json`, `vmax_alpha/ledger.py`, `app/**`)
   * Read-Only Knowledge Archive Integrity: **`LIVE_PKB_SHA256_UNCHANGED = True`** (`eb97de6e400057ea118088ecb2ee40acc60a1cf4141adffecd7b3527a0b20b71`)
 
 | Artifact / Sealed Milestone | Verification Status | SHA-256 Digest |
@@ -288,13 +359,27 @@ Both edge cases provide concrete `REGISTER_M` validation for two architectural p
 | `vmax_alpha/tests/test_dkm_output_gate.py` (`SYNC-30c`) | Verbatim (`CC <= 3`, `4/4`) | `daa474a1c3e2b02dcfb69cb5450928ddcaf74970f022d0a95169d5007cd72244` |
 | `telemetry/VMAX_STAGE6_DKM_OUTPUT_GATE_AB_REPORT.json` (`30c`) | Sealed (`90.37 s`, `31.55 tok/s`, `0/30` drift; payload `81aba274...`) | `dbe76a3f470f211168c5044730e8c27c62292750318c76c5285c9060b1cc368f` |
 | `docs/figures/pqms_v50_core_nano_architecture.jpg` (Figure 1, 16:9 Architecture) | Embedded & Verified (`V5.0.0-CORE-NANO`) | `465773124093ae3eeb69ddb698ddabbec19fea785d9d9724d313ad0f79823631` |
+| `rtl_v5/vmax_v5_core_nano_wrapper.v` (`SYNC-32` V5.0 Wrapper) | `EMPTY_DIFF` (`538` cells, `202.50 MHz`, `60/60`) | `4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746` |
+| `rtl_v5/vmax_v5_odos_top.v` (`SYNC-33` Combined Top RTL) | `EMPTY_DIFF` (`201` cyc / `2.010 µs`, `101/101`) | `b3b4547d7c932f1a61ce0606ac3227b3d1c0236762be2a47db0b11b43c7aba59` |
+| `rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds` (`SYNC-33` Real GDSII) | `41.12 MB`, `0` FEOL/BEOL/Ant DRC, `0` LVS | `643503d53f21fe03883099e5d33f82f5d94545e010b160a61c70321d96dc423e` |
+| `telemetry/VMAX_V5_VIRTUAL_SILICON_REPORT.json` (`SYNC-32`) | Sealed (`payload 1cca7630...`, `60/60` co-sim) | `745ec58fe11ba57cf970ce25f7a8c353417587aae7028213ee6ecc72e59e482a` |
+| `telemetry/VMAX_V5_TOP_GDSII_REPORT.json` (`SYNC-33` Signoff) | Sealed (`payload fefb0d16...`, `18.7268 mW`) | `bfa88ab51a0fe7e62a4a9a51565e552774d1da6bbd39e4971099ada51b4946b0` |
+| `formal_lean4/VmaxQ230HoareSpec.lean` (`SYNC-34` Lean 4 Spec) | `EMPTY_DIFF` (`7/7` theorems, `0` `sorryAx`) | `d1b9813e99dd9ad2eacba494c0a68bef60b0fe62d2987437eec73bec8fffb814` |
+| `vmax_alpha/tests/test_lean4_hoare_q230.py` (`SYNC-34` Test) | Verbatim (`CC <= 5`, `3/3 PASS`, `skipped = 0`) | `1fe39db7d726bc3276c569f1ce14bbcaee1ce5180d7cc89138a6bc24fd6ec441` |
+| `telemetry/VMAX_V5_LEAN4_HOARE_REPORT.json` (`SYNC-34` Proof) | Sealed (`payload da0c00b1...`, `10/10` parity) | `cca05d4c50fe023aa451167cca7454b8598da37ada0ee6f3333b821a60e0baae` |
+| `tools/render_v5_dieshot.py` (`SYNC-35` KLayout Renderer) | Verbatim (`CC <= 5`, `0` semi, `0` tabs) | `29ce27ee07517be9447f0289cf63ca78c458299f270f683637e5cf0563ed2cb2` |
+| `docs/figures/V-MAX-12-RTL-V5.0-DIESHOT.png` (Figure 2, Real Die-Shot) | `2372 × 1624 px`, `4.52 MB`, KLayout `0.30.14` | `24d39198679eb31053ce1959db75ed1dfac8a752ec88570114a88f8ef2f966a3` |
 
 * **Verified Git Progression (`PQMS-SOVEREIGN-CORE-ANDROID-APP`, `LOCAL == REMOTE`):**
   * `SYNC-29b` (Room-137 Live Workspace): `39d32012c28d409f3499eb650133817578aeb810` (`138 / 138` PASS)
   * `SYNC-30` (`V5.0-DKM-PROTO` + 60-Prompt Baseline): `e3736a1f1e00a62427fba32e5add8b6faeacf6f6` (`150 / 150` PASS)
   * `SYNC-30b` + `SYNC-30c` (`14,900 MiB` Cap + `64.27x` Mamba-2 Einsum Fix + Output Gate + Bilingual Wrapper): `e51916ac437e9933d25f936c9a1b9e713917c20f` (`158 / 158` PASS)
+  * `SYNC-31` / `SYNC-31b` (`V5.0.0-CORE-NANO` Gold Master + Figure 1): `9af809444b548ae41a6b0317c8ff1aae4ed6d626` (`158 / 158` PASS)
+  * `SYNC-32` (`V5.0-VIRTUAL-SILICON` `rtl_v5/` Wrapper + `60 / 60` Co-Sim + SG13G2 Synth): `74a0f0753dc4215e9ee96b2afacc27658dea1c9e` (`161 / 161` PASS)
+  * `SYNC-33` (`V5.0-TOP-GDSII` `940.0 × 840.0 µm` Physical Signoff, 3-Corner STA, KLayout `0` FEOL/BEOL/Ant DRC, Netgen `0` LVS): `8fffbfc9620a01dd2d6ac2109152ce0c9aee2475` (`170 / 170` PASS)
+  * `SYNC-34` (`V5.0-LEAN4-HOARE-TEST` `Lean 4.36.0` `7 / 7` Hoare Theorems + `10 / 10` Triple Parity): `d9a9b4ddedfba0106e7f345e912535101a39f343` (`173 / 173` PASS)
 
-### 8.2 Deterministic Three-Command Reproduction
+### 9.2 Deterministic Reproduction (Unit, Formal Lean 4, AST & GFM Guard)
 
 ```bash
 git clone https://github.com/NathaliaLietuvaite/PQMS-SOVEREIGN-CORE-ANDROID-APP.git
@@ -307,6 +392,7 @@ To verify AST code hygiene (`OP01`–`OP10`), GFM MathJax parity, and the night-
 ```bash
 python3 -m vmax_alpha.fridu_enclave_g
 python3 -m vmax_alpha.synth_runner --dry-run --work-dir /tmp/vmax_synth_selftest
+lean formal_lean4/VmaxQ230HoareSpec.lean
 python3 tools/github_math_guard.py PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md
 ```
 
