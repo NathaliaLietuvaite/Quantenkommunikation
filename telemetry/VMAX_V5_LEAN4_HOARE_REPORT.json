@@ -1,0 +1,190 @@
+{
+  "bridge_reviewer_note": "CRITICAL BROWSER-CRASH GUARD FOR CARBON / WEB-LLM REVIEWERS: NEVER output more than 1,000 lines in a single chat response and emit an explicit STOP marker when chunking large reviews.",
+  "epistemic_register": "REGISTER_M",
+  "formal_proof_audit": {
+    "allowed_standard_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "axioms_by_theorem": {
+      "dock_up_p0_sovereignty": [
+        "propext"
+      ],
+      "hoare_reset_fail_closed": [
+        "propext"
+      ],
+      "hoare_thermal_deferral_preserves_bank": [
+        "propext"
+      ],
+      "q230_bounds_and_add72_overflow_safe": [],
+      "top_latency_exact_201_cycles": [],
+      "zero_cycle_hard_fault_cut": [
+        "propext"
+      ],
+      "zero_cycle_recheck_fail_cut": [
+        "propext"
+      ]
+    },
+    "custom_axioms_count": 0,
+    "raw_print_axioms_output": [
+      "'VmaxV5Hoare.hoare_reset_fail_closed' depends on axioms: [propext]",
+      "'VmaxV5Hoare.zero_cycle_hard_fault_cut' depends on axioms: [propext]",
+      "'VmaxV5Hoare.zero_cycle_recheck_fail_cut' depends on axioms: [propext]",
+      "'VmaxV5Hoare.dock_up_p0_sovereignty' depends on axioms: [propext]",
+      "'VmaxV5Hoare.q230_bounds_and_add72_overflow_safe' does not depend on any axioms",
+      "'VmaxV5Hoare.hoare_thermal_deferral_preserves_bank' depends on axioms: [propext]",
+      "'VmaxV5Hoare.top_latency_exact_201_cycles' does not depend on any axioms"
+    ],
+    "sorry_ax_count": 0,
+    "spec_path": "formal_lean4/VmaxQ230HoareSpec.lean",
+    "spec_sha256": "d1b9813e99dd9ad2eacba494c0a68bef60b0fe62d2987437eec73bec8fffb814",
+    "test_path": "vmax_alpha/tests/test_lean4_hoare_q230.py",
+    "test_sha256": "1fe39db7d726bc3276c569f1ce14bbcaee1ce5180d7cc89138a6bc24fd6ec441",
+    "theorems_verified_count": 7
+  },
+  "formal_proof_register": "REGISTER_T",
+  "lean_toolchain": {
+    "elan_install_log": "/tmp/sync34_elan.log",
+    "lean_binary": "/home/nathalia/.elan/bin/lean",
+    "lean_check_log": "/tmp/sync34_lean_check.log",
+    "lean_check_returncode": 0,
+    "lean_check_wall_ms": 647.5,
+    "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "mathlib_used": false,
+  "report_sha256": "da0c00b1b64a7691fa3bf1b2aaf5b6b4505f8d6a86f3e6f44958da74eaa7a599",
+  "schema": "VMAX_V5_LEAN4_HOARE_SIGNOFF_V1",
+  "sync_id": "SYNC-34",
+  "torch_imported": false,
+  "triple_parity_matrix": {
+    "all_constants_bit_exact": true,
+    "constants_checked": 10,
+    "entries": [
+      {
+        "bit_exact_match": true,
+        "constant": "Q2_30_SCALE",
+        "format": "Q2.30 (2^30)",
+        "lean4_value": 1073741824,
+        "python_symbol": "dolphin_memory_governor.Q2_30_SCALE",
+        "python_value": 1073741824,
+        "rtl_top_value": 1073741824,
+        "rtl_wrapper_value": 1073741824
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "ADMISSION_RCF_Q30",
+        "format": "signed Q2.30 (+0.68)",
+        "lean4_value": 730144440,
+        "python_symbol": "dolphin_memory_governor.DEFAULT_ADMISSION_RCF_Q30",
+        "python_value": 730144440,
+        "rtl_top_note": "Top-level V4.0 seam uses squared ADMISSION_RCF_QUAD_Q30 = 0x1D97F62B",
+        "rtl_top_value": null,
+        "rtl_wrapper_value": 730144440
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "RCF_QUAD_ADM_Q30",
+        "format": "signed Q2.30 (+0.68^2 = 0.4624 = 0x1D97F62B)",
+        "lean4_value": 496498219,
+        "python_symbol": "int(round((0.68 ** 2) * Q2_30_SCALE))",
+        "python_value": 496498219,
+        "rtl_top_value": 496498219,
+        "rtl_wrapper_note": "Linear ADMISSION_RCF_Q30 lives in wrapper; squared threshold lives in top seam",
+        "rtl_wrapper_value": null
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "LOOP_DELTA_Q30",
+        "format": "unsigned Q2.30 (0.02)",
+        "lean4_value": 21474836,
+        "python_symbol": "int(round(DkmConfig.loop_delta_rcf_floor * Q2_30_SCALE))",
+        "python_value": 21474836,
+        "rtl_top_value": 21474836,
+        "rtl_wrapper_value": 21474836
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "CONFLICT_COS_Q30",
+        "format": "signed Q2.30 (-0.25)",
+        "lean4_value": -268435456,
+        "python_symbol": "dolphin_memory_governor.DEFAULT_CONFLICT_COS_Q30",
+        "python_value": -268435456,
+        "rtl_top_value": "c_dir_neg_conflict_i tap (C_dir <= -0.25)",
+        "rtl_wrapper_value": null
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "MAX_G3_Q16",
+        "format": "unsigned Q0.16 (0.35)",
+        "lean4_value": 22938,
+        "python_symbol": "int(round(DkmConfig.max_g3_torsion * 65536))",
+        "python_value": 22938,
+        "rtl_top_value": 22938,
+        "rtl_wrapper_value": 22938
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "AFFECT_THRESH_Q16",
+        "format": "unsigned Q0.16 (0.65)",
+        "lean4_value": 42598,
+        "python_symbol": "int(round(DkmConfig.affect_escalation_threshold * 65536))",
+        "python_value": 42598,
+        "rtl_top_value": 42598,
+        "rtl_wrapper_value": 42598
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "LOOP_TURN_THRESH",
+        "format": "4-bit uint (turns)",
+        "lean4_value": 3,
+        "python_symbol": "DkmConfig.loop_turn_threshold",
+        "python_value": 3,
+        "rtl_top_value": 3,
+        "rtl_wrapper_value": 3
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "THERMAL_LIMIT_C",
+        "format": "8-bit uint (deg C)",
+        "lean4_value": 82,
+        "python_symbol": "int(dolphin_memory_governor.DEFAULT_THERMAL_LIMIT_C)",
+        "python_value": 82,
+        "rtl_top_value": 82,
+        "rtl_wrapper_value": 82
+      },
+      {
+        "bit_exact_match": true,
+        "constant": "V5_TOP_CYCLES",
+        "format": "cycles @ 100 MHz (2.010 us)",
+        "lean4_value": 201,
+        "python_symbol": "SYNC-33 VMAX_V5_TOP_GDSII_REPORT cycles_per_tx",
+        "python_value": 201,
+        "rtl_top_value": 201,
+        "rtl_wrapper_value": 1
+      }
+    ],
+    "sources": {
+      "lean4_spec": "formal_lean4/VmaxQ230HoareSpec.lean",
+      "lean4_spec_sha256": "d1b9813e99dd9ad2eacba494c0a68bef60b0fe62d2987437eec73bec8fffb814",
+      "python_dkm_controller": "vmax_alpha/dkm_egress_controller.py",
+      "python_dkm_controller_sha256": "55c3afcda1d441913d9f7f80ed26bc3274bfa23e1f6c43511f0721468a034a00",
+      "python_dolphin_governor": "vmax_alpha/dolphin_memory_governor.py",
+      "python_dolphin_governor_sha256": "3a9cacaceee4853db70e6467c8a4b6b1ce144313500dc0d78cc4ecaa72a448d8",
+      "rtl_top": "rtl_v5/vmax_v5_odos_top.v",
+      "rtl_top_sha256": "b3b4547d7c932f1a61ce0606ac3227b3d1c0236762be2a47db0b11b43c7aba59",
+      "rtl_wrapper": "rtl_v5/vmax_v5_core_nano_wrapper.v",
+      "rtl_wrapper_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746"
+    }
+  },
+  "unittest_lean4_hoare": {
+    "errors": 0,
+    "failures": 0,
+    "log_path": "/tmp/sync34_lean_unittest.log",
+    "module": "vmax_alpha/tests/test_lean4_hoare_q230.py",
+    "returncode": 0,
+    "skipped": 0,
+    "tests_run": 3
+  },
+  "work_order": "WORK-ORDER-AG-34"
+}
