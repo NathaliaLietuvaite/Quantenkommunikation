@@ -25,7 +25,18 @@
     "renderer_sha256": "29ce27ee07517be9447f0289cf63ca78c458299f270f683637e5cf0563ed2cb2",
     "sha256": "24d39198679eb31053ce1959db75ed1dfac8a752ec88570114a88f8ef2f966a3",
     "source_gdsii": "rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds",
-    "source_gdsii_sha256": "643503d53f21fe03883099e5d33f82f5d94545e010b160a61c70321d96dc423e"
+    "source_gdsii_sha256": "643503d53f21fe03883099e5d33f82f5d94545e010b160a61c70321d96dc423e",
+    "web_preview_jpg": {
+      "ALL_5_EQUAL": true,
+      "dimensions_px": [
+        1024,
+        701
+      ],
+      "drive_02_papers_id": "1ywv5-DD3ZAXs0r5XPv7t2zJ2VKeoJIkl",
+      "file_bytes": 311886,
+      "path": "docs/figures/V-MAX-12-RTL-V5.0-DIESHOT.jpg",
+      "sha256": "43de562a08967234d3c054133d3a5c96f549daf4d7e7b5bca1d13dd1e5242e14"
+    }
   },
   "epistemic_register": "REGISTER_M",
   "git_tag": "v5.0.1-silicon-signoff",
@@ -33,23 +44,23 @@
     "ALL_5_EQUAL": true,
     "citation_artifacts": 0,
     "drive_02_papers_id": "1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF",
-    "file_bytes": 59818,
+    "file_bytes": 60157,
     "filename": "PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md",
     "five_way_parity": {
-      "GOOGLE_DRIVE_02_PAPERS (1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF)": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c",
-      "PQMS-SOVEREIGN-CORE-ANDROID-APP": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c",
-      "Quantenkommunikation": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c",
-      "pqms-v100-innovation-generator": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c",
-      "quantum-city-brain-nexus": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c"
+      "GOOGLE_DRIVE_02_PAPERS (1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF)": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
+      "PQMS-SOVEREIGN-CORE-ANDROID-APP": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
+      "Quantenkommunikation": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
+      "pqms-v100-innovation-generator": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
+      "quantum-city-brain-nexus": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f"
     },
     "github_math_guard_errors": 0,
-    "lines": 406,
+    "lines": 407,
     "revision": "V5.0.1-SILICON-SIGNOFF",
-    "sha256": "8f2babbb734bf958a604bec880d8a3215737786916acbf311e702f52301fc50c",
+    "sha256": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
     "tabs": 0
   },
   "paper_revision": "V5.0.1-SILICON-SIGNOFF",
-  "report_sha256": "09c32c9586f4fc836ece3c78d5afd56f1f9ebdb194e26bb8849e72234cd3c876",
+  "report_sha256": "2823fc63012d687def11e146915bf275cc76e990b350cd3e63431a6ed6b17611",
   "schema": "VMAX_V5_PAPER_SYNC35_MANIFEST_V1",
   "sync_id": "SYNC-35",
   "torch_imported": false,
