@@ -1,0 +1,263 @@
+{
+  "bridge_reviewer_note": "CRITICAL BROWSER-CRASH GUARD FOR CARBON / WEB-LLM REVIEWERS: NEVER output more than 1,000 lines in a single chat response and emit an explicit STOP marker when chunking large reviews.",
+  "epistemic_register": "REGISTER_M",
+  "gdsii_streamout": {
+    "bbox_um": [
+      0.0,
+      0.0,
+      940.0,
+      840.13
+    ],
+    "cell_count_in_gds": 257,
+    "gds_path": "/home/nathalia/vmax_workspace/repos/PQMS-SOVEREIGN-CORE-ANDROID-APP/rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds",
+    "gds_sha256": "643503d53f21fe03883099e5d33f82f5d94545e010b160a61c70321d96dc423e",
+    "gds_size_bytes": 41118622,
+    "gds_size_mb": 41.12,
+    "macro_resolution_mode": 0,
+    "minarea_patch_stats": {
+      "Metal2": {
+        "patched": 20258,
+        "small": 20259,
+        "unpatched": 1
+      },
+      "Metal3": {
+        "patched": 4010,
+        "small": 4011,
+        "unpatched": 1
+      },
+      "Metal4": {
+        "patched": 814,
+        "small": 814,
+        "unpatched": 0
+      },
+      "Metal5": {
+        "patched": 0,
+        "small": 0,
+        "unpatched": 0
+      }
+    },
+    "post_fill_metal_density_est_pct": {
+      "Metal1": 35.69,
+      "Metal2": 21.53,
+      "Metal3": 24.29,
+      "Metal4": 27.81,
+      "Metal5": 32.49
+    },
+    "same_wire_notches_closed": 5,
+    "top_cell": "vmax_v5_odos_top"
+  },
+  "klayout_sg13g2_drc": {
+    "deck": "/home/nathalia/vmax_workspace/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py",
+    "feol_beol_antenna_drc_violations": 0,
+    "feol_beol_antenna_rules": {},
+    "flags": [
+      "--run_mode",
+      "deep",
+      "--mp",
+      "8",
+      "--disable_extra_rules",
+      "--antenna"
+    ],
+    "klayout_version": "0.30.14 (Ruby 3.2.3)",
+    "layer_densities_pct": {
+      "Activ": 38.27,
+      "GatPoly": 22.08,
+      "LBE": 0.0,
+      "Metal1": 35.68,
+      "Metal2": 21.52,
+      "Metal3": 24.28,
+      "Metal4": 27.81,
+      "Metal5": 32.48,
+      "TopMetal1": 32.68,
+      "TopMetal2": 26.91
+    },
+    "log_path": "/tmp/sync33_klayout_drc.log",
+    "macro_density_rule_flags": 10,
+    "macro_density_rules": {
+      "M2.j": 1,
+      "M2Fil.h": 3,
+      "M3.j": 1,
+      "M3Fil.h": 3,
+      "M4.j": 1,
+      "M5.j": 1
+    },
+    "returncode": 1,
+    "total_drc_items_all_tables": 10
+  },
+  "netgen_lvs": {
+    "active_top_ports_verified": 535,
+    "circuits_match_uniquely": true,
+    "comp_report_path": "/tmp/sync33_build/netgen_lvs_final_comp.out",
+    "extracted_stdcell_mosfet_definitions": 2047,
+    "log_path": "/tmp/sync33_netgen_lvs.log",
+    "lvs_mismatches": 0,
+    "returncode": 0,
+    "sram_blackboxed": "RM_IHPSG13_1P_64x64_c2_bm_bist",
+    "sram_external_pins_verified": 343,
+    "tool": "Netgen 1.5.272 + KLayout 0.30.14 LVS Extractor",
+    "verilog_instances_verified": 34712
+  },
+  "report_sha256": "fefb0d16fa3259fd7ec059c7a93467f35e8ca3d657ffe2d7a316981d550fc514",
+  "rtl_v5_sources": {
+    "tb_vmax_v5_odos_top_v_sha256": "b3980fceab79bd70d5a4195e524d783d8d11f5ec923574546a2e2edb1203c68c",
+    "v4_frozen_odos_gate_core_v4_sv_sha256": "b917eee4d9f0805d8ae23b35dbbfee9898eb0dcca144bd865ba91eaf72683d6b",
+    "v4_frozen_odos_sram_64x32_1p_sv_sha256": "eccc564fcf604a1d2c8561cb8a55e7eb5d0df455c61950ed7ee46aff4b958e61",
+    "vmax_v5_core_nano_wrapper_v_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746",
+    "vmax_v5_odos_top_v_sha256": "b3b4547d7c932f1a61ce0606ac3227b3d1c0236762be2a47db0b11b43c7aba59"
+  },
+  "schema": "VMAX_V5_TOP_GDSII_SIGNOFF_V2",
+  "stages": {
+    "00_preflight": {
+      "preflight_report_sha256": "4f37a548e21d8d6a66054c4dfd7075f453786d937c92fd5dca3e5e37bebc8110",
+      "ready_for_pnr": true,
+      "stage": "00_preflight",
+      "torch_imported": false,
+      "v4_frozen_rtl_count": 9,
+      "v5_wrapper_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746"
+    },
+    "01_rtl_lint_cosim": {
+      "cosim_60_vectors": {
+        "bit_exact_matches": 60,
+        "final_rtl_bank": "BANK_A",
+        "final_rtl_epoch": 11,
+        "mismatches": 0,
+        "parity_pct": 100.0,
+        "vectors_tested": 60,
+        "verified_cycles_per_tx": 201
+      },
+      "log_path": "/tmp/sync33_rtl_cosim.log",
+      "prompts_dataset_sha256": "c8c448a872ac93f5634957a9fd3d6be8a04ec601013091dd220521f05e104339",
+      "stage": "01_rtl_lint_cosim",
+      "tb_assertions_failed": 0,
+      "tb_assertions_passed": 101,
+      "torch_imported": false,
+      "verilator_errors": 0,
+      "verilator_warnings": 0
+    },
+    "02_yosys_top_synth": {
+      "guardrail_g1_hierarchical_before_flatten": true,
+      "log_path": "/tmp/sync33_yosys.log",
+      "stage": "02_yosys_top_synth",
+      "stats": {
+        "chip_area_um2": 379185.497,
+        "combinational_and_other_cells": 29411,
+        "inferred_latches": 0,
+        "sequential_ff_cells": 1243,
+        "sram_macros": 1,
+        "total_cells": 30655
+      },
+      "synth_netlist_path": "/tmp/sync33_build/top_synth.v",
+      "synth_netlist_sha256": "dc518b14c79f248a23ae9595e4f76a4ce541334251321c933485e15d4a1d0bb1"
+    },
+    "03_floorplan_place_cts": {
+      "area": {
+        "core_utilization_pct": 63.0,
+        "design_area_mm2": 0.448313,
+        "design_area_um2": 448313.0
+      },
+      "cts_odb_path": "/tmp/sync33_build/03_cts.odb",
+      "die_area_mm2": 0.7896,
+      "die_um": [
+        940.0,
+        840.0
+      ],
+      "fallback_die_used": false,
+      "log_path": "/tmp/sync33_pnr_cts.log",
+      "stage": "03_floorplan_place_cts"
+    },
+    "04_route_spef": {
+      "antenna_diodes_inserted": 473,
+      "area": {
+        "core_utilization_pct": 64.0,
+        "design_area_mm2": 0.450887,
+        "design_area_um2": 450887.0
+      },
+      "detailed_wirelength_um": 1433303,
+      "drt_drc_violations": 0,
+      "log_path": "/tmp/sync33_ant_reroute_final2.log",
+      "lvs_netlist_path": "/tmp/sync33_build/vmax_v5_odos_top_lvs.v",
+      "lvs_netlist_sha256": "7c25d480b8ef7eed1ea1c5905d18701e20192fe42634f9de28fc43a17cd3d1c7",
+      "parasitics_source": "OPENRCX_DETAILED_SPEF",
+      "routed_def_path": "/tmp/sync33_build/vmax_v5_odos_top_routed.def",
+      "routed_netlist_path": "/tmp/sync33_build/vmax_v5_odos_top_routed.v",
+      "routed_netlist_sha256": "ffc0b7e821c231f05e1cb5df0abc5b420acdfc90084330709826a94fc99e522a",
+      "spef_path": "/tmp/sync33_build/vmax_v5_odos_top.spef",
+      "spef_sha256": "47895781607ca6c6a8c7d4226c8bce4a9a01de9398e078e450db0f9a97229120",
+      "stage": "04_route_spef"
+    },
+    "05_postroute_sta_vcd_power": {
+      "corners": {
+        "fast_1p32V_m40C_hold": {
+          "clock_ns": 10.0,
+          "corner": "fast_1p32V_m40C",
+          "fmax_mhz": 164.26,
+          "hold_slack_ns": 0.0735,
+          "log_path": "/tmp/sync33_sta_fast.log",
+          "setup_slack_ns": 3.9122,
+          "sram_lib": "RM_IHPSG13_1P_64x64_c2_bm_bist_fast_1p32V_m55C.lib",
+          "stdcell_lib": "sg13g2_stdcell_fast_1p32V_m40C.lib",
+          "target_mhz": 100.0,
+          "tns_ns": 0.0,
+          "wns_ns": 0.0
+        },
+        "slow_1p08V_125C_62p5mhz": {
+          "clock_ns": 16.0,
+          "corner": "slow_1p08V_125C",
+          "fmax_mhz": 69.39,
+          "hold_slack_ns": 0.3462,
+          "log_path": "/tmp/sync33_sta_slow.log",
+          "setup_slack_ns": 1.5881,
+          "sram_lib": "RM_IHPSG13_1P_64x64_c2_bm_bist_slow_1p08V_125C.lib",
+          "stdcell_lib": "sg13g2_stdcell_slow_1p08V_125C.lib",
+          "target_mhz": 62.5,
+          "tns_ns": 0.0,
+          "wns_ns": 0.0
+        },
+        "typ_1p20V_25C_100mhz": {
+          "clock_ns": 10.0,
+          "corner": "typ_1p20V_25C",
+          "fmax_mhz": 109.4,
+          "hold_slack_ns": 0.1859,
+          "log_path": "/tmp/sync33_sta_typ.log",
+          "opensta_annotated_pins": 106654,
+          "power_vcd": {
+            "internal_power_mw": 12.4106,
+            "leakage_power_uw": 8.1145,
+            "switching_power_mw": 6.3081,
+            "total_power_mw": 18.7268
+          },
+          "setup_slack_ns": 0.8594,
+          "sram_lib": "RM_IHPSG13_1P_64x64_c2_bm_bist_typ_1p20V_25C.lib",
+          "stdcell_lib": "sg13g2_stdcell_typ_1p20V_25C.lib",
+          "target_mhz": 100.0,
+          "tns_ns": 0.0,
+          "wns_ns": 0.0
+        }
+      },
+      "gate_level_vcd_sim": {
+        "egress_mode": 0,
+        "gate_pass": 1,
+        "sim_x_errors": 0,
+        "top_cycle_count": 201,
+        "vcd_dut_signal_coverage_pct": 99.8,
+        "vcd_path": "/tmp/sync33_build/top_activity.vcd"
+      },
+      "signoff_metrics": {
+        "area_delta_vs_v40_pct": 0.0,
+        "cycles_per_tx": 201.0,
+        "die_area_mm2": 0.7896,
+        "energy_nj_per_tx": 37.6409,
+        "latency_ns": 2010.0,
+        "latency_us": 2.01,
+        "rack_120kw_pair_leverage": 3203964.4,
+        "total_power_mw": 18.7268
+      },
+      "stage": "05_postroute_sta_vcd_power",
+      "vcd_annotation_coverage_pct": 99.8
+    }
+  },
+  "sync_id": "SYNC-33",
+  "torch_imported": false,
+  "v40_gdsii_reference_area_mm2": 0.7896,
+  "work_order": "WORK-ORDER-AG-33 REVISION v2"
+}
