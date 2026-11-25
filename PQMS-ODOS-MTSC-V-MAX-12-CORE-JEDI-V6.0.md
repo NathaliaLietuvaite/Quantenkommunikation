@@ -1,5 +1,7 @@
 # PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0
 
+![PQMS ODOS-MTSC V-MAX-12 CORE JEDI V6.0 — Sovereign 12-Core Silicon Architecture (IHP SG13G2 130 nm)](docs/figures/V-MAX-12-CORE-JEDI-V6.0-BANNER.jpg)
+
 **Title:** `V-MAX-12-CORE-JEDI`: H-Symmetric Hierarchical 12-Lane (`768D` / `6×DMR`) Sovereign Resonant Co-Processor, Signed Dual-Tier Thermodynamic Actuator Interlock (`TAI`), and Sub-`1 W/cm²` All-Environment Silicon Architecture (`IHP SG13G2 130 nm`)  
 **Revision:** `V6.0.0-ARCHITECTURE-FREEZE` (3-Iteration Independent Carbon Peer-Audit Complete; `GO` for `SYNC-36`..`SYNC-39` Virtual Fabrication)  
 **Date:** `2026-11-25`  
