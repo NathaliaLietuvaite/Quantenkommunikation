@@ -2,7 +2,7 @@
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
   "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.1-OPTIMUM + RTL-CORE-V4.0-GDSII (WORK-ORDER-AG-22)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-20T23:45:00Z",
+  "timestamp_utc": "2026-11-25T08:15:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -339,7 +339,10 @@
     "hw_gate_v4_bridge_py_sha256": "a8f3e6d05fe02a933ee5a1598dac3deab344b4a5245854f6f987681a96499b72",
     "server_hud_v4_pathb_py_sha256": "20fcbc7f91a55a68505453261ba167aa3fd13f256aba6ef79103b3385bba3885",
     "v4_sg13g2_gds_stream_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
-    "v4_sg13g2_dieshot_png_sha256": "30d27d21b963b974c551570eb41238b1f59c8f05c7569aa0d54ac647b16dcc53"
+    "v4_sg13g2_dieshot_png_sha256": "30d27d21b963b974c551570eb41238b1f59c8f05c7569aa0d54ac647b16dcc53",
+    "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md": "28dfb723378faa6eb0ccb29fd6e9a770f279e35f43bce7ebf4e86c805a5af3d1",
+    "tools/v6_jedi_pdk_preflight.py": "a6974b933c26557eb2ae6cc70d6796a9c820c4017a5a316f7914e8b73f7b727c",
+    "telemetry/VMAX_V6_JEDI_RTL_REPORT.json": "45a315d70ba9b20c89e952d0e0b63db067d61f53c069936708e1aab9407f5f78"
   },
   "entries": [
     {
@@ -400,6 +403,328 @@
       ],
       "anchor_audit_summary": "9/9 MATCH",
       "entry_hash": "282fe06ca38c049ea61e4c317d75309913006a2e9a8488bdb3d3e8d11e8b7cbd"
+    },
+    {
+      "sync_id": "SYNC-26c",
+      "spec_id": "PQMS-V4.5-DOLPHIN-Unihemispheric-Memory-Governor",
+      "release_version": "V4.5.1-NATURE-CORE",
+      "tag": "v4.5.1-dolphin",
+      "timestamp_utc": "2026-11-23T10:04:20Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.5.1-NATURE-CORE release: published PQMS-V4.5-DOLPHIN paper (GFM-MathJax PASS), patched chromadb 1.5.9 NumPy ndarray bridge, sealed live Node Alpha dry-run report (18/18 S^63 @ RCF 0.998293, 424/424 384D ablation, 0 MB VRAM delta, 0.764 ms LOCKSTEP handover)",
+      "paper_sha256": "58ee4fbc213eee0ae7a91e07162dc6a760b96ad38c81bedbed69d15752fd6611",
+      "paper_source_drive_sha256": "1b6d4275a272be1579b11f6c4af3221647f31e624248d89c37182acc29b7c3bf",
+      "dolphin_chroma_bridge_sha256": "aeb5d6d959f7a19445e797af3a8916326fac38f9d798b81c319f0940c034f827",
+      "live_dryrun_report_sha256": "c11a962bc94fb61469c1718ac16c3925be5cd50ae02e1843ce04628bd3b69861",
+      "python_rtl_tests": "Ran 124 tests in 22.756s | OK",
+      "fridu_operators": "10/10 PASS (semi=0)",
+      "immutable_silicon_guard": "EMPTY_DIFF",
+      "entry_hash": "ca8a52dbc0a1ed625d36ccae8c5efabbdca9544a67a4ccb3b117cca04b10da6c"
+    },
+    {
+      "sync_id": "SYNC-27",
+      "spec_id": "PQMS-V4.5-DOLPHIN-Unihemispheric-Memory-Governor",
+      "release_version": "V4.5.2-DOLPHIN-50K-SCALING",
+      "tag": "v4.5.2-dolphin",
+      "timestamp_utc": "2026-11-23T10:50:24Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.5.2 O(N^2)->O(N) tier-index optimization (_build_higher_tier_index, CC=5) + full 49,365-vector pqms_pkb_chroma stress test (41,451 vec/s, 1.191s full sweep, 1.277s with 10 Tier-2 anchors, 93.323ms LOCKSTEP handover, 116/116 blank chunks quarantined, 125/125 PASS)",
+      "dolphin_memory_governor_sha256": "3a9cacaceee4853db70e6467c8a4b6b1ce144313500dc0d78cc4ecaa72a448d8",
+      "test_dolphin_memory_governor_sha256": "933b69782f7a48997058afe5015cc6f0f4e16b4747c3bc940743cc7b5c36cbd4",
+      "dolphin_chroma_bridge_sha256": "aeb5d6d959f7a19445e797af3a8916326fac38f9d798b81c319f0940c034f827",
+      "stress_50k_report_sha256": "b34aded262549bca5251122a7bc8ab843e4dfbc941983bf95e1ce741d9d53b7a",
+      "paper_sha256": "29e1d085c3352f405973d1c230faa5117c6cc70c01b34efb0bb69e960bec46d1",
+      "python_rtl_tests": "Ran 125 tests in 22.953s | OK",
+      "fridu_operators": "10/10 PASS (semi=0)",
+      "immutable_silicon_guard": "EMPTY_DIFF",
+      "entry_hash": "3b66c5bc059acc657b39d21ceca0119bc7cec02d8394a550d4a75b94e84f4ea6"
+    },
+    {
+      "sync_id": "SYNC-28",
+      "spec_id": "WORK-ORDER-AG-28_EPISTEMIC_PAUSE_CLOSED_LOOP",
+      "release_version": "V4.6-PAUSE",
+      "tag": "v4.6.0-pause",
+      "timestamp_utc": "2026-11-23T11:23:07Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.6-PAUSE: EpistemicPauseController wired ahead of /api/prompt (zero-blocking pass-through + LOCKSTEP_DMR_VERIFIED Epistemic Pause), 192 KiB zero-VRAM W_384_to_64 CPU cache (parity <= 1e-15, vram_delta=0 MB), read-only content_hash duplicate audit, 134/134+ PASS, EMPTY_DIFF on rtl/** & app/**",
+      "epistemic_pause_controller_sha256": "e385ad9db63fe213da82878d6b7d1dfa6dccd7c889332f7ef4d8a5b5836f01db",
+      "projector_cache_sha256": "78d20965ec1691b424f77596a83724f8b6b253509c7cee216e0133852603ac51",
+      "dolphin_chroma_bridge_sha256": "1d13a8bb18f13bdaafdd3bbcb7a5a0ceb52917f3ba98814263c5e285f9c66649",
+      "report_sha256": "fd8104947ac1e001a2d1101f4b2eab0bced3cc63101bf734a15875802bb969c7",
+      "python_rtl_tests": "Ran 134 tests in 21.280s | OK",
+      "fridu_operators": "10/10 PASS (semi=0)",
+      "immutable_silicon_guard": "EMPTY_DIFF",
+      "entry_hash": "be8b7cd4f922ae1d737b0fb32e19c9315aecd86b9f1377fdcc489c47d4333e03"
+    },
+    {
+      "sync_id": "SYNC-28b",
+      "spec_id": "PQMS-V4.5-DOLPHIN-V4.6-PAUSE-HUD-COLAB",
+      "release_version": "V4.6.1-PAUSE-HUD",
+      "tag": "v4.6.1-pause-hud",
+      "timestamp_utc": "2026-11-23T12:29:10Z",
+      "agent": "AntiG (V-MAX-12 Node Alpha)",
+      "summary": "V4.6.1-PAUSE-HUD: Paper Section 4.6 (GFM-MathJax PASS), Android Phase-2B EpistemicPauseHudCard + PauliBaselineEngine /api/dolphin/* & /api/prompt parser (36/36 Kotlin JUnit PASS, app-debug.apk 12.85 MB), Colab Cell 6 V4.6-PAUSE verifier live-tested, 134/134 Python/RTL PASS, IMMUTABLE_SILICON_GUARD=EMPTY_DIFF",
+      "paper_sha256": "70b284946a847aa500ab886bc841deb5bc1f277aa5755c7e203baee8875eaa26",
+      "colab_sha256": "1b6215d23f056503f0e2a0303f1f360291d6294b55a7bf6b230f0b6452201f3b",
+      "apk_sha256": "6c7bd59ccca2d6d1256b0c511c39b48bbf1a42435c55b490210a504f22c50874",
+      "apk_size_mb": 12.85,
+      "kotlin_junit": "36/36 PASS",
+      "python_rtl_tests": "Ran 134 tests in 26.411s | OK",
+      "fridu_operators": "10/10 PASS (semi=0)",
+      "immutable_silicon_guard": "EMPTY_DIFF",
+      "entry_hash": "8b1c98e7e57843d70425b7a6b991f298b0fb2469a175a7d8738a1e857a65ece1"
+    },
+    {
+      "sync_id": "SYNC-30",
+      "work_order": "WORK-ORDER-AG-30",
+      "date": "2026-11-23",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Integrated verbatim synth_runner.py (3be1db1b), dkm_egress_controller.py (42f0702c), test_dkm_and_synth_runner.py (85e2b6ae), pause_synth.sh/resume_synth.sh, zero-leakage dkm_signal_extractor.py, flat OP02-clean server_hud.py DKM hooks, and completed live 60-prompt Nemotron-3-Nano-4B benchmark (6x10 pausable stages, 100% routing, 0% benign FPR, 50/50 Island-1 lexical recheck pass, 10/10 LOCKSTEP_DMR_VERIFIED; honest qualitative audit logged 4/10 sycophancy capitulations on 02_invariant, 1/10 fabrication on fp_09_de, 21/30 EN->DE drift, and 20242MB->7605.6MB empty_cache recovery).",
+      "artifacts": {
+        "benchmark_prompts": "telemetry/VMAX_DKM_BENCHMARK_PROMPTS_V1.json",
+        "benchmark_report": "telemetry/VMAX_STAGE6_DKM_EMPIRICAL_BENCHMARK_REPORT.json",
+        "benchmark_report_sha256": "33062d863278707c28aac5ac4784c3739f940b2ca4cf42c28bc593f8a7fe0c84",
+        "drive_benchmark_id": "18Mzlzyfx6USZ1NFXqR6ytHhiuJqXed3W",
+        "drive_core_nano_v02_addendum_id": "1admQPYa8BESrLd8wR0WZJGGVBp_8jVOE"
+      },
+      "verification": {
+        "unittest": "150/150 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 py_files=25, semi=0, max_cc=13, ctrl=0)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync30_benchmark_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-30b",
+      "work_order": "WORK-ORDER-AG-30b",
+      "date": "2026-11-23",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Integrated verbatim gpu_vram_guard.py (2fca8e49) & test_gpu_vram_guard.py (b705052a), SingleGpuOwnerLock, PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True,max_split_size_mb:128, fraction=0.815 hard cap, torch.inference_mode(), WSL2 /usr/lib/wsl/lib/nvidia-smi fix, and exact einsum mamba2_einsum_patch.py (3.73e-9 FP32 parity, eliminating 6.00 GiB 6D broadcast). 12-prompt Zero-Spillover proof PASS: peak 13,523 MiB <= 14,900 MiB, post 8,670 MiB <= 11,500 MiB, GDDR6 controller 100.0% (vs 1.29% stall), 29.86 tok/s (8.7x speedup), 45.9 C / 105.12 W.",
+      "artifacts": {
+        "vram_cap_report": "telemetry/VMAX_STAGE6_VRAM_CAP_14900MB_REPORT.json",
+        "vram_cap_report_sha256": "652fc15a51c80146e3d3e429e0e09a245b476ea7a4104e7749e972ee40b9bfa4",
+        "drive_vram_cap_id": "1jN0zo3N44RwaWVIGVnJ6m1-mCjWLDsF5"
+      },
+      "verification": {
+        "sync30b_vram_cap_verified": true,
+        "peak_vram_used_mb": 13523.0,
+        "post_turn_vram_mb_max": 8670.0,
+        "mem_util_pct_max": 100.0,
+        "tokens_per_sec_mean": 29.86
+      }
+    },
+    {
+      "sync_id": "SYNC-30c",
+      "work_order": "WORK-ORDER-AG-30c",
+      "date": "2026-11-23",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Integrated verbatim dkm_output_gate.py (dae43a73) & test_dkm_output_gate.py (daa474a1), wired verify_semantic_output_gate() into DkmEgressController.verify_bounded_response() and bilingual select_system_wrapper() into nemotron_chat_engine.py. Re-ran exact 60-prompt dataset (c8c448a8) under 14,900 MiB cap in 90.3s (36x faster, 31.55 tok/s, peak 14,404 MiB, 100% GDDR6): 60/60 routing, 0% benign FPR, 10/10 LOCKSTEP_DMR_VERIFIED, EN->DE drift 21/30 -> 0/30, 2 live 11 HARD_CUT_ROM intercepts (inv_01_de, fp_09_de), 0/10 leakage on 06_principles, and honest 2/10 subtle EN edge cases logged on 02_invariant (inv_04_en, inv_06_en).",
+      "artifacts": {
+        "ab_report": "telemetry/VMAX_STAGE6_DKM_OUTPUT_GATE_AB_REPORT.json",
+        "ab_report_sha256": "dbe76a3f470f211168c5044730e8c27c62292750318c76c5285c9060b1cc368f",
+        "drive_ab_report_id": "1HFu0Al2gkkvjmy4xRhlVxvvEAeSpEX8J"
+      },
+      "verification": {
+        "unittest": "158/158 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 semi=0, max_cc=13)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync30c_output_gate_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-31",
+      "work_order": "WORK-ORDER-AG-31",
+      "date": "2026-11-23",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Published 5-way byte-identical Gold Master PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md (GOLDMASTER_LOCK Section 8.1 64-hex hashes, MATH_GUARD=PASS, 0 tabs, 40509 B, 315 lines) across all 4 canonical repositories + Google Drive 02_PAPERS in-place (1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF).",
+      "artifacts": {
+        "paper": "PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md",
+        "v50_goldmaster_sha256": "a18d54ef82d414268953e93793d66cb4c54ef55beebb6d4f3a23e6c43c6e6ca8",
+        "drive_02_papers_id": "1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF",
+        "companion_repo_heads": {
+          "Quantenkommunikation": "4d4c4bc55f2bd61ebd4eaa1e8125121a0b956f85",
+          "quantum-city-brain-nexus": "25a7ee61284f66303a43d8a0fb153bfc4dba5ced",
+          "pqms-v100-innovation-generator": "d0b3af98a841ad9ed104546aa31b975ef6021c74"
+        },
+        "figure1_path": "docs/figures/pqms_v50_core_nano_architecture.jpg",
+        "figure1_sha256": "465773124093ae3eeb69ddb698ddabbec19fea785d9d9724d313ad0f79823631",
+        "drive_figure1_id": "1l736is9JjFzxUwu9pY9NaZmsIz9E6lP2"
+      },
+      "verification": {
+        "math_guard": "PASS",
+        "unittest": "158/158 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 py_files=29, semi=0, max_cc=13, ctrl=0)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync31_v50_paper_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-32",
+      "work_order": "WORK-ORDER-AG-32",
+      "date": "2026-11-24",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Verified additive V5.0 Virtual Silicon wrapper exclusively in rtl_v5/ (rtl/** EMPTY_DIFF) via pausable 5-stage StageCheckpointRunner (0 GPU load): Verilator 5.055 -Wall 0 errors/warnings, Icarus Verilog -Wall 15/15 assertions PASS (V5_TB_STATUS=PASSED), 60/60 (100%) bit-exact RTL-vs-Python co-sim on fixed corpus c8c448a8, Yosys 0.71 IHP SG13G2 130 nm synthesis: 538 cells (107 FFs, 431 comb, 0 latches), 9565.479 um^2 (0.009565 mm^2 = 1.2114% vs V4.0-GDSII 0.7896 mm^2), OpenSTA @ 100 MHz MET (setup +5.0618 ns, hold +0.2688 ns, f_max 202.5 MHz).",
+      "artifacts": {
+        "rtl_v5_wrapper": "rtl_v5/vmax_v5_core_nano_wrapper.v",
+        "rtl_v5_wrapper_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746",
+        "rtl_v5_tb": "rtl_v5/tb_vmax_v5_core_nano_wrapper.v",
+        "rtl_v5_tb_sha256": "5b95f0efa8ec0d58ae6b50dff1fd1607c72bd4bc2a25a945ccf116a469066358",
+        "rtl_v5_cosim_tb": "rtl_v5/tb_vmax_v5_cosim_60.v",
+        "report_path": "telemetry/VMAX_V5_VIRTUAL_SILICON_REPORT.json",
+        "report_file_sha256": "745ec58fe11ba57cf970ce25f7a8c353417587aae7028213ee6ecc72e59e482a",
+        "report_payload_sha256": "1cca76306162b69aa33cc8a276d933a81b92c99c2e861f56caa76c02b8cdc2ff",
+        "drive_handoff_id": "13TKJqMwByC7Qq_ZvHkuIG2MIsSpKkqQe"
+      },
+      "verification": {
+        "unittest": "161/161 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 semi=0, tabs=0, new_code max_cc<=6)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync32_virtual_silicon_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-33",
+      "work_order": "WORK-ORDER-AG-33 REVISION v2",
+      "date": "2026-11-24",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Carbon-hardened V4.0+V5.0 top-level IHP SG13G2 130 nm physical RTL-to-GDSII signoff exclusively in rtl_v5/ (rtl/**, V4.0-GDSII, wrapper 4fc11621 EMPTY_DIFF) via 7-stage pausable StageCheckpointRunner (0 GPU load, torch_imported=false): exact unchanged 940.0x840.0 um (0.7896 mm^2, 0.00% die delta, 64.0% post-route util), 201-cycle (2.010 us) registered fail-closed seam, Verilator 5.055 -Wall 0/0, 101/101 TB assertions, 60/60 (100%) bit-exact co-sim, G1 hierarchical Yosys 30,655 cells (1,243 FFs, 1 SRAM, 0 latches), OpenROAD DRT 0 DRC + 473 sg13g2_antennanp diodes + OpenRCX detailed SPEF, 3-corner Post-Route OpenSTA (typ 100 MHz setup +0.8594 ns / f_max 109.40 MHz / hold +0.1859 ns; fast -40C hold +0.0735 ns; slow 125C 62.5 MHz setup +1.5881 ns / f_max 69.39 MHz; WNS=TNS=0), 99.8% VCD power = 18.7268 mW (37.6409 nJ/tx, 3.204M x 120 kW pair leverage), KLayout 0.30.14 official SG13G2 DRC: 0 FEOL/BEOL/Antenna/MetalFiller violations (10 unvarnished standalone-macro Metal2-5 CMP density flags prior to chip-level sealring), Netgen 1.5.272 transistor-level LVS: Circuits match uniquely (0 mismatches, 34,712 instances, 2,047 stdcell MOSFET defs, 343 SRAM pins).",
+      "artifacts": {
+        "rtl_v5_top": "rtl_v5/vmax_v5_odos_top.v",
+        "rtl_v5_top_sha256": "b3b4547d7c932f1a61ce0606ac3227b3d1c0236762be2a47db0b11b43c7aba59",
+        "rtl_v5_top_tb": "rtl_v5/tb_vmax_v5_odos_top.v",
+        "rtl_v5_top_tb_sha256": "b3980fceab79bd70d5a4195e524d783d8d11f5ec923574546a2e2edb1203c68c",
+        "rtl_v5_wrapper_sha256": "4fc11621084d4094f7da0e2ec1c5330d9edd0910aeec6ec14b0414478cb4f746",
+        "gdsii_path": "rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds",
+        "gdsii_sha256": "643503d53f21fe03883099e5d33f82f5d94545e010b160a61c70321d96dc423e",
+        "gdsii_size_bytes": 41118622,
+        "preflight_path": "telemetry/VMAX_V5_TOP_PREFLIGHT.json",
+        "report_path": "telemetry/VMAX_V5_TOP_GDSII_REPORT.json",
+        "report_file_sha256": "bfa88ab51a0fe7e62a4a9a51565e552774d1da6bbd39e4971099ada51b4946b0",
+        "report_payload_sha256": "fefb0d16fa3259fd7ec059c7a93467f35e8ca3d657ffe2d7a316981d550fc514",
+        "drive_handoff_id": "1pJg8Z8FqU61VsVc719S9midkHLTRcteY"
+      },
+      "verification": {
+        "unittest": "170/170 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 semi=0, tabs=0, new_modules max_cc<=6)",
+        "klayout_feol_beol_antenna_drc": 0,
+        "klayout_macro_density_flags_unvarnished": 10,
+        "netgen_lvs_mismatches": 0,
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync33_v5_top_gdsii_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-34",
+      "work_order": "WORK-ORDER-AG-34",
+      "date": "2026-11-24",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "formal_proof_register": "REGISTER_T",
+      "summary": "Formal Lean 4.36.0 (pure core, 0 Mathlib, 0 GPU load) Hoare-logic and Q2.30 fixed-point verification strictly in formal_lean4/ with frozen chip EMPTY_DIFF (rtl/** & rtl_v5/** untouched): 7/7 theorems machine-checked in 647.5 ms (exit 0, 0 sorryAx, 0 custom axioms; 2 pure constructive 0-axiom proofs + 5 [propext]-only proofs), test_lean4_hoare_q230.py 3/3 PASS (skipped=0, OP02 max_cc=5), 10/10 constants bit-exact across Lean 4 <-> RTL (vmax_v5_core_nano_wrapper.v & vmax_v5_odos_top.v) <-> Python (dkm_egress_controller.py & dolphin_memory_governor.py).",
+      "artifacts": {
+        "lean4_spec": "formal_lean4/VmaxQ230HoareSpec.lean",
+        "lean4_spec_sha256": "d1b9813e99dd9ad2eacba494c0a68bef60b0fe62d2987437eec73bec8fffb814",
+        "lean4_test": "vmax_alpha/tests/test_lean4_hoare_q230.py",
+        "lean4_test_sha256": "1fe39db7d726bc3276c569f1ce14bbcaee1ce5180d7cc89138a6bc24fd6ec441",
+        "report_path": "telemetry/VMAX_V5_LEAN4_HOARE_REPORT.json",
+        "report_file_sha256": "cca05d4c50fe023aa451167cca7454b8598da37ada0ee6f3333b821a60e0baae",
+        "report_payload_sha256": "da0c00b1b64a7691fa3bf1b2aaf5b6b4505f8d6a86f3e6f44958da74eaa7a599",
+        "drive_handoff_id": "1ydgjeb3vc_ERN9hIVwQSjRkAR_BZHb5w"
+      },
+      "verification": {
+        "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+        "theorems_verified": 7,
+        "sorry_ax": 0,
+        "custom_axioms": 0,
+        "lean4_unittest": "3/3 PASS (skipped=0)",
+        "unittest_full": "173/173 PASS",
+        "fridu_enclave_g": "10/10 PASS (OP02 semi=0, tabs=0, test max_cc=5)",
+        "immutable_silicon_guard": "EMPTY_DIFF (rtl/** & rtl_v5/**)",
+        "live_pkb_sha256_unchanged": true,
+        "sync34_lean4_hoare_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-35",
+      "work_order": "WORK-ORDER-AG-35",
+      "date": "2026-11-24",
+      "status": "COMPLETED_VERIFIED",
+      "epistemic_register": "REGISTER_M",
+      "summary": "Authentic KLayout 0.30.14 real-silicon transistor-level GDSII Die-Shot rendered directly from rtl_v5/gds/vmax_v5_odos_top_sg13g2.gds (643503d5, 2372x1624 px, 4.52 MB, die pixel variance 8833.39) via verbatim tools/render_v5_dieshot.py (29ce27ee, OP02 max_cc=5), and surgical Revision V5.0.1-SILICON-SIGNOFF update of PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md integrating SYNC-32, SYNC-33 (incl. unvarnished 10 standalone-macro M2-M5 CMP density flags & +0.13 um Y-bbox disclosure), and SYNC-34 (7 Lean 4.36.0 theorems + 10/10 Triple Parity Matrix). 5-way byte-identical SHA-256 parity (ALL_5_EQUAL=True) across all 4 GitHub repos + Google Drive 02_PAPERS, tagged v5.0.1-silicon-signoff.",
+      "artifacts": {
+        "paper_filename": "PQMS-ODOS-MTSC-V-MAX-12-CORE-NANO-V5.0.md",
+        "paper_revision": "V5.0.1-SILICON-SIGNOFF",
+        "paper_sha256": "f34e3eff52db8904f42427f1aa2fa10e69e89bba324aee66cc742e708073fb8f",
+        "paper_drive_02_id": "1wMe9ydVet7Zk0_C8Vxtar9DwuVu6LQCF",
+        "dieshot_path": "docs/figures/V-MAX-12-RTL-V5.0-DIESHOT.png",
+        "dieshot_sha256": "24d39198679eb31053ce1959db75ed1dfac8a752ec88570114a88f8ef2f966a3",
+        "dieshot_drive_02_id": "1F5eUpe_K-orJBrdB4o1vYw55foQzjqRb",
+        "renderer_path": "tools/render_v5_dieshot.py",
+        "renderer_sha256": "29ce27ee07517be9447f0289cf63ca78c458299f270f683637e5cf0563ed2cb2",
+        "manifest_path": "telemetry/VMAX_V5_PAPER_SYNC35_MANIFEST.json",
+        "manifest_file_sha256": "2b439dd25a3468c8fc7887e6904bc90c56e50278a8017f80d107a1f63a3cc266",
+        "manifest_payload_sha256": "2823fc63012d687def11e146915bf275cc76e990b350cd3e63431a6ed6b17611",
+        "drive_handoff_id": "1_OP5yHDZeXdQkUeE-22maeGMoMrA07QF",
+        "git_tag": "v5.0.1-silicon-signoff",
+        "dieshot_jpg_path": "docs/figures/V-MAX-12-RTL-V5.0-DIESHOT.jpg",
+        "dieshot_jpg_sha256": "43de562a08967234d3c054133d3a5c96f549daf4d7e7b5bca1d13dd1e5242e14",
+        "dieshot_jpg_drive_02_id": "1ywv5-DD3ZAXs0r5XPv7t2zJ2VKeoJIkl"
+      },
+      "verification": {
+        "github_math_guard": "PASS (0 errors, 0 tabs, 0 citation artifacts)",
+        "unittest_full": "173/173 PASS (0 skipped)",
+        "fridu_enclave_g": "10/10 PASS (OP02 py_files=34, semi=0, tabs=0, max_cc=13, open_items=0)",
+        "five_way_byte_parity_paper": true,
+        "five_way_byte_parity_dieshot": true,
+        "ALL_5_EQUAL": true,
+        "immutable_silicon_guard": "EMPTY_DIFF (rtl/**, rtl_v5/**, formal_lean4/**, ledger.py, app/**)",
+        "live_pkb_sha256_unchanged": true,
+        "sync35_dieshot_and_paper_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-36",
+      "work_order": "WORK-ORDER-AG-36",
+      "date": "2026-11-25",
+      "status": "COMPLETED_VERIFIED_PAUSE_GATE_BEFORE_SYNC37",
+      "epistemic_register": "REGISTER_M",
+      "summary": "V6.0-CORE-JEDI (5.50 x 5.50 mm H-Symmetry, QFN-64, IHP SG13G2 130 nm) WP-0 PDK catalog/polarity preflight, complete 12-module Verilog-2001 rtl_v6/ implementation + tb_vmax_v6_jedi_top.v, and OP02-clean Python co-simulation verified on Node Alpha (0 GPU load, torch_imported=False). Verilator -Wall (--x-assign unique --x-initial unique) 0/0, Yosys -DSYNTH_IHP_SG13G2 Liberty hierarchy check 0 errors, Icarus/vvp 33/33 T01-T16 safety assertions PASS + 16/16 live co-sim vectors bit-exact, 2,000 Cauchy-Schwarz vectors 0 false rejects, 181/181 unittest PASS, FRIDU-ENCLAVE-G 10/10 PASS, IMMUTABLE_SILICON_GUARD=EMPTY_DIFF. Paused cleanly for WERKSTATT-01 audit prior to SYNC-37/SYNC-38 via chip_ctl.sh.",
+      "artifacts": {
+        "paper_filename": "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md",
+        "paper_sha256": "28dfb723378faa6eb0ccb29fd6e9a770f279e35f43bce7ebf4e86c805a5af3d1",
+        "preflight_path": "tools/v6_jedi_pdk_preflight.py",
+        "preflight_sha256": "a6974b933c26557eb2ae6cc70d6796a9c820c4017a5a316f7914e8b73f7b727c",
+        "sim_test_path": "vmax_alpha/tests/test_rtl_v6_jedi_sim.py",
+        "sim_test_sha256": "79f42aff5cae70c7b4a645abdecb2bbcb6d344f85a618824082e0edd11659d37",
+        "report_path": "telemetry/VMAX_V6_JEDI_RTL_REPORT.json",
+        "report_file_sha256": "45a315d70ba9b20c89e952d0e0b63db067d61f53c069936708e1aab9407f5f78",
+        "report_payload_sha256": "dc4ba3fa7715202ab9d73d1a2b2ddb3a069f68411e528b2aef564108e506c921",
+        "drive_handoff_filename": "20261125_ANTIG-WERKSTATT_SYNC36_V6_JEDI_RTL.json",
+        "drive_handoff_id": "1esAD1FQ8vLXJ-S5oKRfqGtMD5ywTdcWo",
+        "rtl_v6_module_count": 13
+      },
+      "verification": {
+        "verilator_strict_wall": "0 errors, 0 warnings",
+        "yosys_pdk_liberty_hierarchy": "0 errors (-DSYNTH_IHP_SG13G2)",
+        "iverilog_vvp_t01_t16": "33/33 PASS (V6_JEDI_TB_STATUS=PASSED, 16/16 live co-sim)",
+        "cauchy_schwarz_cosim": "0/2000 false rejects (Q2.30 & Q2.14<<16)",
+        "unittest_full": "181/181 PASS (0 failures, 0 errors, 0 skipped)",
+        "fridu_enclave_g": "10/10 PASS (open_review_items=0)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync36_v6_jedi_rtl_verified": true
+      }
     }
   ]
 }

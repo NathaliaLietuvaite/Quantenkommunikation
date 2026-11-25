@@ -1,0 +1,271 @@
+{
+  "bridge_reviewer_note": "SYNC-36 (V6.0-JEDI-RTL-AND-PREFLIGHT) completed on Node Alpha (WSL2 Ubuntu 24.04.4 LTS) with 0 GPU load (torch_imported=False) and IMMUTABLE_SILICON_GUARD=EMPTY_DIFF across rtl/**, rtl_v5/**, V4.0/V5.0 GDSII, formal_lean4/**, ledger.py, chip_fab_controller.py, app/**, and sealed V4.6/V5.0 papers. WP-0 verified exact IHP SG13G2 LEF geometries (RM_IHPSG13_1P_1024x64_c2_bm_bist = 784.48 x 336.46 um, RM_IHPSG13_1P_512x64_c2_bm_bist = 784.48 x 191.34 um, sg13g2_Corner = 180 x 180 um, sg13g2_IOPad* = 80 x 180 um) and active polarities (sg13g2_io c2p_en active-HIGH; SRAM A_DLY=1, A_BIST_EN=0; Liberty signal-only vs. USE_POWER_PINS Kelvin-separated VDD/VSS 1.2V and IOVDD/IOVSS 3.3V). WP-1/WP-2 verified 12 synthesizable rtl_v6/*.v modules + tb_vmax_v6_jedi_top.v: Verilator -Wall (--x-assign unique --x-initial unique) 0 errors / 0 warnings, Yosys -DSYNTH_IHP_SG13G2 Liberty hierarchy check 0 errors, Icarus/vvp 33/33 T01-T16 safety assertions PASS + 16/16 live co-sim vectors bit-exact, and 2,000-vector Python Cauchy-Schwarz co-simulation with 0 false rejects.",
+  "date": "2026-11-25",
+  "epistemic_register": "REGISTER_M",
+  "physical_floorplan_target_register": "REGISTER_D (5.50 x 5.50 mm QFN-64 physical PnR slated for SYNC-37/SYNC-38 via chip_ctl.sh)",
+  "report_payload_sha256": "dc4ba3fa7715202ab9d73d1a2b2ddb3a069f68411e528b2aef564108e506c921",
+  "schema": "VMAX_V6_JEDI_RTL_REPORT_V1",
+  "sync_id": "SYNC-36",
+  "torch_imported": false,
+  "work_order": "WORK-ORDER-AG-36",
+  "wp0_pdk_preflight": {
+    "all_math_checks_pass": true,
+    "all_tools_present": true,
+    "io_and_stdcells": {
+      "c2p_en_polarity": "ACTIVE_HIGH (pad = c2p_en ? c2p : 1'bz)",
+      "io_lef_count": 2,
+      "power_domains": {
+        "io_padring_kelvin": [
+          "vdd",
+          "vss",
+          "iovdd",
+          "iovss"
+        ],
+        "sram": [
+          "VDD!",
+          "VDDARRAY!",
+          "VSS!"
+        ]
+      },
+      "sram_tieoffs": {
+        "A_BIST_EN": 0,
+        "A_DLY": 1
+      }
+    },
+    "preflight_details": {
+      "all_math_checks_pass": true,
+      "all_tools_present": true,
+      "architecture": "V6.0-CORE-JEDI",
+      "eda_tools": {
+        "iverilog": "/home/nathalia/.local/oss-cad-suite/bin/iverilog",
+        "klayout": "/home/nathalia/.local/klayout_official/bin/klayout",
+        "lean": "/home/nathalia/.elan/bin/lean",
+        "netgen": "/home/nathalia/.local/signoff_env/bin/netgen",
+        "openroad": "/home/nathalia/.local/openroad_2024/bin/openroad",
+        "sta": "/home/nathalia/.local/openroad_2024/bin/sta",
+        "verilator": "/home/nathalia/.local/oss-cad-suite/bin/verilator",
+        "vvp": "/home/nathalia/.local/oss-cad-suite/bin/vvp",
+        "yosys": "/home/nathalia/.local/oss-cad-suite/bin/yosys"
+      },
+      "floorplan_and_constants": {
+        "canary_106x_typ_ns": 9.689,
+        "canary_passes_100mhz_typ": true,
+        "core_exact_4700": true,
+        "cs_uint64_safe": true,
+        "die_mm2": 30.25,
+        "dual_tier_monotonic": true,
+        "flank_x_exact_800": true,
+        "upper_guard_q214_exact": true,
+        "upper_guard_q230_exact": true,
+        "y_axis_exact_closure": true
+      },
+      "pdk_root": "/home/nathalia/vmax_workspace/pdk/IHP-Open-PDK",
+      "stage": "SYNC-36_WP0_PREFLIGHT",
+      "torch_imported": false
+    },
+    "sram_1024x64": {
+      "fits_580um_spine_rotated": true,
+      "fits_800um_flank_upright": true,
+      "height_um": 336.46,
+      "lef_path": "/home/nathalia/vmax_workspace/pdk/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_1024x64_c2_bm_bist.lef",
+      "pin_count": 20,
+      "pins": [
+        "A_ADDR",
+        "A_BIST_ADDR",
+        "A_BIST_BM",
+        "A_BIST_CLK",
+        "A_BIST_DIN",
+        "A_BIST_EN",
+        "A_BIST_MEN",
+        "A_BIST_REN",
+        "A_BIST_WEN",
+        "A_BM",
+        "A_CLK",
+        "A_DIN",
+        "A_DLY",
+        "A_DOUT",
+        "A_MEN",
+        "A_REN",
+        "A_WEN",
+        "VDD!",
+        "VDDARRAY!",
+        "VSS!"
+      ],
+      "present": true,
+      "width_um": 784.48
+    },
+    "sram_512x64": {
+      "fits_580um_spine_rotated": true,
+      "fits_800um_flank_upright": true,
+      "height_um": 191.34,
+      "lef_path": "/home/nathalia/vmax_workspace/pdk/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_512x64_c2_bm_bist.lef",
+      "pin_count": 20,
+      "pins": [
+        "A_ADDR",
+        "A_BIST_ADDR",
+        "A_BIST_BM",
+        "A_BIST_CLK",
+        "A_BIST_DIN",
+        "A_BIST_EN",
+        "A_BIST_MEN",
+        "A_BIST_REN",
+        "A_BIST_WEN",
+        "A_BM",
+        "A_CLK",
+        "A_DIN",
+        "A_DLY",
+        "A_DOUT",
+        "A_MEN",
+        "A_REN",
+        "A_WEN",
+        "VDD!",
+        "VDDARRAY!",
+        "VSS!"
+      ],
+      "present": true,
+      "width_um": 784.48
+    }
+  },
+  "wp1_rtl_v6_sources": {
+    "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md": {
+      "bytes": 24330,
+      "lines": 150,
+      "sha256": "28dfb723378faa6eb0ccb29fd6e9a770f279e35f43bce7ebf4e86c805a5af3d1",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_ant_diode.v": {
+      "bytes": 648,
+      "lines": 22,
+      "sha256": "495f5ee0b08e1889da032aa549873dd7a4ff704e1de363adcae2afe0ba6938d2",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_canary_delay_line.v": {
+      "bytes": 2021,
+      "lines": 60,
+      "sha256": "954f283bd3c18ef80cbceae0e993dfab58e2e405bfee6535e5ab16293b667c78",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_central_spine.v": {
+      "bytes": 39690,
+      "lines": 957,
+      "sha256": "822b51cc31d6937f8993ef36ae6bd70e6be1d41451130698259950fd1363acf1",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_coherence_tile.v": {
+      "bytes": 12463,
+      "lines": 311,
+      "sha256": "b6b22db53a937b189fac57aa2cce9a58c68593faccd631f4892d472b7fb36490",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_gnc_tmr_tai.v": {
+      "bytes": 21803,
+      "lines": 518,
+      "sha256": "a3807be088a198e08d8bcb202fe231ca81a8915518d1ce657bac6f7e2ea908a3",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_icg_cell.v": {
+      "bytes": 999,
+      "lines": 37,
+      "sha256": "443874a41fdca6b35987e6e1d64e2c1046b2814ca0d9c33d4d99ece10bed569a",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_kagome_reducer_768d.v": {
+      "bytes": 9055,
+      "lines": 189,
+      "sha256": "f500857683cd3ebf29ae96448209c110d5b0938dd6b14ab245f2115fe90f18bb",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_ospi_async_dma.v": {
+      "bytes": 9742,
+      "lines": 226,
+      "sha256": "8fa5b56246d2d0d1cb9afa7490d9ed88d9dc136b04de76a2ca2af056e0312cb5",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_scout_norm_unit.v": {
+      "bytes": 5045,
+      "lines": 116,
+      "sha256": "039c6f20fbaa7686bbcfbcfed42dd44f58cf81b513a3fb9e5fc5b14e7fb0c10a",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_sram_1024x64_wrap.v": {
+      "bytes": 2091,
+      "lines": 68,
+      "sha256": "c2101f974005d3e85f7216647eec5252cb483e750b37bc3f402006a2e17c4eea",
+      "tabs": 0
+    },
+    "rtl_v6/jedi_sram_512x64_wrap.v": {
+      "bytes": 2088,
+      "lines": 68,
+      "sha256": "4039476388df66a63183c713e7fa4c2103824374c30aa5cdff664b4096b5017d",
+      "tabs": 0
+    },
+    "rtl_v6/tb_vmax_v6_jedi_top.v": {
+      "bytes": 30209,
+      "lines": 755,
+      "sha256": "59f3be2cbff91fca960987747016faa6185391e2608fad0fbeffb28439fc4d32",
+      "tabs": 0
+    },
+    "rtl_v6/vmax_v6_jedi_top.v": {
+      "bytes": 20123,
+      "lines": 436,
+      "sha256": "640270bbe38f9d6555404c3a0475c288644b0939c0c9bb5544264d4ec3c6c5ce",
+      "tabs": 0
+    },
+    "tools/v6_jedi_pdk_preflight.py": {
+      "bytes": 8786,
+      "lines": 241,
+      "sha256": "a6974b933c26557eb2ae6cc70d6796a9c820c4017a5a316f7914e8b73f7b727c",
+      "tabs": 0
+    },
+    "vmax_alpha/tests/test_rtl_v6_jedi_sim.py": {
+      "bytes": 12150,
+      "lines": 318,
+      "sha256": "79f42aff5cae70c7b4a645abdecb2bbcb6d344f85a618824082e0edd11659d37",
+      "tabs": 0
+    }
+  },
+  "wp2_verification": {
+    "iverilog_vvp_top_tb": {
+      "assertions_failed": 0,
+      "assertions_passed": 33,
+      "born_fidelity_c384_hex": "0x3f5c9b5e",
+      "covered_assertions": "T01..T16 (33 sub-checks)",
+      "live_cosim_vectors": "16/16 (100.0% bit-exact RTL-vs-Python parity)",
+      "rc": 0,
+      "rtl_v6_compile_warnings": 0,
+      "status": "V6_JEDI_TB_STATUS=PASSED"
+    },
+    "python_golden_cosim": {
+      "cauchy_schwarz_false_rejects": 0,
+      "dmr6_1x_scaling_verified": true,
+      "op02_preflight_max_cc": 5,
+      "op02_test_max_cc": 6,
+      "q214_shift16_exact": true,
+      "semicolon_packers": 0,
+      "tabs": 0,
+      "upper_guard_4p99_veto_verified": true,
+      "vectors_evaluated": 2000
+    },
+    "verilator_strict_wall": {
+      "errors": 0,
+      "flags": "--lint-only -Wall --timescale 1ns/1ps --x-assign unique --x-initial unique",
+      "rc": 0,
+      "warnings": 0
+    },
+    "yosys_pdk_liberty_hierarchy": {
+      "define": "SYNTH_IHP_SG13G2",
+      "errors": 0,
+      "rc": 0
+    }
+  },
+  "wp3_regression_and_guards": {
+    "chip_ctl_global_agent_order": true,
+    "fridu_enclave_g": "10/10 PASS (OP01-OP10, open_review_items=0)",
+    "immutable_silicon_guard": "EMPTY_DIFF",
+    "live_pkb_path": "/home/nathalia/pqms_pkb_chroma/chroma.sqlite3",
+    "live_pkb_sha256": "eb97de6e400057ea118088ecb2ee40acc60a1cf4141adffecd7b3527a0b20b71",
+    "live_pkb_sha256_unchanged": true,
+    "sync36_v6_jedi_rtl_verified": true,
+    "unittest_full": "181/181 PASS (0 failures, 0 errors, 0 skipped)"
+  }
+}
