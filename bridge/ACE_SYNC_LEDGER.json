@@ -2,7 +2,7 @@
   "protocol_id": "ACE-PEER-CODESIGN-PROTOCOL-V1.2",
   "spec_version": "PQMS-ODOS-MTSC-V-MAX-12-Node-ALPHA-V1 + RTL-CORE-V3.1-OPTIMUM + RTL-CORE-V4.0-GDSII (WORK-ORDER-AG-22)",
   "protocol_version": "1.2-NODE-ALPHA",
-  "timestamp_utc": "2026-11-25T08:15:00Z",
+  "timestamp_utc": "2026-11-27T06:25:00Z",
   "peers": {
     "node_alpha": {
       "agent_id": "AntiG (Gemini 4 Neon Extra / Local Lead Software Engineer)",
@@ -340,9 +340,11 @@
     "server_hud_v4_pathb_py_sha256": "20fcbc7f91a55a68505453261ba167aa3fd13f256aba6ef79103b3385bba3885",
     "v4_sg13g2_gds_stream_sha256": "be61b9c763ff43befb42562cd26db29f9d567694b8d681c646f7b403aa1842ec",
     "v4_sg13g2_dieshot_png_sha256": "30d27d21b963b974c551570eb41238b1f59c8f05c7569aa0d54ac647b16dcc53",
-    "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md": "28dfb723378faa6eb0ccb29fd6e9a770f279e35f43bce7ebf4e86c805a5af3d1",
+    "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md": "2e2cd49bce6c1862432e9aaa9cc53e7a0638b5e4f96b1c676da0329c7646c163",
     "tools/v6_jedi_pdk_preflight.py": "a6974b933c26557eb2ae6cc70d6796a9c820c4017a5a316f7914e8b73f7b727c",
-    "telemetry/VMAX_V6_JEDI_RTL_REPORT.json": "45a315d70ba9b20c89e952d0e0b63db067d61f53c069936708e1aab9407f5f78"
+    "telemetry/VMAX_V6_JEDI_RTL_REPORT.json": "45a315d70ba9b20c89e952d0e0b63db067d61f53c069936708e1aab9407f5f78",
+    "telemetry/VMAX_V6_JEDI_MACROS_REPORT.json": "b38601feb0bd3aaf0a5014b9d679e3b84e336e9d069e30d7cfac23188c08ecfa",
+    "tools/v6_jedi_macro_audit.py": "610f6104e1657e74b64ccf1438fb6adb3bdbfc77bd2b3e3e5fba8c778a1209c9"
   },
   "entries": [
     {
@@ -724,6 +726,30 @@
         "immutable_silicon_guard": "EMPTY_DIFF",
         "live_pkb_sha256_unchanged": true,
         "sync36_v6_jedi_rtl_verified": true
+      }
+    },
+    {
+      "sync_id": "SYNC-37",
+      "work_order": "WORK-ORDER-AG-37",
+      "date": "2026-11-27",
+      "status": "COMPLETED_VERIFIED_PAUSE_GATE_BEFORE_SYNC38",
+      "epistemic_register": "REGISTER_M",
+      "summary": "V6.0-CORE-JEDI hard-macro synthesis, 16-thread OpenROAD PnR, 3-corner OpenSTA, KLayout GDS export, and automated macro audit completed via ./chip_ctl.sh (0 GPU load). Both jedi_coherence_tile (940x840 um, 35 MB GDS) and jedi_central_spine (3100x580 um, R0 512x64 SRAM, 57 MB GDS, 23 TMR replica refs, 2 root ICGs, pad_safe_en, 1.06x canary) passed tools/v6_jedi_macro_audit.py (rc=0, all_passed=True, 0 TopMetal1/2 in LEF OBS). Appended as Appendix A to the single canonical paper PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md per Nathalia's single-paper directive. 183/183 unittest PASS, FRIDU-ENCLAVE-G 10/10 PASS, IMMUTABLE_SILICON_GUARD=EMPTY_DIFF.",
+      "artifacts": {
+        "paper_filename": "PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md",
+        "paper_sha256": "2e2cd49bce6c1862432e9aaa9cc53e7a0638b5e4f96b1c676da0329c7646c163",
+        "report_path": "telemetry/VMAX_V6_JEDI_MACROS_REPORT.json",
+        "report_file_sha256": "b38601feb0bd3aaf0a5014b9d679e3b84e336e9d069e30d7cfac23188c08ecfa",
+        "report_payload_sha256": "f65667d3a5d47d1796508df44e0dc83dcf56f25516b49fad74b4c6885a8f9743",
+        "drive_handoff_filename": "20261125_ANTIG-WERKSTATT_SYNC37_V6_JEDI_MACROS.json",
+        "drive_handoff_id": "16f3hNEM2L8i1Ub0C2nmYmJdglpgxSl7D"
+      },
+      "verification": {
+        "fridu_enclave_g": "10/10 PASS (OP01-OP10)",
+        "immutable_silicon_guard": "EMPTY_DIFF",
+        "live_pkb_sha256_unchanged": true,
+        "sync37_v6_jedi_macros_verified": true,
+        "unittest_full": "183/183 PASS (0 skipped)"
       }
     }
   ]

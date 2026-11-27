@@ -1,0 +1,104 @@
+{
+  "bridge_reviewer_note": "SYNC-37 (V6.0-JEDI-MACRO-HARDENING) completed via ./chip_ctl.sh (6 checkpoints, 0 GPU load, torch_imported=False) with IMMUTABLE_SILICON_GUARD=EMPTY_DIFF. Both hard macros (jedi_coherence_tile 940.0x840.0 um, 516,316 um2, 72% util; jedi_central_spine 3100.0x580.0 um, 690,939 um2, 42% util, R0 512x64 SRAM, 481,064 extracted wires) exported .gds, .lef (0 TopMetal1/2 in OBS), _pwr.v, and 3-corner .lib abstracts; tools/v6_jedi_macro_audit.py passed (rc=0, all_passed=True, 23 TMR replica refs, 2 root ICGs, pad_safe_en, 1.06x canary). IMPORTANT ARCHITECTURAL DIRECTIVE FROM NATHALIA LIETUVAITE FOR WERKSTATT-01: Stay strictly in the single canonical paper PQMS-ODOS-MTSC-V-MAX-12-CORE-JEDI-V6.0.md \u2014 do NOT open a new paper version; all chip fabrication results (SYNC-37 Appendix A, future SYNC-38 Appendix B) are appended directly as appendices so all information remains unified in one paper.",
+  "date": "2026-11-27",
+  "epistemic_register": "REGISTER_M",
+  "macro_artifacts_sha256": {
+    "jedi_central_spine.gds": "c23741457d58348c3c4a02db0b59dcd35d47004cc4ca22445020d4f50b3cad14",
+    "jedi_central_spine.lef": "6e82c6ed9b9d23000b90f3b4bdaf36654b7835ec405c1048249e50f65ce75231",
+    "jedi_central_spine_fast.lib": "37d08286a5a025293c31f709761b182849052f84c8e717441333fbee420153a7",
+    "jedi_central_spine_pwr.v": "cbb34b3eabfc7311cd1f8fca1f08f6f4b0bfae7cbff58d3d19b8b7133ed5987b",
+    "jedi_central_spine_slow.lib": "e16131898acbf721c97208c009551e53b39c4ac016fb12080ef6f9e81de92899",
+    "jedi_central_spine_typ.lib": "f05e5912431cb804726d6981dc2584f242f6d5393ac50f67f0d016ae66528099",
+    "jedi_coherence_tile.gds": "b83736dc7eaedd58741ef06defd0dab2ae7e607d5adc584fb74c2d2ed66ed9ad",
+    "jedi_coherence_tile.lef": "db4267f9e93788ec70c897b7b5d53c69e774f0fed2b65ba76b90969c2f334c1f",
+    "jedi_coherence_tile_fast.lib": "7d0dcb204ddc95b3b87a3598b0a9915fa3901163ce6df903ac8a682e14ef3e69",
+    "jedi_coherence_tile_pwr.v": "3b4b6abaf0fac18975c38ae1865075ae39511acbae36f60d0d3b4f5e3db5f859",
+    "jedi_coherence_tile_slow.lib": "11d0f2ebb59f9cf21892b4d19a3dee286c5dcd8530c44cc8a9c2dcf306e86559",
+    "jedi_coherence_tile_typ.lib": "7800147b377fbfb9cac293f567f656675a93560d5af5707c197ad187a5d95d29"
+  },
+  "macro_audit": {
+    "all_passed": true,
+    "architecture": "V6.0-CORE-JEDI",
+    "canary_guardband_audit": {
+      "lead_over_data_ns": 0.5484,
+      "margin_below_10ns": 0.311,
+      "passed": true,
+      "ratio": 1.06,
+      "t_canary_typ_ns": 9.689,
+      "t_tile_crit_typ_ns": 9.1406
+    },
+    "spine_dont_touch_audit": {
+      "canary_present": true,
+      "icg_cell_instances": 2,
+      "pad_safe_en_present": true,
+      "passed": true,
+      "present": true,
+      "tmr_replica_refs": 23
+    },
+    "spine_exports": {
+      "all_present": true,
+      "files": {
+        "gds": true,
+        "lef": true,
+        "lib_fast": true,
+        "lib_slow": true,
+        "lib_typ": true,
+        "powered_v": true
+      },
+      "macro": "jedi_central_spine"
+    },
+    "spine_lef_audit": {
+      "blocked_top_metals_in_obs": [],
+      "dim_ok": true,
+      "expected_um": [
+        3100.0,
+        580.0
+      ],
+      "height_um": 580.0,
+      "passed": true,
+      "present": true,
+      "top_metals_unobstructed": true,
+      "width_um": 3100.0
+    },
+    "stage": "SYNC-37_WP3_MACRO_AUDIT",
+    "tile_exports": {
+      "all_present": true,
+      "files": {
+        "gds": true,
+        "lef": true,
+        "lib_fast": true,
+        "lib_slow": true,
+        "lib_typ": true,
+        "powered_v": true
+      },
+      "macro": "jedi_coherence_tile"
+    },
+    "tile_lef_audit": {
+      "blocked_top_metals_in_obs": [],
+      "dim_ok": true,
+      "expected_um": [
+        940.0,
+        840.0
+      ],
+      "height_um": 840.0,
+      "passed": true,
+      "present": true,
+      "top_metals_unobstructed": true,
+      "width_um": 940.0
+    },
+    "torch_imported": false
+  },
+  "paper_single_document_sha256": "2e2cd49bce6c1862432e9aaa9cc53e7a0638b5e4f96b1c676da0329c7646c163",
+  "report_payload_sha256": "f65667d3a5d47d1796508df44e0dc83dcf56f25516b49fad74b4c6885a8f9743",
+  "schema": "VMAX_V6_JEDI_MACROS_REPORT_V1",
+  "sync_id": "SYNC-37",
+  "torch_imported": false,
+  "verification": {
+    "fridu_enclave_g": "10/10 PASS (OP01-OP10)",
+    "immutable_silicon_guard": "EMPTY_DIFF",
+    "live_pkb_sha256_unchanged": true,
+    "sync37_v6_jedi_macros_verified": true,
+    "unittest_full": "183/183 PASS (0 skipped)"
+  },
+  "work_order": "WORK-ORDER-AG-37"
+}
